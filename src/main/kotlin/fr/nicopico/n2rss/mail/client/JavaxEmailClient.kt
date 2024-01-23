@@ -1,10 +1,10 @@
 package fr.nicopico.n2rss.mail.client
 
 import fr.nicopico.n2rss.models.Email
-import fr.nicopico.n2rss.models.Sender
 import java.util.*
 import javax.mail.Flags
 import javax.mail.Folder
+import javax.mail.Message
 import javax.mail.Session
 import javax.mail.search.FlagTerm
 
@@ -31,13 +31,7 @@ class JavaxEmailClient(
 
                 return inbox
                     .search(FlagTerm(Flags(Flags.Flag.SEEN), false))
-                    .map { message ->
-                        Email(
-                            Sender(message.from[0].toString()),
-                            message.subject,
-                            message.content.toString()
-                        )
-                    }
+                    .map(Message::toEmail)
             }
         }
     }

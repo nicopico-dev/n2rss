@@ -1,7 +1,6 @@
 package fr.nicopico.n2rss.mail.client
 
 import fr.nicopico.n2rss.models.Email
-import fr.nicopico.n2rss.models.Sender
 import java.io.FileInputStream
 import java.nio.file.Files
 import java.nio.file.Path
@@ -27,12 +26,7 @@ class ResourceFileEmailClient(
             .map { emlFilePath ->
                 val message = parseEmlFileToMimeMessage(emlFilePath.toString())
 
-                val senderAddress = message.from?.firstOrNull()
-                val sender = Sender(senderAddress?.toString() ?: "unknown@unknown.com")
-                val subject = message.subject
-                val content = message.content.toString().trim()
-
-                Email(sender, subject, content)
+                message.toEmail()
             }
             .collect(Collectors.toList())
     }
