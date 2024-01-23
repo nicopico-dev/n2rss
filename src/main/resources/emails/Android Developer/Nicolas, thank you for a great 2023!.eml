@@ -1,0 +1,1442 @@
+Delivered-To: nicopico.dev@gmail.com
+Received: by 2002:a05:7000:1019:b0:548:7cf4:3a3e with SMTP id k25csp2123263mae;
+        Tue, 19 Dec 2023 14:23:41 -0800 (PST)
+X-Received: by 2002:a81:4f83:0:b0:5e6:11b5:178a with SMTP id d125-20020a814f83000000b005e611b5178amr3325693ywb.77.1703024621339;
+        Tue, 19 Dec 2023 14:23:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1703024621; cv=none;
+        d=google.com; s=arc-20160816;
+        b=wznbGb+yYm8v9QmDX9oEIDygVKDfrW+BhRskpz2Ub2dflQX5U6+H3e0CJehrSDN58v
+         vhZSwWZLfGyDN692R0PDZveMTAhOSM6Cm73C9EQgVrP5EL8AX024OScydCoF1qTJ/+d+
+         hX3kSmyp2KIbS7uOQVaoYa0p0hGKqDRK3/okO0iEJ4O7rczgg7m24ZkfKQIRQBPTlzw7
+         2erpZWTvOZFSTLQmvF2WLhgdKfOshUaCer6Cg4KaGPCbYOor4QVD7OXt0vredOp7sfFo
+         VfUBL0g46IBqUBscxDhNlob2QA0uLhirPTkKQpQ8iJtXg4JugEJlJhPNu4+nhMeMygyy
+         oxjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:message-id:list-id:feedback-id:list-unsubscribe
+         :precedence:reply-to:date:mime-version:dkim-signature;
+        bh=LwfHLlD87UHbVxsMgPG9Dft/JnbgWBFTcEZ4nLV5+NA=;
+        fh=mtdSqSmrzXLQo/FWggskfaHm/ioCdJ0nULo6fTOj594=;
+        b=MDh52tSZqIorU70F+ViChDbvwvvwLnbHDJKdzXhxd1RX1hKvfqL0PP3iWnSd6Gmi+t
+         Q7b/3iJe3DOpGalqcDO8qhrwJa7VDOCNHXwb5xRHqmLKmS0tUSu8AlOhKccr/R4T9rJG
+         wTWW6/c0RIjuWvkpe/URVbVnkorrpAFxxEomTtdpi/8f+suA/v+8e2zvKpouW+s05K9+
+         6JNW4PsTaVRIaCpHo6ysmgrUTjm52g0yN0h83w/dlnAhFlasRNiMjwU9u3RipB2U07T0
+         8FWgWjwbSosAbWZzlYaaRLrdZu4k6Kq0gdy8VRFWL2XbeQoSILmxwC6OcaHzLWvRuT0a
+         wZZQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=jmUIKL+z;
+       spf=pass (google.com: domain of 37reczrokafg0d3he83-34l4bef4hi-deh4fbo6ee6b4.2ec@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=37ReCZRoKAFg0D3HE83-34L4BEF4HI-DEH4FBO6EE6B4.2EC@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <37ReCZRoKAFg0D3HE83-34L4BEF4HI-DEH4FBO6EE6B4.2EC@scoutcamp.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id r26-20020a81441a000000b005e6745f9062sor878315ywa.16.2023.12.19.14.23.41
+        for <nicopico.dev@gmail.com>
+        (Google Transport Security);
+        Tue, 19 Dec 2023 14:23:41 -0800 (PST)
+Received-SPF: pass (google.com: domain of 37reczrokafg0d3he83-34l4bef4hi-deh4fbo6ee6b4.2ec@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=jmUIKL+z;
+       spf=pass (google.com: domain of 37reczrokafg0d3he83-34l4bef4hi-deh4fbo6ee6b4.2ec@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=37ReCZRoKAFg0D3HE83-34L4BEF4HI-DEH4FBO6EE6B4.2EC@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1703024621; x=1703629421; dara=google.com;
+        h=to:from:subject:message-id:list-id:feedback-id:list-unsubscribe
+         :precedence:reply-to:date:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LwfHLlD87UHbVxsMgPG9Dft/JnbgWBFTcEZ4nLV5+NA=;
+        b=jmUIKL+zCLuz+SFz0JXOqt3svMecWbsjd+po7D+Jm0v/9TqD2WcuNl3sY6Eq4sPKi9
+         /Dx/J9lM8o4jGO1Gfv96UHbtPBBFF6ZXIXr+bo+xlrMFYza1rwarph4OFWx3VS9U9glE
+         ZFgWsDzKaWT0l8oJp3xLtSFTv/WxxTCkhS9TbDfHXLMRZBQueBm0/nc8zXOKXhtdydMA
+         Nkyzn2xVtEy/f+LBDdaLZpKtSoGeGEPm65WjyP05PKq1dzi+6gZccbDzKtkgxXf8Swza
+         P0wBRNly1OCX9ZFsXGyOx9SQLcQ4RVnGu64tM782l56YGD8EXxFPpGsNTBzZINzg3ilW
+         PmTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1703024621; x=1703629421;
+        h=to:from:subject:message-id:list-id:feedback-id:list-unsubscribe
+         :precedence:reply-to:date:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LwfHLlD87UHbVxsMgPG9Dft/JnbgWBFTcEZ4nLV5+NA=;
+        b=Bb6j8eXWJuIxgxtkpzJxC47YDs5eUy9bLoevOHAX1DGPJQpchwmoAPp+Z0opeaB06a
+         ZLcvHIVwDge++Te+NO8C3RsjVP9dmaIaSDGsS1hNuEXZJhKNZkis3606ia4EIongyBmK
+         +GihoNVeR5LUKm4Tm+LCHxDPyJq4zTF4HhrJJA2q1GbEqmt2IywItNZ5N+r0YW8gWHPA
+         l4HdPPt/CM9rnsPuCTcXdfSwhRvQeUU+lJ/YPCOAbFRLEQmJQxTRcNq28Ksfuh5rTh8n
+         dGLFhx27r1XDt2P5URL7aIVHdBUCaxMOP+RlukvjoDU5zzfsZnsVH4/HNrXmZi3j1NBx
+         xJNg==
+X-Gm-Message-State: AOJu0YyBzeNloGltL3qG2YBwT7mffeVT5mQTqzh8lid3ijijzfhPEkWK
+	PbBVMx3gYvWPL2A=
+X-Google-Smtp-Source: AGHT+IFoWlMHNw6Fdhoge5pyTfeXOSr9IchPz/IUB1kWT3Yy7G0r4V8cLeNgFTmo/zaGX0T+9LJ5YP4=
+MIME-Version: 1.0
+X-Received: by 2002:a0d:f647:0:b0:5d7:1941:aa8 with SMTP id
+ g68-20020a0df647000000b005d719410aa8mr14742777ywf.67.1703024621015; Tue, 19
+ Dec 2023 14:23:41 -0800 (PST)
+Date: Tue, 19 Dec 2023 14:23:41 -0800
+Reply-To: Android Developers Team <android-developers-noreply@google.com>
+X-Google-Id: 4297166
+Precedence: bulk
+List-Unsubscribe: <https://notifications.google.com/g/optout/ANiao5rV91QoirkfK7piszUYm-dvL_LdeCRNV3A_PR8hEGRagS7Xqzx7w-_1Nmw_wiOrKpPHJn7mQoA2cJl00IGjRtOpvHbH3WUgj6e3fPztsHEwHv-jIUflVrgulXjsUgq9dPU1GdnCuBHZsDNCTVGru2_GtOF0zspM3ftfFu9qFPp2srVKK5IeoVNGcC-N9Tep0I9Yxrtbn7o49Q9f4VpmvGnZIBqOoC6PUcVA7LhC8vKB0_O96BN-_no7kyKs2J1mdguJxOmQSUUX-djW6csuE3aygOtdkCXlaiJyeNABlzKb?hl=en-US>
+Feedback-ID: P2433-1551:C20293007:M110756905-en-US:gamma
+List-Id: <e6649ef3d10ad399a82bd2258350472130f82d33.google.com>
+X-Notifications: GAMMA:<a3a4c15c80a62efc4d629a5fac084fb517d6090c-20293007-111430915@google.com>
+X-Notifications-Bounce-Info: AaJ7rEppV49sxVshYe1dT6xHlhPZG3OcepQj4WIy67yDpt0UpkeuUlcDJWxHx7rPD5QcUJ34T6e-SYT9OvfDSsZYZQXjSIPFCfA996DGHgzPmSYbVk360FD9Q7xRz-LdwhSpoyX6_CXbXzhXIjwDkoTxdcxbbl_2OGASIO4_Iyg6ohSXSTST_xPBbZvqsoDR6Hkj3AkWOuIR3viPWMJwOQCbIhn7f6HBPcIjrF3ImYspzqbGdO-q5aAKloTHbawJL37m9LV8Ge5do7E4gx2g806fuHR8DMwXjI3JkJgGujAlAM-Cqqql4PXTTpc00xLNi98vewA3WPfaDlETALXGx40u83j7ay9rIJRnbHLvHJAVJnYhX_A9SoWLGvGrwfCAgvURqvrhhtf2QhMgntDH7m1YALBa2FOJuYnGuX81RlCCq9cvyljsTRJCKe5CKy9S7E4r7-f8YHs1GgdpRyqNkVBMkxu-IejFY0CBMPKQnqe0aCiU3qaS3DFDNcyEeIk-S53s6PbOMe70FukEZVn6nS-5-IqHNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <a3a4c15c80a62efc4d629a5fac084fb517d6090c-20293007-111430915@google.com>
+Subject: Nicolas, thank you for a great 2023!
+From: Android Developers Team <android-developers-noreply@google.com>
+To: nicopico.dev@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000009452ad060ce45120"
+
+--0000000000009452ad060ce45120
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+Q2FuJ3Qgc2VlIHRoaXMgZW1haWw/IFZpZXcgaW4gQnJvd3NlciAgDQo8aHR0cHM6Ly9ub3RpZmlj
+YXRpb25zLmdvb2dsZS5jb20vZy92aWIvQU5pYW81cHRXcjBFWnpFNTZPaTJwdzBwRk5wODZMTWJR
+emxHd1lkdXdQT05WaGRnaWdlZmJwNEVEWTRHMk5oMktJQ1JjbUVOcWhIai0zeWtDSXltd2R1TjFr
+T3pJUHRpMW92NHh5UHFCTGJGZDFkYzBCbFRHcjFNVGRTNkd6cW9STkxrWG9FYjd6VElIcVg1ZVMy
+SHNrUkRTQT4uDQoNCkRlY2VtYmVyIDIwMjMNCg0KPGh0dHBzOi8vbm90aWZpY2F0aW9ucy5nb29n
+bGUuY29tL2cvcC9BTmlhbzVyVm1QT3pfYkVWdEdoWjRRSzRkNmNrdVl0UlEwUHVuV1NOM2gxRUxJ
+TEVNcGlzckhZc21QVnAyTVhsR0FGWk1xWWUzOUk3bEFrSzNvS1VSaWhBcnFFWXA4WU9HUWplT2hp
+LTEyb2NfXzBPTUUwamtTMDZQaC1zU093S3pHbE9XSk1yV2swbXhUYjdSUm5EYllVcWpQTDV5NlBR
+Qk1QRE8ydFlESmtSbEFnQ0IxdmZHMmZ5ZXpOM1FPTnRYQ1F3LUo1VUNIYWp3cDkzYUR6NjJtRGdV
+TUdHYy1nZlJ2Nm1OejBvcjVyemNrcFlLWUt4cEY2dy1lSWFSbGpuSWVNNnlXTEtmbnloUEFqajRi
+cGFPSkVjbmhCVVBIbXJVQjZnZEhfSmV1b3hVWWkybDdfMFh0a2xxLWo2aU9PT3dybnpTUjVmb3kx
+R1lYMlRycHRIVk9QbmFMZG1wWkl2TE9kdVhhLXpjRkJ2Sm1TbFN5MjlZMVhuRVNpeVJydjVxdmg5
+dkM3RDFlNGpmQUdqWE01eVpfVzl4bkNyY2ZCRm5tRERjX1E+DQoNCkhlbGxvIEFuZHJvaWQgRGV2
+ZWxvcGVycywNCg0KQXMgd2UgYXBwcm9hY2ggdGhlIGVuZCBvZiAyMDIzLCBJIHdhbnRlZCB0byB0
+YWtlIGEgbW9tZW50IHRvIHJlZmxlY3Qgb24gYWxsICANCnRoYXQgd2UndmUgYWNjb21wbGlzaGVk
+IHRvZ2V0aGVyIGFzIGEgY29tbXVuaXR5LCBhbmQgc2VuZCBhIGh1Z2UgKnRoYW5rICANCnlvdSog
+Zm9yIGFsbCBvZiB5b3VyIHdvcmshDQoNCkl0J3MgYmVlbiBhbiBpbmNyZWRpYmxlIHllYXIgZm9y
+IEFuZHJvaWQsIHdpdGggbWFueSBuZXcgZmVhdHVyZXMgYW5kICANCmltcHJvdmVtZW50cyByZWxl
+YXNlZCBhcyBwYXJ0IG9mIHRoZSBwbGF0Zm9ybSBhcyB3ZWxsIGFzIG1hbnkgbmV3ICANCmRlbGln
+aHRmdWwgYXBwIGV4cGVyaWVuY2VzIGNyYWZ0ZWQgYW5kIGRlbGl2ZXJlZCBieSB5b3UsIGFsbCBm
+b3IgdGhlICANCmJlbmVmaXQgb2Ygb3VyIHVzZXJzIGFjcm9zcyB0aGUgd29ybGQuIEhlcmUgYXJl
+IGp1c3QgYSBmZXcgb2YgdGhlICANCmhpZ2hsaWdodHM6DQoNCuKAoiBUaGUgcmVsZWFzZSBvZiBm
+ZWF0dXJlLXBhY2tlZCBhbmQgaGlnaGx5IHBlcmZvcm1hbnQgQW5kcm9pZCAxNCwgb3VyIG1vc3Qg
+IA0KYW1iaXRpb3VzIHJlbGVhc2UgdG8gZGF0ZQ0KDQrigKIgVGhlIGluY3JlZGlibGUgbW9tZW50
+dW0gb24gbGFyZ2Ugc2NyZWVucyBhbmQgV2VhciBPUywgZnVlbGVkIGJ5IGhhcmR3YXJlICANCmlu
+bm92YXRpb25zIG9mIGRldmljZSBtYWtlcnMgYW5kIGJ5IHRoZSBncmVhdCBhcHAgZXhwZXJpZW5j
+ZXMgeW91IGJ1aWxkIGZvciAgDQp1c2Vycw0KDQrigKIgVGhlIGdyb3d0aCBvZiBDb21wb3NlLCBm
+cm9tIGJlaW5nIGEgbW9iaWxlIGRldmVsb3BlciB0b29sa2l0IHRvIENvbXBvc2UgIA0KRXZlcnl3
+aGVyZSwgaGVscGluZyB5b3UgYnVpbGQgZm9yIG1vYmlsZSwgdGFibGV0cywgd2VhciBhbmQgVFYN
+Cg0K4oCiIEFuZCB0aGUgZ3Jvd3RoIG9mIHRoZSBBbmRyb2lkIGRldmVsb3BlciBjb21tdW5pdHkg
+YXJvdW5kIHRoZSB3b3JsZCwgYW5kICANCnRoZSBtaWxsaW9ucyBvZiBhbWF6aW5nIGFwcHMgeW91
+IGJ1aWxkIGZvciB1c2VycyENCg0KSSdtIHNvIHByb3VkIG9mIGV2ZXJ5dGhpbmcgd2UndmUgYWNo
+aWV2ZWQgdG9nZXRoZXIgdGhpcyB5ZWFyLg0KDQpZb3VyIGhhcmQgd29yayBhbmQgZGVkaWNhdGlv
+biBjb250aW51ZSB0byBtYWtlIEFuZHJvaWQgdGhlIGJlc3QgbW9iaWxlICANCnBsYXRmb3JtIGlu
+IHRoZSB3b3JsZCwgYW5kIEkgd2FudCB0byB0aGFuayB5b3UgZm9yIGJlaW5nIGEgcGFydCBvZiB0
+aGlzICANCmNvbW11bml0eS4gWW91ciBjb250cmlidXRpb25zIGFyZSBpbnZhbHVhYmxlLCBhbmQg
+SSdtIGdyYXRlZnVsIGZvciB5b3VyICANCmNvbnRpbnVlZCBzdXBwb3J0Lg0KDQpUaGFua3MgYWdh
+aW4gZm9yIGFsbCB0aGF0IHlvdSBkbywgYW5kIHdlIGNhbuKAmXQgd2FpdCB0byBzZWUgd2hhdCB5
+b3UgYnVpbGQgIA0KbmV4dCB5ZWFyIQ0KDQpCZXN0LA0KDQpBbmlydWRoIERld2FuaQ0KDQpEaXJl
+Y3RvciwgQW5kcm9pZCBEZXZlbG9wZXIgUmVsYXRpb25zDQoNCkNoZWNrIG91dCB0aGUgaGlnaGxp
+Z2h0cyBmcm9tIOKAmDIzICANCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xlLmNvbS9nL3Av
+QU5pYW81cWp2ZGk4RGZsVnZEWlNPa295SDJ6b2VxTGRqSkdkWEdEdzJxYTN1QzlYOGNqa0xqQTg4
+bzV0dS03ZzR3bnRlRGg0SERualN5c3NRUU5zeUp1SllHVWZ1X1pjdngyMGh4aFRWMlBWS2VjRHND
+VnZMZ1I5NGUwTUdoMTdLbXctQUFFT3FaQVVzcGNESTNJeW9QNThqX0Y0M3FxWTZ2cUlaZ2QzVldM
+ZHEwS1dBd3VDU2dhVFJQdG85c3BkbGx4ZEpzdnQ0UGJzUUkwcHpHejNZS29ZRzZIb2RFVlppWWtU
+ZUJQOXUzQmNXa3NXelZ1bWc0eVVJQlFwWGJkVDdmN1BHM29FNVBuSVFLMGQ0OVRzU3BLUUdMU3A3
+cVM4SFowelo3TFE2Y3NFYTNvQU5HRlFlM3RXaU5mbnFRVW5YWUZFend2aTdDeWx1Q283bUtLSWQ3
+aFhzZFJ0RUF1NVJhd1p5SUxSU3AxdlRJTlRuVGY3WGsyQlZSei1vV2tKSUliSFE0bjlpVjRUdjkx
+QUlNZ2F5em8+DQoNClNVQlNDUklCRSBUTyBUSElTIE5FV1NMRVRURVIgIA0KPGh0dHBzOi8vbm90
+aWZpY2F0aW9ucy5nb29nbGUuY29tL2cvcC9BTmlhbzVwcTlETFdnUWpKVmFXZ1F6NEExektZa3pS
+cnFVMkJfTDZDX2QxQTF3M3ZHRnBsenV4UVMxNEN6c3dBUHNMb3BremEwOEllbHFiSTFMOHp1WGJY
+Wm1QOUlua2ctTzNNbk1wMGY2QXdVdWo1aHZWMzh0aXN2V1Vmd1V5M1ZvaXIzeVFyNTNBdmc4U0Yx
+TURiNkRVN1JzUS1DOUtmNUU0RHhhbkVObEJvQ3BvVHZNTzJVdUJyS25INUhRa01JeTlGaklMLVBp
+cEFvZndMNlFjeFZhdk1uaFpTcWUweWs1UHJkekl5ZHhId2pzc3lJbUlKUHg1WVdFam1HanRldURf
+SUZhQTBQZERmM2c+DQoNCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xlLmNvbS9nL3AvQU5p
+YW81cXlNRTFjRmxaa0haSHczeU9BWTRxUDNzZXhjTHhNM0tQeHI4VDl5TlRYSnBKdGNFekpNUDZj
+bURHZmxpMUlOcEFxVGNTQVdfcDBJc3dGQjYyVW1WVU9GbGczYm40bzZvakZnV19ZOUUtQVVkVGJS
+WmVzOHd4UEdkYjRMZ2xYa1QxX0lBSXppdnVPc1dFSkxWQjJMSV9rci1LdGZqTnFPWHJ1NkZhNmRX
+VURDcWpyaGNPbWpTUWxOdDA3QXR5MmhCbmxRcGhyek5RaDR3UVZRbjJudnVFVUhGQ0diblJjOS1V
+TEowZllGQTQyb0xpMzA4VEFQbW5rcmNEN1FhdjRubXQ4NjlqNUh2ckU3bm85bVE+DQoNCkNvbm5l
+Y3Qgd2l0aCB1cw0KDQo8aHR0cHM6Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFv
+NXFNMThPdHQ3ZWpVZlRUM1AxZW44b1BEWUYxT3hUeWw0T19keDhhY3lPRm5scGxrT0lzS1BJVW9f
+R2hBcXBWb0VIUkliVEJMOFljNmowYWlEVmVWdnQ2aGY4MHRtUEdQMTFQM05vaVVaclFRbXhlQmYw
+bEVCRmlseWxMTGtUeUhGc092eUF4OGZmS2dSdVJqRDlZSHJNaDZJbGtnR2pObDAyTVd2ZnpTNGoz
+emxGUnl5VkNjNDh5ZjRmbmlPYTBad25vcnVlZG91endFMDk2NnR5QXUtN3gtUEliZXJJcmdRPg0K
+DQo8aHR0cHM6Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNXFGSFJGaDZrRTJY
+bzd0cGdNWkFwNG00bGpENE5oTGdRRnRValVuWktxV0p6V2RMRC16a2x4QTdHRXBXV21EWkVyaEVv
+MHN0SXkyNzlrSUhIZGtKb3lYaG51RjRod09ZQzFUVkRIeFJ1UlhnQVFWNXFheEpDM2pwM2VsYkNs
+clI2cHR1aGp2SDBRbHg3ZUxVclgyeHcyWEVrVFZQbi1MT1RGSFBLOW80eTVCd1FaNkVzbGxjcVRx
+OFFDSjBIZ2NaMUxsdTZxd3h6Xy1ib184SGdOcnh0Q19mVGl2NnkyaTVVTjRHSkdHM3Z5N2ZlZE1I
+cUZGcmVZPg0KDQo8aHR0cHM6Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNW9X
+YjFhdVRXYnplMjNERVhxUXdOZ2Z6SEZuNXpTSms1VElVaDFXczltUlRpM0RqMkdSYkdlS0l2c2lq
+eUdXS2EzajgyQXhrbmlBSWRndWJKVFdQWU55dHp4TUE1aWRQVDVBVmd0aHoxRFdRR3FNWUJWa3pl
+SjM1dkR1eUZhMUFHeXkxUXFGOXFVVXNEcUd2WmE4RnBqYXl1WDA2d3pnVTBFZTMxcW5JM3dIb0ZY
+R01XMlFxc1d1dzVQZjZNT0tsTkJrb0VheXhfLTd1TndGUFhfcXhKY0dNY0NBc3RXWFY0SDhNbFBT
+Pg0KDQo8aHR0cHM6Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNXJoMzZoZ2w1
+c3UzOGM0eE81TjZrQUpfcEdHb29TOFJXUHVSSk1Nb3hWRzdjdEVTbnM4Ti1DN1htekFkaDNiYWxo
+T3lNSmJBb2Y4ak13LXpBQWxydUllM0d5U0VVSDNQSGJXelZPa1JyWE1yY3VzcU1mejF6ZXVEd3pK
+alVZOVpfMlYwNHpRTDBkSzVnRlZPZjRnM0dwQjFHMHZYSWs5aVhGdkN0T2xLR2E5ckhRYXpKUjJS
+YWFTX0V2SW1tX2tfRFhrdGJCMVpPejY5NnVOejU5YmE0dGFRak5OS0NJMWhMd1gySFZFNHUtQVBp
+eGU4bHBaRHowPg0KDQpXYXMgdGhpcyBuZXdzbGV0dGVyIHVzZWZ1bD8NCg0KPGh0dHBzOi8vbm90
+aWZpY2F0aW9ucy5nb29nbGUuY29tL2cvcC9BTmlhbzVwaU10dWM1WjU0UWZycERRV3BzcFV1bGNk
+OVNNTXhKSm02aDlfdG5kVUkzOEExQmNCZ2xYTGRIUkVFdjJhVHQ3VzF1U1FLcUNLSHpYS1c5NHoy
+VkhxcDY4eHJGS093Y3lrakU2M21udHRFZG1TdXhudWZSOVAycXdKSDlBY2NVVHFidmx4WHIyMkNf
+cnhPdTJNM2hibmM4b2xCcUdFT0cwYURlMnlEbU55OXJfb0hLTGRCdEdkQ1dUWGF5dmRlWGtvdGxw
+NVg3RTZHYzJTaEtMSS0zUWZkWnJTTkxnNllxRzN4Wm1uY0N0SEM4eHd5RWlGVGJiWHVESFRxUDJf
+UVNydG1iOVR6QVU5QTNyWTM5MUdMMjc2RGVYWHlWR3ZHejFScUxFTkFYcXJDRGtjR1VDdGQyS3Z5
+R29rPg0KDQo8aHR0cHM6Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNW9OM2hf
+WkgxYWp4ZExHcVFHWGdIR2QwbXpsWk56dXBUQ1hlNFk3ancxZG9oNHVKNkdCczhFdFNhQmtRSlV6
+WXNPWEJyOTBDckVMRzBUWERyaXhyUEYwMUVnbkR0MTVxQkZKM3UtR2I1aWlHdzBQZWZaUFdpUlFR
+OU9ELXU0SVczeUMzUjRxd0QxdHh1cGpxZVg1YXk2TlB1VWphOVZKYU5DZDZPbGlfRS1Ga1RsYTRD
+VFUwcG1PVDZqN1RCY05rcU5vTnZ1b2lEbF9nTjJIYlFqQXdXVElPNVlFb3RuamRROGZfMGU5Mmlv
+T254V2syWlpwZENoTlByOTZhNWlkUzgyelFXcGlfNUt0MWZBQzBRVlBjNDIzUTdhb24tOTJOUXRo
+cWtrbkhNRTBLbHBOUGhyVVBoR2E2LXM+DQoNCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xl
+LmNvbS9nL3AvQU5pYW81ckRLcEtZQTdIZVJwVkY4akstR3dMdVphNWI3TDBqTE9tSkx4b0kyd1Nl
+TWwzMHV4dVp6aFlPSnpHRUxmb3MxRmVLbFhJZ0dTTTlTMTI1Sl84SU9YY0I0UFdValMyYkUtZGtN
+Snh6eE9WZlB0bnQ2LVA3YTdDc1RLSzVNNHRMNkZ0UE5mbld2dnJzMGRkdWkzWHJKNlBFNl9WM3lx
+UDNDU3p1YWlXMDc3YTlaQXRyR2VFcXJWOEh0WGM2aVYycWJmaFIta2dXcU5HVjg1SWFDZ25iUzQz
+bW1pQWRfdDhzbGhuRWUwM3JLbGV0VHU5UjQzVnoxVVpTNDRDQnl6RUpDaW1sTnNoUGlhZ3RZaFJ4
+YWxGV3o4RzFlZF9zTFU1Zi1odmVjc1hyc2w2dXpkODNqcHBpRERkS0RhVT4NCg0KPGh0dHBzOi8v
+bm90aWZpY2F0aW9ucy5nb29nbGUuY29tL2cvcC9BTmlhbzVwSW5YbGhtMU96TnhpTEJ5YnZXejc5
+X0lwWG1QOVhYQUloRmVhcXpoSUxtNHRiaEowWHE0elZSQXNtZHJJLWR5bzVuaWhKYmQ2S3dob0d0
+eFVVOEFnb3k4OXR3TjFXbzF1RXYtSkpjZ1VfSFRJTGpOUzVtbkttcFV5U2tBTzB3RldmVDB1NGZf
+WlpDQlktakRfYl80NUNtaGFlelFJenVPQy1WbWl1Rk11SEY2d3BGcW4wYl9jbWkxd0FvdGgwdXZE
+bmQ3UEFyamNGZnBmbVlCdzhRVnN2dUJQa2xJX3hneG1VbjV2VThqZ3F2d1BCLTRFd2FxRmtuNVpq
+NjhadVN3ejB0MTNxTDdORmFpSnU4SHhCbXRsMUVkRnRkSFYzVE5FaTRtTW13ZHJwY0ljOWc0cWZw
+ZkFQTktrPg0KDQo8aHR0cHM6Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNXBR
+azRoM0lYcEVGWnUwY0ZXaFdRamRKdGZBZXZlUjFfb25UTkRtVE94UE1jTzZvVjEzS190T2YzVFJn
+NXExV0RnVWVMSnhzSnIwOEVwVkRINlFqdi04X1NEdXl5eTd2Y2pFaE9wSkczSkhHZTZNM2tnZ05z
+eUlWSl85TkptVTlQN0dHNmdFLWE1OHUxNGVjcC1aOHlUc0pxaV9neDgxWFFGTTZsa1R1RWp3bWQx
+Zi0ySmpoUWVsSE9TYzkyVTdQb21XMjRHSnIyOWNlYVFDTTFqczM2SzJtd0EtTkhyRGVxZldObXFG
+bnNEWGxGYVVYQ2hoSVNaZklOWU1Ga0Z3UGVudVJoNWdCNnlpa2ZEMklaNUxCcHJYWWFlSklYRnFo
+M3RCZ2JodjFkZFV1X24wRmtrUVVkQzM5U0U+DQoNCihjKSAyMDIzIEdvb2dsZSBMTEMgMTYwMCBB
+bXBoaXRoZWF0cmUgUGFya3dheSwgTW91bnRhaW4gVmlldywgQ0EgOTQwNDMsIFVTQQ0KDQpUaGlz
+IG1lc3NhZ2Ugd2FzIHNlbnQgdG8gbmljb3BpY28uZGV2QGdtYWlsLmNvbSBiZWNhdXNlIHlvdSBh
+c2tlZCB1cyB0byAgDQprZWVwIHlvdSB1cCB0byBkYXRlIHdpdGggQW5kcm9pZCBkZXZlbG9wZXIg
+bmV3cyBhbmQgdXBkYXRlcy4gSWYgeW91IGRvIG5vdCAgDQp3aXNoIHRvIHJlY2VpdmUgdGhlc2Ug
+ZW1haWxzLCBwbGVhc2UgdW5zdWJzY3JpYmUgIA0KPGh0dHBzOi8vbm90aWZpY2F0aW9ucy5nb29n
+bGUuY29tL2cvb3B0b3V0L0FOaWFvNW9BY0dGVll4T2UyUEVSenFRZVpLVkR0Zi1ZakdWRkZtN2NV
+U0pnUXlPWUxQTXdLeUVNTXFaU1d0UjdyM0tfcTc1YkNzSGZsVTRYZ3FuWDlGTll0Nk5MQTNZS2Vf
+SHg0QzZraXZJVkFtN2Q2dWNaVW9kRG8zTmRTTG5SLVc0TzJ3QS15aGVKbTVWcEdoZkFVbkFfQUdC
+UGUwT2tqV0tSWnQ1VHlrTW41dDhNWGlaSkwzcy1GMmtNTmlwaVhYNGItM21hdGhrQTd2ZjBqN0xt
+NTUtNnFyTjdnU1kwa2pFUENoNzVteTdNc0dOU21ZM0lVcUhEQ244TFRwSjF3NGJOdVg0ZHRrWEdM
+VzZPcTlfSTA0dWJMbmp6SHJrTW9VbDhtckRvcjVkelZRP2hsPWVuLVVTPi4NCg==
+--0000000000009452ad060ce45120
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+ <!--link-->
+ <!--image-->
+ <!--content-->
+<!doctype html public "- / /w3c / /dtd xhtml 1.0 transitional / /en" "https=
+: / /www.w3.org /tr /xhtml1 /dtd /xhtml1-transitional.dtd">
+<html xmlns=3Dhttps://www.w3.org/1999/xhtml lang=3Den>
+<head>
+<title>Android Newsletter</title>
+<meta http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<!--[if !mso]><!-->
+<meta http-equiv=3DX-UA-Compatible content=3DIE=3Dedge>
+<!--<![endif]-->
+<meta name=3Dviewport content=3D"width=3Ddevice-width, initial-scale=3D1.0"=
+>
+<meta name=3Drobots content=3D"no index">
+<!--[if gte mso 9]>
+<style>
+.ol-p-l-r-0{padding-left:0px !important;padding-right:0px !important;}
+.ol-p-12 {
+padding-left: 0px !important;
+padding-right: 0px !important;
+}
+.pd-t-3{
+padding-top:2px !important;
+}
+.ol_pt100{
+padding-top:26px !important;
+padding-bottom:45px !important;
+}
+.ol_pl15{
+padding-left:15px !important;
+}
+.cta_out_look{
+padding:0px !important;
+border-top: 8px solid #34A853 !important; border-bottom: 8px solid #34A853 =
+!important; border-left: 14px solid #34A853 !important; border-right: 14px =
+solid #34A853 !important;
+}
+</style>
+<![endif]-->
+<style>
+body {
+font-family: Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+font-size: 12px;
+color: #000000;
+-webkit-text-size-adjust: none !important;
+-webkit-font-smoothing: antialiased !important;
+-ms-text-size-adjust: none !important;
+}
+@media screen and (max-width: 950px) {
+.pd-l-r-20{padding-left: 20px !important;padding-right: 20px !important}
+.font12 {
+font-size: 12px !important
+}
+.center {
+text-align: center !important;
+margin: 0 auto !important;
+}
+.block {
+display: block !important;
+}
+.bg-none {
+background-image: none !important;
+}
+.text-center {
+text-align: center !important;
+}
+.pd0 {
+padding-left: 0px !important;
+padding-right: 0px !important;
+}
+.dblock {
+display: block !important;
+}
+.dnone {
+display: none !important;
+}
+.w100 {
+width: 100% !important;
+}
+.wid_375 {
+width: 375px !important;
+}
+.wid_355 {
+width: 355px !important;
+}
+.wid_337 {
+width: 337px !important;
+}
+.wid_320 {
+width: 320px !important;
+}
+.wid_225 {
+width: 225px !important;
+}
+.wid_210 {
+width: 210px !important;
+}
+.wid_290 {
+width: 290px !important;
+}
+.wid_305 {
+width: 305px !important;
+}
+.wid_195{width: 195px !important;}
+.widt_150{width: 150px !important;}
+.wid_150{width: 150px !important;}
+.m0_auto {
+margin: 0 auto !important;
+}
+.pd-t-3 {
+padding-top: 2px !important;
+}
+.pd-b-0 {
+padding-bottom: 0px !important;
+}
+.pd-t-20 {
+padding-top: 20px !important;
+}
+.pd-t-25 {
+padding-top: 25px !important;
+}
+.pd-b-50 {
+padding-bottom: 25px !important;
+}
+.inline-block {
+display: inline-block !important;
+}
+.pad_t_0 {
+padding-top: 0px !important;
+}
+.pd-t-37 {
+padding-top: 37px !important;
+}
+.bg-none {
+background-color: transparent !important;
+}
+.pt-t-0 {
+padding-top: 0px !important;
+}
+.bg-mob {
+background-size: 100% 100% !important;
+background-repeat: no-repeat !important;
+}
+.pad_b16 {
+padding-bottom: 16px !important;
+padding-top: 16px !important;
+}
+.mob_style {
+padding: 24px 0px 0px !important;
+}
+.mob_white_bg {
+background-color: #ffffff !important;
+}
+.pad_b35 {
+padding-bottom: 35px !important;
+}
+.pad_b10 {
+padding-bottom: 10px !important;
+}
+.pad_t15 {
+padding-top: 15px !important;
+}
+.pd_l_22 {
+padding-left: 22px !important;
+}
+.pd_r_22 {
+padding-right: 22px !important;
+}
+.mob-pd-t-10{padding-top: 10px !important;}
+.mob-br-btm-20{border-radius:0px 0px 20px 20px !important;}
+.mob-pd-t-25{padding-top:25px !important;}
+.mob-pd-b-0{padding-bottom: 0px !important}
+.mob-br-0{border-radius: 0px !important;}
+.mob-pd-b-45{padding-bottom: 45px !important;}
+}
+</style>
+</head>
+<body style=3D"margin: 0 auto; padding:0px;">
+<!--preview starts-->
+<p style=3D" padding-top:0; font-size:0px; line-height:0px; color:#ffffff;d=
+isplay: none;" align=3Dcenter>We can=E2=80=99t wait to see what you build n=
+ext year</p>
+<!--preview ends-->
+<!-- Goto action Start -->
+<div itemscope=3D"" itemtype=3Dhttps://schema.org/EmailMessage>
+<div itemprop=3Daction itemscope=3D"" itemtype=3Dhttps://schema.org/ViewAct=
+ion>
+<link itemprop=3Durl href=3Dhttps://notifications.google.com/g/p/ANiao5oXa8=
+TK5cFhv9cht8W-b9lv5izi3-3lcPelA9f7Jo968Tk8jLdxBHHMNfW7PJm6fDxRmU6nTgbmtHOeQ=
+5aYzJkhbrFxUOmCLpZJr_TVFyyr8ZNAMSHzHepsspSOgxEeTPJ9d0KFnFl-vLFl6FoHWgyIVXHK=
+b_HdiRpQeA2ReErt47HdkS6f179gP3iIzXga-Xnev3KGxnqkRsI6iTdmXzXUfmyXv1wLSe2tvY7=
+sN_louAANPpFSP34ddA823P4cgZcaXFBQJjbQ19THQLSmTXT4ai2LBymBc2G60ZvsDa7tGvtZg3=
+KXsAzn1t_MvDmRGMLOOKF7rL5QkmjBpwPlP0nys8OyiPftgOJSdsTTiqC_y2_spkT7sQAlFk1M>
+<meta itemprop=3Dname content=3D"=E2=80=9823 highlights">
+</div>
+<meta itemprop=3Ddescription content=3D"">
+</div>
+<!-- Goto action End -->
+<table width=3D100% border=3D0 role=3Dpresentation cellspacing=3D0 cellpadd=
+ing=3D0 align=3Dcenter>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<!--[if !mso]><!-->
+<table class=3Dwid_375 width=3D850 align=3Dcenter role=3Dpresentation cells=
+pacing=3D0 cellpadding=3D0 bgcolor=3D#ffffff border=3D0>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"850" bgcolor=3D"#ffffff" align=3D"center">
+<![endif]-->
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop background=3Dhttps://services.google.com/fh=
+/files/emails/bg_image_eoy_new.png style=3D"height: auto; background-image:=
+ url(&#39;https://services.google.com/fh/files/emails/bg_image_eoy_new.png&=
+#39;); background-size: 100% ; background-repeat: repeat;background-positio=
+n: top center;">
+<!--[if gte mso 9]>
+<v:rect xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"true" stroke=3D"f=
+alse" style=3D"width:850px;height:2164px;">
+<v:fill type=3D"tile" src=3D"https://services.google.com/fh/files/emails/pl=
+ay-apps-partners-bg-image-eoy-ol-transparent-w850px-h2125px-1x.png" color=
+=3D"#ffffff" />
+<v:textbox inset=3D"0,0,0,0">
+<![endif]-->
+<!-- Header Start -->
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0 width=
+=3D600 align=3Dcenter class=3Dwid_355>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"600" align=3D"center">
+<![endif]-->
+<!-- Header Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop class=3Dtable>
+<table role=3Dpresentation width=3D100% border=3D0 cellspacing=3D0 cellpadd=
+ing=3D0 align=3Dcenter>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tbody>
+<tr>
+<td class=3Dpad_b16 align=3Dcenter valign=3Dtop style=3D"font-family:Roboto=
+,Helvetica,Arial,sans-serif; font-size: 12px; line-height: 18px; color: #00=
+0000; padding-bottom: 35px; padding-top: 35px">Can&#39;t see this email? Vi=
+ew in <a href=3Dhttps://notifications.google.com/g/vib/ANiao5ptWr0EZzE56Oi2=
+pw0pFNp86LMbQzlGwYduwPONVhdgigefbp4EDY4G2Nh2KICRcmENqhHj-3ykCIymwduN1kOzIPt=
+i1ov4xyPqBLbFd1dc0BlTGr1MTdS6GzqoRNLkXoEb7zTIHqX5eS2HskRDSA style=3D"color:=
+ #000000; font-size: 12px; text-decoration: underline;">Browser</a><span ar=
+ia-hidden=3Dtrue>.</span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Header End -->
+<!-- Body Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop class=3Dtable>
+<table class=3Dwid_375 role=3Dpresentation border=3D0 cellpadding=3D0 cells=
+pacing=3D0 width=3D100% align=3Dcenter>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<!--Main content start-->
+<!--[if !mso]><!-->
+<table class=3Dwid_355 role=3Dpresentation border=3D0 cellpadding=3D0 cells=
+pacing=3D0 width=3D850 align=3Dcenter>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"850" align=3D"center">
+<![endif]-->
+<!-- Logo & Right Text Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<!--[if !mso]><!-->
+<table role=3Dpresentation width=3D600 align=3Dcenter class=3Dwid_320 borde=
+r=3D0 cellspacing=3D0 cellpadding=3D0>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=
+=3D"center">
+<![endif]-->
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"padding: 15px 0px 15px 0px;border-=
+radius: 20px; background-color:;">
+<!--[if !mso]><!-->
+<table cellspacing=3D0 cellpadding=3D0 align=3Dcenter border=3D0 role=3Dpre=
+sentation width=3D536 class=3Dwid_320>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table cellspacing=3D"0" cellpadding=3D"0" align=3D"center" border=3D"0" ro=
+le=3D"presentation" width=3D"536">
+<![endif]-->
+<tr>
+<td align=3Dleft valign=3Dtop>
+<!--[if !mso]><!-->
+<table role=3Dpresentation width=3D270 align=3Dleft border=3D0 cellspacing=
+=3D0 cellpadding=3D0 class=3Dwid_195>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"270">
+<![endif]-->
+<tr>
+<td aria-hidden=3Dtrue align=3Dleft valign=3Dmiddle class=3D"" style=3D"pad=
+ding-left: 15px;">
+<a href=3D# target=3D_blank style=3D"pointer-events: none; display: inline-=
+block; cursor: default;">
+<img class=3Dwid_150 src=3Dhttps://gstatic.com/growthlab/api/otAYN8bx7f1aac=
+7tudBzETkixYADSsg5j68W0VYu.png width=3D200 style=3D"display: block;">
+</a>
+</td>
+</tr>
+</table>
+</td>
+<td align=3Dright valign=3Dmiddle class=3D"" style=3D"padding-right: 15px;"=
+>
+<table role=3Dpresentation width=3D100% align=3Dright cellspacing=3D0 cells=
+padding=3D0>
+<tbody>
+<tr>
+<td align=3Dright valign=3Dmiddle class=3D"font12 pd-t-3" style=3D"font-fam=
+ily:Roboto,Helvetica,Arial,sans-serif; font-size: 15px; line-height: 23px; =
+color:#000000; padding-top: 0px">December 2023</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- Logo & Right Text End -->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<!-- Body Start -->
+<table role=3Dpresentation width=3D100% border=3D0 cellspacing=3D0 cellpadd=
+ing=3D0 align=3Dcenter style=3D"">
+<tr>
+<td class=3Dbg-none height=3D70 align=3Dleft valign=3Dtop>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0 width=
+=3D600 align=3Dcenter class=3Dwid_337>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"600" align=3D"center">
+<![endif]-->
+<tr>
+<!--[if (gte mso 9)|(IE)]>
+<td align=3D"center" valign=3D"top">
+<![endif]-->
+<!--[if !mso]><!-->
+<td align=3Dcenter class=3DoutBorder style=3D"margin: 0 auto;">
+<!--<![endif]-->
+<table role=3Dpresentation width=3D100% border=3D0 cellspacing=3D0 cellpadd=
+ing=3D0 class=3Dwidth>
+<!-- main section start -->
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad_rt34>
+<!--[if !mso]><!-->
+<table role=3Dpresentation width=3D600 cellpadding=3D0 cellspacing=3D0 alig=
+n=3Dcenter class=3Dwid_320>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"600" align=3D"center">
+<![endif]-->
+<tr>
+<!--[if gte mso 9]>
+<td align=3D"left" valign=3D"top" width=3D"15" style=3D"mso-line-height-rul=
+e:exactly;">
+<img src=3D"https://www.gstatic.com/gumdrop/files/spacer-11.gif" width=3D"1=
+5" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;" />
+</td>
+<![endif]-->
+<td align=3Dcenter valign=3Dtop class=3Dmob-pd-t-10 style=3Dpadding-top:10p=
+x>
+<table role=3Dpresentation width=3D100% cellpadding=3D0 cellspacing=3D0 ali=
+gn=3Dcenter>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5rg1vNAB4AtmZsPqX0eF_kE=
+LwZXQ_t23pWtDhftRCAA7m71KCkwi-W3FXQvxhskyNwwU6y8kF2lIXV961Jzhf_Z6kgBRvS-baV=
+Mu59CR82mHU_0nAS_iX-HCqCJ8D_DXMqD52rLQxaIdQKB4yig7Mzght7q_jQwGnC0FXcc17d_B9=
+KCDOzyvC2S8TT508R3qLJptLwezWGbrx-p4zbJDOr25bcEKWxgV8RPRYiJ5m6YaYxrCe-OtumBQ=
+x02I3nuSKL0R3oP_DBKWEHCE-pa93kXkRHhGk13Hf_EHQkOCeRxES_l-j_No4c-WfM-UXeTRQ3l=
+uS84oceHoMaMPwq-MPAyJeVY4lDsrqXLMqnuaQO0Cfb1wjBDYpGjMR9c1oalwkp588g8ytsLJxO=
+SktEqCYyGnB7_Fu9sH0iEgg style=3D"text-decoration: none; display: inline-blo=
+ck;" target=3D_blank>
+<!--[if !mso]><!-->
+<img src=3Dhttps://services.google.com/fh/files/emails/hero_img_eoy_new.png=
+ width=3D600 class=3Dw100 style=3D"display:block; height:auto;border-radius=
+: 20px;">
+<!--<![endif]-->
+<!--[if mso | ie]>
+<img src=3D"https://services.google.com/fh/files/emails/hero_img_eoy_new.pn=
+g" width=3D"600" class=3D"w-100" style=3D"display:block; height:auto;">
+<![endif]-->
+</a>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-top: 10px;">
+<table role=3Dpresentation width=3D100% cellspacing=3D0 cellpadding=3D0>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"padding-bottom: 0px;">
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 border=3D0 width=
+=3D600 class=3Dw100>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop class=3D"ol-p-12 pd-t-25" bgcolor=3D#ffffff=
+ style=3D"padding-top:26px;border-radius: 20px 20px 0px 0px;">
+<!--[if !mso]><!-->
+<table class=3Dwid_290 role=3Dpresentation width=3D536 cellspacing=3D0 cell=
+padding=3D0 bgcolor=3D#ffffff>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" width=3D"536" cellspacing=3D"0" cellpadding=3D=
+"0" bgcolor=3D"#ffffff">
+<![endif]-->
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop class=3D"dblock w100">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<a href=3D# target=3D_blank style=3D"pointer-events: none; display: inline-=
+block; cursor: default;">
+<!--[if !mso]><!-->
+<img src=3Dhttps://services.google.com/fh/files/emails/android_star2.png wi=
+dth=3D536 class=3Dw100 style=3D"display:block; height:auto;">
+<!--<![endif]-->
+<!--[if mso | ie]>
+<img src=3D"https://services.google.com/fh/files/emails/android_star2.png" =
+width=3D"536" class=3D"w-100 wid_436" style=3D"display:block; height:auto;"=
+>
+<![endif]-->
+</a>
+</td>
+</tr>
+<tr>
+<td class=3D"ol-p-10 pd-l-r-20" align=3Dleft valign=3Dtop style=3D"font-fam=
+ily:Roboto,Helvetica,Arial,sans-serif; font-size: 15px; mso-line-height-rul=
+e: exactly; color:#4A4A4A; line-height:25px; padding-top:11px;padding-left:=
+ 40px;padding-right:40px">Hello Android Developers,</td>
+</tr>
+<tr>
+<td class=3D"ol-p-10 pd-l-r-20" align=3Dleft valign=3Dtop style=3D"font-fam=
+ily:Roboto,Helvetica,Arial,sans-serif; font-size: 15px; mso-line-height-rul=
+e: exactly; color:#4A4A4A; line-height:25px; padding-top:11px;padding-left:=
+ 40px;padding-right:40px">As we approach the end of 2023, I wanted to take =
+a moment to reflect on all that we&#39;ve accomplished together as a commun=
+ity, and send a huge *thank you* for all of your work!</td>
+</tr>
+<tr>
+<td class=3D"ol-p-10 pd-l-r-20" align=3Dleft valign=3Dtop style=3D"font-fam=
+ily:Roboto,Helvetica,Arial,sans-serif; font-size: 15px; mso-line-height-rul=
+e: exactly; color:#4A4A4A; line-height:25px; padding-top:11px;padding-left:=
+ 40px;padding-right:40px">It&#39;s been an incredible year for Android, wit=
+h many new features and improvements released as part of the platform as we=
+ll as many new delightful app experiences crafted and delivered by you, all=
+ for the benefit of our users across the world. Here are just a few of the =
+highlights:</td>
+</tr>
+<!-- bullet1 code start -->
+<tr>
+<td align=3Dcenter class=3D"ol-p-l-r-0 pd-l-r-20 plr_30 pad-point-section" =
+valign=3Dtop style=3D"padding: 8px 40px 0px 40px;">
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 border=3D0 align=
+=3Dleft>
+<tbody>
+<tr>
+<td class=3Dmar50_out align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0>
+<tbody>
+<tr>
+<!--[if gte mso 9]>
+<td height=3D"12" align=3D"left" valign=3D"top" style=3D"mso-table-lspace:0=
+pt; mso-table-rspace:0pt; mso-line-height-rule:exactly; line-height: 12px;"=
+><img src=3D"https://services.google.com/fh/files/emails/spacer_11.gif" wid=
+th=3D"40" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;" /></=
+td>
+<![endif]-->
+<td align=3Dleft valign=3Dtop width=3D25>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D100%>
+<tbody>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family: Roboto, Helvetica, Aria=
+l, sans-serif;font-size: 24px;color: #4A4A4A;line-height: 22px;"> =E2=80=A2=
+ </td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0>
+<tbody>
+<tr>
+<td role=3Dnone style=3D"padding-top: 0px; margin: 0; font-family:Roboto, H=
+elvetica, Arial, sans-serif; font-size: 15px; color:#4A4A4A; line-height:25=
+px; padding-right: 0px;" align=3Dleft valign=3Dtop>The release of feature-p=
+acked and highly performant Android 14, our most ambitious release to date<=
+/td>
+</tr>
+</tbody>
+</table>
+</td>
+<!--[if gte mso 9]>
+<td height=3D"12" align=3D"left" valign=3D"top" style=3D"mso-table-lspace:0=
+pt; mso-table-rspace:0pt; mso-line-height-rule:exactly; line-height: 12px;"=
+><img src=3D"https://services.google.com/fh/files/emails/spacer_11.gif" wid=
+th=3D"40" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;" /></=
+td>
+<![endif]-->
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!--Bullet point ends-->
+</tbody>
+</table>
+</td>
+</tr>
+<!-- bullet1 code ends -->
+<!-- bullet2 code start -->
+<tr>
+<td align=3Dcenter class=3D"ol-p-l-r-0 plr_30 pd-l-r-20 pad-point-section" =
+valign=3Dtop style=3D"padding: 5px 40px 0px 40px;">
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 border=3D0 align=
+=3Dleft>
+<tbody>
+<tr>
+<td class=3Dmar50_out align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0>
+<tbody>
+<tr>
+<!--[if gte mso 9]>
+<td height=3D"12" align=3D"left" valign=3D"top" style=3D"mso-table-lspace:0=
+pt; mso-table-rspace:0pt; mso-line-height-rule:exactly; line-height: 12px;"=
+><img src=3D"https://services.google.com/fh/files/emails/spacer_11.gif" wid=
+th=3D"40" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;" /></=
+td>
+<![endif]-->
+<td align=3Dleft valign=3Dtop width=3D25>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D100%>
+<tbody>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family: Roboto, Helvetica, Aria=
+l, sans-serif;font-size: 24px;color: #4A4A4A;line-height: 22px;"> =E2=80=A2=
+ </td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0>
+<tbody>
+<tr>
+<td role=3Dnone style=3D"padding-top: 0px; margin: 0; font-family:Roboto, H=
+elvetica, Arial, sans-serif; font-size: 15px; color:#4A4A4A; line-height:25=
+px; padding-right: 0px;" align=3Dleft valign=3Dtop>The incredible momentum =
+on large screens and Wear OS, fueled by hardware innovations of device make=
+rs and by the great app experiences you build for users</td>
+</tr>
+</tbody>
+</table>
+</td>
+<!--[if gte mso 9]>
+<td height=3D"12" align=3D"left" valign=3D"top" style=3D"mso-table-lspace:0=
+pt; mso-table-rspace:0pt; mso-line-height-rule:exactly; line-height: 12px;"=
+><img src=3D"https://services.google.com/fh/files/emails/spacer_11.gif" wid=
+th=3D"40" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;" /></=
+td>
+<![endif]-->
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!--Bullet point ends-->
+</tbody>
+</table>
+</td>
+</tr>
+<!-- bullet2 code ends -->
+<!-- bullet3 code start -->
+<tr>
+<td align=3Dcenter class=3D"ol-p-l-r-0 plr_30 pd-l-r-20 pad-point-section" =
+valign=3Dtop style=3D"padding: 5px 40px 0px 40px;">
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 border=3D0 align=
+=3Dleft>
+<tbody>
+<tr>
+<td class=3Dmar50_out align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0>
+<tbody>
+<tr>
+<!--[if gte mso 9]>
+<td height=3D"12" align=3D"left" valign=3D"top" style=3D"mso-table-lspace:0=
+pt; mso-table-rspace:0pt; mso-line-height-rule:exactly; line-height: 12px;"=
+><img src=3D"https://services.google.com/fh/files/emails/spacer_11.gif" wid=
+th=3D"40" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;" /></=
+td>
+<![endif]-->
+<td align=3Dleft valign=3Dtop width=3D25>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D100%>
+<tbody>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family: Roboto, Helvetica, Aria=
+l, sans-serif;font-size: 24px;color: #4A4A4A;line-height: 22px;"> =E2=80=A2=
+ </td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0>
+<tbody>
+<tr>
+<td role=3Dnone style=3D"padding-top: 0px; margin: 0; font-family:Roboto, H=
+elvetica, Arial, sans-serif; font-size: 15px; color:#4A4A4A; line-height:25=
+px; padding-right: 0px;" align=3Dleft valign=3Dtop>The growth of Compose, f=
+rom being a mobile developer toolkit to Compose Everywhere, helping you bui=
+ld for mobile, tablets, wear and TV</td>
+</tr>
+</tbody>
+</table>
+</td>
+<!--[if gte mso 9]>
+<td height=3D"12" align=3D"left" valign=3D"top" style=3D"mso-table-lspace:0=
+pt; mso-table-rspace:0pt; mso-line-height-rule:exactly; line-height: 12px;"=
+><img src=3D"https://services.google.com/fh/files/emails/spacer_11.gif" wid=
+th=3D"40" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;" /></=
+td>
+<![endif]-->
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!--Bullet point ends-->
+</tbody>
+</table>
+</td>
+</tr>
+<!-- bullet3 code ends -->
+<!-- bullet4 code start -->
+<tr>
+<td align=3Dcenter class=3D"ol-p-l-r-0 plr_30 pd-l-r-20 pad-point-section" =
+valign=3Dtop style=3D"padding: 5px 40px 0px 40px;">
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 border=3D0 align=
+=3Dleft>
+<tbody>
+<tr>
+<td class=3Dmar50_out align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0>
+<tbody>
+<tr>
+<!--[if gte mso 9]>
+<td height=3D"12" align=3D"left" valign=3D"top" style=3D"mso-table-lspace:0=
+pt; mso-table-rspace:0pt; mso-line-height-rule:exactly; line-height: 12px;"=
+><img src=3D"https://services.google.com/fh/files/emails/spacer_11.gif" wid=
+th=3D"40" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;" /></=
+td>
+<![endif]-->
+<td align=3Dleft valign=3Dtop width=3D25>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D100%>
+<tbody>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family: Roboto, Helvetica, Aria=
+l, sans-serif;font-size: 24px;color: #4A4A4A;line-height: 22px;"> =E2=80=A2=
+ </td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellpadding=3D0 cellspacing=3D0>
+<tbody>
+<tr>
+<td role=3Dnone style=3D"padding-top: 0px; margin: 0; font-family:Roboto, H=
+elvetica, Arial, sans-serif; font-size: 15px; color:#4A4A4A; line-height:25=
+px; padding-right: 0px;" align=3Dleft valign=3Dtop>And the growth of the An=
+droid developer community around the world, and the millions of amazing app=
+s you build for users!</td>
+</tr>
+</tbody>
+</table>
+</td>
+<!--[if gte mso 9]>
+<td height=3D"12" align=3D"left" valign=3D"top" style=3D"mso-table-lspace:0=
+pt; mso-table-rspace:0pt; mso-line-height-rule:exactly; line-height: 12px;"=
+><img src=3D"https://services.google.com/fh/files/emails/spacer_11.gif" wid=
+th=3D"40" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;" /></=
+td>
+<![endif]-->
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!--Bullet point ends-->
+</tbody>
+</table>
+</td>
+</tr>
+<!-- bullet4 code ends -->
+<tr>
+<td class=3D"ol-p-10 pd-l-r-20" align=3Dleft valign=3Dtop style=3D"font-fam=
+ily:Roboto,Helvetica,Arial,sans-serif; font-size: 15px; mso-line-height-rul=
+e: exactly; color:#4A4A4A; line-height:25px; padding-top:11px;padding-left:=
+ 40px;padding-right:40px">I&#39;m so proud of everything we&#39;ve achieved=
+ together this year.</td>
+</tr>
+<tr>
+<td class=3D"ol-p-10 pd-l-r-20" align=3Dleft valign=3Dtop style=3D"font-fam=
+ily:Roboto,Helvetica,Arial,sans-serif; font-size: 15px; mso-line-height-rul=
+e: exactly; color:#4A4A4A; line-height:25px; padding-top:11px;padding-left:=
+ 40px;padding-right:40px">Your hard work and dedication continue to make An=
+droid the best mobile platform in the world, and I want to thank you for be=
+ing a part of this community. Your contributions are invaluable, and I&#39;=
+m grateful for your continued support.</td>
+</tr>
+<tr>
+<td class=3D"ol-p-10 pd-l-r-20" align=3Dleft valign=3Dtop style=3D"font-fam=
+ily:Roboto,Helvetica,Arial,sans-serif; font-size: 15px; mso-line-height-rul=
+e: exactly; color:#4A4A4A; line-height:25px; padding-top:11px;padding-left:=
+ 40px;padding-right:40px">Thanks again for all that you do, and we can=E2=
+=80=99t wait to see what you build next year! </td>
+</tr>
+<tr>
+<td class=3Dpd-l-r-20 align=3Dleft valign=3Dtop style=3D"font-family:Roboto=
+,Helvetica,Arial,sans-serif; font-size: 15px; mso-line-height-rule: exactly=
+; color:#4A4A4A; line-height:25px; padding-top:11px;padding-left: 40px;padd=
+ing-right:40px">Best,</td>
+</tr>
+<tr>
+<td class=3Dpd-l-r-20 align=3Dleft valign=3Dtop style=3D"font-family:Roboto=
+,Helvetica,Arial,sans-serif; font-size: 15px; mso-line-height-rule: exactly=
+; color:#4A4A4A; line-height:25px; padding-top:0px;padding-left: 40px;paddi=
+ng-right:40px">Anirudh Dewani</td>
+</tr>
+<tr>
+<td class=3Dpd-l-r-20 align=3Dleft valign=3Dtop style=3D"font-family:Roboto=
+,Helvetica,Arial,sans-serif; font-size: 15px; mso-line-height-rule: exactly=
+; color:#4A4A4A; line-height:25px; padding-top:0px;padding-left: 40px;paddi=
+ng-right:40px">Director, Android Developer Relations</td>
+</tr>
+<tr>
+<td class=3Dol-p-10 bgcolor=3D#ffffff align=3Dcenter valign=3Dtop style=3D"=
+padding-top: 20px;">
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"mso-line-height-rule: exactly;" cl=
+ass=3D"out-width pd-b-0 ">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5q-fujgK8pJ67mgtanPqLav=
+wM9FPskJ4tfIR6WS-MeXwPpZRcO0u2_9JqszD9laC6vXz4ypXjReveX2gaxqf6UPTf9FSyThmeu=
+atL_W7FQj9wylu4V2W70X6JCCHg2XxtV56lYIzZuKwsRTrCEg820qXxtqaPelbiTZ-mee-49hB7=
+V6i30dzXAdBUBDjp8r4QnRFLf7mgniU3nWcvIZFaLVyVLXDhlU06j6TV9nbEfbOOwLIO81XfO3J=
+0VtsIKEQ6ZCDXfbVRcWqeFfx8AvAhXYQDP7gSAt4QMNNX4UUYTs5PPcMgnpea5qEOI5lKaVkKmZ=
+V72N4zWUWeEMyHlx-TpcRvwvS88_CuyaXTluqrP1jLjVQuEYqzynQNSI-gKis2S0Kx6EbweBQgX=
+hDZUjXA aria-label=3D"" style=3D"font-family: Roboto, Helvetica, Arial, san=
+s-serif; font-weight: 700; font-size: 16px; line-height: 24px; text-align: =
+center; text-decoration: none; color: #0a0a0a; display: inline-block;paddin=
+g:8px 14px; background: #34A853; border-radius: 43px;" target=3D_blank clas=
+s=3Dcta_out_look>Check out the highlights from=C2=A0=E2=80=9823</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:20px;>
+<a href=3D# target=3D_blank style=3D"pointer-events: none; display: inline-=
+block; cursor: default;">
+<!--[if !mso]><!-->
+<img src=3Dhttps://services.google.com/fh/files/emails/android_star1.png wi=
+dth=3D536 class=3Dw100 style=3D"display:block; height:auto;">
+<!--<![endif]-->
+<!--[if mso | ie]>
+<img src=3D"https://services.google.com/fh/files/emails/android_star1.png" =
+width=3D"536" class=3D"w-100 wid_436" style=3D"display:block; height:auto;"=
+>
+<![endif]-->
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style=3D"border-radius: 0px 0px 20px 20px;padding-top: 37px;" bgcolor=
+=3D#ffffff class=3D"outlook-pd-T-70 pt-t-0 mob-br-0" align=3Dcenter>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D100% style=3D"" class=3Dwid_320>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=
+=3D"center">
+<![endif]-->
+<!-- Archive & Subscribe Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop class=3Dpd-t-37>
+<table role=3Dpresentation align=3Dcenter cellspacing=3D0 cellpadding=3D0>
+<tbody>
+<tr>
+<td align=3Dleft cl=3D"" valign=3Dmiddle>
+<table role=3Dpresentation align=3Dcenter cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft cl=3D"" valign=3Dmiddle style=3D"font-family:Roboto,Helvet=
+ica,Arial,sans-serif; font-size: 12px;mso-line-height-rule: exactly; color:=
+#4285F4; line-height:14px; border-bottom:2px solid #34A853; letter-spacing:=
+ 1px; font-weight: 500; padding-bottom: 10px">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5qg_l3v1okIqOQQMqU1mGVY=
+tUiI_-9zzSWR-hqav3dQ0Vw0f6qqfsn6pOstIPAbMzyUBZBviARscsMKTgymTwHB32DH6Oq4k_l=
+iXhct4-yTMxTDzBiLjukNuSSExygevZBR_oQRB22EhZEIQrWTijlZTi4ZBQkVTM8W_hlG23dyc6=
+82xpOAvZjBQ2xlPyFSLolYWfE08LdhMmw2LpknLs3pIPQ0ncfpi7tI-UygBaOm0EyFoUBlRow4R=
+54m2XCBb5kaCjWoHhki style=3D"text-decoration:none; color:#4A4A4A; letter-sp=
+acing: 1px" target=3D_blank>SUBSCRIBE TO THIS NEWSLETTER</a>
+</td>
+</tr>
+</table>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0>
+<tbody>
+<tr>
+<td aria-hidden=3Dtrue style=3D"padding-left: 7px; line-height: 14px" align=
+=3Dleft valign=3Dmiddle>
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5oGhh_q6PdaUtJzmAK1A-v3=
+6q1wTiz2MvHtIaJCjnvKUVx5d7J_U3AmOWcrlR7EW2kF5QrO6U9HP_QgMcQxcKMcfALTAxVG4Kw=
+BolGwowCMRWkBuRRfktrqb0VwlZCpLr0X3zs7kU-2-fgFUBkbAOW9LFXEqhGRpGLGllWFSDYXRa=
+qwMIMa4tnE2Dln3alvfGemmwgDLAUmagYonHO4oISRduGgjdIaaEz_tEJz3L4X_A8CMBToxx_zH=
+Mriyk4U8HEL38ZXG3nmds4In7Ml target=3D_blank></a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- Archive & Subscribe End -->
+<!-- Stars and Social icon Start -->
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpdt23 style=3D"padding-top: 34px; pad=
+ding-bottom: 40px;">
+<!--[if !mso]><!-->
+<table role=3Dpresentation align=3Dcenter border=3D0 cellspacing=3D0 cellpa=
+dding=3D0 width=3D578 class=3Dwid_305>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"578" align=
+=3D"center">
+<![endif]-->
+<tr>
+<td align=3Dleft valign=3Dtop width=3D170 class=3D"ol20l dblock w100">
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 align=
+=3Dcenter width=3D100%>
+<!-- Social icon heading Start -->
+<tr>
+<td align=3Dleft class=3D"text-center pd0" valign=3Dtop style=3D"color:#4A4=
+A4A; font-family:Roboto,Helvetica,Arial,sans-serif;font-size:12px; line-hei=
+ght: 20px; padding-bottom:10px; padding-left: 17px;">Connect with us </td>
+</tr>
+<!-- Social icon heading Ends -->
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-left: 17px" class=3Dpd0>
+<table role=3Dpresentation width=3D100% border=3D0 cellspacing=3D0 cellpadd=
+ing=3D0>
+<tr>
+<td align=3Dleft style=3D"padding-right: 0px;">
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 class=
+=3D"w151 m0_auto">
+<tr>
+<!-- Social icon Start -->
+<td width=3D28 align=3Dcenter class=3Dol_pl15>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5pSnZUI=
+NuiGsC54JbPYNa2QTSyidcQ86hG-grxSYD68HJf-1At8TKOITt3AIr1iO4H0U8B8Q0E84P_6pCg=
+iw_hqfw-JLt25T0USnpaU6FWWHUD1r7KD7oQwl8U5oOxya3BVF2VoKsDcP5wPx6cAy5DW_7iB12=
+fb4G0-jCdlWLm2kJxKPuLSf6P33K-Bnn4tkpPDBQ5hNYK4zw0mez8MO8i3JLWX target=3D_bl=
+ank style=3Dtext-decoration:none>
+<img src=3Dhttps://www.gstatic.com/growthlab/api/Ualtc27vFzfjwGCqsSCHYBoqiE=
+IuaQk2cNovPcO7.png width=3D28 alt=3DX title=3DX style=3Ddisplay:block;>
+</a>
+</td>
+<td width=3D13>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D10 h=
+eight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+<td width=3D28 align=3Dcenter>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5p_ZOEg=
+e4zXDz10Dy0tZWtIZqesJrGuVB5u3B6zp_Gi1EEelsn38H1DZs283mEKCsQ9IwyEz1nHCGScd0g=
+ePzv-2FNUqK2TesSSeYQl8EYPYyuBneF7Ft4VEG_pc4MNEXZ6b3mHJw6_eDGERRiabkcFHuzRZH=
+KSG0PZFOxtXXW1Y_TTz9kPfGCUCQ8RFKWlLFgtONM4RhpeUuEXLgNQEcGJLUfz0EWgJZO6nTYLc=
+tryhO1u1Zgb9ywenQ target=3D_blank style=3Dtext-decoration:none>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/android-developers-logo-bl=
+ogger-transparent-w56px-h56px-2x.png width=3D28 alt=3D"Google Blog" title=
+=3D"Google Blog" style=3Ddisplay:block;>
+</a>
+</td>
+<td width=3D13>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D10 h=
+eight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+<td width=3D28 align=3Dcenter>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5oaFctu=
+TBtN98GoHQlxnqN71zFm8ysDW1E1Q65e9pIcAmheHGDXvwu4sgrkRSDkDFDIrW5rOkExgASSXXa=
+JqPj-UTIOg9EsbaM9wtcnwE99MBWAF8935CVDsQJDAghkkFtzlPwWuYrBI5_8sjVsx1HWFHJNSQ=
+KE9XQm6DSK6-myl01oNqTitjH3tDlN0k4vq_Dg_mDSO4uparE9I8ZzhQqPJA1raTfqQVylep79P=
+P0 target=3D_blank style=3Dtext-decoration:none>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/android-developers-logo-me=
+dium-transparent-w64px-h64px-2x.png width=3D28 alt=3DMedium title=3DMedium =
+style=3Ddisplay:block;>
+</a>
+</td>
+<td width=3D13>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D10 h=
+eight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+<td width=3D28 align=3Dcenter>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5rRQ0Ad=
+m-f0JIxjoo_0eirNZL6A-GvVsKHANwTSzWyZHh1Yq42eJce0vy93MxVWO1H_cdeHUXD8z3sg8up=
+uaO9XYE-NBIzGuVBsIGIdAvLk0Ar7JBy6zqSNIIbHZlBS9IM-RkJMOt5ouG-stzhd21xe5Qb2OO=
+D8BVMu7bPDIhRwvNGfp6WtLhmAnwK9xNjhiMAWVLWnnxbiWq9fSSrvaxOg2ZZaeXuDwlmD1FOvb=
+0jV2CyxGsW1CN1DGA target=3D_blank style=3Dtext-decoration:none>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/android-developers-logo-yo=
+utube-transparent-w56px-h56px-2x.png width=3D28 alt=3DYouTube title=3DYouTu=
+be style=3Ddisplay:block;>
+</a>
+</td>
+</tr>
+<!-- Social icon Ends -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td width=3D181 class=3D"dnone wid_85" align=3Dright valign=3Dtop style=3D"=
+border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; mso-l=
+ine-height-rule:exactly; line-height:8px;">
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D181 =
+class=3Dwid_85 height=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+<td valign=3Dtop align=3Dcenter width=3D227 class=3D"ol_ml_100 dblock w100"=
+>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 align=3Dcenter>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"color:#4A4A4A; font-family:Google =
+Sans,Helvetica,Arial,sans-serif;font-size:12px; line-height: 18px; padding-=
+bottom:12px; padding-top: 3px" class=3D"ol_wid308 pd-t-25">Was this newslet=
+ter useful?</td>
+</tr>
+<tr>
+<td align=3Dcenter valign=3Dtop width=3D100>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D100>
+<tbody>
+<tr>
+<td align=3Dcenter>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 align=
+=3Dcenter>
+<tbody>
+<tr>
+<!-- Social icon Start -->
+<td width=3D24 align=3Dcenter>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5ouyAgN=
+SokZgTcE_y6Nm0KigmiLBnYOhAmJvxsQqTVNURFs_8YSvE6H-MaLJZehqWRf7dSccaMo5N-fBX7=
+gsDG_XWWPjmRsCIR_EFfMgxZDXVshxaje8kTSCIX28xZBIBsIReVE203H3bAcrNpumBw6Z7WTIn=
+2XwFDJnoD0lAKzBFMzNxCBq5QxC7z9KwHQdl1cYzSfqRleQOZAVM1FQTioN2CdFnujaF87Ozg1i=
+qmJ8YuIRVrm0fICE0oEZcI6sBnNyybKVeJNHmGENeAOMLCyAFhc9HG9AhFGZ8Th0W-qzdLTiiqg=
+YPNEWQsyYQ style=3Dtext-decoration:none>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/android-star-white-b-trans=
+parent-w48px-h44px-2x.png width=3D24 alt=3Dstar1 title=3Dstar1 style=3Ddisp=
+lay:block;>
+</a>
+</td>
+<td width=3D13>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D13 h=
+eight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+<td width=3D24 align=3Dcenter>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5r2JUKY=
+38VMQuCFNCJURMGitZw9RuTzpCwGuV_V3idA9uhlpvkG5peT1XtQtzHTh7RXy2eVmDcb-4nXm7d=
+m4LIiPbs08BsElz1PpZEYycNwpKQb3QWdyT-SWtLhk_MBX2E03rLpvhCkBfYGfH9NOgQ89XgCLR=
+-cteFuaMpIN0N1ojcPMIukGTXfryy5I76wfnOV2DgmW9ChU5APH-ypWBI2eTIzuNIL6A02JsasE=
+CeMdE9TqB9RNDsK4irPlrZRb2-LVv55LwKHNvXAz2bbVG5u7ariAFWl0a016sWf2K0mqFqt-jrP=
+WMEavFXRuA style=3Dtext-decoration:none>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/android-star-white-b-trans=
+parent-w48px-h44px-2x.png width=3D24 alt=3Dstar2 title=3Dstar2 style=3Ddisp=
+lay:block;>
+</a>
+</td>
+<td width=3D13>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D13 h=
+eight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+<td width=3D24 align=3Dcenter>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5q8BFb1=
+BP3TfsviTgAaqsnWEVCsayo7d7qqZHXjHa_glXb8Dnv2zuYGuCF_IKhHxeoy9_Or_hxKx6ZPACP=
+MqaTuLzNztsTppeDPPRTD0VveP1FxS4CGRfK2_sT4QiRHf231jKfqmV2CxZxnr2xI6ypBmyIE67=
+GkdAp8RB78dZj2YZhQkmHMcI-Jz7t6PU8eKIPFqeclTbqGOm-YU5HbShKmMBs6Bnoy0wBZyzJ9G=
+8H7kp1v21oLRx552trgEgUgN5XfGNTYesekdOA0ULoNef1117PKG1JwJj3qsgWLAuVrjGOewVVG=
+WslGbULQyw style=3Dtext-decoration:none>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/android-star-white-b-trans=
+parent-w48px-h44px-2x.png width=3D24 alt=3Dstar3 title=3Dstar3 style=3Ddisp=
+lay:block;>
+</a>
+</td>
+<td width=3D13>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D13 h=
+eight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+<td width=3D24 align=3Dcenter>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5raQcGI=
+4RSmMsC5_71gCa-RB0vFGuN1Sq-4TzPLDY-iY-zrR1f1hFs8yjJU6ixFw0vkBfVI8dZw7bvdagq=
+bp1JoVi77PdiuGuJr77x0htDvBsjpDoAliBs9LpM4rR7Qhwfd8lINBq-WLeDL1mqbotUvBL1Jok=
+nQdjSTws_Chfq3wCFZQYc7_tC8qFUVZE-GIvNOLg6OfLZAXRlr0UvMfczezrv5GhsPM-dpA1WcU=
+XWBUwJ3qeGxrxXF240KYMnVaePXApxXeYRXYx-aJbG0k6slwEFYvbdpDzxhM-7Z9-xEsUwDegpq=
+HeCw07BoFQ style=3Dtext-decoration:none>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/android-star-white-b-trans=
+parent-w48px-h44px-2x.png width=3D24 alt=3Dstar4 title=3Dstar4 style=3Ddisp=
+lay:block;>
+</a>
+</td>
+<td width=3D13>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D13 h=
+eight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+<td width=3D24 align=3Dcenter>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5oVMqVo=
+0b6VBb1jlLaOFBwouu_p6sMoCtsFklID03R90ivgnJ4QjoVALTvv_Oi3CqwMWgpbXYjUxnS516V=
+mxhAFYQHpIXcS2pbJuXIZJ4FG_SdJ3aR5VWqyds6K7FPUEPQnMQ-0iQbBXiprokJ2ihBL8-WcaY=
+6hWjejyoj3oWV7ga8xKWQqUfhe7adPwxx0kUoN-GHil6-9s2kffKdaWgMRy6MGBvreAhDHVCpOr=
+UIhP7HcjTzEhwlgL-kXsmhkxLmecsHsHYi174FfIDpKXkFC8DYlH-f7hJk2GFwED6jmLdmCMeRM=
+rmFOuMqkYA style=3Dtext-decoration:none>
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/android-star-white-b-trans=
+parent-w48px-h44px-2x.png width=3D24 alt=3Dstar5 title=3Dstar5 style=3Ddisp=
+lay:block;>
+</a>
+</td>
+</tr>
+<!-- Social icon Ends -->
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Stars and Social icon END -->
+<!--[if (gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<!--[if gte mso 9]>
+<td align=3D"left" valign=3D"top" width=3D"15" style=3D"mso-line-height-rul=
+e:exactly;">
+<img src=3D"https://www.gstatic.com/gumdrop/files/spacer-11.gif" width=3D"1=
+5" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;" />
+</td> <![endif]-->
+</tr>
+</table>
+</td>
+</tr>
+<!-- main section ends -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- footer start -->
+<tr>
+<td align=3Dcenter valign=3Dtop colspan=3D2>
+<!--[if !mso]><!-->
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D600 clas=
+s=3Dwid_320>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=
+=3D"center">
+<![endif]-->
+<tbody>
+<!-- Signature Start -->
+<!-- Signature End -->
+<!-- PlayConsole footerStart -->
+<tr>
+<td align=3Dcenter valign=3Dtop class=3Dmob-pd-b-45>
+<!--[if !mso]><!-->
+<table role=3Dpresentation width=3D600 border=3D0 cellspacing=3D0 cellpaddi=
+ng=3D0 class=3Dwid_320>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" width=3D"600" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0">
+<![endif]-->
+<tr>
+<td role=3Dnone align=3Dcenter valign=3Dtop style=3D"color:#000000; font-fa=
+mily:Roboto,Helvetica,Arial,sans-serif;font-size:12px; line-height:18px; pa=
+dding-left:25px; padding-right:25px; padding-top:26px;" class=3D" mob_white=
+_bg pad_t15">=C2=A9 2023 <a target=3D_blank role=3Dnone style=3D"text-decor=
+ation: none; color: #000000;pointer-events: none; cursor: default;">Google =
+LLC 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA</a>
+</td>
+</tr>
+<!-- General Marketing Start -->
+<tr>
+<td align=3Dcenter role=3Dnone valign=3Dtop style=3D"color:#000000; font-fa=
+mily:Roboto,Helvetica,Arial,sans-serif;font-size:12px; line-height:18px; pa=
+dding-left:25px; padding-right:25px; padding-top:15px;padding-bottom:45px;b=
+order-radius: 0px 0px 20px 20px" class=3D"mob_white_bg pad_b35">This messag=
+e was sent to <!--[if !mso]><!--><a style=3D"text-decoration: none; color: =
+#000000; pointer-events: none; cursor: default;" target=3D_blank><!--<![end=
+if]--><!--[if mso]><a href=3D"#" style=3D"text-decoration: none; color: #00=
+0000; pointer-events: none; cursor: default;" target=3D"_blank"><![endif]--=
+>nicopico.dev@gmail.com</a> because you asked us to keep you up to date wit=
+h Android developer news and updates. If you do not wish to receive these e=
+mails, please <a target=3D_blank href=3Dhttps://notifications.google.com/g/=
+optout/ANiao5rV91QoirkfK7piszUYm-dvL_LdeCRNV3A_PR8hEGRagS7Xqzx7w-_1Nmw_wiOr=
+KpPHJn7mQoA2cJl00IGjRtOpvHbH3WUgj6e3fPztsHEwHv-jIUflVrgulXjsUgq9dPU1GdnCuBH=
+ZsDNCTVGru2_GtOF0zspM3ftfFu9qFPp2srVKK5IeoVNGcC-N9Tep0I9Yxrtbn7o49Q9f4VpmvG=
+nZIBqOoC6PUcVA7LhC8vKB0_O96BN-_no7kyKs2J1mdguJxOmQSUUX-djW6csuE3aygOtdkCXla=
+iJyeNABlzKb?hl=3Den-US target=3D_blank style=3D"color: #000000; text-decora=
+tion: underline;">unsubscribe</a><span aria-hidden=3Dtrue>.</span></td>
+</tr>
+<!-- General Marketing End -->
+</table>
+</td>
+</tr>
+<!-- PlayConsole footerEND -->
+</tbody>
+<!--[if (gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+</table>
+</td>
+</tr>
+<!-- footer end -->
+</table>
+<!-- Body ends -->
+</td>
+</tr>
+</table>
+<!--Main content end-->
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Body End -->
+</table>
+<!--[if gte mso 9]>
+</v:textbox>
+</v:rect>
+<![endif]-->
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<img alt=3D"" height=3D1 width=3D3 src=3Dhttps://notifications.google.com/g=
+/img/ANiao5oGwmLYjtNXhOvb7-ACmjLqIJPXNnL-nBTScvqNGRF7oP2ul78524ZW8MIs-DTfvn=
+aSQ-Occ0fp-01jwCZ_AJ8KAZVDJXB6-eBmTqY5jkA00OfGnHgRnZiQNzdxePitex-mSskYjszex=
+KUCu3gsAAgAS8Q_3zTNnrh4.gif></body>
+</html> <!--structure-->
+
+
+--0000000000009452ad060ce45120--

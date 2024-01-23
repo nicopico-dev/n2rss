@@ -1,0 +1,3279 @@
+Delivered-To: nicopico.dev@gmail.com
+Received: by 2002:a05:7000:59d7:b0:533:5328:305d with SMTP id z23csp817227may;
+        Fri, 17 Nov 2023 10:23:13 -0800 (PST)
+X-Received: by 2002:a05:690c:284a:b0:5b0:6326:75a4 with SMTP id ed10-20020a05690c284a00b005b0632675a4mr441248ywb.7.1700245392928;
+        Fri, 17 Nov 2023 10:23:12 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1700245392; cv=none;
+        d=google.com; s=arc-20160816;
+        b=07MupedmYX5H2nqY67tcbm6X+BR6b5klMHJ3airux0MCtD7aCSEvXSX9v5rvNL3pV/
+         p39rLdBMjT3mPCrXRuv7g8Mz7vBrstHrLWyCh0afo5vR5tnTi2GNqkVbrBX/SCuzInLc
+         tCEjRpcrkKJa4RaCupPTs9OsqvM1drRNTsTF3y5Tt/ch2TerGpwye0bp6dmPmFI/SGP8
+         z1zNnqAw63O4pUi/etSFJd0jdShTn0MNxUyk2LdO2WP0+or5q15p8SRiGF9bkEfOIn0e
+         dx3Niq5DHwoSmGtO2TMKFj83YB1JqiGmt+InQd8V1SziRCrWX3HAW+PTE7gRehfghcGH
+         1G3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:from:subject:message-id:list-id:feedback-id:list-unsubscribe
+         :precedence:reply-to:date:mime-version:dkim-signature;
+        bh=V5knG/wUCItfm88eoB5lFSosOjmN53SYXYQMYDNK0xg=;
+        fh=mtdSqSmrzXLQo/FWggskfaHm/ioCdJ0nULo6fTOj594=;
+        b=U994NG1Q2cx03VAyVKprkYvvPFV4S7UJnNs16ZZYAjDEKLx0R9C3pMOhwA4JdpryiJ
+         lQIePyRqSZ9z6jBu+8tOVJujg5rJqh2sWbvnC5Rtr4Ldl9TOu3sNTPCNoyBRpkZOBQmL
+         vMMtcjqFRHXm+84zSnEBQEvS1AtFYFLHdWh8R0ph6k8Ool5gg+rlPndoCjdbIrO8nAu6
+         AvsDdklxSfeeu+aUdOEAHn1wP69Ho2iKE5BjibwTea4MZhL7oMxJmOiRshy3wr4y504O
+         g6Mn3BUc4DO7ZsL+IY1bnRNX/d0A8ykzmh87v3szT3I8Ycl8f+hI4o3Z1Dq3lVONdTsO
+         n9Ig==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=uTI1GBck;
+       spf=pass (google.com: domain of 3kk9xzrokah8dqgurlg-ghyhorshuv-qruhso1jrrjoh.frp@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3kK9XZRoKAH8dqgurlg-ghyhorshuv-qruhso1jrrjoh.frp@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+Return-Path: <3kK9XZRoKAH8dqgurlg-ghyhorshuv-qruhso1jrrjoh.frp@scoutcamp.bounces.google.com>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id u20-20020a0deb14000000b005a1f12d8b40sor1074795ywe.6.2023.11.17.10.23.12
+        for <nicopico.dev@gmail.com>
+        (Google Transport Security);
+        Fri, 17 Nov 2023 10:23:12 -0800 (PST)
+Received-SPF: pass (google.com: domain of 3kk9xzrokah8dqgurlg-ghyhorshuv-qruhso1jrrjoh.frp@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@google.com header.s=20230601 header.b=uTI1GBck;
+       spf=pass (google.com: domain of 3kk9xzrokah8dqgurlg-ghyhorshuv-qruhso1jrrjoh.frp@scoutcamp.bounces.google.com designates 209.85.220.69 as permitted sender) smtp.mailfrom=3kK9XZRoKAH8dqgurlg-ghyhorshuv-qruhso1jrrjoh.frp@scoutcamp.bounces.google.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=google.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1700245392; x=1700850192; dara=google.com;
+        h=to:from:subject:message-id:list-id:feedback-id:list-unsubscribe
+         :precedence:reply-to:date:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V5knG/wUCItfm88eoB5lFSosOjmN53SYXYQMYDNK0xg=;
+        b=uTI1GBck97oakUEUweKVko3B+CKpab8eD4cNr5TXzABLaNG/zM/7JUBy6EXZAA7y0d
+         vLgLCIxh0zlFBBB9bs9LxVZJxFxz8fS6Xy63cu8Lghxr2iEO6k0tNxjewgH6l+ysZNQp
+         wOKZwU3g8V74DN2ivBzcnfLVJlz6iygkNaBOrjdbI+38UwdRE/Ge05DMRlayb2/08csI
+         OlZxQJXown1SuuovkVWXCQfTJqch2PV3yxQ3agZ++l7L547mgg0WF7L0NQ0FWTa2m21T
+         W5d/QWEOsExs2t653lcxmjnMilJv9TerYm6b/2PcKpdAQitjkHQ5hJTUTbpAgLw6DwJ0
+         /84A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1700245392; x=1700850192;
+        h=to:from:subject:message-id:list-id:feedback-id:list-unsubscribe
+         :precedence:reply-to:date:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=V5knG/wUCItfm88eoB5lFSosOjmN53SYXYQMYDNK0xg=;
+        b=Qyk8vkXY5ebIrCLCwr0MKxEpfe/TpaGwL1yPIOQ9vhfsMF5p1uHK0ZWjBl3YOXM4bT
+         PxeXER2sQnyau4wx1E7BIXYtL/mp9Exz+IAkec0BKCLnhbw5U17sM+Ez8114od8l/UIr
+         LTXHDd+BKfszso50/0Th8s3c87A8LgsvNi8xy0VZt1GBxEUCGwc7ezmg5WlnUOlfP0QJ
+         HrGgyOAFQznuq7O8qkviscmFpbTu3qoE42lt91GN2zLKhny7dtqYLfooS37AQ6JAk08b
+         I0FyqNasafyJmi0E9Ryb3O4g045y3Tjm1KMBLWYtuHAtv4PTEDRuhD3JxobIoSqoGbAs
+         0Lmg==
+X-Gm-Message-State: AOJu0YyobgJp1Sn0uNVOd7lP/QgzKlFJBFzJmByb86VQ1WyyV3TdjieW
+	4fIMPpdoQlUdyzw=
+X-Google-Smtp-Source: AGHT+IFusMrjHGg/e/U4YPsXDkJY2BuwSdIgwgy/PA7LAkEThPovS1wQbxmGDfI/S+aR9+4bqMIFP9Y=
+MIME-Version: 1.0
+X-Received: by 2002:a25:c545:0:b0:daf:579a:79cf with SMTP id
+ v66-20020a25c545000000b00daf579a79cfmr220156ybe.59.1700245392432; Fri, 17 Nov
+ 2023 10:23:12 -0800 (PST)
+Date: Fri, 17 Nov 2023 10:23:12 -0800
+Reply-To: Android Developers Team <android-developers-noreply@google.com>
+X-Google-Id: 4291917
+Precedence: bulk
+List-Unsubscribe: <https://notifications.google.com/g/optout/ANiao5rumHXPhc2FZnV8k3QY3qN_ZJ5KbpKnTsA6NmyIj_JGcQR4z7AimtSyggSDRYskM5UvAT5y-16UTU9kK8o0cL0Y7aexUrHSjnmAntXDaPErcWdJnnBI0W_qeYmKlHGj5tUwqEUbGq28-zOGdt3fqvRSinC8zFXCHIfkH0GJhdPyeQeaW8Ls3aIcDNu_ovSmsaEsHL0Au21OPk0LIZOSVyMev7IecIQOmJoV0Fyh_ItYsZjvzxvljy3QhSn4AvIzZAY26AfcmypFfNAuclr7D-oBwZfBE-g72EIiXgb76WZx?hl=en-US>
+Feedback-ID: P2433-1551:C20292669:M110754456-en-US:gamma
+List-Id: <e6649ef3d10ad399a82bd2258350472130f82d33.google.com>
+X-Notifications: GAMMA:<39339766c8de5fc0292416379499cc206360c690-20292669-111414711@google.com>
+X-Notifications-Bounce-Info: AaJ7rEpV_kpjYrM4Urc6uVypgQ1COyo-vXmTJRTHEWIULscdVm1jHVzJHBSWe8Ig1MXKcC9I4BMBWYglzys_Qf_vKKsQ8wSxvtONtZ7wRooWKjppWSoxHf_Ax7pwyCy6WzChgr8tC6uISVpvE_d-rClseBDLKwywe5DTyZTJG0WIm9aF3qTA5fTncj5q2TUuoGV3QYD8VC4sEkfYwg26JXe0QoY6icXdGtE0E5OQQ_oXF_S8L0H_ErszhNgpREAD_bbNw0kBVLvwjr5IRQ7c5_AMo3Prb0oPTSX7nih7umr01vh2FyMf5h6PZj0M2MouKuRvfBkvca4srNLG0LrzS2jhDj41UZFe8LgBCbCgWSAFwZ2vlBIVLYMzB_W_1ElOQ6eAaBHpCG9vdkaLnW_dcDwCi_KgzO764-LU1tDyPsP87ixSULykYQEWSd79qneqMCzh_s_4f9d5M1hN0b_ThmBK5Llt84H3qdq0cWNqcgFqP79wJVU-fgq_7scPUH4lEHGI-nghwTzMvTSZ3iNaI31jTEBHNjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <39339766c8de5fc0292416379499cc206360c690-20292669-111414711@google.com>
+Subject: 
+ Nicolas, here's how 5 devs built excellent apps with Android
+From: Android Developers Team <android-developers-noreply@google.com>
+To: nicopico.dev@gmail.com
+Content-Type: multipart/alternative; boundary="000000000000a59f92060a5d3acd"
+
+--000000000000a59f92060a5d3acd
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+DQoNCkNhbid0IHNlZSB0aGlzIGVtYWlsPyBWaWV3IGluIEJyb3dzZXIgIA0KPGh0dHBzOi8vbm90
+aWZpY2F0aW9ucy5nb29nbGUuY29tL2cvdmliL0FOaWFvNXJRQzJYOUlWMHNaQTF0SGJ4eENBM01w
+UVRtbnZnbnVhYjhlZ21TczlWUTN6ZnEtVGRuMVBBUm1oYmFOTVV1TjZEV2Y2VGk0Q2lUZUFMTEc4
+ejg0TzNaa29XSU42NF9VRmo4NXpPcHF1eEpYWThpSFdmekJHXzhaUm5wVXdmU1JKRFJKclF2bzFo
+WlpoV0F1NTRlcHc+DQoNCk5vdmVtYmVyIDIwMjMNCg0KRmFzdGVyIGFuZCBlYXNpZXIgdG8gYnVp
+bGQgZXhjZWxsZW50IGFwcHMsIGFjcm9zcyBkZXZpY2VzDQoNCkxlYXJuIGhvdyBBbmRyb2lkIERl
+dmVsb3BlcnMgYnVpbHQgZXhjZWxsZW50LCBwcmVtaXVtIGFwcHMgdXNpbmcgdGhlIGxhdGVzdCAg
+DQpBbmRyb2lkIGZlYXR1cmVzLg0KDQo8aHR0cHM6Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20v
+Zy9wL0FOaWFvNXI5S2xReEVQblBUMjJOelpzWVVUbmpwUHZFUFpxVWxXX2pfUEFpQ3ZLNktGbGEz
+NzRVQ2VONFBpR0syVk9HTkRITXdsMWplRGFEN0JSZzQ0REVLdmRzbHdWZXVYekV4c29oSXRpaFBt
+RzlwSElFY2o4TmJZd2hKV2lBaEs5Skw1cmtBNndRaWFtRTluSGJZeVg4UlJWVFNOemJFcGVURGMt
+V3REdE9CQzVrQl9qMTktY2FRMFZkcTVvbThDcGVEZjBkWFRIQTJMMHUxeTlyUXNRSWNaamt2WEVV
+LVdkOEhNQU9GQXFpTmhJTVAxdXNmVXFQdUxrbW1iWUMwbTVneGNJOWJSZGRCVDlfbmItYXRqWExK
+MEpubG1MM0djbWVmUGJiZUU3cFVnZl85Zk9tcHVVOWZqTEU+DQoNCkhvdyBKZXRwYWNrIENvbXBv
+c2UgZW5hYmxlZCBUaHJlYWRzIHRvIGJ1aWxkIGEgaGlnaCBxdWFsaXR5IGFwcCBpbiBvbmx5IDUg
+IA0KbW9udGhzDQoNClRocmVhZHMgaXMgYSB0ZXh0LWJhc2VkIGNvbnZlcnNhdGlvbiBhcHAgYnVp
+bHQgYnkgdGhlIEluc3RhZ3JhbSB0ZWFtIGF0ICANCk1ldGEuIFRoZSBlbmdpbmVlcmluZyB0ZWFt
+IHdhcyBhYmxlIHRvIGJ1aWxkIGFuZCBzaGlwIHRoZSBhcHAgaW4gb25seSA1ICANCm1vbnRocywg
+d2hpY2ggZXhjZWVkZWQgdGhlaXIgZXhwZWN0YXRpb25zIGZvciBidWlsZGluZyBzdWNoIGEgaGln
+aCBxdWFsaXR5ICANCmFwcCBvZiB0aGlzIGNvbXBsZXhpdHkgYW5kIHNjYWxlLg0KDQpSZWFkIG1v
+cmUgIA0KPGh0dHBzOi8vbm90aWZpY2F0aW9ucy5nb29nbGUuY29tL2cvcC9BTmlhbzVyZGNKckZP
+d2dIWUItYjktWGwxZ2t2ZXZRQmVkNk52MUVuZk05WlVuWmg4c01aU0VqVE1BRGVNajZlWmQ4cS1E
+cTRqRGw0UmdEWk5Tb19kRmtJMUFXak55NmVXR1Rxc25YMVVzUW5RRUp4OF93VDVTUGhzdk9CeDRk
+T0s0V2VXN1NyQ2JFbGNYbDN5TGRiRUVGdXBoWnE1THVGU2s3d1NJOFYtR2dXSGEyemtaTEF3LVp0
+SWNTV0hyZjJ4TW42OUhSakJ0SzVuT0F2ajduRmFrem5HcGdmNTZIQVJOTGNHVGZMX0EtUm0xTzA2
+TGlVZWdvcmNtSE95NU1uMTlDWDhXelZETkZsSVlXc3BiaDNSa1BvTmYwejNUUFdCb2wzMUdRYVlw
+eXloMkhiTzdFN0pHM2pPVzBtVld4dmhKa2V6Z05zUFBqNllBSjgtZk1IPiAgDQo8aHR0cHM6Ly9u
+b3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNW9jME0zM3VRbndHbERJVzhoWlQ3SVJq
+THVwUzFnODNoMlRkelR4S0lmTm1hTUlHQVZ2dTVvTUN2bzJZWkxvNXlQTldKZGptMlRIa0ZiWjQz
+TV9kZmoyNXZpUXZjNFl2TTJ2Z09PS1AxRFdhNkllclJ6dFdpSUpvNGw3b0ZtcGNwbE85ajl1OEZQ
+WjBkZ2p0b2RjSDNhY3M2UjdCYXBQS3JhUDFmcWtNencyWFduc0VjZzlyeGxnVkFVVlhkdlR2elg4
+X2czWjZtcFU5bjQ0ME1PMDFsTzNKMXRhaFJaWXZESlNtYVROYTdVb2preWY2WDF1SnNRaWVnUHlI
+TG5xcGMxV09DbGJBSXdzM1FCNjczR3VFYldrbFlCTFpoTjI2bmw1cGgzVEREb05YWFhyYXBEYUJG
+UXpuMzl6NGlxV2htcnR5dmEzLXdDZDgwZE1RaGxEXy1QTz4NCg0KPGh0dHBzOi8vbm90aWZpY2F0
+aW9ucy5nb29nbGUuY29tL2cvcC9BTmlhbzVxT3dkdS1PRGo4S0h4TDllakQ2V3NKUUlYUHRpVW00
+VEl6ZmxGdUkwc0tTcnJrbDdjcHZhalQ3aVR6Sk9ydEV1QklJZFF6eTkzQ1dfWkpSeWNncjhkN2sw
+Vjl1OC1hUlF0QU9DYkpZVUVramNxbnFPcXV4d2JMdURHVnZrMm5aTnRGY091V3l5bUplR05lZjZ1
+UGVtMjJGSkZueVJleEFFTE1jQ1lmVEh0NUwtSFpNbGNtRFNXemFuMFdkMm5hTFk1c2N2UWR4WVFZ
+Y2ZxRzV2QWtCaEJDaHZGNkgzTTJOQzhOakRweVM3aXNxRks1TDlSWTZWWFNuMi1WQVR2ZHhKMXNw
+RDJCRF9wbFRUdDJEYWl3UVFFLTNNcnQzMkpXSkFiaWJwMU5YdmZSVXY1OXJaWW9jcVdyYnRNVm5O
+TVlEbjg+DQoNClJlZGRpdCByZWJ1aWxkcyBmZWF0dXJlIHdpdGggNDQlIGxlc3MgY29kZSB1c2lu
+ZyBKZXRwYWNrIENvbXBvc2UNCg0KSXQncyBpbXBvcnRhbnQgZm9yIHRoZSBSZWRkaXQgZW5naW5l
+ZXJpbmcgdGVhbSB0byBoYXZlIGEgbW9kZXJuIHRlY2ggc3RhY2sgIA0KYmVjYXVzZSBpdCBlbmFi
+bGVzIHRoZW0gdG8gbW92ZSBmYXN0ZXIgYW5kIGhhdmUgZmV3ZXIgYnVncy4gSmV0cGFjayBDb21w
+b3NlICANCnByb3ZpZGVkIHRoZSB0ZWFtIHdpdGggYWRkaXRpb25hbCBmbGV4aWJpbGl0eSwgcmVk
+dWNlZCBjb2RlIGR1cGxpY2F0aW9uLCAgDQphbmQgYWxsb3dlZCB0aGVtIHRvIHNlYW1sZXNzbHkg
+aW1wbGVtZW50IHRoZWlyIGJyYW5kIGFjcm9zcyB0aGUgYXBwLg0KDQpMZWFybiBtb3JlICAgDQo8
+aHR0cHM6Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNXJtVGhDWTQxQ3lWaThv
+MGNsOG9la1RqdTNPbDI0N3cxOWNYT2NGWWJ1MlFBVmVDaUM4Y1JlZG1ZZE0xSlpXY3h2WUxCLVdu
+aTBnM2p3ajZjZ0xWS0xaNG9hUU1HTmdzOENwMXAxRktUUmdCZUFsckJCa0UweS1NcEpzQ2llb3l6
+ZGVVREFod2sybVJmRzV3UDlLaHVBdXp6c3E4S2otemJaSFZtQjlLUzI1NXBXYVNSNllITkZ5cEJV
+dFNGU2xzVTg3cURiZGVUc0ZWTk84THdNMl82YlNHVmRRZTctc0tBZnZDNXJ1WmtieGZqSUJBdW1v
+WmJNOUJ1Nko2aWF4T0pBVTlkX1pLOUZieTZIaldHbUdJRkJ3WEkwWkRGSEt4b1ZGSDVudHJCZWZX
+VGwyZjVCVmRWaUV2ZUhPN2kxamt6X29MUT4gIA0KPGh0dHBzOi8vbm90aWZpY2F0aW9ucy5nb29n
+bGUuY29tL2cvcC9BTmlhbzVwSGxSbU5EVGRlYVhubzJVMTMzLXFBMkhZWkpSNzJ2THRlR1h5OUZa
+WGQ4T3Z5aFNzVU1lYWJ4bkJNMlJMYVlTMDNwZVN2c09xWFZ5X2k0cGZNeGZPSjJ5OC15LVpNMzNF
+WWtOc2RnT09XRlhjdnJjSmZadEJiZEo3S3JYVGQ4M1ZYWlBFNUo3aXBIbmNZSGRxUkttTUoxN05x
+LUNUZmVITklVV1hqWlpfdnUwaGZ3OGhZMVJKd3dHek8xTzRTVjZvaW41MVdNbGZnVlZiREZnZjVj
+aWFTMnJJQV9JQnlINk9ZSUJzTW5iM2tkY3FZNUtGUkdmTlJQLWhtclNSdW9pb2R3Qlo3UWpDWDl0
+eDRrSl95S2RBdzItemV5T1BIb0VfZHVqdWlCVjBHX3YyZzJfUUUxOC0zRHh2Vm1xWEI5OG5mT0o4
+Slo3dkpJZz4NCg0KPGh0dHBzOi8vbm90aWZpY2F0aW9ucy5nb29nbGUuY29tL2cvcC9BTmlhbzVw
+MWlVQ0F6czFqOEtKUHVlVC04Njg0WHlvb1hHcnk1eVRiTzBiU2d0ZDZWaktsVGpoSWx2aGUzd3Z1
+eGZ1cVdBdTg3cGhKQ0Z4UTdsZkJGQWp6OXoyVDdSc3dEWU5Zd0hzeElwUVE2UFlmVnk1WVRsUGZE
+ZDE1UHlkS0FYWXIzdGRMZWhPRTFpU1Rjc05BMTh2SUtTV3cxRUpvLVN4a2NoQ3VpZ0ZGQXRvSG10
+cDFucENrNmpZU2lyZGZKWGl3LXpMYXZDdTFRZ0hrakx5V0tucE5PUHhKQld4a2pYVUNhTzRJZUdD
+ZDRjQ1BoNXFpaklyamxvZkhEdHVIbjB1R3I0OEZPN2lzZWJiNlQzVFBQMlhjdU1kZzBydHRidEdZ
+UjU3Q01BaFRRN3BvVWNwRFFZdlptS3p4NDktQ3RCcGV0XzdZV0VBPg0KDQpLQVlBSyByZWR1Y2Vk
+IHNpZ24gaW4gdGltZSBieSA1MCUgYW5kIGltcHJvdmVkIHNlY3VyaXR5IHdpdGggcGFzc2tleXMN
+Cg0KS0FZQUsgaXMgb25lIG9mIHRoZSB3b3JsZCdzIGxlYWRpbmcgdHJhdmVsIHNlYXJjaCBlbmdp
+bmVzIHRoYXQgaGVscHMgdXNlcnMgIA0KZmluZCB0aGUgYmVzdCBkZWFscyBvbiBmbGlnaHRzLCBo
+b3RlbHMsIGFuZCByZW50YWwgY2Fycy4gSW4gMjAyMywgS0FZQUsgIA0KaW50ZWdyYXRlZCBwYXNz
+a2V5cyBpbnRvIGl0cyBBbmRyb2lkIGFuZCB3ZWIgYXBwcy4gQXMgYSByZXN1bHQsIEtheWFrICAN
+CnJlZHVjZWQgdGhlIGF2ZXJhZ2Ugc2lnbi11cCBhbmQgc2lnbi1pbiB0aW1lcyBieSA1MCUgYW5k
+IGhhcyBzZWVuIGEgIA0KZGVjcmVhc2UgaW4gc3VwcG9ydCB0aWNrZXRzLg0KDQpSZWFkIG1vcmUg
+ICANCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xlLmNvbS9nL3AvQU5pYW81b1hCMTJ4ZUc2
+dlR2QnBENG9KamFiQ0dxaElQcGlkVHpBSnR2VzhvS1daWmNxUFJWV3lWN2NJSkdHRHJJOFpMdzJV
+VlRfOXFjbGhiLXlXOWJ5dF9DTFE1N3RpQzZWY2dCZGVKNlBjVnBHaEJjUGNaZThwdjcyc1FqTUVn
+Y3pRZ3FsSlZ4NU00eDQxME0xY3ZLVE1ySUtHZzVuTmFoclFKYUtUeGtkT0VZdnNHZ2UtUC1rdHF5
+VUw1VE84c1RPVjdrbld0YUJ1bmJLcjQwOFJPVUJlVXpZeWEtNlNBc1lHa0ZOY1lzUlV5eHdlOXA4
+Mk9hdU52aTBhcl9RaFh6ZkdLdkRZOHQtb1ZuRHFGa3JxZTEycWZFa1hoeTIzLWZRYnVhQmZJU0Rw
+VnlncUtNOUVzZ2Y1SWtsc3ZNd2o0ZFItR2JoUUJ2dnlPTjlaTTlRYXBBPiAgDQo8aHR0cHM6Ly9u
+b3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNXBxYW14R3V1TG0xa203cEl4NHV3TEd1
+dUp3VVVrbUhsZDJIUUVjZlNjZEdYOG9jR09PWURaRmlxNXRmbUVReUQwWmlEeVY2TGQ1REVNWDFB
+OVAzNEpVUTNvMXVKQnRvTVJ5d05FaUU2U1ZTLWI3eHg0RG9qM1hOdGVxTllUaGEzOVN5ZXpHTVhI
+bUJ4Rnd1bEgwaTMtejdIdV9CNGxiMWd3VGJRTmhfNktzRVp0UkMxUFM4MjFEaVFPWTZXak9ESm5H
+S2t5OGlaRmFCUU5uZjlTY2xtbUtXWk54NHhuWHlGWkNtUTZZaHY5NG1SVExDQnZCR2RNTnJTcHBt
+b2RGMmFrVW1Rd0xYdGFnRkdRd2h0OHpCWlhFUk9STDNLZHptSG5JcUh4elBBZlc2UGxtcFg1WWhm
+eDBRRU5IY3NjYmt4bjhnbDI0cDRHa0ZDUUVNN0lRMXZneXNnPg0KDQo8aHR0cHM6Ly9ub3RpZmlj
+YXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNXFiUUZqV2RPRnJYLUMwLXlyY2VIcHpXdWFGRnJO
+VEExOWRsUkR4TTJyUWxWWkVFN19CQUhTaTdVM25mUGRKcUpEZFFyaXhZRjgza29GWVJRUUx5UEhJ
+RDBXNm5DNU5HQ25BZDhqOTNUUjdiUkdaYmpIODdSY0RCZFhSZ1RKZFpQSmNuWUdzUmJmVmloVkZV
+THlmTHNIYmlfa0Z0MVR3VjJwMTJsdGpzUjh3R2JUQnh0Wk05cF9PNGRiekpoS280ZkdxcjRvZzhl
+MFpyOHpmVUVIVzNYNU1UcW5WaDlQclFqMnptUjhXTVFTYkNqNkczNTMxcU1XNmdIWENBQWxyVGtu
+UGF2UkN3VTZaZVl0eFhDYldaSXZ4Z1lZSGU2M2lnbzl5eDZmWjh2YUQzbDR1VTZDYzBCdl9IX3pI
+a2V0b2JNclF4bDQ+DQoNClNuYXBjaGF0IGludGVncmF0ZWQgY2FtZXJhIGZlYXR1cmVzIDUwJSBm
+YXN0ZXIgd2l0aCBDYW1lcmEyIEV4dGVuc2lvbnMgQVBJDQoNCkJlZm9yZSB0aGUgcmVjZW50IGlt
+cHJvdmVtZW50cywgU25hcGNoYXR0ZXJzIGhhZCB0cm91YmxlIGNhcHR1cmluZyAgDQpoaWdoLXF1
+YWxpdHkgU25hcHMgaW4gbG93IGxpZ2h0IGVudmlyb25tZW50cywgd2hpY2ggd2VyZSBvZnRlbiBl
+aXRoZXIgdG9vICANCmRhcmsgb3IgdG9vIGJsdXJyeS4gU25hcGNoYXQgY29sbGFib3JhdGVkIHdp
+dGggR29vZ2xlIHRvIGltcGxlbWVudCBuaWdodCAgDQptb2RlLCB0YXAtdG8tZm9jdXMsIGFuZCB6
+b29tIGZlYXR1cmVzIHZpYSBDYW1lcmEyIEV4dGVuc2lvbnMgQVBJIG9uIFBpeGVsICANCmRldmlj
+ZXMuDQoNClJlYWQgbW9yZSAgIA0KPGh0dHBzOi8vbm90aWZpY2F0aW9ucy5nb29nbGUuY29tL2cv
+cC9BTmlhbzVvTDJWNFJYbEdPeGwxRmV1MGdiRnRVSndPdFpQbFBNNXhtOXBWanpOSk5PUmY1MGFQ
+U1pCZ0QxSC1vTV94UWg0bmE2QnJUNGNpMDJKSUR4b2xDbDZLMDc1N3VlN2hPQ29wdjNpMEtEbHpF
+cEs0MEZybHhVZk1OYWFkMDYwLTVsZU9XQU85VlAxWDRHMFhEZTE1RXN4eEtUNUdGOFJWaGtkVVFR
+WGlyMmZXNm5VR2tQVGlpcXdIb184Q0Y3VXNySXd3MVNFVEFCZGdsSnRBWENlR0dDQXROVTJEU3Bf
+a0dfUnk0alBMQlM3cTRnWXE0VGxVR1Qxc3pVMDBmN3B1NXIxX2dBc2RFT24tVmNFY0dscWp3NTdm
+RklzekJSSkdWZkY0aVRqLURGVUVVMF9oQWJ4NHcyMndLYXdwSGhBY01RRDRGbmhjSUoxckl2VlQ0
+Qzk3NVVvOVdKX3pEVThKOGFWNWtDdE1KPiAgDQo8aHR0cHM6Ly9ub3RpZmljYXRpb25zLmdvb2ds
+ZS5jb20vZy9wL0FOaWFvNW9jYUFaTFIyc2RpU0VjWHNVcHdkNlZjaGxJQzFXVURleEctRDVEZzNV
+dkpmVi1Lb1lDWnZrMTZ0M3dLRWR5MUZXYVdBSUdoNnQxdVRNZ1d6dnJzVUtSa1BXalZDWUFxSnJR
+NG9uTV9RNTZnT3YxX3BFMnNvR1A0X1FjMVNTbXFqeEdQNUpoeHdMMUctNDFNVWtPUzhabVI4TXRI
+WG1JemczSVBZazZ5Z0xIX3UzX1pBMVluemhoSmNkdzE3aGRkQzRDYmVGSWRCY2UyVHBVSW83SE5D
+bUNEOVg4eFh2bkRwMUtjYVRSbGYxUGFsNGtHWmRaVEhIdWd6RGpKdTBDTUxtY3Fxb2hLckFuSUds
+S3ZaNFBfU3ZVVnZRMTZpYmJuaUl6U3hNUXE1MDAyOC1SU1pEZ3RhMlNFckhVXzcxazhuTVVTbUFH
+SEg0cGFHWE1YNHpIV1BPUXFwWE5fMUhrbTJRako1bUV6OEZ0NW9qZT4NCg0KPGh0dHBzOi8vbm90
+aWZpY2F0aW9ucy5nb29nbGUuY29tL2cvcC9BTmlhbzVxZHZNX25nZE4zZFZQaXNDNHZ4RHpUWXVK
+c2hxY3JPaU82b1FIMVVWZjJ4YTh2cW4xU1ZFT1dtakpuU1RfbFBoM09rTDdqMks5alVHV2MzQWlj
+R3JzMURkX0lPRkx2SzdoUlpiUC1pZlZoVW5jVkU5a3dxalRZRkFRWklyV25OUzFXVF9GLVlHZUNR
+TmFjWTlXNjdpNVVrM0stNmdVN3NkR1gyYkN3RzEwZzdpN2FFakNRUjJXa28zekNvNG5SSnBNTEhi
+OVA2YmdkOWRtclFXUlN1bV8zd1AzcUlMdXBPSEhEUEZLNloyQWlKcGU2b0JKNEtlQnZ4djRhRHZ4
+bXZDMmhqTXJ4akJReVRQSUR3NDc2RTF0cG1IU2VFLWJSUlJPbVA3c2ZnNm5BZk9kM2FBPg0KDQpa
+b29tIHVzZXJzIHNwZW5kIHR3aWNlIGFzIG1hbnkgbWludXRlcyBjb25uZWN0aW5nIG9uIHRhYmxl
+dCB2ZXJzdXMgcGhvbmVzDQoNCk92ZXIgdGhlIGxhc3QgZmV3IHllYXJzLCBab29tIG5vdGljZWQg
+bW9yZSBwZW9wbGUgdXNpbmcgbGFyZ2VyIHNjcmVlbiAgDQpkZXZpY2VzIG9uIEFuZHJvaWQsIHNv
+IHRoZXkgd2FudGVkIHRvIHByb3ZpZGUgdGhlc2UgdXNlcnMgaGF2ZSB0aGUgYmVzdCAgDQpleHBl
+cmllbmNlIHBvc3NpYmxlIHdoZW4gdXNpbmcgWm9vbS4gVGhleSBzY2FsZWQgdGhlaXIgbW9iaWxl
+IFVJIHRvIGFkZHJlc3MgIA0Kb3VyIHVzZXLigJlzIG5lZWRzIG5vIG1hdHRlciB3aGF0IHNpemUg
+ZGV2aWNlIHRoZXkgdXNlLCBmcm9tIHBob25lcyBhbmQgIA0KZm9sZGFibGVzLCB0byB0YWJsZXRz
+Lg0KDQpSZWFkIG1vcmUgICANCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xlLmNvbS9nL3Av
+QU5pYW81cnY5Vlg5OUI0Q3c3aUV1SE9KX3hzbWRVSWJLRlg4azN5Rks3QWVTeVhJaVNXb2ctZnkt
+Mm9qV3hqZFduNXVVYjRMTjFIWTNuVURZa05ZaFlzaHBwNWF3THhqYS10cmZaMUhaSjhEcVR5RGs0
+SC03dkg0cjBSeWNLQ3p6X3NIY2duV3EzNl9zcUpVQ2pjRkhQaExZWTY1dlhPTjhpbGlwaGZTQXhl
+RHN0eGJ0cUp1V0l5UWQwSElxMkQ5ZXBJNTJyamUtblF5Z2F6dy1uLUQ4RzlKV1ZuYmZrQWQxVjRu
+SFVCcjdRT3ZFeG5yZ2ZiaVphOXA0YUZXVkJEREU3WjBLTGlnVVZlT1Zvd2YxeFl2WlZsd0YxLUFQ
+QVJWRHVmMEVzZmxyT25NZENpQmZmOHRkM0JHc3BZam1wVEY3dz4gIA0KPGh0dHBzOi8vbm90aWZp
+Y2F0aW9ucy5nb29nbGUuY29tL2cvcC9BTmlhbzVvUnZqU2p2Y0hXT0E1N0hzb2tGbDdxMHk3dFNs
+UW9ZYTdTUTJEZXNNTjVnVlFIelRHNkUwUHZfRk84YnljVjBpSmpsZWlOR0JiSlJQbmdfTzRSQjdx
+WUtUckU1eE1jb0FlcV9tVjZzMDQ1Zmx0Rnd3VmpUVTAyM2c4dEZEeG1uOGE3dE55OEh1UmkxZDdM
+aExmSmxvVWJELVdna1d1YUtIdUxRX2N4UFhYU0JxTU1HeWIxMERCcEpnTm95WmI0dnpfcF9Kb2po
+TVlrRE1sU21zSC05Yll1Tkdxa2pQTGVFYWVkdVdFaUthNDFGUGVaNm96NzkydlZDWE9abHFTUWRN
+cmNJT0Z0RHBYZEZuOEdqMHlaTER5aFNTTmhpZk4wbmJ2Y2VJdjB5WFU4Z3NBTkhmbUNlb0NmQ1Vx
+YkZqQkxpZE5xVkE+DQoNCg0KU1VCU0NSSUJFIFRPIFRISVMgTkVXU0xFVFRFUiAgDQo8aHR0cHM6
+Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNXB1aTNGb01OQ1RVVEtwYTNDaGZ2
+TmdnOFlkNVkxS29WV1VyRTJmVUNha2VnQkYxcTlaTmZzSzNKT292ZjJXeVlNS1ZOeVl1RGR0TDZx
+VWY4WUxHVDIzS3RjamtyQ1Uyb1BLX0V6VjZDclpVVUdFOS15eHI2elRMcVNYOHlRbnhPT3JyQnpq
+MVFiYm5qTi1vZDVrYWxVZzNkOU5LRUZ3ME1RZGdpMkRoZHJqdlh2bjhxN0tDOXZpVDBfOVJRdDUw
+aTc1X0NvTzFqQmoyTTBTNGsxMmxNc2xIaGxibWE2LWtHWFZrVWxwaV9FZmpCTzVZYXBlazFTWnZk
+TE44OWFwV19rdWhtVzZqQT4NCg0KPGh0dHBzOi8vbm90aWZpY2F0aW9ucy5nb29nbGUuY29tL2cv
+cC9BTmlhbzVyUkpwcjNhTko1bklFRWRhZ1ViaF9lQVQtY19uRzRQR2hiVkpEempNZTlnVjUyOU54
+TlZDYVJMQnlqM04wb1cxWXNwaGNacGx1N1R3dGNaUXdtSDRraTk1SEdlT1RxWjJJMzRXVFdzU1d3
+WDB2bGQyUGpLaG1KVmlfaWpYd2FTWnkxS01QMlZnd3pvQVNyb1VCRVVuR1lNbkFJMkhrYWZqS2I0
+aENUZFFHYW16YUN6UHBMc2xsTFloOGstU3lGSjNzNDZ4MnZaM1JPS3h3NDY3ZGtfbUhBUll5dEF1
+Qks0UWRqVHFyZl9Ycm90ZkdjVHVLa0piWFB0cS1fazhuNkVBS1hUUVM0VWl5OXlkN0xIdz4NCg0K
+Q29ubmVjdCB3aXRoIHVzDQoNCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xlLmNvbS9nL3Av
+QU5pYW81b3V0aDdCTllqdnh2MjlDNlllSjZnUEZjaEFJTlN1SFc0Qzk3aXNRVHVuel9rTUpuZ1NX
+MXhEXzlYdkFPMVNWNDB4Ukhxc0gwZHRHTEpvUUtNUVNyTHVZUnhiMk1iUmdUcWRXOUZtOWdDOUlK
+RGstVUhDMXE2QWdfX3JZdVE3V3k0NmVYVGpRVzd6UkZQYl9EYU1LTlpNVEItei11NmRsX3J6TjRG
+MkMzSzdObzVMNjRoVWxsbUdVNGtDZ1g0T2VUZnRlNGc3ZVBvZE9xZmhJdFhlSHluXzk2Y0ZsME9u
+aFE+DQoNCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xlLmNvbS9nL3AvQU5pYW81b05ZNDRa
+Y2ZjLW52UzBYUW5vRVBaMlZDcS1SaXRUUU9tMDlEYTRhb3FRREprbEhiVF9LQkYzN0h4ZVV0NmU1
+LXZqb1B4dDZaZHNtUkNWa3RCRk9zV0gtTEpkUGFVMkJELXNhM1FxZnhiYW5oWWhiMWF5SUVEMmx2
+LUJLcVVIZWpRVE90RU5kTm5qRVl2Z19mcWlCZ1pkLUo4ZklVM0FyRDRnVldzbnFhTUdhWTY0LWIy
+c0xLTTh0dlZpZHhJN0p3cU4xT2V4S0pkd1l6SnE4dllrOU16amRVQmI2NUdoSlhnckNDRmdleE53
+YUVBWDFUZDZZUEk+DQoNCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xlLmNvbS9nL3AvQU5p
+YW81b2dRTmFnZGM0QTZleGt2bkZOVzAzUDd4TGZIcDNncDVwMk1YY0JTemZISDFfcllTQVdZSzJW
+UGtaX1lCZEJWOU93YmotR2dpWlp0clNObDNSMmE5RVNqVEJLeldBZXJKU3lHYWExNGNTQlJBbndI
+RGJXS0NJV2JXTkx2TFI4ZkgtUXRCZWxaWUs2NUEzQ3ZSWmoxQkpEMUtKOWdTRjhuZGV1bTlBd210
+WEdaa2k0WF92d1YzWnFCTTcwQ0kzS3F6V3ZLTk03NjhGNUNoVDF4NzZnYTFlUURSU1VsR3FJcTBi
+ZTdtRE4+DQoNCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xlLmNvbS9nL3AvQU5pYW81clNX
+d3gyc0liTGp4QXlvSnU1YzJkbnFld0oxWkpYZ2NXenFMOTgyY1RsSFUzRm1BZGtPZzdsbmJJcVZv
+Q3R5ZS1jZkQxbFhTZXVBcDBkOWhOQXVGVHJoQ29rQWN4dW1IcTFTUTc1RDh4NkdyenRaclItdldE
+RWRkMUp5akg1alBTdnNLZmFfdzFjeGhMc0E4WnQ5SEl0NnktZEhBb0gyZXVnSS13NFFWVTdmdjlj
+b2lVTmV5TmZCODNXUlZfRE5xejc3cFJDWTR5RGhPbWFKRGdtZzZwNFRDRE14NFFSa0NFZjRjb3Bz
+WGRfbU5CZDlXNFcxdUk+DQoNCldhcyB0aGlzIG5ld3NsZXR0ZXIgdXNlZnVsPw0KDQo8aHR0cHM6
+Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNXF2Z1hmQ3pmN2JiLVFFWEhyMl9y
+MDhtdVF4dlVGS290cDlWcnk1ME1RUm1FZVVRaHdKaTR0azJHZmtLQnh0V2w0UHpnX0RLcjRaNjFo
+eU1HdjNJM2ttTWt5T01RYXYyM2t3ZUxBVnc4ZHJRMWVIZnJ2UGppUVFrbmtFUUVXNklIUFlYSDhF
+cHZwOW5vVEt4czVKWUI5SzY5NV8yaVJzRXlkbE9MQ0ExNTdxTU5NMnMtaEZ6NWlTdFJ0LUtDekJW
+dV8xZW5sRzI1ZG9PSnZzczk1UW9naGI5MnNpaGdkTHhFWmQwMTlkcnJwbFVhLXVxcGtuNi1uVUt5
+bU5vb3Z2RFkxbFFfQUpsVmR2R1kzYkE4Z0ZSSjJkQW9KQXRtS2NYbGZvX3hNY0RlYXZOR2dOcjdH
+M0ZDWFVZaVE+DQoNCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xlLmNvbS9nL3AvQU5pYW81
+b1o1MlIzd1RLRWhId3pQa0t1MkVPUTBhdlBiZ3o2UktadUFvQjEwOE5Pd1MxYktkZWdaNXl0ZWxp
+bVVyaUNibG0xMm54WWRyQVNvVXR5RFd4SGM5bkJhaHFHSE96WHRtMS1GR3FtYUtzOXFvdFJNaEVN
+RGtRT2daWXhhS1lPdmxpLVkyaW1YQmdrbXE5MFJVbjBqV2lkWUVMM21pWVQ5S1BVXzB1dmdQTzhX
+dzRnRGdxMlFvVHdTOGRoLU1yOGRCTlhMaUx2elN5ZXdYSVl2NzFJMThJSUQ4blRxbmtLMkhBOUk4
+U3Ruc24yenEwSzZkLWtncUhBTUV2V2I2eHkzVFVDN1N5V0hSdmRZRFdVWFJtVlJpNlN2X0FCMjZy
+SEJGUU1zek4tSHhuMGg0VjhRM3A0R05XVjRFUT4NCg0KPGh0dHBzOi8vbm90aWZpY2F0aW9ucy5n
+b29nbGUuY29tL2cvcC9BTmlhbzVyVVZJUVBjSGZWX0RBNjVIbUlnbUZjSUN1NFhmd2ViMmtOaGVY
+OG1xZWFhV0hwWUExdFFuM0NIZFY3cS1qMlhlUjlzWmpTcC1XN093dndSU294SVBxSjNMYnh6QkQ2
+TkhxbEFVT2tOLVdSanp4RXhFZFZsOVkwQnRtOHV6MWNlbkM0ZldYcDhqYVVLYnZHemVoamJ0T1RU
+SG9wX0F2WXBmTUZuN1RscVRnQzFlSElfdDc4S2FLYXpqRC16YnVjWUxNS25vcVQzV2RFVTRwS0NM
+eEowemJvQ1Vfakw4TUxJLXdUcG5rcVVvdjNhTVdKemw3QmRpWFFoNmkwbl9GV3l3SDMyekMzREpu
+N0tWTzlzTmJ3cUFMcmhEclVJT2NHelNSa2FkRGk0dnh6cjRBdFVpOWhBU01Rb2dNPg0KDQo8aHR0
+cHM6Ly9ub3RpZmljYXRpb25zLmdvb2dsZS5jb20vZy9wL0FOaWFvNW9ETVkxV3pYWHY4SURTc0tu
+azQzRnZTSmpKQ2xLTEo4YndkNVZORTJEZHNJQWhia3RMRE1oZkljbDdJTmlCalZNdWQ4X25QNEJD
+QWxpNmJRaTQ2elFOekRzLS1NdFA0WTRkclhES1Q1VjE4MXpfblF2Ync2NjY5V3MxVzgwOE92My1S
+eW14NllkdlFxSFRHOWJQdTdVUXhsQ2lCZFAxcWdfelhwQjkxS0xKeGk0VjlDRGhEbmwybTNnX0lG
+UFZIRUlhZVE4Tk1xQXlvcTR5aFZ6N2lHSDlzWHlMY2RfU19HekVfMUl6UFNGX3B2T3VybVlKeUVL
+cUxBYTA0RkVDU2pTZTI1d01CN3VIUVRtWG5mUWY2Zm5FVWlGNTJabzh2TjN0alRZaWtfYUdCSWV0
+Q3pyQV9MRnFlWFE+DQoNCjxodHRwczovL25vdGlmaWNhdGlvbnMuZ29vZ2xlLmNvbS9nL3AvQU5p
+YW81cVZNaUsxelJOLXk0VHYxTHFfeGRBYWhmeko0SmVTWXRRRk5rUFNMVUJCQjI1b041TW9DVnUz
+SkNvMnBsSGY2Z0JCWS1xMnpVd3RDU1lrbElXbGZiajhpcDBpajllcElNMVNSWG5DYzRQeEVsRDU1
+QjRtako0b0lob1Jsdk50QmxZRGN6ci1tUnhmRjVEdEJrT3hZaHcxT3habU44RkFmUjNMcGk3NF9D
+YXE1ak9qUXhpZ1NFZnhVei1HYmhNY1R6WHlvTnA3Sk9mVldLLTlSOEc2eXZOWVUyeEhRVmkwdDFr
+RThVZUVQdnBCZ3lPOEV2ZkVLMmpZMDZRTnpfTmQ3TFlzUGJrWmhWUzl4aDI4dnBDdUZtcmRVS0xq
+NWt5S0RRejVGU19QVWdxMGZVZzJiZmg1YjVsejdJMD4NCg0KKGMpIDIwMjMgR29vZ2xlIExMQyAx
+NjAwIEFtcGhpdGhlYXRyZSBQYXJrd2F5LCBNb3VudGFpbiBWaWV3LCBDQSA5NDA0MywgVVNBDQoN
+ClRoaXMgbWVzc2FnZSB3YXMgc2VudCB0byBuaWNvcGljby5kZXZAZ21haWwuY29tIGJlY2F1c2Ug
+eW91IGFza2VkIHVzIHRvICANCmtlZXAgeW91IHVwIHRvIGRhdGUgd2l0aCBBbmRyb2lkIGRldmVs
+b3BlciBuZXdzIGFuZCB1cGRhdGVzLiBJZiB5b3UgZG8gbm90ICANCndpc2ggdG8gcmVjZWl2ZSB0
+aGVzZSBlbWFpbHMsIHBsZWFzZSB1bnN1YnNjcmliZSAgDQo8aHR0cHM6Ly9ub3RpZmljYXRpb25z
+Lmdvb2dsZS5jb20vZy9vcHRvdXQvQU5pYW81cWRWY3c5WU5OZ1MtdDlMYjB2UFFrR2tWZnhuNTNq
+bU5pSjdiWmFMaHBKUHlfZEpiaGR3VzRlcFppWVZYTXlnakU5M0FyN1FpdElIX09LeEVHd2FsQVgx
+SXZQZXFrUllDbDJTS1JnYkd6VFQyRXlVUjBRUGxEelk2RWtuRmh3MWVxdkVtaUdXdXhHMWpXQWVf
+TmlMRFQ0bjhCMmhkbVc1ZzI5UkdFWHdFMW81dFJaVG9ncDVBMlRJQkNVRDhKZ05UaFBPamxOVzdq
+Tm83Wk1sZmJRbUlyM1lNUlJiaW1DU3JWNkJqNVhXRE9pZndrZmJzMk0yaklBd3QyYzJMRVNHZ0t5
+eWJPaDB6Sm1FMEx1bFlaekNoX1VNZE04d3pFbFotN3htbWlTU0E/aGw9ZW4tVVM+Lg0K
+--000000000000a59f92060a5d3acd
+Content-Type: text/x-amp-html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!-- Links -->
+<!-- Images -->
+
+<!-- Content -->
+    <!doctype html>
+<html =E2=9A=A14email data-css-strict lang=3Den>
+<head>
+<title>Android Case Study Newsletter</title>
+<meta charset=3Dutf-8>
+<script async src=3Dhttps://cdn.ampproject.org/v0.js></script>
+<script async custom-element=3Damp-carousel src=3Dhttps://cdn.ampproject.or=
+g/v0/amp-carousel-0.2.js></script>
+<script async custom-element=3Damp-bind src=3Dhttps://cdn.ampproject.org/v0=
+/amp-bind-0.1.js></script>
+<style amp4email-boilerplate>body{visibility:hidden}</style>
+<style amp-custom>
+body {
+font-family: Google Sans, Roboto, Helvetica Neue, Helvetica, Arial, sans-se=
+rif;
+font-size: 12px;
+color: #424242;
+}
+* {
+margin: 0px;
+padding: 0px;
+}
+.carotracking_1 {
+background-image: url('https://notifications.google.com/g/p/ANiao5qjJV6nNw-=
+OPRpU7g0yQFV7rSJMgcy68u49_eof2gKdFgo1argd2oA_rP1lbB1DLWndLmF2_sT6A1ZpkU6wMX=
+8feQmITr2bxyq1pSSbwGr8BBw2Bl7WL43hFY4XpBFGOGgpKeSYmD9zNDyMrrcdfD8a7aC0qlz_E=
+UxZaqPJcXDX7GXi8eJrv2UxxA-yv2WhM-t6H2JXg4Bx839q3GwsR2xTqd8ITq_yrnMcXIkplhm1=
+2CrTIZqsETGKsTcG0bgdLnD_MZWE2A');
+background-size: 1px;
+background-position: bottom right;
+background-repeat: no-repeat;
+}
+.carotracking_2 {
+background-image: url('https://notifications.google.com/g/p/ANiao5ogKbr2ph-=
+hnsn8rvDyXuGszO5hvLEZLu-St85d4qpw5ts-XJSCS1bzXXtjGWB9_W8j03GTo8rqkt6l-1yarG=
+fds4-sWEXPCdfpjLXA7GuutT4o7ZLE1QuaLia_KHhVGq_rOHl-9N8Dfwrc2bacB0n_BckT0J38T=
+hDfpBcuitoqVlR0SX1X29ghjKMrFCGfsEtE0XesuR8D-SRWD11_rh0peQZR0jMPPf0J3AxUouKp=
+Uk6Yv9MkBJUTe3rApJYWr1Er31Se');
+background-size: 1px;
+background-position: bottom right;
+background-repeat: no-repeat;
+}
+.carotracking_3 {
+background-image: url('https://notifications.google.com/g/p/ANiao5rWyYsEjI6=
+1lyh6acKiKhCpGt_iYO6jYc2PsdwpLdafguRoxuvlVn_ecRYldiCAt0QweYjmlyxbOU4AhUvt59=
+ycwJ3xPFESb0nUYXI65rVgF9s-nuu02h_aCQbr4ROiEwoh5tj48zMoWCvmuBNdnm5d-c4_-HLGf=
+vBxxs75KshJgvmqP8yuwJlqxtNQP95BFS64rEcsDzp6vkazflLyDbDT3mzUEIZUFw01vcau6lAc=
+qVWY15u-i9UW4biL_3k2hn800oetaQ');
+background-size: 1px;
+background-position: bottom right;
+background-repeat: no-repeat;
+}
+.carotracking_4 {
+background-image: url('https://notifications.google.com/g/p/ANiao5qPxeAAw8o=
+p1pbI2ZaWg4kWTIoHTafDRy3u2jq-F_sf9J0LvDxWOjcslhTmwNPj5PXVr7UDhoeXXIs5PR9tx_=
+gwrCyl5yDMAZ79Wq1BPXX-BQT8eGl-RS12RJy-LDP1MPL6sm5BCNAR8FCskQPi23HF0gJdGCzQ-=
+LDH4hIKNZersIlLsO7TTN_9ySE1AXUTF79ApVzT8dEQ10_Bh9nwLJeVGQhxzm1yXgA8A6IWeINO=
+qYd8yAhsw0xqExc7Pc1hKICUcuze');
+background-size: 1px;
+background-position: bottom right;
+background-repeat: no-repeat;
+}
+.carotracking_5 {
+background-image: url('https://notifications.google.com/g/p/ANiao5qh6mwYedD=
+r4BkNf9lZimetaa6SAlpKbjWpJX9Dcf1qExTL7qZJj2wvORD16H3tKuhvSu4FVFeAbNzzSMKQOd=
+_BK5YHsWpoD-WRdGG2tr8z4tqwgqQqk9FLwLHybSa2RwZAsJkkmOOT3g71zAk7zroooYAok0Ur7=
+yMRM9L4CNLTHJLh2ShCy4DABqD9aj1nZ4nu8VBs16L-mp6tXkjbdWXU5UgPDFCTxBKzW3gwvkvB=
+mdRqB4ubBXhjQWaID8bEKbR23YwFuQ');
+background-size: 1px;
+background-position: bottom right;
+background-repeat: no-repeat;
+}
+.amp-carousel-button:focus {
+border: none;
+outline: none;
+}
+.old {
+background-color: #E2E2E2;
+cursor: pointer;
+}
+.current {
+background-color: #1A73E8;
+}
+.old1 {
+background-color: #D9D9D9;
+cursor: pointer;
+}
+.current1 {
+background-color: #4285F4;
+}
+.click-trigger {
+background-color: #F8F9FA;
+height: 40px;
+cursor: pointer;
+}
+.triggerhead {
+border: 0px;
+background-color: transparent;
+}
+.down-arrow-round {
+position: relative;
+top: 18px;
+}
+.desk-padding {
+padding-top: 7px;
+}
+.hidenew2{
+display: none;
+}
+.shownew2{
+display: block;
+}
+a:hover,
+a:active {
+color: #1C6EF2;
+text-decoration: none;
+}
+.appleLinks a {
+color: #000000 ;
+text-decoration: none ;
+}
+.m-width950{
+max-width: 950px;
+}
+.m-width600{
+max-width: 600px;
+}
+.w578{
+max-width: 578px;
+}
+.w-100{
+width: 100%;
+}
+.background-header{
+height: auto; background-image: url('https://services.google.com/fh/files/e=
+mails/transparent_bg_updated.png'); background-size: 100%; background-repea=
+t: no-repeat;
+}
+.month-st{
+font-family:Roboto,Helvetica,Arial,sans-serif; font-size: 14px; line-height=
+: 21px; color:#FFFFFF; font-weight:500;
+}
+.pdld{padding-left: 32px;}
+.working-heading-st{
+font-family:Android Euclid,Roboto,Helvetica,Arial,sans-serif; font-size: 34=
+px; line-height:43px;color: #ffffff; padding-right:91px;
+}
+.and-head{
+font-family:Android Euclid,Roboto,Helvetica,Arial,sans-serif; font-size: 22=
+px; line-height:33px;color: #4A4A4A; font-weight: 700; padding-top:32px; pa=
+dding-right:150px;
+}
+.ft-desktop{
+font-family: Arial, sans-serif;font-size: 12px;color: #ffffff;line-height: =
+18px; font-weight: 500; padding: 40px 0px 10px 0px;
+}
+.pd-desktop{
+padding: 32px 0px 18px 0px;
+}
+.wd-270{
+display: block ; max-width: 270px ; width: 100% ;
+}
+@media screen and (min-width: 951px) {
+.month-st-d{
+font-family:Roboto,Helvetica,Arial,sans-serif; font-size: 15px; line-height=
+: 22px; color:#FFFFFF; padding-top: 5px; font-weight:500;
+}
+.bgscope{ background-repeat: no-repeat; background: url('https://services.g=
+oogle.com/fh/files/emails/banner_updated.png'); padding-top:30px; padding-b=
+ottom: 40px; background-size: 100% ; background-color: #4285F4;}
+.carousel-width{width: 560px;}
+#slide_tips{width: 560px; height:570px;}
+.wd-528{
+width: 520px;
+height: 520px;
+}
+.footerspacing{padding:29px 11px 0px;}
+.imagesize{width: 488px; height: 214px;}
+.navigations{flex-direction: row; justify-content: center; min-height: 22px=
+;display: flex;position: absolute;top: 40px;right: 30px;}
+.toplogos{width: 50px; height: 50px}
+.pd-t-3{padding-top: 3px;}
+.p_b_98{padding-bottom:98px;}
+.amp-carousel-button-prev {
+background-image: url(https://services.google.com/fh/files/emails/left_icon=
+_34a853.png);
+background-size: 32px 32px;
+left: -17px;
+top: -60px;
+outline: none;
+background-color: transparent;
+cursor: pointer;
+}
+.amp-carousel-button-next {
+background-image: url(https://services.google.com/fh/files/emails/right_ico=
+n_34a853.png);
+background-size: 32px 32px;
+right: -17px;
+top: -60px;
+outline: none;
+background-color: transparent;
+cursor: pointer;
+}
+}
+@media screen and (max-width: 950px) {
+.imagesize{width: 303px; height: 133px;}
+.innerblock{width: 303px}
+.carousel-width{width: 360px;}
+#slide_tips{width: 360px;height:630px}
+.wd-528{
+width: 320px;
+height:560px;
+}
+.pd_b_35{padding-bottom:35px;}
+.logo_width{width: 120px;}
+.toplogos{width: 50px; height: 50px}
+.navigations{flex-direction: row; justify-content: center; min-height: 22px=
+;display: flex;padding-bottom:20px;}
+.footerspacing{padding:29px 0px 0px;}
+.amp-carousel-button-prev {
+background-image: url(https://services.google.com/fh/files/emails/left_icon=
+_34a853.png);
+background-size: 32px 32px;
+left: -10px;
+top: -45px;
+outline: none;
+background-color: transparent;
+cursor: pointer;
+}
+.amp-carousel-button-next {
+background-image: url(https://services.google.com/fh/files/emails/right_ico=
+n_34a853.png);
+background-size: 32px 32px;
+right: -10px;
+top: -45px;
+outline: none;
+background-color: transparent;
+cursor: pointer;
+}
+.pad_lr_10{padding-left:15px ; padding-right:15px ;}
+.w_250{width:205px ;}
+.w_310{min-width:310px ;width:100% ;}
+.imgcenter{
+margin: 0 auto ;
+text-align: center ;
+}
+.txt_left{text-align: left ;}
+.pdt_10{padding-top: 10px ;}
+.font12 {
+font-size: 11px ;
+}
+.pd-lr-15 {
+padding-left : 15px ;
+padding-right: 15px ;
+}
+.w320{width: 100% ;}
+.w100 {
+width: 100% ;
+}
+.width320 {
+width: 320px;
+}
+.table {
+width: 320px ;
+max-width: 320px ;
+}
+.table-l {
+width: 90% ;
+}
+.img {
+width: 100% ;
+height: auto ;
+}
+.hide {
+display: none ;
+}
+.noline {
+border-top: none ;
+border-right: none ;
+border-bottom: none ;
+border-left: none ;
+}
+.mob-show {
+width: 100% ;
+}
+.center {
+text-align: center ;
+margin: 0 auto ;
+}
+.width {
+width: 100% ;
+}
+.logowidth{max-width: 95% ;}
+.mar {
+margin: 0 auto ;
+}
+.block {
+display: block ;
+}
+.text_align {
+text-align: center ;
+}
+.cam360pad {
+padding-top: 0px ;
+}
+.height_fun {
+height: 56px ;
+}
+.width180 {
+width: 180px ;
+}
+.email_image_100 {
+width: 100px ;
+}
+.pd_bottom20 {
+padding-bottom: 0px ;
+}
+.mob_height {
+height: 50px ;
+}
+.dis_mob {
+text-align: left ;
+padding-left: 24px ;
+}
+.a_wid {
+width: 55px ;
+}
+.img_size {
+width: 70px ;
+}
+.img {
+width: 200px ;
+}
+.img_120 {
+width: 120px ;
+}
+.img_135 {
+width: 100% ;
+}
+.img_185 {
+width: 185px ;
+}
+.pd_15 {
+padding-left: 15px ;
+}
+.pd_bottom_10 {
+padding-bottom: 10px ;
+}
+.pd_top_bottom10 {
+padding-top: 0px ;
+padding-bottom: 0px ;
+padding-left: 5px ;
+}
+.three_image_width_new {
+width: 100px ;
+max-width: 100px ;
+height: 55px ;
+}
+.pd_top_bottom5 {
+padding-top: 5px ;
+padding-bottom: 5px ;
+padding-left: 15px ;
+}
+.pd_left_20 {
+padding-left: 32px ;
+padding-right: 32px ;
+}
+.text_container_width_85 {
+width: 85% ;
+}
+.align_left {
+text-align: left ;
+}
+.pd_left {
+padding-left: 25px ;
+}
+.wid80 {
+width: 65px ;
+max-width: 65px ;
+}
+.w-360 {
+width: 95% ;
+}
+.w-320 {
+width: 95% ;
+}
+.bg-none {
+background-image: none ;
+}
+.bd-t {
+border-top: 0px ;
+}
+.dblock {
+display: block ;
+}
+.dnone {
+display: none ;
+}
+.w100 {
+width: 100% ;
+}
+.pd0 {
+padding-left: 0px ;
+padding-right: 15px ;
+}
+.text-center {
+text-align: center ;
+}
+.w151 {
+width: 151px ;
+}
+.w-100m{max-width: 100% ;}
+.m0_auto {
+margin: 0 auto ;
+}
+.w-177 {
+width: 177px ;
+}
+.pd-logo {
+padding: 32px 32px 20px ;
+}
+.pd-t-3 {
+padding-top: 2px ;
+}
+.pd-t-32 {
+padding-top: 32px ;
+}
+.pd-t-24 {
+padding-top: 24px ;
+}
+.pd-t-26 {
+padding-top: 25PX ;
+}
+.font-15 {
+font-size: 15px;
+line-height: 25px ;
+}
+.pd-b-0 {
+padding-bottom: 0px ;
+}
+.pd-t-20 {
+padding-top: 20px ;
+}
+.pd-t-25{
+padding: 25px 0 12px 0 ;
+}
+.pd-b-50 {
+padding-bottom: 25px ;
+}
+.pd-b-25 {
+padding-bottom: 25px ;
+}
+.brdr_none {
+border: none ;
+}
+.pad_bt_0 {
+padding-bottom: 0px ;
+}
+.pd-t-37 {
+padding-top: 37px ;
+}
+.pdt23 {
+padding-top: 23px ;
+padding-bottom: 23px ;
+}
+.pd-t-17 {
+padding-top: 17px ;
+}
+.pad-r-20 {
+padding-right: 20px ;
+}
+.inline-block {
+display: inline-block ;
+}
+.w-220 {
+width: 180px ;
+}
+.pd-t-0 {
+padding-top: 0px ;
+}
+.pad_t_0 {
+padding-top: 0px ;
+}
+.pad-t-25-b-26 {
+padding-top: 25px ;
+padding-bottom: 26px ;
+}
+.w-20 {
+width: 20px ;
+}
+.pad_t_15{padding-top:15px ;}
+.pad_t_15{padding-top:15px ;}
+.pt-t-0 {padding-top: 0px ;}
+.bg-none{background-color: transparent ;}
+.w-360{width: 360px}
+.bgscope{padding-top:30px; padding-bottom: 40px; background-color: #4285F4;=
+}
+.w-320{width: 320px}
+.pad-left-right
+{
+padding-left: 18px;
+padding-right: 18px;
+}
+.width_95
+{
+width: 95%;
+}
+.pad_top_20
+{
+padding-top: 24px;
+}
+}
+</style>
+</head>
+<body style=3D"margin:0 auto;padding:0;">
+<!--- previe text starts here --->
+<p style=3D" padding-top:0; font-size:0px; line-height:0px; color:#ffffff;d=
+isplay:none;" align=3Dcenter>Learn how Android Developers built excellent, =
+premium apps using the latest Android features.</p>
+<!--- preview text ends here --->
+<table width=3D100% role=3Dpresentation cellspacing=3D0 cellpadding=3D0 ali=
+gn=3Dcenter>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table class=3Dw-360 width=3D950 align=3Dcenter role=3Dpresentation cellspa=
+cing=3D0 cellpadding=3D0 style=3D"background-color: #202124;">
+<tr>
+<td align=3Dcenter valign=3Dtop class=3Dbackground-header>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 width=3D600 alig=
+n=3Dcenter class=3Dw-360>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table width=3D100% align=3Dcenter role=3Dpresentation cellspacing=3D0 cell=
+padding=3D0>
+<tr>
+<td role=3Dlink class=3D"f10_18 view_pad ft-desktop" align=3Dcenter valign=
+=3Dtop> Can&#39;t see this email? <a href=3Dhttps://notifications.google.co=
+m/g/vib/ANiao5rQC2X9IV0sZA1tHbxxCA3MpQTmnvgnuab8egmSs9VQ3zfq-Tdn1PARmhbaNMU=
+uN6DWf6Ti4CiTeALLG8z84O3ZkoWIN64_UFj85zOpquxJXY8iHWfzBG_8ZRnpUwfSRJDRJrQvo1=
+hZZhWAu54epw style=3D"color: #FFFFFF; font-size: 12px; text-decoration: und=
+erline;">View in Browser</a><span aria-hidden=3Dtrue>.</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"background-color: #202124;">
+<table role=3Dpresentation width=3D600 align=3Dcenter cellspacing=3D0 cellp=
+adding=3D0 class=3Dw-360>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop class=3D"pad_lr_10 pd-desktop">
+<table cellspacing=3D0 cellpadding=3D0 align=3Dcenter role=3Dpresentation w=
+idth=3D536 class=3Dw-320>
+<tr>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation width=3D138 align=3Dleft cellspacing=3D0 cellpad=
+ding=3D0>
+<tr>
+<td align=3Dleft valign=3Dmiddle>
+<amp-img layout=3Dresponsive src=3Dhttps://www.gstatic.com/growthlab/api/vs=
+uSHObBaTcuZCSmNPHjPIBOwXtV3wnsfwL86sBe.png width=3D200 height=3D48 class=3D=
+"logo_width wd-270" style=3D"width: 200px;"></amp-img>
+</td>
+</tr>
+</table>
+</td>
+<td align=3Dright valign=3Dmiddle>
+<table role=3Dpresentation width=3D100% align=3Dright cellspacing=3D0 cellp=
+adding=3D0>
+<tbody>
+<tr>
+<td align=3Dright valign=3Dmiddle class=3D"month-st-d month-st">November 20=
+23
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 align=3Dleft bgc=
+olor=3D#4285F4 width=3D600 style=3D"width: 100%; max-width: 600px;">
+<tr>
+<td align=3Dleft class=3Dbgscope valign=3Dtop style=3D"">
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 width=3D420 clas=
+s=3D"w-320 mar">
+<tr>
+<td class=3Dpdld align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 align=3Dleft wid=
+th=3D388 class=3D"w-320 mar">
+<tr>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 align=3Dleft wid=
+th=3D388 style=3D"width:100%;max-width: 388px;">
+<tr>
+<td class=3D"pd0 working-heading-st" align=3Dleft valign=3Dtop>
+Faster and easier to build excellent apps, across devices
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 width=3D388 clas=
+s=3D"w-320 mar">
+<tr>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 align=3Dleft wid=
+th=3D500 style=3D"width:100%;max-width: 500px;">
+<tr>
+<td class=3D"pd0 pd_b_35 p_b_98" align=3Dleft valign=3Dtop style=3D"font-fa=
+mily:Android Euclid,Roboto,Helvetica,Arial,sans-serif; font-size: 20px; lin=
+e-height:30px;color: #ffffff; padding-right:50px; padding-top: 20px;">
+Learn how Android Developers built excellent, premium apps using the latest=
+ Android features.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Body Section 2 Starts -->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dbackground-color:#F1F3F4;>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D600 styl=
+e=3D"width: 100%; max-width: 600px;">
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<div style=3Dposition:relative;>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D536 clas=
+s=3Dw-320>
+<tr>
+<td class=3Ddnone align=3Dcenter valign=3Dtop style=3D"padding-top:32px; pa=
+dding-bottom:24px;">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 align=3Dleft>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Android Euclid,Roboto,He=
+lvetica,Arial,sans-serif; font-size: 20px; line-height:30px;color: #2C2C2C =
+;font-weight: 700;padding-left: 15px;">
+=C2=A0
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Card 1 Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop class=3Dpad_top_20>
+<table cellspacing=3D0 cellpadding=3D0 role=3Dpresentation>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<div class=3Dcarousel-width>
+<div class=3Dcarousel-inner>
+<amp-state id=3Dselected hidden=3D"" aria-hidden=3Dtrue>
+<script type=3Dapplication/json>
+{
+"slide1": 0
+}
+</script>
+</amp-state>
+<amp-carousel id=3Dslide_tips loop on=3D"slideChange:AMP.setState({ selecte=
+d: { slide1 : event.index } })" type=3Dslides layout=3Dresponsive height=3D=
+523 class=3Dw300 width=3D536 controls data-next-button-aria-label=3D"Go to =
+next slide" data-previous-button-aria-label=3D"Go to previous slide" role=
+=3Dregion>
+<div>
+<div [class]=3D"selected.slide1 =3D=3D 0 ? &#39;carotracking_1&#39; : &#39;=
+&#39;" class=3Dcarotracking_1></div>
+<table cellspacing=3D0 cellpadding=3D0 role=3Dpresentation>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"border: 1px solid #DADCE0; border-=
+radius:10px; background-color: #ffffff;" class=3Dwd-528>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D536 clas=
+s=3D"wd-528 width_95">
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D450 clas=
+s=3Dinnerblock>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:24px;>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5qrHUFW=
+bN1r6lRX6UN84nYOOr8cABMaZbR7sw8j1R6QViN7CGfLhKBVCV6eJ3-nY_UKlQeE9Dgol7_My8a=
+d3SFNHdC4x6TvuyIjxzsiuD_wIFXUXvz3yOFv42z-MAIapVB3g2iTCYLTNgb66irvt7VPk-qmE5=
+VIVa6SI1i1aMU6XUXMjB2or3USWdtO2o7wUrjUc76_Z5hXAvH0SWhqdUOYCuF9-aavAsrnCBn04=
+NPZekpkj_yCAWg81JwAnCy2iHPdl3Ie_D67-kj65JAnk1ELXF21PgC2do9R9sXO22m-eJkOKYWL=
+oGLmzIlX6ioz style=3D"text-decoration:none;display: block;"><amp-img src=3D=
+https://services.google.com/fh/files/emails/threads_img_updated.png height=
+=3D214 width=3D488 class=3Dimagesize layout=3Dresponsive></amp-img></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"font-family:R=
+oboto,Helvetica,Arial,sans-serif; font-size: 18px; line-height:24px;color: =
+#4A4A4A ;font-weight: 700; padding-top:24px">
+How Jetpack Compose enabled Threads to build a high quality app in only 5 m=
+onths
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"font-family:R=
+oboto,Helvetica,Arial,sans-serif; font-size: 16px; line-height:24px;color: =
+#4A4A4A ;padding-top:24px">
+Threads is a text-based conversation app built by the Instagram team at Met=
+a. The engineering team was able to build and ship the app in only 5 months=
+, which exceeded their expectations for building such a high quality app of=
+ this complexity and scale.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"padding-top:2=
+4px; padding-bottom: 27px;">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ; font-weight: =
+700; padding-bottom:3px; border-bottom: 3px solid #34A853">
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5qxKZkQ=
+01A4j-ItF90DYu8ISLrIdMeN-_E5DzuUM2UHk2rm8CocglAbm1u8L011enYwGXKKB1fof7IsWkL=
+08bAnLm0csWljNZOgJfHuZm9AyxSvmWKXRemWg0KCALPFGPbbhy-U8u-XqtI84ef6aJhW5MDRBw=
+cGPiDZybSARc3gO29CN4niI-TR1lggdXcWUBVVGf_ja_O9XLa2CR1iVD4yyJ-1hcjihuQlvkMMg=
+0XpVRjCojLxcYXO_2TtDLyuWHGGIPNqP3tjjKb00SG9XquYldit8w_W0ZVjbdHjeoi9S4yuRfxL=
+ntJc6--1N3k7SNIOgwmsJDmWgjAkCVsJFruV style=3D"text-decoration:none; color: =
+#4A4A4A ;">Read more</a>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-left:8px; padding-top:7px;">
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5qX8RNQ=
+Wwjd_6QiS4Dn9sMCAdzVMAV53CquYEhyihQJv1iVpN1tENlh-vHnX8j6Lc7nI01_VcryZAuAghB=
+S0Iqa6fU1HyDs8kGdD9oEc7QR9VyLD4m5AkQq0N3XGm_MmCsmXaWIfLFvoB9TLfYsrhQV4MyWHo=
+Lobq8hFBfJa2ofGMGiahyM8oltgnnXc0n1qBJwCsix8r37y7DLetmcqCOR32e7T6AwCLghtL6n4=
+D-RcPe6yq7cJNkCWgCF-Bj4acRN6XC12JIH8H3XlbK7TeX6Qe9aXE8hAU17N1Xswt-74ODUfbTz=
+KsIXIudLH30sNngywgQyorjOAsp4lN_i-gdm5jyT106z style=3D"text-decoration:none;=
+ display:block;"><amp-img layout=3Dresponsive src=3Dhttps://services.google=
+.com/fh/files/emails/updated_arrow.png width=3D14 height=3D14 style=3D"disp=
+lay: block; width:14px;"></amp-img></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Card 1 Ends -->
+<!-- Card 2 Start -->
+<div>
+<div [class]=3D"selected.slide2 =3D=3D 0 ? &#39;carotracking_2&#39; : &#39;=
+&#39;" class=3Dcarotracking_2></div>
+<table cellspacing=3D0 cellpadding=3D0 role=3Dpresentation>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"border: 1px solid #DADCE0; border-=
+radius:10px;background-color: #ffffff;" class=3Dwd-528>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D536 clas=
+s=3Dwidth_95>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D450 clas=
+s=3Dinnerblock>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:24px;>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5qYQ5xb=
+fkIr68TtMOIbTmM7LInBXckc8BbfCMMKCSix2KP2WCXPssxScsFp3tj4d2SECkuTsrQmYScnbbx=
+zcsEPyyjPKPfeKAYl3E7nvW_ge9GYItjp1NH2tiBe9cg6jhycToPZ60jEa4qR2BzuLAEViraypE=
+Vg-lh53gBQLGJvvGqmw9DawP_HTMr-uXOQYL3dNrEntKoCYKyD5xeogjMcAaXOw_xzoUADzHaxV=
+PyfMv1oT3sULI_Tic6u4LYMtg-0_HPz8NVPHEOcbDpFKoazyAcx1Z-2ApjWZqBnVsrg1P3gWswW=
+hhLnKGEylfu1uUBV5CcAwiA style=3Dtext-decoration:none;><amp-img src=3Dhttps:=
+//services.google.com/fh/files/emails/reddit_img_updated.png width=3D488 he=
+ight=3D214 class=3Dimagesize layout=3Dresponsive></amp-img></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"font-family:R=
+oboto,Helvetica,Arial,sans-serif; font-size: 18px; line-height:24px;color: =
+#4A4A4A ;font-weight: 700; padding-top:24px">
+Reddit rebuilds feature with 44% less code using Jetpack Compose
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"font-family:R=
+oboto,Helvetica,Arial,sans-serif; font-size: 16px; line-height:24px;color: =
+#4A4A4A ;padding-top:24px">
+It&#39;s important for the Reddit engineering team to have a modern tech st=
+ack because it enables them to move faster and have fewer bugs. Jetpack Com=
+pose provided the team with additional flexibility, reduced code duplicatio=
+n, and allowed them to seamlessly implement their brand across the app.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"padding-top:2=
+4px; padding-bottom: 27px;">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ; font-weight: =
+700; padding-bottom:3px; border-bottom: 3px solid #34A853">
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5pzlyB-=
+W8YRO7Id_-7SCkUkd1C03ysE8ASaUben_pguH3_BWW-vsGVCBKSNScewYjgWt-PbsdAoUVRksy9=
+aOvb3x6YjBD_juBpAv5Ny1_fuREI6ke1b01px7f1lauVCbxHy2Rpn8FpPmyOkcJ-KOvJgQxAj71=
+AbT3crysP4c3uowM4pxZfSDeHASZC1k125v_Vup5EsE6QKGLBEDdregOerdhvm50wF7unTQdyO_=
+X7SFOBH-kSdR6JYSl3YZNndSJ48hh1-wN3ExCDFusi5q8FrKyZv6qD-scfqTZYlduGAIq7BvfCj=
+bOfqWVn4neWGB-XEpTT7EKpuRg style=3D"text-decoration:none;color: #4A4A4A ;">=
+Learn more</a>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-left:8px; padding-top:7px;">
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5px7ReT=
+ghltTGH3btgrVEajC2B-8lZSPcSIShta2hs8bgpztkdYM9ur6CYfHMhx2ipgaKq1bHRDWQ-bohx=
+LCkFVwui8wJPwGj3xLGu_cgfFoWot6NezU9ujB_1y11KCeYJMdUs1jEqiTrIPB7mkXtqLujprQq=
+i4H1InBSRr_UQdC16F2iEqWKkbjI7NWRuQ3HB9qUFF19esczyBcM3Zj8R8rlhpzEZortaeQzZpC=
+cKSK895q4LGqV7Jqw_XX57v2dNoAGOwxHt8kc9rxH_QUSEnYidyP5lVRTSOYDMQflIkoCBHq3-p=
+SLI2SPGd1ggx7mPEsD60BfQZWUrzEpUkpw style=3Dtext-decoration:none><amp-img la=
+yout=3Dresponsive src=3Dhttps://services.google.com/fh/files/emails/updated=
+_arrow.png height=3D14 width=3D14 style=3D"display: block; width:14px;"></a=
+mp-img></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Card 2 Ends -->
+<!-- Card 3 Start -->
+<div>
+<div [class]=3D"selected.slide3 =3D=3D 0 ? &#39;carotracking_3&#39; : &#39;=
+&#39;" class=3Dcarotracking_3></div>
+<table cellspacing=3D0 cellpadding=3D0 role=3Dpresentation>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"border: 1px solid #DADCE0; border-=
+radius:10px; background-color: #ffffff;" class=3Dwd-528>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D536 clas=
+s=3Dwidth_95>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D450 clas=
+s=3Dinnerblock>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:24px;>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5qJetLH=
+T4EEPWSeLl676H8bgno79xGLuiutqJK6tV6NM4hySq0sodNDQBBXeugix0ylBT0BiFPIAPWNAU8=
+ROp5a1cx7wmVWAXND3ocIcvT4PaKubP_Cf2UGgTUU_sty_ejnUUhREc3XJB0i_eXXHIgLsCIZp9=
+AgXiNY_5SiGRmI88nxK-XoCr_erfsKYfxTYugjZEphqqnK3y-patzDmp9Zv0WtlCmxr9tp5139R=
+l5AdwNacG6BmgSZ4MjF3UoBWuC3SDH2mVTv0Bobd1ajhNp67eBVqeF47PWBiPV0xZuYGuPatzRe=
+B2_TLmEyZigr-D97MqyIhaY-L_E style=3Dtext-decoration:none;><amp-img src=3Dht=
+tps://services.google.com/fh/files/emails/kayak_img_updated.png width=3D488=
+ height=3D214 class=3Dimagesize layout=3Dresponsive></amp-img></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"font-family:R=
+oboto,Helvetica,Arial,sans-serif; font-size: 18px; line-height:24px;color: =
+#4A4A4A ;font-weight: 700; padding-top:24px">
+KAYAK reduced sign in time by 50% and improved security with passkeys
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"font-family:R=
+oboto,Helvetica,Arial,sans-serif; font-size: 16px; line-height:24px;color: =
+#4A4A4A ;padding-top:24px">
+KAYAK is one of the world&#39;s leading travel search engines that helps us=
+ers find the best deals on flights, hotels, and rental cars. In 2023, KAYAK=
+ integrated passkeys into its Android and web apps. As a result, Kayak redu=
+ced the average sign-up and sign-in times by 50% and has seen a decrease in=
+ support tickets.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"padding-top:2=
+4px; padding-bottom: 27px;">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ; font-weight: =
+700; padding-bottom:3px; border-bottom: 3px solid #34A853">
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5qZM6Hf=
+0dF2JWXsmxZGoAQLdKCjcZzih95YmR4SoHzP8Q14lZJT-_WanS-xeJG0neNBsu-3K0ruTzvVITF=
+Pv3bkN6dfUCPx-A46hhA-BUPtuFafAs4CodpmFCcxqpFFPNxr9zjYb_P9qWrIYqtLSCRhrsaVs0=
+l2ejpmNbR3ISUi8NYjqapvcPvoCu631wdRpUOloAkqmAkJ_U6EvRVQVt-9nNVpCpD4QhDuOuqeA=
+3BJvpOAxFMAkIaDKW41kfNDREMuXk41w8g8X8UxzYLCUuAmAfjTLt35LSHsaLKUo_XfP0702haw=
+UvSEmB1_Pntx69D6tZ6y_IrouvfpLY9OKT6Wgg style=3D"text-decoration:none;color:=
+ #4A4A4A ;">Read more</a>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-left:8px; padding-top:7px;">
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5qYstbQ=
+DZPKgMgN55hkpNuG3ffRLzVRDfu6gwUT1MTSmfzzrmNmdjaPI8rdjd2yIfldLOrQTDpD-Al7RJ8=
+42BXTYVf7EPdBzEOO1qehYSLbPAbVVOAeaJQD7chYj9vE8Krm72TpKpr3AZFjicYmwZ3VxRUvp5=
+gsw3lavER2Gc5VPZ6xSBDk7nlHJ9BIDVkCsEEM4SGEdOJ1eWu8Zsjq-gSaBB3ghMxTbodeoVNOg=
+Pi_OSkjTWf4M_4P2Dxysxa4cyUU59Y-uoVVVC55OgssyDyp7nP8Z5lYPfparm2764qzGwJEimxX=
+-lcP1dmhJUfCYp0z5yUsG0b7b2ZN6AhhbP1R1kqzc0ZttQ style=3Dtext-decoration:none=
+><amp-img layout=3Dresponsive src=3Dhttps://services.google.com/fh/files/em=
+ails/updated_arrow.png width=3D14 height=3D14 style=3D"display: block; widt=
+h:14px;"></amp-img></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Card 3 Ends -->
+<!-- Card 4 Start -->
+<div>
+<div [class]=3D"selected.slide4 =3D=3D 0 ? &#39;carotracking_4&#39; : &#39;=
+&#39;" class=3Dcarotracking_4></div>
+<table cellspacing=3D0 cellpadding=3D0 role=3Dpresentation>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"border: 1px solid #DADCE0; border-=
+radius:10px; background-color:#ffffff;" class=3Dwd-528>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D536 clas=
+s=3Dwidth_95>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D450 clas=
+s=3Dinnerblock>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:24px;>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5oBYZ4i=
+ixgBLtAmXNTXf9L-LQ-Melh-2aDrLBm1HCxQK-k4ZjI99t0R-inpY0-5_wHdr9fXtaXAi3KqTg7=
+k2ATtkdEhh5_HU-zzL2GXWdDABIthM-xvUNFCpCzYMp8qGQHERCNxUPMXIUL9kz7qkF4gqbiTP5=
+InGB1xQz4cGATKO-UZJRGMGxmiHKORJCPTdteZgF2yYr1rbNEhefgWuJb_EEiyXD97-H83UR3wq=
+3xcIGd3B3jT1Db4zd5q_dAk6ejCBetlyE_qxRV7bXN5omBdlnRa7LTyZh2rkXKYJwTtYwEJdcZj=
+_FK2NrbcWvmrqppwx3CMqtggOhA style=3Dtext-decoration:none;><amp-img src=3Dht=
+tps://services.google.com/fh/files/emails/snapchat_img_updated.png width=3D=
+488 height=3D214 class=3Dimagesize layout=3Dresponsive></amp-img></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"font-family:R=
+oboto,Helvetica,Arial,sans-serif; font-size: 18px; line-height:24px;color: =
+#4A4A4A ;font-weight: 700; padding-top:24px">
+Snapchat integrated camera features 50% faster with Camera2 Extensions API
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"font-family:R=
+oboto,Helvetica,Arial,sans-serif; font-size: 16px; line-height:24px;color: =
+#4A4A4A ;padding-top:24px">
+Before the recent improvements, Snapchatters had trouble capturing high-qua=
+lity Snaps in low light environments, which were often either too dark or t=
+oo blurry. Snapchat collaborated with Google to implement night mode, tap-t=
+o-focus, and zoom features via Camera2 Extensions API on Pixel devices.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"padding-top:2=
+4px; padding-bottom: 27px;">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ; font-weight: =
+700; padding-bottom:3px; border-bottom: 3px solid #34A853">
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5p6Gq00=
+Xmvdw_u1UDsXQoBLnAS9JAhrjTwl2pohtrDcfD75xVa4FC41DvsHgKtv10PmxryWADxQo55bouq=
+NJKXwzTjp3llOBZ6ly-A8lnF6XDU6gwz-ylKSy-q6dpAIjxMy5cHvuWbi-eidoevrZVPtd_sU8m=
+kes-58AD6I_u2zfBmnJFJW2OFJsecvMkm6aEZDEstK-SIyoCTu34s-dm_rh0E4GChRBE8Buev82=
+7Wd_fuajM2qDpxlvYTpWrzFtIehAxcVfrDLZXezOxt66UdjXZZVS9yoZIhCJGU-KpXu6RFZ3o2b=
+N_ttNUZturub_Cv0WHx5rHU7k68OLDjvm5bxBNlBWYW-N0Ria0-p1M1WH4QS style=3D"text-=
+decoration:none;color: #4A4A4A ;">Read more</a>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-left:8px; padding-top:7px;">
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5okeTMO=
+7jaoYkEmEo28EmNq4LF9AWLq0-eBKKnsR1TYq17f-oSnh7DFZa_LOFHQJsHpNw9AM3XjceFFg4P=
+tEX5uaFfP_d_zwV2HHYr5A3P6WUH2SnMev6sC7T4b6yemoKuNdyXuTkzhKX1B9C7L51piBG-X9C=
+iAs2XNODr3AWXKi2VLQjQ2MWYno4SwCDa6qtjfWG2QV5e6ebOBIXAmxyFgh3U4wUBQakiXEp7gd=
+qMRlG6hnU0tCFeV8180f9gNES_-aZJy4ASJD_90RB75i7Ypk7bNbzXd_H0Im-ljV1vwlTwEiRWX=
+xmRfCCP40XkoNfdA9CE4QC2c1MG4ggBkuIN-ITCrokxi1JQBo8rssPzN5BQX60kftwF4 style=
+=3Dtext-decoration:none><amp-img layout=3Dresponsive src=3Dhttps://services=
+.google.com/fh/files/emails/updated_arrow.png height=3D14 width=3D14 style=
+=3D"display: block; width:14px;"></amp-img></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Card 4 Ends -->
+<!-- Card 5 Start -->
+<div>
+<div [class]=3D"selected.slide5 =3D=3D 0 ? &#39;carotracking_5&#39; : &#39;=
+&#39;" class=3Dcarotracking_5></div>
+<table cellspacing=3D0 cellpadding=3D0 role=3Dpresentation>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop class=3Dwd-528 style=3D"border: 1px solid #=
+DADCE0; border-radius:10px;background-color: #ffffff;">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D536 clas=
+s=3Dwidth_95>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D450 clas=
+s=3Dinnerblock>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:24px;>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td>
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5pBDHGZ=
+7pQlcBzk0gNL7CMZgwanhkiDUQ53xu3dS4h7vC4C92N5DaeOwMsxaqFUxzIDTsYAHJzx9cx3P66=
+qkfxHgWm02jW5ASnEWf-29V6xg47_fXMxdUNsebXgBsXhluIVhpDtGDLnSdzPEjesvRJY3dk-7M=
+q8_UONVDzRN5EhZj4gqh97Z-qz_zm23eGpln_c3WHWD2i4TrVxzAE0YNtu6s6NsNoYfGGUfbVpK=
+iZUqGprQs3XMIgqHNaDRf98GQuT9TOghDlYQ75F8aC7VERlcJZbHv_mIe7TESFLpz3-c5WOZsHv=
+whFfFg style=3D"text-decoration:none; "><amp-img src=3Dhttps://services.goo=
+gle.com/fh/files/emails/zoom_img_updated.png width=3D488 height=3D214 class=
+=3Dimagesize layout=3Dresponsive></amp-img></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"font-family:R=
+oboto,Helvetica,Arial,sans-serif; font-size: 18px; line-height:24px;color: =
+#4A4A4A ;font-weight: 700; padding-top:24px">
+Zoom users spend twice as many minutes connecting on tablet versus phones
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"font-family:R=
+oboto,Helvetica,Arial,sans-serif; font-size: 16px; line-height:24px;color: =
+#4A4A4A ;padding-top:24px">
+Over the last few years, Zoom noticed more people using larger screen devic=
+es on Android, so they wanted to provide these users have the best experien=
+ce possible when using Zoom. They scaled their mobile UI to address our use=
+r=E2=80=99s needs no matter what size device they use, from phones and fold=
+ables, to tablets.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpad-left-right style=3D"padding-top:2=
+4px; padding-bottom: 27px;">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ; font-weight: =
+700; padding-bottom:3px; border-bottom: 3px solid #34A853">
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5qdIvOR=
+dzHTOjwAz0X6hyt_3wLQlNcWZEEtb_2OoD_FCfbzvKcZ-wznhlHPkMonOovkYwFh9Nw23HmsnO-=
+1_yvbMtKdbLvtGRbnYayfF10qtQXm9iegN5BSqvF6xO9DolX-bjsCFNF8cfjwxwOC_NajWpfG7R=
+7piprHPBuVSBI1Br5j92_uruZO0UbVNthM_1dgVZvUKonjG72aM17XuqZl9jlEUVxLu1-MmQcpH=
+8Pl586VKF36mY6C8zVsV-wg1d7DUJGSun8erBW2Y31RXlALjM33EZNMEORL7N9PBfWP5NnkRMp8=
+zsliSk3m7lu5JdA_hw style=3D"text-decoration:none;color: #4A4A4A ;">Read mor=
+e</a>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-left:8px; padding-top:7px;">
+<a target=3D_blank href=3Dhttps://notifications.google.com/g/p/ANiao5qBmaB_=
+2bvWJ0IFBOLs6BdZrIMA2nl7WG5VRnyrnZ7m1yt39rVxjMhqjNCxEq-DLECruIvPkaqndE33nYS=
+dTZy_iwpDHj-dssme9LWIR6AtNeYSBW0kidCW4pXwXvQ3fX9UXR2YY718LuYBtPcEO8eSZNBu3m=
+ALLoWsevYeEe342tKjwEYY2hef3epMGoKGKMy9UUDCjL0H4ZjkJi8ymCRYeTG1jantA99JrU6h5=
+NnTWacWxV3mf1wqknWBCMjZeQ2MNdTb33RW7mDdsPqVfe0GvCh5Z0iASwA7oSmT0F2XtLFiJRBW=
+hIjXwJwWasepvQEKhcaKB-Fw-A style=3Dtext-decoration:none><amp-img layout=3Dr=
+esponsive src=3Dhttps://services.google.com/fh/files/emails/updated_arrow.p=
+ng height=3D14 width=3D14 style=3D"display: block; width:14px;"></amp-img><=
+/a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Card 5 Ends -->
+</amp-carousel>
+</div>
+</div>
+<div class=3Dnavigations>
+<div role=3D"" tabindex=3D"" on=3Dtap:slide_tips.goToSlide(index=3D0) style=
+=3D"padding: 6px; ">
+<div [class]=3D"selected.slide1 =3D=3D 0 ? &#39;current1&#39; : &#39;old1&#=
+39;" class=3Dcurrent1 style=3D"width: 8px; height: 8px; border-radius: 10px=
+; "></div>
+</div>
+<div role=3D"" tabindex=3D"" on=3Dtap:slide_tips.goToSlide(index=3D1) style=
+=3D"padding: 6px; ">
+<div [class]=3D"selected.slide1 =3D=3D 1 ? &#39;current1&#39; : &#39;old1&#=
+39;" class=3Dold1 style=3D"width: 8px; height: 8px; border-radius: 10px;"><=
+/div>
+</div>
+<div role=3D"" tabindex=3D"" on=3Dtap:slide_tips.goToSlide(index=3D2) style=
+=3D"padding: 6px; ">
+<div [class]=3D"selected.slide1 =3D=3D 2 ? &#39;current1&#39; : &#39;old1&#=
+39;" class=3Dold1 style=3D"width: 8px; height: 8px; border-radius: 10px;"><=
+/div>
+</div>
+<div role=3D"" tabindex=3D"" on=3Dtap:slide_tips.goToSlide(index=3D3) style=
+=3D"padding: 6px; ">
+<div [class]=3D"selected.slide1 =3D=3D 3 ? &#39;current1&#39; : &#39;old1&#=
+39;" class=3Dold1 style=3D"width: 8px; height: 8px; border-radius: 10px;"><=
+/div>
+</div>
+<div role=3D"" tabindex=3D"" on=3Dtap:slide_tips.goToSlide(index=3D4) style=
+=3D"padding: 6px; ">
+<div [class]=3D"selected.slide1 =3D=3D 4 ? &#39;current1&#39; : &#39;old1&#=
+39;" class=3Dold1 style=3D"width: 8px; height: 8px; border-radius: 10px;"><=
+/div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D600 clas=
+s=3D"w-360 m-width600">
+<tbody>
+<tr>
+<td style=3D"background-color:#202124; " class=3Dfooterspacing bgcolor=3D#2=
+02124 align=3Dcenter>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D578 clas=
+s=3D"w-360 w578">
+<!-- Archive & Subscribe Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation align=3Dcenter cellspacing=3D0 cellpadding=3D0>
+<tbody>
+<tr>
+<td align=3Dleft valign=3Dmiddle style=3D"font-family:Roboto,Helvetica,Aria=
+l,sans-serif; font-size: 12px; color:#4285F4; line-height:14px; letter-spac=
+ing: 1px; font-weight: 500; padding-bottom: 10px"><a href=3Dhttps://notific=
+ations.google.com/g/p/ANiao5odYuqvrua82yjxqpH0jz1kuvUNbNa9dsNpMif-eRnBsRKr4=
+2qYLXwoN8EYESk4w6zuCgX8vSje176Sz3ECAl10htb3Xg981Wy183liioy0YO1wOKl-bK_geoUq=
+4DE4WguBGpE2AI6qADKcJmvJUr6N9IeOYvuprDbq3OJynKcMkyaDydnAjA1EwNqBUxZqLAsusoc=
+Z4xumyIAHe8AZbZIHAZ-bPxiuw4JNsnNm4QdyrF78gWkB7R5H60eJzXvXvR1AjHBlljkD_KnKjA=
+ style=3D"text-decoration:none; color:#FFFFFF; letter-spacing: 1px" target=
+=3D_blank>SUBSCRIBE TO THIS NEWSLETTER</a></td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0>
+<tbody>
+<tr>
+<td aria-hidden=3Dtrue style=3D"padding-left: 7px; line-height: 14px" align=
+=3Dleft valign=3Dmiddle><a href=3Dhttps://notifications.google.com/g/p/ANia=
+o5rpRVcByArh5ij7B2hUHukmZkp5be57Ehai4nIUCCanYuvQOzroVel4a2g4wp95pxSkubCieas=
+HGsx521xYDi9CZM07tZNqWBE9vYLPZMobee2wZg6zdNZm3_kpn_QANJQLMPC_dvB-YAWMq07j5u=
+LkQK-LaeqeR-Ahg_4j3QZv1lCMxbgInXpedME22t3tC9qto6kF7jF4froCtfhvAriu0C_Y3eDZD=
+aednhhmvl7TOHIG09jNgx8f2ZuZIEA0MmiHVI33o6350U5g7VJQ4yz0jA target=3D_blank><=
+amp-img width=3D14 height=3D14 src=3Dhttps://services.google.com/fh/files/e=
+mails/updated_arrow.png alt=3D"" title=3D""></amp-img></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<!-- Archive & Subscribe End -->
+<!-- Stars and Social icon Start -->
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpdt23 style=3D"padding-top: 34px">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D578 clas=
+s=3D"w-360 w578">
+<tr>
+<td align=3Dleft valign=3Dtop width=3D170 class=3D"dblock w100">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 align=3Dcenter w=
+idth=3D100%>
+<!-- Social icon heading Start -->
+<tr>
+<td align=3Dleft class=3D"text-center pd0" valign=3Dtop style=3D"color:#fff=
+fff; font-family:Roboto,Helvetica,Arial,sans-serif;font-size:12px; line-hei=
+ght: 20px; padding-bottom:10px; padding-left: 17px;">Connect with us</td>
+</tr>
+<!-- Social icon heading Ends -->
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-left: 17px" class=3Dpd0>
+<table role=3Dpresentation width=3D100% cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft style=3D"padding-right: 0px;">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 class=3D"w151 m0=
+_auto">
+<tr>
+<!-- Social icon Start -->
+<td width=3D28 align=3Dcenter><a href=3Dhttps://notifications.google.com/g/=
+p/ANiao5qx__pcp2dN7zcZIRZKH5yahrGc4of-8nFYtyIsa1a6ZXtDmioqIKdZ91mVm0BPQdiVf=
+7keCvOnujSPhjJdnQE47nN1CJfFCOcsiBAYghHAvyRhVMrDRxrcvDR-xp3VvlTyar7WqFgXHlHj=
+taAg6XQOucBaL1sblVWcxhUba0Ox554zSEgMtpSyc6SxxPXTLOw5nA56fFu2i72e1dWUTkxhzkn=
+Rq5-1zxJWmWOKUQ target=3D_blank style=3Dtext-decoration:none><amp-img src=
+=3Dhttps://www.gstatic.com/growthlab/api/Ualtc27vFzfjwGCqsSCHYBoqiEIuaQk2cN=
+ovPcO7.png width=3D28 height=3D28 alt=3DTwitter title=3DTwitter style=3Ddis=
+play:block;></amp-img></a></td>
+<td width=3D13><amp-img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-=
+11.gif width=3D10 height=3D1 alt=3D"" style=3D"display: block;"></amp-img><=
+/td>
+<td width=3D28 align=3Dcenter><a href=3Dhttps://notifications.google.com/g/=
+p/ANiao5pfGZV1Gnc7-6goxxE7zEXLQh8FVvYsUteX0pNLYkH_kcou8iAGNf1KcwRhSjaMdd7mW=
+4P_cMoSieFI8ylA0-g_Q6cjjo8kZgzO4IPVvjKPkmUnUtDhRMiLvC3g6sXu59BQdddBgKU8po5s=
+O11obD7O1yeZ3S4x8DUPXMBxqGXcgZLx5OYE4Qmux-VayFx5lvzqE-1IcJd6-Ev0zSW9h6HS7rl=
+zzRUp6tdDFZNPQFQhPs__GqDYtqMmD7wIgXE target=3D_blank style=3Dtext-decoratio=
+n:none><amp-img src=3Dhttps://www.gstatic.com/gumdrop/files/android-develop=
+ers-logo-blogger-transparent-w56px-h56px-2x.png width=3D28 height=3D28 alt=
+=3D"Google Blog" title=3D"Google Blog" style=3Ddisplay:block;></amp-img></a=
+></td>
+<td width=3D13><amp-img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-=
+11.gif width=3D10 height=3D1 alt=3D"" style=3D"display: block;"></amp-img><=
+/td>
+<td width=3D28 align=3Dcenter><a href=3Dhttps://notifications.google.com/g/=
+p/ANiao5qCoDOLf-2KIxMAAqj4Mjh7S05m-qe1r2NfRwY8wMT9-ltrBYvSbE6-p2gx-7Y5hn2p6=
+VFcggJ86hF10q2JY1d3f__ZARnSM3up5yvgSUut1kykLZBEHPP_TBh0FElZhS1tTgnugdhVxD6r=
+L86eU4z3_ejmWPZtSYTXbu5gTvAMgEvvw79gj5UdfGFO5KJBHYO9GIbyVdyafz9xea0S9lsm3_o=
+hAok6tj7w6Dt62EY5hfbH target=3D_blank style=3Dtext-decoration:none><amp-img=
+ src=3Dhttps://www.gstatic.com/gumdrop/files/android-developers-logo-medium=
+-transparent-w64px-h64px-2x.png width=3D28 height=3D28 alt=3DMedium title=
+=3DMedium style=3Ddisplay:block;></amp-img></a></td>
+<td width=3D13><amp-img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-=
+11.gif width=3D10 height=3D1 alt=3D"" style=3D"display: block;"></amp-img><=
+/td>
+<td width=3D28 align=3Dcenter><a href=3Dhttps://notifications.google.com/g/=
+p/ANiao5qcPpIfIbbY8C-TZ5vT26OOF0zgnmGXduZa-lASW9lrKBodVc8IPa6gh4DkVeBG2kTzt=
+RsaYAupPADCOeox24BPAllNLVDNuYpSUYitK_mg1H3CcK4ALaa9BEEnLgjD0nDUga746IM1CjiJ=
+HeajlxiEzoPUyZ3MSEAq09Xy5uUtpv0aGTWowY8PkP5wcGYIYVUCIYHSzZLHwqLoPxOH0WZLl7P=
+nr_O4eXLcWHM3WOPzNw2Qkq6UEwgYdJ-xGxk target=3D_blank style=3Dtext-decoratio=
+n:none><amp-img src=3Dhttps://www.gstatic.com/gumdrop/files/android-develop=
+ers-logo-youtube-transparent-w56px-h56px-2x.png width=3D28 height=3D28 alt=
+=3DYouTube title=3DYouTube style=3Ddisplay:block;></amp-img></a></td>
+</tr>
+<!-- Social icon Ends -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td width=3D181 class=3Ddnone align=3Dright valign=3Dtop style=3D"border-co=
+llapse:collapse; line-height:8px;">
+<amp-img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D=
+181 height=3D1 alt=3D"" style=3D"display: block;">
+</td>
+<td valign=3Dtop align=3Dcenter width=3D227 class=3D"dblock w100">
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 align=3Dcenter c=
+lass=3Dol_200>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"color:#ffffff; font-family:Google =
+Sans,Helvetica,Arial,sans-serif;font-size:12px; line-height: 16px; padding-=
+bottom:12px; " class=3D"pd-t-3 pd-t-25">Was this newsletter useful?</td>
+</tr>
+<tr>
+<td align=3Dcenter valign=3Dtop width=3D100>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D100>
+<tbody>
+<tr>
+<td align=3Dcenter>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 align=3Dcenter>
+<tbody>
+<tr>
+<!-- Social icon Start -->
+<td width=3D24 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5ovPiAvYaNsX_wbo3HlvoMQpOvabaeMSnavQP5lVvApML-J1frnS=
+p35ySXEr5qIRQCUJjgmwms_u-uWjww0Xu0jw0gPnUz3W96gOfbpceUS1qVQZJUUTZye68l4--G1=
+xc25wVhuenuDBRe-1VxIGr7pqeG5i33yu3jpenN1quzCWJBMB-y6atNA2R-igpkjyiU9tbwBaiW=
+RaC3HR7e61Uq1utjx2qiw0seAGjdD4RhxGy0T9iQdA4cncVCoV4TvFSG8BpcuprIH6xIWYSQgDs=
+b7xKoUnIVf965JmmL0O3raSGfDErksVAp2oUc3UIWfAKk style=3Dtext-decoration:none>=
+<amp-img src=3Dhttps://services.google.com/fh/files/emails/star_white.png w=
+idth=3D24 height=3D24 alt=3Dstar1 title=3Dstar1 style=3Ddisplay:block;></am=
+p-img></a></td>
+<td width=3D13><amp-img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-=
+11.gif width=3D13 height=3D1 alt=3D"" style=3D"display: block;"></amp-img><=
+/td>
+<td width=3D24 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5pSMXkeOs8SSRYRoSqrroplSKdhmBGMA7VBKAVxFMo6DIj_ShYlA=
+Kzo_7Y8cVRK5CqLaNMZab14QIQNxnocPalY9JxToD9XJqv5RVS6Fq1XbL8xUR4PSH9-EspdP_DY=
+dx3ibQOhFcjFqiXOFDmm44tLbe1ZiNggUquglrlj_uTEqGpyk_0OtzCw9kLE-MmRmytpHrCUouQ=
+uZncbYxlLkTmQu5PsdvyED2Jkb2aMCaX8Sw1rIoD1rGYn_SpDPUavq5ppj4H4cMZg7Pxl8rg6Km=
+aLSbvEhKPYA3R1LKJk3dYWmKiZDdAMVoE34O0jQA451Wo style=3Dtext-decoration:none>=
+<amp-img src=3Dhttps://services.google.com/fh/files/emails/star_white.png w=
+idth=3D24 height=3D24 alt=3Dstar2 title=3Dstar2 style=3Ddisplay:block;></am=
+p-img></a></td>
+<td width=3D13><amp-img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-=
+11.gif width=3D13 height=3D1 alt=3D"" style=3D"display: block;"></amp-img><=
+/td>
+<td width=3D24 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5qXNX78dylNL5inXhq9RQ8-T2-_ziwI2ZZ0t8mrLK6gqsncw_-W4=
+ksIZa-HMHoo7OsUJrmumE2LgMCwz2PZtbQ-7k3LlyPGh151eEkTdDZoHLaYHnAH40UINvXxYj0f=
+Rwnpee_UyXLF2Vh0PiAC4t5Hntv7K9ZrsO1RPvtMXb8UL2M5BkziWUZgItMJ1gqej2ncWHx4n7o=
+hfH2e6ysV0PBsTYJldNnQuo6HnzEpdegIdKPE9H6TAiTDKnzjs4BwhpjpLhlHYEz4sDOcLKpISa=
+2OM_R_adD6zpmXpt1VM8q30s-eagPKFlBrNOyLEECz-T0 style=3Dtext-decoration:none>=
+<amp-img src=3Dhttps://services.google.com/fh/files/emails/star_white.png w=
+idth=3D24 height=3D24 alt=3Dstar3 title=3Dstar3 style=3Ddisplay:block;></am=
+p-img></a></td>
+<td width=3D13><amp-img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-=
+11.gif width=3D13 height=3D1 alt=3D"" style=3D"display: block;"></amp-img><=
+/td>
+<td width=3D24 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5rvIVit3OOKNO3_54to4hH_qUNxAmi0_-6BMIDYPoZlQfNW2yYNP=
+jRuw4Kn4_ylCO1pEmUQlgA6SjRuUREv4mUZidxRSFjxGzDMteKt0RQGdDl-l8aHm-pODJLR6ELh=
+Vxs7dkihIcAo-6xKm1BFE3S5_XiLU2nBUFxH32_hWEcmY-Mfu95XrCX9DbwlY3e4BuqtIevKfjP=
+NesgXW4VQ1b_6pUmoXMfmAtTgJyC2dK8oIh-UX1PXE4OxtmOTCaYet8r7y52LEcFlaLA3vhXR4g=
+L7cxwx_0PceynMXSgL_Wb999TFTATc30Zwx1nj_ouAwSE style=3Dtext-decoration:none>=
+<amp-img src=3Dhttps://services.google.com/fh/files/emails/star_white.png w=
+idth=3D24 height=3D24 alt=3Dstar4 title=3Dstar4 style=3Ddisplay:block;></am=
+p-img></a></td>
+<td width=3D13><amp-img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-=
+11.gif width=3D13 height=3D1 alt=3D"" style=3D"display: block;"></amp-img><=
+/td>
+<td width=3D24 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5oBTQlTgh0eKCYq9LRgiG3l77VQRl0vwgjyPB5fAqJC4KZLcdi3A=
+vsdPL1Yiw-_X9A8OzvBbaKn_W9Nj236LPJYe5KNgHsQ_aOVHVvCS_78astmtj9DHhOc_9KsMDRY=
+HalpyFUDD2lG0rzCMA9tdrSvjqXvD7TdFRHqNJ-ePqIB4Pfj63XehIOCY70IYmKR0Btr2Ia4xkZ=
+KUewpTyj2U8MKoq9nvLpiTGE6Wd11SSysO-LL7JDTHVUEja71sEPwQ-QTf1w1Qcr9bGQgJc2ueu=
+7NwPDpTscK5pc1ShWiA9m6HsUAYg7DKtDcZPi-C2T9xb0 style=3Dtext-decoration:none>=
+<amp-img src=3Dhttps://services.google.com/fh/files/emails/star_white.png w=
+idth=3D24 height=3D24 alt=3Dstar5 title=3Dstar5 style=3Ddisplay:block;></am=
+p-img></a></td>
+</tr>
+<!-- Social icon Ends -->
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Stars and Social icon END -->
+</table>
+</td>
+</tr>
+<!-- Signature End -->
+<!-- PlayConsole footerStart -->
+<tr>
+<td align=3Dcenter valign=3Dtop bgcolor=3D#202124 style=3Dpadding-bottom:30=
+px;>
+<table role=3Dpresentation width=3D100% cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"background-color:#202124;color:#ff=
+ffff; font-family:Roboto,Helvetica,Arial,sans-serif;font-size:12px; line-he=
+ight:16px; padding-left:25px; padding-right:25px; padding-top:38px;" class=
+=3Dpd-t-32>=C2=A9 2023 <a role=3Dtext style=3D"text-decoration: none; color=
+: #ffffff;">Google LLC 1600 Amphitheatre Parkway, Mountain View, CA 94043, =
+USA</a></td>
+</tr>
+<!-- General Marketing Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"background-color:#202124;color:#ff=
+ffff; font-family:Roboto,Helvetica,Arial,sans-serif;font-size:12px; line-he=
+ight:16px; padding-left:25px; padding-right:25px; padding-top:15px;" class=
+=3Dpd-t-17>This message was sent to <a style=3D"text-decoration: none; colo=
+r: #ffffff;" target=3D_blank>nicopico.dev@gmail.com</a> because you asked u=
+s to keep you up to date with Android developer news and updates. If you do=
+ not wish to receive these emails, please <a href=3Dhttps://notifications.g=
+oogle.com/g/optout/ANiao5qG-vElj2LEWga6iwBthYlIBUP2BTfxNP-2jYwnamBAp4EIdXWm=
+RFLpMGiyIPd-MH1Ze2kMf7UmWBwAS5NPbm6zbg5OCnuWMkv2m1k3fhI6XBXD9kWIw9gPVUzc7Vr=
+KLBzply6hDXGMdiVMS20oHkP1mdDjUFlZ0S4uQdTXQ8RTMRVh6S5cO8cFGZUbZ1QE2Zv3qrYYfx=
+2PmKQ5eCWaAp2UmVCpDCrz3iUoHUtJWy5JMLHz7mA84KVPS18f-pv6XOVUmw_blvMn2vF1D2LRR=
+fepdAoivoHksszbK9EweXnp?hl=3Den-US style=3D"text-decoration:underline; colo=
+r:#ffffff;" target=3D_blank>unsubscribe</a><span aria-hidden=3Dtrue>.</span=
+></td>
+</tr>
+<!-- General Marketing End -->
+</table>
+</td>
+</tr>
+<!-- PlayConsole footerEND -->
+</tbody>
+</table>
+</td>
+</tr>
+<!-- Body section 2 ends -->
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<amp-img alt=3D"" height=3D1 width=3D3 src=3Dhttps://notifications.google.c=
+om/g/img/ANiao5qNq9Y5zTnYQHXRNiQRzd-c7lurMMPCR-4AaiN0FagkPvj-xKn2FE9vzAjzVR=
+LOBTejIM7EFGzYmYGCC2CEubu2XAr9uRUdmDUspPBXI-JUbgutHNr4lJD3GVE6ZQFO5GCjkr6Ti=
+ZNUVN0Bro-XsGACRfGt5qRnq4Ln.gif></body>
+</html><!-- Structure -->
+--000000000000a59f92060a5d3acd
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!-- Links -->
+<!-- Images -->
+
+<!-- Content -->
+<!doctype html public "- / /w3c / /dtd xhtml 1.0 transitional / /en" "http:=
+ / /www.w3.org /tr /xhtml1 /dtd /xhtml1-transitional.dtd">
+<html xmlns=3Dhttp://www.w3.org/1999/xhtml lang=3Den>
+<head>
+<title>Android Case Study Newsletter</title>
+<meta http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+<!--[if !mso]><!-->
+<meta http-equiv=3DX-UA-Compatible content=3DIE=3Dedge>
+<!--<![endif]-->
+<meta name=3Dviewport content=3D"width=3Ddevice-width, initial-scale=3D1.0"=
+>
+<meta name=3Drobots content=3D"no index">
+<link href=3Dhttps://fonts.googleapis.com/css?family=3DGoogle+Sans:wght@400=
+;500;700 rel=3Dstylesheet>
+<link href=3Dhttps://fonts.googleapis.com/css?family=3DRoboto:400,300,500,7=
+00 rel=3Dstylesheet>
+<!--[if mso | ie]>
+<style>
+.ol-pl-32{
+padding-left: 32px !important;
+}
+.ol_pd_t11{
+padding-top:11px !important;
+}
+.padbottom1{
+padding-bottom: 20px !important;
+}
+</style>
+<![endif]-->
+<style>
+body {
+font-family: Google Sans, Roboto, Helvetica Neue, Helvetica, Arial, sans-se=
+rif;
+font-size: 12px;
+color: #424242;
+-webkit-text-size-adjust: none !important;
+-webkit-font-smoothing: antialiased !important;
+-ms-text-size-adjust: none !important;
+}
+table,
+tr,
+td {
+mso-table-lspace: 0pt;
+mso-table-rspace: 0pt;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+color: #1C6EF2;
+text-decoration: none;
+}
+.appleLinks a {
+color: #000000 !important;
+text-decoration: none !important;
+}
+@media all and (max-width: 600px){
+.w_250{
+width:205px !important;
+}
+.logo_width{
+width:150px !important;
+}
+.w_310{
+min-width:310px !important;width:100% !important;
+}
+.imgcenter{
+margin: 0 auto !important;
+text-align: center !important;
+}
+.txt_left{
+text-align: left !important;
+}
+.pad_lr_10{
+padding: 23px 10px !important;
+}
+.pdt_10{
+padding-top: 10px !important;
+}
+.font12 {
+font-size: 11px !important;
+}
+.pd-lr-15 {
+padding-left : 15px !important;
+padding-right: 15px !important;
+}
+.w320{
+width: 100% !important;
+}
+.w100 {
+width: 100% !important;
+}
+.width320 {
+width: 320px !important;
+}
+.table {
+width: 320px !important;
+max-width: 320px !important;
+}
+.table-l {
+width: 90% !important;
+}
+#pad_mob{
+padding:32px 15px 18px 15px !important;
+}
+.img {
+width: 100% !important;
+height: auto !important;
+}
+.hide {
+display: none !important;
+}
+.noline {
+border-top: none !important;
+border-right: none !important;
+border-bottom: none !important;
+border-left: none !important;
+}
+.mob-show {
+width: 100% !important;
+}
+.center {
+text-align: center !important;
+margin: 0 auto !important;
+}
+.width {
+width: 100% !important;
+}
+.logowidth{
+max-width: 95% !important;
+}
+.mar {
+margin: 0 auto !important;
+}
+.block {
+display: block !important;
+}
+.text_align {
+text-align: center !important;
+}
+.cam360pad {
+padding-top: 0px !important;
+}
+.height_fun {
+height: 56px !important;
+}
+.width180 {
+width: 180px !important;
+}
+.email_image_100 {
+width: 100px !important;
+}
+.pd_bottom20 {
+padding-bottom: 0px !important;
+}
+.mob_height {
+height: 50px !important;
+}
+.dis_mob {
+text-align: left !important;
+padding-left: 24px !important;
+}
+.a_wid {
+width: 55px !important;
+}
+.img_size {
+width: 70px !important;
+}
+.img {
+width: 200px !important;
+}
+.img_120 {
+width: 120px !important;
+}
+.img_135 {
+width: 100% !important;
+}
+.img_185 {
+width: 185px !important;
+}
+.pd_15 {
+padding-left: 15px !important;
+}
+.pd_bottom_10 {
+padding-bottom: 10px !important;
+}
+.pd_top_bottom10 {
+padding-top: 0px !important;
+padding-bottom: 0px !important;
+padding-left: 5px !important;
+}
+.three_image_width_new {
+width: 100px !important;
+max-width: 100px !important;
+height: 55px !important;
+}
+.pd_top_bottom5 {
+padding-top: 5px !important;
+padding-bottom: 5px !important;
+padding-left: 15px !important;
+}
+.pd_left_20 {
+padding-left: 32px !important;
+padding-right: 32px !important;
+}
+.text_container_width_85 {
+width: 85% !important;
+}
+.align_left {
+text-align: left !important;
+}
+.pd_left {
+padding-left: 25px !important;
+}
+.wid80 {
+width: 65px !important;
+max-width: 65px !important;
+}
+.w-360 {
+width: 95% !important;
+}
+.w-320 {
+width: 95% !important;
+}
+.bg-none {
+background-image: none !important;
+}
+.bd-t {
+border-top: 0px !important;
+}
+.dblock {
+display: block !important;
+}
+.dnone {
+display: none !important;
+}
+.w100 {
+width: 100% !important;
+}
+.pd0 {
+padding-left: 0px !important;
+padding-right: 15px !important;
+}
+.text-center {
+text-align: center !important;
+}
+.w151 {
+width: 151px !important;
+}
+.w-100m{
+max-width: 100% !important;
+}
+.m0_auto {
+margin: 0 auto !important;
+}
+.w-177 {
+width: 177px !important;
+}
+.pd-logo {
+padding: 32px 32px 20px !important;
+}
+.pd-t-3 {
+padding-top: 2px !important;
+}
+.pd-t-32 {
+padding-top: 32px !important;
+}
+.pd-t-24 {
+padding-top: 24px !important;
+}
+.pd-t-26 {
+padding-top: 25px !important;
+}
+.font-15 {
+font-size: 15px !important;
+line-height: 25px !important;
+}
+.pd-b-0 {
+padding-bottom: 0px !important;
+}
+.pd-t-20 {
+padding-top: 20px !important;
+}
+.pd-t-25{
+padding: 25px 0 12px 0 !important;
+}
+.pd-b-50 {
+padding-bottom: 25px !important;
+}
+.pd-b-25 {
+padding-bottom: 25px !important;
+}
+.brdr_none {
+border: none !important;
+}
+.pad_bt_0 {
+padding-bottom: 0px !important;
+}
+.pd-t-37 {
+padding-top: 37px !important;
+}
+.pdt23 {
+padding-top: 23px !important;
+padding-bottom: 23px !important;
+}
+.pd-t-17 {
+padding-top: 17px !important;
+}
+.pad-r-20 {
+padding-right: 20px !important;
+}
+.inline-block {
+display: inline-block !important;
+}
+.w-220 {
+width: 180px !important;
+}
+.pd-t-0 {
+padding-top: 0px !important;
+}
+.pad_t_0 {
+padding-top: 0px !important;
+}
+.pad-t-25-b-26 {
+padding-top: 25px !important;
+padding-bottom: 26px !important;
+}
+.w-20 {
+width: 20px !important;
+}
+.pad_t_15{padding-top:15px !important;}
+.pad_t_15{padding-top:15px !important;}
+.pt-t-0 {padding-top: 0px !important;}
+.bg-none{background-color: transparent !important;}
+}
+</style>
+</head>
+<body style=3D"margin:0 auto;padding:0;">
+<!-- gta starts here -->
+<div itemscope=3D"" itemtype=3Dhttps://schema.org/EmailMessage>
+<div itemprop=3Daction itemscope=3D"" itemtype=3Dhttps://schema.org/ViewAct=
+ion>
+<link itemprop=3Durl href=3Dhttps://notifications.google.com/g/p/ANiao5pJeZ=
+Z9PPv4HdcyUexK_-QKwWqeFrDI7NJZHiT3m-ySnwdBBBRbzatyK54-7zUDuA2glcgs7Kd1NBXRf=
+NUsvpJ6Wrm5AUJt2ucxMK2UgCfWru_k_JxcdICOcgVpx91K5FZQIlX0EpETR_DZAjV--yR4aBnH=
+iqeOqi0aomKMvBmwvByD1J_TR81Ns0K03_YaaTNd1EgD8LCKIdDh4O4fbAOBMTyndz5LA0mBCc-=
+SmWzrGYJHOin57rQXRRLBj98kjzUQQWOio5z00ONmy83eIz1lR2KzIappmzmj7bWnklGHjfo8PV=
+VLyxc>
+<meta itemprop=3Dname content=3D"Android Case Studies">
+</div>
+</div>
+<!-- gta ends here -->
+<!--- preview text starts here --->
+<p bgcolor=3D" #000000" style=3D" padding-top:0; font-size:0px; line-height=
+:0px; color:#ffffff;display:none;" align=3Dcenter>Learn how Android Develop=
+ers built excellent, premium apps using the latest Android features.</p>
+<!--- preview text ends here --->
+<table width=3D100% border=3D0 role=3Dpresentation cellspacing=3D0 cellpadd=
+ing=3D0 align=3Dcenter>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<!--[if !mso]><!-->
+<table bgcolor=3D#202124 class=3Dw_375 width=3D950 align=3Dcenter role=3Dpr=
+esentation cellspacing=3D0 cellpadding=3D0 border=3D0 style=3Dmax-width:950=
+px;width:100%;>
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" bgcolor=3D"#202124" width=3D"950" align=3D"center">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop background=3Dhttps://services.google.com/fh=
+/files/emails/transparent_bg_updated.png style=3D"height: auto; background-=
+image: url(&#39;https://services.google.com/fh/files/emails/transparent_bg_=
+updated.png&#39;); background-size: 100%; background-repeat: no-repeat;">
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 border=3D0 width=
+=3D600 align=3Dcenter style=3D"width: 100%; max-width: 600px;">
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"600" align=3D"center">
+<![endif]-->
+<!--View as webpage-->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table width=3D100% align=3Dcenter role=3Dpresentation cellspacing=3D0 cell=
+padding=3D0 border=3D0>
+<tr>
+<td role=3Dlink class=3D"f10_18 view_pad" align=3Dcenter valign=3Dtop style=
+=3D"font-family: Arial, sans-serif;font-size: 12px;color: #ffffff;line-heig=
+ht: 18px; font-weight: 500; padding: 40px 0px 10px 0px;"> Can&#39;t see thi=
+s email? <a href=3Dhttps://notifications.google.com/g/vib/ANiao5rQC2X9IV0sZ=
+A1tHbxxCA3MpQTmnvgnuab8egmSs9VQ3zfq-Tdn1PARmhbaNMUuN6DWf6Ti4CiTeALLG8z84O3Z=
+koWIN64_UFj85zOpquxJXY8iHWfzBG_8ZRnpUwfSRJDRJrQvo1hZZhWAu54epw style=3D"col=
+or: #FFFFFF; font-size: 12px; text-decoration: underline;">View in Browser<=
+/a><span aria-hidden=3Dtrue>.</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation bgcolor=3D#202124 width=3D600 align=3Dcenter cla=
+ss=3Dw320 border=3D0 cellspacing=3D0 cellpadding=3D0>
+<!--[if (gte mso 9)|(IE)]>
+<table border=3D"0" cellpadding=3D"0" bgcolor=3D"#202124" cellspacing=3D"0"=
+ width=3D"600" align=3D"center">
+<![endif]-->
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"padding: 24px 0px;" class=3Dpad_lr=
+_10>
+<table cellspacing=3D0 cellpadding=3D0 align=3Dcenter border=3D0 role=3Dpre=
+sentation width=3D100% class=3Dw_310>
+<tr>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation width=3D270 align=3Dleft border=3D0 cellspacing=
+=3D0 cellpadding=3D0 style=3D"max-width: 270px; width: 100%;">
+<!--<![endif]-->
+<!--[if (gte mso 9)|(IE)]>
+<table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"270">
+<![endif]-->
+<tr>
+<td aria-hidden=3Dtrue align=3Dleft valign=3Dmiddle style=3Dpadding-left:32=
+px;>
+<a target=3D_blank href=3D#>
+<img src=3Dhttps://www.gstatic.com/growthlab/api/vsuSHObBaTcuZCSmNPHjPIBOwX=
+tV3wnsfwL86sBe.png width=3D200 class=3Dlogo_width style=3D"display: block; =
+max-width: 200px; width: 100%;" class=3Dw_250>
+</a>
+</td>
+</tr>
+</table>
+</td>
+<td align=3Dright valign=3Dmiddle>
+<table role=3Dpresentation width=3D100% align=3Dright cellspacing=3D0 cells=
+padding=3D0>
+<tbody>
+<tr>
+<td align=3Dright valign=3Dmiddle class=3D"font12 pd-t-3" style=3D"font-fam=
+ily:Roboto,Helvetica,Arial,sans-serif; font-size: 15px; line-height: 23px; =
+color:#FFFFFF; padding-top: 5px; padding-right:32px;">November 2023
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!--[if (gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+</tbody>
+</table>
+</td>
+</tr>
+<!-- header for Gmail start -->
+<!--[if !mso]><!-->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 bgcolor=3D#4285F=
+4 align=3Dleft width=3D600 style=3D"width: 100%; max-width: 600px;">
+<tr>
+<td align=3Dcenter valign=3Dtop class=3D"bg-none pd-b-25" background=3Dhttp=
+s://services.google.com/fh/files/emails/banner_updated.png style=3D"backgro=
+und-size: 100% 100% !important; background-repeat: no-repeat; background: u=
+rl(&#39;https://services.google.com/fh/files/emails/banner_updated.png&#39;=
+); padding-top:30px; padding-bottom: 98px;">
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 align=3Dleft wid=
+th=3D500 style=3D"width:100%;max-width: 500px;">
+<tr>
+<td class=3Dpl38 align=3Dleft valign=3Dtop style=3D"padding-left: 32px;">
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 align=3Dleft wid=
+th=3D500 style=3D"width:100%;max-width: 500px;">
+<tr>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 align=3Dleft wid=
+th=3D388 style=3D"width:100%;max-width: 388px;">
+<tr>
+<td class=3Dpd0 align=3Dleft valign=3Dtop style=3D"font-family:Android Eucl=
+id,Roboto,Helvetica,Arial,sans-serif; font-size: 34px; line-height:43px;col=
+or: #ffffff; padding-right:91px">
+Faster and easier to build excellent apps, across devices
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation cellpadding=3D0 cellspacing=3D0 align=3Dleft wid=
+th=3D500 style=3D"width:100%;max-width: 500px;">
+<tr>
+<td class=3Dpd0 align=3Dleft valign=3Dtop style=3D"font-family:Android Eucl=
+id,Roboto,Helvetica,Arial,sans-serif; font-size: 20px; line-height:30px;col=
+or: #ffffff; padding-right:50px; padding-top: 20px;">
+Learn how Android Developers built excellent, premium apps using the latest=
+ Android features.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!--<![endif]-->
+<!-- For outlook starts-->
+<!--[if (gte mso 9)|(IE)]>
+<tr>
+<td align=3D"right" valign=3D"top" width=3D"600" bgcolor=3D"#4285F4">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" width=3D"6=
+00">
+<tr>
+<td align=3D"center" valign=3D"top" style=3D"padding-top:30px; padding-bott=
+om: 40px;" bgcolor=3D"#4285F4">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" align=3D"c=
+enter" width=3D"100%" bgcolor=3D"#4285F4">
+<tr>
+<td aria-hidden=3D"true" width=3D"32" class=3D"" align=3D"left" valign=3D"t=
+op" style=3D"mso-table-lspace:0pt; mso-table-rspace:0pt; mso-line-height-ru=
+le:exactly; line-height:32px;"><img src=3D"https://www.gstatic.com/gumdrop/=
+files/spacer-11.gif" width=3D"1" height=3D"1" border=3D"0" alt=3D"" style=
+=3D"display: block;"></td>
+<td align=3D"center" valign=3D"top">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" align=3D"c=
+enter" width=3D"465">
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" align=3D"l=
+eft" width=3D"388" style=3D"width:100%;max-width: 388px;">
+<tr>
+<td class=3D"pd0" align=3D"left" valign=3D"top" style=3D"font-family:Androi=
+d Euclid,Roboto,Helvetica,Arial,sans-serif; font-size: 34px; line-height:43=
+px;color: #ffffff; padding-right:91px">
+Faster and easier to build excellent apps, across devices
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3D"left" valign=3D"top">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" align=3D"l=
+eft" width=3D"500" style=3D"width:100%;max-width: 500px;">
+<tr>
+<td class=3D"pd0" align=3D"left" valign=3D"top" style=3D"font-family:Androi=
+d Euclid,Roboto,Helvetica,Arial,sans-serif; font-size: 20px; line-height:30=
+px;color: #ffffff; padding-right:50px; padding-top: 20px;">
+Learn how Android Developers built excellent, premium apps using the latest=
+ Android features.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<![endif]-->
+<!-- For Outllook endd -->
+<!-- Body Section 2 Starts -->
+<tr>
+<td align=3Dcenter valign=3Dtop bgcolor=3D#F1F3F4>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D600 style=3D"width: 100%; max-width: 600px;">
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"600" align=3D"center">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D536 style=3D"width: 95%; max-width: 536px;">
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"536" align=3D"center">
+<![endif]-->
+<!-- Card 1 Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop height=3D24 style=3D"line-height:24px; mso-=
+line-height-rule:exactly;">
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D1 he=
+ight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+</tr>
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"border: 1px solid #DADCE0; border-=
+radius:10px;" bgcolor=3D#ffffff>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D536 style=3D"width: 95%; max-width: 536px;">
+<!--<![endif]-->
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"536">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D488 style=3D"width: 100%; max-width: 488px;">
+<!--<![endif]-->
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"488">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:24px;>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td>
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5p97qSZM3rgZ3m57YDJIote=
+NFpVxlK9iYAmOpDC7dEoJRiEqHhyGypEh7DrKtpuMjV7T9tjw82DANhLkH44MY0SZMK8-evOC8H=
+IeR9mR7IMfvnU2CIm0kmNcSo8W2kMYMuM2DxqKpKCdL_OdDs-mbKIhsZtJyTpEOna_YzJmTsBMO=
+_LJ5L4Rf5L28ez5i2DILT7qadJR2FjZ_j9n6fbCYJvPZf8egVM4Vwqkf53K5xYiQL0Wjr4-p9BM=
+cAtn-URY5wT-C1jkmBxJbnc2VLnd9qd9ZQdJmu34UPofs3PRm2SaJXeokpQ_Tfv2z4 target=
+=3D_blank style=3D"text-decoration:none;display: block;"><!--[if !mso]><!--=
+><img src=3Dhttps://services.google.com/fh/files/emails/threads_img_updated=
+.png width=3D488 style=3D"max-width: 488px;width: 100%; display: block;"><!=
+--<![endif]--><!--[if gte mso 9]><img src=3D"https://services.google.com/fh=
+/files/emails/threads_img_updated.png" width=3D"488"><![endif]--> </a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 18px; line-height:27px;color: #4A4A4A ;font-weight: 7=
+00; padding-top:24px">
+How Jetpack Compose enabled Threads to build a high quality app in only 5 m=
+onths
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ;padding-top:24=
+px">
+Threads is a text-based conversation app built by the Instagram team at Met=
+a. The engineering team was able to build and ship the app in only 5 months=
+, which exceeded their expectations for building such a high quality app of=
+ this complexity and scale.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-top:24px; padding-bottom: 27=
+px;">
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ; font-weight: =
+700; padding-bottom:3px; border-bottom: 3px solid #34A853">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5ogf8wIYcr1byV0D6KVCLeV=
+p3Egn6g4ZPlgpJ-VVh3raN6nHTNQO3KeetvNdv43MK5lSV2157335hAZbhaik__2Qo9SJhbPi-1=
+acZaqcPdjuHidRCNBUkAjxASueArFXV0p65UeAs7_p9ycpuu0PwxGkN-ez9sur6C792dKaLv7e7=
+GYP2JESQXOsjzu5dIZVW56qf6tqgaog0MOFkHFcKi6YqZjoQMAMUAi-qcDlutKgE5mOe3SdUHBd=
+Z6-9deGJEvW5mXWJTrTzpEkd2nMN5it8xP1RGx48Ln0AxA50vVm2ArAx1CSpRpd-Nnq3Y6aK5Ww=
+Jf7Js1XsBUwcy1Q target=3D_blank style=3D"text-decoration:none; color: #4A4A=
+4A ;">Read more</a>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dol_pd_t11 style=3D"padding-left:8px; =
+padding-top:7px;">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5q1LcEyKmYFWyTEnzReIO8W=
+eS1sO2Jf3HEz7REbIHs7R07L31_CGo-aIz2_GDGyeNX-Y_aHcbjG_t7ImF8INaOPwY1jRAIktJp=
+FFS4gM_kiJsIkBHfErc6iVrof9pYo5nfb1612vbpbAhl1dCVy2ZQBp3gy9zYN-ycWri64yVDMhP=
+CZn8FWJlIzIbfLRSte7WQqp7U6nqHu1vyEMJXoC1eWjrKRxSYQyvmvro2gl-1TospBmVdFUuTCW=
+L6rsU-c8gMotib4ktwIkkubDcIabvFUuSpPAQlNPjAGpz_J88I64c6Gn4LI2F7o2i3QMLdTIZMv=
+zGTQc2X6Ko6lezz1uci7lzc target=3D_blank style=3D"text-decoration:none; disp=
+lay:block;"><img src=3Dhttps://services.google.com/fh/files/emails/updated_=
+arrow.png width=3D14 style=3D"display: block; width:14px;"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Card 1 Ends -->
+<tr>
+<td align=3Dcenter valign=3Dtop height=3D24 style=3D"line-height:24px; mso-=
+line-height-rule:exactly;">
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D1 he=
+ight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+</tr>
+<!-- Card 2 Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"border: 1px solid #DADCE0; border-=
+radius:10px;" bgcolor=3D#ffffff>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D536 style=3D"width: 95%; max-width: 536px;">
+<!--<![endif]-->
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"536">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D488 style=3D"width: 100%; max-width: 488px;">
+<!--<![endif]-->
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"488">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:24px;>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td>
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5rwGuTmeU2EDsOQIbhuYlXP=
+8P9i5hIG1M6Xq5EqlAIwbAgrWnQwEnT-ydJbH5ekWw4r0e0tT_fA0qOpzj-ENppY5-6Kq4Ovzsl=
+E-H31ZbZbxfyugsoSHFe9XmIDc0hRcZjnjT5sYjyzwsOamFPdsFUjYjm8C4SEYd8R5Ox9wAsA4G=
+_b6qGI1s_lXMVjGHNeTL02UUWBlndEiAPlyoHAriDzK6hZSyhEUA_XIpH-VFPQWNX1oicdjVnD-=
+fuQLO8UWFCrqVJ7YnL5lPy4FqdLCjhBg_Z_RJ28u13mJNscqoQ-StvduHrTNcI8beQzhZ730bNu=
+9w target=3D_blank style=3Dtext-decoration:none;><!--[if !mso]><!--><img sr=
+c=3Dhttps://services.google.com/fh/files/emails/reddit_img_updated.png widt=
+h=3D488 style=3D"max-width: 488px;width: 100%; display: block;"><!--<![endi=
+f]--><!--[if gte mso 9]><img src=3D"https://services.google.com/fh/files/em=
+ails/reddit_img_updated.png" width=3D"488" style=3D"display: block;"><![end=
+if]--> </a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 18px; line-height:27px;color: #4A4A4A ;font-weight: 7=
+00; padding-top:24px">
+Reddit rebuilds feature with 44% less code using Jetpack Compose
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ;padding-top:24=
+px">
+It&#39;s important for the Reddit engineering team to have a modern tech st=
+ack because it enables them to move faster and have fewer bugs. Jetpack Com=
+pose provided the team with additional flexibility, reduced code duplicatio=
+n, and allowed them to seamlessly implement their brand across the app.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-top:24px; padding-bottom: 27=
+px;">
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ; font-weight: =
+700; padding-bottom:3px; border-bottom: 3px solid #34A853">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5p5q1HwkzgnXRv928bSHiPD=
+9nAeahzOsnao8koNh1YVxzxivJ83COefeaXSe5h80I5Xu0Of9vtECCg1JrWiCD52D3iz3KSefNN=
+fC0-AUNix2twQvi2Rn4y0XIc2GSz-i1NmUnXP1G37L2XsqwQ-AqzwsWufqJaT8pU0HVUnzJSo2M=
+j_WitEIsxXBJwgbYa5AtXqcBWnAWhoh8pNPljm5NINCluoiy8mX1DvDtUyJpB2ogsk8vICz1vqk=
+2GXAJ8hj4axCwgVezWrorcR_qmSOe0sL1K3oaFWRTKuV-iolj3ijOrof-Z635w1p1b4rBWINVNM=
+QikT target=3D_blank style=3D"text-decoration:none;color: #4A4A4A ;">Learn =
+more</a>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dol_pd_t11 style=3D"padding-left:8px; =
+padding-top:7px;">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5pJ2IvMHLbpMD_nNseZcSct=
+zNXcSo9G0Vwb93G3qLpcdKU4-ksMfjwhU2gTMzX2x9C0WFXD-i6s9BhFn4D41MO6cHS4p-c6mYF=
+5G-dxKczpvKYFKoU7VjXAwR-lHH1rnoo34hHYVY5n7TM1CHuR7r2P8m2-rsGkI4QO2qO3-DQEp6=
+7A_7nW5h5Bw_oiRgvj2him7U829oo2xX4nNgAJf5ry8ZyycX68BTAJCBb6LMm0KDGWEuYNFzHik=
+sq34rRjVmbdpQQ9KuyPap9yZtjQIuln4w0RePDAXQ4AJZ4fswZ9m8ELSWnx3xoaGO9smofRW6VB=
+dv1ovt-9Zr0H target=3D_blank style=3Dtext-decoration:none><img src=3Dhttps:=
+//services.google.com/fh/files/emails/updated_arrow.png width=3D14 style=3D=
+"display: block; width:14px;"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Card 2 Ends -->
+<tr>
+<td align=3Dcenter valign=3Dtop height=3D24 style=3D"line-height:24px; mso-=
+line-height-rule:exactly;">
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D1 he=
+ight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+</tr>
+<!-- Card 3 Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"border: 1px solid #DADCE0; border-=
+radius:10px;" bgcolor=3D#ffffff>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D536 style=3D"width: 95%; max-width: 536px;">
+<!--<![endif]-->
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"536">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D488 style=3D"width: 100%; max-width: 488px;">
+<!--<![endif]-->
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"488">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:24px;>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td>
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5pFwD6SSIVJJLO7r83Fzp_Z=
+-bhSY9v6u4DlyQ3ZmeJCrqYbuNB9snfpu7ghP9RmG_IBXphjHEaTurCi2ZFlMvRNPjOOVu30TI5=
+6tI_dxPSvfYYvf8FrXk7iRyV5j5O2jfwQS-7OGsNnRgk-QLWyVfBJtdbC3nDxqz3UiolHgFRQwR=
+vTQkEsSviedIY17z4dqp_tsI-jWljNAO4ty376_Z-E_yuAG2iLF0JsU_I3JmZUt39JCM6cqhoXq=
+GWY-9HyVaL-V4IMLwWA1dApqAUgtsioU-U3neMh4efq7ls9i0D0ZSWhs1p97xz4IVSKlIDrPZ-L=
+a7YwJg target=3D_blank style=3Dtext-decoration:none;><!--[if !mso]><!--><im=
+g src=3Dhttps://services.google.com/fh/files/emails/kayak_img_updated.png w=
+idth=3D488 style=3D"max-width: 488px;width: 100%; display: block;"><!--<![e=
+ndif]--><!--[if gte mso 9]><img src=3D"https://services.google.com/fh/files=
+/emails/kayak_img_updated.png" width=3D"488" style=3D"display: block;"><![e=
+ndif]--> </a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 18px; line-height:27px;color: #4A4A4A ;font-weight: 7=
+00; padding-top:24px">
+KAYAK reduced sign in time by 50% and improved security with passkeys
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ;padding-top:24=
+px">
+KAYAK is one of the world&#39;s leading travel search engines that helps us=
+ers find the best deals on flights, hotels, and rental cars. In 2023, KAYAK=
+ integrated passkeys into its Android and web apps. As a result, Kayak redu=
+ced the average sign-up and sign-in times by 50% and has seen a decrease in=
+ support tickets.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-top:24px; padding-bottom: 27=
+px;">
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ; font-weight: =
+700; padding-bottom:3px; border-bottom: 3px solid #34A853">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5pMSF4JYkP3tP8NuTP6zQ80=
+kDT_6kSVZcrQnxl9Fa_-TlhIS6MW45SNfZXKU7dM6FCuYAmitVDKO8WcldwCLHJLy2TvSijostV=
+W6SzAOMLiS6A34nt7naNTAYzq15A7lLz4ezJTGCJYpJlPtxC1P8Yd9BgoO0-5nrvmWZ1TdxaSKJ=
+qiwLhRv0vf1xPf-m73KlQwbPnQxD0F5OdBijGV4k-RSJXuh6_lPx7PrHflysNJY2oHEoH5tAv3r=
+UKhAglPwM3tjim2Mbjb2x8srWeXJJ46Qk3BQ87W1SUePQn0-JgblRxnn5sPsZFACkF_jzDNmHve=
+Cf9Yvw392me0T41O target=3D_blank style=3D"text-decoration:none;color: #4A4A=
+4A ;">Read more</a>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dol_pd_t11 style=3D"padding-left:8px; =
+padding-top:7px;">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5qsZBHMpJEb3tcNFPdiwWZp=
+8XB_GU3doJ9x-6GuQauVGkF4RjYQtHXXfUxme9bX5JGtWqpBRyIIs-KwRte5nlWbeqqqq-au5nt=
+lmNMeC4IKQctNQ_n84UEhASm4e6YdCzpOODSY2LsnxnZqVaCu4f_MhzwhrYabtq3F0Ohs059LeW=
+-ftyTxIfviwUF1rVlFC0W9cJB8M8VoBK56Bo703_3S9EqZZrqFgZ834LuWWY9qiMilldJAHPMOd=
+U9fzDWWFn8_1hPl9AV2AcHRvuzZ1cAVVeg5EfFdSBFM1iKvd95O10GRMKkztzk0QQkRMp7kr8lY=
+6sd_TOKCYyukLq2lZ4FLMcZN target=3D_blank style=3Dtext-decoration:none><img =
+src=3Dhttps://services.google.com/fh/files/emails/updated_arrow.png width=
+=3D14 style=3D"display: block; width:14px;"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Card 3 Ends -->
+<tr>
+<td align=3Dcenter valign=3Dtop height=3D24 style=3D"line-height:24px; mso-=
+line-height-rule:exactly;">
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D1 he=
+ight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+</tr>
+<!-- Card 4 Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"border: 1px solid #DADCE0; border-=
+radius:10px;" bgcolor=3D#ffffff>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D536 style=3D"width: 95%; max-width: 536px;">
+<!--<![endif]-->
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"536">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D488 style=3D"width: 100%; max-width: 488px;">
+<!--<![endif]-->
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"488">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:24px;>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td>
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5pR9GkAkjvbo4SzP1LdCVGw=
+lYcfQ_3FGuZBlmwCdZzbhXwYSW54r0b_j3hywg8iXAysb_4qp-u68FIYOMmtCSL9cmgwR-U9f0P=
+h1H1-FoDmz4usx3BkECiDjj2jg5i-iKqRk8z0ekoZIe0K7iW2beMnhpd4rzL0bLWMm2cM5t3-l3=
+2zZa2BZrEal1piIgCwf9fDtUCwozEVldFkWmaLx34_3v2z-Gz4nB0KiYHpUTq0PnZT3n58p5Tva=
+Roo7wu-dxyXwsmL3BZeN8n02gj4PdRBTnhnvUtfP_XOrErwddKZAs5XRzkEPCGYTQTo5ixdrcDB=
+IH3Y8Q target=3D_blank style=3Dtext-decoration:none;><img src=3Dhttps://ser=
+vices.google.com/fh/files/emails/snapchat_img_updated.png width=3D488 style=
+=3D"max-width: 488px;width: 100%; display: block;"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 18px; line-height:27px;color: #4A4A4A ;font-weight: 7=
+00; padding-top:24px">
+Snapchat integrated camera features 50% faster with Camera2 Extensions API
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ;padding-top:24=
+px">
+Before the recent improvements, Snapchatters had trouble capturing high-qua=
+lity Snaps in low light environments, which were often either too dark or t=
+oo blurry. Snapchat collaborated with Google to implement night mode, tap-t=
+o-focus, and zoom features via Camera2 Extensions API on Pixel devices.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-top:24px; padding-bottom: 27=
+px;">
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ; font-weight: =
+700; padding-bottom:3px; border-bottom: 3px solid #34A853">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5pQ42dKlM-IxhgtMmqplxLX=
+fZUJRlunLWyP-YsbVhYghG6gifOIEJSPW9iY7mdhmFeJ2VaoNrgK10W9wF9nRdj6eXAcG9-aI-s=
+q0zuL2I0QdYaf1QeyAj87_tttELf2xcIOYvm-Z-kLDxZBjY4k9D8Igp-baCEqzpJ4Vo1xrhMcU8=
+lxHTPHW-6I4Jhu-1qVxGVI8XEqNWDQvRlC2t2WKxJWq6-PkIFCgSXMzWMjFmIV813iJs4hTW_ci=
+7QUHq3eiDzLYXPjzeoVyizVaGcCE1G7_VY9N_2MwcsXqrRkXiPyLBTi3A-uah3gngc3Zw0X_F-i=
+dD18PMwKFG_vRL11B7VyU5gxxAbU32th9vgHYEI target=3D_blank style=3D"text-decor=
+ation:none;color: #4A4A4A ;">Read more</a>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dol_pd_t11 style=3D"padding-left:8px; =
+padding-top:7px;">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5rN6ZmWz3_Lrw08OxOoYiNk=
+_IW43KuVwXmLdKH0j7gVJQIWWC11uG4DNwUbh73_5278HDIL3qLzEA3alOZ2me6pwW6uZR_4n9D=
+WpNWkCW3cvPS0ot_xDC-hubCxC1v22Q2ukr7KCIPMsf60eTkj7gEDRyVnewusmL0_ulXBjPY43d=
+3R-SbV6qXoniYGpj2wUrSs3C60EyIwEpNuTZSiuTsgMXMafg_LhnXcmeX1FIolXRO-Lqqh0v2-p=
+59i-YN3OdcESiq-M28GrqG04sWqyjo14njksmoIngn-HTUhFP00k60WCl8H59zPy7CsFl5eJdZk=
+_J0t5yigx6uBDpbI1fuhw5GkEk8ATkti4ZTb50Iqv4WOaD4 target=3D_blank style=3Dtex=
+t-decoration:none><img src=3Dhttps://services.google.com/fh/files/emails/up=
+dated_arrow.png width=3D14 style=3D"display: block; width:14px;"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Card 4 Ends -->
+<tr>
+<td align=3Dcenter valign=3Dtop height=3D24 style=3D"line-height:24px; mso-=
+line-height-rule:exactly;">
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D1 he=
+ight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+</tr>
+<!-- Card 5 Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3D"border: 1px solid #DADCE0; border-=
+radius:10px;" bgcolor=3D#ffffff>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D536 style=3D"width: 95%; max-width: 536px;">
+<!--<![endif]-->
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"536">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop>
+<!--[if !mso]><!-->
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D488 style=3D"width: 100%; max-width: 488px;">
+<!--<![endif]-->
+<!--[if gte mso 9]>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"488">
+<![endif]-->
+<tr>
+<td align=3Dcenter valign=3Dtop style=3Dpadding-top:24px;>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td>
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5qD9kGNwAtrI4fmPa8AXCwX=
+G-I-chfXdXF_Q63BV6Gnp0FadbQnDkRHlD3yt2FhMFzwEKMQr5AL411Mczi7Sw5L_A0zYoh-lIA=
+ejTUBU9ch4o3Ew8Umg03Szyzy1wOrOlseHY4LNFrBiuC4lmegyRdHWtm-XuWjaGqZ72CJEoeaxq=
+-e4pCXeem-AZHqycyB-LPomtjg_k5T_37KfG5oRFa46qlvh7sxE33-YolScsBVMLQ1iXPBPiQsS=
+s4E5xqmlaJF6CeLX7-yMuR2GiTOXFqIHmIPcNNgtVyMngJMCtPIJCUojn-k target=3D_blank=
+ style=3D"text-decoration:none; "><img src=3Dhttps://services.google.com/fh=
+/files/emails/zoom_img_updated.png width=3D488 style=3D"max-width: 488px;wi=
+dth: 100%; display: block;"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 18px; line-height:27px;color: #4A4A4A ;font-weight: 7=
+00; padding-top:24px">
+Zoom users spend twice as many minutes connecting on tablet versus phones
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ;padding-top:24=
+px">
+Over the last few years, Zoom noticed more people using larger screen devic=
+es on Android, so they wanted to provide these users have the best experien=
+ce possible when using Zoom. They scaled their mobile UI to address our use=
+r=E2=80=99s needs no matter what size device they use, from phones and fold=
+ables, to tablets.
+</td>
+</tr>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-top:24px; padding-bottom: 27=
+px;">
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"font-family:Roboto,Helvetica,Arial,s=
+ans-serif; font-size: 16px; line-height:24px;color: #4A4A4A ; font-weight: =
+700; padding-bottom:3px; border-bottom: 3px solid #34A853">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5rUPXdw8aEGHopWHn9sc9D7=
+AQsPoC93U4qF3spe_baZBCRnFAwjdjZHCYVmu8Ih-rOuUv0Nrf3Ha5gJsHOz7pOoFfhLy8f-M2X=
+Fc8h852CNWFWyjcVAz-BSeqajRXO9-YCkLTcZroXClyD45V1Pejg279xOtJj3F-ylklImXtQKdX=
+Q8gl_LXdEu-CuPogRZS4MpkAjPovE5ATv4GJxXVxa6h3sXDwbh3CFEPJJlP3ZOl-jzU8NouYrjc=
+CXaCYWBii4Sq8lz0anRwcOW6i_OxzYG0OXc9ossgykI0SvtFWER1bxGJfz6MfwaReQqLSas tar=
+get=3D_blank style=3D"text-decoration:none;color: #4A4A4A ;">Read more</a>
+</td>
+<td align=3Dleft valign=3Dtop>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0>
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dol_pd_t11 style=3D"padding-left:8px; =
+padding-top:7px;">
+<a href=3Dhttps://notifications.google.com/g/p/ANiao5pCxL9Vacz2z439RnbUyxtL=
+A9wZsRR5DHEH9X9XrXr2iJIUZwxTkP1A2dqUOJx2WK7kv2IFOzwVyjcG9oZxNygRlyrC-Umk1AX=
+BGGRtaG7oLHlBcCTwdeROq2Dhc_kbYS4976t3za9MZsRGke5pA8N-7Tcg5mBTnwOohP9d9Lmr-Y=
+rJyhLMn8NHpnIBe1UI_rFEU8vlMKEBypzsO8nOtNXfCyQ_KDlQfwVfcr00rwl002Kf9WjnkuYsQ=
+0IltgT7PqOfZ6IWma_OTBZSgGBAaOKavAJOjDw8o9bla_m6Od1GwEXBymqmAvq1HeY6juNNt27z=
+_-CX target=3D_blank style=3Dtext-decoration:none><img src=3Dhttps://servic=
+es.google.com/fh/files/emails/updated_arrow.png width=3D14 style=3D"display=
+: block; width:14px;"></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!-- Card 5 Ends -->
+<tr>
+<td align=3Dcenter valign=3Dtop height=3D32 style=3D"line-height:32px; mso-=
+line-height-rule:exactly;">
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D1 he=
+ight=3D1 border=3D0 alt=3D"" style=3D"display: block;">
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<tr>
+<td align=3Dcenter valign=3Dtop bgcolor=3D#202124>
+<table role=3Dpresentation cellspacing=3D0 cellpadding=3D0 width=3D600 styl=
+e=3D"max-width: 600px; width: 100%" class=3Dw-360>
+<!--[if (gte mso 9)|(IE)]>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=
+=3D"center">
+<![endif]-->
+<tbody>
+<!-- Signature Start -->
+<tr>
+<td style=3D"background-color:#202124; padding:29px 11px 0px;" class=3D"out=
+look-pd-T-70 pd-t-37" bgcolor=3D# align=3Dcenter>
+<table role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=
+=3D578 style=3D"width: 100%; max-width: 578px;" class=3Dw-360>
+<!--[if (gte mso 9)|(IE)]>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=
+=3D"center">
+<![endif]-->
+<!-- Archive & Subscribe Start -->
+<tr>
+<td align=3Dcenter valign=3Dtop><table role=3Dpresentation align=3Dcenter c=
+ellspacing=3D0 cellpadding=3D0>
+<tbody>
+<tr>
+<td align=3Dleft cl=3D"" valign=3Dmiddle style=3D"font-family:Roboto,Helvet=
+ica,Arial,sans-serif; font-size: 12px;mso-line-height-rule: exactly; color:=
+#4285F4; line-height:14px; letter-spacing: 1px; font-weight: 500; padding-b=
+ottom: 10px"><a href=3Dhttps://notifications.google.com/g/p/ANiao5oxa_DCRea=
+DmhOPTydwWfoI61Y9qrl9Q6nuxHCKF0Xt0Q7n4PSW_YkUjjG7cRHYffMQX831A4yAu0v3rLRuvr=
+KqaMbwdodxN-h4BqjRfSctfLNmqdabVUxrqIxer-_k6fqo1lay0RdSqBAS6xPkJuJ6CwPjwSQYA=
+at6BV1xSoDDvU-WjXBmPCbkCyyu6DfZVtl7lEhDmz46gCenZExSbK8dYHrTfNWMOI_6hicMl2q-=
+Gj0AiaKdEzZg-zp5QA-zdrv7vDOFVutb style=3D"text-decoration:none; color:#FFFF=
+FF; letter-spacing: 1px" target=3D_blank>SUBSCRIBE TO THIS NEWSLETTER</a></=
+td>
+<td align=3Dleft valign=3Dtop><table role=3Dpresentation cellpadding=3D0 ce=
+llspacing=3D0>
+<tbody>
+<tr>
+<td aria-hidden=3Dtrue style=3D"padding-left: 7px; line-height: 14px" align=
+=3Dleft valign=3Dmiddle><a href=3Dhttps://notifications.google.com/g/p/ANia=
+o5oqJ5-xyUWZpogD-lUu4KZ71wq0Rng78mvIE1tWAj647rJ6QmPLhBdFl4qAsrTO-dBNr_Dv1s_=
+kN4hA5ej2waVqEa0IZTV0nbR3wAhKEiPVY33vWFq03WTQXfR4MDBf0ijHlzX72CNxZOkf3f-2K0=
+IFVZb4_Hf81X9Oi97rzPf7gwTIKGPawa0HOcEKKaMx6mqsVyDOQqDow0JokTlhquSobWxiOd7MH=
+z7NWvEbG8p4q0V-JuxBOjiCCao3sW1nldptdeIs4MYKzoCquVSz target=3D_blank><img wi=
+dth=3D14 src=3Dhttps://services.google.com/fh/files/emails/updated_arrow.pn=
+g alt=3D"" title=3D""></a></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<!-- Archive & Subscribe End -->
+<!-- Stars and Social icon Start -->
+<tr>
+<td align=3Dleft valign=3Dtop class=3Dpdt23 style=3D"padding-top: 34px"><ta=
+ble role=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 width=3D=
+578 style=3D"width: 100%; max-width: 578px;" class=3Dw-360>
+<tr>
+<td align=3Dleft valign=3Dtop width=3D170 class=3D"dblock w100"><table role=
+=3Dpresentation border=3D0 cellspacing=3D0 cellpadding=3D0 align=3Dcenter w=
+idth=3D100%>
+<!-- Social icon heading Start -->
+<tr>
+<td align=3Dleft class=3D"text-center pd0" valign=3Dtop style=3D"color:#fff=
+fff; font-family:Roboto,Helvetica,Arial,sans-serif;font-size:12px; line-hei=
+ght: 20px; padding-bottom:10px; padding-left: 17px;">Connect with us</td>
+</tr>
+<!-- Social icon heading Ends -->
+<tr>
+<td align=3Dleft valign=3Dtop style=3D"padding-left: 17px" class=3Dpd0><tab=
+le role=3Dpresentation width=3D100% border=3D0 cellspacing=3D0 cellpadding=
+=3D0>
+<tr>
+<td align=3Dleft style=3D"padding-right: 0px;"><table role=3Dpresentation b=
+order=3D0 cellspacing=3D0 cellpadding=3D0 class=3D"w151 m0_auto">
+<tr>
+<!-- Social icon Start -->
+<td width=3D28 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5qHSDlgFO9qO33R5t6LwPH8t3wBRhhoa8NbsQrdq79iS7J8OctGi=
+TwNLLq3ytI1GiAgezfemAVnmnT4VqUyl0eYKSZHsw2OdzgnKN2sdS7MkBHbNnZEQOqyRoQf4wfK=
+p2qFMpHHXiBVpazc9tuuJ_CAjQwpmtILEqsZ8c5vWXUTEhiNmCJ5rL8w6-kc4aZYMHq5PKPBYDY=
+zWt0fQl_iYcIpLisNUZNbiDsF target=3D_blank style=3Dtext-decoration:none><img=
+ src=3Dhttps://www.gstatic.com/growthlab/api/Ualtc27vFzfjwGCqsSCHYBoqiEIuaQ=
+k2cNovPcO7.png width=3D28 alt=3DTwitter title=3DTwitter style=3Ddisplay:blo=
+ck;></a></td>
+<td width=3D13><img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.g=
+if width=3D10 height=3D1 border=3D0 alt=3D"" style=3D"display: block;"></td=
+>
+<td width=3D28 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5pSM8QZE3MKIsTiShVeP_CDQ5CfSyp-miPinTnCRO4DYctJnzY6q=
+pdJq2mND6HXc-uzWOQd_Hq1lrruLWgSJqsSdgJrrwyBk7HuKy2tVCp0H7RsirXZKsUPAsa9SH8x=
+HJ6rB2PCdDF3wPEC8N575CFzl5Fg6DZMA5GyyUjlCKaRSuy3AFrU6rvuwq8oV_JlkIr-qU51GDV=
+N9pnvWfm1L1w8JWWhRXsmjyi6PEaSQiZXvSswAwRmssi64g target=3D_blank style=3Dtex=
+t-decoration:none><img src=3Dhttps://www.gstatic.com/gumdrop/files/android-=
+developers-logo-blogger-transparent-w56px-h56px-2x.png width=3D28 alt=3D"Go=
+ogle Blog" title=3D"Google Blog" style=3Ddisplay:block;></a></td>
+<td width=3D13><img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.g=
+if width=3D10 height=3D1 border=3D0 alt=3D"" style=3D"display: block;"></td=
+>
+<td width=3D28 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5oNnnzwFVzAwy7x5_tP9br8rnBakP5UzQ7VKVV4t1FIblbdugZAH=
+eAwYtUyz-DEVmE7TWsVMTbpvy2nFxIg5HOywpYx14v2Z2uoEHSDHSgkUcP-_VnclMKrM7QvE-0H=
+yY-VBh5eHrNR11s28Fh_JwjEIBckjJlH2LWLbPUzJaBxwR_nE_vjImCmQS9ZN5NfR1EQFf1Qtz0=
+wjShZnMDOQM7RjnIBp0s8_92ajNPT67A target=3D_blank style=3Dtext-decoration:no=
+ne><img src=3Dhttps://www.gstatic.com/gumdrop/files/android-developers-logo=
+-medium-transparent-w64px-h64px-2x.png width=3D28 alt=3DMedium title=3DMedi=
+um style=3Ddisplay:block;></a></td>
+<td width=3D13><img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.g=
+if width=3D10 height=3D1 border=3D0 alt=3D"" style=3D"display: block;"></td=
+>
+<td width=3D28 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5rKu7rG-E4C1jbdSorWjBfJE6sGN-LrFqYmJBTvUzYk1bNC67Pq5=
+XXqfIakmDRrOXsI8YtFZ6VeuxKpztmKqcQMvM0KcxH9AojyKLJawEq4pOVs80pW7j3i7Nwr_qEh=
+oe6AOdXsqApEh7oX3_pxBpikvsWNqokJ-nVdtvecZMNL_DP-nwHBS4VGJzkMPbnxkhopH_Oq3Fw=
+RqptZ3VvZLxdHSHaaVp00PMSpgBzKndMqyqEaTjtfWKc2yA target=3D_blank style=3Dtex=
+t-decoration:none><img src=3Dhttps://www.gstatic.com/gumdrop/files/android-=
+developers-logo-youtube-transparent-w56px-h56px-2x.png width=3D28 alt=3DYou=
+Tube title=3DYouTube style=3Ddisplay:block;></a></td>
+</tr>
+<!-- Social icon Ends -->
+</table></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+<td width=3D200 class=3Ddnone align=3Dright valign=3Dtop style=3D"border-co=
+llapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; mso-line-heigh=
+t-rule:exactly; line-height:8px;">
+<img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.gif width=3D181 =
+height=3D1 border=3D0 alt=3D"" style=3D"display: block;"></td>
+<td valign=3Dtop align=3Dcenter width=3D227 class=3D"dblock w100"><table ro=
+le=3Dpresentation cellspacing=3D0 cellpadding=3D0 align=3Dcenter class=3Dol=
+_200>
+<tbody>
+<tr>
+<td align=3Dcenter valign=3Dtop class=3Dpd-t-25 style=3D"color:#ffffff; fon=
+t-family:Google Sans,Helvetica,Arial,sans-serif;font-size:12px; line-height=
+: 16px; padding: 3px 0 12px 0">Was this newsletter useful?</td>
+</tr>
+<tr>
+<td align=3Dcenter valign=3Dtop width=3D100><table role=3Dpresentation bord=
+er=3D0 cellspacing=3D0 cellpadding=3D0 width=3D100>
+<tbody>
+<tr>
+<td align=3Dcenter><table role=3Dpresentation border=3D0 cellspacing=3D0 ce=
+llpadding=3D0 align=3Dcenter>
+<tbody>
+<tr>
+<!-- Social icon Start -->
+<!--[if (gte mso 9)|(IE)]>
+<td align=3D"center" valign=3D"top" width=3D"17" style=3D"line-height:32px;=
+ mso-line-height-rule:exactly;">
+<img src=3D"https://www.gstatic.com/gumdrop/files/spacer-11.gif" width=3D"1=
+" height=3D"1" border=3D"0" alt=3D"" style=3D"display: block;">
+</td>
+<![endif]-->
+<td width=3D24 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5pGb2D95Dr7ts99DcuCkyXXKT31oeKS4L-gLPqlmVjfhxPEzrreX=
+gJXlweTJWkZPi-2vsJvNNAc5riMD6L_lUcTZmg0wrbYFCHpZH4juzrNwDA4OAIQkd3t2bJOWSF6=
+JHU5iX4nI2CL-ZP01TloDodlI1vLPsj5rSV0-HOsB2ivbD2Cs6_kULcoIoSEmoF3WuvzS00rDsw=
+CDxDee7wL-HjOUh60vi5XCVTODN7QSEwlk9sXEgdNO1LsLHh96DJHyzK80-9Lg95xRNaEvikn6D=
+AVWZOKzdJAcrleO3R3MIa5cAAXLF99hHPaP7lqgQ style=3Dtext-decoration:none><img =
+src=3Dhttps://services.google.com/fh/files/emails/star_white.png width=3D24=
+ alt=3Dstar1 title=3Dstar1 style=3Ddisplay:block;></a></td>
+<td width=3D13><img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.g=
+if width=3D13 height=3D1 border=3D0 alt=3D"" style=3D"display: block;"></td=
+>
+<td width=3D24 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5rBqXyutxAggYvgSLAuaLe1BZpIEOZCGdYbUfeTlYYZ7HHv0aIWS=
+w5V-VYqLuUiJpvdwGJwgt2W6gAik3bADX6x2JdOgcfWy4sDPVLsDrec6mdv5KIUmV0jpOEbR2G9=
+N1YSMkM9MN7YAwap6jkXdQZIS2BAqEjJ3mOmbKDnqt73jfi_gjZk2IOAvOEhz1RbruU5n3W06BU=
+0l-kmy-1XOf5uqDVMhxYl48Na86kdEe_uM4bkHkhYce9S3ysmQlNv3y9s5HpsDdYP9RqFS2m9u3=
+vfFjfQ7M-rvd5pcDggBd2fEVkOpzeCmxeuooz_sg style=3Dtext-decoration:none><img =
+src=3Dhttps://services.google.com/fh/files/emails/star_white.png width=3D24=
+ alt=3Dstar2 title=3Dstar2 style=3Ddisplay:block;></a></td>
+<td width=3D13><img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.g=
+if width=3D13 height=3D1 border=3D0 alt=3D"" style=3D"display: block;"></td=
+>
+<td width=3D24 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5oVqLNFkemDqfMAdfLu7GwJvvtx2keXQA8zdJv3SiMjeqx4hEeJG=
+b7BTGcPIbq-tR34GkbADvstmd6POenhc_ktuMKJ_kcfEZDnz1ppVSMDAQdrY6S_D5CvH-OBQspQ=
+KpFzauYYg5eMnxmCiuRF1kuoM-3RVGwAmbY01BI6LjH1GCY32aFWLJoUdi6KaLIY2-aJYwMceru=
+OcbePE0V89Z6pSjQK-70HkzOD_zYkuAqL4-1S3pszJMNcdtXoMUBS9Rn85gQsORcd1lEpNmc8y1=
+Z_E7giw3OW3HiOS5MmqGzNw3RnbTV760V_tM0o9A style=3Dtext-decoration:none><img =
+src=3Dhttps://services.google.com/fh/files/emails/star_white.png width=3D24=
+ alt=3Dstar3 title=3Dstar3 style=3Ddisplay:block;></a></td>
+<td width=3D13><img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.g=
+if width=3D13 height=3D1 border=3D0 alt=3D"" style=3D"display: block;"></td=
+>
+<td width=3D24 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5qhqfLJFZ6Z3SoNH9WWtRhIIVFSTFqoTewWy6xGNIe_iaociJVm1=
+OXM4-nAPQ7k-GRxLMoH2zd80PnAPGInf6Z3lTYf5J63PrXU-9R4cWDWmsqcbTbsqIWGSI6I-RoB=
+LbtJUV5npsfpCK4R4StMvAyVwq4wlPS8hFimTNAbftu5Hu19ki3QdWfDrJ0mtm0Dl-ERIHgUDty=
+780TI-6RYPbEF3C3PDojGBiF2g7Iv2tAkFbvERobaekgF1z8Wkz8OokfPEDQDH9ljHKj-wBpIOC=
+i4tBAgPOP1Vag8VWYWn-oGG5EZkYwXD7wMG53Vew style=3Dtext-decoration:none><img =
+src=3Dhttps://services.google.com/fh/files/emails/star_white.png width=3D24=
+ alt=3Dstar4 title=3Dstar4 style=3Ddisplay:block;></a></td>
+<td width=3D13><img src=3Dhttps://www.gstatic.com/gumdrop/files/spacer-11.g=
+if width=3D13 height=3D1 border=3D0 alt=3D"" style=3D"display: block;"></td=
+>
+<td width=3D24 align=3Dcenter><a target=3D_blank href=3Dhttps://notificatio=
+ns.google.com/g/p/ANiao5pQV-2zIP1A4tMc0PKYIUXVwq8tW14cvwxrw2KteVrWBZdtFrLSk=
+co1WD-T4MlYBQbyedJ-hd2EKbwW9XCC9OTJ1At7lVP9zsnM4Rrahb5GqYjjMKszAaSo5SRSW04W=
+cqfYRK-jeDt-VN11It-J4F_hqgvCWruj7u_88pmxkVvsIryLJKizPA8uPTOAjuUmZSvoB_SMYFN=
+ponB_F9h3U063ewU7BVsV-tFcfZWuaSmTfcHGyI0wfGuBg_PYkG5sBbDeC0_fmaSfh4NPUXj6kM=
+LytyOSwi-ogAbfB61pEC2G98YvyiJLV4V6X5i3Fg style=3Dtext-decoration:none><img =
+src=3Dhttps://services.google.com/fh/files/emails/star_white.png width=3D24=
+ alt=3Dstar5 title=3Dstar5 style=3Ddisplay:block;></a></td>
+<!--[if (gte mso 9)|(IE)]>
+<td width=3D"24"><img src=3D"https://www.gstatic.com/gumdrop/files/spacer-1=
+1.gif" width=3D"24" height=3D"24" border=3D"0" alt=3D"" style=3D"display: b=
+lock;"></td>
+<![endif]-->
+</tr>
+<!-- Social icon Ends -->
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<!-- Stars and Social icon END -->
+<!--[if (gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+</table></td>
+</tr>
+<!-- Signature End -->
+<!-- PlayConsole footerStart -->
+<tr>
+<td align=3Dcenter valign=3Dtop bgcolor=3D#202124 style=3Dpadding-bottom:30=
+px;><table role=3Dpresentation width=3D100% border=3D0 cellspacing=3D0 cell=
+padding=3D0>
+<tr>
+<td bgcolor=3D#202124 align=3Dcenter valign=3Dtop style=3D"color:#ffffff; f=
+ont-family:Roboto,Helvetica,Arial,sans-serif;font-size:12px; line-height:16=
+px; padding-left:25px; padding-right:25px; padding-top:38px;" class=3Dpd-t-=
+32>=C2=A9 2023 <a target=3D_blank role=3Dtext href=3D# style=3D"text-decora=
+tion: none; color: #ffffff;pointer-events: none; cursor: default;">Google L=
+LC 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA</a></td>
+</tr>
+<!-- General Marketing Start -->
+<tr>
+<td bgcolor=3D#202124 align=3Dcenter valign=3Dtop style=3D"color:#ffffff; f=
+ont-family:Roboto,Helvetica,Arial,sans-serif;font-size:12px; line-height:16=
+px; padding-left:25px; padding-right:25px; padding-top:15px;" class=3Dpd-t-=
+17>This message was sent to <a href=3D# style=3D"text-decoration: none; col=
+or: #ffffff;" target=3D_blank>nicopico.dev@gmail.com</a> because you asked =
+us to keep you up to date with Android developer news and updates. If you d=
+o not wish to receive these emails, please <a href=3Dhttps://notifications.=
+google.com/g/optout/ANiao5rumHXPhc2FZnV8k3QY3qN_ZJ5KbpKnTsA6NmyIj_JGcQR4z7A=
+imtSyggSDRYskM5UvAT5y-16UTU9kK8o0cL0Y7aexUrHSjnmAntXDaPErcWdJnnBI0W_qeYmKlH=
+Gj5tUwqEUbGq28-zOGdt3fqvRSinC8zFXCHIfkH0GJhdPyeQeaW8Ls3aIcDNu_ovSmsaEsHL0Au=
+21OPk0LIZOSVyMev7IecIQOmJoV0Fyh_ItYsZjvzxvljy3QhSn4AvIzZAY26AfcmypFfNAuclr7=
+D-oBwZfBE-g72EIiXgb76WZx?hl=3Den-US style=3D"text-decoration:underline; col=
+or:#ffffff;" target=3D_blank>unsubscribe</a><span aria-hidden=3Dtrue>.</spa=
+n></td>
+</tr>
+<!-- General Marketing End -->
+</table></td>
+</tr>
+<!-- PlayConsole footerEND -->
+</tbody>
+<!--[if (gte mso 9)|(IE)]>
+</table>
+<![endif]-->
+</table>
+</td>
+</tr> </tr>
+<!-- Body section 2 ends -->
+</table>
+<!--[if gte mso 9]>
+</v:textbox>
+</v:rect>
+<![endif]-->
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<img alt=3D"" height=3D1 width=3D3 src=3Dhttps://notifications.google.com/g=
+/img/ANiao5p9qDSMK1UeMn-wo6G6Cic3Fg6zx973PVSiqsP2KBXLXVJbCI-9j9pVgntawjPED2=
+y7og1YP2PiyANg_pD7doepNuVd6asW9DmPjRFsPtmR9sZP0n0ODjS1VyhiI3Hlocwwd-j6tJiwy=
+FDsfOv2eDF4RYi1dgChDKJD.gif></body>
+</html><!-- Structure -->
+--000000000000a59f92060a5d3acd--

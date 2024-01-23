@@ -1,0 +1,1068 @@
+Delivered-To: nicopico.dev@gmail.com
+Received: by 2002:a05:7000:1e81:b0:54b:4326:6e94 with SMTP id hq1csp3128399mab;
+        Tue, 16 Jan 2024 07:59:35 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGEaA2Da0aExy2jORWPYFedWVyeNs93MZf/QLyURoL/E/mUlxpVcPbZmEOKUpXV3oGk2m/w
+X-Received: by 2002:a81:be08:0:b0:5fb:86a1:1de4 with SMTP id i8-20020a81be08000000b005fb86a11de4mr5075362ywn.78.1705420774986;
+        Tue, 16 Jan 2024 07:59:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1705420774; cv=none;
+        d=google.com; s=arc-20160816;
+        b=QKcuG7wWkqHe3Vj1rq5Mgb7GpdpYFESA3r30vT5tmWwLyk/S0/KWB1xPMGdPYC8rIW
+         Z4Lx+JrsuIZnx5QViuZJ3PcJT4e07OopD1LXVgeS37Km2G9935YYKK5vReZV2lFCgyEJ
+         3WP1fKBSeYj5slZIEC7o+Dsz55Z/2Uh5KdoudSD8toCP3ghTqx4ewgwy07NH395N7q8K
+         rdXXKHMaO7gz2dlBfsKMtHFTH9o3oarNhhvAn+ZodZYbyzlPXYDbkhVBwdfQ1ePL/dfN
+         fxnuAtw2hnI3DxlQ7NufobZ9dAh3YxuMnzqCfLY+oACO+3SUJ8BsVsJoqQJ4DzJSHefQ
+         fSXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:precedence
+         :list-id:feedback-id:message-id:date:to:reply-to:from:subject
+         :dkim-signature:dkim-signature;
+        bh=vgVXAlKrLLtHPjkEwI+ozHkuhd8RoeRFnJP+DYS6Ato=;
+        fh=H4GdtyortLaCNWnOBJIXv8CslrZsYq9o7fvDn8heNVY=;
+        b=XfVgFzkhD8g3TUaESxfAMRFZTpnTEh3nkgYZ2vSqLt1qAooyENL0+oT6ruCe5IdIgH
+         O+t36DMXykCQMRgSha8bG9mHZYHDwzEKGW3Skco59154n9pA+NAfikAdAYA9OHuH7x12
+         FpGWDlGGc38mRbT+ZF9PDBkooyiuu9EqALG1ZUINjqHzfk6Y06EdwixeCR2KOVJr4tAK
+         TMsSGnfE6dCZRy3uJORWKOXAbPh5WR1WihVUe/+2XOqJVvLBfcwLFmz3NicXdQHtTbcV
+         GN5PQfOAYeCsQL8ePQTiA0RbWrcnOPd4VOqv66wEeWXJKQs4L0kjsKHNh6TmCqMFkpYu
+         49Kw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=jUB+PSVh;
+       dkim=pass header.i=@pointer.io header.s=k2 header.b=Hv4WdWts;
+       spf=pass (google.com: domain of bounce-mc.us9_33211145.4762057-0e436c5282@mail240.atl81.rsgsv.net designates 198.2.129.240 as permitted sender) smtp.mailfrom=bounce-mc.us9_33211145.4762057-0e436c5282@mail240.atl81.rsgsv.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=pointer.io
+Return-Path: <bounce-mc.us9_33211145.4762057-0e436c5282@mail240.atl81.rsgsv.net>
+Received: from mail240.atl81.rsgsv.net (mail240.atl81.rsgsv.net. [198.2.129.240])
+        by mx.google.com with ESMTPS id n14-20020a81c80e000000b005ec2f626780si4331065ywi.32.2024.01.16.07.59.34
+        for <nicopico.dev@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Jan 2024 07:59:34 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us9_33211145.4762057-0e436c5282@mail240.atl81.rsgsv.net designates 198.2.129.240 as permitted sender) client-ip=198.2.129.240;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=jUB+PSVh;
+       dkim=pass header.i=@pointer.io header.s=k2 header.b=Hv4WdWts;
+       spf=pass (google.com: domain of bounce-mc.us9_33211145.4762057-0e436c5282@mail240.atl81.rsgsv.net designates 198.2.129.240 as permitted sender) smtp.mailfrom=bounce-mc.us9_33211145.4762057-0e436c5282@mail240.atl81.rsgsv.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=pointer.io
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t=1705420633; x=1705507033;
+	bh=vgVXAlKrLLtHPjkEwI+ozHkuhd8RoeRFnJP+DYS6Ato=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=jUB+PSVhklCuQ0KHjo54NFzwe7/rqpNmNqp1R85mU8Q1kLQigCoToIQz5plvY/SXn
+	 a0VGCRDCg2PdbHG+KiksTX5gkfPeSnWuk8383f7BoI3F4miWcPHW5qypViTDaURIBy
+	 etIktBhPOHVsYAH3GkVDXYD1DYnmcJgexa7c1LNf21j/le9Zfc7zwPts1qPvDORAnY
+	 hqy8bkDq+NOaWUbCL5R9fNnUB5WozpGteS47uASdDR0iDJRAKMPGuGTBV18GOsyJOo
+	 k4cK7qXAzL7Vz0ulxbVl7JK69WGGxRDBfgnSC+nDQPWbtEVbsbBpJkRyhybrVNpQer
+	 TWtpyJhKc16DA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pointer.io; s=k2;
+	t=1705420633; x=1705681133; i=suraj@pointer.io;
+	bh=vgVXAlKrLLtHPjkEwI+ozHkuhd8RoeRFnJP+DYS6Ato=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=Hv4WdWts/Fdwn8CLGAPPTgq0wramjm7YO9dzyj3MjffpNa3gz6U30Yf9OU1kDwRDU
+	 y4ym3VNjoLQ/DkCqsKOPF2qi7T4GnGuhnd2KI1xPxyQL1byfMZFdNNQXb+O7jQxexj
+	 8n7C6wbq2Xevq9BjuUc3Z8pBPjRpNyY2FZfMqZqcxX+d2pVuuW4a3uBt3sCwcA/FC8
+	 7YiRVrISfu8RicCYVsak2lKZo+wSSFEOC0QdKfRI2kE/K3uzdi2KS2vuon2A2p0QMX
+	 wpcn7CXSzFJQkDzq+X9oJYkztCUsWdnV5vNuweD/8Llh+MNSrDlFouSgBYz8t8idqQ
+	 iDvBII3OyL2Gw==
+Received: from localhost (localhost [127.0.0.1])
+	by mail240.atl81.rsgsv.net (Mailchimp) with ESMTP id 4TDttd2cj9zMRL3rD
+	for <nicopico.dev@gmail.com>; Tue, 16 Jan 2024 15:57:13 +0000 (GMT)
+Subject: =?utf-8?Q?Issue=20#480?=
+From: =?utf-8?Q?Pointer?= <suraj@pointer.io>
+Reply-To:  <us9-c15c852160-75b851dcad@inbound.mailchimpapp.net>
+To: <nicopico.dev@gmail.com>
+Date: Tue, 16 Jan 2024 15:57:05 +0000
+Message-ID: <e9492ff27d760c578a39d0675.0e436c5282.20240116155648.5309f0e304.37ba398d@mail240.atl81.rsgsv.net>
+X-Mailer: Mailchimp Mailer - **CID5309f0e3040e436c5282**
+X-Campaign: mailchimpe9492ff27d760c578a39d0675.5309f0e304
+X-campaignid: mailchimpe9492ff27d760c578a39d0675.5309f0e304
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=e9492ff27d760c578a39d0675&id=5309f0e304&e=0e436c5282
+X-MC-User: e9492ff27d760c578a39d0675
+Feedback-ID: 33211145:33211145.4762057:us9:mc
+List-ID: e9492ff27d760c578a39d0675mc list <e9492ff27d760c578a39d0675.419973.list-id.mcsv.net>
+Precedence: bulk
+X-Auto-Response-Suppress: OOF, AutoReply
+X-Accounttype: pr
+List-Unsubscribe: <https://pointer.us9.list-manage.com/unsubscribe?u=e9492ff27d760c578a39d0675&id=6ba2b83261&e=0e436c5282&c=5309f0e304>, <mailto:unsubscribe-mc.us9_e9492ff27d760c578a39d0675.5309f0e304-0e436c5282@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_764962588"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_764962588
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+A Reading Club For Software Developers
+
+pointer.io (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D6a41325557&e=3D0e436c5282)
+
+Tuesday 16th January=E2=80=99s issue is presented by Gitpod
+https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0=
+675&id=3D3ae7145d83&e=3D0e436c5282
+
+Built For Platform Teams (https://pointer.us9.list-manage.com/track/click?=
+u=3De9492ff27d760c578a39d0675&id=3D367caaedd8&e=3D0e436c5282)
+
+Gitpod (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c=
+578a39d0675&id=3D995e05910a&e=3D0e436c5282) =E2=80=99s developer pla=
+tform was built for developers looking to work faster and platform teams l=
+ooking to work smarter.
+
+It allows them to do two things really well: automate standardization of d=
+evelopment environments and always be ready-to-code (https://pointer.us9.l=
+ist-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dfb16fd24b1&e=
+=3D0e436c5282) .
+
+All it takes is adding a .gitpod.yml file to the root of any repository.
+
+Try Gitpod For Free (https://pointer.us9.list-manage.com/track/click?u=3De=
+9492ff27d760c578a39d0675&id=3Da2aa73e748&e=3D0e436c5282)
+
+Incentives And The Cobra Effect (https://pointer.us9.list-manage.com/track=
+/click?u=3De9492ff27d760c578a39d0675&id=3Ddd53134d80&e=3D0e436c5282)
+
+=E2=80=94 Andrew Bosworth
+
+tl;dr: =E2=80=9CIncentives are superpowers; set them carefully.=E2=80=9D T=
+he Cobra Effect is when the solution for a problem unintentionally makes t=
+he problem worse. Andrew believe this issue is more widespread than antici=
+pated. He provides several examples=2C including: everyone sharing feedbac=
+k directly instead of through managers. This leads to people withholding v=
+aluable feedback to maintain relationships or damaging relationships if th=
+ey can=E2=80=99t share negative feedback elegantly.
+
+Leadership (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3De1f56db5de&e=3D0e436c5282) Management (https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3D867cd98f10&e=3D0e436c5282)
+mailto:?subject=3DIncentives%20And%20The%20Cobra%20Effect&body=3DI'm%20sha=
+ring%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AInce=
+ntives%20And%20The%20Cobra%20Effect%0D%0Ahttps%3A%2F%2Fboz.com%2Farticles%=
+2Fincentives
+
+Applying The SPACE Framework (https://pointer.us9.list-manage.com/track/cl=
+ick?u=3De9492ff27d760c578a39d0675&id=3D8dc7d7e7d5&e=3D0e436c5282)
+
+=E2=80=94 Laura Tacho
+
+tl;dr: The SPACE Framework of Developer Productivity is a holistic approac=
+h to thinking about and measuring software developer productivity. The SPA=
+CE framework is not a list of metrics or benchmarks. Instead=2C it outline=
+s five different dimensions of productivity that can inform your own defin=
+ition of productivity=2C and by extension=2C your measurements: (1) Satisf=
+action and Well-being. (2) Performance. (3) Activity. (4) Communication an=
+d Collaboration. (5) Efficiency and Flow.
+
+Leadership (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D67293ee9ac&e=3D0e436c5282) Management (https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3D23e4245d96&e=3D0e436c5282)
+mailto:?subject=3DApplying%20The%20SPACE%20Framework&body=3DI'm%20sharing%=
+20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AApplying%=
+20The%20SPACE%20Framework%0D%0Ahttps%3A%2F%2Fnewsletter.getdx.com%2Fp%2Fap=
+plying-the-space-framework
+
+How To Successfully Adopt A Developer Tool (https://pointer.us9.list-manag=
+e.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dd6df92b6b0&e=3D0e436c5282)
+
+=E2=80=94 Lou Bichard
+
+tl;dr: Adopting developer tools is not the same as successfully adopting d=
+evelopers tools. It=E2=80=99s a socio-technical challenge involving strate=
+gy=2C timing and people that can be broken down into three steps: champion=
+s=2C use cases=2C scale. Avoid the premature =E2=80=98all-hands=E2=80=99 d=
+emo and embrace the power of building a champion.
+
+Promoted by Gitpod
+
+BestPractices (https://pointer.us9.list-manage.com/track/click?u=3De9492ff=
+27d760c578a39d0675&id=3Df9130fe530&e=3D0e436c5282) DevTools (https:/=
+/pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3Dad1f167c67&e=3D0e436c5282)
+mailto:?subject=3DHow%20To%20Successfully%20Adopt%20A%20Developer%20Tool&b=
+ody=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.pointer.io%3A%=
+0D%0A%0D%0AHow%20To%20Successfully%20Adopt%20A%20Developer%20Tool%0D%0Ahtt=
+ps%3A%2F%2Fwww.gitpod.io%2Fblog%2Fchampion-building%3Futm_campaign%3Dpoint=
+er%26utm_source%3DEmail%26utm_medium%3DNewsletter
+
+The Checklist Manifesto (https://pointer.us9.list-manage.com/track/click?u=
+=3De9492ff27d760c578a39d0675&id=3D405e49a58b&e=3D0e436c5282)
+
+=E2=80=94 Murat Demirbas
+
+tl;dr: This book advocates for integrating checklists as potent safety and=
+ fault-tolerance tools across diverse domains. While the author=2C a promi=
+nent surgeon=2C enriches the narrative with numerous surgery cases=2C he a=
+lso discusses their use in the construction and aviation industries. Check=
+lists significantly reduce cognitive load=2C enabling complex tasks and ef=
+fective team collaboration. Murat questions why we don=E2=80=99t use check=
+lists more frequently in software development.
+
+Management (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3Db471487475&e=3D0e436c5282) UsefulTool (https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3D68ad38b4d1&e=3D0e436c5282)
+mailto:?subject=3DThe%20Checklist%20Manifesto&body=3DI'm%20sharing%20this%=
+20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AThe%20Checklist%=
+20Manifesto%0D%0Ahttps%3A%2F%2Fmuratbuffalo.blogspot.com%2F2024%2F01%2Fthe=
+-checklist-manifesto-dr-atul-gawande.html
+
+=E2=80=9CThe important thing is not to stop questioning. Curiosity has its=
+ own reason for existing.=E2=80=9D
+
+=E2=80=94 Albert Einstein
+
+How Apple Built iCloud To Store Billions Of Databases (https://pointer.us9=
+=2Elist-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3De2a06313af=
+&e=3D0e436c5282)
+
+=E2=80=94 Leonardo Creed
+
+tl;dr: Apple uses FoundationDB and Cassandra for iCloud and CloudKit=2C th=
+eir cloud backend service=2C running one of the largest Cassandra deployme=
+nts in the world. This deployment includes over 300=2C000 instances or nod=
+es=2C managing hundreds of petabytes of data=2C possibly extending to exab=
+ytes. Each cluster in this deployment can handle over two petabytes of dat=
+a=2C and there are thousands of such clusters. This indicates a highly dis=
+tributed and scalable storage system spread across multiple data centers.
+
+Scale (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c5=
+78a39d0675&id=3D16d01b4f03&e=3D0e436c5282) Architecture (https://poi=
+nter.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D8d=
+716a2cc0&e=3D0e436c5282)
+mailto:?subject=3DHow%20Apple%20Built%20iCloud%20To%20Store%20Billions%20O=
+f%20Databases&body=3DI'm%20sharing%20this%20article%20I%20found%20on%20www=
+=2Epointer.io%3A%0D%0A%0D%0AHow%20Apple%20Built%20iCloud%20To%20Store%20Bill=
+ions%20Of%20Databases%0D%0Ahttps%3A%2F%2Fread.engineerscodex.com%2Fp%2Fhow=
+-apple-built-icloud-to-store-billions
+
+The Ten Commandments Of Refactoring (https://pointer.us9.list-manage.com/t=
+rack/click?u=3De9492ff27d760c578a39d0675&id=3D14a2cdb49d&e=3D0e436c5282)
+
+=E2=80=94 Armand Halbert
+
+tl;dr: Thou shalt: (1) Have a comprehensive suite of tests. (2) Take small=
+ steps. (3) Run tests frequently. (4) Use continuous integration. (5) Not=
+ add extra functionality while refactoring. (6) Refactor often. (7) Automa=
+te refactoring. (8) Not prematurely optimize. (9) not suffer duplicated co=
+de. (10) Not suffer excessively long functions=2C or excessively large cla=
+sses.
+
+Refactoring (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27=
+d760c578a39d0675&id=3D9f34143634&e=3D0e436c5282)
+mailto:?subject=3DThe%20Ten%20Commandments%20Of%20Refactoring&body=3DI'm%2=
+0sharing%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0A=
+The%20Ten%20Commandments%20Of%20Refactoring%0D%0Ahttps%3A%2F%2Fwww.ahalber=
+t.com%2Ftechnology%2F2024%2F01%2F06%2Ften_commadments_of_refactoring.html
+
+Dynamic Programming Is Not Black Magic (https://pointer.us9.list-manage.co=
+m/track/click?u=3De9492ff27d760c578a39d0675&id=3D04f5f609cb&e=3D0e436c5282)
+
+=E2=80=94 Quentin Santos
+
+tl;dr: Dynamic Programming is a method used to solve complex problems by b=
+reaking them down into simpler subproblems. Many common algorithms are the=
+ application of dynamic programming to specific problems=2C including Dijk=
+stra=E2=80=99s path-finding algorithm. Quentin provides an introduction an=
+d examples.
+
+Algo (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c57=
+8a39d0675&id=3Db5fb8e064b&e=3D0e436c5282)
+mailto:?subject=3DDynamic%20Programming%20Is%20Not%20Black%20Magic&body=3D=
+I'm%20sharing%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%=
+0D%0ADynamic%20Programming%20Is%20Not%20Black%20Magic%0D%0Ahttps%3A%2F%2Fq=
+santos.fr%2F2024%2F01%2F04%2Fdynamic-programming-is-not-black-magic%2F
+
+How Fast Is Your Shell? (https://pointer.us9.list-manage.com/track/click?u=
+=3De9492ff27d760c578a39d0675&id=3D30ddd9858e&e=3D0e436c5282)
+
+=E2=80=94 Thorsten Ball
+
+tl;dr: =E2=80=9CThink about it this way: which program do you execute more=
+ often than your shell? How many shells do you spawn every day? How many o=
+ther programs do you run every day that spawn your shell? If you=E2=80=99r=
+e anything like me=2C it=E2=80=99s a lot of shells per day. I=E2=80=99m a=
+ heavy terminal and tmux user. I spawn shells like I open new tabs in a br=
+owser. Do you want one of your most-used programs to start slow because yo=
+u didn=E2=80=99t care?=E2=80=9D Thorsten shares how to measure and optimiz=
+e the shell=E2=80=99s speed.
+
+Optimization (https://pointer.us9.list-manage.com/track/click?u=3De9492ff2=
+7d760c578a39d0675&id=3D543a77289d&e=3D0e436c5282) Shell (https://poi=
+nter.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D82=
+cffb99df&e=3D0e436c5282)
+mailto:?subject=3DHow%20Fast%20Is%20Your%20Shell%3F&body=3DI'm%20sharing%2=
+0this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AHow%20Fast=
+%20Is%20Your%20Shell%3F%0D%0Ahttps%3A%2F%2Fregisterspill.thorstenball.com%=
+2Fp%2Fhow-fast-is-your-shell
+
+Notable Links
+
+AI Gateway (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D51be7d7a1d&e=3D0e436c5282) : Route to 100+ LLMs=
+ 1 API.
+
+Marimo (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c=
+578a39d0675&id=3Dcd3ce5f2ca&e=3D0e436c5282) : Reactive notebook for=
+ Python.
+
+RAD Debugger (https://pointer.us9.list-manage.com/track/click?u=3De9492ff2=
+7d760c578a39d0675&id=3D2a84c2f2ff&e=3D0e436c5282) : User-mode=2C mul=
+ti-process=2C graphical debugger.
+
+Surya (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c5=
+78a39d0675&id=3D66421befc3&e=3D0e436c5282) : Line-level text detecti=
+on and OCR in any language.
+
+Vanna (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c5=
+78a39d0675&id=3D44e76b6117&e=3D0e436c5282) : Chat with your SQL data=
+base.
+
+Click the below and shoot me an email!
+
+1 =3D Didn't enjoy it all // 5 =3D Really enjoyed it
+
+1 (mailto:suraj@pointer.io?subject=3DIssue%20%23436%20-%20Score%3A%201&bod=
+y=3DHere's%20why%3A) =E2=80=A6 2 (mailto:suraj@pointer.io?subject=3DIssue%=
+20%23436%20-%20Score%3A%202&body=3DHere's%20why%3A) =E2=80=A6 3 (mailto:su=
+raj@pointer.io?subject=3DIssue%20%23436%20-%20Score%3A%203&body=3DHere's%2=
+0why%3A) =E2=80=A6 4 (mailto:suraj@pointer.io?subject=3DIssue%20%23436%20-=
+%20Score%3A%204&body=3DHere's%20Why%3A) =E2=80=A6 5 (mailto:suraj@pointer.=
+io?subject=3DIssue%20%23436%20-%20Score%3A%205&body=3DHere's%20Why%3A)
+
+Pointer is emailed twice a week on Tuesdays and Fridays @ 9am EST.
+
+Unsubscribe (https://pointer.us9.list-manage.com/unsubscribe?u=3De9492ff27=
+d760c578a39d0675&id=3D6ba2b83261&e=3D0e436c5282&c=3D5309f0e304) // Sponsorsh=
+ip (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3D2f2dc25cd7&e=3D0e436c5282)
+--_----------=_MCPart_764962588
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn=
+:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:of=
+fice"><head>
+<!--[if gte mso 15]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<meta charset=3D"UTF-8" />
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+<meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial-scale=
+=3D1" />
+<title>Issue #480</title>
+<link rel=3D"stylesheet" href=3D"https://fonts.googleapis.com/css?family=
+=3DSpace+Mono:400=2C400i=2C700=2C700i=2C900=2C900i" /><style>          img=
+{-ms-interpolation-mode:bicubic;}
+          table=2C td{mso-table-lspace:0pt; mso-table-rspace:0pt;}
+          .mceStandardButton=2C .mceStandardButton td=2C .mceStandardButto=
+n td a{mso-hide:all !important;}
+          p=2C a=2C li=2C td=2C blockquote{mso-line-height-rule:exactly;}
+          p=2C a=2C li=2C td=2C body=2C table=2C blockquote{-ms-text-size-=
+adjust:100%; -webkit-text-size-adjust:100%;}
+          @media only screen and (max-width: 480px){
+            body=2C table=2C td=2C p=2C a=2C li=2C blockquote{-webkit-text=
+-size-adjust:none !important;}
+          }
+          .mcnPreviewText{display: none !important;}
+          .bodyCell{margin:0 auto; padding:0; width:100%;}
+          .ExternalClass=2C .ExternalClass p=2C .ExternalClass td=2C .Exte=
+rnalClass div=2C .ExternalClass span=2C .ExternalClass font{line-height:10=
+0%;}
+          .ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+          a[x-apple-data-detectors]{color:inherit !important; text-decora=
+tion:none !important; font-size:inherit !important; font-family:inherit !i=
+mportant; font-weight:inherit !important; line-height:inherit !important;}
+            body{height:100%; margin:0; padding:0; width:100%; background:=
+ #ffffff;}
+            p{margin:0; padding:0;}
+            table{border-collapse:collapse;}
+            td=2C p=2C a{word-break:break-word;}
+            h1=2C h2=2C h3=2C h4=2C h5=2C h6{display:block; margin:0; padd=
+ing:0;}
+            img=2C a img{border:0; height:auto; outline:none; text-decorat=
+ion:none;}
+            a[href^=3D"tel"]=2C a[href^=3D"sms"]{color:inherit; cursor:d=
+efault; text-decoration:none;}
+            li p {margin: 0 !important;}
+            .ProseMirror a {
+                pointer-events: none;
+            }
+            @media only screen and (max-width: 480px){
+                body{width:100% !important; min-width:100% !important; }
+                body.mobile-native {
+                    -webkit-user-select: none; user-select: none; transiti=
+on: transform 0.2s ease-in; transform-origin: top center;
+                }
+                body.mobile-native.selection-allowed a=2C body.mobile-nati=
+ve.selection-allowed .ProseMirror {
+                    user-select: auto;
+                    -webkit-user-select: auto;
+                }
+                colgroup{display: none;}
+                img{height: auto !important;}
+                .mceWidthContainer{max-width: 660px !important;}
+                .mceColumn{display: block !important; width: 100% !importa=
+nt;}
+                .mceColumn-forceSpan{display: table-cell !important; width=
+: auto !important;}
+                .mceBlockContainer{padding-right:16px !important; padding-=
+left:16px !important;}
+                .mceBlockContainerE2E{padding-right:0px; padding-left:0px;=
+}
+                .mceSpacing-24{padding-right:16px !important; padding-left=
+:16px !important;}
+                .mceImage=2C .mceLogo{width: 100% !important; height: auto=
+ !important;}
+                .mceFooterSection .mceText=2C .mceFooterSection .mceText p=
+{font-size: 16px !important; line-height: 140% !important;}
+                .mceText=2C .mceText p{font-size: 16px !important; line-he=
+ight: 140% !important;}
+                h1{font-size: 30px !important; line-height: 120% !importan=
+t;}
+                h2{font-size: 26px !important; line-height: 120% !importan=
+t;}
+                h3{font-size: 20px !important; line-height: 125% !importan=
+t;}
+                h4{font-size: 18px !important; line-height: 125% !importan=
+t;}
+            }
+            @media only screen and (max-width: 640px){
+                .mceClusterLayout td{padding: 4px !important;}
+            }
+            div[contenteditable=3D"true"] {outline: 0;}
+            .ProseMirror .empty-node=2C .ProseMirror:empty {position: rela=
+tive;}
+            .ProseMirror .empty-node::before=2C .ProseMirror:empty::before=
+ {
+                position: absolute;
+                left: 0;
+                right: 0;
+                color: rgba(0=2C0=2C0=2C0.2);
+                cursor: text;
+            }
+            .ProseMirror .empty-node:hover::before=2C .ProseMirror:empty:h=
+over::before {
+                color: rgba(0=2C0=2C0=2C0.3);
+            }
+            .ProseMirror h1.empty-node:only-child::before=2C
+            .ProseMirror h2.empty-node:only-child::before=2C
+            .ProseMirror h3.empty-node:only-child::before=2C
+            .ProseMirror h4.empty-node:only-child::before {
+                content: 'Heading';
+            }
+            .ProseMirror p.empty-node:only-child::before=2C .ProseMirror:e=
+mpty::before {
+                content: 'Start typing...';
+            }
+            a .ProseMirror p.empty-node::before=2C a .ProseMirror:empty::b=
+efore {
+                content: '';
+            }
+            .mceText=2C .ProseMirror {
+                white-space: pre-wrap;
+            }
+body=2C #bodyTable { background-color: rgb(255=2C 255=2C 255); }.mceText=
+=2C .mceLabel { font-family: "Space Mono"=2C Courier=2C Georgia=2C serif;=
+ }.mceText=2C .mceLabel { color: rgb(0=2C 0=2C 0); }.mceText p { margin-bo=
+ttom: 0px; }.mceText label { margin-bottom: 0px; }.mceText input { margin-=
+bottom: 0px; }.mceSpacing-12 .mceInput + .mceErrorMessage { margin-top: -6=
+px; }.mceText p { margin-bottom: 0px; }.mceText label { margin-bottom: 0px=
+; }.mceText input { margin-bottom: 0px; }.mceSpacing-24 .mceInput + .mceEr=
+rorMessage { margin-top: -12px; }.mceInput { background-color: transparent=
+; border: 2px solid rgb(208=2C 208=2C 208); width: 60%; color: rgb(77=2C 7=
+7=2C 77); display: block; }.mceInput[type=3D"radio"]=2C .mceInput[type=
+=3D"checkbox"] { float: left; margin-right: 12px; display: inline; width:=
+ auto !important; }.mceLabel > .mceInput { margin-bottom: 0px; margin-top:=
+ 2px; }.mceLabel { display: block; }.mceText p { color: rgb(0=2C 0=2C 0);=
+ font-family: "Space Mono"=2C Courier=2C Georgia=2C serif; font-size: 14px=
+; font-weight: normal; line-height: 1.5; text-align: left; letter-spacing:=
+ 0px; direction: ltr; }.mceText a { color: rgb(0=2C 0=2C 0); font-style: n=
+ormal; font-weight: normal; text-decoration: underline; direction: ltr; }
+@media only screen and (max-width: 480px) {
+            .mceText p { font-size: 16px !important; line-height: 1.5 !imp=
+ortant; }
+          }
+@media only screen and (max-width: 480px) {
+            .mceBlockContainer { padding-left: 16px !important; padding-ri=
+ght: 16px !important; }
+          }
+#dataBlockId-9 p=2C #dataBlockId-9 h1=2C #dataBlockId-9 h2=2C #dataBlockId=
+-9 h3=2C #dataBlockId-9 h4=2C #dataBlockId-9 ul { text-align: center; }#da=
+taBlockId-76 p=2C #dataBlockId-76 h1=2C #dataBlockId-76 h2=2C #dataBlockId=
+-76 h3=2C #dataBlockId-76 h4=2C #dataBlockId-76 ul { line-height: 1.5; tex=
+t-align: left; }#dataBlockId-91 p=2C #dataBlockId-91 h1=2C #dataBlockId-91=
+ h2=2C #dataBlockId-91 h3=2C #dataBlockId-91 h4=2C #dataBlockId-91 ul { li=
+ne-height: 1.5; text-align: left; }#dataBlockId-98 p=2C #dataBlockId-98 h1=
+=2C #dataBlockId-98 h2=2C #dataBlockId-98 h3=2C #dataBlockId-98 h4=2C #dat=
+aBlockId-98 ul { line-height: 1.5; text-align: left; }#dataBlockId-109 p=
+=2C #dataBlockId-109 h1=2C #dataBlockId-109 h2=2C #dataBlockId-109 h3=2C #=
+dataBlockId-109 h4=2C #dataBlockId-109 ul { line-height: 1.5; text-align:=
+ left; }#dataBlockId-116 p=2C #dataBlockId-116 h1=2C #dataBlockId-116 h2=
+=2C #dataBlockId-116 h3=2C #dataBlockId-116 h4=2C #dataBlockId-116 ul { li=
+ne-height: 1.5; text-align: left; }#dataBlockId-119 p=2C #dataBlockId-119=
+ h1=2C #dataBlockId-119 h2=2C #dataBlockId-119 h3=2C #dataBlockId-119 h4=
+=2C #dataBlockId-119 ul { line-height: 1.5; text-align: left; }#dataBlockI=
+d-138 p=2C #dataBlockId-138 h1=2C #dataBlockId-138 h2=2C #dataBlockId-138=
+ h3=2C #dataBlockId-138 h4=2C #dataBlockId-138 ul { line-height: 1.5; text=
+-align: left; }#dataBlockId-141 p=2C #dataBlockId-141 h1=2C #dataBlockId-1=
+41 h2=2C #dataBlockId-141 h3=2C #dataBlockId-141 h4=2C #dataBlockId-141 ul=
+ { line-height: 1.5; text-align: left; }#dataBlockId-142 p=2C #dataBlockId=
+-142 h1=2C #dataBlockId-142 h2=2C #dataBlockId-142 h3=2C #dataBlockId-142=
+ h4=2C #dataBlockId-142 ul { line-height: 1.5; text-align: left; }#dataBlo=
+ckId-145 p=2C #dataBlockId-145 h1=2C #dataBlockId-145 h2=2C #dataBlockId-1=
+45 h3=2C #dataBlockId-145 h4=2C #dataBlockId-145 ul { line-height: 1.5; te=
+xt-align: left; }</style></head>
+<body>
+<!--
+-->
+<!--[if !gte mso 9]><!----><span class=3D"mcnPreviewText" style=3D"displa=
+y:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opa=
+city:0; overflow:hidden; visibility:hidden; mso-hide:all;">A Reading Club=
+ For Software Developers</span><!--<![endif]-->
+<!--
+-->
+<center>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" wi=
+dth=3D"100%" id=3D"bodyTable" style=3D"background-color: rgb(255=2C 255=2C=
+ 255);">
+<tbody><tr>
+<td class=3D"bodyCell" align=3D"center" valign=3D"top">
+<table id=3D"root" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%"><tbody data-block-id=3D"54" class=3D"mceWrapper"><tr><td align=
+=3D"center" valign=3D"top" class=3D"mceWrapperOuter"><!--[if (gte mso 9)|=
+(IE)]><table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"660" style=3D"width:660px;"><tr><td><![endif]--><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"max=
+-width:660px" role=3D"presentation"><tbody><tr><td style=3D"background-col=
+or:#ffffff;background-position:center;background-repeat:no-repeat;backgrou=
+nd-size:cover" class=3D"mceWrapperInner" valign=3D"top"><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=
+=3D"presentation" data-block-id=3D"12"><tbody><tr class=3D"mceRow"><td sty=
+le=3D"background-position:center;background-repeat:no-repeat;background-si=
+ze:cover" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"paddin=
+g-top:0;padding-bottom:0" class=3D"mceColumn" data-block-id=3D"-4" valign=
+=3D"top" colspan=3D"12" width=3D"100%"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td s=
+tyle=3D"background-color:#3e4954;padding-top:0;padding-bottom:0;padding-ri=
+ght:0;padding-left:0" class=3D"mceBlockContainer" align=3D"center" valign=
+=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" data-block-id=3D"55"><tbody><tr class=3D"mce=
+StandardButton"><td style=3D"background-color:#3e4954;border-radius:0;text=
+-align:center" class=3D"mceButton" valign=3D"top"><a href=3D"https://point=
+er.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D1a10=
+cf8e35&e=3D0e436c5282" target=3D"_blank" style=3D"background-color:#3e495=
+4;border-radius:0;border:1px solid #3e4954;color:#fabf80;display:block;fon=
+t-family:'Space Mono'=2C 'Courier'=2C Georgia=2C serif;font-size:20px;font=
+-weight:bold;font-style:normal;padding:16px 28px;text-decoration:none;min-=
+width:30px;text-align:center;direction:ltr;letter-spacing:0px">pointer.io<=
+/a></td></tr><tr>
+<!--[if mso]>
+<td align=3D"center">
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+href=3D"https://www.pointer.io/"
+style=3D"v-text-anchor:middle; width:180.41px; height:65px;"
+arcsize=3D"0%"
+strokecolor=3D"#3e4954"
+strokeweight=3D"1px"
+fillcolor=3D"#3e4954">
+<v:stroke dashstyle=3D"solid"/>
+<w:anchorlock />
+<center style=3D"
+color: #fabf80;
+display: block;
+font-family: 'Space Mono'=2C 'Courier'=2C Georgia=2C serif;
+font-size: 20;
+font-style: normal;
+font-weight: bold;
+letter-spacing: 0px;
+text-decoration: none;
+text-align: center;
+direction: ltr;"
+>
+pointer.io
+</center>
+</v:roundrect>
+</td>
+<![endif]-->
+</tr></tbody></table></td></tr><tr><td style=3D"padding-top:10px;padding-b=
+ottom:10px;padding-right:20px;padding-left:20px" class=3D"mceBlockContaine=
+r" valign=3D"top"><div data-block-id=3D"48" class=3D"mceText" id=3D"dataBl=
+ockId-48" style=3D"width:100%"><p style=3D"text-align: center;"><br /></p>=
+<p style=3D"text-align: center;" class=3D"last-child">Tuesday 16th January=
+=E2=80=99s issue is presented by Gitpod</p></div></td></tr><tr><td style=
+=3D"background-color:#ffffff;padding-top:10px;padding-bottom:10px;padding-=
+right:10px;padding-left:10px" class=3D"mceBlockContainer" align=3D"center"=
+ valign=3D"top"><a href=3D"https://pointer.us9.list-manage.com/track/click=
+?u=3De9492ff27d760c578a39d0675&id=3D0d59049c58&e=3D0e436c5282" style=3D"d=
+isplay:block" target=3D"_blank" data-block-id=3D"47"><img width=3D"232" he=
+ight=3D"auto" style=3D"border:0;width:232px;height:auto;max-width:1179px !=
+important;border-radius:0;display:block" alt=3D"" src=3D"https://mcusercon=
+tent.com/e9492ff27d760c578a39d0675/images/3dc17051-44f5-074c-8630-ca66d21f=
+3417.png" role=3D"presentation" class=3D"imageDropZone mceImage" /></a></t=
+d></tr><tr><td style=3D"padding-top:10px;padding-bottom:10px;padding-right=
+:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><div d=
+ata-block-id=3D"91" class=3D"mceText" id=3D"dataBlockId-91" style=3D"width=
+:100%"><p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De=
+9492ff27d760c578a39d0675&id=3D2191b13858&e=3D0e436c5282" target=3D"_blank=
+"><strong><span style=3D"font-size: 18px">Built For Platform Teams</span><=
+/strong></a></p><p><br /></p><p><a href=3D"https://pointer.us9.list-manage=
+=2Ecom/track/click?u=3De9492ff27d760c578a39d0675&id=3D02f31605ab&e=3D0e436c5282" target=3D"_blank">Gitpod</a>=E2=80=99s developer platform was built=
+ for developers looking to work faster and platform teams looking to work=
+ smarter. </p><p><br /></p><p>It allows them to do two things really well:=
+ <a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3Dbae9f4c09a&e=3D0e436c5282" target=3D"_blank"><strong=
+>automate standardization of development environments and always be ready-=
+to-code</strong></a>. </p><p><br /></p><p class=3D"last-child">All it take=
+s is adding a .gitpod.yml file to the root of any repository.</p></div></t=
+d></tr><tr><td style=3D"padding-top:20px;padding-bottom:20px;padding-right=
+:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><div d=
+ata-block-id=3D"92" class=3D"mceText" id=3D"dataBlockId-92" style=3D"width=
+:100%"><p style=3D"text-align: center;" class=3D"last-child"><a href=3D"ht=
+tps://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d067=
+5&id=3D8b95034dad&e=3D0e436c5282" target=3D"_blank"><strong><span style=
+=3D"font-size: 20px">Try Gitpod For Free</span></strong></a></p></div></td=
+></tr><tr><td style=3D"background-color:transparent;padding-top:5px;paddin=
+g-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockContai=
+ner" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" style=3D"background-color:transparent" role=3D"presentati=
+on" data-block-id=3D"43"><tbody><tr><td style=3D"min-width:100%;border-top=
+:2px solid #000000" valign=3D"top"></td></tr></tbody></table></td></tr><tr=
+><td style=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding=
+-left:20px" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=
+=3D"138" class=3D"mceText" id=3D"dataBlockId-138" style=3D"width:100%"><p>=
+<a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d7=
+60c578a39d0675&id=3Dd20cd3411a&e=3D0e436c5282" target=3D"_blank"><strong>=
+<span style=3D"font-size: 20px">Incentives And The Cobra Effect</span></st=
+rong></a></p><p>=E2=80=94 Andrew Bosworth</p><p><br /></p><p><strong>tl;dr=
+</strong>: =E2=80=9CIncentives are superpowers; set them carefully.=E2=80=
+=9D The Cobra Effect is when the solution for a problem unintentionally ma=
+kes the problem worse. Andrew believe this issue is more widespread than a=
+nticipated. He provides several examples=2C including: everyone sharing fe=
+edback directly instead of through managers. This leads to people withhold=
+ing valuable feedback to maintain relationships or damaging relationships=
+ if they can=E2=80=99t share negative feedback elegantly.</p><p><br /></p>=
+<p style=3D"text-align: right;" class=3D"last-child"><a href=3D"https://po=
+inter.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D5=
+4f46d8842&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size:=
+ 12px">Leadership</span></em></a><em><span style=3D"font-size: 12px"> </sp=
+an></em><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De94=
+92ff27d760c578a39d0675&id=3D9a089451b5&e=3D0e436c5282" target=3D"_blank">=
+<em><span style=3D"font-size: 12px">Management</span></em></a></p></div></=
+td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:15px=
+;padding-left:0" class=3D"mceBlockContainer" align=3D"right" valign=3D"top=
+"><a href=3D"mailto:?subject=3DIncentives%20And%20The%20Cobra%20Effect&bod=
+y=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D=
+%0A%0D%0AIncentives%20And%20The%20Cobra%20Effect%0D%0Ahttps%3A%2F%2Fboz.co=
+m%2Farticles%2Fincentives" style=3D"display:block" target=3D"_blank" data-=
+block-id=3D"133"><img width=3D"38" height=3D"auto" style=3D"border:0;width=
+:38px;height:auto;max-width:64px !important;display:block" alt=3D"" src=3D=
+"https://mcusercontent.com/e9492ff27d760c578a39d0675/images/5007b776-f11f-=
+9e3f-6747-ec4408bb95b0.png" role=3D"presentation" class=3D"imageDropZone m=
+ceImage" /></a></td></tr><tr><td style=3D"background-color:transparent;pad=
+ding-top:5px;padding-bottom:5px;padding-right:20px;padding-left:20px" clas=
+s=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:transparent"=
+ role=3D"presentation" data-block-id=3D"126"><tbody><tr><td style=3D"min-w=
+idth:100%;border-top:2px solid #3e4954" valign=3D"top"></td></tr></tbody><=
+/table></td></tr><tr><td style=3D"padding-top:20px;padding-bottom:0;paddin=
+g-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"=
+><div data-block-id=3D"116" class=3D"mceText" id=3D"dataBlockId-116" style=
+=3D"width:100%"><p><a href=3D"https://pointer.us9.list-manage.com/track/cl=
+ick?u=3De9492ff27d760c578a39d0675&id=3D7100b9bb26&e=3D0e436c5282" target=
+=3D"_blank"><strong><span style=3D"font-size: 20px">Applying The SPACE Fra=
+mework</span></strong></a></p><p>=E2=80=94 Laura Tacho</p><p><br /></p><p>=
+<strong>tl;dr</strong>: The SPACE Framework of Developer Productivity is a=
+ holistic approach to thinking about and measuring software developer prod=
+uctivity. The SPACE framework is not a list of metrics or benchmarks. Inst=
+ead=2C it outlines five different dimensions of productivity that can info=
+rm your own definition of productivity=2C and by extension=2C your measure=
+ments: (1) Satisfaction and Well-being. (2) Performance. (3) Activity. (4)=
+ Communication and Collaboration. (5) Efficiency and Flow.</p><p><br /></p=
+><p style=3D"text-align: right;" class=3D"last-child"><a href=3D"https://p=
+ointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D=
+19f7a72538&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size=
+: 12px">Leadership</span></em></a><em><span style=3D"font-size: 12px"> </s=
+pan></em><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9=
+492ff27d760c578a39d0675&id=3D5d7df8b3a7&e=3D0e436c5282" target=3D"_blank"=
+><em><span style=3D"font-size: 12px">Management</span></em></a></p></div><=
+/td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:15p=
+x;padding-left:0" class=3D"mceBlockContainer" align=3D"right" valign=3D"to=
+p"><a href=3D"mailto:?subject=3DApplying%20The%20SPACE%20Framework&body=3D=
+I'm%20sharing%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%=
+0D%0AApplying%20The%20SPACE%20Framework%0D%0Ahttps%3A%2F%2Fnewsletter.getd=
+x.com%2Fp%2Fapplying-the-space-framework" style=3D"display:block" target=
+=3D"_blank" data-block-id=3D"140"><img width=3D"38" height=3D"auto" style=
+=3D"border:0;width:38px;height:auto;max-width:64px !important;display:bloc=
+k" alt=3D"" src=3D"https://mcusercontent.com/e9492ff27d760c578a39d0675/ima=
+ges/5007b776-f11f-9e3f-6747-ec4408bb95b0.png" role=3D"presentation" class=
+=3D"imageDropZone mceImage" /></a></td></tr><tr><td style=3D"background-co=
+lor:transparent;padding-top:5px;padding-bottom:5px;padding-right:20px;padd=
+ing-left:20px" class=3D"mceBlockContainer" valign=3D"top"><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background=
+-color:transparent" role=3D"presentation" data-block-id=3D"139"><tbody><tr=
+><td style=3D"min-width:100%;border-top:2px solid #3e4954" valign=3D"top">=
+</td></tr></tbody></table></td></tr><tr><td style=3D"padding-top:20px;padd=
+ing-bottom:0;padding-right:20px;padding-left:20px" class=3D"mceBlockContai=
+ner" valign=3D"top"><div data-block-id=3D"141" class=3D"mceText" id=3D"dat=
+aBlockId-141" style=3D"width:100%"><p><a href=3D"https://pointer.us9.list-=
+manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D0cfc96392f&e=3D0e436c5282" target=3D"_blank"><strong><span style=3D"font-size: 20px">How=
+ To Successfully Adopt A Developer Tool</span></strong></a></p><p>=E2=80=
+=94 Lou Bichard</p><p><br /></p><p><strong>tl;dr</strong>: Adopting develo=
+per tools is not the same as successfully adopting developers tools. It=E2=
+=80=99s a socio-technical challenge involving strategy=2C timing and peopl=
+e that can be broken down into three steps: champions=2C use cases=2C scal=
+e. Avoid the premature =E2=80=98all-hands=E2=80=99 demo and embrace the po=
+wer of building a champion.</p><p><br /></p><p><em>Promoted by Gitpod</em>=
+</p><p style=3D"text-align: right;" class=3D"last-child"><a href=3D"https:=
+//pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3D73efe1c2c4&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-s=
+ize: 12px">BestPractices</span></em></a><em><span style=3D"font-size: 12px=
+"> </span></em><a href=3D"https://pointer.us9.list-manage.com/track/click?=
+u=3De9492ff27d760c578a39d0675&id=3Dabc2e6f29b&e=3D0e436c5282" target=3D"_=
+blank"><em><span style=3D"font-size: 12px">DevTools</span></em></a></p></d=
+iv></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right=
+:15px;padding-left:0" class=3D"mceBlockContainer" align=3D"right" valign=
+=3D"top"><a href=3D"mailto:?subject=3DHow%20To%20Successfully%20Adopt%20A%=
+20Developer%20Tool&body=3DI'm%20sharing%20this%20article%20I%20found%20on%=
+20www.pointer.io%3A%0D%0A%0D%0AHow%20To%20Successfully%20Adopt%20A%20Devel=
+oper%20Tool%0D%0Ahttps%3A%2F%2Fwww.gitpod.io%2Fblog%2Fchampion-building%3F=
+utm_campaign%3Dpointer%26utm_source%3DEmail%26utm_medium%3DNewsletter" sty=
+le=3D"display:block" target=3D"_blank" data-block-id=3D"134"><img width=3D=
+"38" height=3D"auto" style=3D"border:0;width:38px;height:auto;max-width:64=
+px !important;display:block" alt=3D"" src=3D"https://mcusercontent.com/e94=
+92ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png" ro=
+le=3D"presentation" class=3D"imageDropZone mceImage" /></a></td></tr><tr><=
+td style=3D"background-color:transparent;padding-top:5px;padding-bottom:5p=
+x;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=
+=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"background-color:transparent" role=3D"presentation" data-bl=
+ock-id=3D"99"><tbody><tr><td style=3D"min-width:100%;border-top:2px solid=
+ #3e4954" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=
+=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding-left:20px=
+" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"145" cl=
+ass=3D"mceText" id=3D"dataBlockId-145" style=3D"width:100%"><p><a href=3D"=
+https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0=
+675&id=3D67f385a744&e=3D0e436c5282" target=3D"_blank"><strong><span style=
+=3D"font-size: 20px">The Checklist Manifesto</span></strong></a></p><p>=E2=
+=80=94 Murat Demirbas</p><p><br /><strong>tl;dr</strong>:=C2=A0This book a=
+dvocates for integrating checklists as potent safety and fault-tolerance t=
+ools across diverse domains. While the author=2C a prominent surgeon=2C en=
+riches the narrative with numerous surgery cases=2C he also discusses thei=
+r use in the construction and aviation industries. Checklists significantl=
+y reduce cognitive load=2C enabling complex tasks and effective team colla=
+boration. Murat questions why we don=E2=80=99t use checklists more frequen=
+tly in software development.</p><p><br /></p><p style=3D"text-align: right=
+;" class=3D"last-child"><a href=3D"https://pointer.us9.list-manage.com/tra=
+ck/click?u=3De9492ff27d760c578a39d0675&id=3D902b58c5d6&e=3D0e436c5282" ta=
+rget=3D"_blank"><em><span style=3D"font-size: 12px">Management</span></em>=
+</a><em><span style=3D"font-size: 12px"> </span></em><a href=3D"https://po=
+inter.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D8=
+1939c2091&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size:=
+ 12px">UsefulTool</span></em></a></p></div></td></tr><tr><td style=3D"padd=
+ing-top:0;padding-bottom:0;padding-right:15px;padding-left:0" class=3D"mce=
+BlockContainer" align=3D"right" valign=3D"top"><a href=3D"mailto:?subject=
+=3DThe%20Checklist%20Manifesto&body=3DI'm%20sharing%20this%20article%20I%2=
+0found%20on%20www.pointer.io%3A%0D%0A%0D%0AThe%20Checklist%20Manifesto%0D%=
+0Ahttps%3A%2F%2Fmuratbuffalo.blogspot.com%2F2024%2F01%2Fthe-checklist-mani=
+festo-dr-atul-gawande.html" style=3D"display:block" target=3D"_blank" data=
+-block-id=3D"146"><img width=3D"38" height=3D"auto" style=3D"border:0;widt=
+h:38px;height:auto;max-width:64px !important;display:block" alt=3D"" src=
+=3D"https://mcusercontent.com/e9492ff27d760c578a39d0675/images/5007b776-f1=
+1f-9e3f-6747-ec4408bb95b0.png" role=3D"presentation" class=3D"imageDropZon=
+e mceImage" /></a></td></tr><tr><td style=3D"background-color:transparent;=
+padding-top:5px;padding-bottom:5px;padding-right:20px;padding-left:20px" c=
+lass=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:transpar=
+ent" role=3D"presentation" data-block-id=3D"103"><tbody><tr><td style=3D"m=
+in-width:100%;border-top:2px solid #3e4954" valign=3D"top"></td></tr></tbo=
+dy></table></td></tr><tr><td style=3D"background-color:transparent;padding=
+-top:0;padding-bottom:0;padding-right:0;padding-left:0" class=3D"mceBlockC=
+ontainer" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"background-color:transparent" role=3D"prese=
+ntation" data-block-id=3D"63"><tbody><tr><td style=3D"min-width:100%;borde=
+r-top:20px solid transparent" valign=3D"top"></td></tr></tbody></table></t=
+d></tr><tr><td style=3D"background-color:#3e4954;padding-top:20px;padding-=
+bottom:20px;padding-right:20px;padding-left:20px" class=3D"mceBlockContain=
+er" valign=3D"top"><div data-block-id=3D"62" class=3D"mceText" id=3D"dataB=
+lockId-62" style=3D"width:100%"><p style=3D"text-align: center;"><em><stro=
+ng><span style=3D"color:#ffffff;">=E2=80=9CThe important thing is not to s=
+top questioning. Curiosity has its own reason for existing.=E2=80=9D</span=
+></strong></em></p><p style=3D"text-align: center;"><br /></p><p style=3D"=
+text-align: center;" class=3D"last-child"><strong><span style=3D"color:#ff=
+ffff;">=E2=80=94 Albert Einstein</span></strong></p></div></td></tr><tr><t=
+d style=3D"background-color:transparent;padding-top:0;padding-bottom:0;pad=
+ding-right:0;padding-left:0" class=3D"mceBlockContainer" valign=3D"top"><t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=
+=3D"background-color:transparent" role=3D"presentation" data-block-id=3D"6=
+4"><tbody><tr><td style=3D"min-width:100%;border-top:20px solid transparen=
+t" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"bac=
+kground-color:transparent;padding-top:5px;padding-bottom:5px;padding-right=
+:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><table=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"=
+background-color:transparent" role=3D"presentation" data-block-id=3D"117">=
+<tbody><tr><td style=3D"min-width:100%;border-top:2px solid #3e4954" valig=
+n=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"padding-top=
+:20px;padding-bottom:0;padding-right:20px;padding-left:20px" class=3D"mceB=
+lockContainer" valign=3D"top"><div data-block-id=3D"119" class=3D"mceText"=
+ id=3D"dataBlockId-119" style=3D"width:100%"><p><a href=3D"https://pointer=
+=2Eus9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Df453b5=
+40f8&e=3D0e436c5282" target=3D"_blank"><strong><span style=3D"font-size:=
+ 20px">How Apple Built iCloud To Store Billions Of Databases</span></stron=
+g></a></p><p>=E2=80=94 Leonardo Creed</p><p><br /></p><p><strong>tl;dr</st=
+rong>: Apple uses FoundationDB and Cassandra for iCloud and CloudKit=2C th=
+eir cloud backend service=2C running one of the largest Cassandra deployme=
+nts in the world. This deployment includes over 300=2C000 instances or nod=
+es=2C managing hundreds of petabytes of data=2C possibly extending to exab=
+ytes. Each cluster in this deployment can handle over two petabytes of dat=
+a=2C and there are thousands of such clusters. This indicates a highly dis=
+tributed and scalable storage system spread across multiple data centers.=
+ </p><p><br /></p><p style=3D"text-align: right;" class=3D"last-child"><a=
+ href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760=
+c578a39d0675&id=3D4ea1af0226&e=3D0e436c5282" target=3D"_blank"><em><span=
+ style=3D"font-size: 12px">Scale</span></em></a><em><span style=3D"font-si=
+ze: 12px"> </span></em><a href=3D"https://pointer.us9.list-manage.com/trac=
+k/click?u=3De9492ff27d760c578a39d0675&id=3D813101f7b5&e=3D0e436c5282" tar=
+get=3D"_blank"><em><span style=3D"font-size: 12px">Architecture</span></em=
+></a></p></div></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;p=
+adding-right:15px;padding-left:0" class=3D"mceBlockContainer" align=3D"rig=
+ht" valign=3D"top"><a href=3D"mailto:?subject=3DHow%20Apple%20Built%20iClo=
+ud%20To%20Store%20Billions%20Of%20Databases&body=3DI'm%20sharing%20this%20=
+article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AHow%20Apple%20Buil=
+t%20iCloud%20To%20Store%20Billions%20Of%20Databases%0D%0Ahttps%3A%2F%2Frea=
+d.engineerscodex.com%2Fp%2Fhow-apple-built-icloud-to-store-billions" style=
+=3D"display:block" target=3D"_blank" data-block-id=3D"130"><img width=3D"3=
+8" height=3D"auto" style=3D"border:0;width:38px;height:auto;max-width:64px=
+ !important;display:block" alt=3D"" src=3D"https://mcusercontent.com/e9492=
+ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png" role=
+=3D"presentation" class=3D"imageDropZone mceImage" /></a></td></tr><tr><td=
+ style=3D"background-color:transparent;padding-top:5px;padding-bottom:5px;=
+padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=
+=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"background-color:transparent" role=3D"presentation" data-bl=
+ock-id=3D"144"><tbody><tr><td style=3D"min-width:100%;border-top:2px solid=
+ #3e4954" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=
+=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding-left:20px=
+" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"142" cl=
+ass=3D"mceText" id=3D"dataBlockId-142" style=3D"width:100%"><p><a href=3D"=
+https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0=
+675&id=3D5d38bd60c7&e=3D0e436c5282" target=3D"_blank"><strong><span style=
+=3D"font-size: 20px">The Ten Commandments Of Refactoring</span></strong></=
+a></p><p>=E2=80=94 Armand Halbert</p><p><br /><strong>tl;dr</strong>:=C2=
+=A0Thou shalt: (1) Have a comprehensive suite of tests. (2) Take small ste=
+ps. (3) Run tests frequently. (4) Use continuous integration. (5) Not add=
+ extra functionality while refactoring. (6) Refactor often. (7) Automate r=
+efactoring. (8) Not prematurely optimize. (9) not suffer duplicated code.=
+ (10) Not suffer excessively long functions=2C or excessively large classe=
+s.=C2=A0</p><p><br /></p><p style=3D"text-align: right;" class=3D"last-chi=
+ld"><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff=
+27d760c578a39d0675&id=3D87acb8dae5&e=3D0e436c5282" target=3D"_blank"><em>=
+<span style=3D"font-size: 12px">Refactoring</span></em></a></p></div></td>=
+</tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:15px;pa=
+dding-left:0" class=3D"mceBlockContainer" align=3D"right" valign=3D"top"><=
+a href=3D"mailto:?subject=3DThe%20Ten%20Commandments%20Of%20Refactoring&bo=
+dy=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.pointer.io%3A%0=
+D%0A%0D%0AThe%20Ten%20Commandments%20Of%20Refactoring%0D%0Ahttps%3A%2F%2Fw=
+ww.ahalbert.com%2Ftechnology%2F2024%2F01%2F06%2Ften_commadments_of_refacto=
+ring.html" style=3D"display:block" target=3D"_blank" data-block-id=3D"149"=
+><img width=3D"38" height=3D"auto" style=3D"border:0;width:38px;height:aut=
+o;max-width:64px !important;display:block" alt=3D"" src=3D"https://mcuserc=
+ontent.com/e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408=
+bb95b0.png" role=3D"presentation" class=3D"imageDropZone mceImage" /></a><=
+/td></tr><tr><td style=3D"background-color:transparent;padding-top:5px;pad=
+ding-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockCon=
+tainer" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"background-color:transparent" role=3D"prese=
+ntation" data-block-id=3D"148"><tbody><tr><td style=3D"min-width:100%;bord=
+er-top:2px solid #3e4954" valign=3D"top"></td></tr></tbody></table></td></=
+tr><tr><td style=3D"padding-top:20px;padding-bottom:0;padding-right:20px;p=
+adding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><div data-blo=
+ck-id=3D"76" class=3D"mceText" id=3D"dataBlockId-76" style=3D"width:100%">=
+<p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff2=
+7d760c578a39d0675&id=3D2c03cf9e8e&e=3D0e436c5282" target=3D"_blank"><stro=
+ng><span style=3D"font-size: 20px">Dynamic Programming Is Not Black Magic<=
+/span></strong></a></p><p>=E2=80=94 Quentin Santos</p><p><br /><strong>tl;=
+dr</strong>: Dynamic Programming is a method used to solve complex problem=
+s by breaking them down into simpler subproblems. Many common algorithms a=
+re the application of dynamic programming to specific problems=2C includin=
+g Dijkstra=E2=80=99s path-finding algorithm. Quentin provides an introduct=
+ion and examples.=C2=A0</p><p><br /></p><p style=3D"text-align: right;" cl=
+ass=3D"last-child"><a href=3D"https://pointer.us9.list-manage.com/track/cl=
+ick?u=3De9492ff27d760c578a39d0675&id=3Db08061a9aa&e=3D0e436c5282" target=
+=3D"_blank"><em><span style=3D"font-size: 12px">Algo</span></em></a></p></=
+div></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-righ=
+t:15px;padding-left:0" class=3D"mceBlockContainer" align=3D"right" valign=
+=3D"top"><a href=3D"mailto:?subject=3DDynamic%20Programming%20Is%20Not%20B=
+lack%20Magic&body=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.=
+pointer.io%3A%0D%0A%0D%0ADynamic%20Programming%20Is%20Not%20Black%20Magic%=
+0D%0Ahttps%3A%2F%2Fqsantos.fr%2F2024%2F01%2F04%2Fdynamic-programming-is-no=
+t-black-magic%2F" style=3D"display:block" target=3D"_blank" data-block-id=
+=3D"129"><img width=3D"38" height=3D"auto" style=3D"border:0;width:38px;he=
+ight:auto;max-width:64px !important;display:block" alt=3D"" src=3D"https:/=
+/mcusercontent.com/e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f-674=
+7-ec4408bb95b0.png" role=3D"presentation" class=3D"imageDropZone mceImage"=
+ /></a></td></tr><tr><td style=3D"background-color:transparent;padding-top=
+:5px;padding-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mce=
+BlockContainer" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" style=3D"background-color:transparent" role=3D=
+"presentation" data-block-id=3D"136"><tbody><tr><td style=3D"min-width:100=
+%;border-top:2px solid #3e4954" valign=3D"top"></td></tr></tbody></table><=
+/td></tr><tr><td style=3D"padding-top:20px;padding-bottom:0;padding-right:=
+20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><div da=
+ta-block-id=3D"109" class=3D"mceText" id=3D"dataBlockId-109" style=3D"widt=
+h:100%"><p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3D=
+e9492ff27d760c578a39d0675&id=3D9d90e9f52a&e=3D0e436c5282" target=3D"_blan=
+k"><strong><span style=3D"font-size: 20px">How Fast Is Your Shell?</span><=
+/strong></a></p><p>=E2=80=94 Thorsten Ball</p><p><br /><strong>tl;dr</stro=
+ng>: =E2=80=9CThink about it this way: which program do you execute more o=
+ften than your shell? How many shells do you spawn every day? How many oth=
+er programs do you run every day that spawn your shell? If you=E2=80=99re=
+ anything like me=2C it=E2=80=99s a lot of shells per day. I=E2=80=99m a h=
+eavy terminal and tmux user. I spawn shells like I open new tabs in a brow=
+ser. Do you want one of your most-used programs to start slow because you=
+ didn=E2=80=99t care?=E2=80=9D Thorsten shares how to measure and optimize=
+ the shell=E2=80=99s speed.</p><p><br /></p><p style=3D"text-align: right;=
+" class=3D"last-child"><a href=3D"https://pointer.us9.list-manage.com/trac=
+k/click?u=3De9492ff27d760c578a39d0675&id=3D057518ab42&e=3D0e436c5282" tar=
+get=3D"_blank"><em><span style=3D"font-size: 12px">Optimization</span></em=
+></a><em><span style=3D"font-size: 12px"> </span></em><a href=3D"https://p=
+ointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D=
+ece91bcc95&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size=
+: 12px">Shell</span></em></a></p></div></td></tr><tr><td style=3D"padding-=
+top:0;padding-bottom:0;padding-right:15px;padding-left:0" class=3D"mceBloc=
+kContainer" align=3D"right" valign=3D"top"><a href=3D"mailto:?subject=3DHo=
+w%20Fast%20Is%20Your%20Shell%3F&body=3DI'm%20sharing%20this%20article%20I%=
+20found%20on%20www.pointer.io%3A%0D%0A%0D%0AHow%20Fast%20Is%20Your%20Shell=
+%3F%0D%0Ahttps%3A%2F%2Fregisterspill.thorstenball.com%2Fp%2Fhow-fast-is-yo=
+ur-shell" style=3D"display:block" target=3D"_blank" data-block-id=3D"128">=
+<img width=3D"38" height=3D"auto" style=3D"border:0;width:38px;height:auto=
+;max-width:64px !important;display:block" alt=3D"" src=3D"https://mcuserco=
+ntent.com/e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408b=
+b95b0.png" role=3D"presentation" class=3D"imageDropZone mceImage" /></a></=
+td></tr><tr><td style=3D"background-color:transparent;padding-top:5px;padd=
+ing-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockCont=
+ainer" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"100%" style=3D"background-color:transparent" role=3D"presenta=
+tion" data-block-id=3D"112"><tbody><tr><td style=3D"min-width:100%;border-=
+top:2px solid #3e4954" valign=3D"top"></td></tr></tbody></table></td></tr>=
+<tr><td style=3D"background-color:#3e4954;padding-top:20px;padding-bottom:=
+20px;padding-right:0;padding-left:0" class=3D"mceBlockContainer" valign=3D=
+"top"><div data-block-id=3D"123" class=3D"mceText" id=3D"dataBlockId-123"=
+ style=3D"width:100%"><p style=3D"text-align: center;" class=3D"last-child=
+"><strong><span style=3D"color:#ffffff;"><span style=3D"font-size: 16px"><=
+span style=3D"font-family: 'Space Mono'=2C 'Courier'=2C Georgia=2C serif">=
+Notable Links</span></span></span></strong></p></div></td></tr><tr><td sty=
+le=3D"padding-top:0;padding-bottom:0;padding-right:20px;padding-left:20px"=
+ class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"98" clas=
+s=3D"mceText" id=3D"dataBlockId-98" style=3D"width:100%"><p><br /></p><p><=
+a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d76=
+0c578a39d0675&id=3D09d811550d&e=3D0e436c5282" target=3D"_blank"><strong>A=
+I Gateway</strong></a><strong>: </strong>Route to 100+ LLMs 1 API.</p><p><=
+br /></p><p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=
+=3De9492ff27d760c578a39d0675&id=3Ded825022d0&e=3D0e436c5282" target=3D"_b=
+lank"><strong>Marimo</strong></a><strong>: </strong>Reactive notebook for=
+ Python. </p><p><br /></p><p><a href=3D"https://pointer.us9.list-manage.co=
+m/track/click?u=3De9492ff27d760c578a39d0675&id=3Dc9fc6edf28&e=3D0e436c5282" target=3D"_blank"><strong>RAD Debugger</strong></a><strong>: </strong>U=
+ser-mode=2C multi-process=2C graphical debugger.</p><p><br /></p><p><a hre=
+f=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578=
+a39d0675&id=3D8c4f05e7b8&e=3D0e436c5282" target=3D"_blank"><strong>Surya<=
+/strong></a><strong>: </strong>Line-level text detection and OCR in any la=
+nguage. </p><p><br /></p><p><a href=3D"https://pointer.us9.list-manage.com=
+/track/click?u=3De9492ff27d760c578a39d0675&id=3Dbb6c3b82a7&e=3D0e436c5282=
+" target=3D"_blank"><strong>Vanna</strong></a><strong>: </strong>Chat with=
+ your SQL database.</p><p class=3D"last-child"><br /></p></div></td></tr><=
+tr><td style=3D"background-color:#3e4954;padding-top:0;padding-bottom:0;pa=
+dding-right:0;padding-left:0" class=3D"mceBlockContainer" valign=3D"top"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" styl=
+e=3D"background-color:#3e4954" role=3D"presentation" data-block-id=3D"53">=
+<tbody><tr><td style=3D"min-width:100%;border-top:20px solid transparent"=
+ valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"paddi=
+ng-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px" clas=
+s=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"89" class=3D"=
+mceText" id=3D"dataBlockId-89" style=3D"width:100%"><p style=3D"text-align=
+: center;">Click the below and shoot me an email!</p><p style=3D"text-alig=
+n: center;"><br />1 =3D Didn't enjoy it all // 5 =3D Really enjoyed it</p>=
+<p style=3D"text-align: center;"><br /></p><p style=3D"text-align: center;=
+" class=3D"last-child"><a href=3D"mailto:suraj@pointer.io?subject=3DIssue%=
+20%23436%20-%20Score%3A%201&body=3DHere's%20why%3A"><strong>1</strong></a>=
+<strong> =E2=80=A6 </strong><a href=3D"mailto:suraj@pointer.io?subject=3DI=
+ssue%20%23436%20-%20Score%3A%202&body=3DHere's%20why%3A"><strong>2</strong=
+></a><strong> =E2=80=A6 </strong><a href=3D"mailto:suraj@pointer.io?subjec=
+t=3DIssue%20%23436%20-%20Score%3A%203&body=3DHere's%20why%3A"><strong>3</s=
+trong></a><strong> =E2=80=A6 </strong><a href=3D"mailto:suraj@pointer.io?s=
+ubject=3DIssue%20%23436%20-%20Score%3A%204&body=3DHere's%20Why%3A"><strong=
+>4</strong></a><strong> =E2=80=A6 </strong><a href=3D"mailto:suraj@pointer=
+=2Eio?subject=3DIssue%20%23436%20-%20Score%3A%205&body=3DHere's%20Why%3A"><s=
+trong>5</strong></a></p></div></td></tr><tr><td style=3D"background-color:=
+#3e4954;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0" cla=
+ss=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:#3e4954" ro=
+le=3D"presentation" data-block-id=3D"90"><tbody><tr><td style=3D"min-width=
+:100%;border-top:20px solid transparent" valign=3D"top"></td></tr></tbody>=
+</table></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-=
+right:0;padding-left:0" class=3D"mceLayoutContainer" valign=3D"top"><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" role=3D"presentation" data-block-id=3D"11" id=3D"section_e9bbf2e=
+9bb6fd84ed8915995c67667ee" class=3D"mceFooterSection"><tbody><tr class=3D"=
+mceRow"><td style=3D"background-position:center;background-repeat:no-repea=
+t;background-size:cover" valign=3D"top"><table border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"12" width=3D"100%" role=3D"presentation"><tbody><tr><td=
+ style=3D"padding-top:0;padding-bottom:0;margin-bottom:12px" class=3D"mceC=
+olumn" data-block-id=3D"-3" valign=3D"top" colspan=3D"12" width=3D"100%"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=
+=3D"presentation"><tbody><tr><td style=3D"padding-top:20px;padding-bottom:=
+20px;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" ali=
+gn=3D"center" valign=3D"top"><div data-block-id=3D"9" class=3D"mceText" id=
+=3D"dataBlockId-9" style=3D"display:inline-block;width:100%"><p class=3D"l=
+ast-child"><span style=3D"font-size: 12px"><span style=3D"font-family: 'Sp=
+ace Mono'=2C 'Courier'=2C Georgia=2C serif">Pointer is emailed twice a wee=
+k on Tuesdays and Fridays @ 9am EST.<br /><br /></span></span><a href=3D"h=
+ttps://pointer.us9.list-manage.com/unsubscribe?u=3De9492ff27d760c578a39d06=
+75&id=3D6ba2b83261&e=3D0e436c5282&c=3D5309f0e304"><span style=3D"text-decora=
+tion:underline;"><span style=3D"font-size: 12px"><span style=3D"font-famil=
+y: 'Space Mono'=2C 'Courier'=2C Georgia=2C serif">Unsubscribe</span></span=
+></span></a><span style=3D"font-size: 12px"><span style=3D"font-family: 'S=
+pace Mono'=2C 'Courier'=2C Georgia=2C serif"> // </span></span><a href=3D"=
+https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0=
+675&id=3D202e6ebf25&e=3D0e436c5282" target=3D"_blank"><span style=3D"text=
+-decoration:underline;"><span style=3D"font-size: 12px"><span style=3D"fon=
+t-family: 'Space Mono'=2C 'Courier'=2C Georgia=2C serif">Sponsorship</span=
+></span></span></a><span style=3D"color:rgb(32=2C 32=2C 32);"><span style=
+=3D"text-decoration:underline;"><span style=3D"font-size: 12px"><span><br=
+ /></span></span></span></span></p></div></td></tr><tr><td class=3D"mceLay=
+outContainer" align=3D"center" valign=3D"top"><table align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presen=
+tation" data-block-id=3D"-2"><tbody><tr class=3D"mceRow"><td style=3D"back=
+ground-position:center;background-repeat:no-repeat;background-size:cover;p=
+adding-top:0px;padding-bottom:0px" valign=3D"top"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"24" width=3D"100%" role=3D"presentation"><tbo=
+dy></tbody></table></td></tr></tbody></table></td></tr></tbody></table></t=
+d></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style=
+=3D"background-color:transparent;padding-top:0;padding-bottom:0;padding-ri=
+ght:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=
+=3D"background-color:transparent" role=3D"presentation" data-block-id=3D"7=
+5"><tbody><tr><td style=3D"min-width:100%;border-top:2px dotted #000000" v=
+align=3D"top"></td></tr></tbody></table></td></tr></tbody></table></td></t=
+r></tbody></table></td></tr></tbody></table></td></tr></tbody></table><!--=
+[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></tbody></=
+table>
+</td>
+</tr>
+</tbody></table>
+</center>
+<img src=3D"https://pointer.us9.list-manage.com/track/open.php?u=3De9492ff=
+27d760c578a39d0675&id=3D5309f0e304&e=3D0e436c5282" height=3D"1" width=3D"=
+1" alt=3D""></body></html>
+--_----------=_MCPart_764962588--

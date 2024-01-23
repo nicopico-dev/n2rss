@@ -1,0 +1,1589 @@
+Delivered-To: nicopico.dev@gmail.com
+Received: by 2002:a05:7000:1e81:b0:54b:4326:6e94 with SMTP id hq1csp1797403mab;
+        Sat, 13 Jan 2024 22:54:55 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF0gttu410iWB5fkulAq8QOgvIEWnSGMVhGPalWBiasv7XdOUHBD+PhbviAP+MzRWE90hCh
+X-Received: by 2002:a05:620a:1984:b0:783:5b57:74ad with SMTP id bm4-20020a05620a198400b007835b5774admr486622qkb.58.1705215294866;
+        Sat, 13 Jan 2024 22:54:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1705215294; cv=none;
+        d=google.com; s=arc-20160816;
+        b=OtPmFhoXWFr+ovZBMd8M5LxIf77l4+MRvBROYDY64k5JVEh7pq03qfTXyFB04sx2AF
+         YS7SpO/VxlZvgS8aNxRYGTu1fYDqcZ7HQqehXOsBGinOrh4awBjkOlJzUvCVAy9p9eQt
+         FdBMRRFBqZFZUI+IpJyXWR9xJiwVuIMWb9KaDpBM9SXmdO34PkWbscIjIAzGMkf9P6t0
+         Jrmr6fNjlstuos4H7BMtyqCypOygGBwXoKp60KzgNUWscj3OOlJtJxOs5ecOhMrLos5q
+         R3wSdWYuWlutIGrx1qP5U0lXCIsQe/OQv6Vx1je2E69YuYyW/Z7bRGCrMOkeDi6UMcqy
+         GgnQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:list-id
+         :feedback-id:message-id:date:to:reply-to:from:subject:dkim-signature
+         :dkim-signature;
+        bh=2agHR1vvGrDa7Cot35sDECBlbZgaiHHZrG4wNW9Bep8=;
+        fh=H4GdtyortLaCNWnOBJIXv8CslrZsYq9o7fvDn8heNVY=;
+        b=E+yeuRQaoAEBcz61DluOo+lLU5PE3rRF0MAZAaFNTtzO7fd3jql7KL7VHQautBsQwl
+         NlEnxq/hjJhwm9fjapvf1Dx++nwGPfOX/gxvfOfb+V4SuphYwfOmrm8RTWKVHYbCVmqU
+         B9pINcd+OMUjUGuzjO+A5xoy/WQzzDlnDQy6SW2AXx0bhUq+wK3DPtCF1aO2J0QXZHAr
+         SZappjTD0gpwU8YBLN1EX4zMrH01Z/dI/IIySBInmL/0Xkxtdg3Z2aVpS2wzlxauFO9g
+         zFHvmVKZZX2+s/F3m8IiRreMXsdT6023Etviz0XZ/J4LvG1DV46f2EONYZMXGDlnV8NG
+         glfA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=0t1P+smo;
+       dkim=pass header.i=@mailchimpapp.net header.s=k2 header.b=BBAKaDFK;
+       spf=pass (google.com: domain of bounce-mc.us12_48329721.1541378-8523a5b059@mail177.atl61.mcsv.net designates 205.201.135.177 as permitted sender) smtp.mailfrom=bounce-mc.us12_48329721.1541378-8523a5b059@mail177.atl61.mcsv.net
+Return-Path: <bounce-mc.us12_48329721.1541378-8523a5b059@mail177.atl61.mcsv.net>
+Received: from mail177.atl61.mcsv.net (mail177.atl61.mcsv.net. [205.201.135.177])
+        by mx.google.com with ESMTPS id o12-20020a81410c000000b005fde22eccabsi405233ywa.475.2024.01.13.22.54.54
+        for <nicopico.dev@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 13 Jan 2024 22:54:54 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us12_48329721.1541378-8523a5b059@mail177.atl61.mcsv.net designates 205.201.135.177 as permitted sender) client-ip=205.201.135.177;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=0t1P+smo;
+       dkim=pass header.i=@mailchimpapp.net header.s=k2 header.b=BBAKaDFK;
+       spf=pass (google.com: domain of bounce-mc.us12_48329721.1541378-8523a5b059@mail177.atl61.mcsv.net designates 205.201.135.177 as permitted sender) smtp.mailfrom=bounce-mc.us12_48329721.1541378-8523a5b059@mail177.atl61.mcsv.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t=1705215293; x=1705301693;
+	bh=2agHR1vvGrDa7Cot35sDECBlbZgaiHHZrG4wNW9Bep8=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=0t1P+smoZJrSWd5W0E0DLRWZ9nZSstuYGaguZNcpftJtOdyGSt9yZ4Zv99L/31l+7
+	 2X5qZ8FyTCDaendMhIbv5DOgdaHoqa8dZYkBQYWaCOBWxOELZxWfM9wzcUCpWm4VyD
+	 mVfNa8flRT7jnT9L8Ad3ElB8ImyME0CJYmdGoeqkxQejEOzn7U6amBf6Mk3VkN6p1o
+	 aCYPgPcFTlUYHFEsUajiuYaxUHRpdTYS0RMxwpTQpltFcHIg+RyfeGzVYwSU9mktIY
+	 ih7bW1upgO8mJ/B4+MI3NmqKdt7WiV28VlWywKIO+oz+5r7dSTzX8H5ufx6M9waDjI
+	 6ieuV0ATNfClQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailchimpapp.net;
+	s=k2; t=1705215293; x=1705475793;
+	i=mailinglist=3Dkotlinweekly.net@mailchimpapp.net;
+	bh=2agHR1vvGrDa7Cot35sDECBlbZgaiHHZrG4wNW9Bep8=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=BBAKaDFKYEx5qkWPBaranIrHc1jhb+xDyU95h5xJUqI03o1BLQ5qujm5+Yodoawac
+	 gCBqK+ed1WBITMeLJyLv/OE/NixQkoZZ2QmBlR13kPCYZRAbrv5/ikcNxM1QJisciO
+	 ZPXnTEn1ZyZ6gbXInvbfQ8s9VFD+zP2q53pxrh1nWuDh7HU6pvymvOB5n6DKO1kkgt
+	 GJ1pncly942uXw5TxJoo6LdhCKTdD9Q7fNCgSFmrg6NUdqLfx12yLeO82ilAaWYorv
+	 EbrdgQckpAwvfgV8MkcKqd8bumoN58sj/c3sb0xUl7/HJ1I0Z9AN9r3xO5srNVAUZd
+	 4T9ysxc6ptnFg==
+Received: from localhost (localhost [127.0.0.1])
+	by mail177.atl61.mcsv.net (Mailchimp) with ESMTP id 4TCQxn5YxXzHXrZSB
+	for <nicopico.dev@gmail.com>; Sun, 14 Jan 2024 06:54:53 +0000 (GMT)
+Subject: =?utf-8?Q?Kotlin=20Weekly=20#389?=
+From: =?utf-8?Q?Kotlin=20Weekly?= <mailinglist@kotlinweekly.net>
+Reply-To: =?utf-8?Q?Kotlin=20Weekly?= <mailinglist@kotlinweekly.net>
+To: <nicopico.dev@gmail.com>
+Date: Sun, 14 Jan 2024 06:54:52 +0000
+Message-ID: <f39692e245b94f7fb693b6d82.8523a5b059.20240114065442.d56269d909.941a0d0d@mail177.atl61.mcsv.net>
+X-Mailer: Mailchimp Mailer - **CIDd56269d9098523a5b059**
+X-Campaign: mailchimpf39692e245b94f7fb693b6d82.d56269d909
+X-campaignid: mailchimpf39692e245b94f7fb693b6d82.d56269d909
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=f39692e245b94f7fb693b6d82&id=d56269d909&e=8523a5b059
+X-MC-User: f39692e245b94f7fb693b6d82
+Feedback-ID: 48329721:48329721.1541378:us12:mc
+List-ID: f39692e245b94f7fb693b6d82mc list <f39692e245b94f7fb693b6d82.245405.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://kotlinweekly.us12.list-manage.com/unsubscribe?u=f39692e245b94f7fb693b6d82&id=93b2272cb6&e=8523a5b059&c=d56269d909>, <mailto:unsubscribe-mc.us12_f39692e245b94f7fb693b6d82.d56269d909-8523a5b059@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_212637644"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_212637644
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+
+
+** ISSUE #389
+------------------------------------------------------------
+14th of January 2024
+
+Announcements
+Results of Google Summer of Code With Kotlin (https://blog.jetbrains.com/k=
+otlin/2024/01/google-summer-of-code-with-kotlin-results/)
+Find out in this post the selection of contributors who worked at the Goog=
+le Summer of Code in Kotlin.
+blog.jetbrains.com
+
+Leverage Gemini in your Android apps (https://android-developers.googleblo=
+g.com/2023/12/leverage-generative-ai-in-your-android-apps.html)
+Google has introduced new ways for Android developers to access the Gemini=
+ Pro model =E2=80=93 which runs off-device=2C in Google's data centers. Ch=
+eck out this article to learn more.
+android-developers.googleblog.com
+
+The State of Compose 2023 (https://www.composables.com/state-of-compose)
+Alex Styl is running a survey to gather some data on the current State of=
+ Compose. If you could check it out and fill it we would be very grateful!=
+=2E
+www.composables.com
+
+Articles
+Testing Micronaut Application in Kotlin (https://codersee.com/testing-micr=
+onaut-appplication-kotlin/)
+Piotr Wolak showcases in his new article how to test a Micronaut applicati=
+on in Kotlin.
+codersee.com
+
+Functional Replacement =E2=80=94 Changing the control flow of hard structu=
+res (https://medium.com/@gabriel.brasileiro/functional-replacement-changin=
+g-the-control-flow-of-hard-structures-d94753760492)
+Article explaining what is Functional Replacement=2C and how to make it wo=
+rk on our code.
+medium.com
+
+Styling your components on Compose Web (https://touchlab.co/html-compose-s=
+tyles)
+Styling your UI is a very important part of any application. This article=
+ will explore how to style our Compose Web components.
+touchlab.co
+
+Compose Multiplatform =E2=80=94 managing UI State on iOS (https://proandro=
+iddev.com/compose-multiplatform-managing-ui-state-on-ios-45d37effeda9)
+Guilherme Delgado posted an article exploring techniques to update your Co=
+mpose-driven UI=2C particularly when employing it to share layouts with iO=
+S.
+proandroiddev.com
+
+Removing Ambiguity in Kotlin Function by Reference (https://dladukedev.com=
+/articles/027_kotlin_function_by_reference_ambiguity/)
+Donovan LaDuke showcases an example of disambiguating a function reference=
+=2C and when do we need to do it.
+dladukedev.com
+
+Videos
+How to Make a Clean Architecture App with Kotlin and Compose Multiplatform=
+ (https://www.youtube.com/watch?v=3D_UCmtFK0fAI)
+In this tutorial=2C Mohamad Rejeb shows how to make a Clean Architecture A=
+pp with Kotlin and Compose Multiplatform.
+www.youtube.com
+
+The must-have Android Studio plugins (https://www.youtube.com/watch?v=3D2Z=
+T_MtMNo8s)
+In this video=2C Ilyas Ipek shares some of the most useful Android Studio=
+ plugins that you may find helpful.
+www.youtube.com
+
+Build a Complete One-Page Website with Kotlin and Compose HTML in less tha=
+n 30 Minutes! (https://www.youtube.com/watch?v=3DciAqQPThXn0)
+Stefan Jovanovic shows in this video how to create a one page website usin=
+g Kotlin and Compose HTML in less than 30 minutes.
+www.youtube.com
+
+Libraries
+Secrets Vault Plugin (https://github.com/Commencis/secrets-vault-plugin)
+This Android-focused Gradle plugin provides developers with a comprehensiv=
+e tool to securely hide and obfuscate secrets within their Android project=
+s.
+github.com
+
+Compose Action Menu (https://github.com/jacobras/ComposeActionMenu)
+This multi-platform library provides an easy-to-use action menu for Compos=
+e=2C since Compose doesn't offer this by default.
+github.com
+
+HumanReadable (https://github.com/jacobras/Human-Readable)
+A small set of data formatting utilities for Kotlin Multiplatform.
+github.com
+
+CountryCP (https://github.com/tfaki/CountryCP)
+Component to customize your country text field for Jetpack Compose.
+github.com
+
+Contribute
+
+We rely on sponsors to offer quality content every Sunday. If you would li=
+ke to submit a sponsored link contact us (mailto:mailinglist@kotlinweekly.=
+net?subject=3DSponsoring%20for%20Kotlin%20Weekly) .
+
+If you want to submit an article for the next issue=2C please do also drop=
+ us an email (mailto:mailinglist@kotlinweekly.net?subject=3DLink%20for%20s=
+ubmission%20-%20Kotlin%20Weekly) .
+
+Thanks to JetBrains for their support! (https://www.jetbrains.com/?utm_sou=
+rce=3Dkotlinweekly&utm_medium=3Dnewsletter&utm_campaign=3Dhomepage-footer-=
+link)
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+** Twitter (http://www.twitter.com/kotlinweekly)
+** Facebook (https://www.facebook.com/kotlinweekly/)
+** Website (http://www.kotlinweekly.net)
+Copyright =C2=A9 2024 Kotlin Weekly=2C All rights reserved.
+ You are receiving this email because you opted in at our website.
+Want to change how you receive these emails?
+You can ** update your preferences (https://kotlinweekly.us12.list-manage.=
+com/profile?u=3Df39692e245b94f7fb693b6d82&id=3D93b2272cb6&e=3D8523a5b059&c=
+=3Dd56269d909)
+or ** unsubscribe from this list (https://kotlinweekly.us12.list-manage.co=
+m/unsubscribe?u=3Df39692e245b94f7fb693b6d82&id=3D93b2272cb6&e=3D8523a5b059&c=
+=3Dd56269d909)
+ Email Marketing Powered by Mailchimp
+http://www.mailchimp.com/email-referral/?utm_source=3Dfreemium_newsletter&=
+utm_medium=3Demail&utm_campaign=3Dreferral_marketing&aid=3Df39692e245b94f7=
+fb693b6d82&afl=3D1
+--_----------=_MCPart_212637644
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-micros=
+oft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+    <head>
+        <!-- NAME: 1 COLUMN -->
+        <!--[if gte mso 15]>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta charset=3D"UTF-8">
+        <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1">
+        <title>Kotlin Weekly #389</title>
+
+    <style type=3D"text/css">
+=09=09p{
+=09=09=09margin:10px 0;
+=09=09=09padding:0;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09display:block;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09height:auto;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100%;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100%;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09table{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09p=2Ca=2Cli=2Ctd=2Cblockquote{
+=09=09=09mso-line-height-rule:exactly;
+=09=09}
+=09=09a[href^=3Dtel]=2Ca[href^=3Dsms]{
+=09=09=09color:inherit;
+=09=09=09cursor:default;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09p=2Ca=2Cli=2Ctd=2Cbody=2Ctable=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass td=2C.ExternalCla=
+ss div=2C.ExternalClass span=2C.ExternalClass font{
+=09=09=09line-height:100%;
+=09=09}
+=09=09a[x-apple-data-detectors]{
+=09=09=09color:inherit !important;
+=09=09=09text-decoration:none !important;
+=09=09=09font-size:inherit !important;
+=09=09=09font-family:inherit !important;
+=09=09=09font-weight:inherit !important;
+=09=09=09line-height:inherit !important;
+=09=09}
+=09=09#bodyCell{
+=09=09=09padding:10px;
+=09=09}
+=09=09.templateContainer{
+=09=09=09max-width:600px !important;
+=09=09}
+=09=09a.mcnButton{
+=09=09=09display:block;
+=09=09}
+=09=09.mcnImage=2C.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent{
+=09=09=09word-break:break-word;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09.mcnDividerBlock{
+=09=09=09table-layout:fixed !important;
+=09=09}
+=09=09body=2C#bodyTable{
+=09=09=09background-color:#FAFAFA;
+=09=09}
+=09=09#bodyCell{
+=09=09=09border-top:0;
+=09=09}
+=09=09.templateContainer{
+=09=09=09border:0;
+=09=09}
+=09=09h1{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:26px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h2{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:22px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h3{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:20px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h4{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:18px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader{
+=09=09=09background-color:#FAFAFA;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:9px;
+=09=09=09padding-bottom:9px;
+=09=09}
+=09=09#templatePreheader .mcnTextContent=2C#templatePreheader .mcnTextCont=
+ent p{
+=09=09=09color:#656565;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:12px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templatePreheader .mcnTextContent a=2C#templatePreheader .mcnTextCo=
+ntent p a{
+=09=09=09color:#656565;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#FFFFFF;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:9px;
+=09=09=09padding-bottom:0;
+=09=09}
+=09=09#templateHeader .mcnTextContent=2C#templateHeader .mcnTextContent p{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templateHeader .mcnTextContent a=2C#templateHeader .mcnTextContent=
+ p a{
+=09=09=09color:#007C89;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#FFFFFF;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:2px solid #EAEAEA;
+=09=09=09padding-top:0;
+=09=09=09padding-bottom:9px;
+=09=09}
+=09=09#templateBody .mcnTextContent=2C#templateBody .mcnTextContent p{
+=09=09=09color:#202020;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:16px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templateBody .mcnTextContent a=2C#templateBody .mcnTextContent p a{
+=09=09=09color:#007C89;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#FAFAFA;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:9px;
+=09=09=09padding-bottom:9px;
+=09=09}
+=09=09#templateFooter .mcnTextContent=2C#templateFooter .mcnTextContent p{
+=09=09=09color:#656565;
+=09=09=09font-family:Helvetica;
+=09=09=09font-size:12px;
+=09=09=09line-height:150%;
+=09=09=09text-align:center;
+=09=09}
+=09=09#templateFooter .mcnTextContent a=2C#templateFooter .mcnTextContent=
+ p a{
+=09=09=09color:#656565;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (min-width:768px){
+=09=09.templateContainer{
+=09=09=09width:600px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImage{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCartContainer=2C.mcnCaptionTopContent=2C.mcnRecContentContainer=
+=2C.mcnCaptionBottomContent=2C.mcnTextContentContainer=2C.mcnBoxedTextCont=
+entContainer=2C.mcnImageGroupContentContainer=2C.mcnCaptionLeftTextContent=
+Container=2C.mcnCaptionRightTextContentContainer=2C.mcnCaptionLeftImageCon=
+tentContainer=2C.mcnCaptionRightImageContentContainer=2C.mcnImageCardLeftT=
+extContentContainer=2C.mcnImageCardRightTextContentContainer=2C.mcnImageCa=
+rdLeftImageContentContainer=2C.mcnImageCardRightImageContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupContent{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCaptionLeftContentOuter .mcnTextContent=2C.mcnCaptionRightConten=
+tOuter .mcnTextContent{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardTopImageContent=2C.mcnCaptionBottomContent:last-child .=
+mcnCaptionBottomImageContent=2C.mcnCaptionBlockInner .mcnCaptionTopContent=
+:last-child .mcnTextContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardBottomImageContent{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockInner{
+=09=09=09padding-top:0 !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockOuter{
+=09=09=09padding-top:9px !important;
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnTextContent=2C.mcnBoxedTextContentColumn{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardLeftImageContent=2C.mcnImageCardRightImageContent{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcpreview-image-uploader{
+=09=09=09display:none !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:22px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:20px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:125% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer .mcnTextContent=2C.mcnBoxedTextContent=
+Container .mcnTextContent p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templatePreheader{
+=09=09=09display:block !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templatePreheader .mcnTextContent=2C#templatePreheader .mcnTextCont=
+ent p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templateHeader .mcnTextContent=2C#templateHeader .mcnTextContent p{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templateBody .mcnTextContent=2C#templateBody .mcnTextContent p{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09#templateFooter .mcnTextContent=2C#templateFooter .mcnTextContent p{
+=09=09=09font-size:14px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}</style></head>
+    <body style=3D"height: 100%;margin: 0;padding: 0;width: 100%;-ms-text-=
+size-adjust: 100%;-webkit-text-size-adjust: 100%;background-color: #FAFAFA=
+;">
+        <!--
+-->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;pad=
+ding: 0;width: 100%;background-color: #FAFAFA;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;height: 100%;margin: 0;padding: 10px;width: 100%;bord=
+er-top: 0;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <!--[if (gte mso 9)|(IE)]>
+                        <table align=3D"center" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                        <tr>
+                        <td align=3D"center" valign=3D"top" width=3D"600"=
+ style=3D"width:600px;">
+                        <![endif]-->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" class=3D"templateContainer" style=3D"border-collapse=
+: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;border: 0;max-width: 600px !importa=
+nt;">
+                            <tr>
+                                <td valign=3D"top" id=3D"templatePreheader=
+" style=3D"background:#FAFAFA none no-repeat center/cover;mso-line-height-=
+rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;ba=
+ckground-color: #FAFAFA;background-image: none;background-repeat: no-repea=
+t;background-position: center;background-size: cover;border-top: 0;border-=
+bottom: 0;padding-top: 9px;padding-bottom: 9px;"></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"templateHeader" s=
+tyle=3D"background:#FFFFFF none no-repeat center/cover;mso-line-height-rul=
+e: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;backg=
+round-color: #FFFFFF;background-image: none;background-repeat: no-repeat;b=
+ackground-position: center;background-size: cover;border-top: 0;border-bot=
+tom: 0;padding-top: 9px;padding-bottom: 0;"><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnImageCardBlock" style=
+=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;=
+-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnImageCardBlockOuter">
+        <tr>
+            <td class=3D"mcnImageCardBlockInner" valign=3D"top" style=3D"p=
+adding-top: 9px;padding-right: 18px;padding-bottom: 9px;padding-left: 18px=
+;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;">
+
+<table align=3D"right" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"mcnImageCardBottomContent" width=3D"100%" style=3D"border-collapse:=
+ collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody><tr>
+        <td class=3D"mcnImageCardBottomImageContent" align=3D"left" valign=
+=3D"top" style=3D"padding-top: 0px;padding-right: 0px;padding-bottom: 0;pa=
+dding-left: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;">
+
+
+
+            <img alt=3D"" src=3D"https://mcusercontent.com/f39692e245b94f7=
+fb693b6d82/images/10becd43-0739-8b7e-9591-035124842821.png" width=3D"564"=
+ style=3D"max-width: 1200px;border: 0;height: auto;outline: none;text-deco=
+ration: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" clas=
+s=3D"mcnImage">
+
+
+        </td>
+    </tr>
+    <tr>
+        <td class=3D"mcnTextContent" valign=3D"top" style=3D"padding: 9px=
+ 18px;color: #F2F2F2;font-family: Helvetica;font-size: 14px;font-weight: n=
+ormal;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;line-height:=
+ 150%;" width=3D"546">
+            &nbsp;
+<div id=3D"gtx-trans" style=3D"position: absolute; ">
+<div class=3D"gtx-trans-icon">&nbsp;</div>
+</div>
+
+        </td>
+    </tr>
+</tbody></table>
+
+
+
+
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"templateBody" sty=
+le=3D"background:#FFFFFF none no-repeat center/cover;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;backgro=
+und-color: #FFFFFF;background-image: none;background-repeat: no-repeat;bac=
+kground-position: center;background-size: cover;border-top: 0;border-botto=
+m: 2px solid #EAEAEA;padding-top: 0;padding-bottom: 9px;"><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTextBlo=
+ck" style=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0=
+pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #202020;font-family: Helve=
+tica;font-size: 16px;line-height: 150%;text-align: left;">
+
+                            <h1 style=3D"text-align: center;display: block=
+;margin: 0;padding: 0;color: #202020;font-family: Helvetica;font-size: 26p=
+x;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: n=
+ormal;"><span style=3D"font-size:18px"><strong><span style=3D"font-family:=
+helvetica neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif">ISSUE</span></s=
+trong> <span style=3D"color:#FFFFFF"><span style=3D"background-color:#7874=
+b4; margin:20px 5px 20px 5px; padding:5px 5px 5px 5px">#389</span></span><=
+/span></h1>
+
+<div style=3D"text-align: center; line-height: 50%; margin:10px 0px 0px 0p=
+x;"><span style=3D"color:#D3D3D3"><span style=3D"font-size:12px"><span sty=
+le=3D"font-family:helvetica neue=2Chelvetica=2Carial=2Cverdana=2Csans-seri=
+f">14th of January 2024</span></span></span><br>
+&nbsp;</div>
+
+<div style=3D"overflow: hidden;">
+<div style=3D"
+    width:30%;
+
+    float:left">
+<p style=3D"text-align: center;margin: 10px 0;padding: 0;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;col=
+or: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;"><br=
+>
+<img data-file-id=3D"2573165" height=3D"45" src=3D"https://gallery.mailchi=
+mp.com/f39692e245b94f7fb693b6d82/images/b61142be-473c-436a-84ad-8338e13e31=
+da.png" style=3D"border: 0px;width: 45px;height: 45px;margin: 0px;outline:=
+ none;text-decoration: none;-ms-interpolation-mode: bicubic;" width=3D"45"=
+><br>
+<strong><span style=3D"font-size:11px"><span style=3D"font-family:helvetic=
+a neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><span style=3D"color:#F=
+FFFFF"><span style=3D"background-color:#7874b4; padding:5px 5px 5px 5px">A=
+nnouncements</span></span></span></span></strong></p>
+</div>
+
+<div style=3D"
+    width:70%;
+    float:left;
+    "><br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3D27199f8f7c&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#7874b4">Results of Google Summer of Code With Kotlin</span></strong>=
+</span></span></a><br>
+<span style=3D"font-size:14px">Find out in this post the selection of cont=
+ributors who worked at the Google Summer of Code in Kotlin.</span><br>
+<a href=3D"blog.jetbrains.com" style=3D"text-decoration: none;mso-line-hei=
+ght-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;color: #007C89;font-weight: normal;" target=3D"_blank"><strong><span sty=
+le=3D"color:#7874b4; font-size:11px">blog.jetbrains.com</span></strong></a=
+><br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3Dd607444e42&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#7874b4">Leverage Gemini in your Android apps</span></strong></span><=
+/span></a><br>
+<span style=3D"font-size:14px">Google has introduced new ways for Android=
+ developers to access the Gemini Pro model =E2=80=93 which runs off-device=
+=2C in Google's data centers. Check out this article to learn more.</span>=
+<br>
+<a href=3D"android-developers.googleblog.com" style=3D"text-decoration: no=
+ne;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-s=
+ize-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_blank"><s=
+trong><span style=3D"color:#7874b4; font-size:11px">android-developers.goo=
+gleblog.com</span></strong></a><br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3D1b93c9c13e&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#7874b4">The State of Compose 2023</span></strong></span></span></a><=
+br>
+<span style=3D"font-size:14px">Alex Styl is running a survey to gather som=
+e data on the current State of Compose. If you could check it out and fill=
+ it we would be very grateful!.</span><br>
+<a href=3D"www.composables.com" style=3D"text-decoration: none;mso-line-he=
+ight-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 10=
+0%;color: #007C89;font-weight: normal;" target=3D"_blank"><strong><span st=
+yle=3D"color:#7874b4; font-size:11px">www.composables.com</span></strong><=
+/a></div>
+</div>
+
+<div style=3D"overflow: hidden;">
+<div style=3D"
+    width:30%;
+    float:left">
+<p style=3D"text-align: center;margin: 10px 0;padding: 0;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;col=
+or: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;"><br=
+>
+<img data-file-id=3D"2573169" height=3D"64" src=3D"https://gallery.mailchi=
+mp.com/f39692e245b94f7fb693b6d82/images/aecc15c5-3b55-4f56-b171-6c933eabb1=
+73.png" style=3D"border: 0px initial;width: 65px;height: 64px;margin: 0px;=
+outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" widt=
+h=3D"65"><br>
+<strong><span style=3D"font-size:11px"><span style=3D"font-family:helvetic=
+a neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><span style=3D"color:#F=
+FFFFF"><span style=3D"background-color:#f1646c; padding:5px 5px 5px 5px">A=
+rticles</span></span></span></span></strong></p>
+</div>
+
+<div style=3D"
+    width:70%;
+    float:left;
+    "><br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3D4863187031&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#f1646c">Testing Micronaut Application in Kotlin</span></strong></spa=
+n></span></a><br>
+<span style=3D"font-size:14px">Piotr Wolak showcases in his new article ho=
+w to test a Micronaut application in Kotlin.</span><br>
+<a href=3D"codersee.com" style=3D"text-decoration: none;mso-line-height-ru=
+le: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;colo=
+r: #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=3D"=
+color:#f1646c; font-size:11px">codersee.com</span></strong></a><br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3D868ec660f2&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#f1646c">Functional Replacement =E2=80=94 Changing the control flow o=
+f hard structures</span></strong></span></span></a><br>
+<span style=3D"font-size:14px">Article explaining what is Functional Repla=
+cement=2C and how to make it work on our code.</span><br>
+<a href=3D"medium.com" style=3D"text-decoration: none;mso-line-height-rule=
+: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=3D"co=
+lor:#f1646c; font-size:11px">medium.com</span></strong></a><br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3Da09ebc47da&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#f1646c">Styling your components on Compose Web</span></strong></span=
+></span></a><br>
+<span style=3D"font-size:14px">Styling your UI is a very important part of=
+ any application. This article will explore how to style our Compose Web c=
+omponents.</span><br>
+<a href=3D"touchlab.co" style=3D"text-decoration: none;mso-line-height-rul=
+e: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color=
+: #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=3D"c=
+olor:#f1646c; font-size:11px">touchlab.co</span></strong></a><br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3Db3275cec5d&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#f1646c">Compose Multiplatform =E2=80=94 managing UI State on iOS</sp=
+an></strong></span></span></a><br>
+<span style=3D"font-size:14px">Guilherme Delgado posted an article explori=
+ng techniques to update your Compose-driven UI=2C particularly when employ=
+ing it to share layouts with iOS.</span><br>
+<a href=3D"proandroiddev.com" style=3D"text-decoration: none;mso-line-heig=
+ht-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%=
+;color: #007C89;font-weight: normal;" target=3D"_blank"><strong><span styl=
+e=3D"color:#f1646c; font-size:11px">proandroiddev.com</span></strong></a><=
+br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3D193d2ae5d2&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#f1646c">Removing Ambiguity in Kotlin Function by Reference</span></s=
+trong></span></span></a><br>
+<span style=3D"font-size:14px">Donovan LaDuke showcases an example of disa=
+mbiguating a function reference=2C and when do we need to do it.</span><br=
+>
+<a href=3D"dladukedev.com" style=3D"text-decoration: none;mso-line-height-=
+rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;co=
+lor: #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=
+=3D"color:#f1646c; font-size:11px">dladukedev.com</span></strong></a></div=
+>
+</div>
+
+<div style=3D"overflow: hidden;">
+<div style=3D"
+    width:30%;
+    float:left">
+<p style=3D"text-align: center;margin: 10px 0;padding: 0;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;col=
+or: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;"><br=
+>
+<img data-file-id=3D"2573213" height=3D"45" src=3D"https://gallery.mailchi=
+mp.com/f39692e245b94f7fb693b6d82/images/1190a3e2-9a27-4e7b-851e-20983326e2=
+5f.png" style=3D"border: 0px initial;width: 45px;height: 45px;margin: 0px;=
+outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" widt=
+h=3D"45"><br>
+<strong><span style=3D"font-size:11px"><span style=3D"font-family:helvetic=
+a neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><span style=3D"color:#F=
+FFFFF"><span style=3D"background-color:#639fcb; padding:5px 5px 5px 5px">V=
+ideos</span></span></span></span></strong></p>
+</div>
+
+<div style=3D"
+    width:70%;
+    float:left;
+    "><br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3D5aa3cd9ebe&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#639fcb">How to Make a Clean Architecture App with Kotlin and Compose=
+ Multiplatform</span></strong></span></span></a><br>
+<span style=3D"font-size:14px">In this tutorial=2C Mohamad Rejeb shows how=
+ to make a Clean Architecture App with Kotlin and Compose Multiplatform.</=
+span><br>
+<a href=3D"www.youtube.com" style=3D"text-decoration: none;mso-line-height=
+-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;c=
+olor: #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=
+=3D"color:#639fcb; font-size:11px">www.youtube.com</span></strong></a><br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3Dbdfed442f7&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#639fcb">The must-have Android Studio plugins</span></strong></span><=
+/span></a><br>
+<span style=3D"font-size:14px">In this video=2C Ilyas Ipek shares some of=
+ the most useful Android Studio plugins that you may find helpful.</span><=
+br>
+<a href=3D"www.youtube.com" style=3D"text-decoration: none;mso-line-height=
+-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;c=
+olor: #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=
+=3D"color:#639fcb; font-size:11px">www.youtube.com</span></strong></a><br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3De932bc062b&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#639fcb">Build a Complete One-Page Website with Kotlin and Compose HT=
+ML in less than 30 Minutes!</span></strong></span></span></a><br>
+<span style=3D"font-size:14px">Stefan Jovanovic shows in this video how to=
+ create a one page website using Kotlin and Compose HTML in less than 30 m=
+inutes.</span><br>
+<a href=3D"www.youtube.com" style=3D"text-decoration: none;mso-line-height=
+-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;c=
+olor: #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=
+=3D"color:#639fcb; font-size:11px">www.youtube.com</span></strong></a></di=
+v>
+</div>
+
+<div style=3D"overflow: hidden;">
+<div style=3D"
+    width:30%;
+    float:left">
+<p style=3D"text-align: center;margin: 10px 0;padding: 0;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;col=
+or: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;"><br=
+>
+<img data-file-id=3D"2573205" height=3D"45" src=3D"https://gallery.mailchi=
+mp.com/f39692e245b94f7fb693b6d82/images/4837807f-7f56-4f5d-841a-784404090b=
+26.png" style=3D"border: 0px initial;width: 45px;height: 45px;margin: 0px;=
+outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" widt=
+h=3D"45"><br>
+<strong><span style=3D"font-size:11px"><span style=3D"font-family:helvetic=
+a neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><span style=3D"color:#F=
+FFFFF"><span style=3D"background-color:#800000; padding:5px 5px 5px 5px">L=
+ibraries</span></span></span></span></strong></p>
+</div>
+
+<div style=3D"
+    width:70%;
+    float:left;
+    "><br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3Dde73b4ca3f&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#800000">Secrets Vault Plugin</span></strong></span></span></a><br>
+<span style=3D"font-size:14px">This Android-focused Gradle plugin provides=
+ developers with a comprehensive tool to securely hide and obfuscate secre=
+ts within their Android projects.</span><br>
+<a href=3D"github.com" style=3D"text-decoration: none;mso-line-height-rule=
+: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=3D"co=
+lor:#800000; font-size:11px">github.com</span></strong></a><br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3Dea5d190f00&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#800000">Compose Action Menu</span></strong></span></span></a><br>
+<span style=3D"font-size:14px">This multi-platform library provides an eas=
+y-to-use action menu for Compose=2C since Compose doesn't offer this by de=
+fault.</span><br>
+<a href=3D"github.com" style=3D"text-decoration: none;mso-line-height-rule=
+: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=3D"co=
+lor:#800000; font-size:11px">github.com</span></strong></a><br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3D229f8f6724&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#800000">HumanReadable</span></strong></span></span></a><br>
+<span style=3D"font-size:14px">A small set of data formatting utilities fo=
+r Kotlin Multiplatform.</span><br>
+<a href=3D"github.com" style=3D"text-decoration: none;mso-line-height-rule=
+: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=3D"co=
+lor:#800000; font-size:11px">github.com</span></strong></a><br>
+<br>
+<a href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df3969=
+2e245b94f7fb693b6d82&id=3Dcf5e0ac0bf&e=3D8523a5b059" style=3D"text-decora=
+tion: none;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #007C89;font-weight: normal;" target=3D"_b=
+lank"><span style=3D"font-size:16px"><span style=3D"font-family:helvetica=
+ neue=2Chelvetica=2Carial=2Cverdana=2Csans-serif"><strong><span style=3D"c=
+olor:#800000">CountryCP</span></strong></span></span></a><br>
+<span style=3D"font-size:14px">Component to customize your country text fi=
+eld for Jetpack Compose.</span><br>
+<a href=3D"github.com" style=3D"text-decoration: none;mso-line-height-rule=
+: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #007C89;font-weight: normal;" target=3D"_blank"><strong><span style=3D"co=
+lor:#800000; font-size:11px">github.com</span></strong></a></div>
+</div>
+
+<p style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-fa=
+mily: Helvetica;font-size: 16px;line-height: 150%;text-align: left;"><u><s=
+trong>Contribute</strong></u></p>
+
+<p style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-fa=
+mily: Helvetica;font-size: 16px;line-height: 150%;text-align: left;">We re=
+ly on sponsors to offer quality content every Sunday. If you would like to=
+ submit a sponsored link&nbsp;<a href=3D"mailto:mailinglist@kotlinweekly.n=
+et?subject=3DSponsoring%20for%20Kotlin%20Weekly" target=3D"_blank" style=
+=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;color: #007C89;font-weight: normal;text-decoration: unde=
+rline;">contact us</a>.</p>
+
+<p style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #202020;font-fa=
+mily: Helvetica;font-size: 16px;line-height: 150%;text-align: left;">If yo=
+u want to submit an article for the next issue=2C please do also&nbsp;<a h=
+ref=3D"mailto:mailinglist@kotlinweekly.net?subject=3DLink%20for%20submissi=
+on%20-%20Kotlin%20Weekly" target=3D"_blank" style=3D"mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #007C89;font-weight: normal;text-decoration: underline;">drop us an email=
+</a>.<br>
+&nbsp;</p>
+
+<p style=3D"text-align: center;margin: 10px 0;padding: 0;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;col=
+or: #202020;font-family: Helvetica;font-size: 16px;line-height: 150%;"><a=
+ href=3D"https://kotlinweekly.us12.list-manage.com/track/click?u=3Df39692e=
+245b94f7fb693b6d82&id=3D06e0d4d6ca&e=3D8523a5b059" style=3D"mso-line-heig=
+ht-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%=
+;color: #007C89;font-weight: normal;text-decoration: underline;"><img data=
+-file-id=3D"2573274" height=3D"111" src=3D"https://mcusercontent.com/f3969=
+2e245b94f7fb693b6d82/images/5054868d-f359-45f9-b178-f519a1d5b477.png" styl=
+e=3D"border: 0px;width: 111px;height: 111px;margin: 0px;outline: none;text=
+-decoration: none;-ms-interpolation-mode: bicubic;" width=3D"111"><br>
+Thanks to JetBrains for their support!</a></p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"templateFooter" s=
+tyle=3D"background:#FAFAFA none no-repeat center/cover;mso-line-height-rul=
+e: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;backg=
+round-color: #FAFAFA;background-image: none;background-repeat: no-repeat;b=
+ackground-position: center;background-size: cover;border-top: 0;border-bot=
+tom: 0;padding-top: 9px;padding-bottom: 9px;"><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnDividerBlock" style=
+=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-ta=
+ble-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+table-layout: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px solid #505050;border-collapse: collapse;mso-table-lspace: 0pt;mso-=
+table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnFollowBlock" style=3D"min-width: 100%;border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnFollowBlockOuter">
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"padding: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" class=3D"mcnFollowBlockInner">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" class=3D"mcnFollowContentContainer" style=3D"min-width: 100%;=
+border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-=
+text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody><tr>
+        <td align=3D"center" style=3D"padding-left: 9px;padding-right: 9px=
+;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;">
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"min-width: 100%;border-collapse: collapse;mso-table-lsp=
+ace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;" class=3D"mcnFollowContent">
+                <tbody><tr>
+                    <td align=3D"center" valign=3D"top" style=3D"padding-t=
+op: 9px;padding-right: 9px;padding-left: 9px;mso-line-height-rule: exactly=
+;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                        <table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse;mso-table-lspa=
+ce: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size=
+-adjust: 100%;">
+                            <tbody><tr>
+                                <td align=3D"center" valign=3D"top" style=
+=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;">
+                                    <!--[if mso]>
+                                    <table align=3D"center" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display: inline;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                <tbody><tr>
+                                                    <td valign=3D"top" sty=
+le=3D"padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactl=
+y;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcn=
+FollowContentItemContainer">
+                                                        <table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowCon=
+tentItem" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td align=
+=3D"left" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 10px;=
+padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFol=
+lowIconContent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://kotlinweekly.us12.list-manage.com/track/clic=
+k?u=3Df39692e245b94f7fb693b6d82&id=3D7fe208bb87&e=3D8523a5b059" target=3D=
+"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp=
+=2Ecom/icons/social-block-v2/color-twitter-48.png" alt=3D"Twitter" style=3D"=
+display: block;border: 0;height: auto;outline: none;text-decoration: none;=
+-ms-interpolation-mode: bicubic;" height=3D"24" width=3D"24" class=3D""></=
+a>
+                                                                         =
+       </td>
+
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display: inline;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                <tbody><tr>
+                                                    <td valign=3D"top" sty=
+le=3D"padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactl=
+y;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcn=
+FollowContentItemContainer">
+                                                        <table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowCon=
+tentItem" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td align=
+=3D"left" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 10px;=
+padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFol=
+lowIconContent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://kotlinweekly.us12.list-manage.com/track/clic=
+k?u=3Df39692e245b94f7fb693b6d82&id=3D48c8b8d5e2&e=3D8523a5b059" target=3D=
+"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp=
+=2Ecom/icons/social-block-v2/color-facebook-48.png" alt=3D"Facebook" style=
+=3D"display: block;border: 0;height: auto;outline: none;text-decoration: n=
+one;-ms-interpolation-mode: bicubic;" height=3D"24" width=3D"24" class=3D"=
+"></a>
+                                                                         =
+       </td>
+
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display: inline;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                <tbody><tr>
+                                                    <td valign=3D"top" sty=
+le=3D"padding-right: 0;padding-bottom: 9px;mso-line-height-rule: exactly;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnFol=
+lowContentItemContainer">
+                                                        <table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowCon=
+tentItem" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td align=
+=3D"left" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 10px;=
+padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFol=
+lowIconContent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://kotlinweekly.us12.list-manage.com/track/clic=
+k?u=3Df39692e245b94f7fb693b6d82&id=3D419ff68579&e=3D8523a5b059" target=3D=
+"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;"><img src=3D"https://cdn-images.mailchimp=
+=2Ecom/icons/social-block-v2/color-link-48.png" alt=3D"Website" style=3D"dis=
+play: block;border: 0;height: auto;outline: none;text-decoration: none;-ms=
+-interpolation-mode: bicubic;" height=3D"24" width=3D"24" class=3D""></a>
+                                                                         =
+       </td>
+
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;" width=3D"100%" class=3D"mcnTextContent=
+Container">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #656565;font-family: Helve=
+tica;font-size: 12px;line-height: 150%;text-align: center;">
+
+                            <em>Copyright =C2=A9 2024 Kotlin Weekly=2C All=
+ rights reserved.</em><br>
+ You are receiving this email because you opted in at our website.
+<br>
+<br>
+Want to change how you receive these emails?<br>
+You can <a href=3D"https://kotlinweekly.us12.list-manage.com/profile?u=3Df=
+39692e245b94f7fb693b6d82&id=3D93b2272cb6&e=3D8523a5b059&c=3Dd56269d909" styl=
+e=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text=
+-size-adjust: 100%;color: #656565;font-weight: normal;text-decoration: und=
+erline;">update your preferences</a> or <a href=3D"https://kotlinweekly.us=
+12.list-manage.com/unsubscribe?u=3Df39692e245b94f7fb693b6d82&id=3D93b2272c=
+b6&e=3D8523a5b059&c=3Dd56269d909" style=3D"mso-line-height-rule: exactly;-ms=
+-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #656565;font=
+-weight: normal;text-decoration: underline;">unsubscribe from this list</a=
+><br>
+<br>
+ <a href=3D"http://www.mailchimp.com/email-referral/?utm_source=3Dfreemium=
+_newsletter&utm_medium=3Demail&utm_campaign=3Dreferral_marketing&aid=3Df39=
+692e245b94f7fb693b6d82&afl=3D1"><img src=3D"https://cdn-images.mailchimp.c=
+om/monkey_rewards/intuit-mc-rewards-2.png" border=3D"0" alt=3D"Email Marke=
+ting Powered by Mailchimp" title=3D"Mailchimp Email Marketing" width=3D"13=
+7" height=3D"53" style=3D"max-width: 100%; height: auto;"></a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-collapse: c=
+ollapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px solid #505050;border-collapse: collapse;mso-table-lspace: 0pt;mso-=
+table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                        </table>
+                        <!--[if (gte mso 9)|(IE)]>
+                        </td>
+                        </tr>
+                        </table>
+                        <![endif]-->
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://kotlinweekly.us12.list-manage.com/track/open.php?u=
+=3Df39692e245b94f7fb693b6d82&id=3Dd56269d909&e=3D8523a5b059" height=3D"1"=
+ width=3D"1" alt=3D""></body>
+</html>
+--_----------=_MCPart_212637644--

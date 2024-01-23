@@ -1,0 +1,1139 @@
+Delivered-To: nicopico.dev@gmail.com
+Received: by 2002:a05:7001:209:b0:54b:4326:6e94 with SMTP id rq9csp490876mab;
+        Tue, 23 Jan 2024 05:02:09 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHpibFbbeRDjKa0aZiEjJ7mRctAv5Qy3UgzibcZV2qjvcgxCw+hcd1/76PB8CCmqlV7K078
+X-Received: by 2002:a25:bf91:0:b0:dc2:2f9c:bfa1 with SMTP id l17-20020a25bf91000000b00dc22f9cbfa1mr3232834ybk.8.1706014929187;
+        Tue, 23 Jan 2024 05:02:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1706014929; cv=none;
+        d=google.com; s=arc-20160816;
+        b=o3dMf280TngxbXi1pjbukEYfCXGVKSc9IR+/npms/bM431r/VRaWHx+2/eJeLO/CFw
+         Mds1kaV6PH+k3sXi3fojfQsHzDBDgOEapsjJqgKVJT5n+Q3eG8M0tRgkM1RiN4iky87X
+         UoR4ss/A3fnXed0uF7rrKJsfKpXm8kwSYlir7PHBhIXWVuTFZBHA74tbom8hO3/Q0Vrn
+         1iloO5sEnVGMEPmjuegLLea60Q+by2z75WA+qZjGydhZRYyX4AoP02+Yh+qz0LWa7HEf
+         VbLdiNkWaBWZKGlpfIehcsvE2h18wqZ/XvO4oevlXw7jZw3AGoWjnGsaj/+PwLm3RWjx
+         /KjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:precedence
+         :list-id:feedback-id:message-id:date:to:reply-to:from:subject
+         :dkim-signature:dkim-signature;
+        bh=Xr0xD/xpjK9Ls3dfQ+UkufaIlUQ6TZKbmuuLIotFams=;
+        fh=H4GdtyortLaCNWnOBJIXv8CslrZsYq9o7fvDn8heNVY=;
+        b=Yvkm2auSBz/7u0AiMUFA60Zd/7kAvcHR0tAYukZdZzRVBKrTaUh0aekqUPto7vd/fv
+         NTiB1csHlh2zOycQHm/EkvHww6juMcwKof2Py/UZ5rIUhogHNNBd3FJk9n1lx3G9doTT
+         gFSZ8K+lCPEgW16JhDSLA3RSF3+qcZv/HRjFqNsJIzGePWEDMy9ifjxrLS9/bVXZcDmi
+         63lD6tbHa5ruDXwNwE2E6hqRisWJDRgblo5B0xHvabtJuxogkMcgy0AsbkV2R3a0lpjH
+         iFlUPk37ZXdftU2NyjrUqoC6AQGNwVZRwcVuFAf2+VavgNh9Raj4zdF/bmi68pIHb46o
+         HkPw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=jQmX0Gqd;
+       dkim=pass header.i=@pointer.io header.s=k2 header.b=DemEPYtP;
+       spf=pass (google.com: domain of bounce-mc.us9_33211145.4762069-0e436c5282@mail240.atl81.rsgsv.net designates 198.2.129.240 as permitted sender) smtp.mailfrom=bounce-mc.us9_33211145.4762069-0e436c5282@mail240.atl81.rsgsv.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=pointer.io
+Return-Path: <bounce-mc.us9_33211145.4762069-0e436c5282@mail240.atl81.rsgsv.net>
+Received: from mail240.atl81.rsgsv.net (mail240.atl81.rsgsv.net. [198.2.129.240])
+        by mx.google.com with ESMTPS id i37-20020a25b225000000b00dc258c71d88si3566529ybj.373.2024.01.23.05.02.09
+        for <nicopico.dev@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Jan 2024 05:02:09 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us9_33211145.4762069-0e436c5282@mail240.atl81.rsgsv.net designates 198.2.129.240 as permitted sender) client-ip=198.2.129.240;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=jQmX0Gqd;
+       dkim=pass header.i=@pointer.io header.s=k2 header.b=DemEPYtP;
+       spf=pass (google.com: domain of bounce-mc.us9_33211145.4762069-0e436c5282@mail240.atl81.rsgsv.net designates 198.2.129.240 as permitted sender) smtp.mailfrom=bounce-mc.us9_33211145.4762069-0e436c5282@mail240.atl81.rsgsv.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=pointer.io
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t=1706014921; x=1706101321;
+	bh=Xr0xD/xpjK9Ls3dfQ+UkufaIlUQ6TZKbmuuLIotFams=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=jQmX0GqdhgPoJkgSLANISxRuWkRjoIZAX7WSIbBgloBr6ovYHe7JtKcpDbZVvCN/F
+	 J5wjSmvdrJjUtwe0Cyo8jrI2cgUYvijL8fCbF712qX5w3HeLi75g1Jzpe1mnYl4Txp
+	 HFh9hfzCvwXIQj6BqsRAB9NAU63RCnzHSz6JzwCTaJQI9T74Z31PZlogBQ7YJ2hImN
+	 OMa4s6JxtKcd3+Yakt1tIeK5gxORDKpF45Xr6igGQXLmQpO/hLeX4phRLDAS4E629J
+	 xfxSeQ4CWwPDN/O10eAAP657avInugM90LdE3CkKa3EFP0cUFqBO3wqVlw+QwlVjHg
+	 QN/f9HcC4GR3Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pointer.io; s=k2;
+	t=1706014921; x=1706275421; i=suraj@pointer.io;
+	bh=Xr0xD/xpjK9Ls3dfQ+UkufaIlUQ6TZKbmuuLIotFams=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=DemEPYtPX/FL284DLAaHQKmAFcLIDFFbonafABqINp/1dYEcMI6rZVp1d/PidZLtq
+	 nZ9mbF1isKQmd/qadwMkt3gSdoJ8sYEzOxkZOPo3yffijuwrua5gHmcK9yxoGQ+/Pl
+	 2heP57BXUeTjcmxZwfMHkMXBprp4u9ckhBHVsDbRu4zvalXJFN0ySwIMkeTKitzt1S
+	 c9wVm2FC7GTw7HIeRpHRYjMTfsimW4OjyZSllFrckQJw2VkqtUSfI13BFP69eaE1sU
+	 qwzPCtorSLHR6yhWgGx/Ri8qWOHbfXb2C7PtamgnPm2zbemHJzsaGegmD7BfONdJ79
+	 iPdLZVRygTGcA==
+Received: from localhost (localhost [127.0.0.1])
+	by mail240.atl81.rsgsv.net (Mailchimp) with ESMTP id 4TK6gD71t3zMRGp6S
+	for <nicopico.dev@gmail.com>; Tue, 23 Jan 2024 13:02:00 +0000 (GMT)
+Subject: =?utf-8?Q?Issue=20#482?=
+From: =?utf-8?Q?Pointer?= <suraj@pointer.io>
+Reply-To:  <us9-c15c852160-75b851dcad@inbound.mailchimpapp.net>
+To: <nicopico.dev@gmail.com>
+Date: Tue, 23 Jan 2024 13:01:57 +0000
+Message-ID: <e9492ff27d760c578a39d0675.0e436c5282.20240123130144.372ed99dad.a7dd3ed5@mail240.atl81.rsgsv.net>
+X-Mailer: Mailchimp Mailer - **CID372ed99dad0e436c5282**
+X-Campaign: mailchimpe9492ff27d760c578a39d0675.372ed99dad
+X-campaignid: mailchimpe9492ff27d760c578a39d0675.372ed99dad
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=e9492ff27d760c578a39d0675&id=372ed99dad&e=0e436c5282
+X-MC-User: e9492ff27d760c578a39d0675
+Feedback-ID: 33211145:33211145.4762069:us9:mc
+List-ID: e9492ff27d760c578a39d0675mc list <e9492ff27d760c578a39d0675.419973.list-id.mcsv.net>
+Precedence: bulk
+X-Auto-Response-Suppress: OOF, AutoReply
+X-Accounttype: pr
+List-Unsubscribe: <https://pointer.us9.list-manage.com/unsubscribe?u=e9492ff27d760c578a39d0675&id=6ba2b83261&e=0e436c5282&c=372ed99dad>, <mailto:unsubscribe-mc.us9_e9492ff27d760c578a39d0675.372ed99dad-0e436c5282@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_664768578"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_664768578
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+A Reading Club For Software Developers
+
+pointer.io (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3Dfa0427efe1&e=3D0e436c5282)
+
+Tuesday 23rd January=E2=80=99s issue is presented by Quotient
+https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0=
+675&id=3D2301b0c65b&e=3D0e436c5282
+
+Take Action To Build The Most Productive Engineering Teams (https://pointe=
+r.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Da9645=
+c2a4f&e=3D0e436c5282)
+
+Get customized actions to improve your engineering team=E2=80=99s producti=
+vity=2C using data from both systems and developer perspective.
+
+Powered by the SPACE framework=2C Quotient (https://pointer.us9.list-manag=
+e.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dd36248ae61&e=3D0e436c5282) gets your engineering team the right data and recommendations=
+ to build a high-performing=2C happy=2C and productive team.
+
+Run developer surveys=2C analyze your team=E2=80=99s experience=2C and get=
+ actionable insights.
+
+Mention Pointer For A Free Month Of Insights (https://pointer.us9.list-man=
+age.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Df63857dd5f&e=3D0e436c5282)
+
+Navigating Ambiguity (https://pointer.us9.list-manage.com/track/click?u=3D=
+e9492ff27d760c578a39d0675&id=3Da835da706a&e=3D0e436c5282)
+
+=E2=80=94 Will Larson
+
+tl;dr: =E2=80=9CNavigating deeply ambiguous problems is the rarest skill i=
+n engineers=2C and doing it well is a rarity. It=E2=80=99s sufficiently ra=
+re that many executives can=E2=80=99t do it well either=2C although I do b=
+elieve that all long-term successful executives find at least one toolkit=
+ for these kinds of problems.=E2=80=9D Will shares his playbook and approa=
+ch here.
+
+CareerAdvice (https://pointer.us9.list-manage.com/track/click?u=3De9492ff2=
+7d760c578a39d0675&id=3D2144c56a02&e=3D0e436c5282)
+mailto:?subject=3DNavigating%20Ambiguity&body=3DI'm%20sharing%20this%20art=
+icle%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0ANavigating%20Ambiguit=
+y%0D%0Ahttps%3A%2F%2Flethain.com%2Fnavigating-ambiguity%2F%0D%0A
+
+3 Questions That Will Make You A Phenomenal Rubber Duck (https://pointer.u=
+s9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dc303e60d=
+9b&e=3D0e436c5282)
+
+=E2=80=94 Dan Slimmon
+
+tl;dr: Dan=E2=80=99s 3 favorite questions to ask when someone is stumped o=
+n a complex problem: (1) =E2=80=9CHow did you first start investigating th=
+is?=E2=80=9D This helps us regain perspective as our focus shifts from one=
+ thing to another to another. (2) =E2=80=9CWhat observations have you made=
+?=E2=80=9D This helps recall some of our observations. Since there are man=
+y - small and large=2C interesting and boring=2C relevant and irrelevant -=
+ we tend to not hold all of them in our head. (3) =E2=80=9CIf your hypothe=
+sis were wrong=2C how could we disprove it?=E2=80=9D People get a single i=
+dea in their head about the cause of the problem=2C and this encourages th=
+em to shake that idea for others.
+
+Management (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3Dc81ea477c4&e=3D0e436c5282)
+mailto:?subject=3D3%20Questions%20That%20Will%20Make%20You%20A%20Phenomena=
+l%20Rubber%20Duck&body=3DI'm%20sharing%20this%20article%20I%20found%20on%2=
+0www.pointer.io%3A%0D%0A%0D%0A3%20Questions%20That%20Will%20Make%20You%20A=
+%20Phenomenal%20Rubber%20Duck%0D%0Ahttps%3A%2F%2Fblog.danslimmon.com%2F202=
+4%2F01%2F18%2F3-questions-that-will-make-you-a-phenomenal-rubber-duck%2F%0=
+D%0A
+
+The Research On What Makes A Great Manager Of Software Engineers (https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3D283732268a&e=3D0e436c5282)
+
+tl;dr: Engineers and managers rank the top attributes of engineering manag=
+ers=2C and their relative importance. Researchers at Microsoft evaluated h=
+ow engineers and managers relate and differ in their views=2C and how soft=
+ware engineering is different from other jobs in the perceptions about wha=
+t makes great managers. The best managers (according to engineers) are tho=
+se that create a positive environment=2C enable autonomy=2C and present gr=
+owth opportunities. These factors are often more important than just being=
+ technical.
+
+Promoted by Quotient
+
+Leadership (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3Df95412d632&e=3D0e436c5282) Management (https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3D373bd415c9&e=3D0e436c5282)
+mailto:?subject=3DThe%20Research%20On%20What%20Makes%20A%20Great%20Manager=
+%20Of%20Software%20Engineers&body=3DI'm%20sharing%20this%20article%20I%20f=
+ound%20on%20www.pointer.io%3A%0D%0A%0D%0AThe%20Research%20On%20What%20Make=
+s%20A%20Great%20Manager%20Of%20Software%20Engineers%0D%0Ahttps%3A%2F%2Fwww=
+=2Egetquotient.com%2Finsights%2Fwhat-makes-a-great-manager-of-software-engin=
+eers%3Futm_source%3Dpointer-newsletter%26utm_medium%3Demail%0D%0A
+
+The =E2=80=9CErrors=E2=80=9D That Mean You=E2=80=99re Doing It Right (http=
+s://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&=
+id=3D64d6ed5db0&e=3D0e436c5282)
+
+=E2=80=94 Jason Cohen
+
+tl;dr: The following =E2=80=9Cerrors=E2=80=9D are the natural by-product o=
+f good decisions and a necessary side-effect of success=2C and celebrated=
+ as such. The first 5 are: (1) Re-adding features/bugs you removed from th=
+e backlog. (2) Pivoting a strategy just after creating it. (3) Refactoring=
+ infrastructure after growing 10x. (4) Adding words because messaging was=
+ too terse. (5) Adding back features you removed.
+
+CareerAdvice (https://pointer.us9.list-manage.com/track/click?u=3De9492ff2=
+7d760c578a39d0675&id=3D3f90240a35&e=3D0e436c5282)
+mailto:?subject=3DThe%20%E2%80%9CErrors%E2%80%9D%20That%20Mean%20You%E2%80=
+%99re%20Doing%20It%20Right&body=3DI'm%20sharing%20this%20article%20I%20fou=
+nd%20on%20www.pointer.io%3A%0D%0A%0D%0AThe%20%E2%80%9CErrors%E2%80%9D%20Th=
+at%20Mean%20You%E2%80%99re%20Doing%20It%20Right%0D%0Ahttps%3A%2F%2Flongfor=
+m.asmartbear.com%2Fgood-problems-to-have%2F%0D%0A
+
+"The first 90 percent of the code accounts for the first 90 percent of the=
+ development time. The remaining 10 percent of the code accounts for the o=
+ther 90 percent of the development time."
+
+=E2=80=94 Tom Cargill
+
+A Developer=E2=80=99s Second Brain: Reducing Complexity Through Partnershi=
+p With AI (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d7=
+60c578a39d0675&id=3D3b7ec43824&e=3D0e436c5282)
+
+=E2=80=94 Eirini Kalliamvakou
+
+tl;dr: =E2=80=9CAs we look to empower developers with AI tools=2C we inadv=
+ertently integrate AI deeper into the way developers work. How do develope=
+rs feel about that? And what are the most impactful ways to introduce more=
+ AI into workflows? We recently conducted 25 in-depth interviews with deve=
+lopers to understand exactly that.=E2=80=9D
+
+AI (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3Daeec61db3d&e=3D0e436c5282)
+mailto:?subject=3DA%20Developer%E2%80%99s%20Second%20Brain%3A%20Reducing%2=
+0Complexity%20Through%20Partnership%20With%20AI&body=3DI'm%20sharing%20thi=
+s%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AA%20Developer%=
+E2%80%99s%20Second%20Brain%3A%20Reducing%20Complexity%20Through%20Partners=
+hip%20With%20AI%0D%0Ahttps%3A%2F%2Fgithub.blog%2F2024-01-17-a-developers-s=
+econd-brain-reducing-complexity-through-partnership-with-ai%2F%0D%0A
+
+The 10 Types of Authorization (https://pointer.us9.list-manage.com/track/c=
+lick?u=3De9492ff27d760c578a39d0675&id=3D88e87425d9&e=3D0e436c5282)
+
+=E2=80=94 Graham Neray
+
+tl;dr: RBAC isn't an authorization model =E2=80=94 it's a collection of au=
+thorization models=2C and you can apply more or less granularity for roles=
+ depending on the needs of your application. Learn about the 10 types of a=
+uthorization and go a level deeper than the standard abstractions of RBAC=
+=2C ABAC and ReBAC.
+
+Promoted by Oso
+
+Management (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D718a256084&e=3D0e436c5282) Guide (https://point=
+er.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D5a0d=
+dd6267&e=3D0e436c5282)
+mailto:?subject=3DThe%2010%20Types%20of%20Authorization&body=3DI'm%20shari=
+ng%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AThe%20=
+10%20Types%20of%20Authorization%0D%0Ahttps%3A%2F%2Fwww.osohq.com%2Fpost%2F=
+ten-types-of-authorization%3Futm_campaign%3Dpointer2024%26utm_medium%3Dnew=
+sletter%26utm_source%3Dpointer%0D%0A
+
+The Scary Thing About Automating Deploys (https://pointer.us9.list-manage.=
+com/track/click?u=3De9492ff27d760c578a39d0675&id=3D17e785af47&e=3D0e436c5282)
+
+=E2=80=94 Sean McIlroy
+
+tl;dr: Sean delves into the complexities and strategies of automating depl=
+oyments at scale=2C focusing on how Slack transitioned from manual oversig=
+ht to using their automated tool for deployment processes in a high-change=
+ environment. =E2=80=9CWhen people talk about continuous deployment=2C the=
+y=E2=80=99re often thinking about deploying to systems as soon as changes=
+ are ready. They talk about microservices and 2-pizza teams (~8 people). B=
+ut what does continuous deployment mean when you=E2=80=99re looking at 150=
+ changes on a normal day? That=E2=80=99s a lot of pizzas=E2=80=A6"
+
+DevOps (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c=
+578a39d0675&id=3D3e52617263&e=3D0e436c5282) Process (https://pointer=
+=2Eus9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D62401a=
+70c7&e=3D0e436c5282)
+mailto:?subject=3DThe%20Scary%20Thing%20About%20Automating%20Deploys&body=
+=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%=
+0A%0D%0AThe%20Scary%20Thing%20About%20Automating%20Deploys%0D%0Ahttps%3A%2=
+F%2Fslack.engineering%2Fthe-scary-thing-about-automating-deploys%2F%0D%0A
+
+How We Migrated Our PostgreSQL Database With 11 Seconds Downtime (https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3D2d15138c0f&e=3D0e436c5282)
+
+=E2=80=94 David McDonald
+
+tl;dr: =E2=80=9COur source database is about 400GB in size. It has about 1=
+=2E3 billion rows=2C 85 tables=2C 185 indexes and 120 foreign keys. It is Po=
+stgreSQL version 11. On a usual weekday=2C we do somewhere in the region o=
+f 1=2C000 inserts or updates per second=2C plus a similar number of reads.=
+=E2=80=9D The DB is relied upon to send millions of important and timely n=
+otifications each day=2C from flood alerts to updating users about their p=
+assport applications.
+
+PostgreSQL (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3De75e194220&e=3D0e436c5282)
+mailto:?subject=3DHow%20We%20Migrated%20Our%20PostgreSQL%20Database%20With=
+%2011%20Seconds%20Downtime&body=3DI'm%20sharing%20this%20article%20I%20fou=
+nd%20on%20www.pointer.io%3A%0D%0A%0D%0AHow%20We%20Migrated%20Our%20Postgre=
+SQL%20Database%20With%2011%20Seconds%20Downtime%0D%0Ahttps%3A%2F%2Fgds.blo=
+g.gov.uk%2F2024%2F01%2F17%2Fhow-we-migrated-our-postgresql-database-with-1=
+1-seconds-downtime%2F%0D%0A
+
+Sensenmann: Code Deletion At Scale (https://pointer.us9.list-manage.com/tr=
+ack/click?u=3De9492ff27d760c578a39d0675&id=3Dd5ef3aa074&e=3D0e436c5282)
+
+=E2=80=94 Phil Norman
+
+tl;dr: =E2=80=9CWhat if we could clean up dead code automatically? That wa=
+s exactly what people started thinking several years ago=2C during the Z=
+=C3=BCrich Engineering Productivity team's annual hackathon. The Sensenman=
+n project=2C named after the German word for the embodiment of Death=2C ha=
+s been highly successful. It submits over 1000 deletion changelists per we=
+ek=2C and has so far deleted nearly 5% of all C++ at Google. Its goal is s=
+imple (at least=2C in principle): automatically identify dead code=2C and=
+ send code review requests to delete it.=E2=80=9D Phil discusses its logic=
+=2E
+
+Scale (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c5=
+78a39d0675&id=3Dba773be46d&e=3D0e436c5282) Process (https://pointer.=
+us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dba08940=
+755&e=3D0e436c5282)
+mailto:?subject=3DSensenmann%3A%20Code%20Deletion%20At%20Scale&body=3DI'm%=
+20sharing%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0=
+ASensenmann%3A%20Code%20Deletion%20At%20Scale%0D%0Ahttps%3A%2F%2Ftesting.g=
+oogleblog.com%2F2023%2F04%2Fsensenmann-code-deletion-at-scale.html%0D%0A
+
+Notable Links
+
+Data Engineering Zoomcamp (https://pointer.us9.list-manage.com/track/click=
+?u=3De9492ff27d760c578a39d0675&id=3Dd2ea9b600d&e=3D0e436c5282) : Fre=
+e Data Engineering course.
+
+Diagrams (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d76=
+0c578a39d0675&id=3D4fbfd86f13&e=3D0e436c5282) : Cloud system archite=
+cture in Python code.
+
+Spotube (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760=
+c578a39d0675&id=3D47c53a700a&e=3D0e436c5282) : OS cross-platform Spo=
+tify client eliminating need for premium.
+
+System Design Primer (https://pointer.us9.list-manage.com/track/click?u=3D=
+e9492ff27d760c578a39d0675&id=3D50d7f17635&e=3D0e436c5282) : Learn ho=
+w to design large-scale systems.
+
+TaskWeaver (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D344fd5bf5b&e=3D0e436c5282) : Agent framework fo=
+r planning & executing analytics tasks.
+
+Click the below and shoot me an email!
+
+1 =3D Didn't enjoy it all // 5 =3D Really enjoyed it
+
+1 (mailto:suraj@pointer.io?subject=3DIssue%20%23436%20-%20Score%3A%201&bod=
+y=3DHere's%20why%3A) =E2=80=A6 2 (mailto:suraj@pointer.io?subject=3DIssue%=
+20%23436%20-%20Score%3A%202&body=3DHere's%20why%3A) =E2=80=A6 3 (mailto:su=
+raj@pointer.io?subject=3DIssue%20%23436%20-%20Score%3A%203&body=3DHere's%2=
+0why%3A) =E2=80=A6 4 (mailto:suraj@pointer.io?subject=3DIssue%20%23436%20-=
+%20Score%3A%204&body=3DHere's%20Why%3A) =E2=80=A6 5 (mailto:suraj@pointer.=
+io?subject=3DIssue%20%23436%20-%20Score%3A%205&body=3DHere's%20Why%3A)
+
+Pointer is emailed twice a week on Tuesdays and Fridays @ 9am EST.
+
+Unsubscribe (https://pointer.us9.list-manage.com/unsubscribe?u=3De9492ff27=
+d760c578a39d0675&id=3D6ba2b83261&e=3D0e436c5282&c=3D372ed99dad) // Sponsorsh=
+ip (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3D362efc52f0&e=3D0e436c5282)
+--_----------=_MCPart_664768578
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn=
+:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:of=
+fice"><head>
+<!--[if gte mso 15]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<meta charset=3D"UTF-8" />
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+<meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial-scale=
+=3D1" />
+<title>Issue #482</title>
+<link rel=3D"stylesheet" href=3D"https://fonts.googleapis.com/css?family=
+=3DSpace+Mono:400=2C400i=2C700=2C700i=2C900=2C900i" /><style>          img=
+{-ms-interpolation-mode:bicubic;}
+          table=2C td{mso-table-lspace:0pt; mso-table-rspace:0pt;}
+          .mceStandardButton=2C .mceStandardButton td=2C .mceStandardButto=
+n td a{mso-hide:all !important;}
+          p=2C a=2C li=2C td=2C blockquote{mso-line-height-rule:exactly;}
+          p=2C a=2C li=2C td=2C body=2C table=2C blockquote{-ms-text-size-=
+adjust:100%; -webkit-text-size-adjust:100%;}
+          @media only screen and (max-width: 480px){
+            body=2C table=2C td=2C p=2C a=2C li=2C blockquote{-webkit-text=
+-size-adjust:none !important;}
+          }
+          .mcnPreviewText{display: none !important;}
+          .bodyCell{margin:0 auto; padding:0; width:100%;}
+          .ExternalClass=2C .ExternalClass p=2C .ExternalClass td=2C .Exte=
+rnalClass div=2C .ExternalClass span=2C .ExternalClass font{line-height:10=
+0%;}
+          .ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+          a[x-apple-data-detectors]{color:inherit !important; text-decora=
+tion:none !important; font-size:inherit !important; font-family:inherit !i=
+mportant; font-weight:inherit !important; line-height:inherit !important;}
+            body{height:100%; margin:0; padding:0; width:100%; background:=
+ #ffffff;}
+            p{margin:0; padding:0;}
+            table{border-collapse:collapse;}
+            td=2C p=2C a{word-break:break-word;}
+            h1=2C h2=2C h3=2C h4=2C h5=2C h6{display:block; margin:0; padd=
+ing:0;}
+            img=2C a img{border:0; height:auto; outline:none; text-decorat=
+ion:none;}
+            a[href^=3D"tel"]=2C a[href^=3D"sms"]{color:inherit; cursor:d=
+efault; text-decoration:none;}
+            li p {margin: 0 !important;}
+            .ProseMirror a {
+                pointer-events: none;
+            }
+            @media only screen and (max-width: 480px){
+                body{width:100% !important; min-width:100% !important; }
+                body.mobile-native {
+                    -webkit-user-select: none; user-select: none; transiti=
+on: transform 0.2s ease-in; transform-origin: top center;
+                }
+                body.mobile-native.selection-allowed a=2C body.mobile-nati=
+ve.selection-allowed .ProseMirror {
+                    user-select: auto;
+                    -webkit-user-select: auto;
+                }
+                colgroup{display: none;}
+                img{height: auto !important;}
+                .mceWidthContainer{max-width: 660px !important;}
+                .mceColumn{display: block !important; width: 100% !importa=
+nt;}
+                .mceColumn-forceSpan{display: table-cell !important; width=
+: auto !important;}
+                .mceBlockContainer{padding-right:16px !important; padding-=
+left:16px !important;}
+                .mceBlockContainerE2E{padding-right:0px; padding-left:0px;=
+}
+                .mceSpacing-24{padding-right:16px !important; padding-left=
+:16px !important;}
+                .mceImage=2C .mceLogo{width: 100% !important; height: auto=
+ !important;}
+                .mceFooterSection .mceText=2C .mceFooterSection .mceText p=
+{font-size: 16px !important; line-height: 140% !important;}
+                .mceText=2C .mceText p{font-size: 16px !important; line-he=
+ight: 140% !important;}
+                h1{font-size: 30px !important; line-height: 120% !importan=
+t;}
+                h2{font-size: 26px !important; line-height: 120% !importan=
+t;}
+                h3{font-size: 20px !important; line-height: 125% !importan=
+t;}
+                h4{font-size: 18px !important; line-height: 125% !importan=
+t;}
+            }
+            @media only screen and (max-width: 640px){
+                .mceClusterLayout td{padding: 4px !important;}
+            }
+            div[contenteditable=3D"true"] {outline: 0;}
+            .ProseMirror .empty-node=2C .ProseMirror:empty {position: rela=
+tive;}
+            .ProseMirror .empty-node::before=2C .ProseMirror:empty::before=
+ {
+                position: absolute;
+                left: 0;
+                right: 0;
+                color: rgba(0=2C0=2C0=2C0.2);
+                cursor: text;
+            }
+            .ProseMirror .empty-node:hover::before=2C .ProseMirror:empty:h=
+over::before {
+                color: rgba(0=2C0=2C0=2C0.3);
+            }
+            .ProseMirror h1.empty-node:only-child::before=2C
+            .ProseMirror h2.empty-node:only-child::before=2C
+            .ProseMirror h3.empty-node:only-child::before=2C
+            .ProseMirror h4.empty-node:only-child::before {
+                content: 'Heading';
+            }
+            .ProseMirror p.empty-node:only-child::before=2C .ProseMirror:e=
+mpty::before {
+                content: 'Start typing...';
+            }
+            a .ProseMirror p.empty-node::before=2C a .ProseMirror:empty::b=
+efore {
+                content: '';
+            }
+            .mceText=2C .ProseMirror {
+                white-space: pre-wrap;
+            }
+body=2C #bodyTable { background-color: rgb(255=2C 255=2C 255); }.mceText=
+=2C .mceLabel { font-family: "Space Mono"=2C Courier=2C Georgia=2C serif;=
+ }.mceText=2C .mceLabel { color: rgb(0=2C 0=2C 0); }.mceText p { margin-bo=
+ttom: 0px; }.mceText label { margin-bottom: 0px; }.mceText input { margin-=
+bottom: 0px; }.mceSpacing-12 .mceInput + .mceErrorMessage { margin-top: -6=
+px; }.mceText p { margin-bottom: 0px; }.mceText label { margin-bottom: 0px=
+; }.mceText input { margin-bottom: 0px; }.mceSpacing-24 .mceInput + .mceEr=
+rorMessage { margin-top: -12px; }.mceInput { background-color: transparent=
+; border: 2px solid rgb(208=2C 208=2C 208); width: 60%; color: rgb(77=2C 7=
+7=2C 77); display: block; }.mceInput[type=3D"radio"]=2C .mceInput[type=
+=3D"checkbox"] { float: left; margin-right: 12px; display: inline; width:=
+ auto !important; }.mceLabel > .mceInput { margin-bottom: 0px; margin-top:=
+ 2px; }.mceLabel { display: block; }.mceText p { color: rgb(0=2C 0=2C 0);=
+ font-family: "Space Mono"=2C Courier=2C Georgia=2C serif; font-size: 14px=
+; font-weight: normal; line-height: 1.5; text-align: left; letter-spacing:=
+ 0px; direction: ltr; }.mceText a { color: rgb(0=2C 0=2C 0); font-style: n=
+ormal; font-weight: normal; text-decoration: underline; direction: ltr; }
+@media only screen and (max-width: 480px) {
+            .mceText p { font-size: 16px !important; line-height: 1.5 !imp=
+ortant; }
+          }
+@media only screen and (max-width: 480px) {
+            .mceBlockContainer { padding-left: 16px !important; padding-ri=
+ght: 16px !important; }
+          }
+#dataBlockId-9 p=2C #dataBlockId-9 h1=2C #dataBlockId-9 h2=2C #dataBlockId=
+-9 h3=2C #dataBlockId-9 h4=2C #dataBlockId-9 ul { text-align: center; }#da=
+taBlockId-76 p=2C #dataBlockId-76 h1=2C #dataBlockId-76 h2=2C #dataBlockId=
+-76 h3=2C #dataBlockId-76 h4=2C #dataBlockId-76 ul { line-height: 1.5; tex=
+t-align: left; }#dataBlockId-91 p=2C #dataBlockId-91 h1=2C #dataBlockId-91=
+ h2=2C #dataBlockId-91 h3=2C #dataBlockId-91 h4=2C #dataBlockId-91 ul { li=
+ne-height: 1.5; text-align: left; }#dataBlockId-98 p=2C #dataBlockId-98 h1=
+=2C #dataBlockId-98 h2=2C #dataBlockId-98 h3=2C #dataBlockId-98 h4=2C #dat=
+aBlockId-98 ul { line-height: 1.5; text-align: left; }#dataBlockId-109 p=
+=2C #dataBlockId-109 h1=2C #dataBlockId-109 h2=2C #dataBlockId-109 h3=2C #=
+dataBlockId-109 h4=2C #dataBlockId-109 ul { line-height: 1.5; text-align:=
+ left; }#dataBlockId-116 p=2C #dataBlockId-116 h1=2C #dataBlockId-116 h2=
+=2C #dataBlockId-116 h3=2C #dataBlockId-116 h4=2C #dataBlockId-116 ul { li=
+ne-height: 1.5; text-align: left; }#dataBlockId-119 p=2C #dataBlockId-119=
+ h1=2C #dataBlockId-119 h2=2C #dataBlockId-119 h3=2C #dataBlockId-119 h4=
+=2C #dataBlockId-119 ul { line-height: 1.5; text-align: left; }#dataBlockI=
+d-138 p=2C #dataBlockId-138 h1=2C #dataBlockId-138 h2=2C #dataBlockId-138=
+ h3=2C #dataBlockId-138 h4=2C #dataBlockId-138 ul { line-height: 1.5; text=
+-align: left; }#dataBlockId-141 p=2C #dataBlockId-141 h1=2C #dataBlockId-1=
+41 h2=2C #dataBlockId-141 h3=2C #dataBlockId-141 h4=2C #dataBlockId-141 ul=
+ { line-height: 1.5; text-align: left; }#dataBlockId-142 p=2C #dataBlockId=
+-142 h1=2C #dataBlockId-142 h2=2C #dataBlockId-142 h3=2C #dataBlockId-142=
+ h4=2C #dataBlockId-142 ul { line-height: 1.5; text-align: left; }#dataBlo=
+ckId-145 p=2C #dataBlockId-145 h1=2C #dataBlockId-145 h2=2C #dataBlockId-1=
+45 h3=2C #dataBlockId-145 h4=2C #dataBlockId-145 ul { line-height: 1.5; te=
+xt-align: left; }#dataBlockId-150 p=2C #dataBlockId-150 h1=2C #dataBlockId=
+-150 h2=2C #dataBlockId-150 h3=2C #dataBlockId-150 h4=2C #dataBlockId-150=
+ ul { line-height: 1.5; text-align: left; }</style></head>
+<body>
+<!--
+-->
+<!--[if !gte mso 9]><!----><span class=3D"mcnPreviewText" style=3D"displa=
+y:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opa=
+city:0; overflow:hidden; visibility:hidden; mso-hide:all;">A Reading Club=
+ For Software Developers</span><!--<![endif]-->
+<!--
+-->
+<center>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" wi=
+dth=3D"100%" id=3D"bodyTable" style=3D"background-color: rgb(255=2C 255=2C=
+ 255);">
+<tbody><tr>
+<td class=3D"bodyCell" align=3D"center" valign=3D"top">
+<table id=3D"root" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%"><tbody data-block-id=3D"54" class=3D"mceWrapper"><tr><td align=
+=3D"center" valign=3D"top" class=3D"mceWrapperOuter"><!--[if (gte mso 9)|=
+(IE)]><table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"660" style=3D"width:660px;"><tr><td><![endif]--><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"max=
+-width:660px" role=3D"presentation"><tbody><tr><td style=3D"background-col=
+or:#ffffff;background-position:center;background-repeat:no-repeat;backgrou=
+nd-size:cover" class=3D"mceWrapperInner" valign=3D"top"><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=
+=3D"presentation" data-block-id=3D"12"><tbody><tr class=3D"mceRow"><td sty=
+le=3D"background-position:center;background-repeat:no-repeat;background-si=
+ze:cover" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"paddin=
+g-top:0;padding-bottom:0" class=3D"mceColumn" data-block-id=3D"-4" valign=
+=3D"top" colspan=3D"12" width=3D"100%"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td s=
+tyle=3D"background-color:#3e4954;padding-top:0;padding-bottom:0;padding-ri=
+ght:0;padding-left:0" class=3D"mceBlockContainer" align=3D"center" valign=
+=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" data-block-id=3D"55"><tbody><tr class=3D"mce=
+StandardButton"><td style=3D"background-color:#3e4954;border-radius:0;text=
+-align:center" class=3D"mceButton" valign=3D"top"><a href=3D"https://point=
+er.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Df4a9=
+013c97&e=3D0e436c5282" target=3D"_blank" style=3D"background-color:#3e495=
+4;border-radius:0;border:1px solid #3e4954;color:#fabf80;display:block;fon=
+t-family:'Space Mono'=2C 'Courier'=2C Georgia=2C serif;font-size:20px;font=
+-weight:bold;font-style:normal;padding:16px 28px;text-decoration:none;min-=
+width:30px;text-align:center;direction:ltr;letter-spacing:0px">pointer.io<=
+/a></td></tr><tr>
+<!--[if mso]>
+<td align=3D"center">
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+href=3D"https://www.pointer.io/"
+style=3D"v-text-anchor:middle; width:180.41px; height:63.5px;"
+arcsize=3D"0%"
+strokecolor=3D"#3e4954"
+strokeweight=3D"1px"
+fillcolor=3D"#3e4954">
+<v:stroke dashstyle=3D"solid"/>
+<w:anchorlock />
+<center style=3D"
+color: #fabf80;
+display: block;
+font-family: 'Space Mono'=2C 'Courier'=2C Georgia=2C serif;
+font-size: 20;
+font-style: normal;
+font-weight: bold;
+letter-spacing: 0px;
+text-decoration: none;
+text-align: center;
+direction: ltr;"
+>
+pointer.io
+</center>
+</v:roundrect>
+</td>
+<![endif]-->
+</tr></tbody></table></td></tr><tr><td style=3D"padding-top:10px;padding-b=
+ottom:10px;padding-right:20px;padding-left:20px" class=3D"mceBlockContaine=
+r" valign=3D"top"><div data-block-id=3D"48" class=3D"mceText" id=3D"dataBl=
+ockId-48" style=3D"width:100%"><p style=3D"text-align: center;"><br /></p>=
+<p style=3D"text-align: center;" class=3D"last-child">Tuesday 23rd January=
+=E2=80=99s issue is presented by Quotient</p></div></td></tr><tr><td style=
+=3D"background-color:#ffffff;padding-top:10px;padding-bottom:10px;padding-=
+right:10px;padding-left:10px" class=3D"mceBlockContainer" align=3D"center"=
+ valign=3D"top"><a href=3D"https://pointer.us9.list-manage.com/track/click=
+?u=3De9492ff27d760c578a39d0675&id=3D2bc374c3ca&e=3D0e436c5282" style=3D"d=
+isplay:block" target=3D"_blank" data-block-id=3D"47"><img width=3D"313" he=
+ight=3D"auto" style=3D"border:0;width:313px;height:auto;max-width:800px !i=
+mportant;border-radius:0;display:block" alt=3D"" src=3D"https://mcusercont=
+ent.com/e9492ff27d760c578a39d0675/images/45c4b740-c3ed-ec6b-7859-b6c6c2e18=
+3eb.png" role=3D"presentation" class=3D"imageDropZone mceImage" /></a></td=
+></tr><tr><td style=3D"padding-top:10px;padding-bottom:10px;padding-right:=
+20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><div da=
+ta-block-id=3D"91" class=3D"mceText" id=3D"dataBlockId-91" style=3D"width:=
+100%"><p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9=
+492ff27d760c578a39d0675&id=3Dc83ebb0f47&e=3D0e436c5282" target=3D"_blank"=
+><strong><span style=3D"font-size: 18px">Take Action To Build The Most Pro=
+ductive Engineering Teams</span></strong></a></p><p><br /></p><p>Get custo=
+mized actions to improve your engineering team=E2=80=99s productivity=2C u=
+sing data from both systems and developer perspective. </p><p><br /></p><p=
+>Powered by the SPACE framework=2C <a href=3D"https://pointer.us9.list-man=
+age.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D3ad9fb683e&e=3D0e436c5282" target=3D"_blank">Quotient</a> gets your engineering team the rig=
+ht data and recommendations to build a high-performing=2C happy=2C and pro=
+ductive team. </p><p><br /></p><p class=3D"last-child">Run developer surve=
+ys=2C analyze your team=E2=80=99s experience=2C and get actionable insight=
+s.</p></div></td></tr><tr><td style=3D"padding-top:20px;padding-bottom:20p=
+x;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=
+=3D"top"><div data-block-id=3D"92" class=3D"mceText" id=3D"dataBlockId-92"=
+ style=3D"width:100%"><p style=3D"text-align: center;" class=3D"last-child=
+"><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27=
+d760c578a39d0675&id=3D7cbb6f7d33&e=3D0e436c5282" target=3D"_blank"><stron=
+g><span style=3D"font-size: 20px">Mention Pointer For A Free Month Of Insi=
+ghts</span></strong></a></p></div></td></tr><tr><td style=3D"background-co=
+lor:transparent;padding-top:5px;padding-bottom:5px;padding-right:20px;padd=
+ing-left:20px" class=3D"mceBlockContainer" valign=3D"top"><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background=
+-color:transparent" role=3D"presentation" data-block-id=3D"43"><tbody><tr>=
+<td style=3D"min-width:100%;border-top:2px solid #000000" valign=3D"top"><=
+/td></tr></tbody></table></td></tr><tr><td style=3D"padding-top:20px;paddi=
+ng-bottom:0;padding-right:20px;padding-left:20px" class=3D"mceBlockContain=
+er" valign=3D"top"><div data-block-id=3D"116" class=3D"mceText" id=3D"data=
+BlockId-116" style=3D"width:100%"><p><a href=3D"https://pointer.us9.list-m=
+anage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Daa065a787a&e=3D0e436c5282" target=3D"_blank"><strong><span style=3D"font-size: 20px">Navig=
+ating Ambiguity</span></strong></a></p><p>=E2=80=94 Will Larson</p><p><br=
+ /></p><p><strong>tl;dr</strong>: =E2=80=9CNavigating deeply ambiguous pro=
+blems is the rarest skill in engineers=2C and doing it well is a rarity. I=
+t=E2=80=99s sufficiently rare that many executives can=E2=80=99t do it wel=
+l either=2C although I do believe that all long-term successful executives=
+ find at least one toolkit for these kinds of problems.=E2=80=9D Will shar=
+es his playbook and approach here.=C2=A0</p><p><br /></p><p style=3D"text-=
+align: right;" class=3D"last-child"><a href=3D"https://pointer.us9.list-ma=
+nage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D6d45237728&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size: 12px">CareerAdvi=
+ce</span></em></a></p></div></td></tr><tr><td style=3D"padding-top:0;paddi=
+ng-bottom:0;padding-right:15px;padding-left:0" class=3D"mceBlockContainer"=
+ align=3D"right" valign=3D"top"><a href=3D"mailto:?subject=3DNavigating%20=
+Ambiguity&body=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.poi=
+nter.io%3A%0D%0A%0D%0ANavigating%20Ambiguity%0D%0Ahttps%3A%2F%2Flethain.co=
+m%2Fnavigating-ambiguity%2F%0D%0A" style=3D"display:block" target=3D"_blan=
+k" data-block-id=3D"140"><img width=3D"38" height=3D"auto" style=3D"border=
+:0;width:38px;height:auto;max-width:64px !important;display:block" alt=3D"=
+" src=3D"https://mcusercontent.com/e9492ff27d760c578a39d0675/images/5007b7=
+76-f11f-9e3f-6747-ec4408bb95b0.png" role=3D"presentation" class=3D"imageDr=
+opZone mceImage" /></a></td></tr><tr><td style=3D"background-color:transpa=
+rent;padding-top:5px;padding-bottom:5px;padding-right:20px;padding-left:20=
+px" class=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:tran=
+sparent" role=3D"presentation" data-block-id=3D"139"><tbody><tr><td style=
+=3D"min-width:100%;border-top:2px solid #3e4954" valign=3D"top"></td></tr>=
+</tbody></table></td></tr><tr><td style=3D"padding-top:20px;padding-bottom=
+:0;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" valig=
+n=3D"top"><div data-block-id=3D"138" class=3D"mceText" id=3D"dataBlockId-1=
+38" style=3D"width:100%"><p><a href=3D"https://pointer.us9.list-manage.com=
+/track/click?u=3De9492ff27d760c578a39d0675&id=3Dd952355ca6&e=3D0e436c5282=
+" target=3D"_blank"><strong><span style=3D"font-size: 20px">3 Questions Th=
+at Will Make You A Phenomenal Rubber Duck</span></strong></a></p><p>=E2=80=
+=94 Dan Slimmon</p><p><br /></p><p><strong>tl;dr</strong>: Dan=E2=80=99s 3=
+ favorite questions to ask when someone is stumped on a complex problem: (=
+1) =E2=80=9CHow did you first start investigating this?=E2=80=9D This help=
+s us regain perspective as our focus shifts from one thing to another to a=
+nother. (2) =E2=80=9CWhat observations have you made?=E2=80=9D This helps=
+ recall some of our observations. Since there are many - small and large=
+=2C interesting and boring=2C relevant and irrelevant - we tend to not hol=
+d all of them in our head. (3) =E2=80=9CIf your hypothesis were wrong=2C h=
+ow could we disprove it?=E2=80=9D People get a single idea in their head a=
+bout the cause of the problem=2C and this encourages them to shake that id=
+ea for others.=C2=A0</p><p><br /></p><p style=3D"text-align: right;" class=
+=3D"last-child"><em><span style=3D"font-size: 12px"> </span></em><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3Daa801330ff&e=3D0e436c5282" target=3D"_blank"><em><span style=
+=3D"font-size: 12px">Management</span></em></a></p></div></td></tr><tr><td=
+ style=3D"padding-top:0;padding-bottom:0;padding-right:15px;padding-left:0=
+" class=3D"mceBlockContainer" align=3D"right" valign=3D"top"><a href=3D"ma=
+ilto:?subject=3D3%20Questions%20That%20Will%20Make%20You%20A%20Phenomenal%=
+20Rubber%20Duck&body=3DI'm%20sharing%20this%20article%20I%20found%20on%20w=
+ww.pointer.io%3A%0D%0A%0D%0A3%20Questions%20That%20Will%20Make%20You%20A%2=
+0Phenomenal%20Rubber%20Duck%0D%0Ahttps%3A%2F%2Fblog.danslimmon.com%2F2024%=
+2F01%2F18%2F3-questions-that-will-make-you-a-phenomenal-rubber-duck%2F%0D%=
+0A" style=3D"display:block" target=3D"_blank" data-block-id=3D"133"><img w=
+idth=3D"38" height=3D"auto" style=3D"border:0;width:38px;height:auto;max-w=
+idth:64px !important;display:block" alt=3D"" src=3D"https://mcusercontent.=
+com/e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.=
+png" role=3D"presentation" class=3D"imageDropZone mceImage" /></a></td></t=
+r><tr><td style=3D"background-color:transparent;padding-top:5px;padding-bo=
+ttom:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer"=
+ valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" style=3D"background-color:transparent" role=3D"presentation"=
+ data-block-id=3D"126"><tbody><tr><td style=3D"min-width:100%;border-top:2=
+px solid #3e4954" valign=3D"top"></td></tr></tbody></table></td></tr><tr><=
+td style=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding-l=
+eft:20px" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D=
+"141" class=3D"mceText" id=3D"dataBlockId-141" style=3D"width:100%"><p><a=
+ href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760=
+c578a39d0675&id=3D1f8388735f&e=3D0e436c5282" target=3D"_blank"><strong><s=
+pan style=3D"font-size: 20px">The Research On What Makes A Great Manager O=
+f Software Engineers</span></strong></a></p><p><br /></p><p><strong>tl;dr<=
+/strong>: Engineers and managers rank the top attributes of engineering ma=
+nagers=2C and their relative importance. Researchers at Microsoft evaluate=
+d how engineers and managers relate and differ in their views=2C and how s=
+oftware engineering is different from other jobs in the perceptions about=
+ what makes great managers. The best managers (according to engineers) are=
+ those that create a positive environment=2C enable autonomy=2C and presen=
+t growth opportunities. These factors are often more important than just b=
+eing technical.</p><p><br /></p><p><em>Promoted by Quotient</em></p><p sty=
+le=3D"text-align: right;" class=3D"last-child"><a href=3D"https://pointer.=
+us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dff2ed74=
+3ad&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size: 12px"=
+>Leadership</span></em></a><em><span style=3D"font-size: 12px"> </span></e=
+m><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27=
+d760c578a39d0675&id=3D89e8311204&e=3D0e436c5282" target=3D"_blank"><em><s=
+pan style=3D"font-size: 12px">Management</span></em></a></p></div></td></t=
+r><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:15px;paddi=
+ng-left:0" class=3D"mceBlockContainer" align=3D"right" valign=3D"top"><a h=
+ref=3D"mailto:?subject=3DThe%20Research%20On%20What%20Makes%20A%20Great%20=
+Manager%20Of%20Software%20Engineers&body=3DI'm%20sharing%20this%20article%=
+20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AThe%20Research%20On%20What=
+%20Makes%20A%20Great%20Manager%20Of%20Software%20Engineers%0D%0Ahttps%3A%2=
+F%2Fwww.getquotient.com%2Finsights%2Fwhat-makes-a-great-manager-of-softwar=
+e-engineers%3Futm_source%3Dpointer-newsletter%26utm_medium%3Demail%0D%0A"=
+ style=3D"display:block" target=3D"_blank" data-block-id=3D"134"><img widt=
+h=3D"38" height=3D"auto" style=3D"border:0;width:38px;height:auto;max-widt=
+h:64px !important;display:block" alt=3D"" src=3D"https://mcusercontent.com=
+/e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png=
+" role=3D"presentation" class=3D"imageDropZone mceImage" /></a></td></tr><=
+tr><td style=3D"background-color:transparent;padding-top:5px;padding-botto=
+m:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" va=
+lign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"background-color:transparent" role=3D"presentation" dat=
+a-block-id=3D"99"><tbody><tr><td style=3D"min-width:100%;border-top:2px so=
+lid #3e4954" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td st=
+yle=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding-left:2=
+0px" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"145"=
+ class=3D"mceText" id=3D"dataBlockId-145" style=3D"width:100%"><p><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3Dcdd61202fb&e=3D0e436c5282" target=3D"_blank"><strong><span s=
+tyle=3D"font-size: 20px">The =E2=80=9CErrors=E2=80=9D That Mean You=E2=80=
+=99re Doing It Right</span></strong></a></p><p>=E2=80=94 Jason Cohen</p><p=
+><br /><strong>tl;dr</strong>:=C2=A0The following =E2=80=9Cerrors=E2=80=9D=
+ are the natural by-product of good decisions and a necessary side-effect=
+ of success=2C and celebrated as such. The first 5 are: (1) Re-adding feat=
+ures/bugs you removed from the backlog. (2) Pivoting a strategy just after=
+ creating it. (3) Refactoring infrastructure after growing 10x. (4) Adding=
+ words because messaging was too terse. (5) Adding back features you remov=
+ed.=C2=A0</p><p><br /></p><p style=3D"text-align: right;" class=3D"last-ch=
+ild"><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492f=
+f27d760c578a39d0675&id=3D8ccd39f5fc&e=3D0e436c5282" target=3D"_blank"><em=
+><span style=3D"font-size: 12px">CareerAdvice</span></em></a></p></div></t=
+d></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:15px;=
+padding-left:0" class=3D"mceBlockContainer" align=3D"right" valign=3D"top"=
+><a href=3D"mailto:?subject=3DThe%20%E2%80%9CErrors%E2%80%9D%20That%20Mean=
+%20You%E2%80%99re%20Doing%20It%20Right&body=3DI'm%20sharing%20this%20artic=
+le%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AThe%20%E2%80%9CErrors%E=
+2%80%9D%20That%20Mean%20You%E2%80%99re%20Doing%20It%20Right%0D%0Ahttps%3A%=
+2F%2Flongform.asmartbear.com%2Fgood-problems-to-have%2F%0D%0A" style=3D"di=
+splay:block" target=3D"_blank" data-block-id=3D"146"><img width=3D"38" hei=
+ght=3D"auto" style=3D"border:0;width:38px;height:auto;max-width:64px !impo=
+rtant;display:block" alt=3D"" src=3D"https://mcusercontent.com/e9492ff27d7=
+60c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png" role=3D"pr=
+esentation" class=3D"imageDropZone mceImage" /></a></td></tr><tr><td style=
+=3D"background-color:transparent;padding-top:5px;padding-bottom:5px;paddin=
+g-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" st=
+yle=3D"background-color:transparent" role=3D"presentation" data-block-id=
+=3D"103"><tbody><tr><td style=3D"min-width:100%;border-top:2px solid #3e49=
+54" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"ba=
+ckground-color:transparent;padding-top:0;padding-bottom:0;padding-right:0;=
+padding-left:0" class=3D"mceBlockContainer" valign=3D"top"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"backgro=
+und-color:transparent" role=3D"presentation" data-block-id=3D"63"><tbody><=
+tr><td style=3D"min-width:100%;border-top:20px solid transparent" valign=
+=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"background-c=
+olor:#3e4954;padding-top:20px;padding-bottom:20px;padding-right:20px;paddi=
+ng-left:20px" class=3D"mceBlockContainer" valign=3D"top"><div data-block-i=
+d=3D"62" class=3D"mceText" id=3D"dataBlockId-62" style=3D"width:100%"><p s=
+tyle=3D"text-align: center;" class=3D"last-child"><em><strong><span style=
+=3D"color:#ffffff;">"The first 90 percent of the code accounts for the fir=
+st 90 percent of the development time. The remaining 10 percent of the cod=
+e accounts for the other 90 percent of the development time."</span></stro=
+ng></em><strong><span style=3D"color:#ffffff;"><br /><br />=E2=80=94 Tom C=
+argill</span></strong></p></div></td></tr><tr><td style=3D"background-colo=
+r:transparent;padding-top:0;padding-bottom:0;padding-right:0;padding-left:=
+0" class=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:trans=
+parent" role=3D"presentation" data-block-id=3D"64"><tbody><tr><td style=3D=
+"min-width:100%;border-top:20px solid transparent" valign=3D"top"></td></t=
+r></tbody></table></td></tr><tr><td style=3D"background-color:transparent;=
+padding-top:5px;padding-bottom:5px;padding-right:20px;padding-left:20px" c=
+lass=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:transpar=
+ent" role=3D"presentation" data-block-id=3D"117"><tbody><tr><td style=3D"m=
+in-width:100%;border-top:2px solid #3e4954" valign=3D"top"></td></tr></tbo=
+dy></table></td></tr><tr><td style=3D"padding-top:20px;padding-bottom:0;pa=
+dding-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"=
+top"><div data-block-id=3D"119" class=3D"mceText" id=3D"dataBlockId-119" s=
+tyle=3D"width:100%"><p><a href=3D"https://pointer.us9.list-manage.com/trac=
+k/click?u=3De9492ff27d760c578a39d0675&id=3Dd0f9ceeba5&e=3D0e436c5282" tar=
+get=3D"_blank"><strong><span style=3D"font-size: 20px">A Developer=E2=80=
+=99s Second Brain: Reducing Complexity Through Partnership With AI</span><=
+/strong></a></p><p>=E2=80=94 Eirini Kalliamvakou</p><p><br /></p><p><stron=
+g>tl;dr</strong>: =E2=80=9CAs we look to empower developers with AI tools=
+=2C we inadvertently integrate AI deeper into the way developers work. How=
+ do developers feel about that? And what are the most impactful ways to in=
+troduce more AI into workflows? We recently conducted 25 in-depth intervie=
+ws with developers to understand exactly that.=E2=80=9D</p><p><br /></p><p=
+ style=3D"text-align: right;" class=3D"last-child"><a href=3D"https://poin=
+ter.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D847=
+d612750&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size: 1=
+2px">AI</span></em></a></p></div></td></tr><tr><td style=3D"padding-top:0;=
+padding-bottom:0;padding-right:15px;padding-left:0" class=3D"mceBlockConta=
+iner" align=3D"right" valign=3D"top"><a href=3D"mailto:?subject=3DA%20Deve=
+loper%E2%80%99s%20Second%20Brain%3A%20Reducing%20Complexity%20Through%20Pa=
+rtnership%20With%20AI&body=3DI'm%20sharing%20this%20article%20I%20found%20=
+on%20www.pointer.io%3A%0D%0A%0D%0AA%20Developer%E2%80%99s%20Second%20Brain=
+%3A%20Reducing%20Complexity%20Through%20Partnership%20With%20AI%0D%0Ahttps=
+%3A%2F%2Fgithub.blog%2F2024-01-17-a-developers-second-brain-reducing-compl=
+exity-through-partnership-with-ai%2F%0D%0A" style=3D"display:block" target=
+=3D"_blank" data-block-id=3D"130"><img width=3D"38" height=3D"auto" style=
+=3D"border:0;width:38px;height:auto;max-width:64px !important;display:bloc=
+k" alt=3D"" src=3D"https://mcusercontent.com/e9492ff27d760c578a39d0675/ima=
+ges/5007b776-f11f-9e3f-6747-ec4408bb95b0.png" role=3D"presentation" class=
+=3D"imageDropZone mceImage" /></a></td></tr><tr><td style=3D"background-co=
+lor:transparent;padding-top:5px;padding-bottom:5px;padding-right:20px;padd=
+ing-left:20px" class=3D"mceBlockContainer" valign=3D"top"><table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background=
+-color:transparent" role=3D"presentation" data-block-id=3D"144"><tbody><tr=
+><td style=3D"min-width:100%;border-top:2px solid #3e4954" valign=3D"top">=
+</td></tr></tbody></table></td></tr><tr><td style=3D"padding-top:20px;padd=
+ing-bottom:0;padding-right:20px;padding-left:20px" class=3D"mceBlockContai=
+ner" valign=3D"top"><div data-block-id=3D"142" class=3D"mceText" id=3D"dat=
+aBlockId-142" style=3D"width:100%"><p><a href=3D"https://pointer.us9.list-=
+manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dff1b7db12f&e=3D0e436c5282" target=3D"_blank"><strong><span style=3D"font-size: 20px">The=
+ 10 Types of Authorization</span></strong></a></p><p>=E2=80=94 Graham Nera=
+y</p><p><br /><strong>tl;dr</strong>:=C2=A0RBAC isn't an authorization mod=
+el =E2=80=94 it's a collection of authorization models=2C and you can appl=
+y more or less granularity for roles depending on the needs of your applic=
+ation. Learn about the 10 types of authorization and go a level deeper tha=
+n the standard abstractions of RBAC=2C ABAC and ReBAC.</p><p><br /></p><p>=
+<em>Promoted by Oso</em></p><p style=3D"text-align: right;" class=3D"last-=
+child"><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De949=
+2ff27d760c578a39d0675&id=3Daa5e3dfc1a&e=3D0e436c5282" target=3D"_blank"><=
+em><span style=3D"font-size: 12px">Management</span></em></a><em><span sty=
+le=3D"font-size: 12px"> </span></em><a href=3D"https://pointer.us9.list-ma=
+nage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D24e814cec7&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size: 12px">Guide</spa=
+n></em></a></p></div></td></tr><tr><td style=3D"padding-top:0;padding-bott=
+om:0;padding-right:15px;padding-left:0" class=3D"mceBlockContainer" align=
+=3D"right" valign=3D"top"><a href=3D"mailto:?subject=3DThe%2010%20Types%20=
+of%20Authorization&body=3DI'm%20sharing%20this%20article%20I%20found%20on%=
+20www.pointer.io%3A%0D%0A%0D%0AThe%2010%20Types%20of%20Authorization%0D%0A=
+https%3A%2F%2Fwww.osohq.com%2Fpost%2Ften-types-of-authorization%3Futm_camp=
+aign%3Dpointer2024%26utm_medium%3Dnewsletter%26utm_source%3Dpointer%0D%0A"=
+ style=3D"display:block" target=3D"_blank" data-block-id=3D"149"><img widt=
+h=3D"38" height=3D"auto" style=3D"border:0;width:38px;height:auto;max-widt=
+h:64px !important;display:block" alt=3D"" src=3D"https://mcusercontent.com=
+/e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png=
+" role=3D"presentation" class=3D"imageDropZone mceImage" /></a></td></tr><=
+tr><td style=3D"background-color:transparent;padding-top:5px;padding-botto=
+m:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" va=
+lign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"background-color:transparent" role=3D"presentation" dat=
+a-block-id=3D"148"><tbody><tr><td style=3D"min-width:100%;border-top:2px s=
+olid #3e4954" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td s=
+tyle=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding-left:=
+20px" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"76"=
+ class=3D"mceText" id=3D"dataBlockId-76" style=3D"width:100%"><p><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3D18a1e12a2d&e=3D0e436c5282" target=3D"_blank"><strong><span s=
+tyle=3D"font-size: 20px">The Scary Thing About Automating Deploys</span></=
+strong></a></p><p>=E2=80=94 Sean McIlroy</p><p><br /><strong>tl;dr</strong=
+>: Sean delves into the complexities and strategies of automating deployme=
+nts at scale=2C focusing on how Slack transitioned from manual oversight t=
+o using their automated tool for deployment processes in a high-change env=
+ironment. =E2=80=9CWhen people talk about continuous deployment=2C they=E2=
+=80=99re often thinking about deploying to systems as soon as changes are=
+ ready. They talk about microservices and 2-pizza teams (~8 people). But w=
+hat does continuous deployment mean when you=E2=80=99re looking at 150 cha=
+nges on a normal day? That=E2=80=99s a lot of pizzas=E2=80=A6"=C2=A0</p><p=
+><br /></p><p style=3D"text-align: right;" class=3D"last-child"><a href=3D=
+"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d=
+0675&id=3Da5669a7684&e=3D0e436c5282" target=3D"_blank"><em><span style=3D=
+"font-size: 12px">DevOps</span></em></a><em><span style=3D"font-size: 12px=
+"> </span></em><a href=3D"https://pointer.us9.list-manage.com/track/click?=
+u=3De9492ff27d760c578a39d0675&id=3Dc0aa7d7eab&e=3D0e436c5282" target=3D"_=
+blank"><em><span style=3D"font-size: 12px">Process</span></em></a></p></di=
+v></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:=
+15px;padding-left:0" class=3D"mceBlockContainer" align=3D"right" valign=3D=
+"top"><a href=3D"mailto:?subject=3DThe%20Scary%20Thing%20About%20Automatin=
+g%20Deploys&body=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.p=
+ointer.io%3A%0D%0A%0D%0AThe%20Scary%20Thing%20About%20Automating%20Deploys=
+%0D%0Ahttps%3A%2F%2Fslack.engineering%2Fthe-scary-thing-about-automating-d=
+eploys%2F%0D%0A" style=3D"display:block" target=3D"_blank" data-block-id=
+=3D"129"><img width=3D"38" height=3D"auto" style=3D"border:0;width:38px;he=
+ight:auto;max-width:64px !important;display:block" alt=3D"" src=3D"https:/=
+/mcusercontent.com/e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f-674=
+7-ec4408bb95b0.png" role=3D"presentation" class=3D"imageDropZone mceImage"=
+ /></a></td></tr><tr><td style=3D"background-color:transparent;padding-top=
+:5px;padding-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mce=
+BlockContainer" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" style=3D"background-color:transparent" role=3D=
+"presentation" data-block-id=3D"136"><tbody><tr><td style=3D"min-width:100=
+%;border-top:2px solid #3e4954" valign=3D"top"></td></tr></tbody></table><=
+/td></tr><tr><td style=3D"padding-top:20px;padding-bottom:0;padding-right:=
+20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><div da=
+ta-block-id=3D"109" class=3D"mceText" id=3D"dataBlockId-109" style=3D"widt=
+h:100%"><p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3D=
+e9492ff27d760c578a39d0675&id=3D64dd653188&e=3D0e436c5282" target=3D"_blan=
+k"><strong><span style=3D"font-size: 20px">How We Migrated Our PostgreSQL=
+ Database With 11 Seconds Downtime</span></strong></a></p><p>=E2=80=94 Dav=
+id McDonald</p><p><br /><strong>tl;dr</strong>: =E2=80=9COur source databa=
+se is about 400GB in size. It has about 1.3 billion rows=2C 85 tables=2C 1=
+85 indexes and 120 foreign keys. It is PostgreSQL version 11. On a usual w=
+eekday=2C we do somewhere in the region of 1=2C000 inserts or updates per=
+ second=2C plus a similar number of reads.=E2=80=9D The DB is relied upon=
+ to send millions of important and timely notifications each day=2C from f=
+lood alerts to updating users about their passport applications.=C2=A0</p>=
+<p><br /></p><p style=3D"text-align: right;" class=3D"last-child"><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3D5e43995d55&e=3D0e436c5282" target=3D"_blank"><em><span style=
+=3D"font-size: 12px">PostgreSQL</span></em></a></p></div></td></tr><tr><td=
+ style=3D"padding-top:0;padding-bottom:0;padding-right:15px;padding-left:0=
+" class=3D"mceBlockContainer" align=3D"right" valign=3D"top"><a href=3D"ma=
+ilto:?subject=3DHow%20We%20Migrated%20Our%20PostgreSQL%20Database%20With%2=
+011%20Seconds%20Downtime&body=3DI'm%20sharing%20this%20article%20I%20found=
+%20on%20www.pointer.io%3A%0D%0A%0D%0AHow%20We%20Migrated%20Our%20PostgreSQ=
+L%20Database%20With%2011%20Seconds%20Downtime%0D%0Ahttps%3A%2F%2Fgds.blog.=
+gov.uk%2F2024%2F01%2F17%2Fhow-we-migrated-our-postgresql-database-with-11-=
+seconds-downtime%2F%0D%0A" style=3D"display:block" target=3D"_blank" data-=
+block-id=3D"152"><img width=3D"38" height=3D"auto" style=3D"border:0;width=
+:38px;height:auto;max-width:64px !important;display:block" alt=3D"" src=3D=
+"https://mcusercontent.com/e9492ff27d760c578a39d0675/images/5007b776-f11f-=
+9e3f-6747-ec4408bb95b0.png" role=3D"presentation" class=3D"imageDropZone m=
+ceImage" /></a></td></tr><tr><td style=3D"background-color:transparent;pad=
+ding-top:5px;padding-bottom:5px;padding-right:20px;padding-left:20px" clas=
+s=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:transparent"=
+ role=3D"presentation" data-block-id=3D"151"><tbody><tr><td style=3D"min-w=
+idth:100%;border-top:2px solid #3e4954" valign=3D"top"></td></tr></tbody><=
+/table></td></tr><tr><td style=3D"padding-top:20px;padding-bottom:0;paddin=
+g-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"=
+><div data-block-id=3D"150" class=3D"mceText" id=3D"dataBlockId-150" style=
+=3D"width:100%"><p><a href=3D"https://pointer.us9.list-manage.com/track/cl=
+ick?u=3De9492ff27d760c578a39d0675&id=3Df6ea78afa9&e=3D0e436c5282" target=
+=3D"_blank"><strong><span style=3D"font-size: 20px">Sensenmann: Code Delet=
+ion At Scale</span></strong></a></p><p>=E2=80=94 Phil Norman</p><p><br /><=
+strong>tl;dr</strong>: =E2=80=9CWhat if we could clean up dead code automa=
+tically? That was exactly what people started thinking several years ago=
+=2C during the Z=C3=BCrich Engineering Productivity team's annual hackatho=
+n. The Sensenmann project=2C named after the German word for the embodimen=
+t of Death=2C has been highly successful. It submits over 1000 deletion ch=
+angelists per week=2C and has so far deleted nearly 5% of all C++ at Googl=
+e. Its goal is simple (at least=2C in principle): automatically identify d=
+ead code=2C and send code review requests to delete it.=E2=80=9D Phil disc=
+usses its logic.=C2=A0=C2=A0</p><p><br /></p><p style=3D"text-align: right=
+;" class=3D"last-child"><a href=3D"https://pointer.us9.list-manage.com/tra=
+ck/click?u=3De9492ff27d760c578a39d0675&id=3D97860fa251&e=3D0e436c5282" ta=
+rget=3D"_blank"><em><span style=3D"font-size: 12px">Scale</span></em></a><=
+em><span style=3D"font-size: 12px"> </span></em><a href=3D"https://pointer=
+=2Eus9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D9c2ae8=
+cdce&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size: 12px=
+">Process</span></em></a></p></div></td></tr><tr><td style=3D"padding-top:=
+0;padding-bottom:0;padding-right:15px;padding-left:0" class=3D"mceBlockCon=
+tainer" align=3D"right" valign=3D"top"><a href=3D"mailto:?subject=3DSensen=
+mann%3A%20Code%20Deletion%20At%20Scale&body=3DI'm%20sharing%20this%20artic=
+le%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0ASensenmann%3A%20Code%20=
+Deletion%20At%20Scale%0D%0Ahttps%3A%2F%2Ftesting.googleblog.com%2F2023%2F0=
+4%2Fsensenmann-code-deletion-at-scale.html%0D%0A" style=3D"display:block"=
+ target=3D"_blank" data-block-id=3D"128"><img width=3D"38" height=3D"auto"=
+ style=3D"border:0;width:38px;height:auto;max-width:64px !important;displa=
+y:block" alt=3D"" src=3D"https://mcusercontent.com/e9492ff27d760c578a39d06=
+75/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png" role=3D"presentation"=
+ class=3D"imageDropZone mceImage" /></a></td></tr><tr><td style=3D"backgro=
+und-color:transparent;padding-top:5px;padding-bottom:5px;padding-right:20p=
+x;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><table bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"back=
+ground-color:transparent" role=3D"presentation" data-block-id=3D"112"><tbo=
+dy><tr><td style=3D"min-width:100%;border-top:2px solid #3e4954" valign=3D=
+"top"></td></tr></tbody></table></td></tr><tr><td style=3D"background-colo=
+r:#3e4954;padding-top:20px;padding-bottom:20px;padding-right:0;padding-lef=
+t:0" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"123"=
+ class=3D"mceText" id=3D"dataBlockId-123" style=3D"width:100%"><p style=3D=
+"text-align: center;" class=3D"last-child"><strong><span style=3D"color:#f=
+fffff;"><span style=3D"font-size: 16px"><span style=3D"font-family: 'Space=
+ Mono'=2C 'Courier'=2C Georgia=2C serif">Notable Links</span></span></span=
+></strong></p></div></td></tr><tr><td style=3D"padding-top:0;padding-botto=
+m:0;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" vali=
+gn=3D"top"><div data-block-id=3D"98" class=3D"mceText" id=3D"dataBlockId-9=
+8" style=3D"width:100%"><p><br /></p><p><a href=3D"https://pointer.us9.lis=
+t-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dfaa5b037a1&e=
+=3D0e436c5282" target=3D"_blank"><strong>Data Engineering Zoomcamp</stron=
+g></a>: Free Data Engineering course.</p><p> </p><p><a href=3D"https://poi=
+nter.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D7c=
+f2861677&e=3D0e436c5282" target=3D"_blank"><strong>Diagrams</strong></a>:=
+ Cloud system architecture in Python code. </p><p><br /></p><p><a href=3D"=
+https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0=
+675&id=3D0832c9ddce&e=3D0e436c5282" target=3D"_blank"><strong>Spotube</st=
+rong></a>: OS cross-platform Spotify client eliminating need for premium.=
+ </p><p><br /></p><p><a href=3D"https://pointer.us9.list-manage.com/track/=
+click?u=3De9492ff27d760c578a39d0675&id=3Dfe4985cccd&e=3D0e436c5282" targe=
+t=3D"_blank"><strong>System Design Primer</strong></a>: Learn how to desig=
+n large-scale systems. </p><p><br /></p><p><a href=3D"https://pointer.us9.=
+list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D665da6190b&=
+e=3D0e436c5282" target=3D"_blank"><strong>TaskWeaver</strong></a>: Agent=
+ framework for planning &amp; executing analytics tasks.</p><p class=3D"la=
+st-child"><br /></p></div></td></tr><tr><td style=3D"background-color:#3e4=
+954;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0" class=
+=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" width=3D"100%" style=3D"background-color:#3e4954" role=
+=3D"presentation" data-block-id=3D"53"><tbody><tr><td style=3D"min-width:1=
+00%;border-top:20px solid transparent" valign=3D"top"></td></tr></tbody></=
+table></td></tr><tr><td style=3D"padding-top:20px;padding-bottom:20px;padd=
+ing-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"to=
+p"><div data-block-id=3D"89" class=3D"mceText" id=3D"dataBlockId-89" style=
+=3D"width:100%"><p style=3D"text-align: center;">Click the below and shoot=
+ me an email!</p><p style=3D"text-align: center;"><br />1 =3D Didn't enjoy=
+ it all // 5 =3D Really enjoyed it</p><p style=3D"text-align: center;"><br=
+ /></p><p style=3D"text-align: center;" class=3D"last-child"><a href=3D"ma=
+ilto:suraj@pointer.io?subject=3DIssue%20%23436%20-%20Score%3A%201&body=3DH=
+ere's%20why%3A"><strong>1</strong></a><strong> =E2=80=A6 </strong><a href=
+=3D"mailto:suraj@pointer.io?subject=3DIssue%20%23436%20-%20Score%3A%202&bo=
+dy=3DHere's%20why%3A"><strong>2</strong></a><strong> =E2=80=A6 </strong><a=
+ href=3D"mailto:suraj@pointer.io?subject=3DIssue%20%23436%20-%20Score%3A%2=
+03&body=3DHere's%20why%3A"><strong>3</strong></a><strong> =E2=80=A6 </stro=
+ng><a href=3D"mailto:suraj@pointer.io?subject=3DIssue%20%23436%20-%20Score=
+%3A%204&body=3DHere's%20Why%3A"><strong>4</strong></a><strong> =E2=80=A6 <=
+/strong><a href=3D"mailto:suraj@pointer.io?subject=3DIssue%20%23436%20-%20=
+Score%3A%205&body=3DHere's%20Why%3A"><strong>5</strong></a></p></div></td>=
+</tr><tr><td style=3D"background-color:#3e4954;padding-top:0;padding-botto=
+m:0;padding-right:0;padding-left:0" class=3D"mceBlockContainer" valign=3D"=
+top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" style=3D"background-color:#3e4954" role=3D"presentation" data-block-id=
+=3D"90"><tbody><tr><td style=3D"min-width:100%;border-top:20px solid trans=
+parent" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=
+=3D"padding-top:0;padding-bottom:0;padding-right:0;padding-left:0" class=
+=3D"mceLayoutContainer" valign=3D"top"><table align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"=
+ data-block-id=3D"11" id=3D"section_4d78086c1c5da2f1a41aed69f4a1f824" clas=
+s=3D"mceFooterSection"><tbody><tr class=3D"mceRow"><td style=3D"background=
+-position:center;background-repeat:no-repeat;background-size:cover" valign=
+=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"12" width=3D=
+"100%" role=3D"presentation"><tbody><tr><td style=3D"padding-top:0;padding=
+-bottom:0;margin-bottom:12px" class=3D"mceColumn" data-block-id=3D"-3" val=
+ign=3D"top" colspan=3D"12" width=3D"100%"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><=
+td style=3D"padding-top:20px;padding-bottom:20px;padding-right:20px;paddin=
+g-left:20px" class=3D"mceBlockContainer" align=3D"center" valign=3D"top"><=
+div data-block-id=3D"9" class=3D"mceText" id=3D"dataBlockId-9" style=3D"di=
+splay:inline-block;width:100%"><p class=3D"last-child"><span style=3D"font=
+-size: 12px"><span style=3D"font-family: 'Space Mono'=2C 'Courier'=2C Geor=
+gia=2C serif">Pointer is emailed twice a week on Tuesdays and Fridays @ 9a=
+m EST.<br /><br /></span></span><a href=3D"https://pointer.us9.list-manage=
+=2Ecom/unsubscribe?u=3De9492ff27d760c578a39d0675&id=3D6ba2b83261&e=3D0e436c5282&c=3D372ed99dad"><span style=3D"text-decoration:underline;"><span style=
+=3D"font-size: 12px"><span style=3D"font-family: 'Space Mono'=2C 'Courier'=
+=2C Georgia=2C serif">Unsubscribe</span></span></span></a><span style=3D"f=
+ont-size: 12px"><span style=3D"font-family: 'Space Mono'=2C 'Courier'=2C G=
+eorgia=2C serif"> // </span></span><a href=3D"https://pointer.us9.list-man=
+age.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Db3606e0f18&e=3D0e436c5282" target=3D"_blank"><span style=3D"text-decoration:underline;"><spa=
+n style=3D"font-size: 12px"><span style=3D"font-family: 'Space Mono'=2C 'C=
+ourier'=2C Georgia=2C serif">Sponsorship</span></span></span></a><span sty=
+le=3D"color:rgb(32=2C 32=2C 32);"><span style=3D"text-decoration:underline=
+;"><span style=3D"font-size: 12px"><span><br /></span></span></span></span=
+></p></div></td></tr><tr><td class=3D"mceLayoutContainer" align=3D"center"=
+ valign=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"100%" role=3D"presentation" data-block-id=3D"-2"><=
+tbody><tr class=3D"mceRow"><td style=3D"background-position:center;backgro=
+und-repeat:no-repeat;background-size:cover;padding-top:0px;padding-bottom:=
+0px" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"2=
+4" width=3D"100%" role=3D"presentation"><tbody></tbody></table></td></tr><=
+/tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></=
+tr></tbody></table></td></tr><tr><td style=3D"background-color:transparent=
+;padding-top:0;padding-bottom:0;padding-right:20px;padding-left:20px" clas=
+s=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:transparent"=
+ role=3D"presentation" data-block-id=3D"75"><tbody><tr><td style=3D"min-wi=
+dth:100%;border-top:2px dotted #000000" valign=3D"top"></td></tr></tbody><=
+/table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbo=
+dy></table></td></tr></tbody></table><!--[if (gte mso 9)|(IE)]></td></tr>=
+</table><![endif]--></td></tr></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</center>
+<img src=3D"https://pointer.us9.list-manage.com/track/open.php?u=3De9492ff=
+27d760c578a39d0675&id=3D372ed99dad&e=3D0e436c5282" height=3D"1" width=3D"=
+1" alt=3D""></body></html>
+--_----------=_MCPart_664768578--

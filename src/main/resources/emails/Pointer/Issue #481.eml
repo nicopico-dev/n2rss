@@ -1,0 +1,1066 @@
+Delivered-To: nicopico.dev@gmail.com
+Received: by 2002:a05:7001:332a:b0:54b:4326:6e94 with SMTP id sm42csp1151689mab;
+        Fri, 19 Jan 2024 05:04:15 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFoy9B4+dl89MlXQ7R/M36qCcyWwJ7ZcXIRylOqucfuNXyHViKrfZOYo85So6MfGlT4D2vJ
+X-Received: by 2002:a25:aa8d:0:b0:dc2:4e83:e6a4 with SMTP id t13-20020a25aa8d000000b00dc24e83e6a4mr1907768ybi.3.1705669455259;
+        Fri, 19 Jan 2024 05:04:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1705669455; cv=none;
+        d=google.com; s=arc-20160816;
+        b=XkLvcmR34QZijk55eBpoYdMIZdUy16p+1OCqXegKd8Wkp9dvR4QzBFerW786JetRLO
+         o/an0UiTkZN5CRXXJE/SVpT/vV/Bwf69qvkZTxM7gajsYgrOh0NlWjKALj4QlcTG4JRa
+         zhQWgOo2XIswGdvaQYCDZtrKnUbxgcUAJhLvIrQKLMqZt4esBiw6kodrMd0dqrzBRCrq
+         rDGcxX0qJBCK9GJPPT6nQPUMfcWREl1mb1EYck/zuyPFgZL2Sw4Jfr0NX4Zz6tG4HjSD
+         jfc3rygaDTS86pD9bYK00UZeEm7vh71dDpVZBwF4JBBELOqfh3eONW3+4aPq9d64JgsY
+         KX/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=mime-version:list-unsubscribe-post:list-unsubscribe:precedence
+         :list-id:feedback-id:message-id:date:to:reply-to:from:subject
+         :dkim-signature:dkim-signature;
+        bh=p+CnPH1Rw0AmdJMdiyBqsbNn070cjhQkAn5x6QhjN7I=;
+        fh=H4GdtyortLaCNWnOBJIXv8CslrZsYq9o7fvDn8heNVY=;
+        b=hFroUCuC45a0FS/+P3p2aQ/w45iy4c0bD0SLweLwvnADE98xv7GBOnqQKH/hGIJfxa
+         remucPgb1aGuVQ0SGnI7U0+aLEI6t0lSLMQ9YNfwHBUlqtjAYQFaVxv20dmTYAuqeSeq
+         7mxs9IQB6fZv2Y0vYUPzCz+BrJhG2xT9f/moJstggTYM7iuYuEjFCtagrKlX8OspjHV3
+         5Jz/Wrdb8n+nKZb647e03NrK7QElRoaoxroB8xCnxAcO5BykUlVKbi0J3B5We0m1E7hP
+         XUwX1MYUiNby2zzimXLl+u9Xr4MVkU7/u9JiZMqrSaRGYQ3a94x6d5DVmtq1ndNW8o+M
+         A2hA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=nh5WjRY5;
+       dkim=pass header.i=@pointer.io header.s=k2 header.b=b+29HPJs;
+       spf=pass (google.com: domain of bounce-mc.us9_33211145.4762061-0e436c5282@mail81.suw151.rsgsv.net designates 198.2.175.81 as permitted sender) smtp.mailfrom=bounce-mc.us9_33211145.4762061-0e436c5282@mail81.suw151.rsgsv.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=pointer.io
+Return-Path: <bounce-mc.us9_33211145.4762061-0e436c5282@mail81.suw151.rsgsv.net>
+Received: from mail81.suw151.rsgsv.net (mail81.suw151.rsgsv.net. [198.2.175.81])
+        by mx.google.com with ESMTPS id o17-20020a25b491000000b00dc217d24331si4764725ybj.222.2024.01.19.05.04.14
+        for <nicopico.dev@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Jan 2024 05:04:15 -0800 (PST)
+Received-SPF: pass (google.com: domain of bounce-mc.us9_33211145.4762061-0e436c5282@mail81.suw151.rsgsv.net designates 198.2.175.81 as permitted sender) client-ip=198.2.175.81;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.mcsv.net header.s=k1 header.b=nh5WjRY5;
+       dkim=pass header.i=@pointer.io header.s=k2 header.b=b+29HPJs;
+       spf=pass (google.com: domain of bounce-mc.us9_33211145.4762061-0e436c5282@mail81.suw151.rsgsv.net designates 198.2.175.81 as permitted sender) smtp.mailfrom=bounce-mc.us9_33211145.4762061-0e436c5282@mail81.suw151.rsgsv.net;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=pointer.io
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.mcsv.net;
+	s=k1; t=1705669422; x=1705755822;
+	bh=p+CnPH1Rw0AmdJMdiyBqsbNn070cjhQkAn5x6QhjN7I=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=nh5WjRY5szXk9x/osa6NPp5gb6pKvlCiewwDjPBFaiNiSCrt+a4M8fl3j795lT/0c
+	 2r1NWm1kSCyqPDMfuVPwDuYl161r1MTdbzvCIw97GlOvqypybBkFMqSVUkq5wnTzFD
+	 ZbjbBpFs4Bfwa7GBkEm568y/DUQ6kRe1LaX8Dxd9hcJ3ERVEjpfgRkqup9tgV0zZZS
+	 NAO206E+ZQ8bSYSc818T+F71IJBYSZA6ZHe5Tb9CR9GZluOX41fzqSDZbzmT8EmG3z
+	 ThlOy8h7EzKr5ptxHWruWzsGpQXjx2JIeE6VxW7XG3hObZqt1dzZ5Sh/70oM/tT3xp
+	 A+43sEVuyRluA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pointer.io; s=k2;
+	t=1705669422; x=1705929922; i=suraj@pointer.io;
+	bh=p+CnPH1Rw0AmdJMdiyBqsbNn070cjhQkAn5x6QhjN7I=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=b+29HPJsPobXsuvUpTDnCsfx/BlFGauDx4S9fEr7gfrHcE37qmCXxfRZmQ9FZo1fk
+	 gpER4bRSESCmP7s1U8oosC0k8vsH7G0UFJXrU1kR9//pTOvIxd6NiRuAcGZoEbs2cz
+	 F6R63S3h3IQMnrzCpiY2cetb4zkkGqlBgNtaCYjEU46tr3DIAWX4L0ucsqih3WqIRj
+	 JLCXVdbQXCUkB+VNksY9ghOLh8RzDvwjdmXQ81Kr+GBk6ax2w3CDOVaFvgEMDaE/hv
+	 7gyqG2FyzgVo1pNrtm0pTlgnYmJS//IKu6QIXuC+ux6y4K67qrY1UJnUV+iY7PoynZ
+	 TTpDj3eB6QRCA==
+Received: from localhost (localhost [127.0.0.1])
+	by mail81.suw151.rsgsv.net (Mailchimp) with ESMTP id 4TGfv26lPMz6DCVGD
+	for <nicopico.dev@gmail.com>; Fri, 19 Jan 2024 13:03:42 +0000 (GMT)
+Subject: =?utf-8?Q?Issue=20#481?=
+From: =?utf-8?Q?Pointer?= <suraj@pointer.io>
+Reply-To:  <us9-c15c852160-75b851dcad@inbound.mailchimpapp.net>
+To: <nicopico.dev@gmail.com>
+Date: Fri, 19 Jan 2024 13:03:28 +0000
+Message-ID: <e9492ff27d760c578a39d0675.0e436c5282.20240119130317.17e18e18d0.e87fd303@mail81.suw151.rsgsv.net>
+X-Mailer: Mailchimp Mailer - **CID17e18e18d00e436c5282**
+X-Campaign: mailchimpe9492ff27d760c578a39d0675.17e18e18d0
+X-campaignid: mailchimpe9492ff27d760c578a39d0675.17e18e18d0
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=e9492ff27d760c578a39d0675&id=17e18e18d0&e=0e436c5282
+X-MC-User: e9492ff27d760c578a39d0675
+Feedback-ID: 33211145:33211145.4762061:us9:mc
+List-ID: e9492ff27d760c578a39d0675mc list <e9492ff27d760c578a39d0675.419973.list-id.mcsv.net>
+Precedence: bulk
+X-Auto-Response-Suppress: OOF, AutoReply
+X-Accounttype: pr
+List-Unsubscribe: <https://pointer.us9.list-manage.com/unsubscribe?u=e9492ff27d760c578a39d0675&id=6ba2b83261&e=0e436c5282&c=17e18e18d0>, <mailto:unsubscribe-mc.us9_e9492ff27d760c578a39d0675.17e18e18d0-0e436c5282@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1827787633"
+MIME-Version: 1.0
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1827787633
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+A Reading Club For Software Developers
+
+pointer.io (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D91b94ffa78&e=3D0e436c5282)
+
+Friday 19th January=E2=80=99s issue is presented by Clerk
+https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0=
+675&id=3Dbdc39223ef&e=3D0e436c5282
+
+The Most Comprehensive User Management Platform (https://pointer.us9.list-=
+manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Da29c67284b&e=3D0e436c5282)
+
+Need more than just a sign-in box? Clerk (https://pointer.us9.list-manage.=
+com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dc6415d4dee&e=3D0e436c5282) is a complete suite of embeddable UIs=2C flexible APIs=2C and ad=
+min dashboards to authenticate and manage your users. Seamless SDKs for mo=
+dern frameworks.
+
+Simplify User Management With Clerk (https://pointer.us9.list-manage.com/t=
+rack/click?u=3De9492ff27d760c578a39d0675&id=3Dd4110c7892&e=3D0e436c5282)
+
+Measuring Developer Productivity: Real-World Examples (https://pointer.us9=
+=2Elist-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Db16b2ba2bd=
+&e=3D0e436c5282)
+
+=E2=80=94 Gergely Orosz=2C Abi Noda
+
+tl;dr: In this issue=2C Abi outlines the developer productivity metrics us=
+ed at 17 tech companies=2C such as Amplitude=2C Etsy=2C DoorDash. He then=
+ dives deep into several companoes of varying size=2C notably Google & Lin=
+kedIn=2C Peloton=2C scaleups and smaller companies. Abi=E2=80=99s advice o=
+n how to choose your metrics: start with the problem you want to solve. Is=
+ it shipping frictionless=2C retaining developers by keeping them happy an=
+d satisfied=2C raising the quality of software shipped=2C or something els=
+e? Then work backwards from there.
+
+Leadership (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3Df286f07916&e=3D0e436c5282) Management (https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3Dcb57c8323a&e=3D0e436c5282) Productivity (https://pointer.us9.list=
+-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D6af30859e6&e=3D=
+0e436c5282)
+mailto:?subject=3DMeasuring%20Developer%20Productivity%3A%20Real-World%20E=
+xamples&body=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.point=
+er.io%3A%0D%0A%0D%0AMeasuring%20Developer%20Productivity%3A%20Real-World%2=
+0Examples%0D%0Ahttps%3A%2F%2Fnewsletter.pragmaticengineer.com%2Fp%2Fmeasur=
+ing-developer-productivity-bae
+
+Unit Of Work (https://pointer.us9.list-manage.com/track/click?u=3De9492ff2=
+7d760c578a39d0675&id=3D56ff950703&e=3D0e436c5282)
+
+=E2=80=94 Andrew Bosworth
+
+tl;dr: The environment you are working in has a rate of change (entropy) e=
+=2Eg. competitors=2C regulators=2C consumer behavior. The relationship betwe=
+en this rate and the unit of work you undertaking is critical to understan=
+d: (1) If the unit of work is bigger than the rate of change=2C then you w=
+ill fall behind. (2) If your unit of work is smaller than the rate of chan=
+ge you are likely driving change for others. Sometimes you have an irreduc=
+ibly large bit of work that doesn=E2=80=99t fit inside the entropy window=
+ e.g. a re-architecture. The likely outcome is that midway through the ver=
+y expensive program you=E2=80=99ll find yourself having to start it over b=
+ecause the environment you are building for continues to evolve.
+
+Leadership (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3Def3290dfc4&e=3D0e436c5282) Management (https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3Db9c524dc6f&e=3D0e436c5282)
+mailto:?subject=3DUnit%20Of%20Work&body=3DI'm%20sharing%20this%20article%2=
+0I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AUnit%20Of%20Work%0D%0Ahttps=
+%3A%2F%2Fboz.com%2Farticles%2Funit-of-work
+
+Learning From A Strategy Project (https://pointer.us9.list-manage.com/trac=
+k/click?u=3De9492ff27d760c578a39d0675&id=3Dedf035b973&e=3D0e436c5282=
+)
+
+=E2=80=94 Anna Shipman
+
+tl;dr: =E2=80=9CI was leading one of a number of engineering groups within=
+ a larger organization; each group had its own priorities=2C but most of t=
+hem required delivery through my team; and we had our own priorities. So w=
+e ended up slowing each other down.=E2=80=9D Anna looked to her managers t=
+o solve this before deciding to create the strategy herself. Here=E2=80=99=
+s are some of the things she learned: (1) Even if you think you know the d=
+esired end state=2C take a smaller chunk and make some tangible steps. (2)=
+ Overcommunicate the goal and your progress towards it. (3) Focus more on=
+ bringing people with you than on getting a perfect answer.
+
+BestPractices (https://pointer.us9.list-manage.com/track/click?u=3De9492ff=
+27d760c578a39d0675&id=3De04cd03865&e=3D0e436c5282) Management (https=
+://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&i=
+d=3D54ae553a2a&e=3D0e436c5282)
+mailto:?subject=3DLearning%20From%20A%20Strategy%20Project&body=3DI'm%20sh=
+aring%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0ALea=
+rning%20From%20A%20Strategy%20Project%0D%0Ahttps%3A%2F%2Fwww.annashipman.c=
+o.uk%2Fjfdi%2Flearnings-from-strategy-project.html
+
+Demystifying Project Estimation (https://pointer.us9.list-manage.com/track=
+/click?u=3De9492ff27d760c578a39d0675&id=3D02a3b60a84&e=3D0e436c5282)
+
+=E2=80=94 Nicolla Ballotta=2C Jordan Cutler
+
+tl;dr: =E2=80=9CEstimating a project or the latest feature you aim to deli=
+ver holds incredible value=2C not only for the business your team serves b=
+ut also for you and your team. In fact=2C estimations bring clarity and al=
+ignment=2C which are crucial for delivering quickly and with minimal stres=
+s.=E2=80=9D The article covers the purposes and challenges of estimation=
+=2C and gives practical examples and tips.
+
+CareerAdvice (https://pointer.us9.list-manage.com/track/click?u=3De9492ff2=
+7d760c578a39d0675&id=3D37712f70cf&e=3D0e436c5282)
+mailto:?subject=3DDemystifying%20Project%20Estimation&body=3DI'm%20sharing=
+%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0ADemystif=
+ying%20Project%20Estimation%0D%0Ahttps%3A%2F%2Fhybridhacker.email%2Fp%2Fde=
+mystifying-project-estimation
+
+=E2=80=9CComputers are useless. They can only give you answers.=E2=80=9D
+
+=E2=80=94 Pablo Picasso
+
+Slashing Data Transfer Costs In AWS By 99% (https://pointer.us9.list-manag=
+e.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dd3c09e6927&e=3D0e436c5282)
+
+=E2=80=94 Daniel Kleinstein
+
+tl;dr: =E2=80=9CAWS replicates S3 data between availability zones for you=
+ - whatever this might cost AWS is hidden away in the storage costs you pa=
+y for your data. So at its most fundamental level=2C this method is unlock=
+ing free cross-AZ costs - because you=E2=80=99ve effectively already paid=
+ for the cross-AZ cost when you uploaded your data to S3! Indeed=2C if you=
+ were to leave your data stored in S3=2C you=E2=80=99d end up paying signi=
+ficantly more than the cross-AZ cost - but by deleting it immediately afte=
+r transferring it=2C you unlock the 99% savings we were going for.=E2=80=
+=9D
+
+Pricing (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760=
+c578a39d0675&id=3De14bb9cbb0&e=3D0e436c5282) AWS (https://pointer.us=
+9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Db9d3ac824=
+e&e=3D0e436c5282)
+mailto:?subject=3DSlashing%20Data%20Transfer%20Costs%20In%20AWS%20By%2099%=
+25&body=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.pointer.io=
+%3A%0D%0A%0D%0ASlashing%20Data%20Transfer%20Costs%20In%20AWS%20By%2099%25%=
+0D%0Ahttps%3A%2F%2Fwww.bitsand.cloud%2Fposts%2Fslashing-data-transfer-cost=
+s%2F
+
+Turing Completeness (https://pointer.us9.list-manage.com/track/click?u=3De=
+9492ff27d760c578a39d0675&id=3D7f6efa9b39&e=3D0e436c5282)
+
+=E2=80=94 Vijay Ramamurthy
+
+tl;dr: Polar=2C a language designed for permissions=2C is not Turing compl=
+ete. That's a good thing because you need your permissions queries to be l=
+ow latency and not run forever. Read our proof on why Polar isn't Turing c=
+omplete and why that's a good thing.
+
+Promoted by Oso
+
+LanguageDesign (https://pointer.us9.list-manage.com/track/click?u=3De9492f=
+f27d760c578a39d0675&id=3D9013d69adc&e=3D0e436c5282)
+mailto:?subject=3DTuring%20Completeness&body=3DI'm%20sharing%20this%20arti=
+cle%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0ATuring%20Completeness%=
+0D%0Ahttps%3A%2F%2Fwww.osohq.com%2Fpost%2Fis-polar-turing-complete-and-why=
+-i-hope-not%3Futm_campaign%3Dpointer2024%26utm_medium%3Dnewsletter%26utm_s=
+ource%3Dpointer
+
+Why Lowercase Letters Save Data (https://pointer.us9.list-manage.com/track=
+/click?u=3De9492ff27d760c578a39d0675&id=3De6b8334914&e=3D0e436c5282)
+
+tl;dr: =E2=80=9CI took the front page of Hacker News and rewrote the title=
+ of each article in sentence case instead of title case. Each html file ha=
+d the exact same number of characters =E2=80=94 but when compressed into z=
+ip files the title case file was 5=2C992 bytes and the sentence case file=
+ was 5=2C961 bytes. Saving 31 bytes!=E2=80=9D For each site visit to Hacke=
+r News would save 0.00001059642g of carbon if written in sentence case. As=
+suming it gets about 10 million visits a day changing to sentence case wou=
+ld result in the prevention of 105g of carbon daily.=E2=80=9D
+
+Compression (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27=
+d760c578a39d0675&id=3D5578312ce3&e=3D0e436c5282)
+mailto:?subject=3DWhy%20Lowercase%20Letters%20Save%20Data&body=3DI'm%20sha=
+ring%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0AWhy%=
+20Lowercase%20Letters%20Save%20Data%0D%0Ahttps%3A%2F%2Fendtimes.dev%2Fwhy-=
+lowercase-letters-save-data%2F
+
+Let's Talk About Joins (https://pointer.us9.list-manage.com/track/click?u=
+=3De9492ff27d760c578a39d0675&id=3D2917190d2c&e=3D0e436c5282)
+
+=E2=80=94 Crystal Lewis
+
+tl;dr: =E2=80=9CIn general=2C there are two ways to link our data=2C horiz=
+ontally or vertically. When linking or joining data horizontally we are ma=
+tching rows by one or more variables (i.e.=2C keys)=2C making a wider data=
+set. When joining vertically=2C column names are matched and datasets are=
+ stacked on top of each other=2C making a longer dataset. Joins can be don=
+e in many different programs (e.g.=2C SQL=2C R=2C Stata=2C SAS). Most of t=
+his post will be applicable to any language=2C but examples in R will be p=
+rovided.=E2=80=9D
+
+Database (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d76=
+0c578a39d0675&id=3D9081d70e06&e=3D0e436c5282)
+mailto:?subject=3DLet's%20Talk%20About%20Joins&body=3DI'm%20sharing%20this=
+%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0ALet's%20Talk%20=
+About%20Joins%0D%0Ahttps%3A%2F%2Fcghlewis.com%2Fblog%2Fjoins%2F
+
+Notable Links
+
+Audiocraft (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D7f708ec208&e=3D0e436c5282) : Library for audio=
+ processing and generation.
+
+CrewAI (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c=
+578a39d0675&id=3De24d13d2a9&e=3D0e436c5282) : Orchestrating role-pla=
+ying=2C autonomous AI agents.
+
+QAnything (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d7=
+60c578a39d0675&id=3Dbed0ee743e&e=3D0e436c5282) : Local knowledge bas=
+e question-answering system.
+
+Tantivy (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760=
+c578a39d0675&id=3D70cf50b16d&e=3D0e436c5282) : Full-text search engi=
+ne library.
+
+Tinybench (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d7=
+60c578a39d0675&id=3D4a725dcb5b&e=3D0e436c5282) : Lightweight benchma=
+rking library.
+
+Click the below and shoot me an email!
+
+1 =3D Didn't enjoy it all // 5 =3D Really enjoyed it
+
+1 (mailto:suraj@pointer.io?subject=3DIssue%20%23436%20-%20Score%3A%201&bod=
+y=3DHere's%20why%3A) =E2=80=A6 2 (mailto:suraj@pointer.io?subject=3DIssue%=
+20%23436%20-%20Score%3A%202&body=3DHere's%20why%3A) =E2=80=A6 3 (mailto:su=
+raj@pointer.io?subject=3DIssue%20%23436%20-%20Score%3A%203&body=3DHere's%2=
+0why%3A) =E2=80=A6 4 (mailto:suraj@pointer.io?subject=3DIssue%20%23436%20-=
+%20Score%3A%204&body=3DHere's%20Why%3A) =E2=80=A6 5 (mailto:suraj@pointer.=
+io?subject=3DIssue%20%23436%20-%20Score%3A%205&body=3DHere's%20Why%3A)
+
+Pointer is emailed twice a week on Tuesdays and Fridays @ 9am EST.
+
+Unsubscribe (https://pointer.us9.list-manage.com/unsubscribe?u=3De9492ff27=
+d760c578a39d0675&id=3D6ba2b83261&e=3D0e436c5282&c=3D17e18e18d0) // Sponsorsh=
+ip (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3D692a7679cc&e=3D0e436c5282)
+--_----------=_MCPart_1827787633
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn=
+:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:of=
+fice"><head>
+<!--[if gte mso 15]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<meta charset=3D"UTF-8" />
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+<meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial-scale=
+=3D1" />
+<title>Issue #481</title>
+<link rel=3D"stylesheet" href=3D"https://fonts.googleapis.com/css?family=
+=3DSpace+Mono:400=2C400i=2C700=2C700i=2C900=2C900i" /><style>          img=
+{-ms-interpolation-mode:bicubic;}
+          table=2C td{mso-table-lspace:0pt; mso-table-rspace:0pt;}
+          .mceStandardButton=2C .mceStandardButton td=2C .mceStandardButto=
+n td a{mso-hide:all !important;}
+          p=2C a=2C li=2C td=2C blockquote{mso-line-height-rule:exactly;}
+          p=2C a=2C li=2C td=2C body=2C table=2C blockquote{-ms-text-size-=
+adjust:100%; -webkit-text-size-adjust:100%;}
+          @media only screen and (max-width: 480px){
+            body=2C table=2C td=2C p=2C a=2C li=2C blockquote{-webkit-text=
+-size-adjust:none !important;}
+          }
+          .mcnPreviewText{display: none !important;}
+          .bodyCell{margin:0 auto; padding:0; width:100%;}
+          .ExternalClass=2C .ExternalClass p=2C .ExternalClass td=2C .Exte=
+rnalClass div=2C .ExternalClass span=2C .ExternalClass font{line-height:10=
+0%;}
+          .ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+          a[x-apple-data-detectors]{color:inherit !important; text-decora=
+tion:none !important; font-size:inherit !important; font-family:inherit !i=
+mportant; font-weight:inherit !important; line-height:inherit !important;}
+            body{height:100%; margin:0; padding:0; width:100%; background:=
+ #ffffff;}
+            p{margin:0; padding:0;}
+            table{border-collapse:collapse;}
+            td=2C p=2C a{word-break:break-word;}
+            h1=2C h2=2C h3=2C h4=2C h5=2C h6{display:block; margin:0; padd=
+ing:0;}
+            img=2C a img{border:0; height:auto; outline:none; text-decorat=
+ion:none;}
+            a[href^=3D"tel"]=2C a[href^=3D"sms"]{color:inherit; cursor:d=
+efault; text-decoration:none;}
+            li p {margin: 0 !important;}
+            .ProseMirror a {
+                pointer-events: none;
+            }
+            @media only screen and (max-width: 480px){
+                body{width:100% !important; min-width:100% !important; }
+                body.mobile-native {
+                    -webkit-user-select: none; user-select: none; transiti=
+on: transform 0.2s ease-in; transform-origin: top center;
+                }
+                body.mobile-native.selection-allowed a=2C body.mobile-nati=
+ve.selection-allowed .ProseMirror {
+                    user-select: auto;
+                    -webkit-user-select: auto;
+                }
+                colgroup{display: none;}
+                img{height: auto !important;}
+                .mceWidthContainer{max-width: 660px !important;}
+                .mceColumn{display: block !important; width: 100% !importa=
+nt;}
+                .mceColumn-forceSpan{display: table-cell !important; width=
+: auto !important;}
+                .mceBlockContainer{padding-right:16px !important; padding-=
+left:16px !important;}
+                .mceBlockContainerE2E{padding-right:0px; padding-left:0px;=
+}
+                .mceSpacing-24{padding-right:16px !important; padding-left=
+:16px !important;}
+                .mceImage=2C .mceLogo{width: 100% !important; height: auto=
+ !important;}
+                .mceFooterSection .mceText=2C .mceFooterSection .mceText p=
+{font-size: 16px !important; line-height: 140% !important;}
+                .mceText=2C .mceText p{font-size: 16px !important; line-he=
+ight: 140% !important;}
+                h1{font-size: 30px !important; line-height: 120% !importan=
+t;}
+                h2{font-size: 26px !important; line-height: 120% !importan=
+t;}
+                h3{font-size: 20px !important; line-height: 125% !importan=
+t;}
+                h4{font-size: 18px !important; line-height: 125% !importan=
+t;}
+            }
+            @media only screen and (max-width: 640px){
+                .mceClusterLayout td{padding: 4px !important;}
+            }
+            div[contenteditable=3D"true"] {outline: 0;}
+            .ProseMirror .empty-node=2C .ProseMirror:empty {position: rela=
+tive;}
+            .ProseMirror .empty-node::before=2C .ProseMirror:empty::before=
+ {
+                position: absolute;
+                left: 0;
+                right: 0;
+                color: rgba(0=2C0=2C0=2C0.2);
+                cursor: text;
+            }
+            .ProseMirror .empty-node:hover::before=2C .ProseMirror:empty:h=
+over::before {
+                color: rgba(0=2C0=2C0=2C0.3);
+            }
+            .ProseMirror h1.empty-node:only-child::before=2C
+            .ProseMirror h2.empty-node:only-child::before=2C
+            .ProseMirror h3.empty-node:only-child::before=2C
+            .ProseMirror h4.empty-node:only-child::before {
+                content: 'Heading';
+            }
+            .ProseMirror p.empty-node:only-child::before=2C .ProseMirror:e=
+mpty::before {
+                content: 'Start typing...';
+            }
+            a .ProseMirror p.empty-node::before=2C a .ProseMirror:empty::b=
+efore {
+                content: '';
+            }
+            .mceText=2C .ProseMirror {
+                white-space: pre-wrap;
+            }
+body=2C #bodyTable { background-color: rgb(255=2C 255=2C 255); }.mceText=
+=2C .mceLabel { font-family: "Space Mono"=2C Courier=2C Georgia=2C serif;=
+ }.mceText=2C .mceLabel { color: rgb(0=2C 0=2C 0); }.mceText p { margin-bo=
+ttom: 0px; }.mceText label { margin-bottom: 0px; }.mceText input { margin-=
+bottom: 0px; }.mceSpacing-12 .mceInput + .mceErrorMessage { margin-top: -6=
+px; }.mceText p { margin-bottom: 0px; }.mceText label { margin-bottom: 0px=
+; }.mceText input { margin-bottom: 0px; }.mceSpacing-24 .mceInput + .mceEr=
+rorMessage { margin-top: -12px; }.mceInput { background-color: transparent=
+; border: 2px solid rgb(208=2C 208=2C 208); width: 60%; color: rgb(77=2C 7=
+7=2C 77); display: block; }.mceInput[type=3D"radio"]=2C .mceInput[type=
+=3D"checkbox"] { float: left; margin-right: 12px; display: inline; width:=
+ auto !important; }.mceLabel > .mceInput { margin-bottom: 0px; margin-top:=
+ 2px; }.mceLabel { display: block; }.mceText p { color: rgb(0=2C 0=2C 0);=
+ font-family: "Space Mono"=2C Courier=2C Georgia=2C serif; font-size: 14px=
+; font-weight: normal; line-height: 1.5; text-align: left; letter-spacing:=
+ 0px; direction: ltr; }.mceText a { color: rgb(0=2C 0=2C 0); font-style: n=
+ormal; font-weight: normal; text-decoration: underline; direction: ltr; }
+@media only screen and (max-width: 480px) {
+            .mceText p { font-size: 16px !important; line-height: 1.5 !imp=
+ortant; }
+          }
+@media only screen and (max-width: 480px) {
+            .mceBlockContainer { padding-left: 16px !important; padding-ri=
+ght: 16px !important; }
+          }
+#dataBlockId-9 p=2C #dataBlockId-9 h1=2C #dataBlockId-9 h2=2C #dataBlockId=
+-9 h3=2C #dataBlockId-9 h4=2C #dataBlockId-9 ul { text-align: center; }#da=
+taBlockId-76 p=2C #dataBlockId-76 h1=2C #dataBlockId-76 h2=2C #dataBlockId=
+-76 h3=2C #dataBlockId-76 h4=2C #dataBlockId-76 ul { line-height: 1.5; tex=
+t-align: left; }#dataBlockId-91 p=2C #dataBlockId-91 h1=2C #dataBlockId-91=
+ h2=2C #dataBlockId-91 h3=2C #dataBlockId-91 h4=2C #dataBlockId-91 ul { li=
+ne-height: 1.5; text-align: left; }#dataBlockId-98 p=2C #dataBlockId-98 h1=
+=2C #dataBlockId-98 h2=2C #dataBlockId-98 h3=2C #dataBlockId-98 h4=2C #dat=
+aBlockId-98 ul { line-height: 1.5; text-align: left; }#dataBlockId-109 p=
+=2C #dataBlockId-109 h1=2C #dataBlockId-109 h2=2C #dataBlockId-109 h3=2C #=
+dataBlockId-109 h4=2C #dataBlockId-109 ul { line-height: 1.5; text-align:=
+ left; }#dataBlockId-116 p=2C #dataBlockId-116 h1=2C #dataBlockId-116 h2=
+=2C #dataBlockId-116 h3=2C #dataBlockId-116 h4=2C #dataBlockId-116 ul { li=
+ne-height: 1.5; text-align: left; }#dataBlockId-119 p=2C #dataBlockId-119=
+ h1=2C #dataBlockId-119 h2=2C #dataBlockId-119 h3=2C #dataBlockId-119 h4=
+=2C #dataBlockId-119 ul { line-height: 1.5; text-align: left; }#dataBlockI=
+d-138 p=2C #dataBlockId-138 h1=2C #dataBlockId-138 h2=2C #dataBlockId-138=
+ h3=2C #dataBlockId-138 h4=2C #dataBlockId-138 ul { line-height: 1.5; text=
+-align: left; }#dataBlockId-141 p=2C #dataBlockId-141 h1=2C #dataBlockId-1=
+41 h2=2C #dataBlockId-141 h3=2C #dataBlockId-141 h4=2C #dataBlockId-141 ul=
+ { line-height: 1.5; text-align: left; }#dataBlockId-142 p=2C #dataBlockId=
+-142 h1=2C #dataBlockId-142 h2=2C #dataBlockId-142 h3=2C #dataBlockId-142=
+ h4=2C #dataBlockId-142 ul { line-height: 1.5; text-align: left; }#dataBlo=
+ckId-145 p=2C #dataBlockId-145 h1=2C #dataBlockId-145 h2=2C #dataBlockId-1=
+45 h3=2C #dataBlockId-145 h4=2C #dataBlockId-145 ul { line-height: 1.5; te=
+xt-align: left; }</style></head>
+<body>
+<!--
+-->
+<!--[if !gte mso 9]><!----><span class=3D"mcnPreviewText" style=3D"displa=
+y:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opa=
+city:0; overflow:hidden; visibility:hidden; mso-hide:all;">A Reading Club=
+ For Software Developers</span><!--<![endif]-->
+<!--
+-->
+<center>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" wi=
+dth=3D"100%" id=3D"bodyTable" style=3D"background-color: rgb(255=2C 255=2C=
+ 255);">
+<tbody><tr>
+<td class=3D"bodyCell" align=3D"center" valign=3D"top">
+<table id=3D"root" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%"><tbody data-block-id=3D"54" class=3D"mceWrapper"><tr><td align=
+=3D"center" valign=3D"top" class=3D"mceWrapperOuter"><!--[if (gte mso 9)|=
+(IE)]><table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"660" style=3D"width:660px;"><tr><td><![endif]--><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"max=
+-width:660px" role=3D"presentation"><tbody><tr><td style=3D"background-col=
+or:#ffffff;background-position:center;background-repeat:no-repeat;backgrou=
+nd-size:cover" class=3D"mceWrapperInner" valign=3D"top"><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=
+=3D"presentation" data-block-id=3D"12"><tbody><tr class=3D"mceRow"><td sty=
+le=3D"background-position:center;background-repeat:no-repeat;background-si=
+ze:cover" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"paddin=
+g-top:0;padding-bottom:0" class=3D"mceColumn" data-block-id=3D"-4" valign=
+=3D"top" colspan=3D"12" width=3D"100%"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td s=
+tyle=3D"background-color:#3e4954;padding-top:0;padding-bottom:0;padding-ri=
+ght:0;padding-left:0" class=3D"mceBlockContainer" align=3D"center" valign=
+=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" data-block-id=3D"55"><tbody><tr class=3D"mce=
+StandardButton"><td style=3D"background-color:#3e4954;border-radius:0;text=
+-align:center" class=3D"mceButton" valign=3D"top"><a href=3D"https://point=
+er.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3De33e=
+c675c1&e=3D0e436c5282" target=3D"_blank" style=3D"background-color:#3e495=
+4;border-radius:0;border:1px solid #3e4954;color:#fabf80;display:block;fon=
+t-family:'Space Mono'=2C 'Courier'=2C Georgia=2C serif;font-size:20px;font=
+-weight:bold;font-style:normal;padding:16px 28px;text-decoration:none;min-=
+width:30px;text-align:center;direction:ltr;letter-spacing:0px">pointer.io<=
+/a></td></tr><tr>
+<!--[if mso]>
+<td align=3D"center">
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+href=3D"https://www.pointer.io/"
+style=3D"v-text-anchor:middle; width:180.41px; height:63.5px;"
+arcsize=3D"0%"
+strokecolor=3D"#3e4954"
+strokeweight=3D"1px"
+fillcolor=3D"#3e4954">
+<v:stroke dashstyle=3D"solid"/>
+<w:anchorlock />
+<center style=3D"
+color: #fabf80;
+display: block;
+font-family: 'Space Mono'=2C 'Courier'=2C Georgia=2C serif;
+font-size: 20;
+font-style: normal;
+font-weight: bold;
+letter-spacing: 0px;
+text-decoration: none;
+text-align: center;
+direction: ltr;"
+>
+pointer.io
+</center>
+</v:roundrect>
+</td>
+<![endif]-->
+</tr></tbody></table></td></tr><tr><td style=3D"padding-top:10px;padding-b=
+ottom:10px;padding-right:20px;padding-left:20px" class=3D"mceBlockContaine=
+r" valign=3D"top"><div data-block-id=3D"48" class=3D"mceText" id=3D"dataBl=
+ockId-48" style=3D"width:100%"><p style=3D"text-align: center;"><br /></p>=
+<p style=3D"text-align: center;" class=3D"last-child">Friday 19th January=
+=E2=80=99s issue is presented by Clerk</p></div></td></tr><tr><td style=3D=
+"background-color:#ffffff;padding-top:10px;padding-bottom:10px;padding-rig=
+ht:10px;padding-left:10px" class=3D"mceBlockContainer" align=3D"center" va=
+lign=3D"top"><a href=3D"https://pointer.us9.list-manage.com/track/click?u=
+=3De9492ff27d760c578a39d0675&id=3Dc7c61c5c21&e=3D0e436c5282" style=3D"dis=
+play:block" target=3D"_blank" data-block-id=3D"47"><img width=3D"219" heig=
+ht=3D"auto" style=3D"border:0;width:219px;height:auto;max-width:820px !imp=
+ortant;border-radius:0;display:block" alt=3D"" src=3D"https://mcuserconten=
+t.com/e9492ff27d760c578a39d0675/images/4b620985-f30b-c3d2-a9b7-c8ac0c9840b=
+e.png" role=3D"presentation" class=3D"imageDropZone mceImage" /></a></td><=
+/tr><tr><td style=3D"padding-top:10px;padding-bottom:10px;padding-right:20=
+px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><div data=
+-block-id=3D"91" class=3D"mceText" id=3D"dataBlockId-91" style=3D"width:10=
+0%"><p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De949=
+2ff27d760c578a39d0675&id=3D2975745022&e=3D0e436c5282" target=3D"_blank"><=
+strong><span style=3D"font-size: 18px">The Most Comprehensive User Managem=
+ent Platform</span></strong></a></p><p><br /></p><p class=3D"last-child">N=
+eed more than just a sign-in box? <a href=3D"https://pointer.us9.list-mana=
+ge.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D397985bf4b&e=3D0e436c5282" target=3D"_blank">Clerk</a> is a complete suite of embeddable UIs=
+=2C flexible APIs=2C and admin dashboards to authenticate and manage your=
+ users. Seamless SDKs for modern frameworks.</p></div></td></tr><tr><td st=
+yle=3D"padding-top:20px;padding-bottom:20px;padding-right:20px;padding-lef=
+t:20px" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"9=
+2" class=3D"mceText" id=3D"dataBlockId-92" style=3D"width:100%"><p style=
+=3D"text-align: center;" class=3D"last-child"><a href=3D"https://pointer.u=
+s9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3De19d9315=
+d5&e=3D0e436c5282" target=3D"_blank"><strong><span style=3D"font-size: 20=
+px">Simplify User Management With Clerk</span></strong></a></p></div></td>=
+</tr><tr><td style=3D"background-color:transparent;padding-top:5px;padding=
+-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockContain=
+er" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"100%" style=3D"background-color:transparent" role=3D"presentatio=
+n" data-block-id=3D"43"><tbody><tr><td style=3D"min-width:100%;border-top:=
+2px solid #000000" valign=3D"top"></td></tr></tbody></table></td></tr><tr>=
+<td style=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding-=
+left:20px" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=
+=3D"116" class=3D"mceText" id=3D"dataBlockId-116" style=3D"width:100%"><p>=
+<a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d7=
+60c578a39d0675&id=3Da36ab9da92&e=3D0e436c5282" target=3D"_blank"><strong>=
+<span style=3D"font-size: 20px">Measuring Developer Productivity: Real-Wor=
+ld Examples</span></strong></a></p><p>=E2=80=94 Gergely Orosz=2C Abi Noda<=
+/p><p><br /></p><p><strong>tl;dr</strong>: In this issue=2C Abi outlines t=
+he developer productivity metrics used at 17 tech companies=2C such as Amp=
+litude=2C Etsy=2C DoorDash. He then dives deep into several companoes of v=
+arying size=2C notably Google &amp; LinkedIn=2C Peloton=2C scaleups and sm=
+aller companies. Abi=E2=80=99s advice on how to choose your metrics: start=
+ with the problem you want to solve. Is it shipping frictionless=2C retain=
+ing developers by keeping them happy and satisfied=2C raising the quality=
+ of software shipped=2C or something else? Then work backwards from there.=
+=C2=A0</p><p><br /></p><p style=3D"text-align: right;" class=3D"last-child=
+"><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27=
+d760c578a39d0675&id=3Da21469650f&e=3D0e436c5282" target=3D"_blank"><em><s=
+pan style=3D"font-size: 12px">Leadership</span></em></a><em><span style=3D=
+"font-size: 12px"> </span></em><a href=3D"https://pointer.us9.list-manage.=
+com/track/click?u=3De9492ff27d760c578a39d0675&id=3D436609fc61&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size: 12px">Management</spa=
+n></em></a><em><span style=3D"font-size: 12px"> </span></em><a href=3D"htt=
+ps://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675=
+&id=3Dbef16e7f85&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"fon=
+t-size: 12px">Productivity</span></em></a></p></div></td></tr><tr><td styl=
+e=3D"padding-top:0;padding-bottom:0;padding-right:15px;padding-left:0" cla=
+ss=3D"mceBlockContainer" align=3D"right" valign=3D"top"><a href=3D"mailto:=
+?subject=3DMeasuring%20Developer%20Productivity%3A%20Real-World%20Examples=
+&body=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.pointer.io%3=
+A%0D%0A%0D%0AMeasuring%20Developer%20Productivity%3A%20Real-World%20Exampl=
+es%0D%0Ahttps%3A%2F%2Fnewsletter.pragmaticengineer.com%2Fp%2Fmeasuring-dev=
+eloper-productivity-bae" style=3D"display:block" target=3D"_blank" data-bl=
+ock-id=3D"140"><img width=3D"38" height=3D"auto" style=3D"border:0;width:3=
+8px;height:auto;max-width:64px !important;display:block" alt=3D"" src=3D"h=
+ttps://mcusercontent.com/e9492ff27d760c578a39d0675/images/5007b776-f11f-9e=
+3f-6747-ec4408bb95b0.png" role=3D"presentation" class=3D"imageDropZone mce=
+Image" /></a></td></tr><tr><td style=3D"background-color:transparent;paddi=
+ng-top:5px;padding-bottom:5px;padding-right:20px;padding-left:20px" class=
+=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" width=3D"100%" style=3D"background-color:transparent"=
+ role=3D"presentation" data-block-id=3D"139"><tbody><tr><td style=3D"min-w=
+idth:100%;border-top:2px solid #3e4954" valign=3D"top"></td></tr></tbody><=
+/table></td></tr><tr><td style=3D"padding-top:20px;padding-bottom:0;paddin=
+g-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"=
+><div data-block-id=3D"138" class=3D"mceText" id=3D"dataBlockId-138" style=
+=3D"width:100%"><p><a href=3D"https://pointer.us9.list-manage.com/track/cl=
+ick?u=3De9492ff27d760c578a39d0675&id=3Dba77a95ee7&e=3D0e436c5282" target=
+=3D"_blank"><strong><span style=3D"font-size: 20px">Unit Of Work</span></s=
+trong></a></p><p>=E2=80=94 Andrew Bosworth</p><p><br /></p><p><strong>tl;d=
+r</strong>: The environment you are working in has a rate of change (entro=
+py) e.g. competitors=2C regulators=2C consumer behavior. The relationship=
+ between this rate and the unit of work you undertaking is critical to und=
+erstand: (1) If the unit of work is bigger than the rate of change=2C then=
+ you will fall behind. (2) If your unit of work is smaller than the rate o=
+f change you are likely driving change for others. Sometimes you have an i=
+rreducibly large bit of work that doesn=E2=80=99t fit inside the entropy w=
+indow e.g. a re-architecture. The likely outcome is that midway through th=
+e very expensive program you=E2=80=99ll find yourself having to start it o=
+ver because the environment you are building for continues to evolve.</p><=
+p><br /></p><p style=3D"text-align: right;" class=3D"last-child"><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3Da55fb65e74&e=3D0e436c5282" target=3D"_blank"><em><span style=
+=3D"font-size: 12px">Leadership</span></em></a><em><span style=3D"font-siz=
+e: 12px"> </span></em><a href=3D"https://pointer.us9.list-manage.com/track=
+/click?u=3De9492ff27d760c578a39d0675&id=3D7dd171af18&e=3D0e436c5282" targ=
+et=3D"_blank"><em><span style=3D"font-size: 12px">Management</span></em></=
+a></p></div></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padd=
+ing-right:15px;padding-left:0" class=3D"mceBlockContainer" align=3D"right"=
+ valign=3D"top"><a href=3D"mailto:?subject=3DUnit%20Of%20Work&body=3DI'm%2=
+0sharing%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0A=
+Unit%20Of%20Work%0D%0Ahttps%3A%2F%2Fboz.com%2Farticles%2Funit-of-work" sty=
+le=3D"display:block" target=3D"_blank" data-block-id=3D"133"><img width=3D=
+"38" height=3D"auto" style=3D"border:0;width:38px;height:auto;max-width:64=
+px !important;display:block" alt=3D"" src=3D"https://mcusercontent.com/e94=
+92ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png" ro=
+le=3D"presentation" class=3D"imageDropZone mceImage" /></a></td></tr><tr><=
+td style=3D"background-color:transparent;padding-top:5px;padding-bottom:5p=
+x;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=
+=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+100%" style=3D"background-color:transparent" role=3D"presentation" data-bl=
+ock-id=3D"126"><tbody><tr><td style=3D"min-width:100%;border-top:2px solid=
+ #3e4954" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=
+=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding-left:20px=
+" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"141" cl=
+ass=3D"mceText" id=3D"dataBlockId-141" style=3D"width:100%"><p><a href=3D"=
+https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0=
+675&id=3D5854d29125&e=3D0e436c5282" target=3D"_blank"><strong><span style=
+=3D"font-size: 20px">Learning From A Strategy Project</span></strong></a><=
+/p><p>=E2=80=94 Anna Shipman</p><p><br /></p><p><strong>tl;dr</strong>:=
+ =E2=80=9CI was leading one of a number of engineering groups within a lar=
+ger organization; each group had its own priorities=2C but most of them re=
+quired delivery through my team; and we had our own priorities. So we ende=
+d up slowing each other down.=E2=80=9D Anna looked to her managers to solv=
+e this before deciding to create the strategy herself. Here=E2=80=99s are=
+ some of the things she learned: (1) Even if you think you know the desire=
+d end state=2C take a smaller chunk and make some tangible steps. (2) Over=
+communicate the goal and your progress towards it. (3)=C2=A0Focus more on=
+ bringing people with you than on getting a perfect answer.</p><p><br /></=
+p><p style=3D"text-align: right;" class=3D"last-child"><a href=3D"https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3D4732b9eb76&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-s=
+ize: 12px">BestPractices</span></em></a><em><span style=3D"font-size: 12px=
+"> </span></em><a href=3D"https://pointer.us9.list-manage.com/track/click?=
+u=3De9492ff27d760c578a39d0675&id=3Dfb96836dfb&e=3D0e436c5282" target=3D"_=
+blank"><em><span style=3D"font-size: 12px">Management</span></em></a></p><=
+/div></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-rig=
+ht:15px;padding-left:0" class=3D"mceBlockContainer" align=3D"right" valign=
+=3D"top"><a href=3D"mailto:?subject=3DLearning%20From%20A%20Strategy%20Pro=
+ject&body=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.pointer.=
+io%3A%0D%0A%0D%0ALearning%20From%20A%20Strategy%20Project%0D%0Ahttps%3A%2F=
+%2Fwww.annashipman.co.uk%2Fjfdi%2Flearnings-from-strategy-project.html" st=
+yle=3D"display:block" target=3D"_blank" data-block-id=3D"134"><img width=
+=3D"38" height=3D"auto" style=3D"border:0;width:38px;height:auto;max-width=
+:64px !important;display:block" alt=3D"" src=3D"https://mcusercontent.com/=
+e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png"=
+ role=3D"presentation" class=3D"imageDropZone mceImage" /></a></td></tr><t=
+r><td style=3D"background-color:transparent;padding-top:5px;padding-bottom=
+:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" val=
+ign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"background-color:transparent" role=3D"presentation" dat=
+a-block-id=3D"99"><tbody><tr><td style=3D"min-width:100%;border-top:2px so=
+lid #3e4954" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td st=
+yle=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding-left:2=
+0px" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"145"=
+ class=3D"mceText" id=3D"dataBlockId-145" style=3D"width:100%"><p><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3Db3da061f29&e=3D0e436c5282" target=3D"_blank"><strong><span s=
+tyle=3D"font-size: 20px">Demystifying Project Estimation</span></strong></=
+a></p><p>=E2=80=94 Nicolla Ballotta=2C Jordan Cutler</p><p><br /><strong>t=
+l;dr</strong>:=C2=A0=E2=80=9CEstimating a project or the latest feature yo=
+u aim to deliver holds incredible value=2C not only for the business your=
+ team serves but also for you and your team. In fact=2C estimations bring=
+ clarity and alignment=2C which are crucial for delivering quickly and wit=
+h minimal stress.=E2=80=9D The article covers the purposes and challenges=
+ of estimation=2C and gives practical examples and tips.=C2=A0</p><p><br /=
+></p><p style=3D"text-align: right;" class=3D"last-child"><a href=3D"https=
+://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&i=
+d=3D924ce93df0&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-=
+size: 12px">CareerAdvice</span></em></a></p></div></td></tr><tr><td style=
+=3D"padding-top:0;padding-bottom:0;padding-right:15px;padding-left:0" clas=
+s=3D"mceBlockContainer" align=3D"right" valign=3D"top"><a href=3D"mailto:?=
+subject=3DDemystifying%20Project%20Estimation&body=3DI'm%20sharing%20this%=
+20article%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0ADemystifying%20P=
+roject%20Estimation%0D%0Ahttps%3A%2F%2Fhybridhacker.email%2Fp%2Fdemystifyi=
+ng-project-estimation" style=3D"display:block" target=3D"_blank" data-bloc=
+k-id=3D"146"><img width=3D"38" height=3D"auto" style=3D"border:0;width:38p=
+x;height:auto;max-width:64px !important;display:block" alt=3D"" src=3D"htt=
+ps://mcusercontent.com/e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f=
+-6747-ec4408bb95b0.png" role=3D"presentation" class=3D"imageDropZone mceIm=
+age" /></a></td></tr><tr><td style=3D"background-color:transparent;padding=
+-top:5px;padding-bottom:5px;padding-right:20px;padding-left:20px" class=3D=
+"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"background-color:transparent" rol=
+e=3D"presentation" data-block-id=3D"103"><tbody><tr><td style=3D"min-width=
+:100%;border-top:2px solid #3e4954" valign=3D"top"></td></tr></tbody></tab=
+le></td></tr><tr><td style=3D"background-color:transparent;padding-top:0;p=
+adding-bottom:0;padding-right:0;padding-left:0" class=3D"mceBlockContainer=
+" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" w=
+idth=3D"100%" style=3D"background-color:transparent" role=3D"presentation"=
+ data-block-id=3D"63"><tbody><tr><td style=3D"min-width:100%;border-top:20=
+px solid transparent" valign=3D"top"></td></tr></tbody></table></td></tr><=
+tr><td style=3D"background-color:#3e4954;padding-top:20px;padding-bottom:2=
+0px;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" vali=
+gn=3D"top"><div data-block-id=3D"62" class=3D"mceText" id=3D"dataBlockId-6=
+2" style=3D"width:100%"><p style=3D"text-align: center;" class=3D"last-chi=
+ld"><em><strong><span style=3D"color:#ffffff;">=E2=80=9CComputers are usel=
+ess. They can only give you answers.=E2=80=9D<br /><br />=E2=80=94 Pablo P=
+icasso</span></strong></em></p></div></td></tr><tr><td style=3D"background=
+-color:transparent;padding-top:0;padding-bottom:0;padding-right:0;padding-=
+left:0" class=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:=
+transparent" role=3D"presentation" data-block-id=3D"64"><tbody><tr><td sty=
+le=3D"min-width:100%;border-top:20px solid transparent" valign=3D"top"></t=
+d></tr></tbody></table></td></tr><tr><td style=3D"background-color:transpa=
+rent;padding-top:5px;padding-bottom:5px;padding-right:20px;padding-left:20=
+px" class=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:tran=
+sparent" role=3D"presentation" data-block-id=3D"117"><tbody><tr><td style=
+=3D"min-width:100%;border-top:2px solid #3e4954" valign=3D"top"></td></tr>=
+</tbody></table></td></tr><tr><td style=3D"padding-top:20px;padding-bottom=
+:0;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" valig=
+n=3D"top"><div data-block-id=3D"119" class=3D"mceText" id=3D"dataBlockId-1=
+19" style=3D"width:100%"><p><a href=3D"https://pointer.us9.list-manage.com=
+/track/click?u=3De9492ff27d760c578a39d0675&id=3D9054c8637d&e=3D0e436c5282=
+" target=3D"_blank"><strong><span style=3D"font-size: 20px">Slashing Data=
+ Transfer Costs In AWS By 99%</span></strong></a></p><p>=E2=80=94 Daniel K=
+leinstein</p><p><br /></p><p><strong>tl;dr</strong>: =E2=80=9CAWS replicat=
+es S3 data between availability zones for you - whatever this might cost A=
+WS is hidden away in the storage costs you pay for your data. So at its mo=
+st fundamental level=2C this method is unlocking free cross-AZ costs - bec=
+ause you=E2=80=99ve effectively already paid for the cross-AZ cost when yo=
+u uploaded your data to S3! Indeed=2C if you were to leave your data store=
+d in S3=2C you=E2=80=99d end up paying significantly more than the cross-A=
+Z cost - but by deleting it immediately after transferring it=2C you unloc=
+k the 99% savings we were going for.=E2=80=9D</p><p><br /></p><p style=3D"=
+text-align: right;" class=3D"last-child"><a href=3D"https://pointer.us9.li=
+st-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Df99f3ab082&e=
+=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size: 12px">Pric=
+ing</span></em></a><em><span style=3D"font-size: 12px"> </span></em><a hre=
+f=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578=
+a39d0675&id=3Df57dbdda7f&e=3D0e436c5282" target=3D"_blank"><em><span styl=
+e=3D"font-size: 12px">AWS</span></em></a></p></div></td></tr><tr><td style=
+=3D"padding-top:0;padding-bottom:0;padding-right:15px;padding-left:0" clas=
+s=3D"mceBlockContainer" align=3D"right" valign=3D"top"><a href=3D"mailto:?=
+subject=3DSlashing%20Data%20Transfer%20Costs%20In%20AWS%20By%2099%25&body=
+=3DI'm%20sharing%20this%20article%20I%20found%20on%20www.pointer.io%3A%0D%=
+0A%0D%0ASlashing%20Data%20Transfer%20Costs%20In%20AWS%20By%2099%25%0D%0Aht=
+tps%3A%2F%2Fwww.bitsand.cloud%2Fposts%2Fslashing-data-transfer-costs%2F" s=
+tyle=3D"display:block" target=3D"_blank" data-block-id=3D"130"><img width=
+=3D"38" height=3D"auto" style=3D"border:0;width:38px;height:auto;max-width=
+:64px !important;display:block" alt=3D"" src=3D"https://mcusercontent.com/=
+e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png"=
+ role=3D"presentation" class=3D"imageDropZone mceImage" /></a></td></tr><t=
+r><td style=3D"background-color:transparent;padding-top:5px;padding-bottom=
+:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" val=
+ign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"background-color:transparent" role=3D"presentation" dat=
+a-block-id=3D"144"><tbody><tr><td style=3D"min-width:100%;border-top:2px s=
+olid #3e4954" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td s=
+tyle=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding-left:=
+20px" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"142=
+" class=3D"mceText" id=3D"dataBlockId-142" style=3D"width:100%"><p><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3Dc29adcff0f&e=3D0e436c5282" target=3D"_blank"><strong><span s=
+tyle=3D"font-size: 20px">Turing Completeness</span></strong></a></p><p>=E2=
+=80=94 Vijay Ramamurthy</p><p><br /><strong>tl;dr</strong>:=C2=A0Polar=2C=
+ a language designed for permissions=2C is not Turing complete. That's a g=
+ood thing because you need your permissions queries to be low latency and=
+ not run forever. Read our proof on why Polar isn't Turing complete and wh=
+y that's a good thing.</p><p><br /></p><p><em>Promoted by Oso</em></p><p s=
+tyle=3D"text-align: right;" class=3D"last-child"><a href=3D"https://pointe=
+r.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D8b40c=
+ea9be&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"font-size: 12p=
+x">LanguageDesign</span></em></a></p></div></td></tr><tr><td style=3D"padd=
+ing-top:0;padding-bottom:0;padding-right:15px;padding-left:0" class=3D"mce=
+BlockContainer" align=3D"right" valign=3D"top"><a href=3D"mailto:?subject=
+=3DTuring%20Completeness&body=3DI'm%20sharing%20this%20article%20I%20found=
+%20on%20www.pointer.io%3A%0D%0A%0D%0ATuring%20Completeness%0D%0Ahttps%3A%2=
+F%2Fwww.osohq.com%2Fpost%2Fis-polar-turing-complete-and-why-i-hope-not%3Fu=
+tm_campaign%3Dpointer2024%26utm_medium%3Dnewsletter%26utm_source%3Dpointer=
+" style=3D"display:block" target=3D"_blank" data-block-id=3D"149"><img wid=
+th=3D"38" height=3D"auto" style=3D"border:0;width:38px;height:auto;max-wid=
+th:64px !important;display:block" alt=3D"" src=3D"https://mcusercontent.co=
+m/e9492ff27d760c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.pn=
+g" role=3D"presentation" class=3D"imageDropZone mceImage" /></a></td></tr>=
+<tr><td style=3D"background-color:transparent;padding-top:5px;padding-bott=
+om:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" v=
+align=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" widt=
+h=3D"100%" style=3D"background-color:transparent" role=3D"presentation" da=
+ta-block-id=3D"148"><tbody><tr><td style=3D"min-width:100%;border-top:2px=
+ solid #3e4954" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td=
+ style=3D"padding-top:20px;padding-bottom:0;padding-right:20px;padding-lef=
+t:20px" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"7=
+6" class=3D"mceText" id=3D"dataBlockId-76" style=3D"width:100%"><p><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3D4c07d84599&e=3D0e436c5282" target=3D"_blank"><strong><span s=
+tyle=3D"font-size: 20px">Why Lowercase Letters Save Data</span></strong></=
+a></p><p><br /><strong>tl;dr</strong>: =E2=80=9CI took the front page of H=
+acker News and rewrote the title of each article in sentence case instead=
+ of title case. Each html file had the exact same number of characters =E2=
+=80=94 but when compressed into zip files the title case file was 5=2C992=
+ bytes and the sentence case file was 5=2C961 bytes. Saving 31 bytes!=E2=
+=80=9D For each site visit to Hacker News would save 0.00001059642g of car=
+bon if written in sentence case. Assuming it gets about 10 million visits=
+ a day changing to sentence case would result in the prevention of 105g of=
+ carbon daily.=E2=80=9D=C2=A0</p><p><br /></p><p style=3D"text-align: righ=
+t;" class=3D"last-child"><a href=3D"https://pointer.us9.list-manage.com/tr=
+ack/click?u=3De9492ff27d760c578a39d0675&id=3Db3c3615aa3&e=3D0e436c5282" t=
+arget=3D"_blank"><em><span style=3D"font-size: 12px">Compression</span></e=
+m></a></p></div></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;=
+padding-right:15px;padding-left:0" class=3D"mceBlockContainer" align=3D"ri=
+ght" valign=3D"top"><a href=3D"mailto:?subject=3DWhy%20Lowercase%20Letters=
+%20Save%20Data&body=3DI'm%20sharing%20this%20article%20I%20found%20on%20ww=
+w.pointer.io%3A%0D%0A%0D%0AWhy%20Lowercase%20Letters%20Save%20Data%0D%0Aht=
+tps%3A%2F%2Fendtimes.dev%2Fwhy-lowercase-letters-save-data%2F" style=3D"di=
+splay:block" target=3D"_blank" data-block-id=3D"129"><img width=3D"38" hei=
+ght=3D"auto" style=3D"border:0;width:38px;height:auto;max-width:64px !impo=
+rtant;display:block" alt=3D"" src=3D"https://mcusercontent.com/e9492ff27d7=
+60c578a39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png" role=3D"pr=
+esentation" class=3D"imageDropZone mceImage" /></a></td></tr><tr><td style=
+=3D"background-color:transparent;padding-top:5px;padding-bottom:5px;paddin=
+g-right:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"=
+><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" st=
+yle=3D"background-color:transparent" role=3D"presentation" data-block-id=
+=3D"136"><tbody><tr><td style=3D"min-width:100%;border-top:2px solid #3e49=
+54" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"pa=
+dding-top:20px;padding-bottom:0;padding-right:20px;padding-left:20px" clas=
+s=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"109" class=3D=
+"mceText" id=3D"dataBlockId-109" style=3D"width:100%"><p><a href=3D"https:=
+//pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3Dca66fc01c5&e=3D0e436c5282" target=3D"_blank"><strong><span style=3D"fo=
+nt-size: 20px">Let's Talk About Joins</span></strong></a></p><p>=E2=80=94=
+ Crystal Lewis</p><p><br /><strong>tl;dr</strong>: =E2=80=9CIn general=2C=
+ there are two ways to link our data=2C horizontally or vertically. When l=
+inking or joining data horizontally we are matching rows by one or more va=
+riables (i.e.=2C keys)=2C making a wider dataset. When joining vertically=
+=2C column names are matched and datasets are stacked on top of each other=
+=2C making a longer dataset. Joins can be done in many different programs=
+ (e.g.=2C SQL=2C R=2C Stata=2C SAS). Most of this post will be applicable=
+ to any language=2C but examples in R will be provided.=E2=80=9D</p><p><br=
+ /></p><p style=3D"text-align: right;" class=3D"last-child"><a href=3D"htt=
+ps://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675=
+&id=3Db0839d71e2&e=3D0e436c5282" target=3D"_blank"><em><span style=3D"fon=
+t-size: 12px">Database</span></em></a></p></div></td></tr><tr><td style=3D=
+"padding-top:0;padding-bottom:0;padding-right:15px;padding-left:0" class=
+=3D"mceBlockContainer" align=3D"right" valign=3D"top"><a href=3D"mailto:?s=
+ubject=3DLet's%20Talk%20About%20Joins&body=3DI'm%20sharing%20this%20articl=
+e%20I%20found%20on%20www.pointer.io%3A%0D%0A%0D%0ALet's%20Talk%20About%20J=
+oins%0D%0Ahttps%3A%2F%2Fcghlewis.com%2Fblog%2Fjoins%2F" style=3D"display:b=
+lock" target=3D"_blank" data-block-id=3D"128"><img width=3D"38" height=3D"=
+auto" style=3D"border:0;width:38px;height:auto;max-width:64px !important;d=
+isplay:block" alt=3D"" src=3D"https://mcusercontent.com/e9492ff27d760c578a=
+39d0675/images/5007b776-f11f-9e3f-6747-ec4408bb95b0.png" role=3D"presentat=
+ion" class=3D"imageDropZone mceImage" /></a></td></tr><tr><td style=3D"bac=
+kground-color:transparent;padding-top:5px;padding-bottom:5px;padding-right=
+:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><table=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"=
+background-color:transparent" role=3D"presentation" data-block-id=3D"112">=
+<tbody><tr><td style=3D"min-width:100%;border-top:2px solid #3e4954" valig=
+n=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"background-=
+color:#3e4954;padding-top:20px;padding-bottom:20px;padding-right:0;padding=
+-left:0" class=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"=
+123" class=3D"mceText" id=3D"dataBlockId-123" style=3D"width:100%"><p styl=
+e=3D"text-align: center;" class=3D"last-child"><strong><span style=3D"colo=
+r:#ffffff;"><span style=3D"font-size: 16px"><span style=3D"font-family: 'S=
+pace Mono'=2C 'Courier'=2C Georgia=2C serif">Notable Links</span></span></=
+span></strong></p></div></td></tr><tr><td style=3D"padding-top:0;padding-b=
+ottom:0;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer"=
+ valign=3D"top"><div data-block-id=3D"98" class=3D"mceText" id=3D"dataBloc=
+kId-98" style=3D"width:100%"><p><br /></p><p><a href=3D"https://pointer.us=
+9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dbcf4ed4f3=
+d&e=3D0e436c5282" target=3D"_blank"><strong>Audiocraft</strong></a><stron=
+g>: </strong>Library for audio processing and generation. </p><p><br /></p=
+><p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff=
+27d760c578a39d0675&id=3D9e10787933&e=3D0e436c5282" target=3D"_blank"><str=
+ong>CrewAI</strong></a><strong>: </strong>Orchestrating role-playing=2C au=
+tonomous AI agents.</p><p><br /></p><p><a href=3D"https://pointer.us9.list=
+-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D60c33a0630&e=3D=
+0e436c5282" target=3D"_blank"><strong>QAnything</strong></a><strong>: </s=
+trong>Local knowledge base question-answering system.</p><p><br /></p><p><=
+a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d76=
+0c578a39d0675&id=3Dfffb4a87e8&e=3D0e436c5282" target=3D"_blank"><strong>T=
+antivy</strong></a><strong>: </strong>Full-text search engine library.</p>=
+<p><br /></p><p><a href=3D"https://pointer.us9.list-manage.com/track/click=
+?u=3De9492ff27d760c578a39d0675&id=3Dbdbc46b74a&e=3D0e436c5282" target=3D"=
+_blank"><strong>Tinybench</strong></a><strong>: </strong>Lightweight bench=
+marking library. </p><p class=3D"last-child"><br /></p></div></td></tr><tr=
+><td style=3D"background-color:#3e4954;padding-top:0;padding-bottom:0;padd=
+ing-right:0;padding-left:0" class=3D"mceBlockContainer" valign=3D"top"><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=
+=3D"background-color:#3e4954" role=3D"presentation" data-block-id=3D"53"><=
+tbody><tr><td style=3D"min-width:100%;border-top:20px solid transparent" v=
+align=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"padding=
+-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px" class=
+=3D"mceBlockContainer" valign=3D"top"><div data-block-id=3D"89" class=3D"m=
+ceText" id=3D"dataBlockId-89" style=3D"width:100%"><p style=3D"text-align:=
+ center;">Click the below and shoot me an email!</p><p style=3D"text-align=
+: center;"><br />1 =3D Didn't enjoy it all // 5 =3D Really enjoyed it</p><=
+p style=3D"text-align: center;"><br /></p><p style=3D"text-align: center;"=
+ class=3D"last-child"><a href=3D"mailto:suraj@pointer.io?subject=3DIssue%2=
+0%23436%20-%20Score%3A%201&body=3DHere's%20why%3A"><strong>1</strong></a><=
+strong> =E2=80=A6 </strong><a href=3D"mailto:suraj@pointer.io?subject=3DIs=
+sue%20%23436%20-%20Score%3A%202&body=3DHere's%20why%3A"><strong>2</strong>=
+</a><strong> =E2=80=A6 </strong><a href=3D"mailto:suraj@pointer.io?subject=
+=3DIssue%20%23436%20-%20Score%3A%203&body=3DHere's%20why%3A"><strong>3</st=
+rong></a><strong> =E2=80=A6 </strong><a href=3D"mailto:suraj@pointer.io?su=
+bject=3DIssue%20%23436%20-%20Score%3A%204&body=3DHere's%20Why%3A"><strong>=
+4</strong></a><strong> =E2=80=A6 </strong><a href=3D"mailto:suraj@pointer.=
+io?subject=3DIssue%20%23436%20-%20Score%3A%205&body=3DHere's%20Why%3A"><st=
+rong>5</strong></a></p></div></td></tr><tr><td style=3D"background-color:#=
+3e4954;padding-top:0;padding-bottom:0;padding-right:0;padding-left:0" clas=
+s=3D"mceBlockContainer" valign=3D"top"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:#3e4954" rol=
+e=3D"presentation" data-block-id=3D"90"><tbody><tr><td style=3D"min-width:=
+100%;border-top:20px solid transparent" valign=3D"top"></td></tr></tbody><=
+/table></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-r=
+ight:0;padding-left:0" class=3D"mceLayoutContainer" valign=3D"top"><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" role=3D"presentation" data-block-id=3D"11" id=3D"section_7b174ba=
+e7edbaef4f01031f0e48ca6ee" class=3D"mceFooterSection"><tbody><tr class=3D"=
+mceRow"><td style=3D"background-position:center;background-repeat:no-repea=
+t;background-size:cover" valign=3D"top"><table border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"12" width=3D"100%" role=3D"presentation"><tbody><tr><td=
+ style=3D"padding-top:0;padding-bottom:0;margin-bottom:12px" class=3D"mceC=
+olumn" data-block-id=3D"-3" valign=3D"top" colspan=3D"12" width=3D"100%"><=
+table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=
+=3D"presentation"><tbody><tr><td style=3D"padding-top:20px;padding-bottom:=
+20px;padding-right:20px;padding-left:20px" class=3D"mceBlockContainer" ali=
+gn=3D"center" valign=3D"top"><div data-block-id=3D"9" class=3D"mceText" id=
+=3D"dataBlockId-9" style=3D"display:inline-block;width:100%"><p class=3D"l=
+ast-child"><span style=3D"font-size: 12px"><span style=3D"font-family: 'Sp=
+ace Mono'=2C 'Courier'=2C Georgia=2C serif">Pointer is emailed twice a wee=
+k on Tuesdays and Fridays @ 9am EST.<br /><br /></span></span><a href=3D"h=
+ttps://pointer.us9.list-manage.com/unsubscribe?u=3De9492ff27d760c578a39d06=
+75&id=3D6ba2b83261&e=3D0e436c5282&c=3D17e18e18d0"><span style=3D"text-decora=
+tion:underline;"><span style=3D"font-size: 12px"><span style=3D"font-famil=
+y: 'Space Mono'=2C 'Courier'=2C Georgia=2C serif">Unsubscribe</span></span=
+></span></a><span style=3D"font-size: 12px"><span style=3D"font-family: 'S=
+pace Mono'=2C 'Courier'=2C Georgia=2C serif"> // </span></span><a href=3D"=
+https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0=
+675&id=3Deb14068dc8&e=3D0e436c5282" target=3D"_blank"><span style=3D"text=
+-decoration:underline;"><span style=3D"font-size: 12px"><span style=3D"fon=
+t-family: 'Space Mono'=2C 'Courier'=2C Georgia=2C serif">Sponsorship</span=
+></span></span></a><span style=3D"color:rgb(32=2C 32=2C 32);"><span style=
+=3D"text-decoration:underline;"><span style=3D"font-size: 12px"><span><br=
+ /></span></span></span></span></p></div></td></tr><tr><td class=3D"mceLay=
+outContainer" align=3D"center" valign=3D"top"><table align=3D"center" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presen=
+tation" data-block-id=3D"-2"><tbody><tr class=3D"mceRow"><td style=3D"back=
+ground-position:center;background-repeat:no-repeat;background-size:cover;p=
+adding-top:0px;padding-bottom:0px" valign=3D"top"><table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"24" width=3D"100%" role=3D"presentation"><tbo=
+dy></tbody></table></td></tr></tbody></table></td></tr></tbody></table></t=
+d></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td style=
+=3D"background-color:transparent;padding-top:0;padding-bottom:0;padding-ri=
+ght:20px;padding-left:20px" class=3D"mceBlockContainer" valign=3D"top"><ta=
+ble border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=
+=3D"background-color:transparent" role=3D"presentation" data-block-id=3D"7=
+5"><tbody><tr><td style=3D"min-width:100%;border-top:2px dotted #000000" v=
+align=3D"top"></td></tr></tbody></table></td></tr></tbody></table></td></t=
+r></tbody></table></td></tr></tbody></table></td></tr></tbody></table><!--=
+[if (gte mso 9)|(IE)]></td></tr></table><![endif]--></td></tr></tbody></=
+table>
+</td>
+</tr>
+</tbody></table>
+</center>
+<img src=3D"https://pointer.us9.list-manage.com/track/open.php?u=3De9492ff=
+27d760c578a39d0675&id=3D17e18e18d0&e=3D0e436c5282" height=3D"1" width=3D"=
+1" alt=3D""></body></html>
+--_----------=_MCPart_1827787633--

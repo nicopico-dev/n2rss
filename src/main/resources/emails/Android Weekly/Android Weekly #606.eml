@@ -1,0 +1,1799 @@
+Delivered-To: nicopico.dev@gmail.com
+Received: by 2002:a05:7001:15:b0:54b:4326:6e94 with SMTP id rm21csp1112658mab;
+        Sun, 21 Jan 2024 10:01:34 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHrFXikELerwqLiJSzqXnHp6ru+SBzj548Bn27K6Nqut8W5JJSetijgLWmq6tgpkJSc4Mox
+X-Received: by 2002:a05:6214:20c2:b0:681:997b:7f7d with SMTP id 2-20020a05621420c200b00681997b7f7dmr5747384qve.105.1705860093837;
+        Sun, 21 Jan 2024 10:01:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1705860093; cv=none;
+        d=google.com; s=arc-20160816;
+        b=XZP5g/PFOOhuV39v8fqI7v9WSB+v9hWsfRKgLajXN8Byb8rTqJxr8UlNkxR2MuQM4y
+         XaU92UEpAm0HtbNpAIVVBu3WNNjXjc0+zFoTCRmEJxqs3YmS9gXfp6svMTwpVM+Zmrvf
+         mAkU8jeOZfuKv25b0IJ1XCO5A/c0thFUoIz2nVWhjahVXviOCDDYgA1WLv7v+nRF5v/x
+         t08EX8vs45p1V/EBsyiAFzMiswcwoOmrhYI61dsZkkJTzc9RrSx1ITsE9aYxpeVIyvv+
+         IxjK1Bwb7WynymGPQuQQJte+G8w72Tlh5LiULOQdkUPMIIj6q5QCdF55jvxYxVZPFlTb
+         GnGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe-post:list-unsubscribe:mime-version:subject:to
+         :reply-to:from:date:message-id:dkim-signature:dkim-signature;
+        bh=A1bYpsMiFg6tPTHBoxyCnTdKCQCZYqa9FJR4MKwUs50=;
+        fh=mtdSqSmrzXLQo/FWggskfaHm/ioCdJ0nULo6fTOj594=;
+        b=z9bLyj8RjxD6VJrdHbiEDzXM7GVZNzD1aagShHP71hJ8WowBsDIAcILr0twVy9hXa3
+         bZyhXkt4Mypr+dT5kO45pmONtWsy3iA5oJGL36NIWN/ebHLsHsku3G0pbDjCzIYHz6sH
+         COqlIGir1NCFUWANyUEcH+79DvCI4I+vQwgW1di9L55wga1P36EXQwldeemmco+7Ea/7
+         I94PvwgqPAWgZlORo0XgHBNACfZ4VGO8UCjTjXLXz1IxvQ1LEl3frnSgiQ9O4IBxJSY5
+         9ImeVYhqsnimkAEUhyEfvQFBWY7tTI61bouIcIQYR3uaCsKJpgZ8HqK5OzPVXt99XW4U
+         FeVQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@androidweekly.net header.s=2020215571 header.b=oRvSrrgP;
+       dkim=pass header.i=@auth.ccsend.com header.s=1000073432 header.b=gJEPUsJt;
+       spf=pass (google.com: domain of alup1iavaqjwux1txbcjzhw==_1129174679461_maaushrxeeybmvowpnifog==@in.constantcontact.com designates 208.75.123.247 as permitted sender) smtp.mailfrom="ALUP1IAVaQJWUX1TXbCJzhw==_1129174679461_MAaUSHRxEeyBMvoWPniFOg==@in.constantcontact.com"
+Return-Path: <ALUP1IAVaQJWUX1TXbCJzhw==_1129174679461_MAaUSHRxEeyBMvoWPniFOg==@in.constantcontact.com>
+Received: from ccm247.constantcontact.com (ccm247.constantcontact.com. [208.75.123.247])
+        by mx.google.com with ESMTPS id f10-20020a05620a280a00b0078335ccc0e8si4271202qkp.670.2024.01.21.10.01.33
+        for <nicopico.dev@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 21 Jan 2024 10:01:33 -0800 (PST)
+Received-SPF: pass (google.com: domain of alup1iavaqjwux1txbcjzhw==_1129174679461_maaushrxeeybmvowpnifog==@in.constantcontact.com designates 208.75.123.247 as permitted sender) client-ip=208.75.123.247;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@androidweekly.net header.s=2020215571 header.b=oRvSrrgP;
+       dkim=pass header.i=@auth.ccsend.com header.s=1000073432 header.b=gJEPUsJt;
+       spf=pass (google.com: domain of alup1iavaqjwux1txbcjzhw==_1129174679461_maaushrxeeybmvowpnifog==@in.constantcontact.com designates 208.75.123.247 as permitted sender) smtp.mailfrom="ALUP1IAVaQJWUX1TXbCJzhw==_1129174679461_MAaUSHRxEeyBMvoWPniFOg==@in.constantcontact.com"
+Return-Path: <ALUP1IAVaQJWUX1TXbCJzhw==_1129174679461_MAaUSHRxEeyBMvoWPniFOg==@in.constantcontact.com>
+Received: from [10.252.0.91] ([10.252.0.91:59296] helo=p2-jbemailsyndicator21.ctct.net)
+	by 10.249.237.20 (envelope-from <ALUP1IAVaQJWUX1TXbCJzhw==_1129174679461_MAaUSHRxEeyBMvoWPniFOg==@in.constantcontact.com>)
+	(ecelerity 4.3.1.999 r(:)) with ESMTP
+	id DD/4A-31175-DFB5DA56; Sun, 21 Jan 2024 13:01:33 -0500
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=2020215571; d=androidweekly.net; h=date:mime-version:subject:X-Feedback-ID:X-250ok-CID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=A1bYpsMiFg6tPTHBoxyCnTdKCQCZYqa9FJR4MKwUs50=; b=oRvSrrgPNbNC1pYvNkb1qIHDeuKq9JWkC72Y7Vt5WNf0r2o+BzrhsDEDlRwcC6aW3HOQcC3snEgnijdS39znw8wTKc72udi4kIe7CaFw9H89uIlhXfQsNfiJZglZN8E/AS52Q2sndEwn/N0jOka/+nKXlzjek1gjsRkPNWSSyYc=
+DKIM-Signature: v=1; q=dns/txt; a=rsa-sha256; c=relaxed/relaxed; s=1000073432; d=auth.ccsend.com; h=date:mime-version:subject:X-Feedback-ID:X-250ok-CID:message-id:from:reply-to:list-unsubscribe:list-unsubscribe-post:to; bh=A1bYpsMiFg6tPTHBoxyCnTdKCQCZYqa9FJR4MKwUs50=; b=gJEPUsJtUhDs0LmGRPKriblVVMI0nx1lPC7CXQrK1BHX7sg5v+azvPpp5QdU2/SqSe3FqZGzTcppXTCPy7G4OqXJaAm0x0+33oVbV05C5A/cQ4Bsk+F3Dg5taQEx9MBTRpsVXkqJlpES16rG4Pq7iX3j9hUy0J+6NmOGhsttWGg=
+Message-ID: <1141127866694.1129174679461.1900888730.0.931300JL.2002@synd.ccsend.com>
+Date: Sun, 21 Jan 2024 13:01:33 -0500 (EST)
+From: "AndroidWeekly.net" <contact@androidweekly.net>
+Reply-To: contact@androidweekly.net
+To: nicopico.dev@gmail.com
+Subject: =?utf-8?Q?Android_Weekly_#606_=F0=9F=A4=96?=
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_34255642_486214754.1705860093239"
+List-Unsubscribe: <https://visitor.constantcontact.com/do?p=un&m=001MNaPVb3At52qYtONFY-Zbw%3D%3D&se=001OarkUc4Q-r5sstKRVQi17g%3D%3D&t=001EkZLEx15CcE%3D&llr=f6p7au8ab>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Campaign-Activity-ID: 2d43f520-055a-4095-945f-54d76c227387
+X-250ok-CID: 2d43f520-055a-4095-945f-54d76c227387
+X-Channel-ID: 30069448-7471-11ec-8132-fa163e78853a
+X-Return-Path-Hint: ALUP1IAVaQJWUX1TXbCJzhw==_1129174679461_MAaUSHRxEeyBMvoWPniFOg==@in.constantcontact.com
+X-Roving-Campaignid: 1141127866694
+X-Roving-Id: 1129174679461.1900888730
+X-Feedback-ID: 30069448-7471-11ec-8132-fa163e78853a:2d43f520-055a-4095-945f-54d76c227387:1129174679461:CTCT
+X-CTCT-ID: 2ff6a380-7471-11ec-8132-fa163e78853a
+
+------=_Part_34255642_486214754.1705860093239
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+View in web browser 606 January 21st, 2024 Articles & Tutorials Improving u=
+nit test performance This post examines an effort in auditing and inventing=
+ a =E2=80=9Clite=E2=80=9D test configuration =E2=80=94 a configuration for =
+disabling unnecessary Gradle tasks, resulting in faster unit test compilati=
+on time. Sponsored [New] eBook: 5 Ways to Prioritize & Resolve ANRs Mobile =
+engineers need a better way to address ANRs! Grab your copy of this ebook t=
+o discover strategies to accurately detect and swiftly resolve ANRs before =
+they impact users. A Better Hash Map: Part 1 Romain Guy examines how HashMa=
+p can be better optimized when used in a library such as Jetpack Compose th=
+at needs high performance and efficiency. nowinandroid builds with Gradle 8=
+.5 and JDK 21 I=C3=B1aki Villar examines build speed improvements with Grad=
+le 8.5, which fully supports compiling, testing and running on Java 21. Lev=
+el Up Your Daily Coding: Four Lesser-Known Tools in Android Studio Hadi Dor=
+taj introduces four valuable editor-based tools in Android Studio/IntelliJ =
+IDEA that might not be widely known among developers. Jetpack Compose: Pass=
+ing data implicitly in Composable screens Saqib shows how CompositionLocal =
+is used to pass data through Composables implicitly. What's new with Google=
+ Cast? Google announced the launch of new features that make it more seamle=
+ss to cast on Android. Unlock the Power of Generative AI in Your Applicatio=
+ns with Gemini Jay Whitsitt shows how it's easier than ever to integrate pu=
+rpose-built machine learning into your applications. Automating Baseline Pr=
+ofile end-to-end on CI Keeping a baseline profile up to date is only half o=
+f the problem. You also need to make sure the profile is working as expecte=
+d. Sagar Viradiya shows how to automate this process. How to use A/B tests =
+to maximize your app=E2=80=99s revenue Annyce Davis shows why you should us=
+e A/B tests to prove or disapprove assumptions about any changes to your ap=
+p=E2=80=99s experience. Exploring Health Connect Pt. 2 - Reading and Writin=
+g Data Eevis Panula continues the series, this time looking into reading an=
+d writing data with Health Connect. Adding Custom Actions to Share Sheets i=
+n Android 14 Joe Birch explores custom actions and shows how we can add the=
+m to our own share sheets. Unlocking New Possibilities with Maestro: Beyond=
+ Automated Testing Dennis Bordet looks at using Maestro for application dev=
+elopment checking in the deepest screen of your app. Boolean Infix Function=
+s and Short Circuiting Donovan LaDuke examines two ways to perform boolean =
+operations in Kotlin, and how they are mostly the same with one key differe=
+nce. Sealed Types Dave Leeds presents Chapter 16 of Kotlin: An Illustrated =
+Guide, looking at Sealed Types. Learn all of the essential concepts behind =
+sealed classes and sealed interfaces! Jetpack Compose: The Android Develope=
+r Roadmap - Part 5 Jaewoong explores the key components of Jetpack Compose,=
+ such as Compose UI, State, Side-effects, and CompositionLocal, along with =
+strategies for migrating to Compose. DIY: your own Dependency Injection lib=
+rary! Pierre-Yves Ricau demystifies the internals of DI libraries. Place a =
+sponsored post Advertise your Android dev course to over 80k readers We rea=
+ch out to more than 80k Android developers around the world, every week, th=
+rough our email newsletter and social media channels. Advertise your Androi=
+d development course! News A New Approach to Real-Money Games on Google Pla=
+y Based on the learnings from the pilots and positive feedback from users a=
+nd developers, Google Play will begin supporting more RMG apps this year, i=
+ncluding game types and operators not covered by an existing licensing fram=
+ework. How This Indie Game Studio Launched Their First Game on Google Play =
+A look at indie game developers Geoffrey Mugford and Samuli Pietikainen. Vi=
+deos & Podcasts Setup Gradle Version Catalog & Ktor Routing Basics Nate Ebe=
+l sets up a Gradle Version Catalog for Gradle dependency management and the=
+n walks through Ktor routing basics. lateinit vs lazy in Kotlin Amit Shekha=
+r discusses the lateinit and lazy properties in Kotlin. Point-in-time recov=
+ery in Firestore Protect your data against accidental deletion or writes in=
+ your database with Point-in-time recovery in Firestore that just became ge=
+nerally available. App Performance Analysis with the Android Studio Profile=
+r Philipp Lackner shows how to do an App Performance Analysis with the Andr=
+oid Studio Profiler. Top 3 Google Cloud tips for Firebase developers Frank =
+van Puffelen and Martin Omander discuss the top Google Cloud tips for Fireb=
+ase developers. internal visibility modifier in Kotlin Amit Shekhar explain=
+s the internal visibility modifier in Kotlin with an example. List Detail L=
+ayout in Jetpack Compose Daniel Atitienei's quick look at some new adaptive=
+ layouts in Jetpack Compose. POST A JOB SPONSORED POST PATREON MERCHANDISE =
+TWITTER AndroidWeekly.net | Kortumstr. 19-21, Bochum, 44787 Germany Unsubsc=
+ribe nicopico.dev@gmail.com Update Profile | Our Privacy Policy | Constant =
+Contact Data Notice Sent by contact@androidweekly.net powered by Try email =
+marketing for free today!
+------=_Part_34255642_486214754.1705860093239
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head> <meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Con=
+tent-Type"> <meta content=3D"width=3Ddevice-width, initial-scale=3D1.0" nam=
+e=3D"viewport"> <meta charset=3D"UTF-8"> <meta name=3D"viewport" content=3D=
+"width=3Ddevice-width, initial-scale=3D1, maximum-scale=3D1"><!--[if gte ms=
+o 9]> <style id=3D"ol-styles"> /* OUTLOOK-SPECIFIC STYLES */ li{text-indent=
+: -1em; padding: 0; margin: 0; line-height: 1.2;}ul, ol{padding: 0; margin:=
+ 0 0 0 40px;}p{margin: 0; padding: 0; margin-bottom: 0;}sup{font-size: 85% =
+!important;}sub{font-size: 85% !important;}</style><![endif]--> <style id=
+=3D"template-styles-head" data-premailer=3D"ignore">
+@media only screen and (max-width:480px) {
+  u+.body .template-body {
+    width: 100% !important;
+  }
+}
+</style> <style>
+@media only screen and (max-width:480px) {
+  table {
+    border-collapse: collapse;
+  }
+
+  .main-width {
+    width: 100% !important;
+  }
+
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  td.OneColumnMobile {
+    display: block !important;
+  }
+
+  .OneColumnMobile {
+    width: 100% !important;
+  }
+
+  td.editor-col .editor-text {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  td.editor-col .editor-image.editor-image-hspace-on td {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  td.editor-col .editor-button-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  td.editor-col .editor-social td {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  td.editor-col .block-margin {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  td.editor-col td.block-margin .editor-text {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  td.editor-col td.block-margin .editor-image.editor-image-hspace-on td {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  td.editor-col td.block-margin .editor-button-container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  td.editor-col td.block-margin .editor-social td {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .editor-button td>table tr>td {
+    padding: 0px 0px 0px 0px !important;
+  }
+
+  .editor-button td>table tr>td td {
+    padding: 9px 15px 10px 15px !important;
+  }
+
+  .layout {
+    padding: 15px 9px 15px 9px !important;
+  }
+
+  .layout-container-border {
+    padding: 0px 0px 0px 0px !important;
+  }
+
+  .layout-container {
+    padding: 0px 0px 0px 0px !important;
+  }
+
+  .editor-image img {
+    width: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .editor-image .image-cell {
+    padding-bottom: 15px !important;
+  }
+
+  .editor-text {
+    font-size: 16px !important;
+  }
+
+  .section-headline-text {
+    font-size: 24px !important;
+  }
+
+  .headline-text {
+    font-size: 24px !important;
+  }
+
+  .subheadline-text {
+    font-size: 20px !important;
+  }
+
+  .feature {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+
+  .layout-outer {
+    padding: 0px 20px !important;
+  }
+
+  .feature-heading-text {
+    font-size: 20px !important;
+  }
+
+  .feature-text {
+    font-size: 16px !important;
+  }
+
+  .split.editor-col {
+    margin-top: 0px !important;
+  }
+
+  .split.editor-col~.split.editor-col {
+    margin-top: 10px !important;
+  }
+
+  .split-layout-margin {
+    padding: 0px 20px !important;
+  }
+
+  .article {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+
+  .article-heading-text {
+    font-size: 20px !important;
+  }
+
+  .article-text {
+    font-size: 16px !important;
+  }
+
+  .social-container {
+    text-align: center !important;
+  }
+
+  .social-text {
+    font-size: 14px !important;
+  }
+
+  .cpn-heading-text {
+    font-size: 28px !important;
+  }
+
+  .editor-cpn-heading-text {
+    font-size: 28px !important;
+  }
+
+  td.col-divided .editor-col {
+    border-right: 0px solid #D6E8F3 !important;
+    border-bottom: 1px solid #D6E8F3 !important;
+  }
+
+  td.col-divided td.editor-col:last-of-type {
+    border-bottom: 0 !important;
+  }
+
+  .col-divided {
+    padding: 0 20px !important;
+  }
+
+  td.col-divided .editor-col .editor-text {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  td.col-divided .editor-col .editor-image.editor-image-hspace-on td {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  td.col-divided .editor-col .editor-button-container {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  td.col-divided .editor-col .editor-social td {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  td.col-divided .editor-col .block-margin {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .action-block .poll-answer {
+    width: 100% !important;
+    display: block !important;
+  }
+
+  .action-block .poll-button {
+    width: 100% !important;
+  }
+
+  div.MobileFooter {
+    font-size: 11px !important;
+  }
+
+  td.FooterMobile {
+    padding: 0px 10px 0px 10px !important;
+  }
+
+  td.MainCenter {
+    width: 100% !important;
+  }
+
+  table.MainSide {
+    display: none !important;
+  }
+
+  img.MainSide {
+    display: none !important;
+  }
+
+  td.MainSide {
+    display: none !important;
+  }
+
+  .rsvp-button-inner {
+    padding: 0px 0px 10px 0px !important;
+  }
+
+  .rsvp-button-outer {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .footer-main-width {
+    width: 100% !important;
+  }
+
+  .footer-mobile-hidden {
+    display: none !important;
+  }
+
+  .footer-mobile-hidden {
+    display: none !important;
+  }
+
+  .footer-column {
+    display: block !important;
+  }
+
+  .footer-mobile-stack {
+    display: block !important;
+  }
+
+  .footer-mobile-stack-padding {
+    padding-top: 3px;
+  }
+}
+@media only screen and (max-width:320px) {
+  .layout {
+    padding: 0px 0px 0px 0px !important;
+  }
+}
+@media screen {
+  @font-face {
+    font-family: '';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), local(''), url() format('');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC=
+, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+  }
+}
+</style><style>@media only screen and (max-width:480px) {
+  .footer-main-width {
+    width: 100% !important;
+  }
+  .footer-mobile-hidden {
+    display: none !important;
+  }
+  .footer-column {
+    display: block !important;
+  }
+  .footer-mobile-stack {
+    display: block !important;
+  }
+  .footer-mobile-stack-padding {
+    padding-top: 3px;
+  }
+}</style></head>
+<body class=3D"body" align=3D"center" style=3D"width: 100%; min-width: 100%=
+; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background-co=
+lor: #FFFFFF; margin: 0px; padding: 0px;" bgcolor=3D"#FFFFFF"><img src=3D"h=
+ttps://r20.rs6.net/on.jsp?ca=3D2d43f520-055a-4095-945f-54d76c227387&a=3D112=
+9174679461&c=3D2ff6a380-7471-11ec-8132-fa163e78853a&ch=3D30069448-7471-11ec=
+-8132-fa163e78853a" / alt=3D""><table class=3D"template-body" border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse; tab=
+le-layout: fixed; text-align: center; min-width: 100%; background-color: #F=
+FFFFF;" width=3D"100%" align=3D"center" bgcolor=3D"#FFFFFF"><tbody><tr><td =
+class=3D"template-shell-container" align=3D"center"><div class=3D"bgcolor" =
+style=3D"background-color: #FFFFFF;"><table class=3D"bgimage" width=3D"100%=
+" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse=
+: collapse; table-layout: auto; background-color: #FFFFFF;" bgcolor=3D"#FFF=
+FFF"><tbody><tr><td align=3D"center"><table class=3D"main-width" width=3D"6=
+10" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=
+=3D"border-collapse: collapse; table-layout: fixed; width: 610px;"><tbody><=
+tr><td class=3D"layout" align=3D"center" valign=3D"top" style=3D"padding: 1=
+5px 5px;"><table width=3D"100%" align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse; table-layout: =
+fixed;"><tbody><tr><td class=3D"layout-container-border" align=3D"center" v=
+align=3D"top" style=3D"background-color: #D6E8F3; padding: 0px;" bgcolor=3D=
+"#D6E8F3"><table width=3D"100%" align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-collapse: collapse; table-layout: =
+fixed; background-color: #D6E8F3;" bgcolor=3D"#D6E8F3"><tbody><tr><td class=
+=3D"layout-container" align=3D"center" valign=3D"top" style=3D"background-c=
+olor: #ffffff; padding: 0;" bgcolor=3D"#ffffff"><div class>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"100%" align valign=3D"top"><div class=3D"gl-contains-text"=
+><table width=3D"100%" style=3D"border-collapse: collapse; table-layout: fi=
+xed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tb=
+ody><tr><td class=3D"editor-text editor-text" align=3D"left" valign=3D"top"=
+ style=3D"-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: gra=
+yscale; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 14px=
+; color: #505050; text-align: left; display: block; word-wrap: break-word; =
+line-height: 1.2; padding: 10px 20px;"><div></div><div class=3D"text-contai=
+ner galileo-ap-content-editor"><div><div style=3D"text-align: center;" alig=
+n=3D"center"><a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5=
+P-_48F7pnj8DidpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpK7Eb6TK-QGdFOLgzlJfBSblUzk8n=
+xntsx78Fe9onVmZHm_H5KsJ4g_vDJcA8qCycRkYmvT-asrX4KlsGMZLPpm3Ptk6S7BepfsZIqul=
+fGqc=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=
+=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"=
+_blank" style=3D"font-size: 12px; color: #0099CC; font-weight: bold; font-s=
+tyle: normal; text-decoration: underline;">View in web browser</a></div></d=
+iv></div></td></tr></tbody></table></div></td></tr></tbody></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;">
+<tbody><tr><td class=3D"editor-logo editor-col OneColumnMobile" width=3D"70=
+%" align=3D"left" valign=3D"top"><div><div class=3D"column-resize-bar"><spa=
+n class=3D"line"></span><span class=3D"grabber"></span></div></div><div cla=
+ss=3D"gl-contains-spacer"><table class=3D"editor-spacer" width=3D"100%" cel=
+lpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: col=
+lapse; table-layout: fixed;"><tbody><tr><td class align=3D"center" valign=
+=3D"top"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"1=
+00%" style=3D"border-collapse: collapse; table-layout: fixed;"><tbody><tr><=
+td class=3D"spacer-base" width=3D"100%" align=3D"center" valign=3D"top" sty=
+le=3D"padding-bottom: 10px; height: 1px; line-height: 1px;"><div><img alt w=
+idth=3D"5" height=3D"1" border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https=
+://imgssl.constantcontact.com/letters/images/1101116784221/S.gif" style=3D"=
+-ms-interpolation-mode: bicubic; display: block; height: 1px; width: 5px;">=
+</div></td></tr></tbody></table></td></tr></tbody></table></div><div class=
+=3D"gl-contains-spacer"><table class=3D"editor-spacer" width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: colla=
+pse; table-layout: fixed;"><tbody><tr><td class align=3D"center" valign=3D"=
+top"><table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%"=
+ style=3D"border-collapse: collapse; table-layout: fixed;"><tbody><tr><td c=
+lass=3D"spacer-base" width=3D"100%" align=3D"center" valign=3D"top" style=
+=3D"padding-bottom: 10px; height: 1px; line-height: 1px;"><div><img alt wid=
+th=3D"5" height=3D"1" border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https:/=
+/imgssl.constantcontact.com/letters/images/1101116784221/S.gif" style=3D"-m=
+s-interpolation-mode: bicubic; display: block; height: 1px; width: 5px;"></=
+div></td></tr></tbody></table></td></tr></tbody></table></div><div class=3D=
+"gl-contains-image"><table class=3D"editor-image logo-container editor-imag=
+e-hspace-on" style=3D"border-collapse: collapse; table-layout: fixed; min-w=
+idth: 100%;" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+"><tbody><tr><td align=3D"left" valign=3D"top" style=3D"padding: 0px 10px 0=
+px 20px;"><div class=3D"publish-container"><a href=3D"https://r20.rs6.net/t=
+n.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8DidpNRDkLppZKH4ojnr2UZvT-DaDh_rdgX=
+CeMnWblG1qmUiw4B44YEk7gPd_10_MgncqIpmmwvZxrMhQE1sYNr0VyBdxb4SL7xKzYYnN80X6C=
+jkFQndKe9oFnQ=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iY=
+LaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D=
+" target=3D"_blank" style=3D"text-decoration: underline;"><img alt class st=
+yle=3D"-ms-interpolation-mode: bicubic; display: block; height: auto; max-w=
+idth: 100%;" width=3D"390" border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"ht=
+tps://androidweekly.net/assets/newsletter/androidweekly-logo.jpg"></a></div=
+></td></tr></tbody></table></div></td><td class=3D"editor-logo editor-col O=
+neColumnMobile" width=3D"30%" align=3D"left" valign=3D"top"><div class=3D"g=
+l-contains-spacer"><table class=3D"editor-spacer" width=3D"100%" cellpaddin=
+g=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: collapse; =
+table-layout: fixed;"><tbody><tr><td class align=3D"center" valign=3D"top">=
+<table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" styl=
+e=3D"border-collapse: collapse; table-layout: fixed;"><tbody><tr><td class=
+=3D"spacer-base" width=3D"100%" align=3D"center" valign=3D"top" style=3D"pa=
+dding-bottom: 10px; height: 1px; line-height: 1px;"><div><img alt width=3D"=
+5" height=3D"1" border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgss=
+l.constantcontact.com/letters/images/1101116784221/S.gif" style=3D"-ms-inte=
+rpolation-mode: bicubic; display: block; height: 1px; width: 5px;"></div></=
+td></tr></tbody></table></td></tr></tbody></table></div><div class=3D"gl-co=
+ntains-text"><table width=3D"100%" style=3D"border-collapse: collapse; tabl=
+e-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" bord=
+er=3D"0"><tbody><tr><td class=3D"editor-text" align=3D"left" valign=3D"top"=
+ style=3D"-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: gra=
+yscale; line-height: 1; font-family: Arial, Verdana, Helvetica, sans-serif;=
+ font-size: 14px; color: #505050; text-align: left; display: block; word-wr=
+ap: break-word; padding: 10px 20px 10px 10px;"><div></div><div class=3D"tex=
+t-container galileo-ap-content-editor"><div><div style=3D"text-align: cente=
+r;" align=3D"center"><span style=3D"font-size: 20px; font-weight: bold;">60=
+6</span></div><div style=3D"text-align: center;" align=3D"center"><span sty=
+le=3D"font-size: 12px;">January 21st, 2024</span></div></div></div></td></t=
+r></tbody></table></div></td></tr></tbody></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;">
+<tbody><tr><td class=3D"editor-col OneColumnMobile" width=3D"100%" align va=
+lign=3D"top"><div class=3D"gl-contains-divider"><table class=3D"editor-divi=
+der" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=
+=3D"border-collapse: collapse; table-layout: fixed; min-width: 100%;"><tbod=
+y><tr><td class align=3D"center" valign=3D"top"><table width=3D"100%" class=
+=3D"galileo-ap-content-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; cursor: default; min-width: 100%;"><tbody><tr><td class=3D"div=
+ider-base divider-solid" width=3D"100%" align=3D"center" valign=3D"top" sty=
+le=3D"padding: 10px 0px 18px;"><table cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0" align=3D"center" style=3D"border-collapse: collapse; table-layo=
+ut: fixed; width: 100%; min-width: 100%; height: 1px;" width=3D"100%" heigh=
+t=3D"1"><tbody><tr><td height=3D"1" align=3D"center" style=3D"background-co=
+lor: rgb(80, 80, 80); padding-bottom: 3px; border-bottom-style: none; heigh=
+t: 1px; line-height: 1px;" bgcolor=3D"505050"><div><img alt width=3D"5" hei=
+ght=3D"1" border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.cons=
+tantcontact.com/letters/images/1101116784221/S.gif" style=3D"-ms-interpolat=
+ion-mode: bicubic; display: block; height: 1px; width: 5px;"></div></td></t=
+r></tbody></table></td></tr></tbody></table></td></tr></tbody></table></div=
+></td></tr></tbody></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"100%" align valign=3D"top" style=3D"background-color: rgb(=
+51, 181, 229);" bgcolor=3D"33B5E5"><div class=3D"gl-contains-text"><table w=
+idth=3D"100%" style=3D"border-collapse: collapse; table-layout: fixed; min-=
+width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tbody><tr><=
+td class=3D"editor-text editor-text" align=3D"left" valign=3D"top" style=3D=
+"-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; f=
+ont-family: Arial, Verdana, Helvetica, sans-serif; font-size: 14px; color: =
+#505050; text-align: left; display: block; word-wrap: break-word; line-heig=
+ht: 1.2; padding: 10px 20px;"><div></div><div class=3D"text-container galil=
+eo-ap-content-editor"><div><div><span style=3D"font-size: 18px; color: rgb(=
+255, 255, 255); font-family: Arial, Verdana, Helvetica, sans-serif; font-we=
+ight: bold;">Articles & Tutorials</span></div></div></div></td></tr></tbody=
+></table></div></td></tr></tbody></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpVyJGqbL7qvAabj_-1yr_4qKxwzrm5XjTzjcw7M-3X=
+mk9vbQ2SbuMDROekRzv1KwL-oohwxn1LaxyRiLzl7bSu1QAYxHz_RvZ6c5qRtvTxH4m8PNyLDEG=
+yAE_-HZjjqVNEizPIfAWlfUmYIgfFZUwLBMJcO4oAOZIPyk_XqXJNEk=3D&c=3DrH1qENBtqAHN=
+dQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO=
+9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-si=
+ze: 16px; color: #0099CC; font-weight: bold; font-style: normal; text-decor=
+ation: underline;">
+Improving unit test performance=20
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>This post examines an effort in auditing and inventing a =E2=
+=80=9Clite=E2=80=9D test configuration =E2=80=94 a configuration for disabl=
+ing unnecessary Gradle tasks, resulting in faster unit test compilation tim=
+e.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"20%" align valign=3D"top"><div><div class=3D"column-resize=
+-bar"><span class=3D"line"></span><span class=3D"grabber"></span></div></di=
+v>
+<div class=3D"gl-contains-text"><table width=3D"100%" style=3D"border-colla=
+pse: collapse; table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cel=
+lspacing=3D"0" border=3D"0"><tbody><tr><td class=3D"editor-text" align=3D"l=
+eft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-=
+font-smoothing: grayscale; font-family: Arial, Verdana, Helvetica, sans-ser=
+if; font-size: 14px; color: #505050; text-align: left; display: block; word=
+-wrap: break-word; line-height: 1.2; padding: 10px 10px 10px 20px;"><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div><span style=3D"f=
+ont-size: 12px; color: rgb(153, 153, 153); font-style: italic;">Sponsored</=
+span></div></div></div></td></tr></tbody></table></div>
+<div class=3D"gl-contains-image"><table class=3D"editor-image  editor-image=
+-vspace-on editor-image-hspace-on" style=3D"border-collapse: collapse; tabl=
+e-layout: fixed; min-width: 100%;" width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0"><tbody><tr><td align=3D"left" valign=3D"top" style=
+=3D"padding: 10px 10px 10px 20px;"><div class=3D"publish-container">
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpA0WOwxDCCEfxhhL4qomNFgpWDQr9daIpvoW446y62=
+_XP2-ylwX9T6I4i3F2DGdfONCKj_XH61QjmCRplh_VxMLRX7V6dfHbI_1rR1XnbDkErbeGTI_Nh=
+W5B7P7ry_R3vuqgsFAKrM90HcTfPrRKDkteij7y-ivCkfFBx6jPVJD4ggXIBabS_3wbEMef70WW=
+k8-nQAL4YFaAp-vNzqHpbJVTx90-V71Z5OdV7bL-zbVc=3D&c=3DrH1qENBtqAHNdQGXcZNU_sn=
+QC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7Qg=
+nOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"text-decoration: u=
+nderline;">
+<img alt class style=3D"-ms-interpolation-mode: bicubic; display: block; he=
+ight: auto; max-width: 100%;" width=3D"90" border=3D"0" hspace=3D"0" vspace=
+=3D"0" src=3D"https://androidweekly.net/system/images/65ad1a/613c93bc2aa500=
+fbba/square_EmbraceLogo_Alt_yellow-on-lead_85x85.png">
+</a></div></td></tr></tbody></table></div></td><td class=3D"editor-col OneC=
+olumnMobile" width=3D"80%" align valign=3D"top"><div class=3D"gl-contains-t=
+ext"><table width=3D"100%" style=3D"border-collapse: collapse; table-layout=
+: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+><tbody><tr><td class=3D"editor-text editor-text" align=3D"left" valign=3D"=
+top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing:=
+ grayscale; line-height: 1.5; font-family: Arial, Verdana, Helvetica, sans-=
+serif; font-size: 14px; color: #505050; text-align: left; display: block; w=
+ord-wrap: break-word; padding: 10px 20px 10px 10px;"><div></div><div class=
+=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpA0WOwxDCCEfxhhL4qomNFgpWDQr9daIpvoW446y62=
+_XP2-ylwX9T6I4i3F2DGdfONCKj_XH61QjmCRplh_VxMLRX7V6dfHbI_1rR1XnbDkErbeGTI_Nh=
+W5B7P7ry_R3vuqgsFAKrM90HcTfPrRKDkteij7y-ivCkfFBx6jPVJD4ggXIBabS_3wbEMef70WW=
+k8-nQAL4YFaAp-vNzqHpbJVTx90-V71Z5OdV7bL-zbVc=3D&c=3DrH1qENBtqAHNdQGXcZNU_sn=
+QC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7Qg=
+nOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-size: 16px; c=
+olor: #0099CC; font-weight: bold; font-style: normal; text-decoration: unde=
+rline;">
+[New] eBook: 5 Ways to Prioritize & Resolve ANRs
+</a></div><div>Mobile engineers need a better way to address ANRs! Grab you=
+r copy of this ebook to discover strategies to accurately detect and swiftl=
+y resolve ANRs before they impact users.=20
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"100%" align valign=3D"top"><div class=3D"gl-contains-space=
+r"><table class=3D"editor-spacer" width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0" border=3D"0" style=3D"border-collapse: collapse; table-layout: fi=
+xed;"><tbody><tr><td class align=3D"center" valign=3D"top"><table cellpaddi=
+ng=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" style=3D"border-coll=
+apse: collapse; table-layout: fixed;"><tbody><tr><td class=3D"spacer-base" =
+width=3D"100%" align=3D"center" valign=3D"top" style=3D"padding-bottom: 15p=
+x; height: 1px; line-height: 1px;"><div><img alt width=3D"5" height=3D"1" b=
+order=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontact=
+.com/letters/images/1101116784221/S.gif" style=3D"-ms-interpolation-mode: b=
+icubic; display: block; height: 1px; width: 5px;"></div></td></tr></tbody><=
+/table></td></tr></tbody></table></div></td></tr></tbody></table><table wid=
+th=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"galil=
+eo-ap-layout-editor" style=3D"border-collapse: collapse; table-layout: fixe=
+d; min-width: 100%;"><tbody><tr><td class=3D"content editor-col OneColumnMo=
+bile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"gl-contain=
+s-text"><table width=3D"100%" style=3D"border-collapse: collapse; table-lay=
+out: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D=
+"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"left" valign=
+=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-font-smooth=
+ing: grayscale; line-height: 1.5; font-family: Arial, Verdana, Helvetica, s=
+ans-serif; font-size: 14px; color: #505050; text-align: left; display: bloc=
+k; word-wrap: break-word; padding: 10px 20px;"><div></div><div class=3D"tex=
+t-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flp20tj7TiSNTivD22rlcLibYCqNLR9AGKZXWkpfD5E7=
+2I2AtIts7Pet-MHfyJXV9zSjxp7fOgzfgzXEBVl3HUTo5ZQGGQX0OouviDrXd42U-gl6ysQsnIc=
+NvdXyg5UroJY&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=
+=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" targ=
+et=3D"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; =
+font-style: normal; text-decoration: underline;">
+A Better Hash Map: Part 1
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Romain Guy examines how HashMap can be better optimized when=
+ used in a library such as Jetpack Compose that needs high performance and =
+efficiency.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpbTLRBLvzZeLl9oDbzZI8pc62ubXwCNZ1usSsSAtlA=
+8MwfrvqY8Y0K6GvWYnXFlpid8YGjjRFxYaSubNM3Uo9o9JYnTCYKjgbcqq6Hug4YOH5g_DWCJag=
+k7_0Kvbo7hHS-cQu63HF78AMdVfeOjwfUw=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY=
+0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYf=
+FwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-size: 16px; color: #=
+0099CC; font-weight: bold; font-style: normal; text-decoration: underline;"=
+>
+nowinandroid builds with Gradle 8.5 and JDK 21
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>I=C3=B1aki Villar examines build speed improvements with Gra=
+dle 8.5, which fully supports compiling, testing and running on Java 21.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpKz5AU_4DELz7uA9o5cELhVDOoHTn4-m8tqAf23nXt=
+nFWvIclYGhZjuUy9yuUGDVz7DO-lL8LCK0ihrq2ND9USVHgtxWa4qxvCap8xU-YatOfqNKRvcp9=
+SRAm5bs1wheVsg_rAGPGmZ-xOlgdDw1U_tiqL0vBQg9hfAi9KjB_Jyu5nujHwxOYTJZRXNRM6Qw=
+Z6b0FEwixKXU=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=
+=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" t=
+arget=3D"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bol=
+d; font-style: normal; text-decoration: underline;">
+Level Up Your Daily Coding: Four Lesser-Known Tools in Android Studio
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Hadi Dortaj introduces four valuable editor-based tools in A=
+ndroid Studio/IntelliJ IDEA that might not be widely known among developers=
+.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpEELXXok4RXHAoo6Bu_tDXmiUKkxWpirCg9vSmSKfY=
+KvSlmQCMEcFu8t9apDKZnVPS5K54zfiDf0rT9SmPe5aasufKU47EnJy-GZT4uPc3t2UdFmTZTzm=
+b8U0fVoumRqc1z52s6R-6sWD5MkdY-GdTNUfJvwjYwC6dxK-4z0CfAo=3D&c=3DrH1qENBtqAHN=
+dQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO=
+9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-si=
+ze: 16px; color: #0099CC; font-weight: bold; font-style: normal; text-decor=
+ation: underline;">
+Jetpack Compose: Passing data implicitly in Composable screens
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Saqib shows how CompositionLocal is used to pass data throug=
+h Composables implicitly.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpd2Gp8Flp7J6p2LUqKz1POSn7_EaesOTN9snq6hAkt=
+LMx817_zHTbV8bnbOxNv9cob6ADcaAouilv2zVlmy1tfFyZAsPWlyMxcCrMk-UhL558fmWySJ1R=
+53Mv01Py1EBqPNS9fivas73Ity7E_JzrryffxdLgFXPH&c=3DrH1qENBtqAHNdQGXcZNU_snQC8=
+5RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQ=
+MOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-size: 16px; colo=
+r: #0099CC; font-weight: bold; font-style: normal; text-decoration: underli=
+ne;">
+What's new with Google Cast?
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Google announced the launch of new features that make it mor=
+e seamless to cast on Android.=20
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpN6g43hSHvd2fCmKlTPLqMD7PyZMJtgNws86b9624l=
+GRdupGTtcohuogE6ObeDAT7kNUNQ5glslr95z_q3MUTEo3wOsX3AN9Ms8OSoli9_5n-PBSn_mXJ=
+9djLV8ERrgj3WS_2YEC2LTz39HNAtEuPhJOtXEoA_HLaW4zD-MiM6Pjw1I_X6APp4SK6dBmPhNn=
+9r_qpWJCbWbvUsbRh9mQczw=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzW=
+rpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNY=
+JfiA=3D=3D" target=3D"_blank" style=3D"font-size: 16px; color: #0099CC; fon=
+t-weight: bold; font-style: normal; text-decoration: underline;">
+Unlock the Power of Generative AI in Your Applications with Gemini
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Jay Whitsitt shows how it's easier than ever to integrate pu=
+rpose-built machine learning into your applications.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpYfTyoZUw126yNlksYtzTvlLVsBl2nVzOkSCInAQIM=
+TwuASp4HAgIHE95yO0GliYssQNR_bCn9WjuiIzOphvVa9cPhB5r1pqN43imwZ5__Qoo17kj_1k7=
+QBxQTLYwXmgysguS3RHFg0P_cvjemr80eg6Aq73byBDH4EjVdDckg8KbVk6QNuCeTSIAscLia4s=
+Z&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhT=
+scRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank=
+" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-style: =
+normal; text-decoration: underline;">
+Automating Baseline Profile end-to-end on CI
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Keeping a baseline profile up to date is only half of the pr=
+oblem. You also need to make sure the profile is working as expected. Sagar=
+ Viradiya shows how to automate this process.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flp72ZIDnV-IoIR9hk2hUKTRBzcLxM6euoto9SmFyiB-=
+Gt-2UySEE9GIG7yEj1Q58GTroCNWPFaA2H_Rq9UGWB9HMiTK6sq-KDZShB1Ztt4IqcfZgDMbKqI=
+ZQ8H-SNp0gHgmg_Ni4tV7Knj2t4Jpn4iI1700YUZbZvOlKAHQffuhdCJkAe6vy5vMh1AzV_0JG_=
+OvCC7XrKVaEwUsuHvMcsjLMsMCad4DVYwSAw7AVAlm94xlJ_IEACKWp3P368NB2TulsstDYbMq0=
+UjkXQLx7r4MaD1pMWD_f5CMttqorcSeianhA1tveTuRw=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU=
+_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN=
+7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-size: 16px=
+; color: #0099CC; font-weight: bold; font-style: normal; text-decoration: u=
+nderline;">
+How to use A/B tests to maximize your app=E2=80=99s revenue
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Annyce Davis shows why you should use A/B tests to prove or =
+disapprove assumptions about any changes to your app=E2=80=99s experience.=
+=20
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flp3gQwV-7ljNlKL6YqIX4AmS36ojb6fglMlr05yOayl=
+Ar54jaFgrMLcuA9GMKUHaVPEpTCreE6FEMKFARvMicoCLKGg8o29AR9rkszx_vcKzUUaCxxO-WP=
+g0wKZ_Pfsz1kDlLiVvdEoXUO2pZ053cgWO1INqw530lQLrhY61MsHHBYamokEb_kJw=3D=3D&c=
+=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscR=
+g9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" s=
+tyle=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-style: nor=
+mal; text-decoration: underline;">
+Exploring Health Connect Pt. 2 - Reading and Writing Data
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Eevis Panula continues the series, this time looking into re=
+ading and writing data with Health Connect.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpghASfCsh1msQLNiaKifBVVvZMJWxhcAh-gcj0qG0k=
+9EGzUyoE7oj3qmEIS6UCXeiI12QZ0lKIvGybxlEYhhBQx91YvPUd6NM-Pg6Wmzif4GpZpoNig8W=
+QOMtQklHNPks1lLsvvJRPJMBUECZr45qtR_5VtptZcZ-&c=3DrH1qENBtqAHNdQGXcZNU_snQC8=
+5RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQ=
+MOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-size: 16px; colo=
+r: #0099CC; font-weight: bold; font-style: normal; text-decoration: underli=
+ne;">
+Adding Custom Actions to Share Sheets in Android 14
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Joe Birch explores custom actions and shows how we can add t=
+hem to our own share sheets.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpORcnUD91eZUm4Dn1RgvFziGu-YjBCXXtZidyXIMxk=
+aa8in55k42aWDGDAO_rbF8NWH1FlhPJl09x0LIx738KQePKdyuek2oGYE3h-A4GSQCiRAAGwAPT=
+X0rP7u7Wm5kD20SrC1hxMJtfV-ISzZ7AwL_pGBqisH5mgODGMgRy7DLCY9az2zFmfQ=3D=3D&c=
+=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscR=
+g9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" s=
+tyle=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-style: nor=
+mal; text-decoration: underline;">
+Unlocking New Possibilities with Maestro: Beyond Automated Testing
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Dennis Bordet looks at using Maestro for application develop=
+ment checking in the deepest screen of your app.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpz2nsPsuZO8fi7GushvF5D0vZxZhkMFfGtQDbWvCew=
+w1mPi7pICt1Emmim1HtoXpMO0W5vJbRANDAdRd7554GI60bjScpggAbCU_h0BZ_CCldWNxmJA6Z=
+cEYnp3pnJn6d&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=
+=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" targ=
+et=3D"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; =
+font-style: normal; text-decoration: underline;">
+Boolean Infix Functions and Short Circuiting
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Donovan LaDuke examines two ways to perform boolean operatio=
+ns in Kotlin, and how they are mostly the same with one key difference.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpMlNo4a-TxAzDA_l-noRtWtc6nMu6b0f_hhxTrO4jO=
+8XxNOkVKlWc-gTR5cg6Yr8XwxDzXZ2bi99dtb3m_jK7AWTNm088UCtndtism9oG8amujIKfSVHV=
+MQ=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&c=
+h=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D=
+"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-=
+style: normal; text-decoration: underline;">
+Sealed Types
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Dave Leeds presents Chapter 16 of Kotlin: An Illustrated Gui=
+de, looking at Sealed Types. Learn all of the essential concepts behind sea=
+led classes and sealed interfaces!=20
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpmpQgyGLjB3AhGllgiElRhFyPMslez71HSrP92gNgX=
+xeFewIpOp5dIyqMqcoCZj2m7myQktFYGZhrCGhZ84FiUmCCo02oVhEusuZQlrAZ80FEHJa6_8b1=
+aPEkE_luNPRbvI9rTmeArJc=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpw=
+SpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfi=
+A=3D=3D" target=3D"_blank" style=3D"font-size: 16px; color: #0099CC; font-w=
+eight: bold; font-style: normal; text-decoration: underline;">
+Jetpack Compose: The Android Developer Roadmap - Part 5
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Jaewoong explores the key components of Jetpack Compose, suc=
+h as Compose UI, State, Side-effects, and CompositionLocal, along with stra=
+tegies for migrating to Compose.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpp7LEcx0_RrHEIf2vYgwsLvRGbhQfuL5sTiZ9EuEAl=
+r93T1Exd7Xwy-0gwr21getJ_mY7FA7HwVLtfIgF9BfMwQ0RSZrxHgrru3_S9eAeai1UgzYYDleR=
+QvvYVws9P35H&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=
+=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" targ=
+et=3D"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; =
+font-style: normal; text-decoration: underline;">
+DIY: your own Dependency Injection library!
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Pierre-Yves Ricau demystifies the internals of DI libraries.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"100%" align valign=3D"top" style=3D"background-color: rgb(=
+51, 181, 229);" bgcolor=3D"33B5E5"><div class=3D"gl-contains-text"><table w=
+idth=3D"100%" style=3D"border-collapse: collapse; table-layout: fixed; min-=
+width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tbody><tr><=
+td class=3D"editor-text editor-text" align=3D"left" valign=3D"top" style=3D=
+"-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; f=
+ont-family: Arial, Verdana, Helvetica, sans-serif; font-size: 14px; color: =
+#505050; text-align: left; display: block; word-wrap: break-word; line-heig=
+ht: 1.2; padding: 10px 20px;"><div></div><div class=3D"text-container galil=
+eo-ap-content-editor"><div><div><span style=3D"font-size: 18px; color: rgb(=
+255, 255, 255); font-family: Arial, Verdana, Helvetica, sans-serif; font-we=
+ight: bold;">Place a sponsored post</span></div></div></div></td></tr></tbo=
+dy></table></div></td></tr></tbody></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"20%" align valign=3D"top"><div><div class=3D"column-resize=
+-bar"><span class=3D"line"></span><span class=3D"grabber"></span></div></di=
+v>
+<div class=3D"gl-contains-image"><table class=3D"editor-image  editor-image=
+-vspace-on editor-image-hspace-on" style=3D"border-collapse: collapse; tabl=
+e-layout: fixed; min-width: 100%;" width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0"><tbody><tr><td align=3D"left" valign=3D"top" style=
+=3D"padding: 10px 10px 10px 20px;"><div class=3D"publish-container">
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-AluvEErMKBmagysBifgEczYXJOCA4TWxSnobAGJZI1Ogq_7oeDWW=
+BOG1edPOp10d8rd2jIsXbhvd-ezVQc0GmAwQXJdNX5rPKGZ-w2KaC8z&c=3DrH1qENBtqAHNdQG=
+XcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5=
+WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"text-decor=
+ation: underline;">
+<img alt class style=3D"-ms-interpolation-mode: bicubic; display: block; he=
+ight: auto; max-width: 100%;" width=3D"90" border=3D"0" hspace=3D"0" vspace=
+=3D"0" src=3D"https://androidweekly.net/system/images/65ad1a/fd3c93bc2aa500=
+fbdb/square_aw.png">
+</a></div></td></tr></tbody></table></div></td><td class=3D"editor-col OneC=
+olumnMobile" width=3D"80%" align valign=3D"top"><div class=3D"gl-contains-t=
+ext"><table width=3D"100%" style=3D"border-collapse: collapse; table-layout=
+: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+><tbody><tr><td class=3D"editor-text editor-text" align=3D"left" valign=3D"=
+top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing:=
+ grayscale; line-height: 1.5; font-family: Arial, Verdana, Helvetica, sans-=
+serif; font-size: 14px; color: #505050; text-align: left; display: block; w=
+ord-wrap: break-word; padding: 10px 20px 10px 10px;"><div></div><div class=
+=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-AluvEErMKBmagysBifgEczYXJOCA4TWxSnobAGJZI1Ogq_7oeDWW=
+BOG1edPOp10d8rd2jIsXbhvd-ezVQc0GmAwQXJdNX5rPKGZ-w2KaC8z&c=3DrH1qENBtqAHNdQG=
+XcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5=
+WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-size:=
+ 16px; color: #0099CC; font-weight: bold; font-style: normal; text-decorati=
+on: underline;">
+Advertise your Android dev course to over 80k readers
+</a></div><div>We reach out to more than 80k Android developers around the =
+world, every week, through our email newsletter and social media channels. =
+Advertise your Android development course!
+
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"100%" align valign=3D"top"><div class=3D"gl-contains-space=
+r"><table class=3D"editor-spacer" width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0" border=3D"0" style=3D"border-collapse: collapse; table-layout: fi=
+xed;"><tbody><tr><td class align=3D"center" valign=3D"top"><table cellpaddi=
+ng=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" style=3D"border-coll=
+apse: collapse; table-layout: fixed;"><tbody><tr><td class=3D"spacer-base" =
+width=3D"100%" align=3D"center" valign=3D"top" style=3D"padding-bottom: 15p=
+x; height: 1px; line-height: 1px;"><div><img alt width=3D"5" height=3D"1" b=
+order=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontact=
+.com/letters/images/1101116784221/S.gif" style=3D"-ms-interpolation-mode: b=
+icubic; display: block; height: 1px; width: 5px;"></div></td></tr></tbody><=
+/table></td></tr></tbody></table></div></td></tr></tbody></table><table wid=
+th=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"galil=
+eo-ap-layout-editor" style=3D"border-collapse: collapse; table-layout: fixe=
+d; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumnMobile" wi=
+dth=3D"100%" align valign=3D"top" style=3D"background-color: rgb(51, 181, 2=
+29);" bgcolor=3D"33B5E5"><div class=3D"gl-contains-text"><table width=3D"10=
+0%" style=3D"border-collapse: collapse; table-layout: fixed; min-width: 100=
+%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tbody><tr><td class=
+=3D"editor-text editor-text" align=3D"left" valign=3D"top" style=3D"-webkit=
+-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fami=
+ly: Arial, Verdana, Helvetica, sans-serif; font-size: 14px; color: #505050;=
+ text-align: left; display: block; word-wrap: break-word; line-height: 1.2;=
+ padding: 10px 20px;"><div></div><div class=3D"text-container galileo-ap-co=
+ntent-editor"><div><div><span style=3D"font-size: 18px; color: rgb(255, 255=
+, 255); font-family: Arial, Verdana, Helvetica, sans-serif; font-weight: bo=
+ld;">News</span></div></div></div></td></tr></tbody></table></div></td></tr=
+></tbody></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"20%" align valign=3D"top"><div><div class=3D"column-resize=
+-bar"><span class=3D"line"></span><span class=3D"grabber"></span></div></di=
+v>
+<div class=3D"gl-contains-image"><table class=3D"editor-image  editor-image=
+-vspace-on editor-image-hspace-on" style=3D"border-collapse: collapse; tabl=
+e-layout: fixed; min-width: 100%;" width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0"><tbody><tr><td align=3D"left" valign=3D"top" style=
+=3D"padding: 10px 10px 10px 20px;"><div class=3D"publish-container">
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpmvx1byeV9q2v3oV80F-T5muvoVQx2GrgqA1UFkFfF=
+Qj2gdEO1eTynsR_aIder4turtGCVshiOrvEFoy9biPKHv401BkbYqDvFVTyHjppyvuhBXVKYg9R=
+zmybiC6dX2BuUdUDwgyFv93iCloSnAbRD0XkK7wJ6fgcgXwQKi5g-2-cM-odmE_2pOqlk7b0IOL=
+W&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhT=
+scRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank=
+" style=3D"text-decoration: underline;">
+<img alt class style=3D"-ms-interpolation-mode: bicubic; display: block; he=
+ight: auto; max-width: 100%;" width=3D"90" border=3D"0" hspace=3D"0" vspace=
+=3D"0" src=3D"https://androidweekly.net/system/images/65ac8e/2e3c93bc2aa500=
+edec/square_Bildschirmfoto_2024-01-21_um_14.22.32.png">
+</a></div></td></tr></tbody></table></div></td><td class=3D"editor-col OneC=
+olumnMobile" width=3D"80%" align valign=3D"top"><div class=3D"gl-contains-t=
+ext"><table width=3D"100%" style=3D"border-collapse: collapse; table-layout=
+: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+><tbody><tr><td class=3D"editor-text editor-text" align=3D"left" valign=3D"=
+top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing:=
+ grayscale; line-height: 1.5; font-family: Arial, Verdana, Helvetica, sans-=
+serif; font-size: 14px; color: #505050; text-align: left; display: block; w=
+ord-wrap: break-word; padding: 10px 20px 10px 10px;"><div></div><div class=
+=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpmvx1byeV9q2v3oV80F-T5muvoVQx2GrgqA1UFkFfF=
+Qj2gdEO1eTynsR_aIder4turtGCVshiOrvEFoy9biPKHv401BkbYqDvFVTyHjppyvuhBXVKYg9R=
+zmybiC6dX2BuUdUDwgyFv93iCloSnAbRD0XkK7wJ6fgcgXwQKi5g-2-cM-odmE_2pOqlk7b0IOL=
+W&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhT=
+scRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank=
+" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-style: =
+normal; text-decoration: underline;">
+A New Approach to Real-Money Games on Google Play
+</a></div><div>Based on the learnings from the pilots and positive feedback=
+ from users and developers, Google Play will begin supporting more RMG apps=
+ this year, including game types and operators not covered by an existing l=
+icensing framework.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"100%" align valign=3D"top"><div class=3D"gl-contains-space=
+r"><table class=3D"editor-spacer" width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0" border=3D"0" style=3D"border-collapse: collapse; table-layout: fi=
+xed;"><tbody><tr><td class align=3D"center" valign=3D"top"><table cellpaddi=
+ng=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" style=3D"border-coll=
+apse: collapse; table-layout: fixed;"><tbody><tr><td class=3D"spacer-base" =
+width=3D"100%" align=3D"center" valign=3D"top" style=3D"padding-bottom: 15p=
+x; height: 1px; line-height: 1px;"><div><img alt width=3D"5" height=3D"1" b=
+order=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontact=
+.com/letters/images/1101116784221/S.gif" style=3D"-ms-interpolation-mode: b=
+icubic; display: block; height: 1px; width: 5px;"></div></td></tr></tbody><=
+/table></td></tr></tbody></table></div></td></tr></tbody></table><table wid=
+th=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"galil=
+eo-ap-layout-editor" style=3D"border-collapse: collapse; table-layout: fixe=
+d; min-width: 100%;"><tbody><tr><td class=3D"content editor-col OneColumnMo=
+bile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"gl-contain=
+s-text"><table width=3D"100%" style=3D"border-collapse: collapse; table-lay=
+out: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D=
+"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"left" valign=
+=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-font-smooth=
+ing: grayscale; line-height: 1.5; font-family: Arial, Verdana, Helvetica, s=
+ans-serif; font-size: 14px; color: #505050; text-align: left; display: bloc=
+k; word-wrap: break-word; padding: 10px 20px;"><div></div><div class=3D"tex=
+t-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpjDe4p23ZZZefaIcWlmMSCsDmrTVdAzhLuDmXXSVkN=
+nic5HxFeKiGPeFJnFeYMrK24ZNx6HX_gyCS5sOc0dNanU-bKigRH9PuvSBfGsVaTh6EyuUIj9rZ=
+mnSepMIwUUCgzxBn9dfoJqKTE1U_TG3KUEVrqHYK_ohJM9Q6OndNCEp5BToBP29dGvG_X_jeHDk=
+7VVs1S0QgqYQYb9XNFQ-T6g=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzW=
+rpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNY=
+JfiA=3D=3D" target=3D"_blank" style=3D"font-size: 16px; color: #0099CC; fon=
+t-weight: bold; font-style: normal; text-decoration: underline;">
+How This Indie Game Studio Launched Their First Game on Google Play
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>A look at indie game developers Geoffrey Mugford and Samuli =
+Pietikainen.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"100%" align valign=3D"top" style=3D"background-color: rgb(=
+51, 181, 229);" bgcolor=3D"33B5E5"><div class=3D"gl-contains-text"><table w=
+idth=3D"100%" style=3D"border-collapse: collapse; table-layout: fixed; min-=
+width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"><tbody><tr><=
+td class=3D"editor-text editor-text" align=3D"left" valign=3D"top" style=3D=
+"-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; f=
+ont-family: Arial, Verdana, Helvetica, sans-serif; font-size: 14px; color: =
+#505050; text-align: left; display: block; word-wrap: break-word; line-heig=
+ht: 1.2; padding: 10px 20px;"><div></div><div class=3D"text-container galil=
+eo-ap-content-editor"><div><div><span style=3D"font-size: 18px; color: rgb(=
+255, 255, 255); font-family: Arial, Verdana, Helvetica, sans-serif; font-we=
+ight: bold;">Videos & Podcasts</span></div></div></div></td></tr></tbody></=
+table></div></td></tr></tbody></table>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"20%" align valign=3D"top"><div><div class=3D"column-resize=
+-bar"><span class=3D"line"></span><span class=3D"grabber"></span></div></di=
+v>
+<div class=3D"gl-contains-image"><table class=3D"editor-image  editor-image=
+-vspace-on editor-image-hspace-on" style=3D"border-collapse: collapse; tabl=
+e-layout: fixed; min-width: 100%;" width=3D"100%" cellpadding=3D"0" cellspa=
+cing=3D"0" border=3D"0"><tbody><tr><td align=3D"left" valign=3D"top" style=
+=3D"padding: 10px 10px 10px 20px;"><div class=3D"publish-container">
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flp6On19rmQybaFxtIN6ezCFMj-Yaj-RCxPNMQkLYTvt=
+9bEpQz6-cecqo6iSCy_34C1ej3OU7zpmGANAC29UI_MhToODVhIhvYE_6VW6OMZUSCA1NPgBQhc=
+Gg=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&c=
+h=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D=
+"_blank" style=3D"text-decoration: underline;">
+<img alt class style=3D"-ms-interpolation-mode: bicubic; display: block; he=
+ight: auto; max-width: 100%;" width=3D"90" border=3D"0" hspace=3D"0" vspace=
+=3D"0" src=3D"https://androidweekly.net/system/images/65ac8f/793c93bc2aa500=
+ee17/square_Bildschirmfoto_2024-01-21_um_14.23.29.png">
+</a></div></td></tr></tbody></table></div></td><td class=3D"editor-col OneC=
+olumnMobile" width=3D"80%" align valign=3D"top"><div class=3D"gl-contains-t=
+ext"><table width=3D"100%" style=3D"border-collapse: collapse; table-layout=
+: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+><tbody><tr><td class=3D"editor-text editor-text" align=3D"left" valign=3D"=
+top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing:=
+ grayscale; line-height: 1.5; font-family: Arial, Verdana, Helvetica, sans-=
+serif; font-size: 14px; color: #505050; text-align: left; display: block; w=
+ord-wrap: break-word; padding: 10px 20px 10px 10px;"><div></div><div class=
+=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flp6On19rmQybaFxtIN6ezCFMj-Yaj-RCxPNMQkLYTvt=
+9bEpQz6-cecqo6iSCy_34C1ej3OU7zpmGANAC29UI_MhToODVhIhvYE_6VW6OMZUSCA1NPgBQhc=
+Gg=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&c=
+h=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D=
+"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-=
+style: normal; text-decoration: underline;">
+Setup Gradle Version Catalog & Ktor Routing Basics
+</a></div><div>Nate Ebel sets up a Gradle Version Catalog for Gradle depend=
+ency management and then walks through Ktor routing basics.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"editor-col OneColumn=
+Mobile" width=3D"100%" align valign=3D"top"><div class=3D"gl-contains-space=
+r"><table class=3D"editor-spacer" width=3D"100%" cellpadding=3D"0" cellspac=
+ing=3D"0" border=3D"0" style=3D"border-collapse: collapse; table-layout: fi=
+xed;"><tbody><tr><td class align=3D"center" valign=3D"top"><table cellpaddi=
+ng=3D"0" cellspacing=3D"0" border=3D"0" width=3D"100%" style=3D"border-coll=
+apse: collapse; table-layout: fixed;"><tbody><tr><td class=3D"spacer-base" =
+width=3D"100%" align=3D"center" valign=3D"top" style=3D"padding-bottom: 15p=
+x; height: 1px; line-height: 1px;"><div><img alt width=3D"5" height=3D"1" b=
+order=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontact=
+.com/letters/images/1101116784221/S.gif" style=3D"-ms-interpolation-mode: b=
+icubic; display: block; height: 1px; width: 5px;"></div></td></tr></tbody><=
+/table></td></tr></tbody></table></div></td></tr></tbody></table><table wid=
+th=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"galil=
+eo-ap-layout-editor" style=3D"border-collapse: collapse; table-layout: fixe=
+d; min-width: 100%;"><tbody><tr><td class=3D"content editor-col OneColumnMo=
+bile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"gl-contain=
+s-text"><table width=3D"100%" style=3D"border-collapse: collapse; table-lay=
+out: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D=
+"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"left" valign=
+=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-font-smooth=
+ing: grayscale; line-height: 1.5; font-family: Arial, Verdana, Helvetica, s=
+ans-serif; font-size: 14px; color: #505050; text-align: left; display: bloc=
+k; word-wrap: break-word; padding: 10px 20px;"><div></div><div class=3D"tex=
+t-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flp5lkJeumpLV-ImoGuEhmu3W6YIvhYJKrVTmGGiHQ9q=
+bUuH9cLgVFZtY0MMIwh5MAEvmr2tRJyDDR7xc-ZbHhmj423G3E-spi8lY_pvxn2xbdHo-oL5p4c=
+9g=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&c=
+h=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D=
+"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-=
+style: normal; text-decoration: underline;">
+lateinit vs lazy in Kotlin
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Amit Shekhar discusses the lateinit and lazy properties in K=
+otlin.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpHg2g0urSEh2AxhjCgSbybcuHy1eNfHXhMfcSmdK0O=
+GU6PpESROx_pUMlraFhFC2Cn4P2nbwbJ7CprM2x5TKQBa3cAeDMNXmnyK9brdY7ys2_fDp2N9nI=
+Vw=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&c=
+h=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D=
+"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-=
+style: normal; text-decoration: underline;">
+Point-in-time recovery in Firestore
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Protect your data against accidental deletion or writes in y=
+our database with Point-in-time recovery in Firestore that just became gene=
+rally available.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpcDt5Sw9WctGDHU9wNLIu3qjh8tWr0e3ot7m9EkvdO=
+xF2LycZO3u1szcHe_pYKtwAwvOxOSFmt2Rp2WIVLQ4DvJHjeuiMsvsd-2etQto7apHyC1aPs-t4=
+_Q=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&c=
+h=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D=
+"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-=
+style: normal; text-decoration: underline;">
+App Performance Analysis with the Android Studio Profiler
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Philipp Lackner shows how to do an App Performance Analysis =
+with the Android Studio Profiler.
+
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flpq7QJokmBUAvE_09LT4ZLvyuMX62SLOGgFugUeQ7-H=
+dZcofCTrd9N1i7qb5uSvGDhwbmOxc3VoAntPbDPQZQXbVxMPNJIPIj2Ahfs_l3kPW5G43veE5O0=
+yw=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&c=
+h=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D=
+"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-=
+style: normal; text-decoration: underline;">
+Top 3 Google Cloud tips for Firebase developers
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Frank van Puffelen and Martin Omander discuss the top Google=
+ Cloud tips for Firebase developers.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flp1BPRtKt3Ni2xPRoEa2PA7K7Ja4usg1zaTsax0Aw3m=
+lgV0-_Ik3OtAK3ltyHGW_0zSxRGq6WUznTjEWyLAq_PI5jap8sAVDiwXOh7ynYxf8j9dyvAbZns=
+ew=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&c=
+h=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D=
+"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-=
+style: normal; text-decoration: underline;">
+internal visibility modifier in Kotlin
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Amit Shekhar explains the internal visibility modifier in Ko=
+tlin with an example.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"><tbody><tr><td class=3D"content editor-col O=
+neColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"><div class=3D"=
+gl-contains-text"><table width=3D"100%" style=3D"border-collapse: collapse;=
+ table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0"=
+ border=3D"0"><tbody><tr><td class=3D"editor-text content-text" align=3D"le=
+ft" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-osx-f=
+ont-smoothing: grayscale; line-height: 1.5; font-family: Arial, Verdana, He=
+lvetica, sans-serif; font-size: 14px; color: #505050; text-align: left; dis=
+play: block; word-wrap: break-word; padding: 10px 20px;"><div></div><div cl=
+ass=3D"text-container galileo-ap-content-editor"><div><div>
+<a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8Di=
+dpNRDkLppZKH4ojnr2UZvT-GbVobi_2flp7wJuDzuuzd9Jl9nLdQ-7mybECeIzNctnJKzowNBnh=
+YTfEh_3mPv1DQbS7MbbDkYGsvrv8gwtN7tK-KLJ6o2wTyT9bshGYwN0PfWeifZree2k7FRfI6IY=
+hw=3D=3D&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&c=
+h=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D=
+"_blank" style=3D"font-size: 16px; color: #0099CC; font-weight: bold; font-=
+style: normal; text-decoration: underline;">
+List Detail Layout in Jetpack Compose
+<span class=3D"main-url" style=3D"color: #333333; font-size: 10px;">
+</span>
+</a></div><div>Daniel Atitienei's quick look at some new adaptive layouts i=
+n Jetpack Compose.
+</div></div></div></td></tr></tbody></table></div></td></tr></tbody></table=
+>
+
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" clas=
+s=3D"galileo-ap-layout-editor" style=3D"border-collapse: collapse; table-la=
+yout: fixed; min-width: 100%;"> <tbody> <tr> <td class=3D"divider-container=
+ editor-col OneColumnMobile" width=3D"100%" align=3D"left" valign=3D"top"> =
+<div class=3D"gl-contains-divider"> <table class=3D"editor-divider" width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-=
+collapse: collapse; table-layout: fixed; min-width: 100%;"> <tbody> <tr> <t=
+d class=3D"divider-container" align=3D"center" valign=3D"top"> <table width=
+=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"galileo=
+-ap-content-editor" style=3D"border-collapse: collapse; table-layout: fixed=
+; cursor: default; min-width: 100%;"> <tbody> <tr> <td class=3D"divider-bas=
+e divider-solid" width=3D"100%" align=3D"center" valign=3D"top" style=3D"pa=
+dding: 9px 0px;"> <table style=3D"border-collapse: collapse; table-layout: =
+fixed; width: 100%; min-width: 100%; height: 1px;" cellpadding=3D"0" cellsp=
+acing=3D"0" border=3D"0" align=3D"center" width=3D"100%" height=3D"1"> <tbo=
+dy> <tr> <td height=3D"1" align=3D"center" style=3D"background-color: rgb(8=
+0, 80, 80); padding-bottom: 1px; border-bottom-style: none; height: 1px; li=
+ne-height: 1px;" bgcolor=3D"505050"> <div><img alt width=3D"5" height=3D"1"=
+ border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"https://imgssl.constantconta=
+ct.com/letters/images/sys/S.gif" style=3D"-ms-interpolation-mode: bicubic; =
+display: block; height: 1px; width: 5px;"> </div></td></tr></tbody> </table=
+> </td></tr></tbody> </table> </td></tr></tbody> </table> </div></td></tr><=
+/tbody> </table> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" =
+border=3D"0" class=3D"galileo-ap-layout-editor" style=3D"border-collapse: c=
+ollapse; table-layout: fixed; min-width: 100%;"> <tbody> <tr> <td class=3D"=
+feature quick-links-multi multicolumn-layout-padding-multi multicolumn-layo=
+ut-padding" style=3D"background-color: #FFFFFF; padding-left: 15px; padding=
+-right: 15px;" width=3D"100%" align=3D"left" valign=3D"top" bgcolor=3D"#FFF=
+FFF"> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0=
+" style=3D"border-collapse: collapse; table-layout: fixed;"> <tbody> <tr> <=
+td class=3D"feature quick-links editor-col-multi OneColumnMobile" width=3D"=
+20%" align=3D"left" valign=3D"top" style=3D"background-color: rgb(255, 255,=
+ 255);" bgcolor=3D"FFFFFF"> <div class=3D"gl-contains-text"> <table width=
+=3D"100%" style=3D"border-collapse: collapse; table-layout: fixed; min-widt=
+h: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tbody> <tr> <t=
+d class=3D"editor-text center-text quick-links-text feature-text" align=3D"=
+center" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -moz-o=
+sx-font-smoothing: grayscale; font-family: Arial, Verdana, Helvetica, sans-=
+serif; font-size: 14px; color: #505050; text-align: center; display: block;=
+ word-wrap: break-word; line-height: 1.2; padding: 10px 5px;"> <div></div><=
+div class=3D"text-container galileo-ap-content-editor"> <div> <div><a href=
+=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8DidpNRDkL=
+ppZKH4ojnr2UZvT-AluvEErMKBmagysBifgEczYXJOCA4TWxSnobAGJZI1Ogq_7oeDWWBOG1edP=
+Op10d8rd2jIsXbhvd-ezVQc0GmAwQXJdNX5rPKGZ-w2KaC8z&c=3DrH1qENBtqAHNdQGXcZNU_s=
+nQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7Q=
+gnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-size: 10px; =
+color: #0099CC; font-weight: bold; font-style: normal; text-decoration: und=
+erline;">POST A JOB</a></div></div></div></td></tr></tbody> </table> </div>=
+</td><td class=3D"feature quick-links editor-col-multi OneColumnMobile" wid=
+th=3D"20%" align=3D"left" valign=3D"top" style=3D"background-color: rgb(255=
+, 255, 255);" bgcolor=3D"FFFFFF"> <div class=3D"gl-contains-text"> <table w=
+idth=3D"100%" style=3D"border-collapse: collapse; table-layout: fixed; min-=
+width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tbody> <tr=
+> <td class=3D"editor-text center-text quick-links-text feature-text" align=
+=3D"center" valign=3D"top" style=3D"-webkit-font-smoothing: antialiased; -m=
+oz-osx-font-smoothing: grayscale; font-family: Arial, Verdana, Helvetica, s=
+ans-serif; font-size: 14px; color: #505050; text-align: center; display: bl=
+ock; word-wrap: break-word; line-height: 1.2; padding: 10px 5px;"> <div></d=
+iv><div class=3D"text-container galileo-ap-content-editor"> <div> <div><a h=
+ref=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj8DidpNR=
+DkLppZKH4ojnr2UZvT-AluvEErMKBmagysBifgEczYXJOCA4TWxSnobAGJZI1Ogq_7oeDWWBOG1=
+edPOp10d8rd2jIsXbhvd-ezVQc0GmAwQXJdNX5rPKGZ-w2KaC8z&c=3DrH1qENBtqAHNdQGXcZN=
+U_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCz=
+N7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-size: 10p=
+x; color: #0099CC; font-weight: bold; font-style: normal; text-decoration: =
+underline;">SPONSORED POST</a></div></div></div></td></tr></tbody> </table>=
+ </div></td><td class=3D"feature quick-links editor-col-multi OneColumnMobi=
+le" width=3D"20%" align=3D"left" valign=3D"top" style=3D"background-color: =
+rgb(255, 255, 255);" bgcolor=3D"FFFFFF"> <div class=3D"gl-contains-text"> <=
+table width=3D"100%" style=3D"border-collapse: collapse; table-layout: fixe=
+d; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tbo=
+dy> <tr> <td class=3D"editor-text center-text quick-links-text feature-text=
+" align=3D"center" valign=3D"top" style=3D"-webkit-font-smoothing: antialia=
+sed; -moz-osx-font-smoothing: grayscale; font-family: Arial, Verdana, Helve=
+tica, sans-serif; font-size: 14px; color: #505050; text-align: center; disp=
+lay: block; word-wrap: break-word; line-height: 1.2; padding: 10px 5px;"> <=
+div></div><div class=3D"text-container galileo-ap-content-editor"> <div> <d=
+iv><a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pnj=
+8DidpNRDkLppZKH4ojnr2UZvT-KsUCREuY-6eJPULXSEN7hIwPXOU8ZHbR5KKCj66__nACpG2mf=
+BBYdm79Th-kA4O5axmJcVPfiwryeA5BW5yTVwVYImzla96ra7bL7IkmBmF&c=3DrH1qENBtqAHN=
+dQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscRg9dCALSQ9cQ9LFO=
+9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" style=3D"font-si=
+ze: 10px; color: #0099CC; font-weight: bold; font-style: normal; text-decor=
+ation: underline;">PATREON</a> </div></div></div></td></tr></tbody> </table=
+> </div></td><td class=3D"feature quick-links editor-col-multi OneColumnMob=
+ile" width=3D"20%" align=3D"left" valign=3D"top" style=3D"background-color:=
+ rgb(255, 255, 255);" bgcolor=3D"FFFFFF"> <div class=3D"gl-contains-text"> =
+<table width=3D"100%" style=3D"border-collapse: collapse; table-layout: fix=
+ed; min-width: 100%;" cellpadding=3D"0" cellspacing=3D"0" border=3D"0"> <tb=
+ody> <tr> <td class=3D"editor-text center-text quick-links-text feature-tex=
+t" align=3D"center" valign=3D"top" style=3D"-webkit-font-smoothing: antiali=
+ased; -moz-osx-font-smoothing: grayscale; font-family: Arial, Verdana, Helv=
+etica, sans-serif; font-size: 14px; color: #505050; text-align: center; dis=
+play: block; word-wrap: break-word; line-height: 1.2; padding: 10px 5px;"> =
+<div></div><div class=3D"text-container galileo-ap-content-editor"> <div> <=
+div><a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RVKxtHUpQOsitpJj5P-_48F7pn=
+j8DidpNRDkLppZKH4ojnr2UZvT-DaDh_rdgXCeANV56BihsAmUj07Eb32CfRwJ7CaHKEx_hCvvR=
+7VTPIIfsAHV4nSH2Wg_CUHTxMW6vrZSlihrHEOqlv1M4zP54K9bsLH7VBYxhHmqJv1N1_E=3D&c=
+=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&ch=3DJhTscR=
+g9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D"_blank" s=
+tyle=3D"font-size: 10px; color: #0099CC; font-weight: bold; font-style: nor=
+mal; text-decoration: underline;">MERCHANDISE</a> </div></div></div></td></=
+tr></tbody> </table> </div></td><td class=3D"feature quick-links editor-col=
+-multi OneColumnMobile" width=3D"20%" align=3D"left" valign=3D"top" style=
+=3D"background-color: rgb(255, 255, 255);" bgcolor=3D"FFFFFF"> <div class=
+=3D"gl-contains-text"> <table width=3D"100%" style=3D"border-collapse: coll=
+apse; table-layout: fixed; min-width: 100%;" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0"> <tbody> <tr> <td class=3D"editor-text center-text quic=
+k-links-text feature-text" align=3D"center" valign=3D"top" style=3D"-webkit=
+-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fami=
+ly: Arial, Verdana, Helvetica, sans-serif; font-size: 14px; color: #505050;=
+ text-align: center; display: block; word-wrap: break-word; line-height: 1.=
+2; padding: 10px 5px;"> <div></div><div class=3D"text-container galileo-ap-=
+content-editor"> <div> <div><a href=3D"https://r20.rs6.net/tn.jsp?f=3D001RV=
+KxtHUpQOsitpJj5P-_48F7pnj8DidpNRDkLppZKH4ojnr2UZvT-KsUCREuY-6ehCQeEk6o2EFKA=
+Zzz78ZIIITx9l9C3GQFtRvZ_6uO6imI96RzQoul83Ng0jUDIiraZmx-t0vLee48HmvLuViDEwiR=
+_bki9HGd&c=3DrH1qENBtqAHNdQGXcZNU_snQC85RvY0kRtiCvXKzWrpwSpoC6iYLaQ=3D=3D&c=
+h=3DJhTscRg9dCALSQ9cQ9LFO9E5WRCzN7QgnOQMOYfFwlJRdOziNYJfiA=3D=3D" target=3D=
+"_blank" style=3D"font-size: 10px; color: #0099CC; font-weight: bold; font-=
+style: normal; text-decoration: underline;">TWITTER</a> </div></div></div><=
+/td></tr></tbody> </table> </div></td></tr></tbody> </table> </td></tr></tb=
+ody> </table> <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0" class=3D"galileo-ap-layout-editor" style=3D"border-collapse: coll=
+apse; table-layout: fixed; min-width: 100%;"> <tbody> <tr> <td class=3D"edi=
+tor-col OneColumnMobile" width=3D"100%" align valign=3D"top"> <div class=3D=
+"gl-contains-divider"> <table class=3D"editor-divider" width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" style=3D"border-collapse: colla=
+pse; table-layout: fixed; min-width: 100%;"> <tbody> <tr> <td class=3D"divi=
+der-container" align=3D"center" valign=3D"top"> <table width=3D"100%" cellp=
+adding=3D"0" cellspacing=3D"0" border=3D"0" class=3D"galileo-ap-content-edi=
+tor" style=3D"border-collapse: collapse; table-layout: fixed; cursor: defau=
+lt; min-width: 100%;"> <tbody> <tr> <td class=3D"divider-base divider-solid=
+" width=3D"100%" align=3D"center" valign=3D"top" style=3D"padding: 9px 0px;=
+"> <table style=3D"border-collapse: collapse; table-layout: fixed; width: 1=
+00%; min-width: 100%; height: 1px;" cellpadding=3D"0" cellspacing=3D"0" bor=
+der=3D"0" align=3D"center" width=3D"100%" height=3D"1"> <tbody> <tr> <td he=
+ight=3D"1" align=3D"center" style=3D"background-color: rgb(80, 80, 80); pad=
+ding-bottom: 1px; border-bottom-style: none; height: 1px; line-height: 1px;=
+" bgcolor=3D"505050"> <div><img alt width=3D"5" height=3D"1" border=3D"0" h=
+space=3D"0" vspace=3D"0" src=3D"https://imgssl.constantcontact.com/letters/=
+images/sys/S.gif" style=3D"-ms-interpolation-mode: bicubic; display: block;=
+ height: 1px; width: 5px;"> </div></td></tr></tbody> </table> </td></tr></t=
+body> </table> </td></tr></tbody> </table> </div></td></tr></tbody> </table=
+>
+</div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody=
+></table></td></tr></tbody></table></div></td></tr></tbody></table><table c=
+lass=3D"footer-container" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" style=3D"background: #ffffff; margin-left: auto; margin-righ=
+t: auto; table-layout: auto !important" bgcolor=3D"#ffffff">
+  <tr>
+    <td width=3D"100%" align=3D"center" valign=3D"top" style=3D"width: 100%=
+;">
+      <div class=3D"footer-max-main-width" align=3D"center" style=3D"margin=
+-left: auto; margin-right: auto; max-width: 100%;">
+        <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D=
+"0">
+          <tr>
+            <td class=3D"footer-layout" align=3D"center" valign=3D"top" sty=
+le=3D"padding: 16px 0px;">
+              <table class=3D"footer-main-width" style=3D"width: 580px;" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0">
+                <tr>
+                  <td class=3D"footer-text" align=3D"center" valign=3D"top"=
+ style=3D"color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; font-size=
+: 12px; padding: 4px 0px;">
+                   =20
+                    <span class=3D"footer-column">AndroidWeekly.net<span cl=
+ass=3D"footer-mobile-hidden"> | </span></span><span class=3D"footer-column"=
+>Kortumstr. 19-21<span class=3D"footer-mobile-hidden">, </span></span><span=
+ class=3D"footer-column"></span><span class=3D"footer-column"></span><span =
+class=3D"footer-column">Bochum, 44787 Germany</span><span class=3D"footer-c=
+olumn"></span>
+                   =20
+                  </td>
+                </tr>
+                <tr>
+                  <td class=3D"footer-row" align=3D"center" valign=3D"top" =
+style=3D"padding: 10px 0px;">
+                    <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0"=
+>
+                      <tr>
+                        <td class=3D"footer-text" align=3D"center" valign=
+=3D"top" style=3D"color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; f=
+ont-size: 12px; padding: 4px 0px;">
+                          <a href=3D"https://visitor.constantcontact.com/do=
+?p=3Dun&m=3D001MNaPVb3At52qYtONFY-Zbw%3D&ch=3D30069448-7471-11ec-8132-fa163=
+e78853a&ca=3D2d43f520-055a-4095-945f-54d76c227387" style=3D"color: #5d5d5d"=
+>Unsubscribe nicopico.dev@gmail.com</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=3D"footer-text" align=3D"center" valign=
+=3D"top" style=3D"color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; f=
+ont-size: 12px; padding: 4px 0px;">
+                          <a href=3D"https://visitor.constantcontact.com/do=
+?p=3Doo&m=3D001MNaPVb3At52qYtONFY-Zbw%3D&ch=3D30069448-7471-11ec-8132-fa163=
+e78853a&ca=3D2d43f520-055a-4095-945f-54d76c227387" style=3D"color: #5d5d5d"=
+>Update Profile</a> |
+                          <a href=3D"https://androidweekly.net/privacy" sty=
+le=3D"color: #5d5d5d">Our Privacy Policy</a><span class=3D"footer-mobile-hi=
+dden"> |</span>
+                          <a class=3D"footer-about-provider footer-mobile-s=
+tack footer-mobile-stack-padding" href=3D"https://www.constantcontact.com/l=
+egal/customer-contact-data-notice" style=3D"color: #5d5d5d">Constant Contac=
+t Data Notice</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class=3D"footer-text" align=3D"center" valign=
+=3D"top" style=3D"color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; f=
+ont-size: 12px; padding: 4px 0px;">
+                          Sent by
+                         =20
+                          <a href=3D"mailto:contact@androidweekly.net" styl=
+e=3D"color: #5d5d5d; text-decoration: none">contact@androidweekly.net</a>
+                         =20
+
+                         =20
+                         =20
+                          <span class=3D"footer-column">powered by</span>
+                         =20
+                         =20
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td class=3D"footer-text" align=3D"center" valign=3D"top"=
+ style=3D"color: #5d5d5d; font-family: Verdana,Geneva,sans-serif; font-size=
+: 12px; padding: 4px 0px;">
+                   =20
+                   =20
+                    <a href=3D"http://www.constantcontact.com/index.jsp?cc=
+=3Dnge&rmc=3DVF21_ACE&nav=3D2d43f520-055a-4095-945f-54d76c227387" style=3D"=
+color: #5d5d5d; text-decoration: none">
+                    <img alt=3D"Trusted Email from Constant Contact - Try i=
+t FREE today." width=3D"160" border=3D"0" hspace=3D"0" vspace=3D"0" src=3D"=
+https://static.ctctcdn.com/letters/images/CTCTFooter/Logo_Blue_Orange_2022.=
+png">
+                    </a>
+                    <div class=3D"footer-cta-text" style=3D"color: #5d5d5d;=
+ font-family: Verdana,Geneva,sans-serif; font-size: 9px; line-height: 2">
+                    <a href=3D"http://www.constantcontact.com/index.jsp?cc=
+=3Dnge&rmc=3DVF21_ACE&nav=3D2d43f520-055a-4095-945f-54d76c227387" style=3D"=
+color: #5d5d5d; text-decoration: none">Try email marketing for free today!<=
+/a>
+                    </div>
+                   =20
+                   =20
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table></body></html>
+------=_Part_34255642_486214754.1705860093239--
