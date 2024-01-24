@@ -2,10 +2,12 @@ package fr.nicopico.n2rss.mail.client
 
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Sender
+import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import javax.mail.Message
 
 fun Message.toEmail() = Email(
-    Sender(from[0].toString()),
-    subject,
-    content.toString().trim()
+    Sender(email = from[0].toString()),
+    receptionDate = this.receivedDate.toKotlinLocaleDate(),
+    subject = subject,
+    content = content.toString().trim()
 )

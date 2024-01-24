@@ -35,6 +35,8 @@ dependencies {
 
     implementation("javax.mail:javax.mail-api:1.6.2")
     implementation("com.sun.mail:javax.mail:1.6.2")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
 }
 
 tasks.withType<KotlinCompile> {

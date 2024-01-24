@@ -2,6 +2,7 @@ package fr.nicopico.n2rss.mail.newsletter
 
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Entry
+import fr.nicopico.n2rss.models.EntrySource
 import org.springframework.stereotype.Component
 import java.net.URL
 
@@ -15,10 +16,14 @@ class NoOpNewsletterHandler : NewsletterHandler {
 
     override fun process(email: Email): Entry {
         return Entry(
-            source = NoOpNewsletterHandler::class,
             title = email.subject,
-            preview = email.content.substring(0, minOf(email.content.length, 100)),
-            url = URL("https://example.com")
+            link = URL("https://example.com"),
+            description = email.content.substring(0, minOf(email.content.length, 100)),
+            pubDate = email.receptionDate,
+            source = EntrySource(
+                handler = NoOpNewsletterHandler::class,
+                title = email.subject,
+            ),
         )
     }
 }
