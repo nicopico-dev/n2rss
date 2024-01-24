@@ -5,5 +5,5 @@ import fr.nicopico.n2rss.models.Entry
 
 interface NewsletterHandler {
     fun canHandle(email: Email): Boolean
-    fun process(email: Email): Entry
+    fun process(email: Email): List<Entry>
 }

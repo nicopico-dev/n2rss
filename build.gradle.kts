@@ -37,6 +37,10 @@ dependencies {
     implementation("com.sun.mail:javax.mail:1.6.2")
 
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:5.8.0")
+    testImplementation("io.kotest.extensions:kotest-assertions-kotlinx-datetime:1.1.0")
 }
 
 tasks.withType<KotlinCompile> {
