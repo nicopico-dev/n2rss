@@ -9,6 +9,6 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandler {
     }
 
     override fun process(email: Email): List<Entry> {
-        TODO("Not yet implemented")
+        TODO()
     }
 }
