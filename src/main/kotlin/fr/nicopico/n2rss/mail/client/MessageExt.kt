@@ -7,7 +7,7 @@ import javax.mail.Message
 
 fun Message.toEmail() = Email(
     Sender(email = from[0].toString()),
-    receptionDate = this.receivedDate.toKotlinLocaleDate(),
+    date = this.sentDate.toKotlinLocaleDate(),
     subject = subject,
     content = content.toString().trim()
 )

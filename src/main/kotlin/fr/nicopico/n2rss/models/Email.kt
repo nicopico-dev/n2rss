@@ -5,7 +5,7 @@ import kotlinx.datetime.LocalDate
 
 data class Email(
     val sender: Sender,
-    val receptionDate: LocalDate,
+    val date: LocalDate,
     val subject: String,
     val content: String,
 )

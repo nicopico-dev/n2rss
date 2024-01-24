@@ -19,7 +19,7 @@ class NoOpNewsletterHandler : NewsletterHandler {
             title = email.subject,
             link = URL("https://example.com"),
             description = email.content.substring(0, minOf(email.content.length, 100)),
-            pubDate = email.receptionDate,
+            pubDate = email.date,
             source = EntrySource(
                 handler = NoOpNewsletterHandler::class,
                 title = email.subject,
