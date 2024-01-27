@@ -22,19 +22,29 @@ class EmailChecker(
         timeUnit = TimeUnit.SECONDS
     )
     fun checkEmails() {
-        LOG.info("Checking emails...")
-        val emails = emailClient.checkEmails()
-        LOG.info("{} emails found, processing...", emails.size)
+        try {
+            LOG.info("Checking emails...")
+            val emails = emailClient.checkEmails()
+            LOG.info("{} emails found, processing...", emails.size)
 
-        for (email in emails) {
-            for (processor in newsletterHandlers) {
-                if (processor.canHandle(email)) {
-                    LOG.debug("\"{}\" is being processed by {}", email.subject, processor::class.java)
-                    val publication = processor.process(email)
-                    publicationRepository.save(publication)
+            val publications = emails
+                .mapNotNull { email ->
+                    newsletterHandlers
+                        .firstOrNull { it.canHandle(email) }
+                        .also { processor ->
+                            if (processor == null) {
+                                LOG.warn("No processor found for email {}", email.subject)
+                            } else {
+                                LOG.debug("\"{}\" is being processed by {}", email.subject, processor::class.java)
+                            }
+                        }
+                        ?.process(email)
                 }
-            }
+            publicationRepository.saveAll(publications)
+
+            LOG.info("Processing done!")
+        } catch (e: Exception) {
+            LOG.error("Error while checking emails", e)
         }
-        LOG.info("Processing done!")
     }
 }
