@@ -1,5 +1,6 @@
 package fr.nicopico.n2rss.mail
 
+import fr.nicopico.n2rss.data.PublicationRepository
 import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import org.slf4j.LoggerFactory
@@ -13,8 +14,13 @@ private val LOG = LoggerFactory.getLogger(EmailChecker::class.java)
 class EmailChecker(
     private val emailClient: EmailClient,
     private val newsletterHandlers: List<NewsletterHandler>,
+    private val publicationRepository: PublicationRepository,
 ) {
-    @Scheduled(fixedRate = 1, timeUnit = TimeUnit.HOURS)
+    @Scheduled(
+        initialDelay = 2,
+        fixedRate = 3600,
+        timeUnit = TimeUnit.SECONDS
+    )
     fun checkEmails() {
         LOG.info("Checking emails...")
         val emails = emailClient.checkEmails()
@@ -24,7 +30,8 @@ class EmailChecker(
             for (processor in newsletterHandlers) {
                 if (processor.canHandle(email)) {
                     LOG.debug("\"{}\" is being processed by {}", email.subject, processor::class.java)
-                    processor.process(email)
+                    val publication = processor.process(email)
+                    publicationRepository.save(publication)
                 }
             }
         }

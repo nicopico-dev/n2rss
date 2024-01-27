@@ -2,10 +2,10 @@ package fr.nicopico.n2rss
 
 import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.client.EmailConfiguration
-import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import fr.nicopico.n2rss.mail.client.JavaxEmailClient
 import fr.nicopico.n2rss.mail.client.ResourceFileEmailClient
-import fr.nicopico.n2rss.mail.newsletter.NoOpNewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
@@ -32,6 +32,6 @@ class Config {
 
     @Bean
     fun emailProcessors(): List<NewsletterHandler> = listOf(
-        NoOpNewsletterHandler()
+        AndroidWeeklyNewsletterHandler()
     )
 }

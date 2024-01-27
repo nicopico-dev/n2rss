@@ -1,1 +1,12 @@
+version: '3.8'
 services:
+  db:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    volumes:
+      - db:/data/db
+volumes:
+  db:
+    driver:
+      local
