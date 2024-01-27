@@ -1,8 +1,8 @@
 package fr.nicopico.n2rss.mail.newsletter
 
+import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
-import fr.nicopico.n2rss.models.Entry
-import fr.nicopico.n2rss.models.EntrySource
+import fr.nicopico.n2rss.models.Newsletter
 import fr.nicopico.n2rss.utils.toURL
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
@@ -10,15 +10,14 @@ import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 
 class AndroidWeeklyNewsletterHandler : NewsletterHandler {
+
+    override val newsletter: Newsletter = Newsletter("Android Weekly")
+
     override fun canHandle(email: Email): Boolean {
         return email.sender.email.contains("contact@androidweekly.net")
     }
 
-    override fun process(email: Email): List<Entry> {
-        // Use style instead of markers -> font-size, color, etc.
-        // Delimit by "Articles & Tutorials" and "Place a sponsored post"
-        // or the blue rectangle for section titles
-
+    override fun extractArticles(email: Email): List<Article> {
         val cleanedHtml = Jsoup.clean(
             email.content,
             Safelist.basic()
@@ -36,27 +35,18 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandler {
             appendChildren(nodesBetween)
         }
 
-        val entrySource = EntrySource(
-            handler = this::class,
-            title = email.subject,
-        )
-
-        val entries = articleSectionDocument.select("a[href]")
+        return articleSectionDocument.select("a[href]")
             .filter { it -> it.text().isNotBlank() }
             .mapNotNull { tag ->
                 // Ignore entries with invalid link
                 tag.attr("href").toURL()
                     ?.let { link ->
-                        Entry(
+                        Article(
                             title = tag.text().trim(),
                             link = link,
                             description = tag.nextSibling().toString().trim(),
-                            pubDate = email.date,
-                            source = entrySource,
                         )
                     }
             }
-
-        return entries
     }
 }

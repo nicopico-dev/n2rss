@@ -1,7 +1,8 @@
 package fr.nicopico.n2rss.mail.newsletter
 
+import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
-import fr.nicopico.n2rss.models.Entry
+import fr.nicopico.n2rss.models.Newsletter
 import org.springframework.stereotype.Component
 
 /**
@@ -10,7 +11,8 @@ import org.springframework.stereotype.Component
  */
 @Component
 class NoOpNewsletterHandler : NewsletterHandler {
-    override fun canHandle(email: Email): Boolean = true
+    override val newsletter: Newsletter = Newsletter("NO-OP")
 
-    override fun process(email: Email): List<Entry> = emptyList()
+    override fun canHandle(email: Email): Boolean = true
+    override fun extractArticles(email: Email): List<Article> = emptyList()
 }
