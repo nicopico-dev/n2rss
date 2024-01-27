@@ -21,7 +21,7 @@ class EmailChecker(
         fixedRate = 3600,
         timeUnit = TimeUnit.SECONDS
     )
-    fun checkEmails() {
+    fun savePublicationsFromEmails() {
         try {
             LOG.info("Checking emails...")
             val emails = emailClient.checkEmails()
