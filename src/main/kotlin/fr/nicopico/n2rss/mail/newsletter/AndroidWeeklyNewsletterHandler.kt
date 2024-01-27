@@ -50,7 +50,7 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandler {
                         Entry(
                             title = tag.text().trim(),
                             link = link,
-                            description = "",
+                            description = tag.nextSibling().toString().trim(),
                             pubDate = email.date,
                             source = entrySource,
                         )

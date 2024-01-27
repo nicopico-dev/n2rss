@@ -2,9 +2,10 @@ package fr.nicopico.n2rss.mail.newsletter
 
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.EntrySource
+import io.kotest.assertions.assertSoftly
+import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
@@ -65,15 +66,25 @@ class AndroidWeeklyNewsletterHandlerTest {
                 "Keep Your Kotlin Code Spotless: A Guide to ktlint and ktfmt Linters",
             )
 
-            entries[0] should { entry ->
-                entry.title shouldBe "How to add text similarity easily using MediaPipe and Kotlin"
-                entry.link shouldBe URL("https://r20.rs6.net/tn.jsp?f=001YHdDWcIocRmEUng2FyDIZCM865jNXQCI2Rqy-2M-vNbfJdIgMHvRtHYbATstN3kGB9HprhnbPYLVzFxoewUaaejGyLe52auChGpRvDynAVEWc1A1wSoy8ZmiqmqNJhMuf67y5eG7ydf1OTZPZPB4FPQwqWT2LK-6hXWhyH0Js9DME5DujnMrIvbnalUKlch86KDIzPj-UlGsMphBYKA9IkE2nX46rr-9gj_u2vZ0H8syGAECFgg4qV3ZXxfCkGe84XXhoCcTWt8ZhrNzT0JJEx5rz84rYNdXtCOSyPEJHNKOYDOg9-X6Zg==&c=zrzdfNBtlG2zX5Iq8EiYBmRjj1u-3dLoDyskVZ8jzgoLL4bugqTz3Q==&ch=b-W9Yhs6lzvdh-BOht77aRzv1XT0juBV2IBbXPI7zM490y0EfdXTUA==")
-                entry.description shouldBe "Juan Guillermo Gómez Torres takes a look at MediaPipe Solutions, which provides a set of libraries and tools to apply machine learning (ML) to your applications quickly."
-                entry.pubDate.shouldHaveSameDayAs(email.date)
-                entry.source shouldBe EntrySource(
-                    handler = AndroidWeeklyNewsletterHandler::class,
-                    title = "Android Weekly #605 \uD83E\uDD16"
-                )
+            assertSoftly(entries[0]) {
+                withClue("Entry's title") {
+                    title shouldBe "How to add text similarity easily using MediaPipe and Kotlin"
+                }
+                withClue("Entry's link") {
+                    link shouldBe URL("https://r20.rs6.net/tn.jsp?f=001YHdDWcIocRmEUng2FyDIZCM865jNXQCI2Rqy-2M-vNbfJdIgMHvRtHYbATstN3kGB9HprhnbPYLVzFxoewUaaejGyLe52auChGpRvDynAVEWc1A1wSoy8ZmiqmqNJhMuf67y5eG7ydf1OTZPZPB4FPQwqWT2LK-6hXWhyH0Js9DME5DujnMrIvbnalUKlch86KDIzPj-UlGsMphBYKA9IkE2nX46rr-9gj_u2vZ0H8syGAECFgg4qV3ZXxfCkGe84XXhoCcTWt8ZhrNzT0JJEx5rz84rYNdXtCOSyPEJHNKOYDOg9-X6Zg==&c=zrzdfNBtlG2zX5Iq8EiYBmRjj1u-3dLoDyskVZ8jzgoLL4bugqTz3Q==&ch=b-W9Yhs6lzvdh-BOht77aRzv1XT0juBV2IBbXPI7zM490y0EfdXTUA==")
+                }
+                withClue("Entry's description") {
+                    description shouldBe "Juan Guillermo Gómez Torres takes a look at MediaPipe Solutions, which provides a set of libraries and tools to apply machine learning (ML) to your applications quickly."
+                }
+                withClue("Entry's publication date") {
+                    pubDate.shouldHaveSameDayAs(email.date)
+                }
+                withClue("Entry's source") {
+                    source shouldBe EntrySource(
+                        handler = AndroidWeeklyNewsletterHandler::class,
+                        title = "Android Weekly #605 \uD83E\uDD16"
+                    )
+                }
             }
         }
     }
