@@ -38,6 +38,8 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
 
+    implementation("org.jsoup:jsoup:1.15.3")
+
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.1")
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.8.0")
     testImplementation("io.kotest.extensions:kotest-assertions-kotlinx-datetime:1.1.0")
