@@ -40,6 +40,7 @@ dependencies {
     implementation("com.sun.mail:javax.mail:1.6.2")
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
     implementation("org.jsoup:jsoup:1.15.3")
+    implementation("com.rometools:rome:1.16.0")
 
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.1")
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.8.0")
