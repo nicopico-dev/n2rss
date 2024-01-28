@@ -8,6 +8,7 @@ import fr.nicopico.n2rss.models.Newsletter
  * This [NewsletterHandler] will process all emails in the inbox folder.
  * Use this to ensure [fr.nicopico.n2rss.mail.client.EmailClient] is correctly configured
  */
+@Suppress("unused")
 class NoOpNewsletterHandler : NewsletterHandler {
     override val newsletter: Newsletter = Newsletter("NO-OP")
 
