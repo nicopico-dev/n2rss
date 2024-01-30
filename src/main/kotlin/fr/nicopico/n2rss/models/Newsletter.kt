@@ -1,4 +1,9 @@
 package fr.nicopico.n2rss.models
 
-@JvmInline
-value class Newsletter(val name: String)
+data class Newsletter(
+    val name: String,
+    val websiteUrl: String,
+) {
+    internal val code: String
+        get() = name.lowercase().replace(" ", "_")
+}

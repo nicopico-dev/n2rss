@@ -11,7 +11,10 @@ import org.jsoup.safety.Safelist
 
 class AndroidWeeklyNewsletterHandler : NewsletterHandler {
 
-    override val newsletter: Newsletter = Newsletter("Android Weekly")
+    override val newsletter: Newsletter = Newsletter(
+        name = "Android Weekly",
+        websiteUrl = "https://androidweekly.net"
+    )
 
     override fun canHandle(email: Email): Boolean {
         return email.sender.email.contains("contact@androidweekly.net")
