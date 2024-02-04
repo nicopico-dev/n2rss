@@ -32,7 +32,6 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -42,9 +41,13 @@ dependencies {
     implementation("org.jsoup:jsoup:1.15.3")
     implementation("com.rometools:rome:1.16.0")
 
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude(group = "org.mockito")
+    }
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.1")
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.8.0")
     testImplementation("io.kotest.extensions:kotest-assertions-kotlinx-datetime:1.1.0")
+    testImplementation("io.mockk:mockk:1.13.9")
 }
 
 tasks.withType<KotlinCompile> {
