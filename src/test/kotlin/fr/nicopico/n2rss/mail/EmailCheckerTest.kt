@@ -6,9 +6,11 @@ import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Publication
 import io.mockk.MockKAnnotations
+import io.mockk.Runs
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
+import io.mockk.just
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -51,6 +53,7 @@ class EmailCheckerTest {
         every { emailClient.checkEmails() } returns listOf(email)
         every { newsletterHandlerA.canHandle(email) } returns true
         every { newsletterHandlerA.process(email) } returns publication
+        every { emailClient.markAsRead(any()) } just Runs
 
         // When we check the email
         emailChecker.savePublicationsFromEmails()
@@ -59,6 +62,7 @@ class EmailCheckerTest {
         verify { newsletterHandlerA.process(email) }
         verify { publicationRepository.saveAll(eq(listOf(publication))) }
         verify(exactly = 0) { newsletterHandlerB.process(email) }
+        verify { emailClient.markAsRead(email) }
     }
 
     @Test
@@ -106,6 +110,7 @@ class EmailCheckerTest {
     ) {
         // Given an email that causes an error and a valid email
         every { emailClient.checkEmails() } returns listOf(errorEmail, validEmail)
+        every { emailClient.markAsRead(any()) } just Runs
 
         every { newsletterHandlerA.canHandle(any()) } returns true
         every { newsletterHandlerB.canHandle(any()) } returns false
@@ -119,5 +124,7 @@ class EmailCheckerTest {
         verify { newsletterHandlerA.process(errorEmail) }
         verify { newsletterHandlerA.process(validEmail) }
         verify { publicationRepository.saveAll(eq(listOf(publication))) }
+        verify { emailClient.markAsRead(validEmail) }
+        verify(exactly = 0) { emailClient.markAsRead(errorEmail) }
     }
 }

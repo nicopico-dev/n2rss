@@ -33,6 +33,9 @@ class EmailChecker(
                     try {
                         getNewsletterHandler(email)
                             ?.process(email)
+                            .also {
+                                emailClient.markAsRead(email)
+                            }
                     } catch (e: Exception) {
                         LOG.error("Error processing email {}", email.subject, e)
                         null

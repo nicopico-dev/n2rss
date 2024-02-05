@@ -13,7 +13,8 @@ fun Message.toEmail() = Email(
     content = when(content) {
         is MimeMultipart -> (content as MimeMultipart).getHtmlBodyPart()
         else -> content.toString()
-    }
+    },
+    msgnum = this.messageNumber,
 )
 
 private fun MimeMultipart.getHtmlBodyPart(): String {

@@ -7,6 +7,7 @@ data class Email(
     val date: LocalDate,
     val subject: String,
     val content: String,
+    val msgnum: Int,
 )
 
 @JvmInline

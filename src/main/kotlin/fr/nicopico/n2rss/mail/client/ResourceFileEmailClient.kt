@@ -14,6 +14,11 @@ class ResourceFileEmailClient(
 ) : EmailClient {
 
     private val mailSession = Session.getDefaultInstance(System.getProperties())
+    private val readEmails = mutableSetOf<Email>()
+
+    override fun markAsRead(email: Email) {
+        readEmails.add(email)
+    }
 
     override fun checkEmails(): List<Email> {
         val loader = javaClass.classLoader
@@ -28,6 +33,7 @@ class ResourceFileEmailClient(
 
                 message.toEmail()
             }
+            .filter { it !in readEmails }
             .collect(Collectors.toList())
     }
 
