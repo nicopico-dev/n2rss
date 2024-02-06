@@ -7,6 +7,7 @@ import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Publication
 import io.mockk.MockKAnnotations
 import io.mockk.Runs
+import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
@@ -19,7 +20,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 @ExtendWith(MockKExtension::class)
 class EmailCheckerTest {
 
-    @MockK
+    @MockK(relaxUnitFun = true)
     private lateinit var emailClient: EmailClient
     @MockK(relaxed = true)
     private lateinit var newsletterHandlerA: NewsletterHandler
@@ -53,7 +54,6 @@ class EmailCheckerTest {
         every { emailClient.checkEmails() } returns listOf(email)
         every { newsletterHandlerA.canHandle(email) } returns true
         every { newsletterHandlerA.process(email) } returns publication
-        every { emailClient.markAsRead(any()) } just Runs
 
         // When we check the email
         emailChecker.savePublicationsFromEmails()
@@ -81,6 +81,7 @@ class EmailCheckerTest {
         verify(exactly = 0) { newsletterHandlerA.process(email) }
         verify(exactly = 0) { publicationRepository.saveAll(any<List<Publication>>()) }
         verify(exactly = 0) { newsletterHandlerB.process(email) }
+        verify(exactly = 0) { emailClient.markAsRead(any()) }
     }
 
     @Test
@@ -100,6 +101,7 @@ class EmailCheckerTest {
         verify(exactly = 0) { newsletterHandlerA.process(email) }
         verify(exactly = 0) { newsletterHandlerB.process(email) }
         verify(exactly = 0) { publicationRepository.saveAll(any<List<Publication>>()) }
+        verify(exactly = 0) { emailClient.markAsRead(any()) }
     }
 
     @Test
@@ -124,7 +126,26 @@ class EmailCheckerTest {
         verify { newsletterHandlerA.process(errorEmail) }
         verify { newsletterHandlerA.process(validEmail) }
         verify { publicationRepository.saveAll(eq(listOf(publication))) }
+
         verify { emailClient.markAsRead(validEmail) }
         verify(exactly = 0) { emailClient.markAsRead(errorEmail) }
+    }
+
+    @Test
+    fun `emailChecker will not crash if the client fails`() {
+        // Given that emailClient fails when checking emails
+        every { emailClient.checkEmails() } throws RuntimeException("TEST")
+
+        // When we check the emails
+        emailChecker.savePublicationsFromEmails()
+
+        // Then emailChecker should proceed without doing anything
+        verify { emailClient.checkEmails() }
+        confirmVerified(
+            emailClient,
+            newsletterHandlerA,
+            newsletterHandlerB,
+            publicationRepository,
+        )
     }
 }
