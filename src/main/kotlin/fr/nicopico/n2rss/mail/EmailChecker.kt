@@ -33,7 +33,7 @@ class EmailChecker(
                     try {
                         getNewsletterHandler(email)
                             ?.process(email)
-                            .also {
+                            ?.also {
                                 emailClient.markAsRead(email)
                             }
                     } catch (e: Exception) {
