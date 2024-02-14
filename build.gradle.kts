@@ -60,3 +60,14 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+val copyJar by tasks.registering(Copy::class) {
+    val bootJar = tasks.getByName("bootJar") as
+            org.springframework.boot.gradle.tasks.bundling.BootJar
+    from(bootJar.archiveFile)
+    into(project.layout.projectDirectory.dir("deploy"))
+    rename { "n2rss.jar" }
+}
+tasks.named("build") {
+    finalizedBy(copyJar)
+}
