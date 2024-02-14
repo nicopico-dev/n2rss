@@ -13,8 +13,9 @@ import org.springframework.context.annotation.Profile
 @Configuration
 class Config {
 
+    @Suppress("SpringJavaInjectionPointsAutowiringInspection")
     @Bean
-    @Profile("email")
+    @Profile("default")
     fun emailClient(config: EmailConfiguration): EmailClient {
         return JavaxEmailClient(
             protocol = config.protocol,
