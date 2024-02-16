@@ -37,4 +37,4 @@ out/
 .vscode/
 
 ### Deploy ###
-deploy/
+deploy/*.jar
