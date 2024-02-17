@@ -27,7 +27,7 @@ class UrlExtKtTest {
     @Test
     fun `Invalid url should return null`() {
         // GIVEN
-        val urlString: String = "invalid_url"
+        val urlString = "invalid_url"
 
         // WHEN
         val result: URL? = urlString.toURL()

@@ -21,6 +21,7 @@ class DateExtKtTest {
         val legacyDate: Date = localDate.toLegacyDate()
 
         // THEN
+        @Suppress("DEPRECATION")
         assertSoftly {
             legacyDate.year shouldBe (year - 1900)
             legacyDate.month shouldBe (monthNumber - 1)
@@ -34,6 +35,7 @@ class DateExtKtTest {
         val year = 2042
         val month = 6
         val dayOfMonth = 21
+        @Suppress("DEPRECATION")
         val date = Date(
             year - 1900,   // since year 0 in Date class refers to 1900
             month - 1,        // 0-based month
