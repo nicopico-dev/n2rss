@@ -47,6 +47,8 @@ dependencies {
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.8.0")
     testImplementation("io.kotest.extensions:kotest-assertions-kotlinx-datetime:1.1.0")
     testImplementation("io.mockk:mockk:1.13.9")
+    testImplementation("com.icegreen:greenmail:2.0.1")
+    testImplementation("com.icegreen:greenmail-junit5:2.0.1")
 }
 
 tasks.withType<KotlinCompile> {
