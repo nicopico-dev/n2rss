@@ -1,13 +1,13 @@
 package fr.nicopico.n2rss.mail.client
 
 import fr.nicopico.n2rss.models.Email
+import jakarta.mail.Session
+import jakarta.mail.internet.MimeMessage
 import java.io.FileInputStream
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.stream.Collectors
-import javax.mail.Session
-import javax.mail.internet.MimeMessage
 
 class ResourceFileEmailClient(
     private val resFolder: String

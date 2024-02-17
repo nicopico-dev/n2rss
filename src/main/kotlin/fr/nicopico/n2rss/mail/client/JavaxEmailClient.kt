@@ -1,12 +1,12 @@
 package fr.nicopico.n2rss.mail.client
 
 import fr.nicopico.n2rss.models.Email
+import jakarta.mail.Flags
+import jakarta.mail.Folder
+import jakarta.mail.Message
+import jakarta.mail.Session
+import jakarta.mail.search.FlagTerm
 import java.util.*
-import javax.mail.Flags
-import javax.mail.Folder
-import javax.mail.Message
-import javax.mail.Session
-import javax.mail.search.FlagTerm
 
 class JavaxEmailClient(
     private val protocol: String,
