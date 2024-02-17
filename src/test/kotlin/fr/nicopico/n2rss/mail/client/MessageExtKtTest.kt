@@ -7,14 +7,14 @@ import io.kotest.assertions.throwables.shouldThrowWithMessage
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
+import jakarta.mail.Address
+import jakarta.mail.Message
+import jakarta.mail.internet.InternetAddress
+import jakarta.mail.internet.InternetHeaders
+import jakarta.mail.internet.MimeBodyPart
+import jakarta.mail.internet.MimeMultipart
 import org.junit.jupiter.api.Test
 import java.util.*
-import javax.mail.Address
-import javax.mail.Message
-import javax.mail.internet.InternetAddress
-import javax.mail.internet.InternetHeaders
-import javax.mail.internet.MimeBodyPart
-import javax.mail.internet.MimeMultipart
 import kotlin.random.Random
 
 class MessageExtKtTest {

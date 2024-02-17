@@ -3,8 +3,8 @@ package fr.nicopico.n2rss.mail.newsletter
 import fr.nicopico.n2rss.mail.client.ResourceFileEmailClient
 import fr.nicopico.n2rss.mail.client.toEmail
 import fr.nicopico.n2rss.models.Email
-import javax.mail.Session
-import javax.mail.internet.MimeMessage
+import jakarta.mail.Session
+import jakarta.mail.internet.MimeMessage
 
 fun loadEmails(folder: String): List<Email> {
     return ResourceFileEmailClient(folder).checkEmails()
