@@ -3,7 +3,6 @@ package fr.nicopico.n2rss.rss
 import com.rometools.rome.feed.synd.SyndContentImpl
 import com.rometools.rome.feed.synd.SyndEntryImpl
 import com.rometools.rome.feed.synd.SyndFeedImpl
-import com.rometools.rome.io.SyndFeedOutput
 import fr.nicopico.n2rss.data.NewsletterRepository
 import fr.nicopico.n2rss.data.PublicationRepository
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
@@ -24,6 +23,7 @@ class RssFeedController(
     private val newsletterHandlers: List<NewsletterHandler>,
     private val newsletterRepository: NewsletterRepository,
     private val publicationRepository: PublicationRepository,
+    private val rssOutputWriter: RssOutputWriter,
 ) {
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getRssFeeds(): List<NewsletterDTO> {
@@ -88,6 +88,6 @@ class RssFeedController(
                     }
             }
 
-        SyndFeedOutput().output(feed, response.outputStream.writer())
+        rssOutputWriter.write(feed, response)
     }
 }
