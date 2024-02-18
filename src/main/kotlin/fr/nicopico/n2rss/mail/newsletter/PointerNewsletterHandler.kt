@@ -9,7 +9,7 @@ import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 
-class PointerNewsletterHandler() : NewsletterHandler {
+class PointerNewsletterHandler : NewsletterHandler {
     override val newsletter: Newsletter = Newsletter(
         "Pointer",
         "http://www.pointer.io/",
@@ -41,16 +41,27 @@ class PointerNewsletterHandler() : NewsletterHandler {
             }
 
         val links = articleSectionDocument.select("a[href]:has(strong:has(span))")
-        return links.mapNotNull { tag ->
-            tag.attr("href").toURL()
-                ?.let { link ->
-                    Article(
-                        title = tag.text(),
-                        link = link,
-                        description = "TODO"
-                    )
-                }
+        return links.mapNotNull { articleTitle ->
+            val link = articleTitle.attr("href").toURL()
+                ?: return@mapNotNull null
+            val title = articleTitle.text()
+            val description = articleTitle.findDescription()
+
+            Article(
+                title = title,
+                link = link,
+                description = description
+            )
         }
+    }
+
+    private fun Element.findDescription(): String {
+        val descriptionElement = parent()
+            ?.nextElementSiblings()
+            ?.select("p:has(strong:contains(tl;dr))")
+            ?.first()
+        return descriptionElement?.text()?.removePrefix("tl;dr:")?.trim()
+            ?: "N/A"
     }
 
     /**
@@ -79,4 +90,5 @@ class PointerNewsletterHandler() : NewsletterHandler {
             val style = attr("style")
             return style.contains(Regex("border-top\\s*:\\s*2px\\s*solid\\s*#000000"))
         }
+
 }
