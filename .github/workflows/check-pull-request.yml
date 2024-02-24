@@ -28,5 +28,10 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew --no-daemon build
-      - name: Test with Gradle
+      - name: Run unit-tests
         run: ./gradlew --no-daemon test --info
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: unit-tests-report
+          path: build/reports/tests/test
