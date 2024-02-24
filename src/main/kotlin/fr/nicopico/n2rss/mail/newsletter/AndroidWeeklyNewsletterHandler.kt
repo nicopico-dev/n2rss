@@ -13,7 +13,7 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandler {
 
     override val newsletter: Newsletter = Newsletter(
         name = "Android Weekly",
-        websiteUrl = "https://androidweekly.net"
+        websiteUrl = "https://androidweekly.net",
     )
 
     override fun canHandle(email: Email): Boolean {
