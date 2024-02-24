@@ -9,6 +9,7 @@ import org.jsoup.safety.Safelist
 class KotlinWeeklyNewsletterHandler : NewsletterHandler {
 
     override val newsletter: Newsletter = Newsletter(
+        code = "kotlin_weekly",
         name = "Kotlin Weekly",
         websiteUrl = "http://kotlinweekly.net/",
     )
@@ -23,7 +24,7 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandler {
             Safelist.basic(),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        // TODO Parse document
+        println(cleanedHtml)
         return emptyList()
     }
 }
