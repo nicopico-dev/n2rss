@@ -1,0 +1,44 @@
+name: CI - Check Pull Requests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+      - name: Setup Gradle cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Build with Gradle
+        run: ./gradlew --no-daemon build
+      - name: Run unit-tests
+        run: ./gradlew --no-daemon test --info
+      - name: Archive test results
+        uses: actions/upload-artifact@v2
+        with:
+          name: unit-tests-report
+          path: build/reports/tests/test
+      - name: Check Coverage
+        run:  ./gradlew --no-daemon koverHtmlReport koverVerify
+      - name: Archive coverage results
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report
+          path: build/reports/kover/html/
