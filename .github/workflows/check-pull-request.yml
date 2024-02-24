@@ -35,3 +35,10 @@ jobs:
         with:
           name: unit-tests-report
           path: build/reports/tests/test
+      - name: Check Coverage
+        run:  ./gradlew --no-daemon koverHtmlReport koverVerify
+      - name: Archive coverage results
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage-report
+          path: build/reports/kover/html/

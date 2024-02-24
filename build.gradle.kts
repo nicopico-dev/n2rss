@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
+    id("org.jetbrains.kotlinx.kover") version "0.7.6"
 }
 
 group = "fr.nicopico"
@@ -12,6 +13,14 @@ version = "0.0.1-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
+}
+
+koverReport {
+    verify {
+        rule {
+            minBound(80)
+        }
+    }
 }
 
 configurations {
