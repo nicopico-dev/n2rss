@@ -27,21 +27,64 @@ class PointerNewsletterHandler : NewsletterHandler {
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
 
-        // Separator have been changed from <td> tags to <p> tags by `String.preserveSeparators()` extension method
-        val separator: Element = document.select("p[style]")
+        // Separator have been changed from <td> tags to <p> tags
+        // by `String.preserveSeparators()` extension method
+        val firstSeparator: Element = document.select("p[style]")
             .first { it.isSeparator }
 
+        val sponsor = findSponsor(firstSeparator)
+        val articles = findArticles(firstSeparator)
+
+        return (sponsor?.let(::listOf) ?: emptyList()) + articles
+    }
+
+    private fun findSponsor(firstSeparator: Element): Article? {
+        val sponsorSection = Document("")
+            .apply {
+                appendChildren(
+                    (firstSeparator.parent()?.childNodes() ?: emptyList())
+                        .takeWhile { it != firstSeparator }
+                )
+            }
+
+        val sponsorSubtitleElement = sponsorSection.selectFirst("a[href]:has(strong:has(span))")
+        val sponsorLink = sponsorSubtitleElement?.attr("href")?.toURL()
+
+        return if (sponsorSubtitleElement != null && sponsorLink != null) {
+            val sponsorName = sponsorSection.select("p")
+                .map { it.text() }
+                .firstOrNull(String::isNotEmpty)
+                ?.let {
+                    it.substring(it.indexOf("is presented by") + 15)
+                }
+                ?.trim()
+                ?: "?"
+
+            val sponsorSubtitle = sponsorSubtitleElement.text()
+            val sponsorDescription = sponsorSection.text().let {
+                it.substring(it.indexOf(sponsorSubtitle) + sponsorSubtitle.length).trim()
+            }
+
+            Article(
+                title = "SPONSOR - $sponsorName: $sponsorSubtitle",
+                link = sponsorLink,
+                description = sponsorDescription,
+            )
+        } else null
+    }
+
+    private fun findArticles(firstSeparator: Element): List<Article> {
         // Take articles after the first separator to ignore the sponsor
         val articleSectionDocument = Document("")
             .apply {
                 appendChildren(
-                    (separator.parent()?.childNodes() ?: emptyList())
-                        .dropWhile { it != separator }
+                    (firstSeparator.parent()?.childNodes() ?: emptyList())
+                        .dropWhile { it != firstSeparator }
                 )
             }
 
         val links = articleSectionDocument.select("a[href]:has(strong:has(span))")
-        return links.mapNotNull { articleTitle ->
+        val articles = links.mapNotNull { articleTitle ->
             val link = articleTitle.attr("href").toURL()
                 ?: return@mapNotNull null
             val title = articleTitle.text()
@@ -53,6 +96,7 @@ class PointerNewsletterHandler : NewsletterHandler {
                 description = description
             )
         }
+        return articles
     }
 
     private fun Element.findDescription(): String {

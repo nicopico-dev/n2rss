@@ -43,7 +43,7 @@ class PointerNewsletterHandlerTest {
     @Nested
     inner class ProcessTest {
         @Test
-        fun `should extract all articles from an Android Weekly email`() {
+        fun `should extract all articles from an email`() {
             // GIVEN
             val email: Email = loadEmail("emails/Pointer/Issue #480.eml")
 
@@ -64,6 +64,7 @@ class PointerNewsletterHandlerTest {
             }
 
             publication.articles.map { it.title } shouldBe listOf(
+                "SPONSOR - Gitpod: Built For Platform Teams",
                 "Incentives And The Cobra Effect",
                 "Applying The SPACE Framework",
                 "How To Successfully Adopt A Developer Tool",
@@ -73,8 +74,18 @@ class PointerNewsletterHandlerTest {
                 "Dynamic Programming Is Not Black Magic",
                 "How Fast Is Your Shell?",
             )
+        }
 
-            assertSoftly(publication.articles[0]) {
+        @Test
+        fun `should extract article details from an email`() {
+            // GIVEN
+            val email: Email = loadEmail("emails/Pointer/Issue #480.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            assertSoftly(publication.articles[1]) {
                 withClue("title") {
                     title shouldBe "Incentives And The Cobra Effect"
                 }
@@ -83,6 +94,31 @@ class PointerNewsletterHandlerTest {
                 }
                 withClue("description") {
                     description shouldBe "“Incentives are superpowers; set them carefully.” The Cobra Effect is when the solution for a problem unintentionally makes the problem worse. Andrew believe this issue is more widespread than anticipated. He provides several examples, including: everyone sharing feedback directly instead of through managers. This leads to people withholding valuable feedback to maintain relationships or damaging relationships if they can’t share negative feedback elegantly."
+                }
+            }
+        }
+
+        @Test
+        fun `should extract sponsor details from an email`() {
+            // GIVEN
+            val email: Email = loadEmail("emails/Pointer/Issue #480.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            assertSoftly(publication.articles[0]) {
+                withClue("title") {
+                    title shouldBe "SPONSOR - Gitpod: Built For Platform Teams"
+                }
+                withClue("link") {
+                    link shouldBe URL("https://pointer.us9.list-manage.com/track/click?u=e9492ff27d760c578a39d0675&id=2191b13858&e=0e436c5282")
+                }
+                withClue("description") {
+                    description shouldBe "Gitpod’s developer platform was built for developers looking to work faster and platform teams looking to work smarter. " +
+                            "It allows them to do two things really well: automate standardization of development environments and always be ready-to-code. " +
+                            "All it takes is adding a .gitpod.yml file to the root of any repository. " +
+                            "Try Gitpod For Free"
                 }
             }
         }
