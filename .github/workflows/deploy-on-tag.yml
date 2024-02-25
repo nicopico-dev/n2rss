@@ -27,7 +27,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build application JAR
-        uses: ./gradlew --no-daemon bootJar
+        run: ./gradlew --no-daemon bootJar
       - name: Deploy to server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
