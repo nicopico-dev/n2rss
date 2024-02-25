@@ -51,7 +51,6 @@ class AndroidWeeklyNewsletterHandlerTest {
             val publication = handler.process(email)
 
             // THEN
-
             assertSoftly(publication) {
                 withClue("title") {
                     title shouldBe "Android Weekly #605 \uD83E\uDD16"
