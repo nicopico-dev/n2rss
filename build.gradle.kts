@@ -71,7 +71,7 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
-val copyJar by tasks.registering(Copy::class) {
+val copyJarToDeploy by tasks.registering(Copy::class) {
     val bootJar = tasks.getByName("bootJar") as
             org.springframework.boot.gradle.tasks.bundling.BootJar
     from(bootJar.archiveFile)
@@ -79,5 +79,5 @@ val copyJar by tasks.registering(Copy::class) {
     rename { "n2rss.jar" }
 }
 tasks.named("build") {
-    finalizedBy(copyJar)
+    finalizedBy(copyJarToDeploy)
 }
