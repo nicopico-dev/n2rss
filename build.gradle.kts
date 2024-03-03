@@ -78,6 +78,7 @@ val copyJarToDeploy by tasks.registering(Copy::class) {
     into(project.layout.projectDirectory.dir("deploy"))
     rename { "n2rss.jar" }
 }
+
 tasks.named("build") {
     finalizedBy(copyJarToDeploy)
 }
