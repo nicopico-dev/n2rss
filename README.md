@@ -3,6 +3,13 @@
 N2RSS (*Newsletter to RSS*) goal is to publish RSS feeds containing separate articles
 extracted from selected newsletters.
 
+It will run an email check periodically for new emails on an inbox.
+A recognized email will be processed, while unrecognized email are left as-is.
+Once an email has been processed, it is marked as read.
+
+Each newsletter will map to a separate RSS feed, 
+and each articles extracted from the newsletter publication will map to different RSS entry in the corresponding feed.
+
 | Newsletter     | URL                       | Status  |
 |----------------|---------------------------|---------|
 | Android Weekly | https://androidweekly.net | OK      |
@@ -32,7 +39,88 @@ and testing purposes.
 
 ### Installing
 
-- [ ] Provide a step-by-step guide to get your development environment running.
+This project is a Spring Boot application written in Kotlin
+
+By default, it will connect an `EmailClient` using parameters provided as environment variables:
+```
+EMAIL_HOST=<host url of the email account>
+EMAIL_USERNAME=<username for the email account>
+EMAIL_PASSWORD=<password for the email account>
+EMAIL_INBOX_FOLDER=inbox
+EMAIL_PORT=993
+EMAIL_PROTOCOL=imaps
+```
+
+By using the `local` profile, a `ResourceFileEmailClient` will be used instead and use the files located 
+at `src/main/resources/emails`. This profile is recommended to get a faster feedback-loop while developing.
+
+```shell
+$ ./gradlew bootRun --args='--spring.profiles.active=local'
+```
+
+When run for development through an IDE or with `bootRun`, Spring Boot will use a Docker container 
+to run the **MongoDB database**. This Docker container will be created automatically on the first run, 
+using the declarations in `compose.yaml`.
+
+## Usage
+
+Once running, this application provides the following endpoints
+
+### GET /rss
+Get information on the RSS feeds handled by the application.
+
+Example:
+```
+GET http://localhost/rss
+
+HTTP/1.1 200 OK
+Connection: keep-alive
+content-type: application/json
+date: Sun, 03 Mar 2024 21:27:01 GMT
+via: 1.1 alproxy
+transfer-encoding: chunked
+
+[
+  {
+    "code": "android_weekly",
+    "title": "Android Weekly",
+    "publicationCount": 3
+  },
+  {
+    "code": "pointer",
+    "title": "Pointer",
+    "publicationCount": 4
+  }
+]
+```
+
+### GET /rss/\[code]
+
+Retrieve the RSS feed matching the give `code`.
+By default, only the articles of the latest 2 publications are retrieved.
+
+Example:
+```
+GET http://localhost/rss/android_weekly
+
+HTTP/1.1 200 OK
+Connection: keep-alive
+date: Sun, 03 Mar 2024 21:28:21 GMT
+via: 1.1 alproxy
+transfer-encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Android Weekly</title>
+    <link>https://androidweekly.net</link>
+    <description>This is an RSS Feed for the newsletter "Android Weekly"</description>
+    <item>
+    ...
+    </item>
+  </channel>
+</rss>
+```
 
 ## Tests
 
@@ -41,14 +129,12 @@ Tests can be run using the following command
 $ ./gradlew check
 ```
 
-`NewsletterHandler` implementations are tested with the emails stored in `src/main/resources/emails`
+`NewsletterHandler` implementations are tested with the emails stored in `src/main/resources/emails`.
 
-## Usage
-
-- [ ] Examples of how to use this project. Could be code examples or screenshots.
+The CI enforce a minimum coverage of 80%
 
 ## Deployment
-This project need access to an email account and a MongoDB database to run.
+This project needs access to an email account and a MongoDB database to run.
 
 1. Build the project using the `build` command
    ```shell
@@ -78,11 +164,7 @@ This project need access to an email account and a MongoDB database to run.
    ```shell
    java -jar n2rss.jar --server.address=:: --server.port=$PORT
    ```
-   `$PORT` should be replaced by the port number the server should listen to 
-
-## Authors
-
-- Nicolas PICON
+   `$PORT` should be replaced by the port number the server should listen to
 
 ## License
 
