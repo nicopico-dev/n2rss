@@ -16,7 +16,7 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.rss
+package fr.nicopico.n2rss.controller.rss
 
 import fr.nicopico.n2rss.data.NewsletterRepository
 import fr.nicopico.n2rss.data.PublicationRepository

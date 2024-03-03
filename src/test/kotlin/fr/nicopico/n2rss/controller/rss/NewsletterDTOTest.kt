@@ -15,16 +15,41 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.rss
 
-import com.rometools.rome.feed.synd.SyndFeed
-import com.rometools.rome.io.SyndFeedOutput
-import jakarta.servlet.http.HttpServletResponse
-import org.springframework.stereotype.Component
+package fr.nicopico.n2rss.controller.rss
 
-@Component
-class RssOutputWriter {
-    fun write(feed: SyndFeed, response: HttpServletResponse) {
-        SyndFeedOutput().output(feed, response.outputStream.writer())
+import com.fasterxml.jackson.databind.ObjectMapper
+import io.kotest.matchers.shouldBe
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+
+class NewsletterDTOTest {
+
+    private lateinit var objectMapper: ObjectMapper
+
+    @BeforeEach
+    fun setUp() {
+        objectMapper = ObjectMapper()
+    }
+
+    @Test
+    fun `NewsletterDTO should serialize to JSON`() {
+        // GIVEN
+        val code = "adaptor"
+        val title = "Myanmar expression rom affecting teaching caught smilies"
+        val publicationCount = 2977L
+
+        val original = NewsletterDTO(
+            code = code,
+            title = title,
+            publicationCount = publicationCount,
+        )
+
+        // WHEN
+        val json = objectMapper.writeValueAsString(original)
+
+        // THEN
+        val dto = objectMapper.readValue(json, NewsletterDTO::class.java)
+        dto shouldBe original
     }
 }

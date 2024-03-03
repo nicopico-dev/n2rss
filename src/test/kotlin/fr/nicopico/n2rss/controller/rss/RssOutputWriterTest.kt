@@ -16,41 +16,42 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.rss
+package fr.nicopico.n2rss.controller.rss
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import io.kotest.matchers.shouldBe
+import com.rometools.rome.feed.synd.SyndFeedImpl
+import io.kotest.assertions.throwables.shouldNotThrowAny
+import io.mockk.MockKAnnotations
+import io.mockk.impl.annotations.MockK
+import jakarta.servlet.http.HttpServletResponse
 import org.junit.jupiter.api.BeforeEach
-
 import org.junit.jupiter.api.Test
 
-class NewsletterDTOTest {
+class RssOutputWriterTest {
 
-    private lateinit var objectMapper: ObjectMapper
+    @MockK(relaxed = true)
+    private lateinit var response: HttpServletResponse
+
+    private lateinit var rssOutputWriter: RssOutputWriter
 
     @BeforeEach
     fun setUp() {
-        objectMapper = ObjectMapper()
+        MockKAnnotations.init(this)
+        rssOutputWriter = RssOutputWriter()
     }
 
     @Test
-    fun `NewsletterDTO should serialize to JSON`() {
+    fun `RssOutputWriter should be able to write RSS feed to an HTTP response`() {
         // GIVEN
-        val code = "adaptor"
-        val title = "Myanmar expression rom affecting teaching caught smilies"
-        val publicationCount = 2977L
+        val feed = SyndFeedImpl().apply {
+            feedType = "rss_2.0"
+            title = "title"
+            link = "link"
+            description = "description"
+        }
 
-        val original = NewsletterDTO(
-            code = code,
-            title = title,
-            publicationCount = publicationCount,
-        )
-
-        // WHEN
-        val json = objectMapper.writeValueAsString(original)
-
-        // THEN
-        val dto = objectMapper.readValue(json, NewsletterDTO::class.java)
-        dto shouldBe original
+        // WHEN - THEN
+        shouldNotThrowAny {
+            rssOutputWriter.write(feed, response)
+        }
     }
 }
