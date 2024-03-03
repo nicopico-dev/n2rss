@@ -43,6 +43,7 @@ class NewsletterDTOTest {
             code = code,
             title = title,
             publicationCount = publicationCount,
+            startingDate = null,
         )
 
         // WHEN
