@@ -27,4 +27,5 @@ import java.util.*
 interface PublicationRepository : MongoRepository<Publication, UUID> {
     fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<Publication>
     fun countPublicationsByNewsletter(newsletter: Newsletter): Long
+    fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): Publication?
 }

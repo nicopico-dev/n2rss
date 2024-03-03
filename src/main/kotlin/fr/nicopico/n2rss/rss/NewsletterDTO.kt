@@ -17,7 +17,9 @@
  */
 package fr.nicopico.n2rss.rss
 
+import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.util.*
 
 data class NewsletterDTO(
     @JsonProperty("code")
@@ -26,4 +28,7 @@ data class NewsletterDTO(
     val title: String,
     @JsonProperty("publicationCount")
     val publicationCount: Long,
+    @JsonProperty("startingDate")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    val startingDate: Date?,
 )

@@ -51,6 +51,7 @@ class RssFeedController(
                     code = it.code,
                     title = it.name,
                     publicationCount = publicationRepository.countPublicationsByNewsletter(it),
+                    startingDate = publicationRepository.findFirstByNewsletterOrderByDateAsc(it)?.date?.toLegacyDate(),
                 )
             }
     }
