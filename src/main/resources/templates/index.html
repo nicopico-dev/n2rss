@@ -22,7 +22,6 @@
     <style>
         table {
             border-collapse: collapse;
-            /*width: 100%;*/
         }
 
         th, td {
@@ -63,13 +62,15 @@ Here is a table of the newsletters processed by N2RSS.
         <td th:text="${newsletter.title}"></td>
         <td>
             <a th:href="${newsletter.websiteUrl}"
-               th:text="${newsletter.websiteUrl}"/>
+               th:text="${newsletter.websiteUrl}">
+            </a>
         </td>
         <td th:text="${newsletter.publicationCount}"></td>
         <td th:text="${newsletter.startingDate}"></td>
         <td>
             <a th:href="${requestUrl + 'rss/' + newsletter.code}"
-               th:text="${requestUrl + 'rss/' + newsletter.code}"/>
+               th:text="${requestUrl + 'rss/' + newsletter.code}">
+            </a>
         </td>
     </tr>
     </tbody>
