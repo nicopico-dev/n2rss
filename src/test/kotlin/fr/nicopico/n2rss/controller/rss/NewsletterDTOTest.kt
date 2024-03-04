@@ -16,12 +16,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.rss
+package fr.nicopico.n2rss.controller.rss
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
-
 import org.junit.jupiter.api.Test
 
 class NewsletterDTOTest {
@@ -44,6 +43,7 @@ class NewsletterDTOTest {
             code = code,
             title = title,
             publicationCount = publicationCount,
+            startingDate = null,
         )
 
         // WHEN

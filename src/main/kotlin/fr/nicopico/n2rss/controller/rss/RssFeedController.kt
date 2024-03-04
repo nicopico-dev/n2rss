@@ -15,14 +15,14 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.rss
+package fr.nicopico.n2rss.controller.rss
 
 import com.rometools.rome.feed.synd.SyndContentImpl
 import com.rometools.rome.feed.synd.SyndEntryImpl
 import com.rometools.rome.feed.synd.SyndFeedImpl
 import fr.nicopico.n2rss.data.NewsletterRepository
 import fr.nicopico.n2rss.data.PublicationRepository
-import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.service.NewsletterService
 import fr.nicopico.n2rss.utils.toLegacyDate
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.data.domain.PageRequest
@@ -37,22 +37,15 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/rss")
 class RssFeedController(
-    private val newsletterHandlers: List<NewsletterHandler>,
+    private val newsletterService: NewsletterService,
     private val newsletterRepository: NewsletterRepository,
     private val publicationRepository: PublicationRepository,
     private val rssOutputWriter: RssOutputWriter,
 ) {
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getRssFeeds(): List<NewsletterDTO> {
-        return newsletterHandlers
-            .map { it.newsletter }
-            .map {
-                NewsletterDTO(
-                    code = it.code,
-                    title = it.name,
-                    publicationCount = publicationRepository.countPublicationsByNewsletter(it),
-                )
-            }
+        return newsletterService.getNewslettersInfo()
+            .map { it.toDTO() }
     }
 
     /**

@@ -15,43 +15,16 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.controller.rss
 
-package fr.nicopico.n2rss.rss
-
-import com.rometools.rome.feed.synd.SyndFeedImpl
-import io.kotest.assertions.throwables.shouldNotThrowAny
-import io.mockk.MockKAnnotations
-import io.mockk.impl.annotations.MockK
+import com.rometools.rome.feed.synd.SyndFeed
+import com.rometools.rome.io.SyndFeedOutput
 import jakarta.servlet.http.HttpServletResponse
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import org.springframework.stereotype.Component
 
-class RssOutputWriterTest {
-
-    @MockK(relaxed = true)
-    private lateinit var response: HttpServletResponse
-
-    private lateinit var rssOutputWriter: RssOutputWriter
-
-    @BeforeEach
-    fun setUp() {
-        MockKAnnotations.init(this)
-        rssOutputWriter = RssOutputWriter()
-    }
-
-    @Test
-    fun `RssOutputWriter should be able to write RSS feed to an HTTP response`() {
-        // GIVEN
-        val feed = SyndFeedImpl().apply {
-            feedType = "rss_2.0"
-            title = "title"
-            link = "link"
-            description = "description"
-        }
-
-        // WHEN - THEN
-        shouldNotThrowAny {
-            rssOutputWriter.write(feed, response)
-        }
+@Component
+class RssOutputWriter {
+    fun write(feed: SyndFeed, response: HttpServletResponse) {
+        SyndFeedOutput().output(feed, response.outputStream.writer())
     }
 }

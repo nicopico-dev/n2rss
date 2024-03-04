@@ -15,17 +15,30 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.data
 
-import fr.nicopico.n2rss.models.Newsletter
-import fr.nicopico.n2rss.models.Publication
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
-import org.springframework.data.mongodb.repository.MongoRepository
-import java.util.*
+package fr.nicopico.n2rss.service
 
-interface PublicationRepository : MongoRepository<Publication, UUID> {
-    fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<Publication>
-    fun countPublicationsByNewsletter(newsletter: Newsletter): Long
-    fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): Publication?
+import fr.nicopico.n2rss.data.PublicationRepository
+import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.models.NewsletterInfo
+import org.springframework.stereotype.Service
+
+@Service
+class NewsletterService(
+    private val newsletterHandlers: List<NewsletterHandler>,
+    private val publicationRepository: PublicationRepository,
+) {
+    fun getNewslettersInfo(): List<NewsletterInfo> {
+        return newsletterHandlers
+            .map { it.newsletter }
+            .map {
+                NewsletterInfo(
+                    code = it.code,
+                    title = it.name,
+                    websiteUrl = it.websiteUrl,
+                    publicationCount = publicationRepository.countPublicationsByNewsletter(it),
+                    startingDate = publicationRepository.findFirstByNewsletterOrderByDateAsc(it)?.date,
+                )
+            }
+    }
 }

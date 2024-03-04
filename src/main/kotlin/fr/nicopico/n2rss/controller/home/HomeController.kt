@@ -15,17 +15,26 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.data
+package fr.nicopico.n2rss.controller.home
 
-import fr.nicopico.n2rss.models.Newsletter
-import fr.nicopico.n2rss.models.Publication
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
-import org.springframework.data.mongodb.repository.MongoRepository
-import java.util.*
+import fr.nicopico.n2rss.service.NewsletterService
+import jakarta.servlet.http.HttpServletRequest
+import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
+import org.springframework.web.bind.annotation.GetMapping
 
-interface PublicationRepository : MongoRepository<Publication, UUID> {
-    fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<Publication>
-    fun countPublicationsByNewsletter(newsletter: Newsletter): Long
-    fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): Publication?
+@Controller
+class HomeController(
+    private val newsletterService: NewsletterService,
+) {
+    @GetMapping("/")
+    fun home(request: HttpServletRequest, model: Model): String {
+        val newslettersInfo = newsletterService.getNewslettersInfo()
+        val requestUrl: String = request.requestURL.toString()
+        with(model) {
+            addAttribute("newsletters", newslettersInfo)
+            addAttribute("requestUrl", requestUrl)
+        }
+        return "index"
+    }
 }

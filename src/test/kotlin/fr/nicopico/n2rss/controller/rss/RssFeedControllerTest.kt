@@ -16,14 +16,15 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.rss
+package fr.nicopico.n2rss.controller.rss
 
 import fr.nicopico.n2rss.data.NewsletterRepository
 import fr.nicopico.n2rss.data.PublicationRepository
-import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Newsletter
+import fr.nicopico.n2rss.models.NewsletterInfo
 import fr.nicopico.n2rss.models.Publication
+import fr.nicopico.n2rss.service.NewsletterService
 import io.kotest.assertions.assertSoftly
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
@@ -44,6 +45,8 @@ import java.net.URL
 class RssFeedControllerTest {
 
     @MockK
+    private lateinit var newsletterService: NewsletterService
+    @MockK
     private lateinit var newsletterRepository: NewsletterRepository
     @MockK
     private lateinit var publicationRepository: PublicationRepository
@@ -56,15 +59,8 @@ class RssFeedControllerTest {
     fun setUp() {
         MockKAnnotations.init(this)
 
-        val newsletterHandlers = List(2) {
-            mockk<NewsletterHandler> {
-                val newsletter = Newsletter("Newsletter$it", "https://website$it.com")
-                every { this@mockk.newsletter } returns newsletter
-            }
-        }
-
         rssFeedController = RssFeedController(
-            newsletterHandlers,
+            newsletterService,
             newsletterRepository,
             publicationRepository,
             rssOutputWriter,
@@ -74,7 +70,15 @@ class RssFeedControllerTest {
     @Test
     fun `getRssFeeds should returns info on all the current feeds`() {
         // GIVEN
-        every { publicationRepository.countPublicationsByNewsletter(any()) } returns 5 andThen 8
+        every { newsletterService.getNewslettersInfo() } returns List(2) {
+            NewsletterInfo(
+                code = "newsletter_$it",
+                title = "Newsletter$it",
+                websiteUrl = "https://website$it.com",
+                publicationCount = (it + 1) * 2L,
+                startingDate = null,
+            )
+        }
 
         // WHEN
         val result = rssFeedController.getRssFeeds()
@@ -83,11 +87,11 @@ class RssFeedControllerTest {
         result shouldHaveSize 2
         assertSoftly(result[0]) {
             title shouldBe "Newsletter0"
-            publicationCount shouldBe 5
+            publicationCount shouldBe 2
         }
         assertSoftly(result[1]) {
             title shouldBe "Newsletter1"
-            publicationCount shouldBe 8
+            publicationCount shouldBe 4
         }
     }
 
