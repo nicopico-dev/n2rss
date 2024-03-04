@@ -15,29 +15,15 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.controller.rss
 
-import com.fasterxml.jackson.annotation.JsonFormat
-import com.fasterxml.jackson.annotation.JsonProperty
-import fr.nicopico.n2rss.models.NewsletterInfo
-import fr.nicopico.n2rss.utils.toLegacyDate
-import java.util.*
+package fr.nicopico.n2rss.models
 
-data class NewsletterDTO(
-    @JsonProperty("code")
+import kotlinx.datetime.LocalDate
+
+data class NewsletterInfo(
     val code: String,
-    @JsonProperty("title")
     val title: String,
-    @JsonProperty("publicationCount")
+    val websiteUrl: String,
     val publicationCount: Long,
-    @JsonProperty("startingDate")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    val startingDate: Date?,
-)
-
-fun NewsletterInfo.toDTO() = NewsletterDTO(
-    code = code,
-    title = title,
-    publicationCount = publicationCount,
-    startingDate = startingDate?.toLegacyDate(),
+    val startingDate: LocalDate?,
 )

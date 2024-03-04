@@ -17,15 +17,24 @@
  */
 package fr.nicopico.n2rss.controller.home
 
+import fr.nicopico.n2rss.service.NewsletterService
+import jakarta.servlet.http.HttpServletRequest
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
-class HomeController {
+class HomeController(
+    private val newsletterService: NewsletterService,
+) {
     @GetMapping("/")
-    fun home(model: Model): String {
-        model.addAttribute("message", "Hello World!")
+    fun home(request: HttpServletRequest, model: Model): String {
+        val newslettersInfo = newsletterService.getNewslettersInfo()
+        val requestUrl: String = request.requestURL.toString()
+        with(model) {
+            addAttribute("newsletters", newslettersInfo)
+            addAttribute("requestUrl", requestUrl)
+        }
         return "index"
     }
 }

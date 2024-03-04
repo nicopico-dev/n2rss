@@ -15,29 +15,30 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.controller.rss
 
-import com.fasterxml.jackson.annotation.JsonFormat
-import com.fasterxml.jackson.annotation.JsonProperty
+package fr.nicopico.n2rss.service
+
+import fr.nicopico.n2rss.data.PublicationRepository
+import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import fr.nicopico.n2rss.models.NewsletterInfo
-import fr.nicopico.n2rss.utils.toLegacyDate
-import java.util.*
+import org.springframework.stereotype.Service
 
-data class NewsletterDTO(
-    @JsonProperty("code")
-    val code: String,
-    @JsonProperty("title")
-    val title: String,
-    @JsonProperty("publicationCount")
-    val publicationCount: Long,
-    @JsonProperty("startingDate")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    val startingDate: Date?,
-)
-
-fun NewsletterInfo.toDTO() = NewsletterDTO(
-    code = code,
-    title = title,
-    publicationCount = publicationCount,
-    startingDate = startingDate?.toLegacyDate(),
-)
+@Service
+class NewsletterService(
+    private val newsletterHandlers: List<NewsletterHandler>,
+    private val publicationRepository: PublicationRepository,
+) {
+    fun getNewslettersInfo(): List<NewsletterInfo> {
+        return newsletterHandlers
+            .map { it.newsletter }
+            .map {
+                NewsletterInfo(
+                    code = it.code,
+                    title = it.name,
+                    websiteUrl = it.websiteUrl,
+                    publicationCount = publicationRepository.countPublicationsByNewsletter(it),
+                    startingDate = publicationRepository.findFirstByNewsletterOrderByDateAsc(it)?.date,
+                )
+            }
+    }
+}

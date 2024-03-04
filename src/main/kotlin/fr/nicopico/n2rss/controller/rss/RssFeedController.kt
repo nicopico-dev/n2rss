@@ -22,7 +22,7 @@ import com.rometools.rome.feed.synd.SyndEntryImpl
 import com.rometools.rome.feed.synd.SyndFeedImpl
 import fr.nicopico.n2rss.data.NewsletterRepository
 import fr.nicopico.n2rss.data.PublicationRepository
-import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.service.NewsletterService
 import fr.nicopico.n2rss.utils.toLegacyDate
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.data.domain.PageRequest
@@ -37,23 +37,15 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/rss")
 class RssFeedController(
-    private val newsletterHandlers: List<NewsletterHandler>,
+    private val newsletterService: NewsletterService,
     private val newsletterRepository: NewsletterRepository,
     private val publicationRepository: PublicationRepository,
     private val rssOutputWriter: RssOutputWriter,
 ) {
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getRssFeeds(): List<NewsletterDTO> {
-        return newsletterHandlers
-            .map { it.newsletter }
-            .map {
-                NewsletterDTO(
-                    code = it.code,
-                    title = it.name,
-                    publicationCount = publicationRepository.countPublicationsByNewsletter(it),
-                    startingDate = publicationRepository.findFirstByNewsletterOrderByDateAsc(it)?.date?.toLegacyDate(),
-                )
-            }
+        return newsletterService.getNewslettersInfo()
+            .map { it.toDTO() }
     }
 
     /**
