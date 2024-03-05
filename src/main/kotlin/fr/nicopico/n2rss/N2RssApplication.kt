@@ -17,14 +17,17 @@
  */
 package fr.nicopico.n2rss
 
+import fr.nicopico.n2rss.config.N2RssProperties
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication
 import org.springframework.scheduling.annotation.EnableScheduling
 
 @EnableScheduling
 @SpringBootApplication
-class N2rssApplication
+@EnableConfigurationProperties(N2RssProperties::class)
+class N2RssApplication
 
 fun main(args: Array<String>) {
-    runApplication<N2rssApplication>(*args)
+    runApplication<N2RssApplication>(*args)
 }

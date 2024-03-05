@@ -1,1 +1,10 @@
+###
 GET http://localhost:8080/rss
+
+### Stop server (fails)
+POST http://localhost:8080/stop
+X-Secret-Key: pouet
+
+### Stop server (success)
+POST http://localhost:8080/stop
+X-Secret-Key: abcd

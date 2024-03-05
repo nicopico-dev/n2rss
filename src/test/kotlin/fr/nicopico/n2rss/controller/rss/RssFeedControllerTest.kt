@@ -114,7 +114,7 @@ class RssFeedControllerTest {
                 PageImpl(listOf(expectedPublication))
 
         // WHEN
-        rssFeedController.getFeed("test", mockResponse, 0, 2)
+        rssFeedController.getFeed("test", 0, 2, mockResponse)
 
         // THEN
         verifySequence {
@@ -134,7 +134,7 @@ class RssFeedControllerTest {
         every { newsletterRepository.findNewsletterByCode(any()) } returns null
 
         // WHEN-THEN
-        rssFeedController.getFeed("test", mockResponse, 0, 2)
+        rssFeedController.getFeed("test", 0, 2, mockResponse)
 
         // THEN
         verifySequence {

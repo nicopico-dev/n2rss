@@ -15,10 +15,9 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss
+package fr.nicopico.n2rss.config
 
 import fr.nicopico.n2rss.mail.client.EmailClient
-import fr.nicopico.n2rss.mail.client.EmailConfiguration
 import fr.nicopico.n2rss.mail.client.JavaxEmailClient
 import fr.nicopico.n2rss.mail.client.ResourceFileEmailClient
 import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
