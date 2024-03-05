@@ -18,6 +18,7 @@
 
 package fr.nicopico.n2rss.controller.maintenance
 
+import fr.nicopico.n2rss.config.N2RssProperties
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.boot.SpringApplication
 import org.springframework.context.ApplicationContext
@@ -25,13 +26,25 @@ import org.springframework.context.ConfigurableApplicationContext
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestHeader
 
 @Controller
 class MaintenanceController(
     private val applicationContext: ApplicationContext,
+    props: N2RssProperties,
 ) {
+    private val properties = props.maintenance
+
     @PostMapping("/stop", produces = [MediaType.TEXT_PLAIN_VALUE])
-    fun restartServer(response: HttpServletResponse) {
+    fun stopServer(
+        @RequestHeader("X-Secret-Key") secretKey: String,
+        response: HttpServletResponse,
+    ) {
+        if (secretKey != properties.secretKey) {
+            response.sendError(403, "Not authorized")
+            return
+        }
+
         val context = applicationContext as ConfigurableApplicationContext
         response.status = 200
         response.writer.write("Bye!")

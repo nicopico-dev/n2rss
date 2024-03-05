@@ -15,19 +15,31 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss
+package fr.nicopico.n2rss.config
 
-import fr.nicopico.n2rss.config.N2RssProperties
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.context.properties.EnableConfigurationProperties
-import org.springframework.boot.runApplication
-import org.springframework.scheduling.annotation.EnableScheduling
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Profile
 
-@EnableScheduling
-@SpringBootApplication
-@EnableConfigurationProperties(N2RssProperties::class)
-class N2RssApplication
+@Profile("default")
+@Configuration
+class EmailConfiguration {
 
-fun main(args: Array<String>) {
-    runApplication<N2RssApplication>(*args)
+    @Value("\${EMAIL_HOST}")
+    lateinit var host: String
+
+    @Value("\${EMAIL_PORT}")
+    var port: Int = 993
+
+    @Value("\${EMAIL_USERNAME}")
+    lateinit var username: String
+
+    @Value("\${EMAIL_PASSWORD}")
+    lateinit var password: String
+
+    @Value("\${EMAIL_PROTOCOL}")
+    var protocol: String = "imaps"
+
+    @Value("\${EMAIL_INBOX_FOLDER}")
+    var inboxFolder: String = "inbox"
 }

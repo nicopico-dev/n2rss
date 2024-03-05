@@ -20,12 +20,12 @@
     <EXTENSION ID="com.intellij.execution.ExternalSystemRunConfigurationJavaExtension">
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="fr.nicopico.n2rss.Config" />
+          <option name="PATTERN" value="fr.nicopico.n2rss.config.Config" />
           <option name="ENABLED" value="true" />
           <option name="INCLUDE" value="false" />
         </pattern>
         <pattern>
-          <option name="PATTERN" value="fr.nicopico.n2rss.mail.client.EmailConfiguration" />
+          <option name="PATTERN" value="fr.nicopico.n2rss.config.EmailConfiguration" />
           <option name="ENABLED" value="true" />
           <option name="INCLUDE" value="false" />
         </pattern>
