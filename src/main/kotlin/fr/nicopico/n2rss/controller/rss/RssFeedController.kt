@@ -61,9 +61,9 @@ class RssFeedController(
     )
     fun getFeed(
         @PathVariable("feed") code: String,
-        response: HttpServletResponse,
         @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
+        response: HttpServletResponse,
     ) {
         val newsletter = newsletterRepository.findNewsletterByCode(code)
         if (newsletter == null) {

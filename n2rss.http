@@ -1,1 +1,5 @@
+###
 GET http://localhost:8080/rss
+
+### Restart server
+POST http://localhost:8080/stop

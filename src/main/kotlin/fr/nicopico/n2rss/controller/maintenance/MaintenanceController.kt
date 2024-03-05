@@ -15,16 +15,26 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss
 
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
-import org.springframework.scheduling.annotation.EnableScheduling
+package fr.nicopico.n2rss.controller.maintenance
 
-@EnableScheduling
-@SpringBootApplication
-class N2rssApplication
+import jakarta.servlet.http.HttpServletResponse
+import org.springframework.boot.SpringApplication
+import org.springframework.context.ApplicationContext
+import org.springframework.context.ConfigurableApplicationContext
+import org.springframework.http.MediaType
+import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.PostMapping
 
-fun main(args: Array<String>) {
-    runApplication<N2rssApplication>(*args)
+@Controller
+class MaintenanceController(
+    private val applicationContext: ApplicationContext,
+) {
+    @PostMapping("/stop", produces = [MediaType.TEXT_PLAIN_VALUE])
+    fun restartServer(response: HttpServletResponse) {
+        val context = applicationContext as ConfigurableApplicationContext
+        response.status = 200
+        response.writer.write("Bye!")
+        SpringApplication.exit(context)
+    }
 }
