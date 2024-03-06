@@ -77,7 +77,7 @@ class AndroidWeeklyNewsletterHandlerTest {
                     date shouldHaveSameDayAs (email.date)
                 }
                 withClue("newsletter") {
-                    newsletter.name shouldBe "Android Weekly"
+                    newsletter.name shouldBe "Android Weekly (Articles only)"
                 }
             }
 

@@ -29,7 +29,7 @@ import org.jsoup.safety.Safelist
 class AndroidWeeklyNewsletterHandler : NewsletterHandler {
 
     override val newsletter: Newsletter = Newsletter(
-        name = "Android Weekly",
+        name = "Android Weekly (Articles only)",
         websiteUrl = "https://androidweekly.net",
     )
 
