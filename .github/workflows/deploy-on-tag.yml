@@ -29,6 +29,7 @@ jobs:
       - name: Build application JAR
         run: ./gradlew --no-daemon bootJar copyJarToDeploy
       - name: Deploy to server
+        if: ${{ !env.ACT }}
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -36,3 +37,21 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ vars.FTP_DIR }}
           local-dir: ./deploy/
+  restart-server:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stop Server
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.SERVER_ENDPOINT }}/stop
+          method: POST
+          customHeaders: >-
+            {
+              "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
+            }
+      - name: Restart Server
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.SERVER_ENDPOINT }}
+          method: GET
