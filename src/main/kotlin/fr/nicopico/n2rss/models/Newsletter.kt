@@ -18,9 +18,13 @@
 package fr.nicopico.n2rss.models
 
 data class Newsletter(
+    val code: String,
     val name: String,
     val websiteUrl: String,
 ) {
-    internal val code: String
-        get() = name.lowercase().replace(" ", "_")
+    constructor(name: String, websiteUrl: String) : this(
+        code = name.lowercase().replace(" ", "_"),
+        name = name,
+        websiteUrl = websiteUrl,
+    )
 }
