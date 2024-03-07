@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  checks: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,11 +33,11 @@ jobs:
         run: ./gradlew --no-daemon build
       - name: Run unit-tests
         run: ./gradlew --no-daemon test --info
-      - name: Archive test results
-        uses: actions/upload-artifact@v4
+      - name: Publish Unit Test Results
+        uses: mikepenz/action-junit-report@v4
+        if: success() || failure()
         with:
-          name: unit-tests-report
-          path: build/reports/tests/test
+          report_paths: 'build/test-results/test/**.xml'
       - name: Check Coverage
         run:  ./gradlew --no-daemon koverHtmlReport koverVerify
       - name: Archive coverage results

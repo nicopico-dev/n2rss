@@ -38,3 +38,6 @@ out/
 
 ### Deploy ###
 deploy/*.jar
+
+### ACT ###
+act/artifacts/
