@@ -37,7 +37,7 @@ jobs:
         uses: mikepenz/action-junit-report@v4
         if: success() || failure()
         with:
-          report_paths: 'build/reports/test-results/test/**.xml'
+          report_paths: 'build/test-results/test/**.xml'
       - name: Check Coverage
         run:  ./gradlew --no-daemon koverHtmlReport koverVerify
       - name: Archive coverage results
