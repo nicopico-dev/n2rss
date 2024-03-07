@@ -29,8 +29,8 @@ jobs:
       - name: Build application JAR
         run: ./gradlew --no-daemon bootJar copyJarToDeploy
       - name: Deploy to server
-        if: ${{ !env.ACT }}
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        if: ${{ !env.ACT }}
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
