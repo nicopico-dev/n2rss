@@ -15,6 +15,9 @@
 # CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 # DEALINGS IN THE SOFTWARE.
 #
-#!/usr/bin/env sh
 
-act pull_request --var-file n2rss_dev.variables --secret-file n2rss_dev.secrets
+act pull_request -s GITHUB_TOKEN="$(gh auth token)" \
+  --container-architecture linux/amd64 \
+  --artifact-server-path ./act/artifacts \
+  --var-file ./act/n2rss_dev.variables \
+  --secret-file ./act/n2rss_dev.secrets
