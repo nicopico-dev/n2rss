@@ -100,7 +100,7 @@ class RssFeedControllerTest {
         // GIVEN
         val mockResponse = mockk<HttpServletResponse>(relaxed = true)
 
-        val expectedNewsletter = Newsletter("test newsletter", "https://test.com")
+        val expectedNewsletter = Newsletter("test", "test newsletter", "https://test.com")
         val expectedPublication = Publication(
             title = "test publication",
             date = LocalDate.fromEpochDays(321),
