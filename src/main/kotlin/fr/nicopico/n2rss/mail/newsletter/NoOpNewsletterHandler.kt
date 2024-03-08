@@ -27,7 +27,7 @@ import fr.nicopico.n2rss.models.Newsletter
  */
 @Suppress("unused")
 class NoOpNewsletterHandler : NewsletterHandler {
-    override val newsletter: Newsletter = Newsletter("NO-OP", "")
+    override val newsletter: Newsletter = Newsletter("no-op", "NO-OP", "")
 
     override fun canHandle(email: Email): Boolean = true
     override fun extractArticles(email: Email): List<Article> = emptyList()
