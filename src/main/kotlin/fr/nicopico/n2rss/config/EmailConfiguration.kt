@@ -17,13 +17,44 @@
  */
 package fr.nicopico.n2rss.config
 
+import fr.nicopico.n2rss.mail.client.EmailClient
+import fr.nicopico.n2rss.mail.client.JavaxEmailClient
+import fr.nicopico.n2rss.mail.client.NoOpEmailClient
+import fr.nicopico.n2rss.mail.client.ResourceFileEmailClient
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
 
-@Profile("default")
 @Configuration
 class EmailConfiguration {
+
+    @Suppress("SpringJavaInjectionPointsAutowiringInspection")
+    @Bean
+    @Profile("default")
+    fun emailClient(config: EmailParameters): EmailClient {
+        return JavaxEmailClient(
+            protocol = config.protocol,
+            host = config.host,
+            port = config.port,
+            user = config.username,
+            password = config.password,
+            inboxFolder = config.inboxFolder,
+        )
+    }
+
+    @Bean
+    @Profile("local")
+    fun fakeEmailClient(): EmailClient = ResourceFileEmailClient("emails")
+
+    @Bean
+    @Profile("rss-only")
+    fun noopEmailClient(): EmailClient = NoOpEmailClient()
+}
+
+@Profile("default")
+@Configuration
+class EmailParameters {
 
     @Value("\${EMAIL_HOST}")
     lateinit var host: String
