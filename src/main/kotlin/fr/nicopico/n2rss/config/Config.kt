@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.config
 
 import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.client.JavaxEmailClient
+import fr.nicopico.n2rss.mail.client.NoOpEmailClient
 import fr.nicopico.n2rss.mail.client.ResourceFileEmailClient
 import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
@@ -47,6 +48,10 @@ class Config {
     @Bean
     @Profile("local")
     fun fakeEmailClient(): EmailClient = ResourceFileEmailClient("emails")
+
+    @Bean
+    @Profile("rss-only")
+    fun noopEmailClient(): EmailClient = NoOpEmailClient()
 
     @Bean
     fun emailProcessors(): List<NewsletterHandler> = listOf(
