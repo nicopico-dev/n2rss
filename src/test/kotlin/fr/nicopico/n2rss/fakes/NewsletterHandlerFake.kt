@@ -16,30 +16,24 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.models
+package fr.nicopico.n2rss.fakes
 
-import io.kotest.matchers.shouldBe
-import org.junit.jupiter.params.ParameterizedTest
-import org.junit.jupiter.params.provider.Arguments
-import org.junit.jupiter.params.provider.MethodSource
-import java.util.stream.Stream
+import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.models.Article
+import fr.nicopico.n2rss.models.Email
+import fr.nicopico.n2rss.models.Newsletter
 
-class NewsletterTest {
+class NewsletterHandlerFake(
+    override val newsletter: Newsletter,
+) : NewsletterHandler {
 
-    companion object {
-        @JvmStatic
-        fun paramProvider(): Stream<Arguments> = Stream.of(
-            Arguments.of("Android Weekly", "android_weekly"),
-        )
+    constructor(code: String): this(Newsletter(code, "Newsletter_$code", "Website_$code"))
+
+    override fun canHandle(email: Email): Boolean {
+        TODO("Not yet implemented")
     }
 
-    @ParameterizedTest
-    @MethodSource("paramProvider")
-    fun `should generate code from name`(name: String, expectedCode: String) {
-        // GIVEN
-        val newsletter = Newsletter(name, websiteUrl = "")
-
-        // WHEN - THEN
-        newsletter.code shouldBe expectedCode
+    override fun extractArticles(email: Email): List<Article> {
+        TODO("Not yet implemented")
     }
 }

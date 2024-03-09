@@ -21,10 +21,4 @@ data class Newsletter(
     val code: String,
     val name: String,
     val websiteUrl: String,
-) {
-    constructor(name: String, websiteUrl: String) : this(
-        code = name.lowercase().replace(" ", "_"),
-        name = name,
-        websiteUrl = websiteUrl,
-    )
-}
+)

@@ -20,42 +20,17 @@
     <EXTENSION ID="com.intellij.execution.ExternalSystemRunConfigurationJavaExtension">
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="fr.nicopico.n2rss.config.Config" />
+          <option name="PATTERN" value="fr.nicopico.n2rss.config.*" />
           <option name="ENABLED" value="true" />
           <option name="INCLUDE" value="false" />
         </pattern>
         <pattern>
-          <option name="PATTERN" value="fr.nicopico.n2rss.config.EmailConfiguration" />
+          <option name="PATTERN" value="fr.nicopico.n2rss.N2RssApplication" />
           <option name="ENABLED" value="true" />
           <option name="INCLUDE" value="false" />
         </pattern>
         <pattern>
-          <option name="PATTERN" value="fr.nicopico.n2rss.N2rssApplication" />
-          <option name="ENABLED" value="true" />
-          <option name="INCLUDE" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="fr.nicopico.n2rss.N2rssApplicationKt" />
-          <option name="ENABLED" value="true" />
-          <option name="INCLUDE" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="fr.nicopico.n2rss.data.CleanLocalDatabase" />
-          <option name="ENABLED" value="true" />
-          <option name="INCLUDE" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="fr.nicopico.n2rss.data.CleanLocalDatabaseKt" />
-          <option name="ENABLED" value="true" />
-          <option name="INCLUDE" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="fr.nicopico.n2rss.mail.newsletter.NoOpNewsletterHandler" />
-          <option name="ENABLED" value="true" />
-          <option name="INCLUDE" value="false" />
-        </pattern>
-        <pattern>
-          <option name="PATTERN" value="fr.nicopico.n2rss.mail.client.ResourceFileEmailClient" />
+          <option name="PATTERN" value="fr.nicopico.n2rss.N2RssApplicationKt" />
           <option name="ENABLED" value="true" />
           <option name="INCLUDE" value="false" />
         </pattern>

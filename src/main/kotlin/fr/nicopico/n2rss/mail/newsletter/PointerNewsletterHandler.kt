@@ -28,8 +28,9 @@ import org.jsoup.safety.Safelist
 
 class PointerNewsletterHandler : NewsletterHandler {
     override val newsletter: Newsletter = Newsletter(
-        "Pointer",
-        "http://www.pointer.io/",
+        code = "pointer",
+        name = "Pointer",
+        websiteUrl = "http://www.pointer.io/",
     )
 
     override fun canHandle(email: Email): Boolean {

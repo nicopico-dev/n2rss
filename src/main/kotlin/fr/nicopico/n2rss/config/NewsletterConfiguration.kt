@@ -15,41 +15,19 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+
 package fr.nicopico.n2rss.config
 
-import fr.nicopico.n2rss.mail.client.EmailClient
-import fr.nicopico.n2rss.mail.client.JavaxEmailClient
-import fr.nicopico.n2rss.mail.client.ResourceFileEmailClient
 import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.PointerNewsletterHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.Profile
 
 @Configuration
-class Config {
-
-    @Suppress("SpringJavaInjectionPointsAutowiringInspection")
+class NewsletterConfiguration {
     @Bean
-    @Profile("default")
-    fun emailClient(config: EmailConfiguration): EmailClient {
-        return JavaxEmailClient(
-            protocol = config.protocol,
-            host = config.host,
-            port = config.port,
-            user = config.username,
-            password = config.password,
-            inboxFolder = config.inboxFolder,
-        )
-    }
-
-    @Bean
-    @Profile("local")
-    fun fakeEmailClient(): EmailClient = ResourceFileEmailClient("emails")
-
-    @Bean
-    fun emailProcessors(): List<NewsletterHandler> = listOf(
+    fun newsletterHandlers(): List<NewsletterHandler> = listOf(
         AndroidWeeklyNewsletterHandler(),
         PointerNewsletterHandler(),
     )

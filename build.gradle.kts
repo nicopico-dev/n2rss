@@ -1,3 +1,5 @@
+import kotlinx.kover.gradle.plugin.dsl.AggregationType
+import kotlinx.kover.gradle.plugin.dsl.MetricType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -16,9 +18,22 @@ java {
 }
 
 koverReport {
+    filters {
+        excludes {
+            packages("fr.nicopico.n2rss.config.*")
+            classes(
+                "fr.nicopico.n2rss.N2RssApplication",
+                "fr.nicopico.n2rss.N2RssApplicationKt"
+            )
+        }
+    }
     verify {
-        rule {
+        rule("Line Coverage") {
             minBound(80)
+            bound {
+                metric = MetricType.LINE
+                aggregation = AggregationType.COVERED_PERCENTAGE
+            }
         }
     }
 }
