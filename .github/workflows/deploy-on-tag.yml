@@ -50,8 +50,10 @@ jobs:
             {
               "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
             }
+          preventFailureOnNoResponse: true
       - name: Restart Server
         uses: fjogeleit/http-request-action@v1
         with:
           url: ${{ vars.SERVER_ENDPOINT }}
           method: GET
+          preventFailureOnNoResponse: true

@@ -66,6 +66,10 @@ using the declarations in `compose.yaml`.
 
 Once running, this application provides the following endpoints
 
+### GET /
+Get a presentation of the project as an HTML page. 
+The information provided by this page is the same as [GET /rss](#get-rss)
+
 ### GET /rss
 Get information on the RSS feeds handled by the application.
 
@@ -122,6 +126,11 @@ transfer-encoding: chunked
 </rss>
 ```
 
+### POST /stop
+This endpoint is used to finalize a deployment by stopping the current instance of the application.
+
+It is protected by a secret key (see the environment variables declared in [Deployment](#deployment))
+
 ## Tests
 
 Tests can be run using the following command
@@ -159,6 +168,8 @@ This project needs access to an email account and a MongoDB database to run.
    MONGODB_PASSWORD=<password for the mongodb database>
    MONGODB_DATABASE=<name of the database to use>
    MONGODB_PORT=27017
+   
+   N2RSS_SECRET_KEY=<secret key to interact with /stop endpoint>
    ```
 4. Run the following command to run the server
    ```shell
