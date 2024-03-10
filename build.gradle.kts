@@ -62,7 +62,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.sun.mail:jakarta.mail:2.0.1")
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
-    implementation("org.jsoup:jsoup:1.15.3")
+    implementation("org.jsoup:jsoup:1.17.2")
     implementation("com.rometools:rome:1.16.0")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
