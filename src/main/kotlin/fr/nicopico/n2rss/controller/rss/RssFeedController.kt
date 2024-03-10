@@ -57,7 +57,7 @@ class RssFeedController(
      */
     @GetMapping(
         "{feed}",
-        produces = [MediaType.APPLICATION_XML_VALUE]
+        produces = [MediaType.APPLICATION_RSS_XML_VALUE],
     )
     fun getFeed(
         @PathVariable("feed") code: String,
@@ -98,6 +98,7 @@ class RssFeedController(
                     }
             }
 
+        response.contentType = MediaType.APPLICATION_RSS_XML_VALUE
         rssOutputWriter.write(feed, response)
     }
 }

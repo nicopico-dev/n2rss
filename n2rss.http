@@ -8,3 +8,6 @@ X-Secret-Key: pouet
 ### Stop server (success)
 POST http://localhost:8080/stop
 X-Secret-Key: abcd
+
+### Content-Type
+GET http://localhost:8080/rss/pointer
