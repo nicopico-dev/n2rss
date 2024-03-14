@@ -16,21 +16,33 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.config
+package fr.nicopico.n2rss.mail.newsletter
 
-import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.PointerNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.QuickBirdNewsletterHandler
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
+import fr.nicopico.n2rss.models.Article
+import fr.nicopico.n2rss.models.Email
+import fr.nicopico.n2rss.models.Newsletter
+import org.jsoup.Jsoup
+import org.jsoup.safety.Safelist
 
-@Configuration
-class NewsletterConfiguration {
-    @Bean
-    fun newsletterHandlers(): List<NewsletterHandler> = listOf(
-        AndroidWeeklyNewsletterHandler(),
-        PointerNewsletterHandler(),
-        QuickBirdNewsletterHandler(),
+class QuickBirdNewsletterHandler : NewsletterHandler {
+    override val newsletter: Newsletter = Newsletter(
+        code = "quickbird",
+        name = "QuickBird Studios",
+        websiteUrl = "https://quickbirdstudios.com/blog",
     )
+
+    override fun canHandle(email: Email): Boolean {
+        return email.sender.email.contains("contact@quickbirdstudios.com")
+    }
+
+    override fun extractArticles(email: Email): List<Article> {
+        val cleanedHtml = Jsoup.clean(
+            email.content,
+            Safelist.basic()
+                .addAttributes("p", "style"),
+        )
+        println(cleanedHtml)
+        val document = Jsoup.parseBodyFragment(cleanedHtml)
+        TODO()
+    }
 }

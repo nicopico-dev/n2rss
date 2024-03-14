@@ -40,7 +40,7 @@ class PointerNewsletterHandlerTest {
     @Nested
     inner class CanHandleTest {
         @Test
-        fun `should handle all emails from AndroidWeekly`() {
+        fun `should handle all emails from Pointer`() {
             // GIVEN
             val emails = loadEmails("emails/Pointer")
 
