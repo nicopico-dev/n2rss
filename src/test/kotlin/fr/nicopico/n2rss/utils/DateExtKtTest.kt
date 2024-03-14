@@ -53,10 +53,11 @@ class DateExtKtTest {
         val year = 2042
         val month = 6
         val dayOfMonth = 21
+
         @Suppress("DEPRECATION")
         val date = Date(
             year - 1900,   // since year 0 in Date class refers to 1900
-            month - 1,        // 0-based month
+            month - 1,    // 0-based month
             dayOfMonth,
         )
 

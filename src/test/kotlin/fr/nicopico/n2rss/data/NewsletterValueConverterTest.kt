@@ -25,11 +25,13 @@ class NewsletterValueConverterTest {
     fun `a newsletter code should be deserialized to the corresponding newsletter`() {
         // GIVEN
         val newsletter = Newsletter("code", "name", "websiteUrl")
-        val converter = NewsletterValueConverter(listOf(
-            NewsletterHandlerFake("foo"),
-            NewsletterHandlerFake(newsletter),
-            NewsletterHandlerFake("bar"),
-        ))
+        val converter = NewsletterValueConverter(
+            listOf(
+                NewsletterHandlerFake("foo"),
+                NewsletterHandlerFake(newsletter),
+                NewsletterHandlerFake("bar"),
+            )
+        )
 
         // WHEN
         val result = converter.read("code", mockk())
@@ -41,10 +43,12 @@ class NewsletterValueConverterTest {
     @Test
     fun `a newsletter code should be deserialized to null if no match is found`() {
         // GIVEN
-        val converter = NewsletterValueConverter(listOf(
-            NewsletterHandlerFake("foo"),
-            NewsletterHandlerFake("bar"),
-        ))
+        val converter = NewsletterValueConverter(
+            listOf(
+                NewsletterHandlerFake("foo"),
+                NewsletterHandlerFake("bar"),
+            )
+        )
 
         // WHEN
         val result = converter.read("code", mockk())

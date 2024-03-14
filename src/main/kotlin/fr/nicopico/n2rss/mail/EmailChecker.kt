@@ -76,7 +76,7 @@ class EmailChecker(
                 .also { processor ->
                     LOG.info("\"{}\" is being processed by {}", email.subject, processor::class.java)
                 }
-        }  catch (_: NoSuchElementException) {
+        } catch (_: NoSuchElementException) {
             LOG.warn("No handler found for email {}", email.subject)
             null
         } catch (_: IllegalArgumentException) {

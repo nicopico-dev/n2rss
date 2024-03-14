@@ -20,6 +20,7 @@ class NewsletterServiceTest {
         NewsletterHandlerFake(Newsletter("code2", "Name 2", "website2")),
         NewsletterHandlerFake(Newsletter("code3", "Name 3", "website3")),
     )
+
     @MockK
     private lateinit var publicationRepository: PublicationRepository
 
@@ -40,7 +41,7 @@ class NewsletterServiceTest {
         val firstPublicationCode1 = LocalDate(2022, 3, 21)
         val firstPublicationCode2 = LocalDate(2023, 7, 8)
         every { publicationRepository.countPublicationsByNewsletter(any()) } answers {
-            when(firstArg<Newsletter>().code) {
+            when (firstArg<Newsletter>().code) {
                 "code1" -> 32
                 "code2" -> 3
                 else -> 0
@@ -48,19 +49,21 @@ class NewsletterServiceTest {
         }
         every { publicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } answers {
             val newsletter = firstArg<Newsletter>()
-            when(newsletter.code) {
+            when (newsletter.code) {
                 "code1" -> Publication(
                     title = "Some title1",
                     date = firstPublicationCode1,
                     newsletter = newsletter,
                     articles = emptyList()
                 )
+
                 "code2" -> Publication(
                     title = "Some title 2",
                     date = firstPublicationCode2,
                     newsletter = newsletter,
                     articles = emptyList()
                 )
+
                 else -> null
             }
         }

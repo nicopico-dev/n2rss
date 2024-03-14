@@ -46,10 +46,13 @@ class RssFeedControllerTest {
 
     @MockK
     private lateinit var newsletterService: NewsletterService
+
     @MockK
     private lateinit var newsletterRepository: NewsletterRepository
+
     @MockK
     private lateinit var publicationRepository: PublicationRepository
+
     @MockK(relaxUnitFun = true)
     private lateinit var rssOutputWriter: RssOutputWriter
 
@@ -111,7 +114,7 @@ class RssFeedControllerTest {
         )
         every { newsletterRepository.findNewsletterByCode("test") } returns expectedNewsletter
         every { publicationRepository.findByNewsletter(expectedNewsletter, any()) } returns
-                PageImpl(listOf(expectedPublication))
+            PageImpl(listOf(expectedPublication))
 
         // WHEN
         rssFeedController.getFeed("test", 0, 2, mockResponse)
