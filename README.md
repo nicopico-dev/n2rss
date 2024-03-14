@@ -18,11 +18,13 @@ and each articles extracted from the newsletter publication will map to differen
 
 ## Built With
 
+- Kotlin 1.9
+- Java 17
 - Jakarta EE
 - Spring MVC
 - Spring Data MONGO
-- Kotlin API version 1.9
-- Java SDK version 17
+- JSOUP to parse email content
+- ROME to generate RSS feeds
 
 ## Getting Started
 
