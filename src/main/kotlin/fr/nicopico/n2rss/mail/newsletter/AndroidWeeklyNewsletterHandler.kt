@@ -56,6 +56,7 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandler {
             appendChildren(nodesBetween)
         }
 
+        @Suppress("ExplicitItLambdaParameter")
         return articleSectionDocument.select("a[href]")
             .filter { it -> it.text().isNotBlank() }
             .mapNotNull { tag ->

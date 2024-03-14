@@ -34,6 +34,8 @@ class EmailChecker(
     private val newsletterHandlers: List<NewsletterHandler>,
     private val publicationRepository: PublicationRepository,
 ) {
+    // We want to catch all exceptions here
+    @Suppress("TooGenericExceptionCaught")
     @Scheduled(
         initialDelay = 2,
         fixedRate = 3600,

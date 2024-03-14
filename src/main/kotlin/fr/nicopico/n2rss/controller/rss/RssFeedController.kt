@@ -67,7 +67,7 @@ class RssFeedController(
     ) {
         val newsletter = newsletterRepository.findNewsletterByCode(code)
         if (newsletter == null) {
-            response.sendError(404)
+            response.sendError(HttpServletResponse.SC_NOT_FOUND)
             return
         }
 

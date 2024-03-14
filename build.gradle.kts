@@ -75,8 +75,6 @@ dependencies {
     testImplementation("io.mockk:mockk:1.13.10")
     testImplementation("com.icegreen:greenmail:2.0.1")
     testImplementation("com.icegreen:greenmail-junit5:2.0.1")
-
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.3")
 }
 
 tasks.withType<KotlinCompile> {

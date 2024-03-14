@@ -41,12 +41,12 @@ class MaintenanceController(
         response: HttpServletResponse,
     ) {
         if (secretKey != properties.secretKey) {
-            response.sendError(403, "Not authorized")
+            response.sendError(HttpServletResponse.SC_FORBIDDEN, "Not authorized")
             return
         }
 
         val context = applicationContext as ConfigurableApplicationContext
-        response.status = 200
+        response.status = HttpServletResponse.SC_OK
         response.writer.write("Bye!")
         SpringApplication.exit(context)
     }
