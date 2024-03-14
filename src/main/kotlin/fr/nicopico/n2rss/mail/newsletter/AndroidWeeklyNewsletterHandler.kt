@@ -63,10 +63,14 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandler {
                 // Ignore entries with invalid link
                 tag.attr("href").toURL()
                     ?.let { link ->
+                        val title = tag.text().trim()
                         Article(
-                            title = tag.text().trim(),
+                            title = title,
                             link = link,
-                            description = tag.nextSibling().toString().trim(),
+                            description = tag.nextSibling()?.toString()?.trim()
+                                ?: throw NewsletterParsingException(
+                                    "Cannot find article description for article \"$title\" in Android Weekly"
+                                ),
                         )
                     }
             }

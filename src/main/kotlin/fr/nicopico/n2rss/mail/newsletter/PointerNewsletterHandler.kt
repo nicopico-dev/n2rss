@@ -77,7 +77,7 @@ class PointerNewsletterHandler : NewsletterHandler {
                     it.substring(it.indexOf(sponsorPrefix) + sponsorPrefix.length)
                 }
                 ?.trim()
-                ?: "?"
+                ?: throw NewsletterParsingException("Cannot find sponsor name in $sponsorSection")
 
             val sponsorSubtitle = sponsorSubtitleElement.text()
             val sponsorDescription = sponsorSection.text().let {
