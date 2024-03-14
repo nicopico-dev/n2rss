@@ -27,7 +27,7 @@ fun Message.toEmail() = Email(
     Sender(email = from[0].toString()),
     date = this.sentDate.toKotlinLocaleDate(),
     subject = subject,
-    content = when(content) {
+    content = when (content) {
         is MimeMultipart -> (content as MimeMultipart).getHtmlBodyPart()
         else -> content.toString()
     },

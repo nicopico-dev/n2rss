@@ -8,6 +8,7 @@ plugins {
     kotlin("jvm") version "1.9.23"
     kotlin("plugin.spring") version "1.9.23"
     id("org.jetbrains.kotlinx.kover") version "0.7.6"
+    id("io.gitlab.arturbosch.detekt") version("1.23.5")
 }
 
 group = "fr.nicopico"
@@ -85,6 +86,15 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+// Make Detekt 1.23.5 compatible with Kotlin 1.9.23
+configurations.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin") {
+            useVersion(io.gitlab.arturbosch.detekt.getSupportedKotlinVersion())
+        }
+    }
 }
 
 val copyJarToDeploy by tasks.registering(Copy::class) {

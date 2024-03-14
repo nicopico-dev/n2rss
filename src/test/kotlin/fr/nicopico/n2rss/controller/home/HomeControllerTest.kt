@@ -33,7 +33,7 @@ class HomeControllerTest {
         every { newsletterService.getNewslettersInfo() } returns newslettersInfo
 
         val requestUrl = StringBuffer("http://localhost:8134")
-        val request = mockk<HttpServletRequest>() {
+        val request = mockk<HttpServletRequest> {
             every { requestURL } returns requestUrl
         }
 

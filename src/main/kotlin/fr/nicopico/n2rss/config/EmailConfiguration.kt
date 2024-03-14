@@ -56,11 +56,17 @@ class EmailConfiguration {
 @Configuration
 class EmailParameters {
 
+    companion object {
+        const val DEFAULT_PORT = 993
+        const val DEFAULT_PROTOCOL = "imaps"
+        const val DEFAULT_INBOX_FOLDER = "inbox"
+    }
+
     @Value("\${EMAIL_HOST}")
     lateinit var host: String
 
     @Value("\${EMAIL_PORT}")
-    var port: Int = 993
+    var port: Int = DEFAULT_PORT
 
     @Value("\${EMAIL_USERNAME}")
     lateinit var username: String
@@ -69,8 +75,8 @@ class EmailParameters {
     lateinit var password: String
 
     @Value("\${EMAIL_PROTOCOL}")
-    var protocol: String = "imaps"
+    var protocol: String = DEFAULT_PROTOCOL
 
     @Value("\${EMAIL_INBOX_FOLDER}")
-    var inboxFolder: String = "inbox"
+    var inboxFolder: String = DEFAULT_INBOX_FOLDER
 }

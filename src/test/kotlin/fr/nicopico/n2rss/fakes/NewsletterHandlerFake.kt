@@ -27,7 +27,7 @@ class NewsletterHandlerFake(
     override val newsletter: Newsletter,
 ) : NewsletterHandler {
 
-    constructor(code: String): this(Newsletter(code, "Newsletter_$code", "Website_$code"))
+    constructor(code: String) : this(Newsletter(code, "Newsletter_$code", "Website_$code"))
 
     override fun canHandle(email: Email): Boolean {
         TODO("Not yet implemented")

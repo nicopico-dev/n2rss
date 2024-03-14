@@ -31,7 +31,7 @@ class CleanLocalDatabase(
     private val publicationRepository: PublicationRepository,
 ) {
     @EventListener
-    fun onApplicationEvent(event: ContextRefreshedEvent) {
+    fun onApplicationEvent(ignored: ContextRefreshedEvent) {
         LOG.info("Clean-up local database...")
         publicationRepository.deleteAll()
     }

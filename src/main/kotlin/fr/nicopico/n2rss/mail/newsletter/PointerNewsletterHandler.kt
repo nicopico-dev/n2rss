@@ -73,7 +73,8 @@ class PointerNewsletterHandler : NewsletterHandler {
                 .map { it.text() }
                 .firstOrNull(String::isNotEmpty)
                 ?.let {
-                    it.substring(it.indexOf("is presented by") + 15)
+                    val sponsorPrefix = "is presented by"
+                    it.substring(it.indexOf(sponsorPrefix) + sponsorPrefix.length)
                 }
                 ?.trim()
                 ?: "?"
@@ -152,5 +153,4 @@ class PointerNewsletterHandler : NewsletterHandler {
             val style = attr("style")
             return style.contains(Regex("border-top\\s*:\\s*2px\\s*solid\\s*#000000"))
         }
-
 }

@@ -134,9 +134,9 @@ class PointerNewsletterHandlerTest {
                 }
                 withClue("description") {
                     description shouldBe "Gitpod’s developer platform was built for developers looking to work faster and platform teams looking to work smarter. " +
-                            "It allows them to do two things really well: automate standardization of development environments and always be ready-to-code. " +
-                            "All it takes is adding a .gitpod.yml file to the root of any repository. " +
-                            "Try Gitpod For Free"
+                        "It allows them to do two things really well: automate standardization of development environments and always be ready-to-code. " +
+                        "All it takes is adding a .gitpod.yml file to the root of any repository. " +
+                        "Try Gitpod For Free"
                 }
             }
         }

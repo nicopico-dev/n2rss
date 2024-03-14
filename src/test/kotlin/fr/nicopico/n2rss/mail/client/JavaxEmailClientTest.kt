@@ -77,12 +77,12 @@ class JavaxEmailClientTest {
         deliverMessage(
             from = "from@email.com",
             subject = "Subject",
-            content  = "Hello World!"
+            content = "Hello World!"
         )
         deliverMessage(
             from = "from@another-email.com",
             subject = "Subject 2",
-            content  = "Hello World! 2"
+            content = "Hello World! 2"
         )
 
         // WHEN
@@ -110,12 +110,12 @@ class JavaxEmailClientTest {
         deliverMessage(
             from = "from@email.com",
             subject = "Subject",
-            content  = "Hello World!"
+            content = "Hello World!"
         )
         deliverMessage(
             from = "from@another-email.com",
             subject = "Subject 2",
-            content  = "Hello World! 2"
+            content = "Hello World! 2"
         )
 
         // WHEN - THEN

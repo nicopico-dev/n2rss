@@ -28,6 +28,7 @@ import org.springframework.scheduling.annotation.EnableScheduling
 @EnableConfigurationProperties(N2RssProperties::class)
 class N2RssApplication
 
+@Suppress("SpreadOperator")
 fun main(args: Array<String>) {
     runApplication<N2RssApplication>(*args)
 }
