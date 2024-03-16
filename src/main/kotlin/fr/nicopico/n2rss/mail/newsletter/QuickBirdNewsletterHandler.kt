@@ -22,7 +22,9 @@ import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
 import org.jsoup.Jsoup
+import org.jsoup.nodes.TextNode
 import org.jsoup.safety.Safelist
+import java.net.URL
 
 class QuickBirdNewsletterHandler : NewsletterHandler {
     override val newsletter: Newsletter = Newsletter(
@@ -41,8 +43,28 @@ class QuickBirdNewsletterHandler : NewsletterHandler {
             Safelist.basic()
                 .addAttributes("p", "style"),
         )
-        println(cleanedHtml)
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        TODO()
+
+        val title = document.body().textNodes().first().extractTitle()
+        val firstParagraph = document.body().selectFirst("p")
+            ?: throw NewsletterParsingException("Description paragraph not found")
+        val description = firstParagraph.ownText()
+        val newsletterLink = firstParagraph.selectFirst("a")
+            ?: throw NewsletterParsingException("Article link not found")
+        val link = newsletterLink.attr("href")
+
+        return listOf(
+            Article(
+                title = title,
+                link = URL(link),
+                description = description ?: "",
+            )
+        )
+    }
+
+    private fun TextNode.extractTitle(): String {
+        // "New blog post : [The title]"
+        val text = this.text()
+        return text.substring(text.lastIndexOf(":") + 1).trim()
     }
 }

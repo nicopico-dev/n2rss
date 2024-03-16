@@ -23,7 +23,6 @@ import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
@@ -75,18 +74,19 @@ class QuickBirdNewsletterHandlerTest {
             // THEN
             assertSoftly(publication) {
                 withClue("title") {
-                    title shouldBe "New blog post - Non-empty Lists in Kotlin"
+                    title shouldBe "New blog post \uD83C\uDF1E: Non-empty Lists in Kotlin"
                 }
                 withClue("date") {
                     date shouldHaveSameDayAs (email.date)
                 }
                 withClue("newsletter") {
                     newsletter.name shouldBe "QuickBird Studios"
+                    newsletter.code shouldBe "quickbird"
                 }
             }
 
             publication.articles shouldHaveSize 1
-            publication.articles[0] should {
+            assertSoftly(publication.articles[0]) {
                 withClue("title") {
                     it.title shouldBe "Non-empty Lists in Kotlin"
                 }
