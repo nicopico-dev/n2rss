@@ -21,6 +21,7 @@ package fr.nicopico.n2rss.config
 import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.PointerNewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.QuickBirdNewsletterHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -30,5 +31,6 @@ class NewsletterConfiguration {
     fun newsletterHandlers(): List<NewsletterHandler> = listOf(
         AndroidWeeklyNewsletterHandler(),
         PointerNewsletterHandler(),
+        QuickBirdNewsletterHandler(),
     )
 }
