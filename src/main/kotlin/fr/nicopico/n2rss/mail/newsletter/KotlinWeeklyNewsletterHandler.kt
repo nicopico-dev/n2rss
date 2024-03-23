@@ -1,9 +1,14 @@
 package fr.nicopico.n2rss.mail.newsletter
 
+import fr.nicopico.n2rss.mail.newsletter.jsoup.Section
+import fr.nicopico.n2rss.mail.newsletter.jsoup.extractSections
+import fr.nicopico.n2rss.mail.newsletter.jsoup.process
 import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
+import fr.nicopico.n2rss.utils.toURL
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 
 class KotlinWeeklyNewsletterHandler : NewsletterHandler {
@@ -24,7 +29,46 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandler {
             Safelist.basic(),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        println(cleanedHtml)
-        return emptyList()
+
+        val sections = document.extractSections("p:has(strong)")
+            .filter { it.title !in excludedSections }
+        return sections.associateWith { section ->
+            section.process { sectionDocument ->
+                sectionDocument.select("a[href]")
+                    .mapNotNull { tag ->
+                        // Ignore entries with invalid link
+                        val link = tag.attr("href").toURL()
+                            ?: return@mapNotNull null
+                        val title = markSponsoredTitle(section, tag.text()).trim()
+
+                        val description = tag
+                            .nextSibling()
+                            ?.nextSibling() // <br>
+                            ?.nextSibling() // <span> with description
+                            ?.let { it as? Element }
+                            ?.text()
+                            ?: throw NewsletterParsingException(
+                                "Cannot find article description for article \"$title\" in Kotlin Weekly"
+                            )
+
+                        Article(
+                            title = title,
+                            link = link,
+                            description = description,
+                        )
+                    }
+            }
+        }.values.flatten()
+    }
+
+    private fun markSponsoredTitle(section: Section, articleTitle: String) =
+        if (section.title == "Sponsored") {
+            "SPONSORED - $articleTitle"
+        } else {
+            articleTitle
+        }
+
+    companion object {
+        private val excludedSections = listOf("Videos", "Libraries", "Contribute")
     }
 }
