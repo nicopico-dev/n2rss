@@ -16,23 +16,40 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.config
+package fr.nicopico.n2rss.mail.newsletter.jsoup
 
-import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.KotlinWeeklyNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.PointerNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.QuickBirdNewsletterHandler
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
+import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
 
-@Configuration
-class NewsletterConfiguration {
-    @Bean
-    fun newsletterHandlers(): List<NewsletterHandler> = listOf(
-        AndroidWeeklyNewsletterHandler(),
-        KotlinWeeklyNewsletterHandler(),
-        PointerNewsletterHandler(),
-        QuickBirdNewsletterHandler(),
-    )
+data class Section(
+    val title: String,
+    val start: Element,
+    val end: Element? = null,
+)
+
+fun Document.extractSections(
+    cssQuery: String,
+    getSectionTitle: (Element) -> String = { it.text() },
+): List<Section> {
+    val sectionsElements = select(cssQuery)
+    return sectionsElements
+        .mapIndexed { index, element ->
+            val nextSectionElement = sectionsElements
+                .getOrNull(index + 1)
+            Section(
+                title = getSectionTitle(element),
+                start = element,
+                end = nextSectionElement,
+            )
+        }
+}
+
+inline fun <T> Section.process(block: (section: Document) -> T): T {
+    val section = Document("").apply {
+        val nodesBetween = (start.parent()?.childNodes() ?: emptyList())
+            .dropWhile { it != start }
+            .takeWhile { it != end }
+        appendChildren(nodesBetween)
+    }
+    return block(section)
 }
