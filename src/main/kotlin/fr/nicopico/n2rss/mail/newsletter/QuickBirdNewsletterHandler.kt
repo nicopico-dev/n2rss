@@ -49,7 +49,7 @@ class QuickBirdNewsletterHandler : NewsletterHandler {
         val firstParagraph = document.body().selectFirst("p")
             ?: throw NewsletterParsingException("Description paragraph not found")
         val description = firstParagraph.ownText()
-        val newsletterLink = firstParagraph.selectFirst("a")
+        val newsletterLink = document.selectFirst("a")
             ?: throw NewsletterParsingException("Article link not found")
         val link = newsletterLink.attr("href")
 

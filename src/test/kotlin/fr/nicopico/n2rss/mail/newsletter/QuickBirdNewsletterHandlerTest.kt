@@ -62,7 +62,7 @@ class QuickBirdNewsletterHandlerTest {
     @Nested
     inner class ProcessTest {
         @Test
-        fun `should extract an article from an email`() {
+        fun `should extract an article from an email (1)`() {
             // GIVEN
             val email: Email = loadEmail(
                 "emails/QuickBird Studios/New blog post - Non-empty Lists in Kotlin.eml"
@@ -91,12 +91,55 @@ class QuickBirdNewsletterHandlerTest {
                     it.title shouldBe "Non-empty Lists in Kotlin"
                 }
                 withClue("link") {
-                    it.link shouldBe URL("https://quickbirdstudios.us17.list-manage.com/track/click?u=50a41d6b7ff8a128dd614fc40&id=fda8e7394e&e=64c2ecc47e")
+                    it.link shouldBe URL("https://mailchi.mp/77c458093fe6/new-blog-article-about-a-swift-navigation-library-for-ios-5148040?e=64c2ecc47e")
                 }
                 withClue("description") {
                     it.description shouldBe "No-one likes to open an empty box – especially not at a birthday party! " +
                         "In our latest article, we construct non-empty lists and collections in Kotlin and use them " +
                         "to avoid such unpleasant surprises by design. \uD83D\uDE0E"
+                }
+            }
+        }
+
+        @Test
+        fun `should extract an article from an email (2)`() {
+            // GIVEN
+            val email: Email = loadEmail(
+                "emails/QuickBird Studios/New blog post Platform Channels are Dead! Objective-C_Swift Interop is Here!.eml"
+            )
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            assertSoftly(publication) {
+                withClue("title") {
+                    title shouldBe "New blog post: Platform Channels are Dead! Objective-C/Swift Interop is Here!"
+                }
+                withClue("date") {
+                    date shouldHaveSameDayAs (email.date)
+                }
+                withClue("newsletter") {
+                    newsletter.name shouldBe "QuickBird Studios"
+                    newsletter.code shouldBe "quickbird"
+                }
+            }
+
+            publication.articles shouldHaveSize 1
+            assertSoftly(publication.articles[0]) {
+                withClue("title") {
+                    it.title shouldBe "Platform Channels are Dead! Objective-C/Swift Interop is Here!"
+                }
+                withClue("link") {
+                    it.link shouldBe URL(
+                        "https://mailchi.mp/accfbe45cbcc/new-blog-article-about-a-swift-navigation-library-for-ios-13906362?e=64c2ecc47e"
+                    )
+                }
+                withClue("description") {
+                    it.description shouldBe "In Dart 2.18 the Dart Team introduced Objective-C/Swift Interop. " +
+                        "It allows us to directly call native code on iOS from our Dart codebase by using Dart FFI and C " +
+                        "as an interoperability layer. Does that mean we don’t have to rely on platform channels to call " +
+                        "native functions on iOS anymore? That’s what we’re going to explore in this article."
                 }
             }
         }
