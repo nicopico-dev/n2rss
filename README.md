@@ -10,11 +10,11 @@ Once an email has been processed, it is marked as read.
 Each newsletter will map to a separate RSS feed, 
 and each articles extracted from the newsletter publication will map to different RSS entry in the corresponding feed.
 
-| Newsletter     | URL                       | Status  |
-|----------------|---------------------------|---------|
-| Android Weekly | https://androidweekly.net | OK      |
-| Pointer        | https://www.pointer.io    | OK      |
-| Kotlin Weekly  | http://kotlinweekly.net   | Pending |
+| Newsletter     | URL                       | Status |
+|----------------|---------------------------|--------|
+| Android Weekly | https://androidweekly.net | OK     |
+| Kotlin Weekly  | http://kotlinweekly.net   | OK     |
+| Pointer        | https://www.pointer.io    | OK     |
 
 ## Built With
 
