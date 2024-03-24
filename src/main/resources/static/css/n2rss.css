@@ -1,0 +1,108 @@
+/*
+ * Copyright (c) 2024 Nicolas PICON
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions
+ * of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+ * TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+ * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
+
+.github-banner {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 149px;
+    height: 149px;
+}
+
+:root {
+    --background-color: #e5effa;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+    color: #333;
+}
+
+.header {
+    background-color: var(--background-color);
+    padding: 20px;
+    text-align: center;
+}
+
+.header img {
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    margin: 0;
+    color: #000;
+}
+
+.header p {
+    color: #555;
+}
+
+.header p.sub-title {
+    font-style: italic;
+    margin-top: 8px;
+}
+
+.header p.project-description {
+    max-width: 800px;
+    margin: 24px auto;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead {
+    background-color: #f2f2f2;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.publication-count span {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.publication-start {
+    font-style: italic;
+    font-size: 0.8em;
+}
