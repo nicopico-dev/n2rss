@@ -23,6 +23,9 @@ import jakarta.servlet.http.HttpServletRequest
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.servlet.view.RedirectView
 
 @Controller
 class HomeController(
@@ -49,5 +52,16 @@ class HomeController(
             addAttribute("requestUrl", requestUrl)
         }
         return "index"
+    }
+
+    @PostMapping("/send-request")
+    fun requestNewsletter(
+        @RequestParam("newsletterUrl") newsletterUrl: String
+    ): RedirectView {
+        // TODO
+        //  - Ensure newsletterUrl is an Url with @Validator
+        //  - Store the request somewhere
+        //  - notify the user its request has been sent
+        return RedirectView("/")
     }
 }
