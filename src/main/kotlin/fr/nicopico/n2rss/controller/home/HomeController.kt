@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.controller.home
 
+import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.service.NewsletterService
 import jakarta.servlet.http.HttpServletRequest
 import org.springframework.stereotype.Controller
@@ -26,11 +27,22 @@ import org.springframework.web.bind.annotation.GetMapping
 @Controller
 class HomeController(
     private val newsletterService: NewsletterService,
+    props: N2RssProperties,
 ) {
+    private val properties = props.feeds
+
     @GetMapping("/")
     fun home(request: HttpServletRequest, model: Model): String {
         val newslettersInfo = newsletterService.getNewslettersInfo()
-        val requestUrl: String = request.requestURL.toString()
+        val requestUrl: String = request.requestURL
+            .let {
+                if (properties.forceHttps) {
+                    it.replace(Regex("http://"), "https://")
+                } else {
+                    it.toString()
+                }
+            }
+
         with(model) {
             addAttribute("newsletters", newslettersInfo)
             addAttribute("requestUrl", requestUrl)
