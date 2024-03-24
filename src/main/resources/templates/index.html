@@ -16,66 +16,63 @@
   ~ DEALINGS IN THE SOFTWARE.
   -->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    lang="en">
 <head>
     <title>N2RSS</title>
-    <style>
-        table {
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid black;
-            text-align: left;
-            padding: 8px;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        .github-banner {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 149px;
-            height: 149px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/n2rss.css}"/>
 </head>
 <body>
-<h1>N2RSS - Newsletters to RSS</h1>
-<h2>Newsletters</h2>
-Here is a table of the newsletters processed by N2RSS.
-<table>
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Website</th>
-        <th>RSS feed</th>
-        <th>Publication count</th>
-        <th>First publication in RSS feed</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="newsletter : ${newsletters}">
-        <td th:text="${newsletter.title}"></td>
-        <td>
-            <a th:href="${newsletter.websiteUrl}"
-               th:text="${newsletter.websiteUrl}">
-            </a>
-        </td>
-        <td>
-            <a th:href="${requestUrl + 'rss/' + newsletter.code}"
-               th:text="${requestUrl + 'rss/' + newsletter.code}">
-            </a>
-        </td>
-        <td th:text="${newsletter.publicationCount}"></td>
-        <td th:text="${newsletter.startingDate}"></td>
-    </tr>
-    </tbody>
-</table>
-<a href="https://github.com/nicopico-dev/n2rss">
+<div class="header">
+    <img th:src="@{/images/logo.png}" alt="N2RSS Logo" width="100">
+    <h1>Newsletters to RSS</h1>
+    <p class="sub-title">Stay informed with your favorite newsletters as RSS feeds</p>
+    <p class="project-description">
+        Newsletter are great to keep informed on subjects, but it can be hard to keep track of the articles they
+        provide.
+        This is where <em>Newsletters To RSS</em> can be helpful!
+        We provide RSS feeds for a selection of newsletters; each time a new publication is received,
+        the articles will be extracted and published in the corresponding feed.
+    </p>
+</div>
+<div class="container">
+    <table>
+        <thead>
+        <tr>
+            <th>Newsletter</th>
+            <th>RSS feed</th>
+            <th>Publications</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="newsletter : ${newsletters}">
+            <td>
+                <a th:href="${newsletter.websiteUrl}"
+                   th:text="${newsletter.title}"
+                   target="_blank"/>
+            </td>
+            <td>
+                <a th:href="${requestUrl + 'rss/' + newsletter.code}"
+                   target="_blank">
+                    RSS Feed
+                </a>
+            </td>
+            <td>
+                <span class="publication-count">
+                    <span th:text="${newsletter.publicationCount}"/> publications<br/>
+                </span>
+                <span class="publication-start">
+                    since <span th:text="${newsletter.startingDate}"/>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a href="https://github.com/nicopico-dev/n2rss" target="_blank">
     <img
         src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149"
         class="github-banner"

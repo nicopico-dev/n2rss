@@ -34,6 +34,7 @@ class HomeController(
     @GetMapping("/")
     fun home(request: HttpServletRequest, model: Model): String {
         val newslettersInfo = newsletterService.getNewslettersInfo()
+            .filter { it.publicationCount > 0 }
         val requestUrl: String = request.requestURL
             .let {
                 if (properties.forceHttps) {
