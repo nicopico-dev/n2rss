@@ -39,8 +39,8 @@ class LocalFileEmailClient(
 
     override fun checkEmails(): List<Email> {
         val filePath = Paths.get(emailFolder)
-        if (!filePath.toFile().exists()) {
-            throw IllegalArgumentException("$filePath does not exist")
+        require(filePath.toFile().exists()) {
+            "$filePath does not exist"
         }
 
         return Files.walk(filePath)
