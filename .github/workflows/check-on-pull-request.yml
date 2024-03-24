@@ -7,6 +7,7 @@ on:
 
 permissions:
   checks: write
+  pull-requests: write
 
 jobs:
   build:
@@ -35,16 +36,16 @@ jobs:
         run: ./gradlew --no-daemon test --info
       - name: Publish Unit Test Results
         uses: mikepenz/action-junit-report@v4
-        if: success() || failure()
+        if: always()
         with:
           report_paths: 'build/test-results/test/**.xml'
       - name: Check Coverage
         run: ./gradlew --no-daemon koverXmlReport koverVerify
       - name: Add coverage report
         uses: mi-kas/kover-report@v1
-        if: success() || failure()
+        if: always()
         with:
           path: |
-            build/reports/kover/report.xml
+            ${{ github.workspace }}/build/reports/kover/report.xml
           title: Code Coverage
           update-comment: true
