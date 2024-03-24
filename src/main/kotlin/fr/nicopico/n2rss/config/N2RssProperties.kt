@@ -25,9 +25,13 @@ import org.springframework.boot.context.properties.bind.ConstructorBinding
 data class N2RssProperties
 @ConstructorBinding
 constructor(
-    val maintenance: MaintenanceProperties
+    val maintenance: MaintenanceProperties,
+    val feeds: FeedsProperties,
 ) {
     data class MaintenanceProperties(
         val secretKey: String,
+    )
+    data class FeedsProperties(
+        val forceHttps: Boolean,
     )
 }
