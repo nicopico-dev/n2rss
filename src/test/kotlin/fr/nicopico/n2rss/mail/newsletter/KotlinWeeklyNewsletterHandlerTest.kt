@@ -62,7 +62,7 @@ class KotlinWeeklyNewsletterHandlerTest {
         @Test
         fun `should extract all articles from an email`() {
             // GIVEN
-            val email: Email = loadEmail("emails/Kotlin Weekly/Kotlin Weekly #388.eml")
+            val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -91,7 +91,7 @@ class KotlinWeeklyNewsletterHandlerTest {
         @Test
         fun `should extract all articles from another email`() {
             // GIVEN
-            val email: Email = loadEmail("emails/Kotlin Weekly/Kotlin Weekly #390.eml")
+            val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #390.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -126,7 +126,7 @@ class KotlinWeeklyNewsletterHandlerTest {
         @Test
         fun `should extract article details from an email`() {
             // GIVEN
-            val email: Email = loadEmail("emails/Kotlin Weekly/Kotlin Weekly #388.eml")
+            val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")
 
             // WHEN
             val publication = handler.process(email)

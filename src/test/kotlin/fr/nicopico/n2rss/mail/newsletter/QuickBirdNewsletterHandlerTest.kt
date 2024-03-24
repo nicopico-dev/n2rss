@@ -65,7 +65,7 @@ class QuickBirdNewsletterHandlerTest {
         fun `should extract an article from an email (1)`() {
             // GIVEN
             val email: Email = loadEmail(
-                "emails/QuickBird Studios/New blog post - Non-empty Lists in Kotlin.eml"
+                "stubs/emails/QuickBird Studios/New blog post - Non-empty Lists in Kotlin.eml"
             )
 
             // WHEN
@@ -105,7 +105,7 @@ class QuickBirdNewsletterHandlerTest {
         fun `should extract an article from an email (2)`() {
             // GIVEN
             val email: Email = loadEmail(
-                "emails/QuickBird Studios/New blog post Platform Channels are Dead! Objective-C_Swift Interop is Here!.eml"
+                "stubs/emails/QuickBird Studios/New blog post Platform Channels are Dead! Objective-C_Swift Interop is Here!.eml"
             )
 
             // WHEN
