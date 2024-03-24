@@ -19,8 +19,8 @@ package fr.nicopico.n2rss.config
 
 import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.client.JavaxEmailClient
+import fr.nicopico.n2rss.mail.client.LocalFileEmailClient
 import fr.nicopico.n2rss.mail.client.NoOpEmailClient
-import fr.nicopico.n2rss.mail.client.ResourceFileEmailClient
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -45,7 +45,7 @@ class EmailConfiguration {
 
     @Bean
     @Profile("local")
-    fun fakeEmailClient(): EmailClient = ResourceFileEmailClient("emails")
+    fun fakeEmailClient(): EmailClient = LocalFileEmailClient("stubs/emails")
 
     @Bean
     @Profile("rss-only")

@@ -42,7 +42,7 @@ class AndroidWeeklyNewsletterHandlerTest {
         @Test
         fun `should handle all emails from AndroidWeekly`() {
             // GIVEN
-            val emails = loadEmails("emails/Android Weekly")
+            val emails = loadEmails("stubs/emails/Android Weekly")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe true
@@ -51,7 +51,7 @@ class AndroidWeeklyNewsletterHandlerTest {
         @Test
         fun `should ignore all emails from another newsletters`() {
             // GIVEN
-            val emails = loadEmails("emails/Kotlin Weekly")
+            val emails = loadEmails("stubs/emails/Kotlin Weekly")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe false
@@ -63,7 +63,7 @@ class AndroidWeeklyNewsletterHandlerTest {
         @Test
         fun `should extract all articles from an Android Weekly email`() {
             // GIVEN
-            val email: Email = loadEmail("emails/Android Weekly/Android Weekly #605.eml")
+            val email: Email = loadEmail("stubs/emails/Android Weekly/Android Weekly #605.eml")
 
             // WHEN
             val publication = handler.process(email)

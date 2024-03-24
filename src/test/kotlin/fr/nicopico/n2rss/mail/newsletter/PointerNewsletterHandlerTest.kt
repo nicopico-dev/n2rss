@@ -42,7 +42,7 @@ class PointerNewsletterHandlerTest {
         @Test
         fun `should handle all emails from Pointer`() {
             // GIVEN
-            val emails = loadEmails("emails/Pointer")
+            val emails = loadEmails("stubs/emails/Pointer")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe true
@@ -51,7 +51,7 @@ class PointerNewsletterHandlerTest {
         @Test
         fun `should ignore all emails from another newsletters`() {
             // GIVEN
-            val emails = loadEmails("emails/Kotlin Weekly")
+            val emails = loadEmails("stubs/emails/Kotlin Weekly")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe false
@@ -63,7 +63,7 @@ class PointerNewsletterHandlerTest {
         @Test
         fun `should extract all articles from an email`() {
             // GIVEN
-            val email: Email = loadEmail("emails/Pointer/Issue #480.eml")
+            val email: Email = loadEmail("stubs/emails/Pointer/Issue #480.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -97,7 +97,7 @@ class PointerNewsletterHandlerTest {
         @Test
         fun `should extract article details from an email`() {
             // GIVEN
-            val email: Email = loadEmail("emails/Pointer/Issue #480.eml")
+            val email: Email = loadEmail("stubs/emails/Pointer/Issue #480.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -119,7 +119,7 @@ class PointerNewsletterHandlerTest {
         @Test
         fun `should extract sponsor details from an email`() {
             // GIVEN
-            val email: Email = loadEmail("emails/Pointer/Issue #480.eml")
+            val email: Email = loadEmail("stubs/emails/Pointer/Issue #480.eml")
 
             // WHEN
             val publication = handler.process(email)

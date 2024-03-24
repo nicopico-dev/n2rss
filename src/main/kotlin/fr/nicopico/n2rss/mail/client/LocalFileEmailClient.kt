@@ -26,8 +26,8 @@ import java.nio.file.Path
 import java.nio.file.Paths
 import java.util.stream.Collectors
 
-class ResourceFileEmailClient(
-    private val resFolder: String
+class LocalFileEmailClient(
+    private val emailFolder: String
 ) : EmailClient {
 
     private val mailSession = Session.getDefaultInstance(System.getProperties())
@@ -38,11 +38,11 @@ class ResourceFileEmailClient(
     }
 
     override fun checkEmails(): List<Email> {
-        val loader = javaClass.classLoader
-        val resFolderUrl = loader.getResource(resFolder)
-            ?: throw IllegalArgumentException("'emails' directory not found.")
+        val filePath = Paths.get(emailFolder)
+        require(filePath.toFile().exists()) {
+            "$filePath does not exist"
+        }
 
-        val filePath = Paths.get(resFolderUrl.toURI())
         return Files.walk(filePath)
             .filter { p: Path -> p.toString().endsWith(".eml") }
             .map { emlFilePath ->

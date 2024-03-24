@@ -43,7 +43,7 @@ class QuickBirdNewsletterHandlerTest {
         @Test
         fun `should handle all emails from QuickBird newsletter`() {
             // GIVEN
-            val emails = loadEmails("emails/QuickBird Studios")
+            val emails = loadEmails("stubs/emails/QuickBird Studios")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe true
@@ -52,7 +52,7 @@ class QuickBirdNewsletterHandlerTest {
         @Test
         fun `should ignore all emails from another newsletters`() {
             // GIVEN
-            val emails = loadEmails("emails/Kotlin Weekly")
+            val emails = loadEmails("stubs/emails/Kotlin Weekly")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe false
@@ -65,7 +65,7 @@ class QuickBirdNewsletterHandlerTest {
         fun `should extract an article from an email (1)`() {
             // GIVEN
             val email: Email = loadEmail(
-                "emails/QuickBird Studios/New blog post - Non-empty Lists in Kotlin.eml"
+                "stubs/emails/QuickBird Studios/New blog post - Non-empty Lists in Kotlin.eml"
             )
 
             // WHEN
@@ -105,7 +105,7 @@ class QuickBirdNewsletterHandlerTest {
         fun `should extract an article from an email (2)`() {
             // GIVEN
             val email: Email = loadEmail(
-                "emails/QuickBird Studios/New blog post Platform Channels are Dead! Objective-C_Swift Interop is Here!.eml"
+                "stubs/emails/QuickBird Studios/New blog post Platform Channels are Dead! Objective-C_Swift Interop is Here!.eml"
             )
 
             // WHEN
