@@ -41,7 +41,7 @@ class KotlinWeeklyNewsletterHandlerTest {
         @Test
         fun `should handle all emails from Kotlin Weekly`() {
             // GIVEN
-            val emails = loadEmails("emails/Kotlin Weekly")
+            val emails = loadEmails("stubs/emails/Kotlin Weekly")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe true
@@ -50,7 +50,7 @@ class KotlinWeeklyNewsletterHandlerTest {
         @Test
         fun `should ignore all emails from another newsletters`() {
             // GIVEN
-            val emails = loadEmails("emails/Android Weekly")
+            val emails = loadEmails("stubs/emails/Android Weekly")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe false

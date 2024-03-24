@@ -43,7 +43,7 @@ class QuickBirdNewsletterHandlerTest {
         @Test
         fun `should handle all emails from QuickBird newsletter`() {
             // GIVEN
-            val emails = loadEmails("emails/QuickBird Studios")
+            val emails = loadEmails("stubs/emails/QuickBird Studios")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe true
@@ -52,7 +52,7 @@ class QuickBirdNewsletterHandlerTest {
         @Test
         fun `should ignore all emails from another newsletters`() {
             // GIVEN
-            val emails = loadEmails("emails/Kotlin Weekly")
+            val emails = loadEmails("stubs/emails/Kotlin Weekly")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe false

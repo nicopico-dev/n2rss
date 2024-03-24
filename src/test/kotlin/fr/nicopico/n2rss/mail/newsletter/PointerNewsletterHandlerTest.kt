@@ -42,7 +42,7 @@ class PointerNewsletterHandlerTest {
         @Test
         fun `should handle all emails from Pointer`() {
             // GIVEN
-            val emails = loadEmails("emails/Pointer")
+            val emails = loadEmails("stubs/emails/Pointer")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe true
@@ -51,7 +51,7 @@ class PointerNewsletterHandlerTest {
         @Test
         fun `should ignore all emails from another newsletters`() {
             // GIVEN
-            val emails = loadEmails("emails/Kotlin Weekly")
+            val emails = loadEmails("stubs/emails/Kotlin Weekly")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe false
