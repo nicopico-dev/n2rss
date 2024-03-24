@@ -72,12 +72,14 @@
         </tbody>
     </table>
 </div>
-<form>
+<form action="/send-request" method="post">
     <p>
         You can request we add new RSS feed by submitting a request in the form below
     </p>
-    <label for="newFeedUrl">Enter newsletter URL</label>
-    <input type="text" id="newFeedUrl" name="newFeedUrl" placeholder="https://androidweekly.net/">
+    <label for="newsletterUrl">Enter newsletter URL</label>
+    <input
+        type="text" id="newsletterUrl" name="newsletterUrl"
+        placeholder="https://androidweekly.net/" required>
     <input type="submit" value="Send request">
 </form>
 <a href="https://github.com/nicopico-dev/n2rss" target="_blank">
