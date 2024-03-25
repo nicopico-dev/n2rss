@@ -11,3 +11,9 @@ X-Secret-Key: abcd
 
 ### Content-Type
 GET http://localhost:8080/rss/pointer
+
+### Request
+POST http://localhost:8080/send-request
+Content-Type: application/x-www-form-urlencoded
+
+newsletterUrl = https://www.some.fo
