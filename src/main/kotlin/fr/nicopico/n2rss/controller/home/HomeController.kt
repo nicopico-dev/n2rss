@@ -18,15 +18,23 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.controller.Url
 import fr.nicopico.n2rss.service.NewsletterService
 import jakarta.servlet.http.HttpServletRequest
+import jakarta.validation.ConstraintViolationException
+import jakarta.validation.constraints.NotEmpty
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.validation.annotation.Validated
+import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.servlet.view.RedirectView
 
+@Validated
 @Controller
 class HomeController(
     private val newsletterService: NewsletterService,
@@ -56,12 +64,16 @@ class HomeController(
 
     @PostMapping("/send-request")
     fun requestNewsletter(
-        @RequestParam("newsletterUrl") newsletterUrl: String
+        @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String
     ): RedirectView {
         // TODO
-        //  - Ensure newsletterUrl is an Url with @Validator
         //  - Store the request somewhere
         //  - notify the user its request has been sent
         return RedirectView("/")
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(ConstraintViolationException::class)
+    fun handleExceptions() {
     }
 }
