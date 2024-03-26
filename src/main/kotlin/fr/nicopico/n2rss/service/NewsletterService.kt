@@ -18,15 +18,23 @@
 
 package fr.nicopico.n2rss.service
 
+import fr.nicopico.n2rss.data.NewsletterRequestRepository
 import fr.nicopico.n2rss.data.PublicationRepository
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import fr.nicopico.n2rss.models.NewsletterInfo
+import fr.nicopico.n2rss.models.NewsletterRequest
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
+import java.net.URL
 
 @Service
 class NewsletterService(
     private val newsletterHandlers: List<NewsletterHandler>,
     private val publicationRepository: PublicationRepository,
+    private val newsletterRequestRepository: NewsletterRequestRepository,
 ) {
     fun getNewslettersInfo(): List<NewsletterInfo> {
         return newsletterHandlers
@@ -40,5 +48,25 @@ class NewsletterService(
                     startingDate = publicationRepository.findFirstByNewsletterOrderByDateAsc(it)?.date,
                 )
             }
+    }
+
+    @Transactional
+    fun saveRequest(newsletterUrl: URL) {
+        val now = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
+
+        // TODO Sanitize URL to prevent duplicates
+        val request = newsletterRequestRepository.getByNewsletterUrl(newsletterUrl)
+
+        val updatedRequest = request?.copy(
+            lastRequestDate = now,
+            requestCount = request.requestCount + 1
+        ) ?: NewsletterRequest(
+            newsletterUrl = newsletterUrl,
+            firstRequestDate = now,
+            lastRequestDate = now,
+            requestCount = 1,
+        )
+
+        newsletterRequestRepository.save(updatedRequest)
     }
 }

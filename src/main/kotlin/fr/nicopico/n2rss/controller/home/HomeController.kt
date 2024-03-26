@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.servlet.view.RedirectView
+import java.net.URL
 
 @Validated
 @Controller
@@ -67,9 +68,7 @@ class HomeController(
     fun requestNewsletter(
         @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String
     ): RedirectView {
-        // TODO
-        //  - Store the request somewhere
-        //  - notify the user its request has been sent
+        newsletterService.saveRequest(URL(newsletterUrl))
         return RedirectView("/")
     }
 
