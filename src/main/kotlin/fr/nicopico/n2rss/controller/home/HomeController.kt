@@ -24,6 +24,7 @@ import jakarta.servlet.http.HttpServletRequest
 import jakarta.validation.ConstraintViolationException
 import jakarta.validation.constraints.NotEmpty
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.validation.annotation.Validated
@@ -74,6 +75,12 @@ class HomeController(
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ConstraintViolationException::class)
-    fun handleExceptions() {
+    fun handleExceptions(
+        exception: ConstraintViolationException,
+    ): ResponseEntity<Map<String, String?>> {
+        val errors = exception.constraintViolations.associate {
+            it.propertyPath.toString() to it.message
+        }
+        return ResponseEntity.badRequest().body(errors)
     }
 }
