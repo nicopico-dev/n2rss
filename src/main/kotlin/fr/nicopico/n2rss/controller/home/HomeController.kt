@@ -18,12 +18,25 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.controller.Url
 import fr.nicopico.n2rss.service.NewsletterService
 import jakarta.servlet.http.HttpServletRequest
+import jakarta.validation.ConstraintViolationException
+import jakarta.validation.constraints.NotEmpty
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.validation.annotation.Validated
+import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.ResponseStatus
+import org.springframework.web.servlet.view.RedirectView
+import java.net.URL
 
+@Validated
 @Controller
 class HomeController(
     private val newsletterService: NewsletterService,
@@ -49,5 +62,24 @@ class HomeController(
             addAttribute("requestUrl", requestUrl)
         }
         return "index"
+    }
+
+    @PostMapping("/send-request")
+    fun requestNewsletter(
+        @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String
+    ): RedirectView {
+        newsletterService.saveRequest(URL(newsletterUrl))
+        return RedirectView("/")
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(ConstraintViolationException::class)
+    fun handleExceptions(
+        exception: ConstraintViolationException,
+    ): ResponseEntity<Map<String, String?>> {
+        val errors = exception.constraintViolations.associate {
+            it.propertyPath.toString() to it.message
+        }
+        return ResponseEntity.badRequest().body(errors)
     }
 }
