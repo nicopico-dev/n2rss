@@ -133,6 +133,30 @@ class NewsletterServiceTest {
     }
 
     @Test
+    fun `variant of a newsletterRequest will be unified`() {
+        // GIVEN
+        val newsletterUrl = URL("https://www.nicopico.com/test/")
+        every { newsletterRequestRepository.getByNewsletterUrl(any()) } returns null
+        every { newsletterRequestRepository.save(any()) } answers { firstArg() }
+        val uniqueUrl = URL("https://www.nicopico.com")
+
+        // WHEN
+        newsletterService.saveRequest(newsletterUrl)
+
+        // THEN
+        val slotNewsletterRequest = slot<NewsletterRequest>()
+        verify {
+            newsletterRequestRepository.getByNewsletterUrl(uniqueUrl)
+            newsletterRequestRepository.save(capture(slotNewsletterRequest))
+        }
+        slotNewsletterRequest.captured should {
+            it.newsletterUrl shouldBe uniqueUrl
+            it.requestCount shouldBe 1
+            it.firstRequestDate shouldBe it.lastRequestDate
+        }
+    }
+
+    @Test
     fun `existing newsletterRequest are incremented in the database`() {
         // GIVEN
         val newsletterUrl = URL("https://www.nicopico.com")
