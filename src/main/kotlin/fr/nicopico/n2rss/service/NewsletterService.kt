@@ -54,14 +54,20 @@ class NewsletterService(
     fun saveRequest(newsletterUrl: URL) {
         val now = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
 
-        // TODO Sanitize URL to prevent duplicates
-        val request = newsletterRequestRepository.getByNewsletterUrl(newsletterUrl)
+        // Sanitize URL
+        val uniqueUrl = URL(
+            /* protocol = */ newsletterUrl.protocol,
+            /* host = */ newsletterUrl.host,
+            /* port = */ newsletterUrl.port,
+            /* file = */ "",
+        )
+        val request = newsletterRequestRepository.getByNewsletterUrl(uniqueUrl)
 
         val updatedRequest = request?.copy(
             lastRequestDate = now,
             requestCount = request.requestCount + 1
         ) ?: NewsletterRequest(
-            newsletterUrl = newsletterUrl,
+            newsletterUrl = uniqueUrl,
             firstRequestDate = now,
             lastRequestDate = now,
             requestCount = 1,
