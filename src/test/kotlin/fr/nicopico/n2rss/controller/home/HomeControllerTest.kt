@@ -4,11 +4,14 @@ import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.models.Newsletter
 import fr.nicopico.n2rss.models.NewsletterInfo
 import fr.nicopico.n2rss.service.NewsletterService
+import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.matchers.collections.shouldContainOnly
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
+import io.mockk.Runs
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
+import io.mockk.just
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
@@ -16,6 +19,7 @@ import jakarta.servlet.http.HttpServletRequest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.ui.Model
+import java.net.URL
 
 class HomeControllerTest {
 
@@ -37,6 +41,7 @@ class HomeControllerTest {
         homeController = HomeController(newsletterService, properties)
     }
 
+    //region GET /
     @Test
     fun `home should provide necessary information to the template`() {
         // GIVEN
@@ -99,4 +104,32 @@ class HomeControllerTest {
             model.addAttribute("requestUrl", "https://localhost:8134")
         }
     }
+    //endregion
+
+    //region POST /send-request
+    @Test
+    fun `sendRequest should save the request`() {
+        // GIVEN
+        val newsletterUrl = "http://localhost:8134"
+        every { newsletterService.saveRequest(any()) } just Runs
+
+        // WHEN
+        val result = homeController.requestNewsletter(newsletterUrl)
+
+        // THEN
+        result.url shouldBe "/"
+        verify { newsletterService.saveRequest(URL(newsletterUrl)) }
+    }
+
+    @Test
+    fun `sendRequest should fail if newsletterUrl is not a valid url`() {
+        // GIVEN
+        val newsletterUrl = "something"
+
+        // WHEN - THEN
+        shouldThrowAny {
+            homeController.requestNewsletter(newsletterUrl)
+        }
+    }
+    //endregion
 }

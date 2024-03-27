@@ -1,17 +1,26 @@
 package fr.nicopico.n2rss.service
 
+import fr.nicopico.n2rss.data.NewsletterRequestRepository
 import fr.nicopico.n2rss.data.PublicationRepository
 import fr.nicopico.n2rss.fakes.NewsletterHandlerFake
 import fr.nicopico.n2rss.models.Newsletter
 import fr.nicopico.n2rss.models.NewsletterInfo
+import fr.nicopico.n2rss.models.NewsletterRequest
 import fr.nicopico.n2rss.models.Publication
 import io.kotest.matchers.collections.shouldContainOnly
+import io.kotest.matchers.kotlinx.datetime.shouldBeAfter
+import io.kotest.matchers.should
+import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
+import io.mockk.slot
+import io.mockk.verify
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import java.net.URL
 
 class NewsletterServiceTest {
 
@@ -23,6 +32,8 @@ class NewsletterServiceTest {
 
     @MockK
     private lateinit var publicationRepository: PublicationRepository
+    @MockK
+    private lateinit var newsletterRequestRepository: NewsletterRequestRepository
 
     private lateinit var newsletterService: NewsletterService
 
@@ -32,6 +43,7 @@ class NewsletterServiceTest {
         newsletterService = NewsletterService(
             newsletterHandlers = newsletterHandlers,
             publicationRepository = publicationRepository,
+            newsletterRequestRepository = newsletterRequestRepository,
         )
     }
 
@@ -95,5 +107,59 @@ class NewsletterServiceTest {
                 startingDate = null,
             ),
         )
+    }
+
+    @Test
+    fun `new newsletterRequest are added to the database`() {
+        // GIVEN
+        val newsletterUrl = URL("https://www.nicopico.com")
+        every { newsletterRequestRepository.getByNewsletterUrl(any()) } returns null
+        every { newsletterRequestRepository.save(any()) } answers { firstArg() }
+
+        // WHEN
+        newsletterService.saveRequest(newsletterUrl)
+
+        // THEN
+        val slotNewsletterRequest = slot<NewsletterRequest>()
+        verify {
+            newsletterRequestRepository.getByNewsletterUrl(newsletterUrl)
+            newsletterRequestRepository.save(capture(slotNewsletterRequest))
+        }
+        slotNewsletterRequest.captured should {
+            it.newsletterUrl shouldBe newsletterUrl
+            it.requestCount shouldBe 1
+            it.firstRequestDate shouldBe it.lastRequestDate
+        }
+    }
+
+    @Test
+    fun `existing newsletterRequest are incremented in the database`() {
+        // GIVEN
+        val newsletterUrl = URL("https://www.nicopico.com")
+        val existingRequest = NewsletterRequest(
+            newsletterUrl = newsletterUrl,
+            firstRequestDate = LocalDateTime(2020, 1, 1, 0, 0, 0),
+            lastRequestDate = LocalDateTime(2020, 1, 10, 0, 0, 0),
+            requestCount = 2,
+        )
+
+        every { newsletterRequestRepository.getByNewsletterUrl(any()) } returns existingRequest
+        every { newsletterRequestRepository.save(any()) } answers { firstArg() }
+
+        // WHEN
+        newsletterService.saveRequest(newsletterUrl)
+
+        // THEN
+        val slotNewsletterRequest = slot<NewsletterRequest>()
+        verify {
+            newsletterRequestRepository.getByNewsletterUrl(newsletterUrl)
+            newsletterRequestRepository.save(capture(slotNewsletterRequest))
+        }
+        slotNewsletterRequest.captured should {
+            it.newsletterUrl shouldBe newsletterUrl
+            it.requestCount shouldBe 3
+            it.firstRequestDate shouldBe existingRequest.firstRequestDate
+            it.lastRequestDate shouldBeAfter existingRequest.lastRequestDate
+        }
     }
 }
