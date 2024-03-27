@@ -135,7 +135,8 @@ class NewsletterServiceTest {
     @Test
     fun `variant of a newsletterRequest will be unified`() {
         // GIVEN
-        val newsletterUrl = URL("https://www.nicopico.com/test/")
+        @Suppress("HttpUrlsUsage")
+        val newsletterUrl = URL("http://www.nicopico.com/test/")
         every { newsletterRequestRepository.getByNewsletterUrl(any()) } returns null
         every { newsletterRequestRepository.save(any()) } answers { firstArg() }
         val uniqueUrl = URL("https://www.nicopico.com")

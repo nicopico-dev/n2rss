@@ -56,7 +56,7 @@ class NewsletterService(
 
         // Sanitize URL
         val uniqueUrl = URL(
-            /* protocol = */ newsletterUrl.protocol,
+            /* protocol = */ "https",
             /* host = */ newsletterUrl.host,
             /* port = */ newsletterUrl.port,
             /* file = */ "",
