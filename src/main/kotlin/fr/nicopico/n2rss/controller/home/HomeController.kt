@@ -40,9 +40,8 @@ import java.net.URL
 @Controller
 class HomeController(
     private val newsletterService: NewsletterService,
-    props: N2RssProperties,
+    private val properties: N2RssProperties,
 ) {
-    private val properties = props.feeds
 
     @GetMapping("/")
     fun home(request: HttpServletRequest, model: Model): String {
@@ -50,7 +49,7 @@ class HomeController(
             .filter { it.publicationCount > 0 }
         val requestUrl: String = request.requestURL
             .let {
-                if (properties.forceHttps) {
+                if (properties.feeds.forceHttps) {
                     it.replace(Regex("http://"), "https://")
                 } else {
                     it.toString()
@@ -60,14 +59,19 @@ class HomeController(
         with(model) {
             addAttribute("newsletters", newslettersInfo)
             addAttribute("requestUrl", requestUrl)
+            addAttribute("reCaptchaSiteKey", properties.recaptcha.siteKey)
         }
         return "index"
     }
 
     @PostMapping("/send-request")
     fun requestNewsletter(
-        @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String
+        @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String,
+        @RequestParam("g-recaptcha-response") captchaResponse: String,
     ): RedirectView {
+        // TODO Check reCaptcha response
+        // TODO Return success or error messages to the page
+
         newsletterService.saveRequest(URL(newsletterUrl))
         return RedirectView("/")
     }

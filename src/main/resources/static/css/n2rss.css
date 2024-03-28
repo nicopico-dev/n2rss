@@ -117,3 +117,9 @@ form {
 form p {
     margin-bottom: 0.8em;
 }
+
+div.g-recaptcha {
+    margin: 8px auto;
+    display: flex;
+    justify-content: center;
+}

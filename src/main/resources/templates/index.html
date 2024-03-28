@@ -24,6 +24,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/n2rss.css}"/>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        // noinspection JSUnusedGlobalSymbols
+        function enableSubmit() {
+            document.getElementById("sendRequest").disabled = false;
+        }
+    </script>
 </head>
 <body>
 <div class="header">
@@ -80,7 +87,14 @@
     <input
         type="text" id="newsletterUrl" name="newsletterUrl"
         placeholder="https://androidweekly.net/" required>
-    <input type="submit" value="Send request">
+
+    <!-- reCaptcha -->
+    <div class="g-recaptcha"
+         th:data-sitekey="${reCaptchaSiteKey}"
+         data-callback="enableSubmit">
+    </div>
+
+    <input type="submit" id="sendRequest" value="Send request" disabled>
 </form>
 <a href="https://github.com/nicopico-dev/n2rss" target="_blank">
     <img
