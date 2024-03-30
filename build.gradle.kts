@@ -67,6 +67,8 @@ dependencies {
     implementation("org.jsoup:jsoup:1.17.2")
     implementation("com.rometools:rome:2.1.0")
 
+    implementation("com.jayway.jsonpath:json-path:2.9.0")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.mockito")
     }

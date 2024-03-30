@@ -20,7 +20,9 @@ package fr.nicopico.n2rss.controller.home
 import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.controller.Url
 import fr.nicopico.n2rss.service.NewsletterService
+import fr.nicopico.n2rss.service.ReCaptchaService
 import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletResponse
 import jakarta.validation.ConstraintViolationException
 import jakarta.validation.constraints.NotEmpty
 import org.springframework.http.HttpStatus
@@ -33,13 +35,13 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
-import org.springframework.web.servlet.view.RedirectView
 import java.net.URL
 
 @Validated
 @Controller
 class HomeController(
     private val newsletterService: NewsletterService,
+    private val reCaptchaService: ReCaptchaService,
     private val properties: N2RssProperties,
 ) {
 
@@ -68,12 +70,23 @@ class HomeController(
     fun requestNewsletter(
         @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String,
         @RequestParam("g-recaptcha-response") captchaResponse: String,
-    ): RedirectView {
-        // TODO Check reCaptcha response
+        response: HttpServletResponse,
+    ) {
         // TODO Return success or error messages to the page
+        val isCaptchaValid = reCaptchaService.isCaptchaValid(
+            captchaSecretKey = properties.recaptcha.secretKey,
+            captchaResponse = captchaResponse,
+        )
 
-        newsletterService.saveRequest(URL(newsletterUrl))
-        return RedirectView("/")
+        if (isCaptchaValid) {
+            newsletterService.saveRequest(URL(newsletterUrl))
+            response.sendRedirect("/")
+        } else {
+            response.sendError(
+                HttpStatus.BAD_REQUEST.value(),
+                "reCaptcha challenge failed",
+            )
+        }
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
