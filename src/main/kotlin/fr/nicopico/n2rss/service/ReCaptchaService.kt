@@ -19,34 +19,37 @@ package fr.nicopico.n2rss.service
 
 import com.jayway.jsonpath.JsonPath
 import org.slf4j.LoggerFactory
-import org.springframework.http.HttpEntity
-import org.springframework.http.HttpHeaders
-import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
-import org.springframework.web.client.RestTemplate
+import org.springframework.web.client.RestClient
+import org.springframework.web.client.toEntity
+import java.net.URI
 
 private val LOG = LoggerFactory.getLogger(ReCaptchaService::class.java)
 
 @Service
 class ReCaptchaService {
 
+    private val reCaptchaVerifyUri = URI("https://www.google.com/recaptcha/api/siteverify")
+    private val restClient = RestClient.create()
+
     fun isCaptchaValid(
         captchaSecretKey: String,
         captchaResponse: String
     ): Boolean {
-        val url = "https://www.google.com/recaptcha/api/siteverify"
-
         val params: MultiValueMap<String, String> = LinkedMultiValueMap()
         params.add("secret", captchaSecretKey)
         params.add("response", captchaResponse)
 
-        val request: HttpEntity<MultiValueMap<String, String>> = HttpEntity(params, HttpHeaders())
+        val response = restClient
+            .post()
+            .uri(reCaptchaVerifyUri)
+            .body(params)
+            .retrieve()
+            .toEntity<String>()
 
-        // RestTemplate() is deprecated in Spring 5. You may use WebClient instead.
-        val restTemplate = RestTemplate()
-        val response: ResponseEntity<String> = restTemplate.postForEntity(url, request, String::class.java)
+        LOG.debug(response.body)
 
         return JsonPath
             .parse(response.body)
