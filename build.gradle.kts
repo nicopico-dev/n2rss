@@ -78,6 +78,7 @@ dependencies {
     testImplementation("io.mockk:mockk:1.13.10")
     testImplementation("com.icegreen:greenmail:2.0.1")
     testImplementation("com.icegreen:greenmail-junit5:2.0.1")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
 }
 
 tasks.withType<KotlinCompile> {

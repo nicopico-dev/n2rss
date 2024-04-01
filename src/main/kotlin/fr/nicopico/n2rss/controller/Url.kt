@@ -24,7 +24,6 @@ import jakarta.validation.Payload
 import java.net.URL
 import kotlin.reflect.KClass
 
-
 @MustBeDocumented
 @Constraint(validatedBy = [UrlValidator::class])
 @Target(
@@ -42,7 +41,7 @@ annotation class Url(
     val payload: Array<KClass<out Payload>> = []
 )
 
-private class UrlValidator : ConstraintValidator<Url, String> {
+internal class UrlValidator : ConstraintValidator<Url, String> {
     override fun isValid(
         url: String?,
         context: ConstraintValidatorContext?
@@ -53,7 +52,7 @@ private class UrlValidator : ConstraintValidator<Url, String> {
         return try {
             URL(url)
             true
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             false
         }
     }

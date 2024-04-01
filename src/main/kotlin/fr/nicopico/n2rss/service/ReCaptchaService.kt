@@ -24,15 +24,13 @@ import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
 import org.springframework.web.client.RestClient
 import org.springframework.web.client.toEntity
-import java.net.URI
 
 private val LOG = LoggerFactory.getLogger(ReCaptchaService::class.java)
 
 @Service
-class ReCaptchaService {
-
-    private val reCaptchaVerifyUri = URI("https://www.google.com/recaptcha/api/siteverify")
-    private val restClient = RestClient.create()
+class ReCaptchaService(
+    private val restClient: RestClient = RestClient.create("https://www.google.com/recaptcha/api")
+) {
 
     fun isCaptchaValid(
         captchaSecretKey: String,
@@ -44,7 +42,7 @@ class ReCaptchaService {
 
         val response = restClient
             .post()
-            .uri(reCaptchaVerifyUri)
+            .uri("/siteverify")
             .body(params)
             .retrieve()
             .toEntity<String>()

@@ -4,9 +4,12 @@ import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.models.Newsletter
 import fr.nicopico.n2rss.models.NewsletterInfo
 import fr.nicopico.n2rss.service.NewsletterService
+import fr.nicopico.n2rss.service.ReCaptchaService
 import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.matchers.collections.shouldContainOnly
+import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.beOfType
 import io.mockk.MockKAnnotations
 import io.mockk.Runs
 import io.mockk.every
@@ -16,9 +19,11 @@ import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
 import jakarta.servlet.http.HttpServletRequest
+import jakarta.servlet.http.HttpServletResponse
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.ui.Model
+import java.net.MalformedURLException
 import java.net.URL
 
 class HomeControllerTest {
@@ -26,7 +31,11 @@ class HomeControllerTest {
     @MockK
     private lateinit var newsletterService: NewsletterService
     @MockK
+    private lateinit var reCaptchaService: ReCaptchaService
+    @MockK
     private lateinit var feedProperties: N2RssProperties.FeedsProperties
+    @MockK(relaxed = true)
+    private lateinit var reCaptchaProperties: N2RssProperties.ReCaptchaProperties
 
     private lateinit var homeController: HomeController
 
@@ -36,9 +45,10 @@ class HomeControllerTest {
 
         val properties = mockk<N2RssProperties>() {
             every { feeds } returns feedProperties
+            every { recaptcha } returns reCaptchaProperties
         }
 
-        homeController = HomeController(newsletterService, properties)
+        homeController = HomeController(newsletterService, reCaptchaService, properties)
     }
 
     //region GET /
@@ -108,28 +118,68 @@ class HomeControllerTest {
 
     //region POST /send-request
     @Test
-    fun `sendRequest should save the request`() {
+    fun `sendRequest should save the request if captcha is valid`() {
         // GIVEN
         val newsletterUrl = "http://localhost:8134"
+        val captchaResponse = "captchaResponse"
+        val captchaSecretKey = "captchaSecretKey"
+
+        // SETUP
+        val response = mockk<HttpServletResponse>(relaxed = true)
         every { newsletterService.saveRequest(any()) } just Runs
+        every { reCaptchaProperties.secretKey } returns captchaSecretKey
+        every { reCaptchaService.isCaptchaValid(any(), any()) } returns true
 
         // WHEN
-        val result = homeController.requestNewsletter(newsletterUrl)
+        homeController.requestNewsletter(newsletterUrl, captchaResponse, response)
 
         // THEN
-        result.url shouldBe "/"
         verify { newsletterService.saveRequest(URL(newsletterUrl)) }
+        verify { reCaptchaService.isCaptchaValid(captchaSecretKey, captchaResponse) }
+        verify { response.sendRedirect("/") }
+    }
+
+    @Test
+    fun `sendRequest should not save the request if captcha is not valid`() {
+        // GIVEN
+        val newsletterUrl = "http://localhost:8134"
+        val captchaResponse = "captchaResponse"
+        val captchaSecretKey = "captchaSecretKey"
+
+        // SETUP
+        val response = mockk<HttpServletResponse>(relaxed = true)
+        every { reCaptchaProperties.secretKey } returns captchaSecretKey
+        every { reCaptchaService.isCaptchaValid(any(), any()) } returns false
+
+        // WHEN
+        homeController.requestNewsletter(newsletterUrl, captchaResponse, response)
+
+        // THEN
+        verify(exactly = 0) { newsletterService.saveRequest(any()) }
+        verify { response.sendError(400, any()) }
     }
 
     @Test
     fun `sendRequest should fail if newsletterUrl is not a valid url`() {
         // GIVEN
         val newsletterUrl = "something"
+        val captchaResponse = "captchaResponse"
+        val captchaSecretKey = "captchaSecretKey"
 
-        // WHEN - THEN
-        shouldThrowAny {
-            homeController.requestNewsletter(newsletterUrl)
+        // SETUP
+        val response = mockk<HttpServletResponse>(relaxed = true)
+        every { newsletterService.saveRequest(any()) } just Runs
+        every { reCaptchaProperties.secretKey } returns captchaSecretKey
+        every { reCaptchaService.isCaptchaValid(any(), any()) } returns true
+
+        // WHEN
+        val error = shouldThrowAny {
+            homeController.requestNewsletter(newsletterUrl, captchaResponse, response)
         }
+
+        // THEN
+        verify(exactly = 0) { newsletterService.saveRequest(any()) }
+        error should beOfType<MalformedURLException>()
     }
     //endregion
 }
