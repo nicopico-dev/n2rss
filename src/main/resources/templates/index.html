@@ -82,16 +82,18 @@
         type="text" id="newsletterUrl" name="newsletterUrl"
         placeholder="https://androidweekly.net/" required>
 
+    <input type="submit" id="sendRequest" value="Send request">
+    <div id="message" class="message" style="display: none"></div>
+
     <!-- reCaptcha -->
-    <div class="g-recaptcha"
+    <div id="recaptcha"
+         class="g-recaptcha"
          th:data-sitekey="${reCaptchaSiteKey}"
-         data-callback="enableSubmit"
-         th:if="${reCaptchaEnabled}">
+         data-callback="submitForm"
+         th:if="${reCaptchaEnabled}"
+         style="display: none">
     </div>
 
-    <input type="submit" id="sendRequest" value="Send request"
-           th:disabled="${reCaptchaEnabled} ? 'disabled' : null">
-    <div id="message" class="message" style="display: none"></div>
 </form>
 
 <a href="https://github.com/nicopico-dev/n2rss" target="_blank">
@@ -106,40 +108,51 @@
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
-    // noinspection JSUnusedGlobalSymbols
-    function enableSubmit() {
-        document.getElementById("sendRequest").disabled = false;
-    }
+    let newsletterForm = document.getElementById('newsletterForm');
+    let newsletterUrl = document.getElementById('newsletterUrl');
+    let sendRequest = document.getElementById("sendRequest");
+    let message = document.getElementById('message');
+    let recaptcha = document.getElementById('recaptcha');
 
-    function configureForm() {
-        document.getElementById('newsletterForm')
-            .addEventListener('submit', function (event) {
-                event.preventDefault();
-                let message = document.getElementById('message');
-                fetch(
-                    "/send-request",
-                    {
-                        method: 'POST',
-                        body: new FormData(this)
-                    })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error("HTTP error " + response.status);
-                        }
-                        message.textContent = "Successfully subscribed!";
-                        message.classList.value = "message message-success"
-                    })
-                    .catch(() => {
-                        message.textContent = "There was an error subscribing.";
-                        message.classList.value = "message message-error";
-                    })
-                    .finally(() => {
-                        message.style.display = "block";
-                    });
+    function submitForm() {
+        sendRequest.disabled = false;
+        newsletterUrl.disabled = false;
+
+        message.style.display = "none";
+
+        fetch("/send-request", {method: 'POST', body: new FormData(newsletterForm)})
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("HTTP error " + response.status);
+                }
+                message.textContent = "Successfully subscribed!";
+                message.classList.value = "message message-success"
+            })
+            .catch(() => {
+                message.textContent = "There was an error subscribing.";
+                message.classList.value = "message message-error";
+            })
+            .finally(() => {
+                message.style.display = "block";
+                recaptcha.style.display = "none";
             });
     }
 
-    configureForm()
+    newsletterForm
+        .addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (recaptcha) {
+                sendRequest.disabled = true;
+                newsletterUrl.disabled = true;
+                recaptcha.style.display = "flex";
+
+                message.textContent = "Please handle the captcha challenge to send your request";
+                message.style.display = "block";
+                message.classList.value = "message message-info";
+            } else {
+                submitForm();
+            }
+        });
 </script>
 </body>
 </html>

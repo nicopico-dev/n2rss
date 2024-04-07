@@ -132,6 +132,12 @@ div.g-recaptcha {
     color: #017701;
 }
 
+.message.message-info {
+    color: #0829ec;
+    font-weight: bold;
+    font-style: italic;
+}
+
 .message.message-error {
     color: #c60101;
 }
