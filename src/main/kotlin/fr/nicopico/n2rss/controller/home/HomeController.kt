@@ -22,7 +22,6 @@ import fr.nicopico.n2rss.controller.Url
 import fr.nicopico.n2rss.service.NewsletterService
 import fr.nicopico.n2rss.service.ReCaptchaService
 import jakarta.servlet.http.HttpServletRequest
-import jakarta.servlet.http.HttpServletResponse
 import jakarta.validation.ConstraintViolationException
 import jakarta.validation.constraints.NotEmpty
 import org.springframework.http.HttpStatus
@@ -70,22 +69,19 @@ class HomeController(
     fun requestNewsletter(
         @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String,
         @RequestParam("g-recaptcha-response") captchaResponse: String,
-        response: HttpServletResponse,
-    ) {
-        // TODO Return success or error messages to the page
+    ): ResponseEntity<String> {
         val isCaptchaValid = reCaptchaService.isCaptchaValid(
             captchaSecretKey = properties.recaptcha.secretKey,
             captchaResponse = captchaResponse,
         )
 
-        if (isCaptchaValid) {
+        return if (isCaptchaValid) {
             newsletterService.saveRequest(URL(newsletterUrl))
-            response.sendRedirect("/")
+            ResponseEntity.ok().build()
         } else {
-            response.sendError(
-                HttpStatus.BAD_REQUEST.value(),
-                "reCaptcha challenge failed",
-            )
+            ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body("reCaptcha challenge failed")
         }
     }
 

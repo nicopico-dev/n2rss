@@ -24,13 +24,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/n2rss.css}"/>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>
-        // noinspection JSUnusedGlobalSymbols
-        function enableSubmit() {
-            document.getElementById("sendRequest").disabled = false;
-        }
-    </script>
 </head>
 <body>
 <div class="header">
@@ -79,7 +72,8 @@
         </tbody>
     </table>
 </div>
-<form action="/send-request" method="post">
+
+<form id="newsletterForm" action="/send-request" method="post">
     <p>
         You can request we add new RSS feed by submitting a request in the form below
     </p>
@@ -96,6 +90,8 @@
 
     <input type="submit" id="sendRequest" value="Send request" disabled>
 </form>
+<div id="message" class="alert" style="display: none"></div>
+
 <a href="https://github.com/nicopico-dev/n2rss" target="_blank">
     <img
         src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149"
@@ -105,5 +101,41 @@
         decoding="async"
         data-recalc-dims="1"/>
 </a>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+    // noinspection JSUnusedGlobalSymbols
+    function enableSubmit() {
+        document.getElementById("sendRequest").disabled = false;
+    }
+
+    function configureForm() {
+        document.getElementById('newsletterForm')
+            .addEventListener('submit', function (event) {
+                event.preventDefault();
+                let message = document.getElementById('message');
+                fetch("/send-request", {
+                    method: 'POST',
+                    body: new FormData(this)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("HTTP error " + response.status);
+                        }
+                        message.textContent = "Successfully subscribed!";
+                        message.classList.add('alert-success');
+                    })
+                    .catch(() => {
+                        message.textContent = "There was an error subscribing.";
+                        message.classList.add('alert-danger');
+                    })
+                    .finally(() => {
+                        message.style.display = "block";
+                    });
+            });
+    }
+
+    configureForm()
+</script>
 </body>
 </html>
