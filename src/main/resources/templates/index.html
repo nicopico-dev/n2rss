@@ -107,52 +107,6 @@
 </a>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script>
-    let newsletterForm = document.getElementById('newsletterForm');
-    let newsletterUrl = document.getElementById('newsletterUrl');
-    let sendRequest = document.getElementById("sendRequest");
-    let message = document.getElementById('message');
-    let recaptcha = document.getElementById('recaptcha');
-
-    function submitForm() {
-        sendRequest.disabled = false;
-        newsletterUrl.disabled = false;
-
-        message.style.display = "none";
-
-        fetch("/send-request", {method: 'POST', body: new FormData(newsletterForm)})
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("HTTP error " + response.status);
-                }
-                message.textContent = "Successfully subscribed!";
-                message.classList.value = "message message-success"
-            })
-            .catch(() => {
-                message.textContent = "There was an error subscribing.";
-                message.classList.value = "message message-error";
-            })
-            .finally(() => {
-                message.style.display = "block";
-                recaptcha.style.display = "none";
-            });
-    }
-
-    newsletterForm
-        .addEventListener('submit', function (event) {
-            event.preventDefault();
-            if (recaptcha) {
-                sendRequest.disabled = true;
-                newsletterUrl.disabled = true;
-                recaptcha.style.display = "flex";
-
-                message.textContent = "Please handle the captcha challenge to send your request";
-                message.style.display = "block";
-                message.classList.value = "message message-info";
-            } else {
-                submitForm();
-            }
-        });
-</script>
+<script th:src="@{js/n2rss.js}" async defer></script>
 </body>
 </html>
