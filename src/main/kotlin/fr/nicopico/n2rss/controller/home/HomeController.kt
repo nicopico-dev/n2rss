@@ -60,6 +60,7 @@ class HomeController(
         with(model) {
             addAttribute("newsletters", newslettersInfo)
             addAttribute("requestUrl", requestUrl)
+            addAttribute("reCaptchaEnabled", properties.recaptcha.enabled)
             addAttribute("reCaptchaSiteKey", properties.recaptcha.siteKey)
         }
         return "index"
@@ -68,12 +69,14 @@ class HomeController(
     @PostMapping("/send-request")
     fun requestNewsletter(
         @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String,
-        @RequestParam("g-recaptcha-response") captchaResponse: String,
+        @RequestParam("g-recaptcha-response") captchaResponse: String? = null,
     ): ResponseEntity<String> {
-        val isCaptchaValid = reCaptchaService.isCaptchaValid(
-            captchaSecretKey = properties.recaptcha.secretKey,
-            captchaResponse = captchaResponse,
-        )
+        val isCaptchaValid = if (properties.recaptcha.enabled) {
+            reCaptchaService.isCaptchaValid(
+                captchaSecretKey = properties.recaptcha.secretKey,
+                captchaResponse = captchaResponse ?: "",
+            )
+        } else true
 
         return if (isCaptchaValid) {
             newsletterService.saveRequest(URL(newsletterUrl))

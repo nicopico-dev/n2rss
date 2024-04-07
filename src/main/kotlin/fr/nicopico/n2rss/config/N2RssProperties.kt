@@ -36,6 +36,7 @@ constructor(
         val forceHttps: Boolean,
     )
     data class ReCaptchaProperties(
+        val enabled: Boolean,
         val siteKey: String,
         val secretKey: String,
     )

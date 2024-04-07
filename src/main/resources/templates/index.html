@@ -85,10 +85,12 @@
     <!-- reCaptcha -->
     <div class="g-recaptcha"
          th:data-sitekey="${reCaptchaSiteKey}"
-         data-callback="enableSubmit">
+         data-callback="enableSubmit"
+         th:if="${reCaptchaEnabled}">
     </div>
 
-    <input type="submit" id="sendRequest" value="Send request" disabled>
+    <input type="submit" id="sendRequest" value="Send request"
+           th:disabled="${reCaptchaEnabled} ? 'disabled' : null">
 </form>
 <div id="message" class="alert" style="display: none"></div>
 
@@ -114,10 +116,12 @@
             .addEventListener('submit', function (event) {
                 event.preventDefault();
                 let message = document.getElementById('message');
-                fetch("/send-request", {
-                    method: 'POST',
-                    body: new FormData(this)
-                })
+                fetch(
+                    "/send-request",
+                    {
+                        method: 'POST',
+                        body: new FormData(this)
+                    })
                     .then(response => {
                         if (!response.ok) {
                             throw new Error("HTTP error " + response.status);
