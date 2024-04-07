@@ -26,17 +26,17 @@ data class N2RssProperties
 @ConstructorBinding
 constructor(
     val maintenance: MaintenanceProperties,
-    val feeds: FeedsProperties,
+    val feeds: FeedsProperties = FeedsProperties(),
     val recaptcha: ReCaptchaProperties,
 ) {
     data class MaintenanceProperties(
         val secretKey: String,
     )
     data class FeedsProperties(
-        val forceHttps: Boolean,
+        val forceHttps: Boolean = true,
     )
     data class ReCaptchaProperties(
-        val enabled: Boolean,
+        val enabled: Boolean = true,
         val siteKey: String,
         val secretKey: String,
     )
