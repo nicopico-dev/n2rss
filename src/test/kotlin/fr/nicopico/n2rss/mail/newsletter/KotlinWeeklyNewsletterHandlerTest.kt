@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.mail.newsletter
 
 import fr.nicopico.n2rss.models.Email
 import io.kotest.assertions.assertSoftly
+import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
@@ -142,6 +143,17 @@ class KotlinWeeklyNewsletterHandlerTest {
                 withClue("description") {
                     description shouldBe "Carmen Álvarez wrote an article comparing Coroutines under a Kotlin and Python prism."
                 }
+            }
+        }
+
+        @Test
+        fun `should parse Kotlin Weekly #400 without issue`() {
+            // GIVEN
+            val email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #400.eml")
+
+            // WHEN - THEN
+            shouldNotThrowAny {
+                handler.process(email)
             }
         }
     }
