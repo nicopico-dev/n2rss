@@ -91,8 +91,8 @@
 
     <input type="submit" id="sendRequest" value="Send request"
            th:disabled="${reCaptchaEnabled} ? 'disabled' : null">
+    <div id="message" class="message" style="display: none"></div>
 </form>
-<div id="message" class="alert" style="display: none"></div>
 
 <a href="https://github.com/nicopico-dev/n2rss" target="_blank">
     <img
@@ -127,11 +127,11 @@
                             throw new Error("HTTP error " + response.status);
                         }
                         message.textContent = "Successfully subscribed!";
-                        message.classList.add('alert-success');
+                        message.classList.value = "message message-success"
                     })
                     .catch(() => {
                         message.textContent = "There was an error subscribing.";
-                        message.classList.add('alert-danger');
+                        message.classList.value = "message message-error";
                     })
                     .finally(() => {
                         message.style.display = "block";

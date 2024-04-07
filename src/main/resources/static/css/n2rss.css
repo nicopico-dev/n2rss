@@ -123,3 +123,15 @@ div.g-recaptcha {
     display: flex;
     justify-content: center;
 }
+
+.message {
+    margin: 8px auto;
+}
+
+.message.message-success {
+    color: #017701;
+}
+
+.message.message-error {
+    color: #c60101;
+}
