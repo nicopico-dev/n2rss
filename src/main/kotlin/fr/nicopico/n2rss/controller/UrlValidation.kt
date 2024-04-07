@@ -17,11 +17,11 @@
  */
 package fr.nicopico.n2rss.controller
 
+import fr.nicopico.n2rss.utils.toUrlOrNull
 import jakarta.validation.Constraint
 import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext
 import jakarta.validation.Payload
-import java.net.URL
 import kotlin.reflect.KClass
 
 @MustBeDocumented
@@ -49,11 +49,6 @@ internal class UrlValidator : ConstraintValidator<Url, String> {
         if (url.isNullOrBlank()) {
             return true
         }
-        return try {
-            URL(url)
-            true
-        } catch (_: Exception) {
-            false
-        }
+        return url.toUrlOrNull() != null
     }
 }
