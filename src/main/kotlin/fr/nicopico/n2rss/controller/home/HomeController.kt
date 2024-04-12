@@ -18,9 +18,9 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
-import fr.nicopico.n2rss.controller.Url
 import fr.nicopico.n2rss.service.NewsletterService
 import fr.nicopico.n2rss.service.ReCaptchaService
+import fr.nicopico.n2rss.utils.Url
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.validation.ConstraintViolationException
 import jakarta.validation.constraints.NotEmpty

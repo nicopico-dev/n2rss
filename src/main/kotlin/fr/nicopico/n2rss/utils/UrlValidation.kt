@@ -15,9 +15,8 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.controller
+package fr.nicopico.n2rss.utils
 
-import fr.nicopico.n2rss.utils.toUrlOrNull
 import jakarta.validation.Constraint
 import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext
@@ -41,6 +40,10 @@ annotation class Url(
     val payload: Array<KClass<out Payload>> = []
 )
 
+private val urlRegex = Regex(
+    "^((http|https):\\/\\/)?(www\\.)?([A-z]+)\\.([A-z]{2,})"
+)
+
 internal class UrlValidator : ConstraintValidator<Url, String> {
     override fun isValid(
         url: String?,
@@ -49,6 +52,6 @@ internal class UrlValidator : ConstraintValidator<Url, String> {
         if (url.isNullOrBlank()) {
             return true
         }
-        return url.toUrlOrNull() != null
+        return urlRegex.matches(url)
     }
 }
