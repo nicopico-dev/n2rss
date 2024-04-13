@@ -16,28 +16,12 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.config
+package fr.nicopico.n2rss.data
 
-import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.boot.context.properties.bind.ConstructorBinding
+import fr.nicopico.n2rss.models.NewsletterRequest
+import org.springframework.data.mongodb.repository.MongoRepository
+import java.net.URL
 
-@ConfigurationProperties(prefix = "n2rss")
-data class N2RssProperties
-@ConstructorBinding
-constructor(
-    val maintenance: MaintenanceProperties,
-    val feeds: FeedsProperties = FeedsProperties(),
-    val recaptcha: ReCaptchaProperties,
-) {
-    data class MaintenanceProperties(
-        val secretKey: String,
-    )
-    data class FeedsProperties(
-        val forceHttps: Boolean = true,
-    )
-    data class ReCaptchaProperties(
-        val enabled: Boolean = true,
-        val siteKey: String,
-        val secretKey: String,
-    )
+interface NewsletterRequestRepository : MongoRepository<NewsletterRequest, URL> {
+    fun getByNewsletterUrl(url: URL): NewsletterRequest?
 }

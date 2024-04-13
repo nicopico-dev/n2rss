@@ -26,6 +26,7 @@
 
 :root {
     --background-color: #e5effa;
+    --max-width: 800px;
 }
 
 body {
@@ -61,12 +62,12 @@ body {
 }
 
 .header p.project-description {
-    max-width: 800px;
+    max-width: var(--max-width);
     margin: 24px auto;
 }
 
 .container {
-    max-width: 800px;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 20px;
     background: #fff;
@@ -105,4 +106,38 @@ table tbody tr:nth-child(odd) {
 .publication-start {
     font-style: italic;
     font-size: 0.8em;
+}
+
+form {
+    margin: 34px auto;
+    max-width: var(--max-width);
+    text-align: center;
+}
+
+form p {
+    margin-bottom: 0.8em;
+}
+
+div.g-recaptcha {
+    margin: 8px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.message {
+    margin: 8px auto;
+}
+
+.message.message-success {
+    color: #017701;
+}
+
+.message.message-info {
+    color: #0829ec;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.message.message-error {
+    color: #c60101;
 }

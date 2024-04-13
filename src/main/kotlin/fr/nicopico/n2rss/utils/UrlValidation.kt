@@ -15,29 +15,43 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.utils
 
-package fr.nicopico.n2rss.config
+import jakarta.validation.Constraint
+import jakarta.validation.ConstraintValidator
+import jakarta.validation.ConstraintValidatorContext
+import jakarta.validation.Payload
+import kotlin.reflect.KClass
 
-import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.boot.context.properties.bind.ConstructorBinding
+@MustBeDocumented
+@Constraint(validatedBy = [UrlValidator::class])
+@Target(
+    AnnotationTarget.FIELD,
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.PROPERTY_GETTER,
+    AnnotationTarget.PROPERTY_SETTER,
+    AnnotationTarget.VALUE_PARAMETER,
+)
+@Retention(AnnotationRetention.RUNTIME)
+@Repeatable
+annotation class Url(
+    val message: String = "Invalid URL",
+    val groups: Array<KClass<*>> = [],
+    val payload: Array<KClass<out Payload>> = []
+)
 
-@ConfigurationProperties(prefix = "n2rss")
-data class N2RssProperties
-@ConstructorBinding
-constructor(
-    val maintenance: MaintenanceProperties,
-    val feeds: FeedsProperties = FeedsProperties(),
-    val recaptcha: ReCaptchaProperties,
-) {
-    data class MaintenanceProperties(
-        val secretKey: String,
-    )
-    data class FeedsProperties(
-        val forceHttps: Boolean = true,
-    )
-    data class ReCaptchaProperties(
-        val enabled: Boolean = true,
-        val siteKey: String,
-        val secretKey: String,
-    )
+private val urlRegex = Regex(
+    "^((http|https):\\/\\/)?(www\\.)?([A-z]+)\\.([A-z]{2,})"
+)
+
+internal class UrlValidator : ConstraintValidator<Url, String> {
+    override fun isValid(
+        url: String?,
+        context: ConstraintValidatorContext?
+    ): Boolean {
+        if (url.isNullOrBlank()) {
+            return true
+        }
+        return urlRegex.matches(url)
+    }
 }

@@ -19,17 +19,30 @@ package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.service.NewsletterService
+import fr.nicopico.n2rss.service.ReCaptchaService
+import fr.nicopico.n2rss.utils.Url
 import jakarta.servlet.http.HttpServletRequest
+import jakarta.validation.ConstraintViolationException
+import jakarta.validation.constraints.NotEmpty
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
+import org.springframework.validation.annotation.Validated
+import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.ResponseStatus
+import java.net.URL
 
+@Validated
 @Controller
 class HomeController(
     private val newsletterService: NewsletterService,
-    props: N2RssProperties,
+    private val reCaptchaService: ReCaptchaService,
+    private val properties: N2RssProperties,
 ) {
-    private val properties = props.feeds
 
     @GetMapping("/")
     fun home(request: HttpServletRequest, model: Model): String {
@@ -37,7 +50,7 @@ class HomeController(
             .filter { it.publicationCount > 0 }
         val requestUrl: String = request.requestURL
             .let {
-                if (properties.forceHttps) {
+                if (properties.feeds.forceHttps) {
                     it.replace(Regex("http://"), "https://")
                 } else {
                     it.toString()
@@ -47,7 +60,42 @@ class HomeController(
         with(model) {
             addAttribute("newsletters", newslettersInfo)
             addAttribute("requestUrl", requestUrl)
+            addAttribute("reCaptchaEnabled", properties.recaptcha.enabled)
+            addAttribute("reCaptchaSiteKey", properties.recaptcha.siteKey)
         }
         return "index"
+    }
+
+    @PostMapping("/send-request")
+    fun requestNewsletter(
+        @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String,
+        @RequestParam("g-recaptcha-response") captchaResponse: String? = null,
+    ): ResponseEntity<String> {
+        val isCaptchaValid = if (properties.recaptcha.enabled) {
+            reCaptchaService.isCaptchaValid(
+                captchaSecretKey = properties.recaptcha.secretKey,
+                captchaResponse = captchaResponse ?: "",
+            )
+        } else true
+
+        return if (isCaptchaValid) {
+            newsletterService.saveRequest(URL(newsletterUrl))
+            ResponseEntity.ok().build()
+        } else {
+            ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body("reCaptcha challenge failed")
+        }
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(ConstraintViolationException::class)
+    fun handleExceptions(
+        exception: ConstraintViolationException,
+    ): ResponseEntity<Map<String, String?>> {
+        val errors = exception.constraintViolations.associate {
+            it.propertyPath.toString() to it.message
+        }
+        return ResponseEntity.badRequest().body(errors)
     }
 }

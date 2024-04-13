@@ -15,29 +15,18 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.models
 
-package fr.nicopico.n2rss.config
+import kotlinx.datetime.LocalDateTime
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
+import java.net.URL
 
-import org.springframework.boot.context.properties.ConfigurationProperties
-import org.springframework.boot.context.properties.bind.ConstructorBinding
-
-@ConfigurationProperties(prefix = "n2rss")
-data class N2RssProperties
-@ConstructorBinding
-constructor(
-    val maintenance: MaintenanceProperties,
-    val feeds: FeedsProperties = FeedsProperties(),
-    val recaptcha: ReCaptchaProperties,
-) {
-    data class MaintenanceProperties(
-        val secretKey: String,
-    )
-    data class FeedsProperties(
-        val forceHttps: Boolean = true,
-    )
-    data class ReCaptchaProperties(
-        val enabled: Boolean = true,
-        val siteKey: String,
-        val secretKey: String,
-    )
-}
+@Document("newsletter_request")
+data class NewsletterRequest(
+    @Id
+    val newsletterUrl: URL,
+    val firstRequestDate: LocalDateTime,
+    val lastRequestDate: LocalDateTime,
+    val requestCount: Int,
+)

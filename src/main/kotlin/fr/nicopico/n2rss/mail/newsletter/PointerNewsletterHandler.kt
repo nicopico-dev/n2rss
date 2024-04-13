@@ -20,7 +20,7 @@ package fr.nicopico.n2rss.mail.newsletter
 import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
-import fr.nicopico.n2rss.utils.toURL
+import fr.nicopico.n2rss.utils.toUrlOrNull
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
@@ -66,7 +66,7 @@ class PointerNewsletterHandler : NewsletterHandler {
             }
 
         val sponsorSubtitleElement = sponsorSection.selectFirst("a[href]:has(strong:has(span))")
-        val sponsorLink = sponsorSubtitleElement?.attr("href")?.toURL()
+        val sponsorLink = sponsorSubtitleElement?.attr("href")?.toUrlOrNull()
 
         return if (sponsorSubtitleElement != null && sponsorLink != null) {
             val sponsorName = sponsorSection.select("p")
@@ -104,7 +104,7 @@ class PointerNewsletterHandler : NewsletterHandler {
 
         val links = articleSectionDocument.select("a[href]:has(strong:has(span))")
         val articles = links.mapNotNull { articleTitle ->
-            val link = articleTitle.attr("href").toURL()
+            val link = articleTitle.attr("href").toUrlOrNull()
                 ?: return@mapNotNull null
             val title = articleTitle.text()
             val description = articleTitle.findDescription()

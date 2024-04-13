@@ -32,7 +32,7 @@ class UrlExtKtTest {
         val urlString = "https://www.example.com"
 
         // WHEN
-        val result = urlString.toURL()
+        val result = urlString.toUrlOrNull()
 
         // THEN
         assertSoftly {
@@ -48,7 +48,7 @@ class UrlExtKtTest {
         val urlString = "invalid_url"
 
         // WHEN
-        val result: URL? = urlString.toURL()
+        val result: URL? = urlString.toUrlOrNull()
 
         // THEN
         result shouldBe null

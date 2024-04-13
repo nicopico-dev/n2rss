@@ -23,7 +23,7 @@ import fr.nicopico.n2rss.mail.newsletter.jsoup.process
 import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
-import fr.nicopico.n2rss.utils.toURL
+import fr.nicopico.n2rss.utils.toUrlOrNull
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
@@ -54,7 +54,7 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandler {
                 sectionDocument.select("a[href]")
                     .mapNotNull { tag ->
                         // Ignore entries with invalid link
-                        val link = tag.attr("href").toURL()
+                        val link = tag.attr("href").toUrlOrNull()
                             ?: return@mapNotNull null
                         val title = markSponsoredTitle(section, tag.text()).trim()
 

@@ -20,7 +20,7 @@ package fr.nicopico.n2rss.mail.newsletter
 import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
-import fr.nicopico.n2rss.utils.toURL
+import fr.nicopico.n2rss.utils.toUrlOrNull
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
@@ -61,7 +61,7 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandler {
             .filter { it -> it.text().isNotBlank() }
             .mapNotNull { tag ->
                 // Ignore entries with invalid link
-                tag.attr("href").toURL()
+                tag.attr("href").toUrlOrNull()
                     ?.let { link ->
                         val title = tag.text().trim()
                         Article(
