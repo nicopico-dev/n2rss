@@ -17,7 +17,7 @@
  */
 package fr.nicopico.n2rss.controller
 
-import fr.nicopico.n2rss.utils.UrlValidator
+import fr.nicopico.n2rss.utils.url.UrlValidator
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.params.ParameterizedTest
@@ -47,10 +47,15 @@ class UrlValidatorTest {
                 // Urls without scheme can be valid
                 Arguments.of("www.google.com", true),
                 Arguments.of("nirvana.com", true),
+                // Complete url are valid
+                Arguments.of(
+                    "https://kotlinweekly.us12.list-manage.com/track/click?u=21&id=42",
+                    true
+                ),
                 // Invalid values
                 Arguments.of("mail://test@n2rss.fr", false),
                 Arguments.of("test@n2rss.fr", false),
-                Arguments.of("Invalid_URL", false),
+                Arguments.of("Some random text", false),
             )
         }
     }

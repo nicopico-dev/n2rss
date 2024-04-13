@@ -20,7 +20,7 @@ package fr.nicopico.n2rss.controller.home
 import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.service.NewsletterService
 import fr.nicopico.n2rss.service.ReCaptchaService
-import fr.nicopico.n2rss.utils.Url
+import fr.nicopico.n2rss.utils.url.Url
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.validation.ConstraintViolationException
 import jakarta.validation.constraints.NotEmpty
@@ -79,7 +79,10 @@ class HomeController(
         } else true
 
         return if (isCaptchaValid) {
-            newsletterService.saveRequest(URL(newsletterUrl))
+            val url = with(newsletterUrl) {
+                if (contains("://")) newsletterUrl else "https://$newsletterUrl"
+            }.let { URL(it) }
+            newsletterService.saveRequest(url)
             ResponseEntity.ok().build()
         } else {
             ResponseEntity

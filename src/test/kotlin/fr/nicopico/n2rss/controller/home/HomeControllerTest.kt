@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
@@ -23,11 +22,8 @@ import fr.nicopico.n2rss.models.Newsletter
 import fr.nicopico.n2rss.models.NewsletterInfo
 import fr.nicopico.n2rss.service.NewsletterService
 import fr.nicopico.n2rss.service.ReCaptchaService
-import io.kotest.assertions.throwables.shouldThrowAny
 import io.kotest.matchers.collections.shouldContainOnly
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.types.beOfType
 import io.mockk.MockKAnnotations
 import io.mockk.Runs
 import io.mockk.every
@@ -42,7 +38,6 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
 import org.springframework.ui.Model
-import java.net.MalformedURLException
 import java.net.URL
 
 class HomeControllerTest {
@@ -199,26 +194,22 @@ class HomeControllerTest {
         }
 
         @Test
-        fun `sendRequest should fail if newsletterUrl is not a valid url`() {
+        fun `sendRequest should use assume https protocol if none are passed`() {
             // GIVEN
-            val newsletterUrl = "something"
+            val newsletterUrl = "www.google.com"
             val captchaResponse = "captchaResponse"
-            val captchaSecretKey = "captchaSecretKey"
 
             // SETUP
-            every { reCaptchaProperties.enabled } returns true
-            every { reCaptchaProperties.secretKey } returns captchaSecretKey
+            every { reCaptchaProperties.enabled } returns false
             every { newsletterService.saveRequest(any()) } just Runs
-            every { reCaptchaService.isCaptchaValid(any(), any()) } returns true
 
             // WHEN
-            val error = shouldThrowAny {
-                homeController.requestNewsletter(newsletterUrl, captchaResponse)
-            }
+            homeController.requestNewsletter(newsletterUrl, captchaResponse)
 
             // THEN
-            verify(exactly = 0) { newsletterService.saveRequest(any()) }
-            error should beOfType<MalformedURLException>()
+            val slotUrl = slot<URL>()
+            verify { newsletterService.saveRequest(capture(slotUrl)) }
+            slotUrl.captured.toString() shouldBe "https://www.google.com"
         }
     }
 }

@@ -15,14 +15,24 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.utils
+package fr.nicopico.n2rss.utils.url
 
-import java.net.MalformedURLException
-import java.net.URL
+import jakarta.validation.ConstraintValidator
+import jakarta.validation.ConstraintValidatorContext
 
-fun String.toUrlOrNull(): URL? = try {
-    URL(this)
-    URL(this)
-} catch (_: MalformedURLException) {
-    null
+internal class UrlValidator : ConstraintValidator<Url, String> {
+    override fun isValid(
+        url: String?,
+        context: ConstraintValidatorContext?
+    ): Boolean {
+        if (url.isNullOrBlank()) {
+            return true
+        }
+        return urlRegex.matches(url)
+    }
+
+    companion object {
+        @Suppress("RegExpRedundantEscape")
+        private val urlRegex = Regex("^((http|https):\\/\\/)?[A-Za-z0-9.\\-_]+(/.*)?")
+    }
 }

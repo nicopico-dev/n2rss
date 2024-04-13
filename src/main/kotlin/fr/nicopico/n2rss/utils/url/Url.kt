@@ -15,43 +15,25 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.utils.url
 
-package fr.nicopico.n2rss.utils
+import jakarta.validation.Constraint
+import jakarta.validation.Payload
+import kotlin.reflect.KClass
 
-import fr.nicopico.n2rss.utils.url.toUrlOrNull
-import io.kotest.assertions.assertSoftly
-import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldNotBe
-import org.junit.jupiter.api.Test
-import java.net.URL
-
-class UrlExtKtTest {
-
-    @Test
-    fun `Valid url should convert to URL object`() {
-        // GIVEN
-        val urlString = "https://www.example.com"
-
-        // WHEN
-        val result = urlString.toUrlOrNull()
-
-        // THEN
-        assertSoftly {
-            result shouldNotBe null
-            result?.protocol shouldBe "https"
-            result?.host shouldBe "www.example.com"
-        }
-    }
-
-    @Test
-    fun `Invalid url should return null`() {
-        // GIVEN
-        val urlString = ""
-
-        // WHEN
-        val result: URL? = urlString.toUrlOrNull()
-
-        // THEN
-        result shouldBe null
-    }
-}
+@MustBeDocumented
+@Constraint(validatedBy = [UrlValidator::class])
+@Target(
+    AnnotationTarget.FIELD,
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.PROPERTY_GETTER,
+    AnnotationTarget.PROPERTY_SETTER,
+    AnnotationTarget.VALUE_PARAMETER,
+)
+@Retention(AnnotationRetention.RUNTIME)
+@Repeatable
+annotation class Url(
+    val message: String = "Invalid URL",
+    val groups: Array<KClass<*>> = [],
+    val payload: Array<KClass<out Payload>> = []
+)
