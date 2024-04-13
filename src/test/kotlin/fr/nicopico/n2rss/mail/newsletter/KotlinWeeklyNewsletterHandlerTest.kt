@@ -152,9 +152,21 @@ class KotlinWeeklyNewsletterHandlerTest {
             val email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #400.eml")
 
             // WHEN - THEN
-            shouldNotThrowAny {
+            val publication = shouldNotThrowAny {
                 handler.process(email)
             }
+
+            publication.articles.map { it.title } shouldBe listOf(
+                "Kotlin Today Magazine launched!",
+                "K2 Kotlin Mode (Alpha) in IntelliJ IDEA",
+                "Why Non-Blocking?",
+                "Data Analytics With Kotlin Notebooks, DataFrame, and Kandy",
+                "Generics",
+                "Kotlin/Wasm interop with Javascript",
+                "Introduction to using Kotlin Serialization",
+                "SPONSORED - Build local-first KMP apps with PowerSync",
+                "Roboto Conference: where tech meets beauty",
+            )
         }
     }
 }
