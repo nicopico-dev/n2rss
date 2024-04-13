@@ -20,7 +20,7 @@ package fr.nicopico.n2rss.mail.newsletter
 import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
-import fr.nicopico.n2rss.utils.toUrlOrNull
+import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
