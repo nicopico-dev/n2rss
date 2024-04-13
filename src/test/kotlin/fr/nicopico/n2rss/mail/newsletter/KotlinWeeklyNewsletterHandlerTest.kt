@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.mail.newsletter
 
 import fr.nicopico.n2rss.models.Email
 import io.kotest.assertions.assertSoftly
+import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
@@ -143,6 +144,29 @@ class KotlinWeeklyNewsletterHandlerTest {
                     description shouldBe "Carmen Álvarez wrote an article comparing Coroutines under a Kotlin and Python prism."
                 }
             }
+        }
+
+        @Test
+        fun `should parse Kotlin Weekly #400 without issue`() {
+            // GIVEN
+            val email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #400.eml")
+
+            // WHEN - THEN
+            val publication = shouldNotThrowAny {
+                handler.process(email)
+            }
+
+            publication.articles.map { it.title } shouldBe listOf(
+                "Kotlin Today Magazine launched!",
+                "K2 Kotlin Mode (Alpha) in IntelliJ IDEA",
+                "Why Non-Blocking?",
+                "Data Analytics With Kotlin Notebooks, DataFrame, and Kandy",
+                "Generics",
+                "Kotlin/Wasm interop with Javascript",
+                "Introduction to using Kotlin Serialization",
+                "SPONSORED - Build local-first KMP apps with PowerSync",
+                "Roboto Conference: where tech meets beauty",
+            )
         }
     }
 }

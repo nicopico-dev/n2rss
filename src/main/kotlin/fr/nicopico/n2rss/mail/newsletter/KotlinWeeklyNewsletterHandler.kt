@@ -51,7 +51,7 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandler {
             .filter { it.title !in excludedSections }
         return sections.associateWith { section ->
             section.process { sectionDocument ->
-                sectionDocument.select("a[href]")
+                sectionDocument.select("a[href]:has(span)")
                     .mapNotNull { tag ->
                         // Ignore entries with invalid link
                         val link = tag.attr("href").toUrlOrNull()
