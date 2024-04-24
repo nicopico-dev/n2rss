@@ -15,25 +15,24 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.config
+package fr.nicopico.n2rss.mail.newsletter
 
-import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.BuiltForMarsNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.KotlinWeeklyNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.PointerNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.QuickBirdNewsletterHandler
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
+import fr.nicopico.n2rss.models.Article
+import fr.nicopico.n2rss.models.Email
+import fr.nicopico.n2rss.models.Newsletter
 
-@Configuration
-class NewsletterConfiguration {
-    @Bean
-    fun newsletterHandlers(): List<NewsletterHandler> = listOf(
-        AndroidWeeklyNewsletterHandler(),
-        KotlinWeeklyNewsletterHandler(),
-        PointerNewsletterHandler(),
-        QuickBirdNewsletterHandler(),
-        BuiltForMarsNewsletterHandler(),
+class BuiltForMarsNewsletterHandler : NewsletterHandler {
+    override val newsletter: Newsletter = Newsletter(
+        code = "builtformars",
+        name = "Built for Mars",
+        websiteUrl = "https://builtformars.com",
     )
+
+    override fun canHandle(email: Email): Boolean {
+        return email.sender.email.contains("peter@builtformars.com")
+    }
+
+    override fun extractArticles(email: Email): List<Article> {
+        TODO("Not yet implemented")
+    }
 }
