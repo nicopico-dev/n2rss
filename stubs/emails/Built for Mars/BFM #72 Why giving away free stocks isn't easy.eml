@@ -1,0 +1,962 @@
+Return-Path: <bounces+33324783-133d-n2rss=nicopico.fr@em8943.builtformars.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap3.paris1.alwaysdata.com with LMTPS
+	id +L7TM8RDM2YYJAAA5hnrLg
+	(envelope-from <bounces+33324783-133d-n2rss=nicopico.fr@em8943.builtformars.com>)
+	for <n2rss@nicopico.fr>; Thu, 02 May 2024 09:41:56 +0200
+Return-path: <bounces+33324783-133d-n2rss=nicopico.fr@em8943.builtformars.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Thu, 02 May 2024 09:41:56 +0200
+Received: from o14.ptr1576.mail.beehiiv.com ([159.183.141.183])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <bounces+33324783-133d-n2rss=nicopico.fr@em8943.builtformars.com>)
+	id 1s2R4j-0003pF-SB
+	for n2rss@nicopico.fr; Thu, 02 May 2024 09:41:54 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=builtformars.com;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe:to:
+	cc:content-type:from:subject:to;
+	s=9cb; bh=LzG9FBQSoYCHGoCzgFeJUQHwFVf+3HSzWUb4Wrm/flk=;
+	b=KeO8P+ct6eD3H7ktDx6YivyYyE1o/zOw2VtQ1Fx2/q5lhdEg1uVvzH9wZT2UkBAAXQyA
+	PvZOFBMujKETOmVLsdQqbTbqiDvxCspy1KByM78EDC07Xqg9BU9ee4mRvaSQ9HgxD3dcGP
+	FFiqal0Q3PLCo8FJDoLzYJEbOmOyKVOTZRB6jHX7owVhKE6x2/u8K5NwxN6YztF37Hj4/1
+	jtupmN1U98Ij88HNDbZRYW+cCWiOLm/ncu1HbBf4Ymfcv3vbXeVOYCNZcrpcfGMwcmFj2P
+	vI2T+/nyXTYpLeguZRPCFoGN0fZXZVCWsi3p+Idow6V02qFCD8/oHzKlLzJKpGbw==
+Received: by filterdrecv-7c96dcb967-hgpfx with SMTP id filterdrecv-7c96dcb967-hgpfx-1-663343B1-27
+        2024-05-02 07:41:37.563067851 +0000 UTC m=+205264.674604757
+Received: from MzMzMjQ3ODM (unknown)
+	by geopod-ismtpd-21 (SG) with HTTP
+	id H85TFZYyTzW3KSRV3ILylQ
+	Thu, 02 May 2024 07:41:37.309 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=990b076ea689ed4f7a583226d310c20e1a0cf1623c55490d552e65c65243
+Date: Thu, 02 May 2024 07:41:52 +0000 (UTC)
+From: Peter from Built for Mars <peter@builtformars.com>
+Mime-Version: 1.0
+Message-ID: <H85TFZYyTzW3KSRV3ILylQ@geopod-ismtpd-21>
+Subject: BFM #72: Why giving away free stocks isn't easy =?UTF-8?B?8J+TiA==?=
+Reply-To: Peter from Built for Mars <peter@builtformars.com>
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Cmailto=3Acec04ec5-32ae-4af2-93f4-f9dc3ddb5c01+b61ea426-a930-446?=
+ =?us-ascii?Q?7-be8d-b5d292fe045b+7b2fa923-d906-4ce6-?=
+ =?us-ascii?Q?9894-21f494f9f0e0=40unsub=2Ebeehiiv=2Ecom=3E=2C?=
+ =?us-ascii?Q?_=3Chttps=3A=2F=2Fbfm=2Ebeehiiv=2Ecom=2Fsubscribe=2Fb61ea426-a930-4467-be8d-b5d?=
+ =?us-ascii?Q?292fe045b=2Fmanage=3Fpost=5Fid=3D7b2fa923-d906-?=
+ =?us-ascii?Q?4ce6-9894-21f494f9f0e0=3E?=
+x-newsletter-signup: https://bfm.beehiiv.com/subscribe
+sId: cec04ec5-32ae-4af2-93f4-f9dc3ddb5c01
+x-list-owner: <mailto:peter@builtformars.com>
+x-newsletter-id: https://bfm.beehiiv.com/
+Feedback-ID: 
+ =?us-ascii?Q?7b2fa923-d906-4ce6-9894-21f494f9f0e0=3Anewsletter=3Acec04ec5-32ae-?=
+ =?us-ascii?Q?4af2-93f4-f9dc3ddb5c01=3Ad355c409b185118?=
+x-beehiiv-ids: 
+ =?us-ascii?Q?{=22account=5Fname=22=3A=22https=3A=2F=2Fbfm=2Ebeehiiv=2Ecom=2F=22=2C=22campaign=5Fid=22=3A=227b2f?=
+ =?us-ascii?Q?a923-d906-4ce6-9894-21f494f9f0e0=22=2C=22cate?=
+ =?us-ascii?Q?gory=22=3A=22newsletter=22=2C=22email=5Fgenerated=5Fat=22?=
+ =?us-ascii?Q?=3A1714635697=2C=22user=5Fid=22=3A=22cec04ec5-32ae-4a?=
+ =?us-ascii?Q?f2-93f4-f9dc3ddb5c01=22}?=
+x-beehiiv-type: newsletter
+x-list-id: cec04ec5-32ae-4af2-93f4-f9dc3ddb5c01
+x-newsletter: 
+ https://bfm.beehiiv.com/p/bfm-72-giving-away-free-stocks-isnt-easy-free
+X-SG-EID: 
+ =?us-ascii?Q?u001=2Es5NpnGZDwNT+O+OQ42a7=2FVF5nigt52N4lTTIRFcBkTxubgJm7ZwO2fSXD?=
+ =?us-ascii?Q?pP=2Fc9DeqKYs3ofAynVaOEkgf2mv0i6vNG2GUo2T?=
+ =?us-ascii?Q?dqxo9W3ASemkcJpYYT8gZnP9wlD13K4vC3diLY8?=
+ =?us-ascii?Q?VVho8T54OpCw8Cme+rWXRnKcuCA2SEjcjX4VHdE?=
+ =?us-ascii?Q?NotpPvdtYP+2PCg9D5OsUw+hQviuE3jq1n8owcs?=
+ =?us-ascii?Q?ibdo4C93DRLkn9R5XCbQEckfDN4A305mXFmNnDZ?=
+ =?us-ascii?Q?jM6500Al8l3RMGx+Chtvnqr5Gw=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprAVgeiC8iaV7rEmQ?=
+ =?us-ascii?Q?+cYi2k7wJ5qEfPtyjlmTdfwx+F2C3ZjOZMdfZEv?=
+ =?us-ascii?Q?KmpmhDuszHp7iSz09vlNZ1aH4KMhz=2Fnpcet5sJF?=
+ =?us-ascii?Q?wVojrSPrsHAOKg3LySqvjcDtOS1R6ky9l4RHHLf?=
+ =?us-ascii?Q?y8mJs4Jny9MLgAevvPCvGhxQMiaEzljyOX4lyza?=
+ =?us-ascii?Q?cEjxAeSaathu24kmH4+xISSu7o78pjPUMd3G+Eg?=
+ =?us-ascii?Q?H9JyffNo6+uWwrD9ncD3ht+0+A=3D=3D?=
+To: "n2rss@nicopico.fr" <n2rss@nicopico.fr>
+X-Entity-ID: u001.il8flPBr/lpo4GtASxQ4kg==
+X-alwaysdata-Spam-Report: 	0.50 MID_RHS_NOT_FQDN - Message-ID RHS is not a fully-qualified domain name
+	0.30 MANY_INVISIBLE_PARTS [4] - Many parts are visually hidden
+	0.20 ZERO_FONT [3] - Zero sized font used
+	0.00 TO_DN_EQ_ADDR_ALL - All of the recipients have display names that are
+ the same as their address
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 RWL_MAILSPIKE_POSSIBLE [159.183.141.183:from] - From address is listed
+ in RWL - possibly legit
+	0.00 REPLYTO_EQ_FROM - Reply-To header is identical to From header
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_THREE [3] - Message has 3-5 Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MV_CASE
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [peter@builtformars.com] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [builtformars.com:+] - DKIM trace symbol
+	0.00 ASN [asn:11377, ipnet:159.183.128.0/18, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.20 R_DKIM_ALLOW [builtformars.com:s=9cb] - DKIM verification succeed
+	-0.26 URL_REPUTATION [-0.26407698543551]
+	-0.50 DMARC_POLICY_ALLOW [builtformars.com, none] - DMARC permit policy
+	-0.50 IP_REPUTATION_HAM [asn: 11377(-0.18), country: US(-0.00),
+ ip: 159.183.141.183(-0.32)]
+X-alwaysdata-Spam-Score: -0.58
+
+--990b076ea689ed4f7a583226d310c20e1a0cf1623c55490d552e65c65243
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Hey =F0=9F=91=8B=20
+
+=E2=80=9C_And we=E2=80=99ll launch our start-up with a __**viral referral s=
+cheme**_=E2=80=9D.
+
+Despite being the daring plan of almost every start-up, it=E2=80=99s got a =
+success rate so low that it=E2=80=99s usually just a large distraction.
+
+Well, **Robinhood** are one of the exceptions.
+
+Of course, luck and branding plays a role. But they=E2=80=99re enabled by v=
+ery predictable psychological biases, nudges, hooks and design cues.
+
+In this study, I=E2=80=99ve tried to break down these subtleties, and expla=
+in exactly why people are so drawn to their $7.08 welcome bonus.
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/a2f04270-f067-4=
+b06-8416-12bc58a53daf/wallstreet.jpg?t=3D1714598019)
+Follow image link: (https://builtformars.com/case-studies/robinhood)
+Caption:=20
+
+Read case study (7 mins) (https://builtformars.com/case-studies/robinhood)
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+----------
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/4bfd8002-f0a3-4=
+edc-9c26-98c40a501803/Frame_525.png?t=3D1712069377)
+Caption:=20
+
+**Upgrade to unlock the following articles**
+
+[Learn more about BFM+](https://builtformars.com/pricing)
+
+=E2=80=94 =E2=80=94 =E2=80=94
+
+_**Case studies**_
+
+* [How Robinhood handled a crisis](https://builtformars.com/case-studies/ho=
+w-robinhood-handled-a-crisis) (a case study on the 2021 GME / AMC fiasco).
+
+* [A UX study of Freetrade](https://builtformars.com/case-studies/how-freet=
+rade-works) (from 2020, before Robinhood was live in the UK).
+
+=E2=80=94 =E2=80=94 =E2=80=94
+
+Plus, right now every BFM+ subscriber (existing and new) will be able to **=
+redeem 6 months of Mobbin Pro, totally free**. No credit card required.
+
+You can redeem this through your BFM+ account right away. And you totally s=
+hould, because Mobbin is really _really_ **_really_** good.
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/de514870-d503-4=
+605-9ff5-c56c22c32579/MobbinAnnouncement.png?t=3D1710934071)
+Follow image link: (https://builtformars.com/pricing)
+Caption:=20
+
+
+----------=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94
+
+As always, thank you for paying an interest in my crappy memes. They make m=
+e laugh, and I spend way too long on them.
+
+- Peter=E2=9C=8C=EF=B8=8F
+
+
+=E2=80=94=E2=80=94=E2=80=94
+
+You are reading a plain text version of this post. For the best experience,=
+ copy and paste this link in your browser to view the post online:
+https://bfm.beehiiv.com/p/bfm-72-giving-away-free-stocks-isnt-easy-free
+
+--990b076ea689ed4f7a583226d310c20e1a0cf1623c55490d552e65c65243
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office" style=3D"font-size:16px;"><head><meta charset=3D"utf-8"/><!=
+--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"=
+/><!--<![endif]--><meta name=3D"viewport" content=3D"width=3Ddevice-width,i=
+nitial-scale=3D1"/><meta name=3D"x-apple-disable-message-reformatting"/><me=
+ta name=3D"format-detection" content=3D"telephone=3Dno,address=3Dno,email=
+=3Dno,date=3Dno,url=3Dno"/><meta name=3D"color-scheme" content=3D"light"/><=
+meta name=3D"supported-color-schemes" content=3D"light"/><title>BFM #72: Wh=
+y giving away free stocks isn&#39;t easy =F0=9F=93=88</title><!--[if mso]><=
+xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPer=
+Inch></o:OfficeDocumentSettings></xml><![endif]--><style>
+  :root { color-scheme: light; supported-color-schemes: light; }
+  body { margin: 0; padding: 0; min-width: 100%!important; -ms-text-size-ad=
+just: 100% !important; -webkit-transform: scale(1) !important; -webkit-text=
+-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !importa=
+nt; }
+  .body { word-wrap: normal; word-spacing:normal; }
+  table.mso { width: 100%; border-collapse: collapse; padding: 0; table-lay=
+out: fixed; }
+  img { border: 0; outline: none; }
+  table {  mso-table-lspace: 0px; mso-table-rspace: 0px; }
+  td, a, span {  mso-line-height-rule: exactly; }
+  #root [x-apple-data-detectors=3Dtrue],
+  a[x-apple-data-detectors=3Dtrue],
+  #MessageViewBody a { color: inherit !important; text-decoration: inherit =
+!important; font-size: inherit !important; font-family: inherit !important;=
+ font-weight: inherit !important; line-height: inherit !important; }
+  span.MsoHyperlink { color: inherit !important; mso-style-priority: 99 !im=
+portant; }
+  span.MsoHyperlinkFollowed { color: inherit !important; mso-style-priority=
+: 99 !important; }
+  .a { background-color:#ffffff; }
+  .b { background-color:#ffffff; }
+  .c  { background-color:#FFFFFF; }
+  .d { background-color:#f5f3ed; }
+  .d2 { background-color:#FFFFFF; }
+  .d3 { background-color:#FFFFFF; }
+  h1 { color:#333333; }
+  h2 { color:#333333; }
+  h3 { color:#333333; }
+  h4 { color:#333333; }
+  h5 { color:#2A2A2A; }
+  h6 { color:#2A2A2A; }
+  h1 a { text-decoration:underline;color:#333333 !important; }
+  h2 a { text-decoration:underline;color:#333333 !important; }
+  h3 a { text-decoration:underline;color:#333333 !important; }
+  h4 a { text-decoration:underline;color:#333333 !important; }
+  h5 a { text-decoration:underline;color:#2A2A2A !important; }
+  h6 a { text-decoration:underline;color:#2A2A2A !important; }
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, ul, li, ol, p=
+, p a { margin: 0;padding: 0; }
+  h1 { font-family:'Helvetica',Arial,sans-serif;font-weight:Bold;font-size:=
+24px;line-height:36px;padding-bottom:8px;padding-top:20px;mso-margin-top-al=
+t:20px;mso-margin-bottom-alt:8px }
+  h2 { font-family:'Helvetica',Arial,sans-serif;font-weight:Bold;font-size:=
+19px;line-height:29px;padding-bottom:8px;padding-top:12px;mso-margin-top-al=
+t:12px;mso-margin-bottom-alt:8px }
+  h3 { font-family:'Helvetica',Arial,sans-serif;font-weight:Bold;font-size:=
+18px;line-height:27px;padding-bottom:8px;padding-top:8px;mso-margin-top-alt=
+:8px;mso-margin-bottom-alt:8px }
+  h4 { font-family:'Helvetica',Arial,sans-serif;font-weight:Bold;font-size:=
+16px;line-height:24px;padding-bottom:8px;padding-top:8px;mso-margin-top-alt=
+:8px;mso-margin-bottom-alt:8px }
+  h5 { font-family:'Trebuchet MS','Lucida Grande',Tahoma,sans-serif;font-we=
+ight:normal;font-size:15px;line-height:23px;padding-bottom:4px;padding-top:=
+16px;mso-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  h6 { font-family:'Trebuchet MS','Lucida Grande',Tahoma,sans-serif;font-we=
+ight:normal;font-size:14px;line-height:21px;padding-bottom:4px;padding-top:=
+16px;mso-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  p { font-family:'Helvetica',Arial,sans-serif;color:#333333;font-size:16px=
+;line-height:24px;padding-bottom:8px;padding-top:8px;mso-margin-top-alt:8px=
+;mso-margin-bottom-alt:8px; }
+  p a, .e a, ul a, li a  { word-break:break-word;color:#333333 !important;t=
+ext-decoration:underline;text-decoration-color:#e44d1d; }
+  p a span, .e a span, ul a span, li a span { color: inherit }
+  p .bold { font-weight:bold;color:#333333; }
+  p span[style*=3D"font-size"] { line-height: 1.6; }
+  .f p { font-size:12px;line-height:15px;color:#333333;padding:0; }
+  .f p a { text-decoration:underline;color:#333333 !important; }
+  .g p { font-family:'Helvetica',Arial,sans-serif;font-size:12px;line-heigh=
+t:17px;font-weight:normal;margin:0; }
+  .g p a  { text-decoration: underline; }
+  .i p { font-family:'Open Sans','Segoe UI','Lucida Grande','Lucida Sans Un=
+icode',sans-serif;line-height:24px;font-size:16px;color:#000000; }
+  .i p a { text-decoration:underline;color:#000000 !important; }
+  .i2 p { font-family:'Helvetica',Arial,sans-serif;line-height:23px;font-si=
+ze:15px;color:#2D2D2D; }
+  .i2 p a { text-decoration:underline;color:#2D2D2D !important; }
+  .i3 p { font-family:'Helvetica',Arial,sans-serif;line-height:43px;font-si=
+ze:24px;color:#2D2D2D; }
+  .i3 p a { text-decoration:underline;color:#2D2D2D !important; }
+  .h p a { text-decoration:underline;color:#8c8575 !important; }
+  .h2 p a { text-decoration:underline;color:#595959 !important; }
+  .h3 p a { text-decoration:underline;color:#595959 !important; }
+  .j { border-top:1px Dashed #d7d7d7; }
+  .k p { padding-left:15px;padding-bottom:0px;padding-top:6px;mso-margin-to=
+p-alt:6px;mso-margin-bottom-alt:0px;mso-margin-left-alt:15px; }
+  .o { background-color:#f5f3ed;border:1px solid #e4e3df;border-radius:16px=
+; }
+  .o p { font-family:'Open Sans','Segoe UI','Lucida Grande','Lucida Sans Un=
+icode',sans-serif;padding:0px;margin:0px; }
+  .l p,
+  .l p a { font-size:14px;line-height:20px;font-weight: bold;color:#111f30;=
+padding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .m p,
+  .m p a { font-size:13px;line-height:18px;font-weight:400;color:#2D2D2D;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .n p,
+  .n p a { font-size:13px;line-height:18px;font-weight:400;color:#2D2D2D;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .p { background-color:#FFFFFF;max-width:520px;border:1px solid #E1E8ED;bo=
+rder:1px solid rgba(80, 80, 80, 0.3);border-radius:5px; }
+  .q { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !impo=
+rtant;border:1px solid #e1e8ed;border:1px solid rgba(80, 80, 80, 0.3);borde=
+r-radius:5px;background-color:#FFFFFF; }
+  .q p { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !im=
+portant;color:#222222; }
+  .r { border:1px solid #E1E8ED !important;border-radius:5px; }
+  .s p { font-size: 14px; line-height: 17px; font-weight: 400; color: #6978=
+82; text-decoration: none; }
+  .t p { font-family:'Helvetica',Arial,sans-serif;font-size:12px;line-heigh=
+t:18px;font-weight:400;color:#777777;font-style:normal;padding:4px 0px 0px;=
+}
+  .v { border-radius:8px;border:solid 2px #e44d1d;background-color:#e44d1d;=
+font-family:'Helvetica',Arial,sans-serif;color:#FFFFFF; }
+  .v a { text-decoration:none;display:block;color:#FFFFFF; }
+  .w p { font-size:12px;line-height:15px;font-weight:400;color:#707070; }
+  .w p a { text-decoration: underline !important;color:#707070 !important; =
+}
+  ul { font-family:'Helvetica',Arial,sans-serif;margin:0px 0px 0px 25px !im=
+portant;padding:0px !important;color:#333333;line-height:24px;list-style:di=
+sc;font-size:16px; }
+  ul li { font-family:'Helvetica',Arial,sans-serif;margin:14px 0px 0px 0px =
+!important;padding: 0px 0px 0px 0px !important; color: #333333; list-style:=
+disc; }
+  ol { font-family:'Helvetica',Arial,sans-serif;margin: 0px 0px 0px 25px !i=
+mportant;padding:0px !important;color:#333333;line-height:24px;list-style:d=
+ecimal;font-size:16px; }
+  ol li { font-family:'Helvetica',Arial,sans-serif;margin:14px 0px 0px 0px =
+!important;padding: 0px 0px 0px 0px !important; color: #333333; list-style:=
+decimal; }
+  .e h3,
+  .e p,
+  .e span { padding-bottom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-m=
+argin-bottom-alt:0px; }
+  .e span,
+  .e li { font-family:'Helvetica',Arial,sans-serif;font-size:16px;color:#33=
+3333;line-height:24px; }
+  .rec { font-family:  ui-sans-serif, system-ui, -apple-system, BlinkMacSys=
+temFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-ser=
+if, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color E=
+moji" !important; }
+  .rec__button:hover { background-color: #f9fafb !important; }
+  .copyright a {color: inherit !important; text-decoration: none !important=
+; font-size: inherit !important; font-family: inherit !important; font-weig=
+ht: inherit !important; line-height: inherit !important;}
+  .txt_social p { padding: 0; }
+  .table, .table-c, .table-h { border: 1px solid #C0C0C0; }
+  .table-c { padding:5px; background-color:#FFFFFF; }
+  .table-c p { color: #2D2D2D; font-family:'Helvetica',Arial,sans-serif !im=
+portant;overflow-wrap: break-word; }
+  .table-h { padding:5px; background-color:#F1F1F1; }
+  .table-h p { color: #2A2A2A; font-family:'Trebuchet MS','Lucida Grande',T=
+ahoma,sans-serif !important;overflow-wrap: break-word; }
+  @media only screen and (max-width:667px) {
+    .aa { width: 100% !important; }
+    .bb img { width: 100% !important; height: auto !important; max-width: n=
+one !important; }
+    .cc { padding: 0px 8px !important; }
+    .ee { padding-top:10px !important;padding-bottom:10px !important; }
+    .ff ul, .ff ol { margin: 0px 0px 0px 10px !important;padding: 0px !impo=
+rtant; }
+    .ff li { margin:14px 0px 0px 10px !important; }
+    .r {height:140px !important;}
+    .s p { font-size:13px !important;line-height:15px !important; }
+    .mob-hide {display:none !important;}
+    .mob-stack {display:block !important;width:100% !important;}
+    .mob-w-full {width:100% !important;}
+    .mob-block {display:block !important;}
+    .embed-img {padding:0px 0px 12px 0px !important;}
+    .socialShare {padding-top:15px !important;}
+    .rec { padding-left:15px!important;padding-right:15px!important; }
+    .bodyWrapper { padding:0px 4px 10px 4px !important; }
+  }
+  @media screen and (max-width: 480px) {
+    u + .a .gg { width: 100% !important; width: 100vw !important; }
+    .tok-heart { padding-top:75% !important; }
+    .tok-play { padding-top: 250px !important; }
+  }
+  @media screen and (max-width: 320px) {
+    .tok-heart { padding-top:65% !important; }
+  }
+  .u { border: 1px solid #CACACA !important; border-radius: 2px !important;=
+ background-color: #ffffff !important; padding: 0px 13px 0px 13px !importan=
+t; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Se=
+goe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif !important;fon=
+t-size: 12px !important; color: #767676 !important; }
+  .u a { text-decoration: none; display: block !important; color: #767676 !=
+important; margin: 0px !important; }
+  .u span, .u img { color: #767676 !important;margin:0px !important; max-he=
+ight:32px !important;background-color:#ffffff !important; }
+</style><!--[if mso]><style type=3D"text/css">
+    sup { font-size: 100% !important;vertical-align: .5em !important;mso-te=
+xt-raise: -1.5% !important;line-height: 0 !important; }
+    ul { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ul li { margin-left: 0px !important; mso-special-format: decimal; }
+    ol { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ol li { margin-left: 0px !important; mso-special-format: decimal; }
+    li.listItem { margin-left:15px !important; margin-top:0px !important; }
+    .paddingDesktop { padding: 10px 0 !important; }
+    .edm_outlooklist { margin-left: -20px !important; }
+    .embedImage { display:none !important; }
+  </style><![endif]--><style>
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/opensans/v28/memvYaGs126MiZpBA-Uv=
+WbX2vVnXBbObj2OVTS-mu0SC55I.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/opensans/v28/memvYaGs126MiZpBA-Uv=
+WbX2vVnXBbObj2OVTS-mu0SC55I.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/opensans/v28/memtYaGs126MiZpBA-UF=
+UIcVXSCEkx2cmqvXlWqWuU6FxZCJgg.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/opensans/v28/memtYaGs126MiZpBA-UF=
+UIcVXSCEkx2cmqvXlWqWuU6FxZCJgg.woff2') format('woff2');
+  }
+</style></head><head><meta charset=3D"utf-8"/><!--[if !mso]><!--><meta http=
+-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"/><!--<![endif]--><meta nam=
+e=3D"viewport" content=3D"width=3Ddevice-width,initial-scale=3D1"/><meta na=
+me=3D"x-apple-disable-message-reformatting"/><meta name=3D"format-detection=
+" content=3D"telephone=3Dno,address=3Dno,email=3Dno,date=3Dno,url=3Dno"/><m=
+eta name=3D"color-scheme" content=3D"light"/><meta name=3D"supported-color-=
+schemes" content=3D"light"/><title>BFM #72: Why giving away free stocks isn=
+&#39;t easy =F0=9F=93=88</title><!--[if mso]><xml><o:OfficeDocumentSettings=
+><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettin=
+gs></xml><![endif]--><style>
+  :root { color-scheme: light; supported-color-schemes: light; }
+  body { margin: 0; padding: 0; min-width: 100%!important; -ms-text-size-ad=
+just: 100% !important; -webkit-transform: scale(1) !important; -webkit-text=
+-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !importa=
+nt; }
+  .body { word-wrap: normal; word-spacing:normal; }
+  table.mso { width: 100%; border-collapse: collapse; padding: 0; table-lay=
+out: fixed; }
+  img { border: 0; outline: none; }
+  table {  mso-table-lspace: 0px; mso-table-rspace: 0px; }
+  td, a, span {  mso-line-height-rule: exactly; }
+  #root [x-apple-data-detectors=3Dtrue],
+  a[x-apple-data-detectors=3Dtrue],
+  #MessageViewBody a { color: inherit !important; text-decoration: inherit =
+!important; font-size: inherit !important; font-family: inherit !important;=
+ font-weight: inherit !important; line-height: inherit !important; }
+  span.MsoHyperlink { color: inherit !important; mso-style-priority: 99 !im=
+portant; }
+  span.MsoHyperlinkFollowed { color: inherit !important; mso-style-priority=
+: 99 !important; }
+  .a { background-color:#ffffff; }
+  .b { background-color:#ffffff; }
+  .c  { background-color:#FFFFFF; }
+  .d { background-color:#f5f3ed; }
+  .d2 { background-color:#FFFFFF; }
+  .d3 { background-color:#FFFFFF; }
+  h1 { color:#333333; }
+  h2 { color:#333333; }
+  h3 { color:#333333; }
+  h4 { color:#333333; }
+  h5 { color:#2A2A2A; }
+  h6 { color:#2A2A2A; }
+  h1 a { text-decoration:underline;color:#333333 !important; }
+  h2 a { text-decoration:underline;color:#333333 !important; }
+  h3 a { text-decoration:underline;color:#333333 !important; }
+  h4 a { text-decoration:underline;color:#333333 !important; }
+  h5 a { text-decoration:underline;color:#2A2A2A !important; }
+  h6 a { text-decoration:underline;color:#2A2A2A !important; }
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, ul, li, ol, p=
+, p a { margin: 0;padding: 0; }
+  h1 { font-family:'Helvetica',Arial,sans-serif;font-weight:Bold;font-size:=
+24px;line-height:36px;padding-bottom:8px;padding-top:20px;mso-margin-top-al=
+t:20px;mso-margin-bottom-alt:8px }
+  h2 { font-family:'Helvetica',Arial,sans-serif;font-weight:Bold;font-size:=
+19px;line-height:29px;padding-bottom:8px;padding-top:12px;mso-margin-top-al=
+t:12px;mso-margin-bottom-alt:8px }
+  h3 { font-family:'Helvetica',Arial,sans-serif;font-weight:Bold;font-size:=
+18px;line-height:27px;padding-bottom:8px;padding-top:8px;mso-margin-top-alt=
+:8px;mso-margin-bottom-alt:8px }
+  h4 { font-family:'Helvetica',Arial,sans-serif;font-weight:Bold;font-size:=
+16px;line-height:24px;padding-bottom:8px;padding-top:8px;mso-margin-top-alt=
+:8px;mso-margin-bottom-alt:8px }
+  h5 { font-family:'Trebuchet MS','Lucida Grande',Tahoma,sans-serif;font-we=
+ight:normal;font-size:15px;line-height:23px;padding-bottom:4px;padding-top:=
+16px;mso-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  h6 { font-family:'Trebuchet MS','Lucida Grande',Tahoma,sans-serif;font-we=
+ight:normal;font-size:14px;line-height:21px;padding-bottom:4px;padding-top:=
+16px;mso-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  p { font-family:'Helvetica',Arial,sans-serif;color:#333333;font-size:16px=
+;line-height:24px;padding-bottom:8px;padding-top:8px;mso-margin-top-alt:8px=
+;mso-margin-bottom-alt:8px; }
+  p a, .e a, ul a, li a  { word-break:break-word;color:#333333 !important;t=
+ext-decoration:underline;text-decoration-color:#e44d1d; }
+  p a span, .e a span, ul a span, li a span { color: inherit }
+  p .bold { font-weight:bold;color:#333333; }
+  p span[style*=3D"font-size"] { line-height: 1.6; }
+  .f p { font-size:12px;line-height:15px;color:#333333;padding:0; }
+  .f p a { text-decoration:underline;color:#333333 !important; }
+  .g p { font-family:'Helvetica',Arial,sans-serif;font-size:12px;line-heigh=
+t:17px;font-weight:normal;margin:0; }
+  .g p a  { text-decoration: underline; }
+  .i p { font-family:'Open Sans','Segoe UI','Lucida Grande','Lucida Sans Un=
+icode',sans-serif;line-height:24px;font-size:16px;color:#000000; }
+  .i p a { text-decoration:underline;color:#000000 !important; }
+  .i2 p { font-family:'Helvetica',Arial,sans-serif;line-height:23px;font-si=
+ze:15px;color:#2D2D2D; }
+  .i2 p a { text-decoration:underline;color:#2D2D2D !important; }
+  .i3 p { font-family:'Helvetica',Arial,sans-serif;line-height:43px;font-si=
+ze:24px;color:#2D2D2D; }
+  .i3 p a { text-decoration:underline;color:#2D2D2D !important; }
+  .h p a { text-decoration:underline;color:#8c8575 !important; }
+  .h2 p a { text-decoration:underline;color:#595959 !important; }
+  .h3 p a { text-decoration:underline;color:#595959 !important; }
+  .j { border-top:1px Dashed #d7d7d7; }
+  .k p { padding-left:15px;padding-bottom:0px;padding-top:6px;mso-margin-to=
+p-alt:6px;mso-margin-bottom-alt:0px;mso-margin-left-alt:15px; }
+  .o { background-color:#f5f3ed;border:1px solid #e4e3df;border-radius:16px=
+; }
+  .o p { font-family:'Open Sans','Segoe UI','Lucida Grande','Lucida Sans Un=
+icode',sans-serif;padding:0px;margin:0px; }
+  .l p,
+  .l p a { font-size:14px;line-height:20px;font-weight: bold;color:#111f30;=
+padding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .m p,
+  .m p a { font-size:13px;line-height:18px;font-weight:400;color:#2D2D2D;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .n p,
+  .n p a { font-size:13px;line-height:18px;font-weight:400;color:#2D2D2D;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .p { background-color:#FFFFFF;max-width:520px;border:1px solid #E1E8ED;bo=
+rder:1px solid rgba(80, 80, 80, 0.3);border-radius:5px; }
+  .q { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !impo=
+rtant;border:1px solid #e1e8ed;border:1px solid rgba(80, 80, 80, 0.3);borde=
+r-radius:5px;background-color:#FFFFFF; }
+  .q p { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !im=
+portant;color:#222222; }
+  .r { border:1px solid #E1E8ED !important;border-radius:5px; }
+  .s p { font-size: 14px; line-height: 17px; font-weight: 400; color: #6978=
+82; text-decoration: none; }
+  .t p { font-family:'Helvetica',Arial,sans-serif;font-size:12px;line-heigh=
+t:18px;font-weight:400;color:#777777;font-style:normal;padding:4px 0px 0px;=
+}
+  .v { border-radius:8px;border:solid 2px #e44d1d;background-color:#e44d1d;=
+font-family:'Helvetica',Arial,sans-serif;color:#FFFFFF; }
+  .v a { text-decoration:none;display:block;color:#FFFFFF; }
+  .w p { font-size:12px;line-height:15px;font-weight:400;color:#707070; }
+  .w p a { text-decoration: underline !important;color:#707070 !important; =
+}
+  ul { font-family:'Helvetica',Arial,sans-serif;margin:0px 0px 0px 25px !im=
+portant;padding:0px !important;color:#333333;line-height:24px;list-style:di=
+sc;font-size:16px; }
+  ul li { font-family:'Helvetica',Arial,sans-serif;margin:14px 0px 0px 0px =
+!important;padding: 0px 0px 0px 0px !important; color: #333333; list-style:=
+disc; }
+  ol { font-family:'Helvetica',Arial,sans-serif;margin: 0px 0px 0px 25px !i=
+mportant;padding:0px !important;color:#333333;line-height:24px;list-style:d=
+ecimal;font-size:16px; }
+  ol li { font-family:'Helvetica',Arial,sans-serif;margin:14px 0px 0px 0px =
+!important;padding: 0px 0px 0px 0px !important; color: #333333; list-style:=
+decimal; }
+  .e h3,
+  .e p,
+  .e span { padding-bottom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-m=
+argin-bottom-alt:0px; }
+  .e span,
+  .e li { font-family:'Helvetica',Arial,sans-serif;font-size:16px;color:#33=
+3333;line-height:24px; }
+  .rec { font-family:  ui-sans-serif, system-ui, -apple-system, BlinkMacSys=
+temFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-ser=
+if, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color E=
+moji" !important; }
+  .rec__button:hover { background-color: #f9fafb !important; }
+  .copyright a {color: inherit !important; text-decoration: none !important=
+; font-size: inherit !important; font-family: inherit !important; font-weig=
+ht: inherit !important; line-height: inherit !important;}
+  .txt_social p { padding: 0; }
+  .table, .table-c, .table-h { border: 1px solid #C0C0C0; }
+  .table-c { padding:5px; background-color:#FFFFFF; }
+  .table-c p { color: #2D2D2D; font-family:'Helvetica',Arial,sans-serif !im=
+portant;overflow-wrap: break-word; }
+  .table-h { padding:5px; background-color:#F1F1F1; }
+  .table-h p { color: #2A2A2A; font-family:'Trebuchet MS','Lucida Grande',T=
+ahoma,sans-serif !important;overflow-wrap: break-word; }
+  @media only screen and (max-width:667px) {
+    .aa { width: 100% !important; }
+    .bb img { width: 100% !important; height: auto !important; max-width: n=
+one !important; }
+    .cc { padding: 0px 8px !important; }
+    .ee { padding-top:10px !important;padding-bottom:10px !important; }
+    .ff ul, .ff ol { margin: 0px 0px 0px 10px !important;padding: 0px !impo=
+rtant; }
+    .ff li { margin:14px 0px 0px 10px !important; }
+    .r {height:140px !important;}
+    .s p { font-size:13px !important;line-height:15px !important; }
+    .mob-hide {display:none !important;}
+    .mob-stack {display:block !important;width:100% !important;}
+    .mob-w-full {width:100% !important;}
+    .mob-block {display:block !important;}
+    .embed-img {padding:0px 0px 12px 0px !important;}
+    .socialShare {padding-top:15px !important;}
+    .rec { padding-left:15px!important;padding-right:15px!important; }
+    .bodyWrapper { padding:0px 4px 10px 4px !important; }
+  }
+  @media screen and (max-width: 480px) {
+    u + .a .gg { width: 100% !important; width: 100vw !important; }
+    .tok-heart { padding-top:75% !important; }
+    .tok-play { padding-top: 250px !important; }
+  }
+  @media screen and (max-width: 320px) {
+    .tok-heart { padding-top:65% !important; }
+  }
+  .u { border: 1px solid #CACACA !important; border-radius: 2px !important;=
+ background-color: #ffffff !important; padding: 0px 13px 0px 13px !importan=
+t; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Se=
+goe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif !important;fon=
+t-size: 12px !important; color: #767676 !important; }
+  .u a { text-decoration: none; display: block !important; color: #767676 !=
+important; margin: 0px !important; }
+  .u span, .u img { color: #767676 !important;margin:0px !important; max-he=
+ight:32px !important;background-color:#ffffff !important; }
+</style><!--[if mso]><style type=3D"text/css">
+    sup { font-size: 100% !important;vertical-align: .5em !important;mso-te=
+xt-raise: -1.5% !important;line-height: 0 !important; }
+    ul { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ul li { margin-left: 0px !important; mso-special-format: decimal; }
+    ol { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ol li { margin-left: 0px !important; mso-special-format: decimal; }
+    li.listItem { margin-left:15px !important; margin-top:0px !important; }
+    .paddingDesktop { padding: 10px 0 !important; }
+    .edm_outlooklist { margin-left: -20px !important; }
+    .embedImage { display:none !important; }
+  </style><![endif]--><style>
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/opensans/v28/memvYaGs126MiZpBA-Uv=
+WbX2vVnXBbObj2OVTS-mu0SC55I.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/opensans/v28/memvYaGs126MiZpBA-Uv=
+WbX2vVnXBbObj2OVTS-mu0SC55I.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/opensans/v28/memtYaGs126MiZpBA-UF=
+UIcVXSCEkx2cmqvXlWqWuU6FxZCJgg.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/opensans/v28/memtYaGs126MiZpBA-UF=
+UIcVXSCEkx2cmqvXlWqWuU6FxZCJgg.woff2') format('woff2');
+  }
+</style></head><body class=3D"a" style=3D"margin:0px auto;padding:0px;word-=
+wrap:normal;word-spacing:normal;background-color:#ffffff;"><div role=3D"art=
+icle" aria-roledescription=3D"email" aria-label=3D"email_name" lang=3Den st=
+yle=3D"font-size:1rem"><div style=3D"display:none;max-height:0px;overflow:h=
+idden;"> Your next case study is here, and it&#39;ll explain why Robinhood =
+offer new users $7.08 of free stock, and not $10. &#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204; </div><table role=3D"none" width=3D"100%" border=
+=3D"0" cellspacing=3D"0" align=3D"center" cellpadding=3D"0" class=3D"gg"><t=
+r><td align=3D"center" valign=3D"top"><table role=3D"none" width=3D"670" bo=
+rder=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"aa" style=3D"width:=
+670px;table-layout:fixed;"><tr><td class=3D"bodyWrapper" align=3D"center" v=
+align=3D"top" style=3D"padding:0px 0px 10px 0px;"><table role=3D"none" widt=
+h=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center=
+"><tr><td align=3D"center" valign=3D"top" style=3D"border:0px solid #9d9d9d=
+;border-radius:4px;background-color:#FFFFFF;" class=3D"c"><table role=3D"no=
+ne" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=
+=3D"center"><tr><td class=3D"f" align=3D"Right" valign=3D"top" style=3D"pad=
+ding:20px 28px;"><p> &nbsp; <a href=3D"https://link.mail.beehiiv.com/ss/c/u=
+001.IvR796000sSoCuC84EAfmurT7zNdWCuguktrne71PGpGmfU0F1ZzyZWeDvpzy2X5V2AX77F=
+fZaPZwh9J0ky2DjzHMDR94yK2eP-b5FKOwDVJD3cCHj9CFFsRBVKHqEr7aXktiTlSVNu7dbh2BU=
+H8a9LRaI0eRVoiIj3h-CmWXVuVcQ6e9SAxCkgFWhr5z2iwH6ublRuLHKN8Pm6rrKzKcnXgJ6bej=
+TVXOoc9lQekcLMzOAws7CKy3OKD05dFNuNbShRAFNk81Lr7Ptw46OXUKiB6ms3GQYp5qtyirpQn=
+rKG6vBU-TOU102GGUHl8vytUu_3Q3TzyYXl5Gj65eGQZwzOeO0N47xGovC5zb-nZftA3knDGHzU=
+0KNww17qfGi3amlFoa_xdgUe8KOHTnGDAV5y0g9guixA3gJwOPiaeRAuTTH0AEb7LGL40Tppdoh=
+D2eOkpW4Q1g_uSydvHRjzgE2X4tFqiLnRLZHcktK96lrofZSQz3QFRNxOS4eA4PfdLrRqiRYZtH=
+OtuZHSC11_PGw/460/vdO90HyzTomWFLK4lA7zDw/h0/h001.Li_hp8yxPuN8j6TlFuamndiytf=
+qyClv8AdNEnvB6Wps">Read Online</a></p></td></tr><tr><td style=3D"height:0px=
+;width:0px;"><div style=3D"height:1px;" data-open-tracking=3D"true"> <img s=
+rc=3D"https://link.mail.beehiiv.com/ss/o/u001.9TNdMbvoZQaaU3N0TZ9kRA/460/vd=
+O90HyzTomWFLK4lA7zDw/ho.gif" alt=3D"" width=3D"1" height=3D"1" border=3D"0"=
+ style=3D"height:1px !important;width:1px !important;border-width:0 !import=
+ant;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !impo=
+rtant;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 !i=
+mportant;padding-right:0 !important;padding-left:0 !important;"/> </div></t=
+d></tr><tr id=3D"content-blocks"><td class=3D"email-card-body" align=3D"cen=
+ter" valign=3D"top" style=3D"padding-bottom:28px;"><table role=3D"none" wid=
+th=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"cente=
+r"><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 28px;text-align=
+:left;word-break:break-word;"><p> Hey =F0=9F=91=8B=C2=A0 </p></td></tr><tr>=
+<td class=3D"dd" align=3D"left" style=3D"padding:0px 28px;text-align:left;w=
+ord-break:break-word;"><p> =E2=80=9C<i>And we=E2=80=99ll launch our start-u=
+p with a </i><i><b>viral referral scheme</b></i>=E2=80=9D. </p></td></tr><t=
+r><td class=3D"dd" align=3D"left" style=3D"padding:0px 28px;text-align:left=
+;word-break:break-word;"><p> Despite being the daring plan of almost every =
+start-up, it=E2=80=99s got a success rate so low that it=E2=80=99s usually =
+just a large distraction. </p></td></tr><tr><td class=3D"dd" align=3D"left"=
+ style=3D"padding:0px 28px;text-align:left;word-break:break-word;"><p> Well=
+, <b>Robinhood</b> are one of the exceptions. </p></td></tr><tr><td class=
+=3D"dd" align=3D"left" style=3D"padding:0px 28px;text-align:left;word-break=
+:break-word;"><p> Of course, luck and branding plays a role. But they=E2=80=
+=99re enabled by very predictable psychological biases, nudges, hooks and d=
+esign cues. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padd=
+ing:0px 28px;text-align:left;word-break:break-word;"><p> In this study, I=
+=E2=80=99ve tried to break down these subtleties, and explain exactly why p=
+eople are so drawn to their $7.08 welcome bonus. </p></td></tr><tr><td alig=
+n=3D"center" valign=3D"top" style=3D"padding: 20px 28px 20px; " class=3D"dd=
+"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" sty=
+le=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=
+=3D"width:614px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.IvR796=
+000sSoCuC84EAfml9aijFF9Py_qFz_4rcpI0eKyy7lMMq9JlJa5WIULczOai9fDIIg4Nar_zOXS=
+ruEqw/460/vdO90HyzTomWFLK4lA7zDw/h1/h001.VycVNqIhEw-1XUCV0SVaOBb7RLj6ijb5lz=
+DUWC6CVVo" rel=3D"noopener noreferrer nofollow" style=3D"text-decoration:no=
+ne;" target=3D"_blank"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/=
+fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asse=
+t/file/a2f04270-f067-4b06-8416-12bc58a53daf/wallstreet.jpg?t=3D1714598019" =
+alt=3D"" height=3D"auto" width=3D"614" style=3D"display:block;width:100%;" =
+border=3D"0"/></a></td></tr></table></td></tr><tr><td align=3D"left" valign=
+=3D"top" style=3D"padding-bottom:8px;padding-left:28px;padding-right:28px;p=
+adding-top:8px;text-align:left;width:100%;word-break:break-word;" class=3D"=
+dd"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" a=
+lign=3D"left"><tr><td class=3D"v" align=3D"center" valign=3D"middle" height=
+=3D"42" style=3D"height:42px;"><a href=3D"https://link.mail.beehiiv.com/ss/=
+c/u001.IvR796000sSoCuC84EAfml9aijFF9Py_qFz_4rcpI0eKyy7lMMq9JlJa5WIULczOai9f=
+DIIg4Nar_zOXSruEqw/460/vdO90HyzTomWFLK4lA7zDw/h2/h001.VjqhHF95LKAUUesIfc6_N=
+5ycfCTeJwcSQDkHHhiKvts" target=3D"_blank" rel=3D"noopener noreferrer nofoll=
+ow" style=3D"color:#FFFFFF;font-size:16px;padding:0px 14px;text-decoration:=
+none;"> Read case study (7 mins) </a></td></tr></table></td></tr><tr><td al=
+ign=3D"center" valign=3D"top" style=3D"font-size:0px;line-height:0px;paddin=
+g:28px 0px;" class=3D"dd"><table class=3D"j" role=3D"none" width=3D"60%%" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> &=
+nbsp; </td></tr></table></td></tr><tr><td><table role=3D"none" width=3D"100=
+%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D""><tr><td heig=
+ht=3D"40px" style=3D"line-height:1px;font-size:1px;height:40px;"> &nbsp; </=
+td></tr><tr><td><table role=3D"none" width=3D"100%" border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0"><tr><td width=3D"28px" style=3D"line-height:1px;f=
+ont-size:1px;width:28px;"> &nbsp; </td><td bgcolor=3D"#F5F3ED" style=3D"bac=
+kground-color:#F5F3ED;border-color:#E5E7EB;border-radius:12px;border-style:=
+solid;border-width:1px;padding:28px 0px 8px 0px;"><table role=3D"none" widt=
+h=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td align=
+=3D"center" valign=3D"top" style=3D"padding: 20px 28px 20px; " class=3D"dd"=
+><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=
+=3D"width:54px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3D=
+scale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file=
+/4bfd8002-f0a3-4edc-9c26-98c40a501803/Frame_525.png?t=3D1712069377" alt=3D"=
+" height=3D"auto" width=3D"54" style=3D"display:block;width:100%;border-rad=
+ius:0px 0px 0px 0px;border-style:solid;border-width:0px 0px 0px 0px;box-siz=
+ing:border-box;border-color:#E5E7EB;" border=3D"0"/></td></tr></table></td>=
+</tr><tr><td class=3D"dd" align=3D"center" style=3D"padding:0px 28px;text-a=
+lign:center;word-break:break-word;"><p><span style=3D""><b>Upgrade to unloc=
+k the following articles</b></span></p></td></tr><tr><td class=3D"dd" align=
+=3D"center" style=3D"padding:0px 28px;text-align:center;word-break:break-wo=
+rd;"><p><span style=3D""><a class=3D"link" href=3D"https://link.mail.beehii=
+v.com/ss/c/u001.IvR796000sSoCuC84EAfml9aijFF9Py_qFz_4rcpI0dJWXyE3bFfdLkfZ47=
+-jYAC/460/vdO90HyzTomWFLK4lA7zDw/h3/h001.8BOjQl9OlMVSp1ia35HMy9MmuLeHB9mUfE=
+8uE_FMHDc" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Lea=
+rn more about BFM+</span></a></span></p></td></tr><tr><td class=3D"dd" alig=
+n=3D"center" style=3D"padding:0px 28px;text-align:center;word-break:break-w=
+ord;"><p><span style=3D"">=E2=80=94 =E2=80=94 =E2=80=94</span></p></td></tr=
+><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 28px;text-align:l=
+eft;word-break:break-word;"><p><span style=3D""><span style=3D"text-decorat=
+ion:underline;"><b>Case studies</b></span></span></p></td></tr><tr><td styl=
+e=3D"padding-bottom:24px;padding-left:36px;padding-right:28px;padding-top:4=
+px;" class=3D"ee"><div style=3D"margin-left:0px;" class=3D"edm_outlooklist"=
+><ul style=3D"list-style-type:disc;margin:0px 0px;padding:0px 0px 0px 0px;"=
+><li class=3D"listItem ultext"><p style=3D"padding:0px;text-align:left;word=
+-break:break-word;"><span style=3D""><a class=3D"link" href=3D"https://link=
+.mail.beehiiv.com/ss/c/u001.IvR796000sSoCuC84EAfml9aijFF9Py_qFz_4rcpI0dMaNT=
+HUdgjbj6hwDyNJkM16SM3qyExfsBNyAkvLxODyq839JH6ZpCpIToayOcYwjs/460/vdO90HyzTo=
+mWFLK4lA7zDw/h4/h001.3kHBeMXz0XIX0qZpGV7heeWtDazoXkB85X0wF3fsBmY" target=3D=
+"_blank" rel=3D"noopener noreferrer nofollow"><span>How Robinhood handled a=
+ crisis</span></a></span><span style=3D""> (a case study on the 2021 GME / =
+AMC fiasco).</span></p></li><li class=3D"listItem ultext"><p style=3D"paddi=
+ng:0px;text-align:left;word-break:break-word;"><span style=3D""><a class=3D=
+"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.IvR796000sSoCuC84EAf=
+ml9aijFF9Py_qFz_4rcpI0dMaNTHUdgjbj6hwDyNJkM1kkYhxth0ZEtxtk7RFIiD9OOpQQl3NfS=
+iuarMlga7XgY/460/vdO90HyzTomWFLK4lA7zDw/h5/h001.5Rb5rbqQhI0d1SPnpJMfTjZzBLs=
+iBrgwrqnpOAIunPM" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><s=
+pan>A UX study of Freetrade</span></a></span><span style=3D""> (from 2020, =
+before Robinhood was live in the UK).</span></p></li></ul></div></td></tr><=
+tr><td class=3D"dd" align=3D"center" style=3D"padding:0px 28px;text-align:c=
+enter;word-break:break-word;"><p><span style=3D"">=E2=80=94 =E2=80=94 =E2=
+=80=94</span></p></td></tr><tr><td class=3D"dd" align=3D"center" style=3D"p=
+adding:0px 28px;text-align:center;word-break:break-word;"><p><span style=3D=
+"">Plus,</span><span style=3D"color:rgb(51, 51, 51);font-family:Helvetica, =
+Arial, sans-serif;font-size:16px;"> right now every BFM+ subscriber (existi=
+ng and new) will be able to </span><span style=3D"color:rgb(51, 51, 51);fon=
+t-family:Helvetica, Arial, sans-serif;font-size:16px;"><b>redeem 6 months o=
+f Mobbin Pro, totally free</b></span><span style=3D"color:rgb(51, 51, 51);f=
+ont-family:Helvetica, Arial, sans-serif;font-size:16px;">. No credit card r=
+equired.</span></p></td></tr><tr><td class=3D"dd" align=3D"center" style=3D=
+"padding:0px 28px;text-align:center;word-break:break-word;"><p><span style=
+=3D"">You can redeem this through your BFM+ account right away. And you tot=
+ally should, because Mobbin is really </span><span style=3D""><i>really</i>=
+</span><span style=3D"">=C2=A0</span><span style=3D""><b><i>really</i></b><=
+/span><span style=3D""> good.</span></p></td></tr><tr><td align=3D"center" =
+valign=3D"top" style=3D"padding: 20px 28px 20px; " class=3D"dd"><table role=
+=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:=
+0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:558p=
+x;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.IvR796000sSoCuC84EAf=
+ml9aijFF9Py_qFz_4rcpI0dJWXyE3bFfdLkfZ47-jYAC/460/vdO90HyzTomWFLK4lA7zDw/h6/=
+h001._Mko4sZR8TAcTbjqvs3r2Penu3CRIGGd8y1pdx7WvGU" rel=3D"noopener noreferre=
+r nofollow" style=3D"text-decoration:none;" target=3D"_blank"><img src=3D"h=
+ttps://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerr=
+or=3Dredirect,quality=3D80/uploads/asset/file/de514870-d503-4605-9ff5-c56c2=
+2c32579/MobbinAnnouncement.png?t=3D1710934071" alt=3D"" height=3D"auto" wid=
+th=3D"558" style=3D"display:block;width:100%;border-radius:12px;" border=3D=
+"0"/></a></td></tr></table></td></tr></table></td><td width=3D"28px" style=
+=3D"line-height:1px;font-size:1px;width:28px;"> &nbsp; </td></tr></table></=
+td></tr><tr><td height=3D"40px" style=3D"line-height:1px;font-size:1px;heig=
+ht:40px;"> &nbsp; </td></tr></table></td></tr><tr><td align=3D"center" vali=
+gn=3D"top" style=3D"font-size:0px;line-height:0px;padding:28px 0px;" class=
+=3D"dd"><table class=3D"j" role=3D"none" width=3D"60%%" border=3D"0" cellsp=
+acing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr></=
+table></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 28=
+px;text-align:left;word-break:break-word;"><p> As always, thank you for pay=
+ing an interest in my crappy memes. They make me laugh, and I spend way too=
+ long on them. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"p=
+adding:0px 28px;text-align:left;word-break:break-word;"><p> - Peter=E2=9C=
+=8C=EF=B8=8F </p></td></tr></table></td></tr><tr><td align=3D"center" valig=
+n=3D"top"><!--[if mso | IE]><table align=3D"center" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" style=3D"border-top:1px solid #575757;font-size:1=
+px;height:0px;margin:0px auto;width:552px;" role=3D"presentation" width=3D"=
+552"><tr><td style=3D"height:0;line-height:0;"> &nbsp; </td></tr></table><!=
+[endif]--><!--[if !mso]--><p style=3D"border-top:1px solid #575757;font-siz=
+e:1px;height:0px;margin:0px auto;padding:0;width:90%">&nbsp;</p><!--<![endi=
+f]--></td></tr><tr><td class=3D"b" align=3D"center" valign=3D"top" bgcolor=
+=3D"#ffffff" style=3D"padding:0px;border-bottom-left-radius:4px;border-bott=
+om-right-radius:4px;"><table role=3D"none" width=3D"100%" border=3D"0" cell=
+spacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td><table role=3D"non=
+e" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D=
+""><tr><td bgcolor=3D"transparent" style=3D"background-color:transparent;pa=
+dding:40px 0px 0px 0px;"><table role=3D"none" width=3D"100%" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0"><tr><td align=3D"center" valign=3D"top" =
+style=3D"padding: 20px 28px 20px; " class=3D"dd"><table role=3D"none" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"=
+><tr><td align=3D"center" valign=3D"top" style=3D"width:135px;"><img src=3D=
+"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,one=
+rror=3Dredirect,quality=3D80/uploads/asset/file/38882d7b-8d08-4fa7-874e-669=
+8fbf8f832/BfM_Logo_3.png?t=3D1709199828" alt=3D"" height=3D"auto" width=3D"=
+135" style=3D"display:block;width:100%;" border=3D"0"/></td></tr></table></=
+td></tr><tr><td class=3D"dd" align=3D"center" style=3D"padding:0px 28px;tex=
+t-align:center;word-break:break-word;"><p><span style=3D"font-size:0.8rem;"=
+>Original UX analysis, exercises and ideas.</span><br><br></p></td></tr></t=
+able></td></tr></table></td></tr><tr><td class=3D"dd" align=3D"left" style=
+=3D"padding:0px 28px;text-align:left;word-break:break-word;"><p></p></td></=
+tr><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0px;line-heig=
+ht:0px;padding:28px 0px;" class=3D"dd"><table class=3D"j" role=3D"none" wid=
+th=3D"60%%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"cente=
+r"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td height=3D"10" style=
+=3D"line-height:1px;font-size:1px;height:10px;"> &nbsp; </td></tr><tr><td c=
+lass=3D"w" align=3D"center" valign=3D"top" style=3D"padding:0px;"><table ro=
+le=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+ align=3D"center"><tr><td align=3D"center" valign=3D"top"><p style=3D"font-=
+family:'Helvetica',Arial,sans-serif;color:#707070!important;"> Update your =
+email preferences or unsubscribe <a class=3D"link" href=3D"https://link.mai=
+l.beehiiv.com/ss/c/u001.IvR796000sSoCuC84EAfmnFVXSAYoGuRqnzvkM8KfO00_c0cdEE=
+VnftmRWy6YK1VqhwesdEw8_r4lNYeMrMzs9wI4zrKEnBECBmGJzcBfm40lE1Gu_WXw8MCm6A6XV=
+uuHZrHfP4_33NFFQ5Jp6rv46eqXmKznDDLi8_Ht0Gvu7F1qZrAB0s-2l-sEblM9dHR-4wvXUiLv=
+ChH0GA3EOLsZEzNh2MKNH0QT1kHF67_bQrHL6lXMhvcygYwaHm2-ApcGoWb_j6lvft-i-ETB7k9=
+ymZjq6Oky10TmGaMYiqZ2-4fNJLVORTcwRPhIUsdvoXaVMbRSkY6RpwWsJ28jJ1ccu02mVfJzo_=
+R9up00F8997wgTmSQ1d4xXUvx5ZU7TB-S3tw3-lnM57NV-Cb1weafJ4ms9MYu9sQ81SigypQMBE=
+NKsaI0pNP1CNteRaPqJwHtNNQLEUksuJxPZ9aVieJ_KG27ewOmZEyrYlWrzqfb6hU-oa0tN4kne=
+1uAoSiQUyZ3B-gvnXrA9IAFgzQrH_1csB5EHgIPiyyTG0rGqk7FyEEYQvVGBOkqlxlIdd7TsMoS=
+7c4QxHs2H3tMWcIhhyk2fieKB9M7o-294ihI1DXq7ysf-tOZysKPZ0WUQyqSBt9fl_pr3XiLFBM=
+FBTMVCVj1ELRDyqbHJXc8YdmLq_cUSdg/460/vdO90HyzTomWFLK4lA7zDw/h7/h001.p8AUmrC=
+iTK5UWKDR61Hutynsbb1w2YZmZDr8AmlDxc0" style=3D"text-decoration:underline;te=
+xt-decoration-color:#707070!important;color:#707070!important;"> here</a></=
+p><p class=3D"copyright" style=3D"font-family:'Helvetica',Arial,sans-serif;=
+color:#707070!important;"> &copy; 2024 Built for Mars </p><p style=3D"font-=
+family:'Helvetica',Arial,sans-serif;color:#707070!important;"> Science Park=
+ Square<br>Brighton, E. Sussex BN1 9SB, United Kingdom of Great Britain and=
+ Northern Ireland </p></td></tr><tr style=3D"display: table-row !important;=
+"><td align=3D"center" valign=3D"top" style=3D"padding-top:20px;" style=3D"=
+display:table-cell !important;"><table role=3D"none" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0" align=3D"center" style=3D"display:table !importa=
+nt;"><tr style=3D"display:table-row !important;"><td class=3D"u" align=3D"c=
+enter" valign=3D"middle" height=3D"32" style=3D"height:32px;display:table-c=
+ell !important; max-height: 32px !important;margin:0px !important;"><a styl=
+e=3D"line-height:32px !important;text-decoration:none;display:block !import=
+ant;" href=3D"https://link.mail.beehiiv.com/ss/c/u001.g8k7saHee-SFMAXPVS-6y=
+1Lz4gFm_tBonkF-hTtIAiaILzDBH-AeYXCelZxJiAl0r8q44sTHM_ftBl_ogAWwM4Mv8RvujIlS=
+3xmmO3lLFaJ33hkpJ74WUhnxbQYl-sg0vooImisD3hYq3H58J-advp2Rk-DYwX1gPL_7GZHDOnh=
+MwkhAOVyuBv1iKGxooezR/460/vdO90HyzTomWFLK4lA7zDw/h8/h001.41zKH_9u2lEajNpYdk=
+cq11cUl1STHDX8a0w9190C6mI"><img src=3D"https://media.beehiiv.com/output-onl=
+inepngtools.png" width=3D"16" alt=3D"beehiiv logo" style=3D"display:inline-=
+block !important;max-width:16px !important; vertical-align:-3px !important;=
+width: 16px !important;" border=3D"0"/><span style=3D"padding-left:11px !im=
+portant;display: inline-block !important;">Powered by beehiiv</span></a></t=
+d></tr></table></td></tr></table></td></tr></table></td></tr></table></td><=
+/tr></table></td></tr></table></td></tr></table></div></body></html>
+--990b076ea689ed4f7a583226d310c20e1a0cf1623c55490d552e65c65243--
