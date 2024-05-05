@@ -172,6 +172,9 @@ This project needs access to an email account and a MongoDB database to run.
    MONGODB_PORT=27017
    
    N2RSS_SECRET_KEY=<secret key to interact with /stop endpoint>
+   
+   N2RSS_RECAPTCHA_SITE_KEY=<Site key to interact with reCaptcha API>
+   N2RSS_RECAPTCHA_SECRET_KEY=<Secret key to interact with reCaptcha API>
    ```
 4. Run the following command to run the server
    ```shell
