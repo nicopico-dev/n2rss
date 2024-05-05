@@ -20,11 +20,13 @@ package fr.nicopico.n2rss.mail.newsletter
 import fr.nicopico.n2rss.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
+import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import java.net.URL
 
 class BuiltForMarsNewsletterHandlerTest {
 
@@ -59,9 +61,10 @@ class BuiltForMarsNewsletterHandlerTest {
     @Nested
     inner class ProcessTest {
         @Test
-        fun `should extract all articles from an email`() {
+        fun `should extract an articles from an email (1)`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Built for Mars/" + TODO("Email file name"))
+            val email: Email =
+                loadEmail("stubs/emails/Built for Mars/BFM #72 Why giving away free stocks isn't easy.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -69,7 +72,7 @@ class BuiltForMarsNewsletterHandlerTest {
             // THEN
             assertSoftly(publication) {
                 withClue("title") {
-                    title shouldBe TODO()
+                    title shouldBe "BFM #72: Why giving away free stocks isn't easy \uD83D\uDCC8"
                 }
                 withClue("date") {
                     date shouldHaveSameDayAs (email.date)
@@ -79,30 +82,28 @@ class BuiltForMarsNewsletterHandlerTest {
                 }
             }
 
-            publication.articles.map { it.title } shouldBe listOf(
-                TODO()
-            )
-        }
-
-        @Test
-        fun `should extract article details from an email`() {
-            // GIVEN
-            val email: Email = loadEmail("stubs/emails/Built for Mars/" + TODO("Email file name"))
-
-            // WHEN
-            val publication = handler.process(email)
-
-            // THEN
+            publication.articles shouldHaveSize 1
             assertSoftly(publication.articles[0]) {
                 withClue("title") {
-                    title shouldBe TODO()
+                    title shouldBe "Why giving away free stocks isn't easy \uD83D\uDCC8"
                 }
                 withClue("link") {
-                    link shouldBe TODO()
+                    link shouldBe URL("https://link.mail.beehiiv.com/ss/c/u001.IvR796000sSoCuC84EAfml9aijFF9Py_qFz_4rcpI0eKyy7lMMq9JlJa5WIULczOai9fDIIg4Nar_zOXSruEqw/460/vdO90HyzTomWFLK4lA7zDw/h2/h001.VjqhHF95LKAUUesIfc6_N5ycfCTeJwcSQDkHHhiKvts")
                 }
                 withClue("description") {
-                    description shouldBe TODO()
+                    description shouldBe """Hey 👋
+
+“And we’ll launch our start-up with a viral referral scheme”.
+
+Despite being the daring plan of almost every start-up, it’s got a success rate so low that it’s usually just a large distraction.
+
+Well, Robinhood are one of the exceptions.
+
+Of course, luck and branding plays a role. But they’re enabled by very predictable psychological biases, nudges, hooks and design cues.
+
+In this study, I’ve tried to break down these subtleties, and explain exactly why people are so drawn to their ${'$'}7.08 welcome bonus.""".trimIndent()
                 }
+
             }
         }
     }

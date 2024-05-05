@@ -20,6 +20,9 @@ package fr.nicopico.n2rss.mail.newsletter
 import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
+import org.jsoup.Jsoup
+import org.jsoup.safety.Safelist
+import java.net.URL
 
 class BuiltForMarsNewsletterHandler : NewsletterHandler {
     override val newsletter: Newsletter = Newsletter(
@@ -33,6 +36,38 @@ class BuiltForMarsNewsletterHandler : NewsletterHandler {
     }
 
     override fun extractArticles(email: Email): List<Article> {
-        TODO("Not yet implemented")
+        val cleanedHtml = Jsoup.clean(
+            email.content,
+            Safelist.basic()
+                .addTags("table", "tr", "td")
+                .addAttributes("tr", "id"),
+        )
+
+        val document = Jsoup.clean(
+            Jsoup.parseBodyFragment(cleanedHtml)
+                .selectFirst("tr#content-blocks")
+                ?.html()
+                ?: throw NewsletterParsingException("Unable to find content-blocks"),
+            Safelist.basic()
+        ).let {
+            Jsoup.parseBodyFragment(it)
+        }
+
+        val title = email.subject.substringAfter(":").trim()
+        val link = document.select("a[href]")
+            .firstOrNull { it.text().isNotBlank() }
+            ?.let { URL(it.attr("href")) }
+            ?: throw NewsletterParsingException("Unable to find article link")
+        val description = document.select("p")
+            .takeWhile { it.select("span").isEmpty() }
+            .joinToString(separator = "\n\n") { it.text() }
+
+        return listOf(
+            Article(
+                title = title,
+                link = link,
+                description = description,
+            )
+        )
     }
 }
