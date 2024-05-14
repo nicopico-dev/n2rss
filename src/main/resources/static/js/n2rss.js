@@ -33,11 +33,11 @@ function submitForm() {
             if (!response.ok) {
                 throw new Error("HTTP error " + response.status);
             }
-            message.textContent = "Successfully subscribed!";
+            message.textContent = "Successfully requested!";
             message.classList.value = "message message-success"
         })
         .catch(() => {
-            message.textContent = "There was an error subscribing.";
+            message.textContent = "There was an error sending the request. Please try again.";
             message.classList.value = "message message-error";
         })
         .finally(() => {
