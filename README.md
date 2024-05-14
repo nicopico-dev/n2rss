@@ -10,11 +10,13 @@ Once an email has been processed, it is marked as read.
 Each newsletter will map to a separate RSS feed, 
 and each articles extracted from the newsletter publication will map to different RSS entry in the corresponding feed.
 
-| Newsletter     | URL                       | Status |
-|----------------|---------------------------|--------|
-| Android Weekly | https://androidweekly.net | OK     |
-| Kotlin Weekly  | http://kotlinweekly.net   | OK     |
-| Pointer        | https://www.pointer.io    | OK     |
+| Newsletter     | URL                               | Status |
+|----------------|-----------------------------------|--------|
+| Android Weekly | https://androidweekly.net         | OK     |
+| Kotlin Weekly  | http://kotlinweekly.net           | OK     |
+| Pointer        | https://www.pointer.io            | OK     |
+| QuickBird      | https://quickbirdstudios.com/blog | OK     |
+| Built for Mars | https://builtformars.com          | OK     |
 
 ## Built With
 
@@ -172,6 +174,9 @@ This project needs access to an email account and a MongoDB database to run.
    MONGODB_PORT=27017
    
    N2RSS_SECRET_KEY=<secret key to interact with /stop endpoint>
+   
+   N2RSS_RECAPTCHA_SITE_KEY=<Site key to interact with reCaptcha API>
+   N2RSS_RECAPTCHA_SECRET_KEY=<Secret key to interact with reCaptcha API>
    ```
 4. Run the following command to run the server
    ```shell

@@ -4,6 +4,13 @@ on:
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - 'act/**'
+      - 'deploy/**'
+      - 'medias/**'
+      - 'stubs/**'
+      - 'n2rss.http'
+      - '*.md'
 
 permissions:
   checks: write
