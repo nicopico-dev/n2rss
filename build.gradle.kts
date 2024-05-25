@@ -17,7 +17,7 @@
  */
 
 import kotlinx.kover.gradle.plugin.dsl.AggregationType
-import kotlinx.kover.gradle.plugin.dsl.MetricType
+import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -25,7 +25,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.5"
     kotlin("jvm") version "1.9.24"
     kotlin("plugin.spring") version "1.9.24"
-    id("org.jetbrains.kotlinx.kover") version "0.7.6"
+    id("org.jetbrains.kotlinx.kover") version "0.8.0"
     id("io.gitlab.arturbosch.detekt") version("1.23.5")
 }
 
@@ -36,22 +36,24 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17
 }
 
-koverReport {
-    filters {
-        excludes {
-            packages("fr.nicopico.n2rss.config.*")
-            classes(
-                "fr.nicopico.n2rss.N2RssApplication",
-                "fr.nicopico.n2rss.N2RssApplicationKt"
-            )
+kover {
+    reports {
+        filters {
+            excludes {
+                packages("fr.nicopico.n2rss.config.*")
+                classes(
+                    "fr.nicopico.n2rss.N2RssApplication",
+                    "fr.nicopico.n2rss.N2RssApplicationKt"
+                )
+            }
         }
-    }
-    verify {
-        rule("Line Coverage") {
-            minBound(80)
-            bound {
-                metric = MetricType.LINE
-                aggregation = AggregationType.COVERED_PERCENTAGE
+        verify {
+            rule("Line Coverage") {
+                minBound(80)
+                bound {
+                    coverageUnits = CoverageUnit.LINE
+                    aggregationForGroup = AggregationType.COVERED_PERCENTAGE
+                }
             }
         }
     }
