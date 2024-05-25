@@ -18,13 +18,10 @@
 
 package fr.nicopico.n2rss.controller.rss
 
-import fr.nicopico.n2rss.data.NewsletterRepository
-import fr.nicopico.n2rss.data.PublicationRepository
-import fr.nicopico.n2rss.models.Article
-import fr.nicopico.n2rss.models.Newsletter
+import com.rometools.rome.feed.synd.SyndFeed
 import fr.nicopico.n2rss.models.NewsletterInfo
-import fr.nicopico.n2rss.models.Publication
 import fr.nicopico.n2rss.service.NewsletterService
+import fr.nicopico.n2rss.service.RssService
 import io.kotest.assertions.assertSoftly
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
@@ -34,29 +31,19 @@ import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import io.mockk.verifySequence
 import jakarta.servlet.http.HttpServletResponse
-import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.springframework.data.domain.PageImpl
-import org.springframework.data.domain.PageRequest
-import org.springframework.data.domain.Sort
-import java.net.URL
 
 class RssFeedControllerTest {
 
+    private lateinit var rssFeedController: RssFeedController
+
     @MockK
     private lateinit var newsletterService: NewsletterService
-
     @MockK
-    private lateinit var newsletterRepository: NewsletterRepository
-
-    @MockK
-    private lateinit var publicationRepository: PublicationRepository
-
+    private lateinit var rssService: RssService
     @MockK(relaxUnitFun = true)
     private lateinit var rssOutputWriter: RssOutputWriter
-
-    private lateinit var rssFeedController: RssFeedController
 
     @BeforeEach
     fun setUp() {
@@ -64,8 +51,7 @@ class RssFeedControllerTest {
 
         rssFeedController = RssFeedController(
             newsletterService,
-            newsletterRepository,
-            publicationRepository,
+            rssService,
             rssOutputWriter,
         )
     }
@@ -103,30 +89,16 @@ class RssFeedControllerTest {
         // GIVEN
         val mockResponse = mockk<HttpServletResponse>(relaxed = true)
 
-        val expectedNewsletter = Newsletter("test", "test newsletter", "https://test.com")
-        val expectedPublication = Publication(
-            title = "test publication",
-            date = LocalDate.fromEpochDays(321),
-            newsletter = expectedNewsletter,
-            articles = listOf(
-                Article("Article 1", URL("http://article1.com"), "Some description")
-            )
-        )
-        every { newsletterRepository.findNewsletterByCode("test") } returns expectedNewsletter
-        every { publicationRepository.findByNewsletter(expectedNewsletter, any()) } returns
-            PageImpl(listOf(expectedPublication))
+        val feed = mockk<SyndFeed>()
+        every { rssService.getFeed(any(), any(), any()) } returns feed
 
         // WHEN
         rssFeedController.getFeed("test", 0, 2, mockResponse)
 
         // THEN
         verifySequence {
-            newsletterRepository.findNewsletterByCode("test")
-            publicationRepository.findByNewsletter(
-                expectedNewsletter,
-                PageRequest.of(0, 2, Sort.by(Sort.Direction.DESC, "date"))
-            )
-            rssOutputWriter.write(any(), any())
+            rssService.getFeed("test", 0, 2)
+            rssOutputWriter.write(feed, any())
         }
     }
 
@@ -134,14 +106,14 @@ class RssFeedControllerTest {
     fun `getFeed should return a 404 error if the feed does not exist`() {
         // GIVEN
         val mockResponse = mockk<HttpServletResponse>(relaxed = true)
-        every { newsletterRepository.findNewsletterByCode(any()) } returns null
+        every { rssService.getFeed(any(), any(), any()) } throws NoSuchElementException()
 
         // WHEN-THEN
         rssFeedController.getFeed("test", 0, 2, mockResponse)
 
         // THEN
         verifySequence {
-            newsletterRepository.findNewsletterByCode("test")
+            rssService.getFeed("test", 0, 2)
             mockResponse.sendError(404)
         }
     }

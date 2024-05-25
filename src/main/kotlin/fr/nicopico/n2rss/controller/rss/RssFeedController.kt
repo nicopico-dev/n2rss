@@ -17,16 +17,9 @@
  */
 package fr.nicopico.n2rss.controller.rss
 
-import com.rometools.rome.feed.synd.SyndContentImpl
-import com.rometools.rome.feed.synd.SyndEntryImpl
-import com.rometools.rome.feed.synd.SyndFeedImpl
-import fr.nicopico.n2rss.data.NewsletterRepository
-import fr.nicopico.n2rss.data.PublicationRepository
 import fr.nicopico.n2rss.service.NewsletterService
-import fr.nicopico.n2rss.utils.toLegacyDate
+import fr.nicopico.n2rss.service.RssService
 import jakarta.servlet.http.HttpServletResponse
-import org.springframework.data.domain.PageRequest
-import org.springframework.data.domain.Sort
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -38,8 +31,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/rss")
 class RssFeedController(
     private val newsletterService: NewsletterService,
-    private val newsletterRepository: NewsletterRepository,
-    private val publicationRepository: PublicationRepository,
+    private val rssService: RssService,
     private val rssOutputWriter: RssOutputWriter,
 ) {
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
@@ -51,9 +43,10 @@ class RssFeedController(
     /**
      * Retrieves the RSS feed of publications.
      *
-     * @param response The HttpServletResponse object used for writing the feed to the response output stream.
+     * @param code Code associated with the feed
      * @param publicationStart The starting index of publications to retrieve. Default is 0.
      * @param publicationCount The maximum number of publications to retrieve. Default is 2.
+     * @param response The HttpServletResponse object used for writing the feed to the response output stream.
      */
     @GetMapping(
         "{feed}",
@@ -65,41 +58,13 @@ class RssFeedController(
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
         response: HttpServletResponse,
     ) {
-        val newsletter = newsletterRepository.findNewsletterByCode(code)
-        if (newsletter == null) {
+        try {
+            val feed = rssService.getFeed(code, publicationStart, publicationCount)
+            response.contentType = RSS_CONTENT_TYPE
+            rssOutputWriter.write(feed, response)
+        } catch (_: NoSuchElementException) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND)
-            return
         }
-
-        val feed = SyndFeedImpl().apply {
-            feedType = "rss_2.0"
-            title = newsletter.name
-            link = newsletter.websiteUrl
-            description = "This is an RSS Feed for the newsletter \"${newsletter.name}\""
-        }
-
-        val sort = Sort.by(Sort.Direction.DESC, "date")
-        val pageable = PageRequest.of(publicationStart, publicationCount, sort)
-        val publicationPage = publicationRepository.findByNewsletter(newsletter, pageable)
-
-        feed.entries = publicationPage.content
-            .flatMap { publication ->
-                publication.articles
-                    .map { article ->
-                        SyndEntryImpl().apply {
-                            title = article.title
-                            link = article.link.toString()
-                            description = SyndContentImpl().apply {
-                                type = "text/html"
-                                value = article.description
-                            }
-                            publishedDate = publication.date.toLegacyDate()
-                        }
-                    }
-            }
-
-        response.contentType = RSS_CONTENT_TYPE
-        rssOutputWriter.write(feed, response)
     }
 
     companion object {

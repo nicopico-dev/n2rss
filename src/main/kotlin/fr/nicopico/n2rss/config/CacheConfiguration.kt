@@ -15,26 +15,31 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.data
+package fr.nicopico.n2rss.config
 
-import fr.nicopico.n2rss.config.CacheConfiguration
-import fr.nicopico.n2rss.models.Newsletter
-import fr.nicopico.n2rss.models.Publication
-import org.springframework.cache.annotation.CacheEvict
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
-import org.springframework.data.mongodb.repository.MongoRepository
-import java.util.UUID
+import org.springframework.cache.CacheManager
+import org.springframework.cache.annotation.EnableCaching
+import org.springframework.cache.concurrent.ConcurrentMapCache
+import org.springframework.cache.support.SimpleCacheManager
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 
-interface PublicationRepository : MongoRepository<Publication, UUID> {
-    fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<Publication>
-    fun countPublicationsByNewsletter(newsletter: Newsletter): Long
-    fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): Publication?
+@EnableCaching
+@Configuration
+class CacheConfiguration {
+    @Bean
+    fun cacheManager(): CacheManager {
+        return SimpleCacheManager()
+            .also {
+                it.setCaches(
+                    setOf(
+                        ConcurrentMapCache(GET_RSS_FEED_CACHE_NAME, false)
+                    )
+                )
+            }
+    }
 
-    // Clear feed cache when publications are saved
-    @CacheEvict(
-        cacheNames = [CacheConfiguration.GET_RSS_FEED_CACHE_NAME],
-        allEntries = true,
-    )
-    override fun <S : Publication> saveAll(entities: Iterable<S>): List<S>
+    companion object {
+        const val GET_RSS_FEED_CACHE_NAME = "GET_RSS_FEED"
+    }
 }
