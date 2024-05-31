@@ -17,8 +17,35 @@
  */
 package fr.nicopico.n2rss.config
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.context.properties.ConfigurationProperties
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.context.properties.bind.ConstructorBinding
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+
+@Configuration
+@EnableConfigurationProperties(N2RssProperties::class)
+class N2RssConfiguration {
+    @Autowired
+    lateinit var properties: N2RssProperties
+
+    @Bean
+    fun emailClientProperties() = properties.email.client
+
+    @Bean
+    fun feedsProperties() = properties.feeds
+
+    @Bean
+    fun maintenanceProperties() = properties.maintenance
+
+    @Bean
+    fun recaptchaProperties() = properties.recaptcha
+}
+
+private const val DEFAULT_PORT = 993
+private const val DEFAULT_PROTOCOL = "imaps"
+private const val DEFAULT_INBOX_FOLDER = "inbox"
 
 @ConfigurationProperties(prefix = "n2rss")
 data class N2RssProperties
@@ -27,6 +54,7 @@ constructor(
     val maintenance: MaintenanceProperties,
     val feeds: FeedsProperties = FeedsProperties(),
     val recaptcha: ReCaptchaProperties,
+    val email: EmailProperties,
 ) {
     data class MaintenanceProperties(
         val secretKey: String,
@@ -38,5 +66,18 @@ constructor(
         val enabled: Boolean = true,
         val siteKey: String,
         val secretKey: String,
+    )
+    data class EmailProperties(
+        //val cron: String,
+        val client: EmailClientProperties,
+    )
+
+    data class EmailClientProperties(
+        val host: String,
+        val username: String,
+        val password: String,
+        val port: Int = DEFAULT_PORT,
+        val protocol: String = DEFAULT_PROTOCOL,
+        val inboxFolder: String = DEFAULT_INBOX_FOLDER,
     )
 }

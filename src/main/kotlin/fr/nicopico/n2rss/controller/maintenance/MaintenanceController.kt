@@ -30,10 +30,8 @@ import org.springframework.web.bind.annotation.RequestHeader
 @Controller
 class MaintenanceController(
     private val applicationContext: ApplicationContext,
-    props: N2RssProperties,
+    private val properties: N2RssProperties.MaintenanceProperties,
 ) {
-    private val properties = props.maintenance
-
     @PostMapping("/stop", produces = [MediaType.TEXT_PLAIN_VALUE])
     fun stopServer(
         @RequestHeader("X-Secret-Key") secretKey: String,

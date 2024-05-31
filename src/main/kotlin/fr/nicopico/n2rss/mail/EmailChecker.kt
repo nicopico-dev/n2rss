@@ -39,7 +39,7 @@ class EmailChecker(
     @Scheduled(
         initialDelay = 2,
         fixedRate = 3600,
-        timeUnit = TimeUnit.SECONDS
+        timeUnit = TimeUnit.SECONDS,
     )
     fun savePublicationsFromEmails() {
         try {
