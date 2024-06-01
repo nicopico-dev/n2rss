@@ -86,10 +86,10 @@ class MITWeekendReadsNewsletterHandlerTest {
             publication.articles shouldHaveSize 9
             assertSoftly(publication.articles[0]) {
                 withClue("title") {
-                    title shouldBe "Researchers taught robots to run. Now they're teaching them to walk"
+                    title shouldBe "Researchers taught robots to run. Now they’re teaching them to walk"
                 }
                 withClue("link") {
-                    link shouldBe URL("https://technologyreview.us11.list-manage.com/track/click?u=47c1a9cec9749a8f8cbc83e78&id=20d967fa6b&e=4fc74d6331")
+                    link shouldBe URL("https://technologyreview.us11.list-manage.com/track/click?u=47c1a9cec9749a8f8cbc83e78&id=4efec1a26b&e=4fc74d6331")
                 }
                 withClue("description") {
                     description shouldBe "Robots might need to become more boring to be useful."

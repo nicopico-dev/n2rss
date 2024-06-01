@@ -23,6 +23,7 @@ import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
 import org.jsoup.Jsoup
 import org.jsoup.safety.Safelist
+import java.net.URL
 
 class MITWeekendReadsNewsletterHandler : NewsletterHandler {
     override val newsletter: Newsletter = Newsletter(
@@ -38,10 +39,28 @@ class MITWeekendReadsNewsletterHandler : NewsletterHandler {
     override fun extractArticles(email: Email): List<Article> {
         val cleanedHtml = Jsoup.clean(
             email.content,
-            Safelist.basic(),
+            Safelist.basic()
+                .addTags("h2")
+                .addAttributes("h2", "class"),
         )
-        println(cleanedHtml)
+        val document = Jsoup.parseBodyFragment(cleanedHtml)
 
-        return emptyList()
+        return document.select("h2.article-title")
+            .mapNotNull { h2 ->
+                val link = h2.selectFirst("a[href]")
+                    ?.attribute("href")
+                    ?.value
+                    ?.let { URL(it) }
+                    ?: return@mapNotNull null
+                val title = h2.text().trim()
+                val description = h2.nextElementSiblings().select("p").firstOrNull()?.ownText()
+                    ?: throw NewsletterParsingException("Cannot find description for article \"$title\"")
+
+                Article(
+                    title = title,
+                    link = link,
+                    description = description,
+                )
+            }
     }
 }
