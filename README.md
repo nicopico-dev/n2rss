@@ -47,12 +47,11 @@ This project is a Spring Boot application written in Kotlin
 
 By default, it will connect an `EmailClient` using parameters provided as environment variables:
 ```
-EMAIL_HOST=<host url of the email account>
-EMAIL_USERNAME=<username for the email account>
-EMAIL_PASSWORD=<password for the email account>
-EMAIL_INBOX_FOLDER=inbox
-EMAIL_PORT=993
-EMAIL_PROTOCOL=imaps
+N2RSS_EMAIL_HOST=<host url of the email account>
+N2RSS_EMAIL_PORT=993
+N2RSS_EMAIL_PROTOCOL=imaps
+N2RSS_EMAIL_USERNAME=<username for the email account>
+N2RSS_EMAIL_PASSWORD=<password for the email account>
 ```
 
 By using the `local` profile, a `ResourceFileEmailClient` will be used instead and use the files located 
@@ -160,18 +159,16 @@ This project needs access to an email account and a MongoDB database to run.
    ```
 3. Declare the following environment variables on the server
    ```
-   EMAIL_HOST=<host url of the email account>
-   EMAIL_USERNAME=<username for the email account>
-   EMAIL_PASSWORD=<password for the email account>
-   EMAIL_INBOX_FOLDER=inbox
-   EMAIL_PORT=993
-   EMAIL_PROTOCOL=imaps
+   N2RSS_EMAIL_HOST=<host url of the email account>
+   N2RSS_EMAIL_USERNAME=<username for the email account>
+   N2RSS_EMAIL_PASSWORD=<password for the email account>
+   N2RSS_EMAIL_PORT=993
    
-   MONGODB_HOST=<host of the mongodb database>
-   MONGODB_USERNAME=<username for the mongodb database>
-   MONGODB_PASSWORD=<password for the mongodb database>
-   MONGODB_DATABASE=<name of the database to use>
-   MONGODB_PORT=27017
+   N2RSS_MONGODB_HOST=<host of the mongodb database>
+   N2RSS_MONGODB_USERNAME=<username for the mongodb database>
+   N2RSS_MONGODB_PASSWORD=<password for the mongodb database>
+   N2RSS_MONGODB_DATABASE=<name of the database to use>
+   N2RSS_MONGODB_PORT=27017
    
    N2RSS_SECRET_KEY=<secret key to interact with /stop endpoint>
    
