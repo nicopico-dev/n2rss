@@ -21,9 +21,12 @@ import fr.nicopico.n2rss.data.PublicationRepository
 import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import fr.nicopico.n2rss.models.Email
+import jakarta.annotation.PostConstruct
 import org.slf4j.LoggerFactory
+import org.springframework.scheduling.TaskScheduler
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
+import java.time.Instant
 
 private val LOG = LoggerFactory.getLogger(EmailChecker::class.java)
 
@@ -32,7 +35,16 @@ class EmailChecker(
     private val emailClient: EmailClient,
     private val newsletterHandlers: List<NewsletterHandler>,
     private val publicationRepository: PublicationRepository,
+    private val taskScheduler: TaskScheduler,
 ) {
+    @PostConstruct
+    fun checkEmailsOnStart() {
+        taskScheduler.schedule(
+            /* task = */ this::savePublicationsFromEmails,
+            /* startTime = */ Instant.now().plusSeconds(2)
+        )
+    }
+
     // We want to catch all exceptions here
     @Suppress("TooGenericExceptionCaught")
     @Scheduled(cron = "\${n2rss.email.cron}")
