@@ -32,7 +32,7 @@ import jakarta.mail.internet.InternetHeaders
 import jakarta.mail.internet.MimeBodyPart
 import jakarta.mail.internet.MimeMultipart
 import org.junit.jupiter.api.Test
-import java.util.*
+import java.util.Date
 import kotlin.random.Random
 
 class MessageExtKtTest {
@@ -71,7 +71,7 @@ class MessageExtKtTest {
     @Test
     fun `Only the first sender of the Message will be mapped to the Email`() {
         // GIVEN
-        val senders = arrayOf<String>("senderA", "senderB", "senderC")
+        val senders = arrayOf("senderA", "senderB", "senderC")
         val message = prepareMessage(
             subject = "Subject",
             content = "Content",
@@ -84,7 +84,7 @@ class MessageExtKtTest {
         val email = message.toEmail()
 
         // THEN
-        email.sender.email shouldBe senders[0]
+        email.sender.sender shouldBe senders[0]
     }
 
     @Test

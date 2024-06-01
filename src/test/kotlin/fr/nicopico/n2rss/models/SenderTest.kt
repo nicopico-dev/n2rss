@@ -15,32 +15,25 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.mail.client
 
-import fr.nicopico.n2rss.models.Email
-import fr.nicopico.n2rss.models.Sender
-import fr.nicopico.n2rss.utils.toKotlinLocaleDate
-import jakarta.mail.Message
-import jakarta.mail.internet.MimeMultipart
+package fr.nicopico.n2rss.models
 
-fun Message.toEmail() = Email(
-    Sender(from[0].toString()),
-    date = this.sentDate.toKotlinLocaleDate(),
-    subject = subject,
-    content = when (content) {
-        is MimeMultipart -> (content as MimeMultipart).getHtmlBodyPart()
-        else -> content.toString()
-    },
-    msgnum = this.messageNumber,
-)
+import io.kotest.matchers.shouldBe
+import org.junit.jupiter.api.Test
 
-private fun MimeMultipart.getHtmlBodyPart(): String {
-    val partCount = this.count
-    for (i in 0 until partCount) {
-        val bodyPart = this.getBodyPart(i)
-        if (bodyPart.isMimeType("text/html")) {
-            return bodyPart.content as String
-        }
+class SenderTest {
+
+    @Test
+    fun `Sender should extract the correct email and name`() {
+        // GIVEN
+        val value = "Some Name Of Something <email@something.com>"
+
+        // WHEN
+        val sender = Sender(value)
+
+        // THEN
+        sender.sender shouldBe value
+        sender.name shouldBe "Some Name Of Something"
+        sender.email shouldBe "email@something.com"
     }
-    throw NoSuchElementException("no text/html part found in the Message")
 }
