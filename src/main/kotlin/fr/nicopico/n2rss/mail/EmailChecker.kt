@@ -24,7 +24,6 @@ import fr.nicopico.n2rss.models.Email
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
-import java.util.concurrent.TimeUnit
 
 private val LOG = LoggerFactory.getLogger(EmailChecker::class.java)
 
@@ -36,11 +35,7 @@ class EmailChecker(
 ) {
     // We want to catch all exceptions here
     @Suppress("TooGenericExceptionCaught")
-    @Scheduled(
-        initialDelay = 2,
-        fixedRate = 3600,
-        timeUnit = TimeUnit.SECONDS,
-    )
+    @Scheduled(cron = "\${n2rss.email.cron}")
     fun savePublicationsFromEmails() {
         try {
             LOG.info("Checking emails...")
