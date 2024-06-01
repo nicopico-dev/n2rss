@@ -41,7 +41,8 @@ import java.net.URL
 class HomeController(
     private val newsletterService: NewsletterService,
     private val reCaptchaService: ReCaptchaService,
-    private val properties: N2RssProperties,
+    private val feedProperties: N2RssProperties.FeedsProperties,
+    private val recaptchaProperties: N2RssProperties.ReCaptchaProperties,
 ) {
 
     @GetMapping("/")
@@ -50,7 +51,7 @@ class HomeController(
             .filter { it.publicationCount > 0 }
         val requestUrl: String = request.requestURL
             .let {
-                if (properties.feeds.forceHttps) {
+                if (feedProperties.forceHttps) {
                     it.replace(Regex("http://"), "https://")
                 } else {
                     it.toString()
@@ -60,8 +61,8 @@ class HomeController(
         with(model) {
             addAttribute("newsletters", newslettersInfo)
             addAttribute("requestUrl", requestUrl)
-            addAttribute("reCaptchaEnabled", properties.recaptcha.enabled)
-            addAttribute("reCaptchaSiteKey", properties.recaptcha.siteKey)
+            addAttribute("reCaptchaEnabled", recaptchaProperties.enabled)
+            addAttribute("reCaptchaSiteKey", recaptchaProperties.siteKey)
         }
         return "index"
     }
@@ -71,9 +72,9 @@ class HomeController(
         @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String,
         @RequestParam("g-recaptcha-response") captchaResponse: String? = null,
     ): ResponseEntity<String> {
-        val isCaptchaValid = if (properties.recaptcha.enabled) {
+        val isCaptchaValid = if (recaptchaProperties.enabled) {
             reCaptchaService.isCaptchaValid(
-                captchaSecretKey = properties.recaptcha.secretKey,
+                captchaSecretKey = recaptchaProperties.secretKey,
                 captchaResponse = captchaResponse ?: "",
             )
         } else true

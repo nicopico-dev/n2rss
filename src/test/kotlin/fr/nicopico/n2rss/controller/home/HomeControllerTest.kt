@@ -47,7 +47,7 @@ class HomeControllerTest {
     @MockK
     private lateinit var reCaptchaService: ReCaptchaService
     @MockK
-    private lateinit var feedProperties: N2RssProperties.FeedsProperties
+    private lateinit var feedsProperties: N2RssProperties.FeedsProperties
     @MockK(relaxed = true)
     private lateinit var reCaptchaProperties: N2RssProperties.ReCaptchaProperties
 
@@ -57,12 +57,12 @@ class HomeControllerTest {
     fun setUp() {
         MockKAnnotations.init(this)
 
-        val properties = mockk<N2RssProperties>() {
-            every { feeds } returns feedProperties
-            every { recaptcha } returns reCaptchaProperties
-        }
-
-        homeController = HomeController(newsletterService, reCaptchaService, properties)
+        homeController = HomeController(
+            newsletterService = newsletterService,
+            reCaptchaService = reCaptchaService,
+            feedProperties = feedsProperties,
+            recaptchaProperties = reCaptchaProperties
+        )
     }
 
     @Nested
@@ -77,7 +77,7 @@ class HomeControllerTest {
                 NewsletterInfo("D", "Newsletter D", "Website D", 1, null),
             )
             every { newsletterService.getNewslettersInfo() } returns newslettersInfo
-            every { feedProperties.forceHttps } returns false
+            every { feedsProperties.forceHttps } returns false
 
             val requestUrl = StringBuffer("http://localhost:8134")
             val request = mockk<HttpServletRequest> {
@@ -110,7 +110,7 @@ class HomeControllerTest {
             // GIVEN
             val newslettersInfo = listOf<NewsletterInfo>()
             every { newsletterService.getNewslettersInfo() } returns newslettersInfo
-            every { feedProperties.forceHttps } returns true
+            every { feedsProperties.forceHttps } returns true
 
             val requestUrl = StringBuffer("http://localhost:8134")
             val request = mockk<HttpServletRequest> {

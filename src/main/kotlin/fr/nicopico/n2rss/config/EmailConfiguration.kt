@@ -21,7 +21,6 @@ import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.client.JavaxEmailClient
 import fr.nicopico.n2rss.mail.client.LocalFileEmailClient
 import fr.nicopico.n2rss.mail.client.NoOpEmailClient
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
@@ -29,10 +28,9 @@ import org.springframework.context.annotation.Profile
 @Configuration
 class EmailConfiguration {
 
-    @Suppress("SpringJavaInjectionPointsAutowiringInspection")
     @Bean
     @Profile("default")
-    fun emailClient(config: EmailParameters): EmailClient {
+    fun emailClient(config: N2RssProperties.EmailClientProperties): EmailClient {
         return JavaxEmailClient(
             protocol = config.protocol,
             host = config.host,
@@ -50,33 +48,4 @@ class EmailConfiguration {
     @Bean
     @Profile("rss-only")
     fun noopEmailClient(): EmailClient = NoOpEmailClient()
-}
-
-@Profile("default")
-@Configuration
-class EmailParameters {
-
-    companion object {
-        const val DEFAULT_PORT = 993
-        const val DEFAULT_PROTOCOL = "imaps"
-        const val DEFAULT_INBOX_FOLDER = "inbox"
-    }
-
-    @Value("\${EMAIL_HOST}")
-    lateinit var host: String
-
-    @Value("\${EMAIL_PORT}")
-    var port: Int = DEFAULT_PORT
-
-    @Value("\${EMAIL_USERNAME}")
-    lateinit var username: String
-
-    @Value("\${EMAIL_PASSWORD}")
-    lateinit var password: String
-
-    @Value("\${EMAIL_PROTOCOL}")
-    var protocol: String = DEFAULT_PROTOCOL
-
-    @Value("\${EMAIL_INBOX_FOLDER}")
-    var inboxFolder: String = DEFAULT_INBOX_FOLDER
 }

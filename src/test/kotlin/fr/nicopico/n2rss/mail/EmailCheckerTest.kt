@@ -34,6 +34,8 @@ import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import org.springframework.scheduling.TaskScheduler
+import java.time.Instant
 
 @ExtendWith(MockKExtension::class)
 class EmailCheckerTest {
@@ -46,6 +48,8 @@ class EmailCheckerTest {
     private lateinit var newsletterHandlerB: NewsletterHandler
     @MockK(relaxed = true)
     private lateinit var publicationRepository: PublicationRepository
+    @MockK(relaxed = true)
+    private lateinit var taskScheduler: TaskScheduler
 
     private lateinit var emailChecker: EmailChecker
 
@@ -60,7 +64,17 @@ class EmailCheckerTest {
                 newsletterHandlerB,
             ),
             publicationRepository,
+            taskScheduler,
         )
+    }
+
+    @Test
+    fun `emailChecker should schedule a check on launch`() {
+        // WHEN
+        emailChecker.checkEmailsOnStart()
+
+        // THEN (matcher does not work on method reference)
+        verify { taskScheduler.schedule(any(), any<Instant>()) }
     }
 
     @Test

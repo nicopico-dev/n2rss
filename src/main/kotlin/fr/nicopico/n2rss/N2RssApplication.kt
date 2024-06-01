@@ -17,15 +17,12 @@
  */
 package fr.nicopico.n2rss
 
-import fr.nicopico.n2rss.config.N2RssProperties
 import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication
 import org.springframework.scheduling.annotation.EnableScheduling
 
 @EnableScheduling
 @SpringBootApplication
-@EnableConfigurationProperties(N2RssProperties::class)
 class N2RssApplication
 
 @Suppress("SpreadOperator")
