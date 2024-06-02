@@ -25,4 +25,5 @@ data class NewsletterInfo(
     val websiteUrl: String,
     val publicationCount: Long,
     val startingDate: LocalDate?,
+    val notes: String?,
 )

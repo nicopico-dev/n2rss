@@ -54,6 +54,9 @@
                 <a th:href="${newsletter.websiteUrl}"
                    th:text="${newsletter.title}"
                    target="_blank"/>
+                <span
+                    class="newsletter-notes"
+                    th:text="${newsletter.notes}"/>
             </td>
             <td>
                 <a th:href="${requestUrl + 'rss/' + newsletter.code}"
