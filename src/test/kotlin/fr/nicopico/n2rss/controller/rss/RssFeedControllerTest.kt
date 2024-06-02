@@ -66,6 +66,7 @@ class RssFeedControllerTest {
                 websiteUrl = "https://website$it.com",
                 publicationCount = (it + 1) * 2L,
                 startingDate = null,
+                notes = null,
             )
         }
 

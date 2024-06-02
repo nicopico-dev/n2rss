@@ -45,6 +45,7 @@ class NewsletterService(
                     websiteUrl = it.websiteUrl,
                     publicationCount = publicationRepository.countPublicationsByNewsletter(it),
                     startingDate = publicationRepository.findFirstByNewsletterOrderByDateAsc(it)?.date,
+                    notes = it.notes,
                 )
             }
     }

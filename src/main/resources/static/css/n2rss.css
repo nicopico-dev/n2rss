@@ -98,6 +98,13 @@ table tbody tr:nth-child(odd) {
     background-color: #ffffff;
 }
 
+.newsletter-notes {
+    display: block;
+    margin-top: 0.2em;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
 .publication-count span {
     font-weight: bold;
     font-size: 1em;
