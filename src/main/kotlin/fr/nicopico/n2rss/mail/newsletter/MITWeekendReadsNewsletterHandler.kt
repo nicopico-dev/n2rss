@@ -30,6 +30,7 @@ class MITWeekendReadsNewsletterHandler : NewsletterHandler {
         code = "mit/weekend_reads",
         name = "MIT - Weekend Reads",
         websiteUrl = "https://forms.technologyreview.com/newsletters/tech-weekend-reads/",
+        notes = "Most articles are behind a paywall",
     )
 
     override fun canHandle(email: Email): Boolean {

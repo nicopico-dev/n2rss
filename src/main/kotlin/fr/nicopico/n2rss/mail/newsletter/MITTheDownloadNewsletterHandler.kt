@@ -29,6 +29,7 @@ class MITTheDownloadNewsletterHandler : NewsletterHandler {
         code = "mit/thedownload",
         name = "MIT - The Download",
         websiteUrl = "https://forms.technologyreview.com/newsletters/briefing-the-download/",
+        notes = "Most articles are behind a paywall",
     )
 
     override fun canHandle(email: Email): Boolean {
