@@ -133,9 +133,9 @@ configurations.all {
     }
 }
 
-val bootJar by tasks.named("bootJar")
+val bootJar: org.springframework.boot.gradle.tasks.bundling.BootJar
+    by tasks.named("bootJar")
 val copyJarToDeploy by tasks.registering(Copy::class) {
-    val bootJar = bootJar as org.springframework.boot.gradle.tasks.bundling.BootJar
     from(bootJar.archiveFile)
     into(project.layout.projectDirectory.dir("deploy"))
     rename { "n2rss.jar" }
@@ -144,7 +144,8 @@ tasks.named("build") {
     finalizedBy(copyJarToDeploy)
 }
 
-val shadowJar by tasks.named("shadowJar")
+val shadowJar: com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+    by tasks.named("shadowJar")
 val proguardJar by tasks.registering(proguard.gradle.ProGuardTask::class) {
     group = "build"
     dependsOn(shadowJar)
