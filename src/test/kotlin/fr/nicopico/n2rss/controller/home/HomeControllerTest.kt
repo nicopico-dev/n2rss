@@ -22,7 +22,7 @@ import fr.nicopico.n2rss.models.Newsletter
 import fr.nicopico.n2rss.models.NewsletterInfo
 import fr.nicopico.n2rss.service.NewsletterService
 import fr.nicopico.n2rss.service.ReCaptchaService
-import io.kotest.matchers.collections.shouldContainOnly
+import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.Runs
@@ -72,9 +72,9 @@ class HomeControllerTest {
             // GIVEN
             val newslettersInfo = listOf(
                 NewsletterInfo("A", "Newsletter A", "Website A", 12, null),
-                NewsletterInfo("B", "Newsletter B", "Website B", 3, null),
                 NewsletterInfo("C", "Newsletter C", "Website C", 0, null),
                 NewsletterInfo("D", "Newsletter D", "Website D", 1, null),
+                NewsletterInfo("B", "Newsletter B", "Website B", 3, null),
             )
             every { newsletterService.getNewslettersInfo() } returns newslettersInfo
             every { feedsProperties.forceHttps } returns false
@@ -98,7 +98,7 @@ class HomeControllerTest {
             }
 
             // Newsletters without publication should not be displayed
-            newslettersSlot.captured shouldContainOnly listOf(
+            newslettersSlot.captured shouldContainExactly listOf(
                 NewsletterInfo("A", "Newsletter A", "Website A", 12, null),
                 NewsletterInfo("B", "Newsletter B", "Website B", 3, null),
                 NewsletterInfo("D", "Newsletter D", "Website D", 1, null),
