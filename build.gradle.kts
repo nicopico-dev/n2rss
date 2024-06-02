@@ -27,6 +27,17 @@ plugins {
     kotlin("plugin.spring") version "1.9.24"
     id("org.jetbrains.kotlinx.kover") version "0.8.0"
     id("io.gitlab.arturbosch.detekt") version("1.23.5")
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+}
+
+// Rely on legacy plugin API for plugin without an ID
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.guardsquare:proguard-gradle:7.5.0")
+    }
 }
 
 group = "fr.nicopico"
@@ -122,14 +133,28 @@ configurations.all {
     }
 }
 
+val bootJar by tasks.named("bootJar")
 val copyJarToDeploy by tasks.registering(Copy::class) {
-    val bootJar = tasks.getByName("bootJar") as
-            org.springframework.boot.gradle.tasks.bundling.BootJar
+    val bootJar = bootJar as org.springframework.boot.gradle.tasks.bundling.BootJar
     from(bootJar.archiveFile)
     into(project.layout.projectDirectory.dir("deploy"))
     rename { "n2rss.jar" }
 }
-
 tasks.named("build") {
     finalizedBy(copyJarToDeploy)
+}
+
+val shadowJar by tasks.named("shadowJar")
+val proguardJar by tasks.registering(proguard.gradle.ProGuardTask::class) {
+    group = "build"
+    dependsOn(shadowJar)
+
+    verbose()
+    dontwarn()
+
+    injars(shadowJar.outputs.files)
+    outjars(project.layout.buildDirectory.file("libs/n2rss-${version}-proguard.jar"))
+    libraryjars("${System.getProperty("java.home")}/jmods/java.base.jmod")
+    libraryjars(configurations.compileClasspath)
+    configuration(project.layout.projectDirectory.file("proguard.pro"))
 }
