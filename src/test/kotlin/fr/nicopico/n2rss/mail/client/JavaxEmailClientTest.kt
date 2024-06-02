@@ -92,13 +92,13 @@ class JavaxEmailClientTest {
         emails shouldNot beEmpty()
         emails shouldHaveSize 2
         assertSoftly(emails[0]) {
-            it.sender.email shouldBe "from@email.com"
+            it.sender.sender shouldBe "from@email.com"
             it.subject shouldBe "Subject"
             it.content shouldBe "Hello World!"
         }
 
         assertSoftly(emails[1]) {
-            it.sender.email shouldBe "from@another-email.com"
+            it.sender.sender shouldBe "from@another-email.com"
             it.subject shouldBe "Subject 2"
             it.content shouldBe "Hello World! 2"
         }

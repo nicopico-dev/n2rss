@@ -20,6 +20,8 @@ package fr.nicopico.n2rss.config
 import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.BuiltForMarsNewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.KotlinWeeklyNewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.MITTheDownloadNewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.MITWeekendReadsNewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.PointerNewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.QuickBirdNewsletterHandler
@@ -35,5 +37,7 @@ class NewsletterConfiguration {
         PointerNewsletterHandler(),
         QuickBirdNewsletterHandler(),
         BuiltForMarsNewsletterHandler(),
+        MITWeekendReadsNewsletterHandler(),
+        MITTheDownloadNewsletterHandler(),
     )
 }

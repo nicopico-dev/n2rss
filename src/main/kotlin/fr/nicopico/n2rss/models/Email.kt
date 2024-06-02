@@ -27,5 +27,18 @@ data class Email(
     val msgnum: Int,
 )
 
+/**
+ * Email sender in the format "Newsletter Name <email@domain.com>"
+ */
 @JvmInline
-value class Sender(val email: String)
+value class Sender(val sender: String) {
+    val email: String
+        get() = sender
+            .dropWhile { it != '<' }
+            .drop(1)
+            .dropLast(1)
+    val name: String
+        get() = sender
+            .takeWhile { it != '<' }
+            .trim()
+}
