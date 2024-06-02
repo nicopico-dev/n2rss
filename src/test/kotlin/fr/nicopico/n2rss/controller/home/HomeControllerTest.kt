@@ -70,11 +70,43 @@ class HomeControllerTest {
         @Test
         fun `home should provide necessary information to the template`() {
             // GIVEN
+            val newsletterA = NewsletterInfo(
+                code = "A",
+                title = "Newsletter A",
+                websiteUrl = "Website A",
+                publicationCount = 12,
+                startingDate = null,
+                notes = null,
+            )
+            val newsletterC = NewsletterInfo(
+                code = "C",
+                title = "Newsletter C",
+                websiteUrl = "Website C",
+                publicationCount = 0,
+                startingDate = null,
+                notes = null
+            )
+            val newsletterD = NewsletterInfo(
+                code = "D",
+                title = "Newsletter D",
+                websiteUrl = "Website D",
+                publicationCount = 1,
+                startingDate = null,
+                notes = null,
+            )
+            val newsletterB = NewsletterInfo(
+                code = "B",
+                title = "Newsletter B",
+                websiteUrl = "Website B",
+                publicationCount = 3,
+                startingDate = null,
+                notes = null,
+            )
             val newslettersInfo = listOf(
-                NewsletterInfo("A", "Newsletter A", "Website A", 12, null),
-                NewsletterInfo("C", "Newsletter C", "Website C", 0, null),
-                NewsletterInfo("D", "Newsletter D", "Website D", 1, null),
-                NewsletterInfo("B", "Newsletter B", "Website B", 3, null),
+                newsletterA,
+                newsletterC,
+                newsletterD,
+                newsletterB,
             )
             every { newsletterService.getNewslettersInfo() } returns newslettersInfo
             every { feedsProperties.forceHttps } returns false
@@ -99,9 +131,9 @@ class HomeControllerTest {
 
             // Newsletters without publication should not be displayed
             newslettersSlot.captured shouldContainExactly listOf(
-                NewsletterInfo("A", "Newsletter A", "Website A", 12, null),
-                NewsletterInfo("B", "Newsletter B", "Website B", 3, null),
-                NewsletterInfo("D", "Newsletter D", "Website D", 1, null),
+                newsletterA,
+                newsletterB,
+                newsletterD,
             )
         }
 
