@@ -103,6 +103,24 @@ class RssFeedControllerTest {
     }
 
     @Test
+    fun `getFeed should return an RSS feed for feed inside a folder`() {
+        // GIVEN
+        val mockResponse = mockk<HttpServletResponse>(relaxed = true)
+
+        val feed = mockk<SyndFeed>()
+        every { rssService.getFeed(any(), any(), any()) } returns feed
+
+        // WHEN
+        rssFeedController.getFeed("folder", "test", 0, 2, mockResponse)
+
+        // THEN
+        verifySequence {
+            rssService.getFeed("folder/test", 0, 2)
+            rssOutputWriter.write(feed, any())
+        }
+    }
+
+    @Test
     fun `getFeed should return a 404 error if the feed does not exist`() {
         // GIVEN
         val mockResponse = mockk<HttpServletResponse>(relaxed = true)

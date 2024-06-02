@@ -58,6 +58,39 @@ class RssFeedController(
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
         response: HttpServletResponse,
     ) {
+        writeFeedToResponse(code, publicationStart, publicationCount, response)
+    }
+
+    /**
+     * Retrieves the RSS feed of publications, for feeds whose type is of format "folder/code"
+     *
+     * @param folder folder part of the code associated with the feed
+     * @param feed feed part of the code associated with the feed
+     * @param publicationStart The starting index of publications to retrieve. Default is 0.
+     * @param publicationCount The maximum number of publications to retrieve. Default is 2.
+     * @param response The HttpServletResponse object used for writing the feed to the response output stream.
+     */
+    @GetMapping(
+        "{folder}/{feed}",
+        produces = [RSS_CONTENT_TYPE],
+    )
+    fun getFeed(
+        @PathVariable("folder") folder: String,
+        @PathVariable("feed") feed: String,
+        @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
+        @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
+        response: HttpServletResponse,
+    ) {
+        val code = "$folder/$feed"
+        writeFeedToResponse(code, publicationStart, publicationCount, response)
+    }
+
+    private fun writeFeedToResponse(
+        code: String,
+        publicationStart: Int,
+        publicationCount: Int,
+        response: HttpServletResponse
+    ) {
         try {
             val feed = rssService.getFeed(code, publicationStart, publicationCount)
             response.contentType = RSS_CONTENT_TYPE
