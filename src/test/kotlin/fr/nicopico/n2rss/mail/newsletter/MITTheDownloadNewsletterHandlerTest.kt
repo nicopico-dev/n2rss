@@ -21,12 +21,12 @@ package fr.nicopico.n2rss.mail.newsletter
 import fr.nicopico.n2rss.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
-import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import java.net.URL
 
 class MITTheDownloadNewsletterHandlerTest {
 
@@ -82,16 +82,41 @@ class MITTheDownloadNewsletterHandlerTest {
                 }
             }
 
-            publication.articles shouldHaveSize 0
+            publication.articles.map { it.title } shouldBe listOf(
+                "The messy quest to replace drugs with electricity",
+                "Why bigger EVs aren’t always better",
+                "House-flipping algorithms are coming to your neighborhood",
+                "We can still have nice things",
+            )
+
             assertSoftly(publication.articles[0]) {
                 withClue("title") {
-                    title shouldBe ""
+                    title shouldBe "The messy quest to replace drugs with electricity"
                 }
                 withClue("link") {
-                    link shouldBe ""
+                    link shouldBe URL("https://technologyreview.us11.list-manage.com/track/click?u=47c1a9cec9749a8f8cbc83e78&id=d338c6f93e&e=4fc74d6331")
                 }
                 withClue("description") {
-                    description shouldBe ""
+                    description shouldBe "In the early 2010s, electricity seemed poised " +
+                        "for a hostile takeover of your doctor’s office. Research into how " +
+                        "the nervous system—the highway that carries electrical messages between" +
+                        " the brain and the body— controls the immune response was gaining " +
+                        "traction. And that had opened the door to the possibility of hacking " +
+                        "into the body’s circuitry and thereby controlling a host of chronic " +
+                        "diseases, including rheumatoid arthritis, asthma, and diabetes, as if " +
+                        "the immune system were as reprogrammable as a computer. To do that you’d " +
+                        "need a new class of implant: an “electroceutical.” These devices would " +
+                        "replace drugs. No more messy side effects. And no more guessing whether " +
+                        "a drug would work differently for you and someone else. In the 10 years " +
+                        "or so since, around a billion dollars has accreted around the effort. " +
+                        "But electroceuticals have still not taken off as hoped. Now, however, " +
+                        "a growing number of researchers are starting to look beyond the nervous " +
+                        "system, and experimenting with clever ways to electrically manipulate " +
+                        "cells elsewhere in the body, such as the skin., Their work suggests that " +
+                        "this approach could match the early promise of electroceuticals, yielding " +
+                        "fast-healing bioelectric bandages, novel approaches to treating autoimmune " +
+                        "disorders, new ways of repairing nerve damage, and even better treatments " +
+                        "for cancer. Read the full story., —Sally Adee"
                 }
             }
         }

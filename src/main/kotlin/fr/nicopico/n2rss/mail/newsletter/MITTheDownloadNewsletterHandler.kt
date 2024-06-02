@@ -15,14 +15,15 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.mail.newsletter
 
 import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
+import java.net.URL
 
 class MITTheDownloadNewsletterHandler : NewsletterHandler {
     override val newsletter: Newsletter = Newsletter(
@@ -40,10 +41,32 @@ class MITTheDownloadNewsletterHandler : NewsletterHandler {
     override fun extractArticles(email: Email): List<Article> {
         val cleanedHtml = Jsoup.clean(
             email.content,
-            Safelist.basic(),
+            Safelist.basic()
+                .addTags("h1", "h2")
+                .addAttributes("h1", "class")
+                .addAttributes("h2", "class"),
         )
-        println(cleanedHtml)
+        val document = Jsoup.parseBodyFragment(cleanedHtml)
 
-        return emptyList()
+        val titles = listOf(document.select("h1")[1]) +
+            document.select("h2").toList()
+
+        return titles.map { retrieveArticle(it) }
+    }
+
+    private fun retrieveArticle(titleElement: Element): Article {
+        val title = titleElement.text()
+        val descriptionElements = titleElement.nextElementSiblings()
+            .takeWhile { it.tagName() == "p" }
+        val link = descriptionElements
+            .mapNotNull { it.select("a[href]").last() }
+            .lastOrNull()?.attr("href")
+            ?: throw NewsletterParsingException("Unable to find link for article $title")
+
+        return Article(
+            title = title,
+            link = URL(link),
+            description = descriptionElements.joinToString { it.text() },
+        )
     }
 }
