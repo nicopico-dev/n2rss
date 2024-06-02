@@ -146,6 +146,9 @@ tasks.named("build") {
 
 val shadowJar: com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
     by tasks.named("shadowJar")
+shadowJar.apply {
+    manifest.inheritFrom(bootJar.manifest)
+}
 val proguardJar by tasks.registering(proguard.gradle.ProGuardTask::class) {
     group = "build"
     dependsOn(shadowJar)
