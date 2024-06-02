@@ -25,7 +25,9 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
+import org.springframework.stereotype.Component
 
+@Component
 class PointerNewsletterHandler : NewsletterHandler {
     override val newsletter: Newsletter = Newsletter(
         code = "pointer",

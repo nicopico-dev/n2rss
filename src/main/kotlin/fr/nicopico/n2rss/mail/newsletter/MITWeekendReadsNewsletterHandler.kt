@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.mail.newsletter
 
 import fr.nicopico.n2rss.models.Article
@@ -23,8 +22,10 @@ import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
 import org.jsoup.Jsoup
 import org.jsoup.safety.Safelist
+import org.springframework.stereotype.Component
 import java.net.URL
 
+@Component
 class MITWeekendReadsNewsletterHandler : NewsletterHandler {
     override val newsletter: Newsletter = Newsletter(
         code = "mit/weekend_reads",

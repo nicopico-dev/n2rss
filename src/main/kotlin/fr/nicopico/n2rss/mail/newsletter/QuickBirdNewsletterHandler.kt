@@ -23,8 +23,10 @@ import fr.nicopico.n2rss.models.Newsletter
 import org.jsoup.Jsoup
 import org.jsoup.nodes.TextNode
 import org.jsoup.safety.Safelist
+import org.springframework.stereotype.Component
 import java.net.URL
 
+@Component
 class QuickBirdNewsletterHandler : NewsletterHandler {
     override val newsletter: Newsletter = Newsletter(
         code = "quickbird",

@@ -17,27 +17,19 @@
  */
 package fr.nicopico.n2rss.config
 
-import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.BuiltForMarsNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.KotlinWeeklyNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.MITTheDownloadNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.MITWeekendReadsNewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.PointerNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.QuickBirdNewsletterHandler
+import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class NewsletterConfiguration {
+class NewsletterConfiguration(
+    private val applicationContext: ApplicationContext,
+) {
     @Bean
-    fun newsletterHandlers(): List<NewsletterHandler> = listOf(
-        AndroidWeeklyNewsletterHandler(),
-        KotlinWeeklyNewsletterHandler(),
-        PointerNewsletterHandler(),
-        QuickBirdNewsletterHandler(),
-        BuiltForMarsNewsletterHandler(),
-        MITWeekendReadsNewsletterHandler(),
-        MITTheDownloadNewsletterHandler(),
-    )
+    fun newsletterHandlers(): List<NewsletterHandler> {
+        return applicationContext
+            .getBeansOfType(NewsletterHandler::class.java)
+            .values.toList()
+    }
 }

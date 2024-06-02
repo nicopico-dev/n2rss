@@ -68,7 +68,7 @@ constructor(
         val secretKey: String,
     )
     data class EmailProperties(
-        //val cron: String,
+        val cron: String,
         val client: EmailClientProperties,
     )
 

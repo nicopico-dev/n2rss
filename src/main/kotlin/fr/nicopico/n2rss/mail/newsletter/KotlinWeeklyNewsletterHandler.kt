@@ -27,7 +27,9 @@ import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
+import org.springframework.stereotype.Component
 
+@Component
 class KotlinWeeklyNewsletterHandler : NewsletterHandler {
 
     override val newsletter: Newsletter = Newsletter(
