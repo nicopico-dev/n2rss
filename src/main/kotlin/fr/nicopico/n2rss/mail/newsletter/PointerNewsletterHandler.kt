@@ -152,5 +152,10 @@ class PointerNewsletterHandler : NewsletterHandler {
         get() {
             val style = attr("style")
             return style.contains(Regex("border-top\\s*:\\s*2px\\s*solid\\s*#000000"))
+                || (
+                style.contains(Regex("border-top-width:\\s*2px\\b"))
+                    && style.contains(Regex("border-top-style:\\s*solid\\b"))
+                    && style.contains(Regex("border-top-color:\\s*#000000\\b"))
+                )
         }
 }

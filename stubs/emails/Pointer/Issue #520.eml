@@ -1,0 +1,1053 @@
+Return-Path: <bounce-mc.us9_33211145.4762270-e993ec1b81@mail4.atl11.rsgsv.net>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap3.paris1.alwaysdata.com with LMTPS
+	id qHuONI8SX2ZVPQAA5hnrLg
+	(envelope-from <bounce-mc.us9_33211145.4762270-e993ec1b81@mail4.atl11.rsgsv.net>)
+	for <n2rss@nicopico.fr>; Tue, 04 Jun 2024 15:11:43 +0200
+Return-path: <bounce-mc.us9_33211145.4762270-e993ec1b81@mail4.atl11.rsgsv.net>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Tue, 04 Jun 2024 15:11:43 +0200
+Received: from mail4.atl11.rsgsv.net ([205.201.133.4])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <bounce-mc.us9_33211145.4762270-e993ec1b81@mail4.atl11.rsgsv.net>)
+	id 1sETwz-0002Dv-5R
+	for n2rss@nicopico.fr; Tue, 04 Jun 2024 15:11:41 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pointer.io; s=k2;
+	t=1717506696; x=1717767196; i=suraj@pointer.io;
+	bh=YGSxfMvN6WpsMcdHsuRUdRi88k/O5OCXMNMys6l0wY4=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=HOvwwC2S7t5GiPiAu0jS7T1ZhkzWBm8y4Cp3zgUjuYqAxf8LTqRSxIxDaVxNrn7Kb
+	 yVu2N9kcQ0JPV0pIwPvOr7VER2QvfCadM2DRSTz5ni00xXKb7oHVlnkXGraIZM0v8B
+	 /jPc1S5dVXL/u/JWqFAveXz+uxuM9w3qrM81gbAWdIy0Z41I1oyaa3MixCXPOkWFv/
+	 zzQL/0MM3C4RAFuFhWbbIp47efhAQppQIbRarJt8FwrV7kTFZ/igi3hQ9gexYp7Al1
+	 Vccnle/QcVJDpAtZN6IefSRdLvQjC1Kz9aY7axvgno5pI+Ka/1NKzXLMUywyW8wds2
+	 BgWNVWDCoYvEw==
+Received: from localhost (localhost [127.0.0.1])
+	by mail4.atl11.rsgsv.net (Mailchimp) with ESMTP id 4VtrZv70VTzRKnMnV
+	for <n2rss@nicopico.fr>; Tue,  4 Jun 2024 13:11:35 +0000 (GMT)
+Subject: =?utf-8?Q?Issue=20#520?=
+From: Pointer <suraj@pointer.io>
+Reply-To:  <us9-c15c852160-75b851dcad@inbound.mailchimpapp.net>
+To: <n2rss@nicopico.fr>
+Date: Tue,  4 Jun 2024 13:11:29 +0000
+Message-ID: <e9492ff27d760c578a39d0675.e993ec1b81.20240604131119.0389a77444.bf1f7f74@mail4.atl11.rsgsv.net>
+X-Mailer: Mailchimp Mailer - **CID0389a77444e993ec1b81**
+X-Campaign: mailchimpe9492ff27d760c578a39d0675.0389a77444
+X-campaignid: mailchimpe9492ff27d760c578a39d0675.0389a77444
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=e9492ff27d760c578a39d0675&id=0389a77444&e=e993ec1b81
+X-MC-User: e9492ff27d760c578a39d0675
+Feedback-ID: 33211145:33211145.4762270:us9:mc
+List-ID: e9492ff27d760c578a39d0675mc list <e9492ff27d760c578a39d0675.419973.list-id.mcsv.net>
+Precedence: bulk
+X-Auto-Response-Suppress: OOF, AutoReply
+X-Accounttype: pr
+List-Unsubscribe: <https://pointer.us9.list-manage.com/unsubscribe?u=e9492ff27d760c578a39d0675&id=6ba2b83261&t=h&e=e993ec1b81&c=0389a77444>, <mailto:unsubscribe-mc.us9_e9492ff27d760c578a39d0675.0389a77444-e993ec1b81@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1901249107"
+MIME-Version: 1.0
+X-alwaysdata-Spam-Report: 	0.60 SUBJ_EXCESS_QP - Subject is unnecessarily encoded in quoted-printable
+	0.50 URI_COUNT_ODD [75]
+	0.10 ZERO_FONT [1] - Zero sized font used
+	0.05 MANY_INVISIBLE_PARTS [1] - Many parts are visually hidden
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 REPLYTO_DOM_NEQ_FROM_DOM - Reply-To domain does not match the From
+ domain
+	0.00 REDIRECTOR_FALSE [pointer.io->list-manage.com] - Phishing exclusion
+ symbol for known redirectors
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_TWO [2] - Message has two Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PREVIOUSLY_DELIVERED [n2rss@nicopico.fr] - Message either to a list or
+ was forwarded
+	0.00 PRECEDENCE_BULK - Message marked as bulk
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [us9-c15c852160-75b851dcad@inbound.mailchimpapp.net] - Has
+ Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [pointer.io:+] - DKIM trace symbol
+	0.00 BAYES_HAM [100.00%] - Message probably ham, probability:
+	0.00 ASN [asn:14782, ipnet:205.201.128.0/21, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.16 IP_REPUTATION_HAM [asn: 14782(-0.16), country: US(-0.00),
+ ip: 205.201.133.4(0.00)]
+	-0.20 R_DKIM_ALLOW [pointer.io:s=k2] - DKIM verification succeed
+	-0.29 URL_REPUTATION [-0.2904573560949]
+	-0.50 DMARC_POLICY_ALLOW [pointer.io, none] - DMARC permit policy
+X-alwaysdata-Spam-Score: -0.01
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1901249107
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+What Current & Future Engineering Leaders Read
+
+pointer.io (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D8cd5111c6f&e=3De993ec1b81)
+
+Tuesday 4th June=E2=80=99s issue is presented by FusionAuth
+https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0=
+675&id=3Df5a31ea7c4&e=3De993ec1b81
+
+Don=E2=80=99t Build Your Own Auth. Try FusionAuth Today. (https://pointer.=
+us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dc540bbd=
+7c8&e=3De993ec1b81)
+
+FusionAuth (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3De4fd8cb143&e=3De993ec1b81) integrates with any=
+ tech stack and is deployable anywhere =E2=80=93 cloud=2C on-premise=2C or=
+ even the server running under your desk.
+
+You're less than five minutes from login / registration=2C social logins=
+=2C SSO=2C MFA=2C passwordless=2C user management=2C passkeys=2C and much=
+ more.
+
+Join the thousands of developers (https://pointer.us9.list-manage.com/trac=
+k/click?u=3De9492ff27d760c578a39d0675&id=3Dddbcc688b0&e=3De993ec1b81=
+) who trust FusionAuth (https://pointer.us9.list-manage.com/track/click?u=
+=3De9492ff27d760c578a39d0675&id=3Dd2d165f3b7&e=3De993ec1b81) for the=
+ir identity needs.
+
+Start For Free Today (https://pointer.us9.list-manage.com/track/click?u=3D=
+e9492ff27d760c578a39d0675&id=3Dbde274e829&e=3De993ec1b81)
+
+How To Build Engineering Strategy (https://pointer.us9.list-manage.com/tra=
+ck/click?u=3De9492ff27d760c578a39d0675&id=3Df7e4dd7670&e=3De993ec1b81)
+
+=E2=80=94 Mirek Stanek
+
+tl;dr: =E2=80=9CIn this article=2C I will explore tools and techniques to=
+ help you build a long-term engineering strategy. Some work best at the or=
+ganizational level=2C where Product and Technology collaborate on their ch=
+allenges. Some can also be successfully applied at the team level and can=
+ inspire the rest of the organization from the bottom up.=E2=80=9D
+
+Leadership (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D8859a6e39b&e=3De993ec1b81) Management (https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3D0194ae4310&e=3De993ec1b81)
+
+Communication Structures (https://pointer.us9.list-manage.com/track/click?=
+u=3De9492ff27d760c578a39d0675&id=3D77d2119e71&e=3De993ec1b81)
+
+=E2=80=94 Kevin Yien
+
+tl;dr: =E2=80=9CEvery company has=2C or develops=2C a hierarchical reporti=
+ng structure over time. It's normal. A common mistake I see is allowing th=
+e communication structure to mirror the reporting structure.=E2=80=9D Kevi=
+n explains why.
+
+Leadership (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3Db14b44d41b&e=3De993ec1b81) Management (https://=
+pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=
+=3D74a65c069c&e=3De993ec1b81)
+
+How to Avoid Breached Passwords (https://pointer.us9.list-manage.com/track=
+/click?u=3De9492ff27d760c578a39d0675&id=3D2c813da459&e=3De993ec1b81)
+
+tl;dr: Cyber attackers have many ways to infiltrate your systems. Proper p=
+assword protocols could help=2C but ensuring users follow them is difficul=
+t. Breaches can lead to costly lawsuits and damage reputations. Compromise=
+d passwords can also be reused to access user accounts. This tech paper ex=
+plores the issue=2C offers solutions=2C and provides strategies to protect=
+ users and organizations.
+
+Promoted by FusionAuth
+
+Management (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D5dc2ea65fb&e=3De993ec1b81) Security (https://po=
+inter.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Db=
+54c8c6846&e=3De993ec1b81)
+
+How To Test (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27=
+d760c578a39d0675&id=3D0b2ccbf050&e=3De993ec1b81)
+
+=E2=80=94 Alex Kladov
+
+tl;dr: =E2=80=9CThis post describes my current approach to testing. When I=
+ started programming professionally=2C I knew how to write good code=2C bu=
+t good tests remained a mystery for a long time. This is not due to the la=
+ck of advice =E2=80=94 on the contrary=2C there=E2=80=99s abundance of inf=
+ormation & terminology about testing.=E2=80=9D
+
+Tests (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c5=
+78a39d0675&id=3D4c9888e91f&e=3De993ec1b81)
+
+=E2=80=9CDon=E2=80=99t find fault=2C find a remedy.=E2=80=9D
+
+=E2=80=94 Henry Ford
+
+CLI Tricks Every Developer Should Know (https://pointer.us9.list-manage.co=
+m/track/click?u=3De9492ff27d760c578a39d0675&id=3D1be086a7f0&e=3De993ec1b81)
+
+=E2=80=94 Kedasha Kerr
+
+tl;dr: =E2=80=9CWe=E2=80=99ve compiled some important tricks and commands=
+ that every developer should know from GitHub=E2=80=99s own engineers. By=
+ mastering these basic techniques=2C developers can become more efficient=
+ at working with the command line and gain a deeper understanding of how t=
+he underlying operating system and programs work.=E2=80=9D
+
+CommandLine (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27=
+d760c578a39d0675&id=3Dc086a6d7ea&e=3De993ec1b81) Tips (https://point=
+er.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D6043=
+bf9a1e&e=3De993ec1b81)
+
+What Powersync Open Edition Means For Local-First (https://pointer.us9.lis=
+t-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D14ad262746&e=
+=3De993ec1b81)
+
+=E2=80=94 Conrad Hofmeyr
+
+tl;dr: Local-first app architecture promises instant=2C collaborative UX a=
+nd full offline support =E2=80=94 but tooling has been proprietary or imma=
+ture. The release of PowerSync Open Edition opens access to a mature sync=
+ layer that solves local-first complexities.
+
+Promoted by PowerSync
+
+Architecture (https://pointer.us9.list-manage.com/track/click?u=3De9492ff2=
+7d760c578a39d0675&id=3D5226036531&e=3De993ec1b81)
+
+Status Games (https://pointer.us9.list-manage.com/track/click?u=3De9492ff2=
+7d760c578a39d0675&id=3D0adfb34025&e=3De993ec1b81)
+
+=E2=80=94 Phil Booth
+
+tl;dr: =E2=80=9CHere are some ways that I've seen engineers pathologically=
+ try to elevate their own status: (1) Build a new thing that doesn't need=
+ to exist. (2) Build a thing using different technology that the rest of t=
+he team are unfamiliar with. (3) Rewrite from scratch something that was a=
+lready working fine. (4) Work on easy changes that touch many lines of cod=
+e but don't impact the business. (5) Claim to be working on big and/or com=
+plicated changes=2C which nobody else has visibility of.=E2=80=9D Phil dis=
+cusses how to defuse these games early before they escalate.
+
+Antipattern (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27=
+d760c578a39d0675&id=3Dcab1162b45&e=3De993ec1b81)
+
+What We=E2=80=99ve Learned From A Year of Building With LLMs (https://poin=
+ter.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dc76=
+7cb34e0&e=3De993ec1b81)
+
+tl;dr: =E2=80=9CWe=E2=80=99ve spent the past year building=2C and have dis=
+covered many sharp edges along the way. While we don=E2=80=99t claim to sp=
+eak for the entire industry=2C we=E2=80=99d like to share what we=E2=80=99=
+ve learned to help you avoid our mistakes and iterate faster. These are or=
+ganized into three sections: tactical=2C operational and strategic.=E2=80=
+=9D
+
+LLM (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578=
+a39d0675&id=3De2217c9fb7&e=3De993ec1b81)
+
+A Virtual DOM In 200 Lines Of JavaScript (https://pointer.us9.list-manage.=
+com/track/click?u=3De9492ff27d760c578a39d0675&id=3D33b21512f9&e=3De993ec1b81)
+
+=E2=80=94 Marcelo Lazaroni
+
+tl;dr: =E2=80=9CIn this post I=E2=80=99ll walk through the full implementa=
+tion of a Virtual DOM in a bit over 200 lines of JavaScript. The result is=
+ a full-featured and sufficiently performant virtual DOM library. The main=
+ goal is to illustrate the fundamental technique behind tools like React.=
+=E2=80=9D
+
+JavaScript (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D58c4c6467e&e=3De993ec1b81)
+
+Most Popular From Last Issue
+
+Database Design For Google Calendar: A Tutorial (https://pointer.us9.list-=
+manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dd66f1973e5&e=3De993ec1b81) =E2=80=94 Alexey Makhotkin
+
+Notable Links
+
+ChatTTS (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760=
+c578a39d0675&id=3D6ddc4b1b54&e=3De993ec1b81) : Generative speech mod=
+el for daily dialogue.
+
+Dataherald (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d=
+760c578a39d0675&id=3D6a10afc8f3&e=3De993ec1b81) : Natural language-t=
+o-SQL engine.
+
+Marker (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c=
+578a39d0675&id=3D7923ce7a07&e=3De993ec1b81) : Convert PDF to markdow=
+n.
+
+Sandbox (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760=
+c578a39d0675&id=3D98405d6a91&e=3De993ec1b81) : OS cloud-based code e=
+diting environment.
+
+WebX (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c57=
+8a39d0675&id=3D94bc5b881d&e=3De993ec1b81) : An alternative to the wo=
+rld wide web.
+
+Click the below and shoot me an email!
+
+1 =3D Didn't enjoy it all // 5 =3D Really enjoyed it
+
+1 (mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-%20Score%3A%201&bod=
+y=3DHere's%20why%3A) =E2=80=A6 2 (mailto:suraj@pointer.io?subject=3DIssue%=
+20%23518%20-%20Score%3A%202&body=3DHere's%20why%3A) =E2=80=A6 3 (mailto:su=
+raj@pointer.io?subject=3DIssue%20%23518%20-%20Score%3A%203&body=3DHere's%2=
+0why%3A) =E2=80=A6 4 (mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-=
+%20Score%3A%204&body=3DHere's%20Why%3A) =E2=80=A6 5 (mailto:suraj@pointer.=
+io?subject=3DIssue%20%23518%20-%20Score%3A%205&body=3DHere's%20Why%3A)
+
+Pointer is emailed twice a week on Tuesdays and Fridays @ 9am EST.
+
+Unsubscribe (https://pointer.us9.list-manage.com/unsubscribe?u=3De9492ff27=
+d760c578a39d0675&id=3D6ba2b83261&t=3Db&e=3De993ec1b81&c=3D0389a77444) // Spo=
+nsorship (https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d76=
+0c578a39d0675&id=3Dd074220c14&e=3De993ec1b81)
+--_----------=_MCPart_1901249107
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn=
+:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:of=
+fice"><head>
+<!--[if gte mso 15]>
+<xml>
+<o:OfficeDocumentSettings>
+<o:AllowPNG/>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<meta charset=3D"UTF-8" />
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+<meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial-scale=
+=3D1" />
+<title>Issue #520</title>
+<link rel=3D"stylesheet" href=3D"https://fonts.googleapis.com/css?family=
+=3DSpace+Mono:400=2C400i=2C700=2C700i=2C900=2C900i" /><style>          img=
+{-ms-interpolation-mode:bicubic;}
+          table=2C td{mso-table-lspace:0pt; mso-table-rspace:0pt;}
+          .mceStandardButton=2C .mceStandardButton td=2C .mceStandardButto=
+n td a{mso-hide:all !important;}
+          p=2C a=2C li=2C td=2C blockquote{mso-line-height-rule:exactly;}
+          p=2C a=2C li=2C td=2C body=2C table=2C blockquote{-ms-text-size-=
+adjust:100%; -webkit-text-size-adjust:100%;}
+          @media only screen and (max-width: 480px){
+            body=2C table=2C td=2C p=2C a=2C li=2C blockquote{-webkit-text=
+-size-adjust:none !important;}
+          }
+          .mcnPreviewText{display: none !important;}
+          .bodyCell{margin:0 auto; padding:0; width:100%;}
+          .ExternalClass=2C .ExternalClass p=2C .ExternalClass td=2C .Exte=
+rnalClass div=2C .ExternalClass span=2C .ExternalClass font{line-height:10=
+0%;}
+          .ReadMsgBody{width:100%;} .ExternalClass{width:100%;}
+          a[x-apple-data-detectors]{color:inherit !important; text-decora=
+tion:none !important; font-size:inherit !important; font-family:inherit !i=
+mportant; font-weight:inherit !important; line-height:inherit !important;}
+            body{height:100%; margin:0; padding:0; width:100%; background:=
+ #ffffff;}
+            p{margin:0; padding:0;}
+            table{border-collapse:collapse;}
+            td=2C p=2C a{word-break:break-word;}
+            h1=2C h2=2C h3=2C h4=2C h5=2C h6{display:block; margin:0; padd=
+ing:0;}
+            img=2C a img{border:0; height:auto; outline:none; text-decorat=
+ion:none;}
+            a[href^=3D"tel"]=2C a[href^=3D"sms"]{color:inherit; cursor:d=
+efault; text-decoration:none;}
+            li p {margin: 0 !important;}
+            .ProseMirror a {
+                pointer-events: none;
+            }
+            @media only screen and (max-width: 640px){
+                .mceClusterLayout td{padding: 4px !important;}
+            }
+            @media only screen and (max-width: 480px){
+                body{width:100% !important; min-width:100% !important; }
+                body.mobile-native {
+                    -webkit-user-select: none; user-select: none; transiti=
+on: transform 0.2s ease-in; transform-origin: top center;
+                }
+                body.mobile-native.selection-allowed a=2C body.mobile-nati=
+ve.selection-allowed .ProseMirror {
+                    user-select: auto;
+                    -webkit-user-select: auto;
+                }
+                colgroup{display: none;}
+                img{height: auto !important;}
+                .mceWidthContainer{max-width: 660px !important;}
+                .mceColumn{display: block !important; width: 100% !importa=
+nt;}
+                .mceColumn-forceSpan{display: table-cell !important; width=
+: auto !important;}
+                .mceColumn-forceSpan .mceButton a{min-width:0 !important;}
+                .mceBlockContainer{padding-right:16px !important; padding-=
+left:16px !important;}
+                .mceTextBlockContainer{padding-right:16px !important; padd=
+ing-left:16px !important;}
+                .mceBlockContainerE2E{padding-right:0px; padding-left:0px;=
+}
+                .mceSpacing-24{padding-right:16px !important; padding-left=
+:16px !important;}
+                .mceImage=2C .mceLogo{width: 100% !important; height: auto=
+ !important;}
+                .mceFooterSection .mceText=2C .mceFooterSection .mceText p=
+{font-size: 16px !important; line-height: 140% !important;}
+            }
+            div[contenteditable=3D"true"] {outline: 0;}
+            .ProseMirror .empty-node=2C .ProseMirror:empty {position: rela=
+tive;}
+            .ProseMirror .empty-node::before=2C .ProseMirror:empty::before=
+ {
+                position: absolute;
+                left: 0;
+                right: 0;
+                color: rgba(0=2C0=2C0=2C0.2);
+                cursor: text;
+            }
+            .ProseMirror .empty-node:hover::before=2C .ProseMirror:empty:h=
+over::before {
+                color: rgba(0=2C0=2C0=2C0.3);
+            }
+            .ProseMirror h1.empty-node:only-child::before=2C
+            .ProseMirror h2.empty-node:only-child::before=2C
+            .ProseMirror h3.empty-node:only-child::before=2C
+            .ProseMirror h4.empty-node:only-child::before {
+                content: 'Heading';
+            }
+            .ProseMirror p.empty-node:only-child::before=2C .ProseMirror:e=
+mpty::before {
+                content: 'Start typing...';
+            }
+            a .ProseMirror p.empty-node::before=2C a .ProseMirror:empty::b=
+efore {
+                content: '';
+            }
+
+            .mceImageBorder {display: inline-block;}
+            .mceImageBorder img {border: 0 !important;}
+body=2C #bodyTable { background-color: rgb(255=2C 255=2C 255); }.mceText=
+=2C .mceLabel { font-family: "Space Mono"=2C Courier=2C Georgia=2C serif;=
+ }.mceText=2C .mceLabel { color: rgb(0=2C 0=2C 0); }.mceText p { margin-bo=
+ttom: 0px; }.mceText label { margin-bottom: 0px; }.mceText input { margin-=
+bottom: 0px; }.mceSpacing-12 .mceInput + .mceErrorMessage { margin-top: -6=
+px; }.mceText p { margin-bottom: 0px; }.mceText label { margin-bottom: 0px=
+; }.mceText input { margin-bottom: 0px; }.mceSpacing-24 .mceInput + .mceEr=
+rorMessage { margin-top: -12px; }.mceInput { background-color: transparent=
+; border: 2px solid rgb(208=2C 208=2C 208); width: 60%; color: rgb(77=2C 7=
+7=2C 77); display: block; }.mceInput[type=3D"radio"]=2C .mceInput[type=
+=3D"checkbox"] { float: left; margin-right: 12px; display: inline; width:=
+ auto !important; }.mceLabel > .mceInput { margin-bottom: 0px; margin-top:=
+ 2px; }.mceLabel { display: block; }.mceText p { color: rgb(0=2C 0=2C 0);=
+ font-family: "Space Mono"=2C Courier=2C Georgia=2C serif; font-size: 14px=
+; font-weight: normal; line-height: 1.5; text-align: left; direction: ltr;=
+ }.mceText a { color: rgb(0=2C 0=2C 0); font-style: normal; font-weight: n=
+ormal; text-decoration: underline; direction: ltr; }
+@media only screen and (max-width: 480px) {
+            .mceText p { font-size: 16px !important; line-height: 1.5 !imp=
+ortant; }
+          }
+@media only screen and (max-width: 480px) {
+            .mceBlockContainer { padding-left: 16px !important; padding-ri=
+ght: 16px !important; }
+          }
+@media only screen and (max-width: 480px) {
+            .mceButtonContainer { }.mceButtonLink { padding: 18px 28px !im=
+portant; font-size: 16px !important; }
+          }
+@media only screen and (max-width: 480px) {
+            .mceDividerBlock { border-top-width: 2px !important; }.mceDivi=
+derContainer { width: 100% !important; }
+          }
+#dataBlockId-9 p=2C #dataBlockId-9 h1=2C #dataBlockId-9 h2=2C #dataBlockId=
+-9 h3=2C #dataBlockId-9 h4=2C #dataBlockId-9 ul { text-align: center; }#da=
+taBlockId-76 p=2C #dataBlockId-76 h1=2C #dataBlockId-76 h2=2C #dataBlockId=
+-76 h3=2C #dataBlockId-76 h4=2C #dataBlockId-76 ul { line-height: 1.5; tex=
+t-align: left; }#dataBlockId-91 p=2C #dataBlockId-91 h1=2C #dataBlockId-91=
+ h2=2C #dataBlockId-91 h3=2C #dataBlockId-91 h4=2C #dataBlockId-91 ul { li=
+ne-height: 1.5; text-align: left; }#dataBlockId-98 p=2C #dataBlockId-98 h1=
+=2C #dataBlockId-98 h2=2C #dataBlockId-98 h3=2C #dataBlockId-98 h4=2C #dat=
+aBlockId-98 ul { line-height: 1.5; text-align: left; }#dataBlockId-109 p=
+=2C #dataBlockId-109 h1=2C #dataBlockId-109 h2=2C #dataBlockId-109 h3=2C #=
+dataBlockId-109 h4=2C #dataBlockId-109 ul { line-height: 1.5; text-align:=
+ left; }#dataBlockId-116 p=2C #dataBlockId-116 h1=2C #dataBlockId-116 h2=
+=2C #dataBlockId-116 h3=2C #dataBlockId-116 h4=2C #dataBlockId-116 ul { li=
+ne-height: 1.5; text-align: left; }#dataBlockId-119 p=2C #dataBlockId-119=
+ h1=2C #dataBlockId-119 h2=2C #dataBlockId-119 h3=2C #dataBlockId-119 h4=
+=2C #dataBlockId-119 ul { line-height: 1.5; text-align: left; }#dataBlockI=
+d-138 p=2C #dataBlockId-138 h1=2C #dataBlockId-138 h2=2C #dataBlockId-138=
+ h3=2C #dataBlockId-138 h4=2C #dataBlockId-138 ul { line-height: 1.5; text=
+-align: left; }#dataBlockId-141 p=2C #dataBlockId-141 h1=2C #dataBlockId-1=
+41 h2=2C #dataBlockId-141 h3=2C #dataBlockId-141 h4=2C #dataBlockId-141 ul=
+ { line-height: 1.5; text-align: left; }#dataBlockId-145 p=2C #dataBlockId=
+-145 h1=2C #dataBlockId-145 h2=2C #dataBlockId-145 h3=2C #dataBlockId-145=
+ h4=2C #dataBlockId-145 ul { line-height: 1.5; text-align: left; }#dataBlo=
+ckId-160 p=2C #dataBlockId-160 h1=2C #dataBlockId-160 h2=2C #dataBlockId-1=
+60 h3=2C #dataBlockId-160 h4=2C #dataBlockId-160 ul { line-height: 1.5; te=
+xt-align: left; }#dataBlockId-167 p=2C #dataBlockId-167 h1=2C #dataBlockId=
+-167 h2=2C #dataBlockId-167 h3=2C #dataBlockId-167 h4=2C #dataBlockId-167=
+ ul { line-height: 1.5; text-align: left; }#dataBlockId-172 p=2C #dataBloc=
+kId-172 h1=2C #dataBlockId-172 h2=2C #dataBlockId-172 h3=2C #dataBlockId-1=
+72 h4=2C #dataBlockId-172 ul { line-height: 1.5; text-align: left; }</styl=
+e></head>
+<body>
+<!--
+-->
+<!--[if !gte mso 9]><!----><span class=3D"mcnPreviewText" style=3D"displa=
+y:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opa=
+city:0; overflow:hidden; visibility:hidden; mso-hide:all;">What Current &a=
+mp; Future Engineering Leaders Read</span><!--<![endif]-->
+<!--
+-->
+<center>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" height=3D"100%" wi=
+dth=3D"100%" id=3D"bodyTable" style=3D"background-color: rgb(255=2C 255=2C=
+ 255);">
+<tbody><tr>
+<td class=3D"bodyCell" align=3D"center" valign=3D"top">
+<table id=3D"root" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%"><tbody data-block-id=3D"54" class=3D"mceWrapper"><tr><td align=
+=3D"center" valign=3D"top" class=3D"mceWrapperOuter"><!--[if (gte mso 9)|=
+(IE)]><table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"660" style=3D"width:660px;"><tr><td><![endif]--><table bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"max=
+-width:660px" role=3D"presentation"><tbody><tr><td style=3D"background-col=
+or:#ffffff;background-position:center;background-repeat:no-repeat;backgrou=
+nd-size:cover" class=3D"mceWrapperInner" valign=3D"top"><table align=3D"ce=
+nter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=
+=3D"presentation" data-block-id=3D"12"><tbody><tr class=3D"mceRow"><td sty=
+le=3D"background-position:center;background-repeat:no-repeat;background-si=
+ze:cover" valign=3D"top"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"paddin=
+g-top:0;padding-bottom:0" class=3D"mceColumn" data-block-id=3D"-4" valign=
+=3D"top" colspan=3D"12" width=3D"100%"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" role=3D"presentation"><tbody><tr><td s=
+tyle=3D"background-color:#3e4954;padding-top:0;padding-bottom:0;padding-ri=
+ght:0;padding-left:0" class=3D"mceBlockContainer" align=3D"center" valign=
+=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" data-block-id=3D"55" class=3D"mceButtonConta=
+iner"><tbody><tr><!--[if !mso]><!--></tr><tr class=3D"mceStandardButton">=
+<td style=3D"background-color:#3e4954;border-radius:0;text-align:center" c=
+lass=3D"mceButton" valign=3D"top"><a href=3D"https://pointer.us9.list-mana=
+ge.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D2506c2798e&e=3De993ec1b81" target=3D"_blank" class=3D"mceButtonLink" style=3D"background-colo=
+r:#3e4954;border-radius:0;border:1px solid #3e4954;color:#fabf80;display:b=
+lock;font-family:'Space Mono'=2C 'Courier'=2C Georgia=2C serif;font-size:2=
+0px;font-weight:bold;font-style:normal;padding:16px 28px;text-decoration:n=
+one;min-width:30px;text-align:center;direction:ltr;letter-spacing:0px">poi=
+nter.io</a></td></tr><tr><!--<![endif]--></tr><tr>
+<!--[if mso]>
+<td align=3D"center">
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml"
+xmlns:w=3D"urn:schemas-microsoft-com:office:word"
+href=3D"https://www.pointer.io/"
+style=3D"v-text-anchor:middle; width:180.41px; height:63.5px;"
+arcsize=3D"0%"
+strokecolor=3D"#3e4954"
+strokeweight=3D"1px"
+fillcolor=3D"#3e4954">
+<v:stroke dashstyle=3D"solid"/>
+<w:anchorlock />
+<center style=3D"
+color: #fabf80;
+display: block;
+font-family: 'Space Mono'=2C 'Courier'=2C Georgia=2C serif;
+font-size: 20;
+font-style: normal;
+font-weight: bold;
+letter-spacing: 0px;
+text-decoration: none;
+text-align: center;
+direction: ltr;"
+>
+pointer.io
+</center>
+</v:roundrect>
+</td>
+<![endif]-->
+</tr></tbody></table></td></tr><tr><td style=3D"padding-top:0;padding-bott=
+om:0;padding-right:0;padding-left:0" valign=3D"top"><table width=3D"100%"=
+ style=3D"border:0;border-collapse:separate"><tbody><tr><td style=3D"paddi=
+ng-left:20px;padding-right:20px;padding-top:10px;padding-bottom:10px" clas=
+s=3D"mceTextBlockContainer"><div data-block-id=3D"48" class=3D"mceText" id=
+=3D"dataBlockId-48" style=3D"width:100%"><p style=3D"text-align: center;">=
+<br /></p><p style=3D"text-align: center;" class=3D"last-child">Tuesday 4t=
+h June=E2=80=99s issue is presented by FusionAuth</p></div></td></tr></tbo=
+dy></table></td></tr><tr><td style=3D"background-color:#ffffff;padding-top=
+:15px;padding-bottom:15px;padding-right:15px;padding-left:15px" class=3D"m=
+ceBlockContainer" align=3D"center" valign=3D"top"><a href=3D"https://point=
+er.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dfff4=
+b6836b&e=3De993ec1b81" style=3D"display:block" target=3D"_blank" data-blo=
+ck-id=3D"47"><span class=3D"mceImageBorder" style=3D"border:0;border-radiu=
+s:0;vertical-align:top;margin:0"><img width=3D"247.99999999999997" height=
+=3D"auto" style=3D"width:247.99999999999997px;height:auto;max-width:1335px=
+ !important;border-radius:0;display:block" alt=3D"" src=3D"https://mcuserc=
+ontent.com/e9492ff27d760c578a39d0675/images/70228337-5a81-385e-0f1d-4a29ec=
+d12d7c.png" role=3D"presentation" class=3D"imageDropZone mceImage" /></spa=
+n></a></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-ri=
+ght:0;padding-left:0" valign=3D"top"><table width=3D"100%" style=3D"border=
+:0;border-collapse:separate"><tbody><tr><td style=3D"padding-left:20px;pad=
+ding-right:20px;padding-top:10px;padding-bottom:10px" class=3D"mceTextBloc=
+kContainer"><div data-block-id=3D"91" class=3D"mceText" id=3D"dataBlockId-=
+91" style=3D"width:100%"><p><a href=3D"https://pointer.us9.list-manage.com=
+/track/click?u=3De9492ff27d760c578a39d0675&id=3D2677917d2e&e=3De993ec1b81=
+" target=3D"_blank"><strong><span style=3D"font-size: 16px">Don=E2=80=99t=
+ Build Your Own Auth. Try FusionAuth Today.</span></strong></a></p><p><br=
+ /></p><p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De=
+9492ff27d760c578a39d0675&id=3Db8dabe3648&e=3De993ec1b81" target=3D"_blank=
+">FusionAuth</a> integrates with any tech stack and is deployable anywhere=
+ =E2=80=93 cloud=2C on-premise=2C or even the server running under your de=
+sk.=C2=A0</p><p><br /></p><p>You're less than five minutes from login / re=
+gistration=2C social logins=2C SSO=2C MFA=2C passwordless=2C user manageme=
+nt=2C passkeys=2C and much more.=C2=A0</p><p><br /></p><p class=3D"last-ch=
+ild">Join the <a href=3D"https://pointer.us9.list-manage.com/track/click?u=
+=3De9492ff27d760c578a39d0675&id=3D6c3837b5fb&e=3De993ec1b81" target=3D"_b=
+lank">thousands of developers</a> who trust <a href=3D"https://pointer.us9=
+=2Elist-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3De89560cd6a=
+&e=3De993ec1b81" target=3D"_blank">FusionAuth</a> for their identity need=
+s.</p></div></td></tr></tbody></table></td></tr><tr><td style=3D"padding-t=
+op:0;padding-bottom:0;padding-right:0;padding-left:0" valign=3D"top"><tabl=
+e width=3D"100%" style=3D"border:0;border-collapse:separate"><tbody><tr><t=
+d style=3D"padding-left:20px;padding-right:20px;padding-top:20px;padding-b=
+ottom:20px" class=3D"mceTextBlockContainer"><div data-block-id=3D"92" clas=
+s=3D"mceText" id=3D"dataBlockId-92" style=3D"width:100%"><p style=3D"text-=
+align: center;" class=3D"last-child"><a href=3D"https://pointer.us9.list-m=
+anage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dc58f480057&e=3De993ec1b81" target=3D"_blank"><strong><span style=3D"font-size: 20px">Start=
+ For Free Today</span></strong></a></p></div></td></tr></tbody></table></t=
+d></tr><tr><td style=3D"background-color:transparent;padding-top:5px;paddi=
+ng-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockConta=
+iner" valign=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" width=3D"100%" style=3D"background-color:transparent;w=
+idth:100%" role=3D"presentation" class=3D"mceDividerContainer" data-block-=
+id=3D"43"><tbody><tr><td style=3D"min-width:100%;border-top-width:2px;bord=
+er-top-style:solid;border-top-color:#000000" class=3D"mceDividerBlock" val=
+ign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"padding-t=
+op:0;padding-bottom:0;padding-right:0;padding-left:0" valign=3D"top"><tabl=
+e width=3D"100%" style=3D"border:0;border-collapse:separate"><tbody><tr><t=
+d style=3D"padding-left:20px;padding-right:20px;padding-top:20px;padding-b=
+ottom:20px" class=3D"mceTextBlockContainer"><div data-block-id=3D"116" cla=
+ss=3D"mceText" id=3D"dataBlockId-116" style=3D"width:100%"><p><a href=3D"h=
+ttps://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d06=
+75&id=3D36c1e5b369&e=3De993ec1b81" target=3D"_blank"><strong><span style=
+=3D"font-size: 20px">How To Build Engineering Strategy</span></strong></a>=
+</p><p>=E2=80=94 Mirek Stanek</p><p><br /></p><p><strong>tl;dr</strong>:=
+ =E2=80=9CIn this article=2C I will explore tools and techniques to help y=
+ou build a long-term engineering strategy. Some work best at the organizat=
+ional level=2C where Product and Technology collaborate on their challenge=
+s. Some can also be successfully applied at the team level and can inspire=
+ the rest of the organization from the bottom up.=E2=80=9D</p><p><br /></p=
+><p style=3D"text-align: right;" class=3D"last-child"><a href=3D"https://p=
+ointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D=
+25eb3f43d5&e=3De993ec1b81" target=3D"_blank"><em><span style=3D"font-size=
+: 12px">Leadership</span></em></a><em><span style=3D"font-size: 12px"> </s=
+pan></em><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9=
+492ff27d760c578a39d0675&id=3Dc953374b3a&e=3De993ec1b81" target=3D"_blank"=
+><em><span style=3D"font-size: 12px">Management</span></em></a></p></div><=
+/td></tr></tbody></table></td></tr><tr><td style=3D"background-color:trans=
+parent;padding-top:5px;padding-bottom:5px;padding-right:20px;padding-left:=
+20px" class=3D"mceBlockContainer" valign=3D"top"><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"ba=
+ckground-color:transparent;width:100%" role=3D"presentation" class=3D"mceD=
+ividerContainer" data-block-id=3D"139"><tbody><tr><td style=3D"min-width:1=
+00%;border-top-width:2px;border-top-style:solid;border-top-color:#3e4954"=
+ class=3D"mceDividerBlock" valign=3D"top"></td></tr></tbody></table></td><=
+/tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:0;paddin=
+g-left:0" valign=3D"top"><table width=3D"100%" style=3D"border:0;border-co=
+llapse:separate"><tbody><tr><td style=3D"padding-left:20px;padding-right:2=
+0px;padding-top:20px;padding-bottom:20px" class=3D"mceTextBlockContainer">=
+<div data-block-id=3D"138" class=3D"mceText" id=3D"dataBlockId-138" style=
+=3D"width:100%"><p><a href=3D"https://pointer.us9.list-manage.com/track/cl=
+ick?u=3De9492ff27d760c578a39d0675&id=3D877e204406&e=3De993ec1b81" target=
+=3D"_blank"><strong><span style=3D"font-size: 20px">Communication Structur=
+es</span></strong></a></p><p>=E2=80=94 Kevin Yien</p><p><br /></p><p><stro=
+ng>tl;dr</strong>: =E2=80=9CEvery company has=2C or develops=2C a hierarch=
+ical reporting structure over time. It's normal. A common mistake I see is=
+ allowing the communication structure to mirror the reporting structure.=
+=E2=80=9D Kevin explains why.=C2=A0</p><p><br /></p><p style=3D"text-align=
+: right;" class=3D"last-child"><a href=3D"https://pointer.us9.list-manage.=
+com/track/click?u=3De9492ff27d760c578a39d0675&id=3D439b3da11c&e=3De993ec1b81" target=3D"_blank"><em><span style=3D"font-size: 12px">Leadership</spa=
+n></em></a><em><span style=3D"font-size: 12px"> </span></em><a href=3D"htt=
+ps://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675=
+&id=3D32cdb11a16&e=3De993ec1b81" target=3D"_blank"><em><span style=3D"fon=
+t-size: 12px">Management</span></em></a></p></div></td></tr></tbody></tabl=
+e></td></tr><tr><td style=3D"background-color:transparent;padding-top:5px;=
+padding-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mceBlock=
+Container" valign=3D"top"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:transpar=
+ent;width:100%" role=3D"presentation" class=3D"mceDividerContainer" data-b=
+lock-id=3D"126"><tbody><tr><td style=3D"min-width:100%;border-top-width:2p=
+x;border-top-style:solid;border-top-color:#3e4954" class=3D"mceDividerBloc=
+k" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"pad=
+ding-top:0;padding-bottom:0;padding-right:0;padding-left:0" valign=3D"top"=
+><table width=3D"100%" style=3D"border:0;border-collapse:separate"><tbody>=
+<tr><td style=3D"padding-left:20px;padding-right:20px;padding-top:20px;pad=
+ding-bottom:20px" class=3D"mceTextBlockContainer"><div data-block-id=3D"14=
+1" class=3D"mceText" id=3D"dataBlockId-141" style=3D"width:100%"><p><a hre=
+f=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578=
+a39d0675&id=3D07b0018f56&e=3De993ec1b81" target=3D"_blank"><strong><span=
+ style=3D"font-size: 20px">How to Avoid Breached Passwords</span></strong>=
+</a></p><p><br /></p><p><strong>tl;dr</strong>: Cyber attackers have many=
+ ways to infiltrate your systems. Proper password protocols could help=2C=
+ but ensuring users follow them is difficult. Breaches can lead to costly=
+ lawsuits and damage reputations. Compromised passwords can also be reused=
+ to access user accounts. This tech paper explores the issue=2C offers sol=
+utions=2C and provides strategies to protect users and organizations.</p><=
+p><br /></p><p><em>Promoted by FusionAuth</em></p><p style=3D"text-align:=
+ right;" class=3D"last-child"><a href=3D"https://pointer.us9.list-manage.c=
+om/track/click?u=3De9492ff27d760c578a39d0675&id=3Da5b1ccfd09&e=3De993ec1b81" target=3D"_blank"><em><span style=3D"font-size: 12px">Management</span=
+></em></a><em><span style=3D"font-size: 12px"> </span></em><a href=3D"http=
+s://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&=
+id=3Dbb6822f993&e=3De993ec1b81" target=3D"_blank"><em><span style=3D"font=
+-size: 12px">Security</span></em></a></p></div></td></tr></tbody></table><=
+/td></tr><tr><td style=3D"background-color:transparent;padding-top:5px;pad=
+ding-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockCon=
+tainer" valign=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:transparent=
+;width:100%" role=3D"presentation" class=3D"mceDividerContainer" data-bloc=
+k-id=3D"99"><tbody><tr><td style=3D"min-width:100%;border-top-width:2px;bo=
+rder-top-style:solid;border-top-color:#3e4954" class=3D"mceDividerBlock" v=
+align=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"padding=
+-top:0;padding-bottom:0;padding-right:0;padding-left:0" valign=3D"top"><ta=
+ble width=3D"100%" style=3D"border:0;border-collapse:separate"><tbody><tr>=
+<td style=3D"padding-left:20px;padding-right:20px;padding-top:20px;padding=
+-bottom:20px" class=3D"mceTextBlockContainer"><div data-block-id=3D"145" c=
+lass=3D"mceText" id=3D"dataBlockId-145" style=3D"width:100%"><p><a href=3D=
+"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d=
+0675&id=3Dd10513d41b&e=3De993ec1b81" target=3D"_blank"><strong><span styl=
+e=3D"font-size: 20px">How To Test</span></strong></a></p><p>=E2=80=94 Alex=
+ Kladov</p><p><br /><strong>tl;dr</strong>:=C2=A0=E2=80=9CThis post descri=
+bes my current approach to testing. When I started programming professiona=
+lly=2C I knew how to write good code=2C but good tests remained a mystery=
+ for a long time. This is not due to the lack of advice =E2=80=94 on the c=
+ontrary=2C there=E2=80=99s abundance of information &amp; terminology abou=
+t testing.=E2=80=9D</p><p><br /></p><p style=3D"text-align: right;" class=
+=3D"last-child"><a href=3D"https://pointer.us9.list-manage.com/track/click=
+?u=3De9492ff27d760c578a39d0675&id=3D1ef012a909&e=3De993ec1b81" target=3D"=
+_blank"><em><span style=3D"font-size: 12px">Tests</span></em></a></p></div=
+></td></tr></tbody></table></td></tr><tr><td style=3D"background-color:tra=
+nsparent;padding-top:5px;padding-bottom:5px;padding-right:20px;padding-lef=
+t:20px" class=3D"mceBlockContainer" valign=3D"top"><table align=3D"center"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"=
+background-color:transparent;width:100%" role=3D"presentation" class=3D"mc=
+eDividerContainer" data-block-id=3D"103"><tbody><tr><td style=3D"min-width=
+:100%;border-top-width:2px;border-top-style:solid;border-top-color:#3e4954=
+" class=3D"mceDividerBlock" valign=3D"top"></td></tr></tbody></table></td>=
+</tr><tr><td style=3D"background-color:transparent;padding-top:0;padding-b=
+ottom:0;padding-right:0;padding-left:0" class=3D"mceBlockContainer" valign=
+=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%" style=3D"background-color:transparent;width:100%" r=
+ole=3D"presentation" class=3D"mceDividerContainer" data-block-id=3D"63"><t=
+body><tr><td style=3D"min-width:100%;border-top-width:20px;border-top-styl=
+e:solid;border-top-color:transparent" class=3D"mceDividerBlock" valign=3D"=
+top"></td></tr></tbody></table></td></tr><tr><td style=3D"padding-top:0;pa=
+dding-bottom:0;padding-right:0;padding-left:0" valign=3D"top"><table width=
+=3D"100%" style=3D"border:0;background-color:#3e4954;border-collapse:separ=
+ate"><tbody><tr><td style=3D"padding-left:20px;padding-right:20px;padding-=
+top:20px;padding-bottom:20px" class=3D"mceTextBlockContainer"><div data-bl=
+ock-id=3D"62" class=3D"mceText" id=3D"dataBlockId-62" style=3D"width:100%"=
+><p style=3D"text-align: center;"><br /></p><p style=3D"text-align: center=
+;"><em><strong><span style=3D"color:#ffffff;">=E2=80=9CDon=E2=80=99t find=
+ fault=2C find a remedy.=E2=80=9D</span></strong></em></p><p style=3D"text=
+-align: center;"><br /></p><p style=3D"text-align: center;"><strong><span=
+ style=3D"color:#ffffff;">=E2=80=94 Henry Ford</span></strong></p><p class=
+=3D"last-child"><br /></p></div></td></tr></tbody></table></td></tr><tr><t=
+d style=3D"background-color:transparent;padding-top:0;padding-bottom:0;pad=
+ding-right:0;padding-left:0" class=3D"mceBlockContainer" valign=3D"top"><t=
+able align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%" style=3D"background-color:transparent;width:100%" role=3D"pres=
+entation" class=3D"mceDividerContainer" data-block-id=3D"64"><tbody><tr><t=
+d style=3D"min-width:100%;border-top-width:20px;border-top-style:solid;bor=
+der-top-color:transparent" class=3D"mceDividerBlock" valign=3D"top"></td><=
+/tr></tbody></table></td></tr><tr><td style=3D"background-color:transparen=
+t;padding-top:5px;padding-bottom:5px;padding-right:20px;padding-left:20px"=
+ class=3D"mceBlockContainer" valign=3D"top"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"backgro=
+und-color:transparent;width:100%" role=3D"presentation" class=3D"mceDivide=
+rContainer" data-block-id=3D"117"><tbody><tr><td style=3D"min-width:100%;b=
+order-top-width:2px;border-top-style:solid;border-top-color:#3e4954" class=
+=3D"mceDividerBlock" valign=3D"top"></td></tr></tbody></table></td></tr><t=
+r><td style=3D"padding-top:0;padding-bottom:0;padding-right:0;padding-left=
+:0" valign=3D"top"><table width=3D"100%" style=3D"border:0;border-collapse=
+:separate"><tbody><tr><td style=3D"padding-left:20px;padding-right:20px;pa=
+dding-top:20px;padding-bottom:20px" class=3D"mceTextBlockContainer"><div d=
+ata-block-id=3D"119" class=3D"mceText" id=3D"dataBlockId-119" style=3D"wid=
+th:100%"><p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=
+=3De9492ff27d760c578a39d0675&id=3D75ed0e0988&e=3De993ec1b81" target=3D"_b=
+lank"><strong><span style=3D"font-size: 20px">CLI Tricks Every Developer S=
+hould Know</span></strong></a></p><p>=E2=80=94 Kedasha Kerr</p><p><br /></=
+p><p><strong>tl;dr</strong>: =E2=80=9CWe=E2=80=99ve compiled some importan=
+t tricks and commands that every developer should know from GitHub=E2=80=
+=99s own engineers. By mastering these basic techniques=2C developers can=
+ become more efficient at working with the command line and gain a deeper=
+ understanding of how the underlying operating system and programs work.=
+=E2=80=9D</p><p style=3D"text-align: right;"><br /></p><p style=3D"text-al=
+ign: right;" class=3D"last-child"><a href=3D"https://pointer.us9.list-mana=
+ge.com/track/click?u=3De9492ff27d760c578a39d0675&id=3D6ed0f4d97b&e=3De993ec1b81" target=3D"_blank"><em><span style=3D"font-size: 12px">CommandLine<=
+/span></em></a><em><span style=3D"font-size: 12px"> </span></em><a href=3D=
+"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d=
+0675&id=3D384e2692f0&e=3De993ec1b81" target=3D"_blank"><em><span style=3D=
+"font-size: 12px">Tips</span></em></a></p></div></td></tr></tbody></table>=
+</td></tr><tr><td style=3D"background-color:transparent;padding-top:5px;pa=
+dding-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mceBlockCo=
+ntainer" valign=3D"top"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:transpar=
+ent;width:100%" role=3D"presentation" class=3D"mceDividerContainer" data-b=
+lock-id=3D"144"><tbody><tr><td style=3D"min-width:100%;border-top-width:2p=
+x;border-top-style:solid;border-top-color:#3e4954" class=3D"mceDividerBloc=
+k" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"pad=
+ding-top:0;padding-bottom:0;padding-right:0;padding-left:0" valign=3D"top"=
+><table width=3D"100%" style=3D"border:0;border-collapse:separate"><tbody>=
+<tr><td style=3D"padding-left:20px;padding-right:20px;padding-top:20px;pad=
+ding-bottom:20px" class=3D"mceTextBlockContainer"><div data-block-id=3D"76=
+" class=3D"mceText" id=3D"dataBlockId-76" style=3D"width:100%"><p><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3D42a3faaec2&e=3De993ec1b81" target=3D"_blank"><strong><span s=
+tyle=3D"font-size: 20px">What Powersync Open Edition Means For Local-First=
+</span></strong></a></p><p>=E2=80=94 Conrad Hofmeyr</p><p><br /><strong>tl=
+;dr</strong>:=C2=A0Local-first app architecture promises instant=2C collab=
+orative UX and full offline support =E2=80=94 but tooling has been proprie=
+tary or immature. The release of PowerSync Open Edition opens access to a=
+ mature sync layer that solves local-first complexities.</p><p><br /></p><=
+p><em>Promoted by PowerSync</em></p><p style=3D"text-align: right;" class=
+=3D"last-child"><a href=3D"https://pointer.us9.list-manage.com/track/click=
+?u=3De9492ff27d760c578a39d0675&id=3D081eff9d94&e=3De993ec1b81" target=3D"=
+_blank"><em><span style=3D"font-size: 12px">Architecture</span></em></a></=
+p></div></td></tr></tbody></table></td></tr><tr><td style=3D"background-co=
+lor:transparent;padding-top:5px;padding-bottom:5px;padding-right:20px;padd=
+ing-left:20px" class=3D"mceBlockContainer" valign=3D"top"><table align=3D"=
+center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" st=
+yle=3D"background-color:transparent;width:100%" role=3D"presentation" clas=
+s=3D"mceDividerContainer" data-block-id=3D"136"><tbody><tr><td style=3D"mi=
+n-width:100%;border-top-width:2px;border-top-style:solid;border-top-color:=
+#3e4954" class=3D"mceDividerBlock" valign=3D"top"></td></tr></tbody></tabl=
+e></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:=
+0;padding-left:0" valign=3D"top"><table width=3D"100%" style=3D"border:0;b=
+order-collapse:separate"><tbody><tr><td style=3D"padding-left:12px;padding=
+-right:12px;padding-top:12px;padding-bottom:12px" class=3D"mceTextBlockCon=
+tainer"><div data-block-id=3D"109" class=3D"mceText" id=3D"dataBlockId-109=
+" style=3D"width:100%"><p><a href=3D"https://pointer.us9.list-manage.com/t=
+rack/click?u=3De9492ff27d760c578a39d0675&id=3D129cd8526e&e=3De993ec1b81"=
+ target=3D"_blank"><strong><span style=3D"font-size: 20px">Status Games</s=
+pan></strong></a></p><p>=E2=80=94 Phil Booth</p><p><br /><strong>tl;dr</st=
+rong>: =E2=80=9CHere are some ways that I've seen engineers pathologically=
+ try to elevate their own status: (1) Build a new thing that doesn't need=
+ to exist. (2) Build a thing using different technology that the rest of t=
+he team are unfamiliar with. (3) Rewrite from scratch something that was a=
+lready working fine. (4) Work on easy changes that touch many lines of cod=
+e but don't impact the business. (5) Claim to be working on big and/or com=
+plicated changes=2C which nobody else has visibility of.=E2=80=9D Phil dis=
+cusses how=C2=A0to defuse these games early before they escalate.=C2=A0</p=
+><p><br /></p><p style=3D"text-align: right;" class=3D"last-child"><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3D7665095b5c&e=3De993ec1b81" target=3D"_blank"><em><span style=
+=3D"font-size: 12px">Antipattern</span></em></a></p></div></td></tr></tbod=
+y></table></td></tr><tr><td style=3D"background-color:transparent;padding-=
+top:5px;padding-bottom:5px;padding-right:20px;padding-left:20px" class=3D"=
+mceBlockContainer" valign=3D"top"><table align=3D"center" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:=
+transparent;width:100%" role=3D"presentation" class=3D"mceDividerContainer=
+" data-block-id=3D"156"><tbody><tr><td style=3D"min-width:100%;border-top-=
+width:2px;border-top-style:solid;border-top-color:#3e4954" class=3D"mceDiv=
+iderBlock" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td styl=
+e=3D"padding-top:0;padding-bottom:0;padding-right:0;padding-left:0" valign=
+=3D"top"><table width=3D"100%" style=3D"border:0;border-collapse:separate"=
+><tbody><tr><td style=3D"padding-left:20px;padding-right:20px;padding-top:=
+20px;padding-bottom:20px" class=3D"mceTextBlockContainer"><div data-block-=
+id=3D"167" class=3D"mceText" id=3D"dataBlockId-167" style=3D"width:100%"><=
+p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27=
+d760c578a39d0675&id=3Da082b6266a&e=3De993ec1b81" target=3D"_blank"><stron=
+g><span style=3D"font-size: 20px">What We=E2=80=99ve Learned From A Year o=
+f Building With LLMs</span></strong></a></p><p><br /><strong>tl;dr</strong=
+>: =E2=80=9CWe=E2=80=99ve spent the past year building=2C and have discove=
+red many sharp edges along the way. While we don=E2=80=99t claim to speak=
+ for the entire industry=2C we=E2=80=99d like to share what we=E2=80=99ve=
+ learned to help you avoid our mistakes and iterate faster. These are orga=
+nized into three sections: tactical=2C operational and strategic.=E2=80=9D=
+</p><p><br /></p><p style=3D"text-align: right;" class=3D"last-child"><a h=
+ref=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c5=
+78a39d0675&id=3Dc4d39bd4c1&e=3De993ec1b81" target=3D"_blank"><em><span st=
+yle=3D"font-size: 12px">LLM</span></em></a></p></div></td></tr></tbody></t=
+able></td></tr><tr><td style=3D"background-color:transparent;padding-top:5=
+px;padding-bottom:5px;padding-right:20px;padding-left:20px" class=3D"mceBl=
+ockContainer" valign=3D"top"><table align=3D"center" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"background-color:trans=
+parent;width:100%" role=3D"presentation" class=3D"mceDividerContainer" dat=
+a-block-id=3D"173"><tbody><tr><td style=3D"min-width:100%;border-top-width=
+:2px;border-top-style:solid;border-top-color:#3e4954" class=3D"mceDividerB=
+lock" valign=3D"top"></td></tr></tbody></table></td></tr><tr><td style=3D"=
+padding-top:0;padding-bottom:0;padding-right:0;padding-left:0" valign=3D"t=
+op"><table width=3D"100%" style=3D"border:0;border-collapse:separate"><tbo=
+dy><tr><td style=3D"padding-left:20px;padding-right:20px;padding-top:20px;=
+padding-bottom:20px" class=3D"mceTextBlockContainer"><div data-block-id=3D=
+"172" class=3D"mceText" id=3D"dataBlockId-172" style=3D"width:100%"><p><a=
+ href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760=
+c578a39d0675&id=3D8f903cdad8&e=3De993ec1b81" target=3D"_blank"><strong><s=
+pan style=3D"font-size: 20px">A Virtual DOM In 200 Lines Of JavaScript</sp=
+an></strong></a></p><p>=E2=80=94 Marcelo Lazaroni</p><p><br /><strong>tl;d=
+r</strong>: =E2=80=9CIn this post I=E2=80=99ll walk through the full imple=
+mentation of a Virtual DOM in a bit over 200 lines of JavaScript. The resu=
+lt is a full-featured and sufficiently performant virtual DOM library. The=
+ main goal is to illustrate the fundamental technique behind tools like Re=
+act.=E2=80=9D</p><p><br /></p><p style=3D"text-align: right;" class=3D"las=
+t-child"><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9=
+492ff27d760c578a39d0675&id=3De9ccf91a81&e=3De993ec1b81" target=3D"_blank"=
+><em><span style=3D"font-size: 12px">JavaScript</span></em></a></p></div><=
+/td></tr></tbody></table></td></tr><tr><td style=3D"background-color:trans=
+parent;padding-top:5px;padding-bottom:5px;padding-right:20px;padding-left:=
+20px" class=3D"mceBlockContainer" valign=3D"top"><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"ba=
+ckground-color:transparent;width:100%" role=3D"presentation" class=3D"mceD=
+ividerContainer" data-block-id=3D"171"><tbody><tr><td style=3D"min-width:1=
+00%;border-top-width:2px;border-top-style:solid;border-top-color:#3e4954"=
+ class=3D"mceDividerBlock" valign=3D"top"></td></tr></tbody></table></td><=
+/tr><tr><td style=3D"padding-top:0;padding-bottom:0;padding-right:0;paddin=
+g-left:0" valign=3D"top"><table width=3D"100%" style=3D"border:0;backgroun=
+d-color:#3e4954;border-collapse:separate"><tbody><tr><td style=3D"padding-=
+left:0;padding-right:0;padding-top:20px;padding-bottom:20px" class=3D"mceT=
+extBlockContainer"><div data-block-id=3D"169" class=3D"mceText" id=3D"data=
+BlockId-169" style=3D"width:100%"><p style=3D"text-align: center;" class=
+=3D"last-child"><strong><span style=3D"color:#ffffff;"><span style=3D"font=
+-size: 16px"><span style=3D"font-family: 'Space Mono'=2C 'Courier'=2C Geor=
+gia=2C serif">Most Popular From Last Issue</span></span></span></strong></=
+p></div></td></tr></tbody></table></td></tr><tr><td style=3D"padding-top:0=
+;padding-bottom:0;padding-right:0;padding-left:0" valign=3D"top"><table wi=
+dth=3D"100%" style=3D"border:0;border-collapse:separate"><tbody><tr><td st=
+yle=3D"padding-left:20px;padding-right:20px;padding-top:0;padding-bottom:0=
+" class=3D"mceTextBlockContainer"><div data-block-id=3D"160" class=3D"mceT=
+ext" id=3D"dataBlockId-160" style=3D"width:100%"><p><br /></p><p><a href=
+=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c578a=
+39d0675&id=3D28c98b83c3&e=3De993ec1b81" target=3D"_blank"><strong>Databas=
+e Design For Google Calendar: A Tutorial</strong></a><strong> </strong>=E2=
+=80=94 Alexey Makhotkin</p><p class=3D"last-child"> </p></div></td></tr></=
+tbody></table></td></tr><tr><td style=3D"padding-top:0;padding-bottom:0;pa=
+dding-right:0;padding-left:0" valign=3D"top"><table width=3D"100%" style=
+=3D"border:0;background-color:#3e4954;border-collapse:separate"><tbody><tr=
+><td style=3D"padding-left:0;padding-right:0;padding-top:20px;padding-bott=
+om:20px" class=3D"mceTextBlockContainer"><div data-block-id=3D"159" class=
+=3D"mceText" id=3D"dataBlockId-159" style=3D"width:100%"><p style=3D"text-=
+align: center;" class=3D"last-child"><strong><span style=3D"color:#ffffff;=
+"><span style=3D"font-size: 16px"><span style=3D"font-family: 'Space Mono'=
+=2C 'Courier'=2C Georgia=2C serif">Notable Links</span></span></span></str=
+ong></p></div></td></tr></tbody></table></td></tr><tr><td style=3D"padding=
+-top:0;padding-bottom:0;padding-right:0;padding-left:0" valign=3D"top"><ta=
+ble width=3D"100%" style=3D"border:0;border-collapse:separate"><tbody><tr>=
+<td style=3D"padding-left:20px;padding-right:20px;padding-top:0;padding-bo=
+ttom:0" class=3D"mceTextBlockContainer"><div data-block-id=3D"98" class=3D=
+"mceText" id=3D"dataBlockId-98" style=3D"width:100%"><p><br /></p><p><a hr=
+ef=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff27d760c57=
+8a39d0675&id=3Db8f23a7962&e=3De993ec1b81" target=3D"_blank"><strong>ChatT=
+TS</strong></a><strong>: </strong>Generative speech model for daily dialog=
+ue.</p><p><br /></p><p><a href=3D"https://pointer.us9.list-manage.com/trac=
+k/click?u=3De9492ff27d760c578a39d0675&id=3D39a43fe4ec&e=3De993ec1b81" tar=
+get=3D"_blank"><strong>Dataherald</strong></a><strong>: </strong>Natural l=
+anguage-to-SQL engine.</p><p><br /></p><p><a href=3D"https://pointer.us9.l=
+ist-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dd4037e52ac&e=
+=3De993ec1b81" target=3D"_blank"><strong>Marker</strong></a><strong>: </s=
+trong>Convert PDF to markdown. </p><p><br /></p><p><a href=3D"https://poin=
+ter.us9.list-manage.com/track/click?u=3De9492ff27d760c578a39d0675&id=3Dc5a=
+67c095c&e=3De993ec1b81" target=3D"_blank"><strong>Sandbox</strong></a><st=
+rong>: </strong>OS cloud-based code editing environment. </p><p><br /></p>=
+<p><a href=3D"https://pointer.us9.list-manage.com/track/click?u=3De9492ff2=
+7d760c578a39d0675&id=3D9eb9e077ce&e=3De993ec1b81" target=3D"_blank"><stro=
+ng>WebX</strong></a><strong>: </strong>An alternative to the world wide we=
+b.</p><p class=3D"last-child"><br /></p></div></td></tr></tbody></table></=
+td></tr><tr><td style=3D"background-color:#3e4954;padding-top:0;padding-bo=
+ttom:0;padding-right:0;padding-left:0" class=3D"mceBlockContainer" valign=
+=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%" style=3D"background-color:#3e4954;width:100%" role=
+=3D"presentation" class=3D"mceDividerContainer" data-block-id=3D"53"><tbod=
+y><tr><td style=3D"min-width:100%;border-top-width:20px;border-top-style:s=
+olid;border-top-color:transparent" class=3D"mceDividerBlock" valign=3D"top=
+"></td></tr></tbody></table></td></tr><tr><td style=3D"padding-top:0;paddi=
+ng-bottom:0;padding-right:0;padding-left:0" valign=3D"top"><table width=3D=
+"100%" style=3D"border:0;border-collapse:separate"><tbody><tr><td style=3D=
+"padding-left:20px;padding-right:20px;padding-top:20px;padding-bottom:20px=
+" class=3D"mceTextBlockContainer"><div data-block-id=3D"89" class=3D"mceTe=
+xt" id=3D"dataBlockId-89" style=3D"width:100%"><p style=3D"text-align: cen=
+ter;">Click the below and shoot me an email!</p><p style=3D"text-align: ce=
+nter;"><br />1 =3D Didn't enjoy it all // 5 =3D Really enjoyed it</p><p st=
+yle=3D"text-align: center;"><br /></p><p style=3D"text-align: center;" cla=
+ss=3D"last-child"><a href=3D"mailto:suraj@pointer.io?subject=3DIssue%20%23=
+518%20-%20Score%3A%201&body=3DHere's%20why%3A" target=3D"_blank"><strong>1=
+</strong></a><strong> =E2=80=A6 </strong><a href=3D"mailto:suraj@pointer.i=
+o?subject=3DIssue%20%23518%20-%20Score%3A%202&body=3DHere's%20why%3A" targ=
+et=3D"_blank"><strong>2</strong></a><strong> =E2=80=A6 </strong><a href=3D=
+"mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-%20Score%3A%203&body=
+=3DHere's%20why%3A" target=3D"_blank"><strong>3</strong></a><strong> =E2=
+=80=A6 </strong><a href=3D"mailto:suraj@pointer.io?subject=3DIssue%20%2351=
+8%20-%20Score%3A%204&body=3DHere's%20Why%3A" target=3D"_blank"><strong>4</=
+strong></a><strong> =E2=80=A6 </strong><a href=3D"mailto:suraj@pointer.io?=
+subject=3DIssue%20%23518%20-%20Score%3A%205&body=3DHere's%20Why%3A" target=
+=3D"_blank"><strong>5</strong></a></p></div></td></tr></tbody></table></td=
+></tr><tr><td style=3D"background-color:#3e4954;padding-top:0;padding-bott=
+om:0;padding-right:0;padding-left:0" class=3D"mceBlockContainer" valign=3D=
+"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"background-color:#3e4954;width:100%" role=
+=3D"presentation" class=3D"mceDividerContainer" data-block-id=3D"90"><tbod=
+y><tr><td style=3D"min-width:100%;border-top-width:20px;border-top-style:s=
+olid;border-top-color:transparent" class=3D"mceDividerBlock" valign=3D"top=
+"></td></tr></tbody></table></td></tr><tr><td style=3D"padding-top:0;paddi=
+ng-bottom:0;padding-right:0;padding-left:0" class=3D"mceLayoutContainer" v=
+align=3D"top"><table align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" role=3D"presentation" data-block-id=3D"11" id=
+=3D"section_7fbdb71b25446f906fe271d34f0d7eac" class=3D"mceFooterSection"><=
+tbody><tr class=3D"mceRow"><td style=3D"background-position:center;backgro=
+und-repeat:no-repeat;background-size:cover" valign=3D"top"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"12" width=3D"100%" role=3D"present=
+ation"><tbody><tr><td style=3D"padding-top:0;padding-bottom:0;margin-botto=
+m:12px" class=3D"mceColumn" data-block-id=3D"-3" valign=3D"top" colspan=3D=
+"12" width=3D"100%"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" role=3D"presentation"><tbody><tr><td style=3D"padding-top=
+:0;padding-bottom:0;padding-right:0;padding-left:0" align=3D"center" valig=
+n=3D"top"><table width=3D"100%" style=3D"border:0;border-collapse:separate=
+"><tbody><tr><td style=3D"padding-left:20px;padding-right:20px;padding-top=
+:20px;padding-bottom:20px" class=3D"mceTextBlockContainer"><div data-block=
+-id=3D"9" class=3D"mceText" id=3D"dataBlockId-9" style=3D"display:inline-b=
+lock;width:100%"><p class=3D"last-child"><span style=3D"font-size: 12px"><=
+span style=3D"font-family: 'Space Mono'=2C 'Courier'=2C Georgia=2C serif">=
+Pointer is emailed twice a week on Tuesdays and Fridays @ 9am EST.<br /><b=
+r /></span></span><a href=3D"https://pointer.us9.list-manage.com/unsubscri=
+be?u=3De9492ff27d760c578a39d0675&id=3D6ba2b83261&t=3Db&e=3De993ec1b81&c=3D03=
+89a77444"><span style=3D"text-decoration:underline;"><span style=3D"font-s=
+ize: 12px"><span style=3D"font-family: 'Space Mono'=2C 'Courier'=2C Georgi=
+a=2C serif">Unsubscribe</span></span></span></a><span style=3D"font-size:=
+ 12px"><span style=3D"font-family: 'Space Mono'=2C 'Courier'=2C Georgia=2C=
+ serif"> // </span></span><a href=3D"https://pointer.us9.list-manage.com/t=
+rack/click?u=3De9492ff27d760c578a39d0675&id=3D18a251835d&e=3De993ec1b81"=
+ target=3D"_blank"><span style=3D"text-decoration:underline;"><span style=
+=3D"font-size: 12px"><span style=3D"font-family: 'Space Mono'=2C 'Courier'=
+=2C Georgia=2C serif">Sponsorship</span></span></span></a><span style=3D"c=
+olor:rgb(32=2C 32=2C 32);"><span style=3D"text-decoration:underline;"><spa=
+n style=3D"font-size: 12px"><span><br /></span></span></span></span></p></=
+div></td></tr></tbody></table></td></tr><tr><td class=3D"mceLayoutContaine=
+r" align=3D"center" valign=3D"top"><table align=3D"center" border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" role=3D"presentation" dat=
+a-block-id=3D"-2"><tbody><tr class=3D"mceRow"><td style=3D"background-posi=
+tion:center;background-repeat:no-repeat;background-size:cover;padding-top:=
+0px;padding-bottom:0px" valign=3D"top"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"24" width=3D"100%" role=3D"presentation"><tbody></tbody>=
+</table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tb=
+ody></table></td></tr></tbody></table></td></tr><tr><td style=3D"backgroun=
+d-color:transparent;padding-top:0;padding-bottom:0;padding-right:20px;padd=
+ing-left:20px" class=3D"mceBlockContainer" valign=3D"top"><table align=3D"=
+center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" st=
+yle=3D"background-color:transparent;width:100%" role=3D"presentation" clas=
+s=3D"mceDividerContainer" data-block-id=3D"75"><tbody><tr><td style=3D"min=
+-width:100%;border-top-width:2px;border-top-style:dotted;border-top-color:=
+#000000" class=3D"mceDividerBlock" valign=3D"top"></td></tr></tbody></tabl=
+e></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></=
+table></td></tr></tbody></table><!--[if (gte mso 9)|(IE)]></td></tr></tab=
+le><![endif]--></td></tr></tbody></table>
+</td>
+</tr>
+</tbody></table>
+</center>
+<img src=3D"https://pointer.us9.list-manage.com/track/open.php?u=3De9492ff=
+27d760c578a39d0675&id=3D0389a77444&e=3De993ec1b81" height=3D"1" width=3D"=
+1" alt=3D""></body></html>
+--_----------=_MCPart_1901249107--

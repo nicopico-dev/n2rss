@@ -140,5 +140,40 @@ class PointerNewsletterHandlerTest {
                 }
             }
         }
+
+        @Test
+        fun `should extract all articles from email #520`() {
+            // GIVEN
+            val email: Email = loadEmail("stubs/emails/Pointer/Issue #520.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            assertSoftly(publication) {
+                withClue("title") {
+                    title shouldBe "Issue #520"
+                }
+                withClue("date") {
+                    date shouldHaveSameDayAs (email.date)
+                }
+                withClue("newsletter") {
+                    newsletter.name shouldBe "Pointer"
+                }
+            }
+
+            publication.articles.map { it.title } shouldBe listOf(
+                "SPONSOR - FusionAuth: Don’t Build Your Own Auth. Try FusionAuth Today.",
+                "How To Build Engineering Strategy",
+                "Communication Structures",
+                "How to Avoid Breached Passwords",
+                "How To Test",
+                "CLI Tricks Every Developer Should Know",
+                "What Powersync Open Edition Means For Local-First",
+                "Status Games",
+                "What We’ve Learned From A Year of Building With LLMs",
+                "A Virtual DOM In 200 Lines Of JavaScript",
+            )
+        }
     }
 }
