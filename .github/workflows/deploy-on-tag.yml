@@ -38,6 +38,7 @@ jobs:
           server-dir: ${{ vars.FTP_DIR }}
           local-dir: ./deploy/
   restart-server:
+    if: false
     needs: deploy
     runs-on: ubuntu-latest
     steps:
