@@ -94,7 +94,7 @@ dependencies {
         exclude(group = "org.mockito")
     }
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.2")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:5.9.0")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:5.9.1")
     testImplementation("io.kotest.extensions:kotest-assertions-kotlinx-datetime:1.1.0")
     testImplementation("io.mockk:mockk:1.13.11")
     testImplementation("com.icegreen:greenmail:2.0.1")
