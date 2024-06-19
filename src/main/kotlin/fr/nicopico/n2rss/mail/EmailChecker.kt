@@ -17,12 +17,14 @@
  */
 package fr.nicopico.n2rss.mail
 
+import fr.nicopico.n2rss.config.NewsletterConfiguration
 import fr.nicopico.n2rss.data.PublicationRepository
 import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
 import fr.nicopico.n2rss.models.Email
 import jakarta.annotation.PostConstruct
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.scheduling.TaskScheduler
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
@@ -33,6 +35,7 @@ private val LOG = LoggerFactory.getLogger(EmailChecker::class.java)
 @Component
 class EmailChecker(
     private val emailClient: EmailClient,
+    @Qualifier(NewsletterConfiguration.ENABLED_NEWSLETTER_HANDLERS)
     private val newsletterHandlers: List<NewsletterHandler>,
     private val publicationRepository: PublicationRepository,
     private val taskScheduler: TaskScheduler,

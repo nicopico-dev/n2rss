@@ -18,18 +18,35 @@
 package fr.nicopico.n2rss.config
 
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.service.ReCaptchaService
+import org.slf4j.LoggerFactory
 import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
+private val LOG = LoggerFactory.getLogger(NewsletterConfiguration::class.java)
+
 @Configuration
 class NewsletterConfiguration(
     private val applicationContext: ApplicationContext,
+    private val feedsProperties: N2RssProperties.FeedsProperties,
 ) {
-    @Bean
+    @Bean(ENABLED_NEWSLETTER_HANDLERS)
     fun newsletterHandlers(): List<NewsletterHandler> {
+        val disabledNewsletters = feedsProperties.disabledNewsletters
+
+        LOG.warn("Disabled newsletters: {}", disabledNewsletters)
+
         return applicationContext
             .getBeansOfType(NewsletterHandler::class.java)
-            .values.toList()
+            .values
+            .filterNot {
+                it.newsletter.code in disabledNewsletters
+            }
+            .toList()
+    }
+
+    companion object {
+        const val ENABLED_NEWSLETTER_HANDLERS = "enabled_newsletter_handlers"
     }
 }
