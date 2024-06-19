@@ -164,6 +164,8 @@ This project needs access to an email account and a MongoDB database to run.
    N2RSS_EMAIL_PASSWORD=<password for the email account>
    N2RSS_EMAIL_PORT=993
    
+   N2RSS_DISABLED_NEWSLETTERS=<code of disabled newsletters>
+   
    N2RSS_MONGODB_HOST=<host of the mongodb database>
    N2RSS_MONGODB_USERNAME=<username for the mongodb database>
    N2RSS_MONGODB_PASSWORD=<password for the mongodb database>

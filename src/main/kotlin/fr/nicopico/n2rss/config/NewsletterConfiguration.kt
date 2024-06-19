@@ -35,7 +35,9 @@ class NewsletterConfiguration(
     fun newsletterHandlers(): List<NewsletterHandler> {
         val disabledNewsletters = feedsProperties.disabledNewsletters
 
-        LOG.warn("Disabled newsletters: {}", disabledNewsletters)
+        if (disabledNewsletters.isNotEmpty()) {
+            LOG.warn("Disabled newsletters: {}", disabledNewsletters)
+        }
 
         return applicationContext
             .getBeansOfType(NewsletterHandler::class.java)
