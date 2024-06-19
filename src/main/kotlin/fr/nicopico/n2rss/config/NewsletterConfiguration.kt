@@ -17,27 +17,38 @@
  */
 package fr.nicopico.n2rss.config
 
-import fr.nicopico.n2rss.mail.newsletter.AndroidWeeklyNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.BuiltForMarsNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.KotlinWeeklyNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.MITTheDownloadNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.MITWeekendReadsNewsletterHandler
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.PointerNewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.QuickBirdNewsletterHandler
+import fr.nicopico.n2rss.service.ReCaptchaService
+import org.slf4j.LoggerFactory
+import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
+private val LOG = LoggerFactory.getLogger(NewsletterConfiguration::class.java)
+
 @Configuration
-class NewsletterConfiguration {
-    @Bean
-    fun newsletterHandlers(): List<NewsletterHandler> = listOf(
-        AndroidWeeklyNewsletterHandler(),
-        KotlinWeeklyNewsletterHandler(),
-        PointerNewsletterHandler(),
-        QuickBirdNewsletterHandler(),
-        BuiltForMarsNewsletterHandler(),
-        MITWeekendReadsNewsletterHandler(),
-        MITTheDownloadNewsletterHandler(),
-    )
+class NewsletterConfiguration(
+    private val applicationContext: ApplicationContext,
+    private val feedsProperties: N2RssProperties.FeedsProperties,
+) {
+    @Bean(ENABLED_NEWSLETTER_HANDLERS)
+    fun newsletterHandlers(): List<NewsletterHandler> {
+        val disabledNewsletters = feedsProperties.disabledNewsletters
+
+        if (disabledNewsletters.isNotEmpty()) {
+            LOG.warn("Disabled newsletters: {}", disabledNewsletters)
+        }
+
+        return applicationContext
+            .getBeansOfType(NewsletterHandler::class.java)
+            .values
+            .filterNot {
+                it.newsletter.code in disabledNewsletters
+            }
+            .toList()
+    }
+
+    companion object {
+        const val ENABLED_NEWSLETTER_HANDLERS = "enabled_newsletter_handlers"
+    }
 }

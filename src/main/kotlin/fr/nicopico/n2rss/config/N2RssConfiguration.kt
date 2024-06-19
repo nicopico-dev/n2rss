@@ -61,6 +61,7 @@ constructor(
     )
     data class FeedsProperties(
         val forceHttps: Boolean = true,
+        val disabledNewsletters: List<String> = emptyList(),
     )
     data class ReCaptchaProperties(
         val enabled: Boolean = true,
@@ -68,7 +69,7 @@ constructor(
         val secretKey: String,
     )
     data class EmailProperties(
-        //val cron: String,
+        val cron: String,
         val client: EmailClientProperties,
     )
 
