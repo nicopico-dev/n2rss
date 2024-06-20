@@ -65,7 +65,7 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandler {
 
         return articleSection.process { sectionDocument ->
             sectionDocument.select("a[href]")
-                .filter { it -> it.text().isNotBlank() }
+                .filter { link -> link.text().isNotBlank() }
                 .mapNotNull { tag ->
                     // Ignore entries with invalid link
                     tag.attr("href").toUrlOrNull()
