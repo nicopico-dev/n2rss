@@ -22,10 +22,26 @@ import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
 import fr.nicopico.n2rss.models.Publication
 
-interface NewsletterHandler {
+sealed interface NewsletterHandler {
+    fun canHandle(email: Email): Boolean
+}
+
+val NewsletterHandler.newsletters: List<Newsletter>
+    get() = when (this) {
+        is NewsletterHandlerSingleFeed -> listOf(newsletter)
+        is NewsletterHandlerMultipleFeeds -> newsletters
+    }
+
+fun NewsletterHandler.process(email: Email): List<Publication> {
+    return when (this) {
+        is NewsletterHandlerSingleFeed -> listOf(process(email))
+        is NewsletterHandlerMultipleFeeds -> process(email)
+    }
+}
+
+interface NewsletterHandlerSingleFeed : NewsletterHandler {
     val newsletter: Newsletter
 
-    fun canHandle(email: Email): Boolean
     fun extractArticles(email: Email): List<Article>
 
     fun process(email: Email): Publication = Publication(
@@ -34,4 +50,22 @@ interface NewsletterHandler {
         newsletter = newsletter,
         articles = extractArticles(email),
     )
+}
+
+interface NewsletterHandlerMultipleFeeds : NewsletterHandler {
+    val newsletters: List<Newsletter>
+
+    fun extractArticles(email: Email): Map<Newsletter, List<Article>>
+
+    fun process(email: Email): List<Publication> {
+        return extractArticles(email)
+            .map { (newsletter, articles) ->
+                Publication(
+                    title = email.subject,
+                    date = email.date,
+                    newsletter = newsletter,
+                    articles = articles,
+                )
+            }
+    }
 }

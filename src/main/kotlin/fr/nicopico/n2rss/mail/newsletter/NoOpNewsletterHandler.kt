@@ -26,7 +26,7 @@ import fr.nicopico.n2rss.models.Newsletter
  * Use this to ensure [fr.nicopico.n2rss.mail.client.EmailClient] is correctly configured
  */
 @Suppress("unused")
-class NoOpNewsletterHandler : NewsletterHandler {
+class NoOpNewsletterHandler : NewsletterHandlerSingleFeed {
     override val newsletter: Newsletter = Newsletter("no-op", "NO-OP", "")
 
     override fun canHandle(email: Email): Boolean = true

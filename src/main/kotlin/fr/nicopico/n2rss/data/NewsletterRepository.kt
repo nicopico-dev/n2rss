@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.data
 
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.newsletters
 import fr.nicopico.n2rss.models.Newsletter
 import org.springframework.stereotype.Component
 
@@ -27,7 +28,7 @@ class NewsletterRepository(
 ) {
     fun findNewsletterByCode(code: String): Newsletter? {
         return handlers
-            .map { it.newsletter }
+            .flatMap { it.newsletters }
             .firstOrNull { it.code == code }
     }
 }

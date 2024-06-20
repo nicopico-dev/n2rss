@@ -21,6 +21,7 @@ package fr.nicopico.n2rss.mail
 import fr.nicopico.n2rss.data.PublicationRepository
 import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.process
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Publication
 import io.mockk.MockKAnnotations
@@ -85,7 +86,7 @@ class EmailCheckerTest {
         // Given an email that should be handled by newsletterHandlerA
         every { emailClient.checkEmails() } returns listOf(email)
         every { newsletterHandlerA.canHandle(email) } returns true
-        every { newsletterHandlerA.process(email) } returns publication
+        every { newsletterHandlerA.process(email) } returns listOf(publication)
 
         // When we check the email
         emailChecker.savePublicationsFromEmails()
@@ -149,7 +150,7 @@ class EmailCheckerTest {
         every { newsletterHandlerA.canHandle(any()) } returns true
         every { newsletterHandlerB.canHandle(any()) } returns false
         every { newsletterHandlerA.process(errorEmail) } throws Exception("Processing error")
-        every { newsletterHandlerA.process(validEmail) } returns publication
+        every { newsletterHandlerA.process(validEmail) } returns listOf(publication)
 
         // When we check the emails
         emailChecker.savePublicationsFromEmails()

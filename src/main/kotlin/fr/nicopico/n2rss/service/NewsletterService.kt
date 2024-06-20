@@ -20,6 +20,7 @@ package fr.nicopico.n2rss.service
 import fr.nicopico.n2rss.data.NewsletterRequestRepository
 import fr.nicopico.n2rss.data.PublicationRepository
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.newsletters
 import fr.nicopico.n2rss.models.NewsletterInfo
 import fr.nicopico.n2rss.models.NewsletterRequest
 import kotlinx.datetime.Clock
@@ -37,7 +38,7 @@ class NewsletterService(
 ) {
     fun getNewslettersInfo(): List<NewsletterInfo> {
         return newsletterHandlers
-            .map { it.newsletter }
+            .flatMap { it.newsletters }
             .map {
                 NewsletterInfo(
                     code = it.code,

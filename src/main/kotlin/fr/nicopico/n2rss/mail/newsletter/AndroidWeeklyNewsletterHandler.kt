@@ -28,7 +28,7 @@ import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 
 @Component
-class AndroidWeeklyNewsletterHandler : NewsletterHandler {
+class AndroidWeeklyNewsletterHandler : NewsletterHandlerSingleFeed {
 
     override val newsletter: Newsletter = Newsletter(
         code = "android_weekly",

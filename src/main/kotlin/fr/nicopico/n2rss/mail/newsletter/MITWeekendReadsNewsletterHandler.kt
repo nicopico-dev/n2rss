@@ -26,7 +26,7 @@ import org.springframework.stereotype.Component
 import java.net.URL
 
 @Component
-class MITWeekendReadsNewsletterHandler : NewsletterHandler {
+class MITWeekendReadsNewsletterHandler : NewsletterHandlerSingleFeed {
     override val newsletter: Newsletter = Newsletter(
         code = "mit/weekend_reads",
         name = "MIT - Weekend Reads",

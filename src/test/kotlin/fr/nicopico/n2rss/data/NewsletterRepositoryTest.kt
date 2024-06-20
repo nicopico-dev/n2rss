@@ -18,7 +18,10 @@
 
 package fr.nicopico.n2rss.data
 
+import fr.nicopico.n2rss.fakes.NewsletterHandlerFake
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.newsletters
+import io.kotest.matchers.collections.shouldBeIn
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -28,14 +31,9 @@ import org.junit.jupiter.api.Test
 
 class NewsletterRepositoryTest {
 
-    @MockK
-    private lateinit var handler: NewsletterHandler
-
     private lateinit var repository: NewsletterRepository
 
-    @BeforeEach
-    fun setUp() {
-        MockKAnnotations.init(this)
+    private fun createRepository(handler: NewsletterHandler) {
         repository = NewsletterRepository(listOf(handler))
     }
 
@@ -43,20 +41,22 @@ class NewsletterRepositoryTest {
     fun `should return the newsletter for a given code`() {
         // GIVEN
         val code = "code"
-        every { handler.newsletter.code } returns code
+        val handler = NewsletterHandlerFake(code)
+        createRepository(handler)
 
         // WHEN
         val actual = repository.findNewsletterByCode(code)
 
         // THEN
-        actual shouldBe handler.newsletter
+        actual shouldBeIn handler.newsletters
+        actual?.code shouldBe code
     }
 
     @Test
     fun `should return null if no newsletter correspond to the provided code`() {
         // GIVEN
         val code = "code"
-        every { handler.newsletter.code } returns "foo"
+        createRepository(NewsletterHandlerFake("foo"))
 
         // WHEN
         val actual = repository.findNewsletterByCode(code)

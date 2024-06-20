@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.config
 
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.newsletters
 import fr.nicopico.n2rss.service.ReCaptchaService
 import org.slf4j.LoggerFactory
 import org.springframework.context.ApplicationContext
@@ -42,8 +43,8 @@ class NewsletterConfiguration(
         return applicationContext
             .getBeansOfType(NewsletterHandler::class.java)
             .values
-            .filterNot {
-                it.newsletter.code in disabledNewsletters
+            .filter { handler ->
+                handler.newsletters.none { it.code in disabledNewsletters }
             }
             .toList()
     }

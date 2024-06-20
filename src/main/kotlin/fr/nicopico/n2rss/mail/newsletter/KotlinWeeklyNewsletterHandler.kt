@@ -30,7 +30,7 @@ import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 
 @Component
-class KotlinWeeklyNewsletterHandler : NewsletterHandler {
+class KotlinWeeklyNewsletterHandler : NewsletterHandlerSingleFeed {
 
     override val newsletter: Newsletter = Newsletter(
         code = "kotlin_weekly",
