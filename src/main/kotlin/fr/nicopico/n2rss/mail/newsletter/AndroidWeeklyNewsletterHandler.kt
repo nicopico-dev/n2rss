@@ -17,13 +17,13 @@
  */
 package fr.nicopico.n2rss.mail.newsletter
 
+import fr.nicopico.n2rss.mail.newsletter.jsoup.extractSections
+import fr.nicopico.n2rss.mail.newsletter.jsoup.process
 import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
 import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
-import org.jsoup.nodes.Document
-import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 
@@ -48,34 +48,43 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandler {
                 .addAttributes("span", "style"),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        val start: Element = document.select("span").first { it.ownText() == "Articles & Tutorials" }
-        val sectionTitleStyle = start.attr("style")
-        val end: Element = start.nextElementSiblings().first { it.attr("style") == sectionTitleStyle }
 
-        val articleSectionDocument = Document("").apply {
-            val nodesBetween = (start.parent()?.childNodes() ?: emptyList())
-                .dropWhile { it != start }
-                .takeWhile { it != end }
-            appendChildren(nodesBetween)
+        // Retrieve sections based on the style of the Articles section
+        val sectionStyle = document.select("span")
+            .first { it.ownText() == ARTICLES_SECTION_TITLE }
+            .attr("style")
+
+        val sections = document.extractSections(
+            "span[style]",
+            filter = { it.attr("style") == sectionStyle },
+            getSectionTitle = { it.ownText() },
+        )
+
+        val articleSection = sections
+            .first { it.title == ARTICLES_SECTION_TITLE }
+
+        return articleSection.process { sectionDocument ->
+            sectionDocument.select("a[href]")
+                .filter { link -> link.text().isNotBlank() }
+                .mapNotNull { tag ->
+                    // Ignore entries with invalid link
+                    tag.attr("href").toUrlOrNull()
+                        ?.let { link ->
+                            val title = tag.text().trim()
+                            Article(
+                                title = title,
+                                link = link,
+                                description = tag.nextSibling()?.toString()?.trim()
+                                    ?: throw NewsletterParsingException(
+                                        "Cannot find article description for article \"$title\" in Android Weekly"
+                                    ),
+                            )
+                        }
+                }
         }
+    }
 
-        @Suppress("ExplicitItLambdaParameter")
-        return articleSectionDocument.select("a[href]")
-            .filter { it -> it.text().isNotBlank() }
-            .mapNotNull { tag ->
-                // Ignore entries with invalid link
-                tag.attr("href").toUrlOrNull()
-                    ?.let { link ->
-                        val title = tag.text().trim()
-                        Article(
-                            title = title,
-                            link = link,
-                            description = tag.nextSibling()?.toString()?.trim()
-                                ?: throw NewsletterParsingException(
-                                    "Cannot find article description for article \"$title\" in Android Weekly"
-                                ),
-                        )
-                    }
-            }
+    companion object {
+        private const val ARTICLES_SECTION_TITLE = "Articles & Tutorials"
     }
 }

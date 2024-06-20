@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.mail.newsletter.jsoup
 
 import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
+import org.jsoup.select.Selector.select
 
 data class Section(
     val title: String,
@@ -28,9 +29,10 @@ data class Section(
 
 fun Document.extractSections(
     cssQuery: String,
+    filter: (Element) -> Boolean = { true },
     getSectionTitle: (Element) -> String = { it.text() },
 ): List<Section> {
-    val sectionsElements = select(cssQuery)
+    val sectionsElements = select(cssQuery).filter(filter)
     return sectionsElements
         .mapIndexed { index, element ->
             val nextSectionElement = sectionsElements
