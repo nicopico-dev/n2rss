@@ -111,12 +111,14 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
             code = "kotlin_weekly",
             name = "Kotlin Weekly",
             websiteUrl = "https://kotlinweekly.net/",
+            notes = "Articles"
         )
 
         val librariesNewsletter = Newsletter(
             code = "kotlin_weekly/libs",
-            name = "Kotlin Weekly (Libraries)",
+            name = "Kotlin Weekly",
             websiteUrl = "https://kotlinweekly.net/",
+            notes = "Libraries"
         )
     }
 }

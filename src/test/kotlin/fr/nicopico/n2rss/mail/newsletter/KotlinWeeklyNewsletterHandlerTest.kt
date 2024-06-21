@@ -83,6 +83,9 @@ class KotlinWeeklyNewsletterHandlerTest {
                 withClue("newsletter") {
                     newsletter.name shouldBe "Kotlin Weekly"
                 }
+                withClue("notes") {
+                    newsletter.notes shouldBe "Articles"
+                }
                 withClue("articles") {
                     articles.map { it.title } shouldBe listOf(
                         "Comparing coroutines, by example, in Kotlin and Python",
@@ -194,7 +197,10 @@ class KotlinWeeklyNewsletterHandlerTest {
                     date shouldHaveSameDayAs (email.date)
                 }
                 withClue("newsletter") {
-                    newsletter.name shouldBe "Kotlin Weekly (Libraries)"
+                    newsletter.name shouldBe "Kotlin Weekly"
+                }
+                withClue("notes") {
+                    newsletter.notes shouldBe "Libraries"
                 }
                 withClue("articles") {
                     articles.map { it.title } shouldBe listOf(

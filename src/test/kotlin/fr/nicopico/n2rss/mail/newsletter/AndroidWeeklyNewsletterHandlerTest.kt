@@ -22,7 +22,6 @@ import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
@@ -81,7 +80,10 @@ class AndroidWeeklyNewsletterHandlerTest {
                     date shouldHaveSameDayAs (email.date)
                 }
                 withClue("newsletter") {
-                    newsletter.name shouldBe "Android Weekly (Articles)"
+                    newsletter.name shouldBe "Android Weekly"
+                }
+                withClue("notes") {
+                    newsletter.notes shouldBe "Articles"
                 }
 
                 withClue("articles") {
@@ -134,7 +136,10 @@ class AndroidWeeklyNewsletterHandlerTest {
                     date shouldHaveSameDayAs (email.date)
                 }
                 withClue("newsletter") {
-                    newsletter.name shouldBe "Android Weekly (Libraries)"
+                    newsletter.name shouldBe "Android Weekly"
+                }
+                withClue("notes") {
+                    newsletter.notes shouldBe "Libraries"
                 }
 
                 withClue("articles") {

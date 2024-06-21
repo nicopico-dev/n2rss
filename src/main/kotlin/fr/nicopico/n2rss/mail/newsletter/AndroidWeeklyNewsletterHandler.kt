@@ -103,14 +103,16 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
 
         val articlesNewsletter = Newsletter(
             code = "android_weekly",
-            name = "Android Weekly (Articles)",
+            name = "Android Weekly",
             websiteUrl = "https://androidweekly.net",
+            notes = "Articles"
         )
 
         val librariesNewsletter = Newsletter(
             code = "android_weekly/libs",
-            name = "Android Weekly (Libraries)",
+            name = "Android Weekly",
             websiteUrl = "https://androidweekly.net",
+            notes = "Libraries"
         )
     }
 }
