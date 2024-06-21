@@ -31,6 +31,7 @@ import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
 import io.mockk.just
+import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -87,6 +88,7 @@ class EmailCheckerTest {
         every { emailClient.checkEmails() } returns listOf(email)
         every { newsletterHandlerA.canHandle(email) } returns true
         every { newsletterHandlerA.process(email) } returns listOf(publication)
+        every { publication.articles } returns listOf(mockk())
 
         // When we check the email
         emailChecker.savePublicationsFromEmails()
@@ -151,6 +153,7 @@ class EmailCheckerTest {
         every { newsletterHandlerB.canHandle(any()) } returns false
         every { newsletterHandlerA.process(errorEmail) } throws Exception("Processing error")
         every { newsletterHandlerA.process(validEmail) } returns listOf(publication)
+        every { publication.articles } returns listOf(mockk())
 
         // When we check the emails
         emailChecker.savePublicationsFromEmails()
@@ -180,5 +183,24 @@ class EmailCheckerTest {
             newsletterHandlerB,
             publicationRepository,
         )
+    }
+
+    @Test
+    fun `emailChecker should not save empty publications`(
+        @MockK(relaxed = true) email: Email,
+        @MockK publication: Publication,
+    ) {
+        // Given an email without any articles
+        every { emailClient.checkEmails() } returns listOf(email)
+        every { newsletterHandlerA.canHandle(email) } returns true
+        every { newsletterHandlerA.process(email) } returns listOf(publication)
+        every { publication.articles } returns emptyList()
+
+        // When we check the email
+        emailChecker.savePublicationsFromEmails()
+
+        // Then the email should be marked as read without creating a publication
+        verify(exactly = 0) { publicationRepository.saveAll(eq(listOf(publication))) }
+        verify { emailClient.markAsRead(email) }
     }
 }
