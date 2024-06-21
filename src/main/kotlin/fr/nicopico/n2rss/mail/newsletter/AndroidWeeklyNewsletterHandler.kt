@@ -101,13 +101,13 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
 
         private val PROCESS_SECTION_TITLES = listOf(ARTICLES_SECTION_TITLE, LIBRARIES_SECTION_TITLE)
 
-        private val articlesNewsletter = Newsletter(
+        val articlesNewsletter = Newsletter(
             code = "android_weekly",
             name = "Android Weekly (Articles)",
             websiteUrl = "https://androidweekly.net",
         )
 
-        private val librariesNewsletter = Newsletter(
+        val librariesNewsletter = Newsletter(
             code = "android_weekly/libs",
             name = "Android Weekly (Libraries)",
             websiteUrl = "https://androidweekly.net",
