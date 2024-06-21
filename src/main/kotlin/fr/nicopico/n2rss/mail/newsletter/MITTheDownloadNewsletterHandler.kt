@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component
 import java.net.URL
 
 @Component
-class MITTheDownloadNewsletterHandler : NewsletterHandler {
+class MITTheDownloadNewsletterHandler : NewsletterHandlerSingleFeed {
     override val newsletter: Newsletter = Newsletter(
         code = "mit/thedownload",
         name = "MIT - The Download",

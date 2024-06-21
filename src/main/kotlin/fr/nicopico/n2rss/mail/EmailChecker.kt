@@ -21,6 +21,7 @@ import fr.nicopico.n2rss.config.NewsletterConfiguration
 import fr.nicopico.n2rss.data.PublicationRepository
 import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
+import fr.nicopico.n2rss.mail.newsletter.process
 import fr.nicopico.n2rss.models.Email
 import jakarta.annotation.PostConstruct
 import org.slf4j.LoggerFactory
@@ -70,6 +71,8 @@ class EmailChecker(
                         null
                     }
                 }
+                .flatten()
+                .filter { it.articles.isNotEmpty() }
 
             if (publications.isNotEmpty()) {
                 publicationRepository.saveAll(publications)

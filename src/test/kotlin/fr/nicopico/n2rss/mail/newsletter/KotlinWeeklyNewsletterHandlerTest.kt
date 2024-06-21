@@ -21,9 +21,11 @@ import fr.nicopico.n2rss.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
+import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.net.URL
@@ -66,10 +68,12 @@ class KotlinWeeklyNewsletterHandlerTest {
             val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")
 
             // WHEN
-            val publication = handler.process(email)
+            val publications = handler.process(email)
 
             // THEN
-            assertSoftly(publication) {
+            publications shouldHaveSize 2
+
+            assertSoftly(publications[0]) {
                 withClue("title") {
                     title shouldBe "Kotlin Weekly #388"
                 }
@@ -79,14 +83,18 @@ class KotlinWeeklyNewsletterHandlerTest {
                 withClue("newsletter") {
                     newsletter.name shouldBe "Kotlin Weekly"
                 }
+                withClue("notes") {
+                    newsletter.notes shouldBe "Articles"
+                }
+                withClue("articles") {
+                    articles.map { it.title } shouldBe listOf(
+                        "Comparing coroutines, by example, in Kotlin and Python",
+                        "How To Use kotlinx.serialization with Ktor and Kotlin?",
+                        "Synchronous and Asynchronous runs: run, runCatching, runBlocking and runInterruptible in Kotlin",
+                        "Structured Concurrency for Coroutines: Unraveling the Fundamentals",
+                    )
+                }
             }
-
-            publication.articles.map { it.title } shouldBe listOf(
-                "Comparing coroutines, by example, in Kotlin and Python",
-                "How To Use kotlinx.serialization with Ktor and Kotlin?",
-                "Synchronous and Asynchronous runs: run, runCatching, runBlocking and runInterruptible in Kotlin",
-                "Structured Concurrency for Coroutines: Unraveling the Fundamentals",
-            )
         }
 
         @Test
@@ -98,7 +106,7 @@ class KotlinWeeklyNewsletterHandlerTest {
             val publication = handler.process(email)
 
             // THEN
-            assertSoftly(publication) {
+            assertSoftly(publication[0]) {
                 withClue("title") {
                     title shouldBe "Kotlin Weekly #390"
                 }
@@ -108,20 +116,21 @@ class KotlinWeeklyNewsletterHandlerTest {
                 withClue("newsletter") {
                     newsletter.name shouldBe "Kotlin Weekly"
                 }
+                withClue("articles") {
+                    articles.map { it.title } shouldBe listOf(
+                        "Learn IDE Code Refactoring in Kotlin for Enhanced Code Quality",
+                        "IntelliJ IDEA’s K2 Kotlin Mode Now in Alpha",
+                        "KotlinConf’24 is 80% sold out",
+                        "Sealed Types",
+                        "How To Create a Ktor Client To Connect To OpenWeatherMap API",
+                        "Micro-optimizations in Kotlin — 1",
+                        "Challenge: Shop orders processing",
+                        "How to add text similarity to your Android applications easily using MediaPipe and Kotlin",
+                        "SPONSORED - The future of intelligent composable content",
+                        "Jetpack Compose: The Android Developer Roadmap – Part 5",
+                    )
+                }
             }
-
-            publication.articles.map { it.title } shouldBe listOf(
-                "Learn IDE Code Refactoring in Kotlin for Enhanced Code Quality",
-                "IntelliJ IDEA’s K2 Kotlin Mode Now in Alpha",
-                "KotlinConf’24 is 80% sold out",
-                "Sealed Types",
-                "How To Create a Ktor Client To Connect To OpenWeatherMap API",
-                "Micro-optimizations in Kotlin — 1",
-                "Challenge: Shop orders processing",
-                "How to add text similarity to your Android applications easily using MediaPipe and Kotlin",
-                "SPONSORED - The future of intelligent composable content",
-                "Jetpack Compose: The Android Developer Roadmap – Part 5",
-            )
         }
 
         @Test
@@ -133,7 +142,7 @@ class KotlinWeeklyNewsletterHandlerTest {
             val publication = handler.process(email)
 
             // THEN
-            assertSoftly(publication.articles[0]) {
+            assertSoftly(publication[0].articles[0]) {
                 withClue("title") {
                     title shouldBe "Comparing coroutines, by example, in Kotlin and Python"
                 }
@@ -156,7 +165,7 @@ class KotlinWeeklyNewsletterHandlerTest {
                 handler.process(email)
             }
 
-            publication.articles.map { it.title } shouldBe listOf(
+            publication[0].articles.map { it.title } shouldBe listOf(
                 "Kotlin Today Magazine launched!",
                 "K2 Kotlin Mode (Alpha) in IntelliJ IDEA",
                 "Why Non-Blocking?",
@@ -167,6 +176,72 @@ class KotlinWeeklyNewsletterHandlerTest {
                 "SPONSORED - Build local-first KMP apps with PowerSync",
                 "Roboto Conference: where tech meets beauty",
             )
+        }
+
+        @Test
+        fun `should extract all libraries from an email`() {
+            // GIVEN
+            val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")
+
+            // WHEN
+            val publications = handler.process(email)
+
+            // THEN
+            publications shouldHaveSize 2
+
+            assertSoftly(publications[1]) {
+                withClue("title") {
+                    title shouldBe "Kotlin Weekly #388"
+                }
+                withClue("date") {
+                    date shouldHaveSameDayAs (email.date)
+                }
+                withClue("newsletter") {
+                    newsletter.name shouldBe "Kotlin Weekly"
+                }
+                withClue("notes") {
+                    newsletter.notes shouldBe "Libraries"
+                }
+                withClue("articles") {
+                    articles.map { it.title } shouldBe listOf(
+                        "GeminiKMP",
+                        "JNAV : Jetpack compose Navigation",
+                        "Kottie",
+                        "PPrint for Kotlin",
+                        "KodeRunner",
+                        "geminichat",
+                        "JaCoCo Aggregate Coverage Plugin",
+                    )
+                }
+
+                withClue("First article") {
+                    assertSoftly(articles[0]) {
+                        withClue("title") {
+                            title shouldBe "GeminiKMP"
+                        }
+                        withClue("link") {
+                            link shouldBe URL("https://kotlinweekly.us12.list-manage.com/track/click?u=f39692e245b94f7fb693b6d82&id=0b3825886d&e=8523a5b059")
+                        }
+                        withClue("description") {
+                            description shouldBe "John O'Reilly, the serial KMP content creator, ended 2023 releasing GeminiKMP, a Kotlin Multiplatform sample that uses Gemini Generative AI APIs."
+                        }
+                    }
+                }
+            }
+        }
+
+        @Test
+        @Disabled("Need a Kotlin Weekly Stub without any libraries")
+        fun `should not publish on library feed if there is no libraries in Kotlin Weekly email`() {
+            // GIVEN
+            val email: Email = loadEmail("TODO")
+
+            // WHEN
+            val publications = handler.process(email)
+
+            // THEN
+            publications shouldHaveSize 1
+            publications[0].newsletter shouldBe KotlinWeeklyNewsletterHandler.defaultNewsletter
         }
     }
 }

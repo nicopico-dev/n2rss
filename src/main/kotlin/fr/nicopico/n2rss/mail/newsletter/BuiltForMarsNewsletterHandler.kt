@@ -26,7 +26,7 @@ import org.springframework.stereotype.Component
 import java.net.URL
 
 @Component
-class BuiltForMarsNewsletterHandler : NewsletterHandler {
+class BuiltForMarsNewsletterHandler : NewsletterHandlerSingleFeed {
     override val newsletter: Newsletter = Newsletter(
         code = "builtformars",
         name = "Built for Mars",

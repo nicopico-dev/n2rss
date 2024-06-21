@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.mail.newsletter
 
+import fr.nicopico.n2rss.mail.newsletter.jsoup.Section
 import fr.nicopico.n2rss.mail.newsletter.jsoup.extractSections
 import fr.nicopico.n2rss.mail.newsletter.jsoup.process
 import fr.nicopico.n2rss.models.Article
@@ -28,20 +29,18 @@ import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 
 @Component
-class AndroidWeeklyNewsletterHandler : NewsletterHandler {
+class AndroidWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
 
-    override val newsletter: Newsletter = Newsletter(
-        code = "android_weekly",
-        name = "Android Weekly",
-        websiteUrl = "https://androidweekly.net",
-        notes = "(Articles only)",
+    override val newsletters = listOf(
+        articlesNewsletter,
+        librariesNewsletter,
     )
 
     override fun canHandle(email: Email): Boolean {
         return email.sender.email.contains("contact@androidweekly.net")
     }
 
-    override fun extractArticles(email: Email): List<Article> {
+    override fun extractArticles(email: Email): Map<Newsletter, List<Article>> {
         val cleanedHtml = Jsoup.clean(
             email.content,
             Safelist.basic()
@@ -54,37 +53,66 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandler {
             .first { it.ownText() == ARTICLES_SECTION_TITLE }
             .attr("style")
 
-        val sections = document.extractSections(
-            "span[style]",
-            filter = { it.attr("style") == sectionStyle },
-            getSectionTitle = { it.ownText() },
-        )
+        val sections = document
+            .extractSections(
+                "span[style]",
+                filter = { it.attr("style") == sectionStyle },
+                getSectionTitle = { it.ownText() },
+            )
+            .filter { it.title in PROCESS_SECTION_TITLES }
 
-        val articleSection = sections
-            .first { it.title == ARTICLES_SECTION_TITLE }
-
-        return articleSection.process { sectionDocument ->
-            sectionDocument.select("a[href]")
-                .filter { link -> link.text().isNotBlank() }
-                .mapNotNull { tag ->
-                    // Ignore entries with invalid link
-                    tag.attr("href").toUrlOrNull()
-                        ?.let { link ->
-                            val title = tag.text().trim()
-                            Article(
-                                title = title,
-                                link = link,
-                                description = tag.nextSibling()?.toString()?.trim()
-                                    ?: throw NewsletterParsingException(
-                                        "Cannot find article description for article \"$title\" in Android Weekly"
-                                    ),
-                            )
-                        }
+        return sections
+            .associate { section ->
+                val newsletter = when (section.title) {
+                    ARTICLES_SECTION_TITLE -> articlesNewsletter
+                    LIBRARIES_SECTION_TITLE -> librariesNewsletter
+                    else -> throw UnsupportedOperationException(
+                        "Section ${section.title} not supported"
+                    )
                 }
-        }
+
+                newsletter to section.process()
+            }
+    }
+
+    private fun Section.process() = process { sectionDocument ->
+        sectionDocument.select("a[href]")
+            .filter { link -> link.text().isNotBlank() }
+            .mapNotNull { tag ->
+                // Ignore entries with invalid link
+                tag.attr("href").toUrlOrNull()
+                    ?.let { link ->
+                        val title = tag.text().trim()
+                        Article(
+                            title = title,
+                            link = link,
+                            description = tag.nextSibling()?.toString()?.trim()
+                                ?: throw NewsletterParsingException(
+                                    "Cannot find article description for article \"$title\" in Android Weekly"
+                                ),
+                        )
+                    }
+            }
     }
 
     companion object {
         private const val ARTICLES_SECTION_TITLE = "Articles & Tutorials"
+        private const val LIBRARIES_SECTION_TITLE = "Libraries & Code"
+
+        private val PROCESS_SECTION_TITLES = listOf(ARTICLES_SECTION_TITLE, LIBRARIES_SECTION_TITLE)
+
+        val articlesNewsletter = Newsletter(
+            code = "android_weekly",
+            name = "Android Weekly",
+            websiteUrl = "https://androidweekly.net",
+            notes = "Articles"
+        )
+
+        val librariesNewsletter = Newsletter(
+            code = "android_weekly/libs",
+            name = "Android Weekly",
+            websiteUrl = "https://androidweekly.net",
+            notes = "Libraries"
+        )
     }
 }

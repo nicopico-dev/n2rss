@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component
 import java.net.URL
 
 @Component
-class QuickBirdNewsletterHandler : NewsletterHandler {
+class QuickBirdNewsletterHandler : NewsletterHandlerSingleFeed {
     override val newsletter: Newsletter = Newsletter(
         code = "quickbird",
         name = "QuickBird Studios",

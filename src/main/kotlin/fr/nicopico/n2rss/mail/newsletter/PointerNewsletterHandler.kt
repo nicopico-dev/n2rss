@@ -28,7 +28,7 @@ import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 
 @Component
-class PointerNewsletterHandler : NewsletterHandler {
+class PointerNewsletterHandler : NewsletterHandlerSingleFeed {
     override val newsletter: Newsletter = Newsletter(
         code = "pointer",
         name = "Pointer",
