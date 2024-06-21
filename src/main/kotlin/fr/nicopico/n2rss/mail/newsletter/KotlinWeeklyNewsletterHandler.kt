@@ -28,21 +28,21 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
+import kotlin.text.Typography.section
 
 @Component
-class KotlinWeeklyNewsletterHandler : NewsletterHandlerSingleFeed {
+class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
 
-    override val newsletter: Newsletter = Newsletter(
-        code = "kotlin_weekly",
-        name = "Kotlin Weekly",
-        websiteUrl = "http://kotlinweekly.net/",
+    override val newsletters = listOf(
+        defaultNewsletter,
+        librariesNewsletter,
     )
 
     override fun canHandle(email: Email): Boolean {
         return email.sender.email.contains("mailinglist@kotlinweekly.net")
     }
 
-    override fun extractArticles(email: Email): List<Article> {
+    override fun extractArticles(email: Email): Map<Newsletter, List<Article>> {
         val cleanedHtml = Jsoup.clean(
             email.content,
             Safelist.basic(),
@@ -50,34 +50,49 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerSingleFeed {
         val document = Jsoup.parseBodyFragment(cleanedHtml)
 
         val sections = document.extractSections("p:has(strong)")
+
+        val articles = sections
             .filter { it.title !in excludedSections }
-        return sections.associateWith { section ->
-            section.process { sectionDocument ->
-                sectionDocument.select("a[href]:has(span)")
-                    .mapNotNull { tag ->
-                        // Ignore entries with invalid link
-                        val link = tag.attr("href").toUrlOrNull()
-                            ?: return@mapNotNull null
-                        val title = markSponsoredTitle(section, tag.text()).trim()
+            .associateWith { it.process() }
+            .values
+            .flatten()
 
-                        val description = tag
-                            .nextSibling()
-                            ?.nextSibling() // <br>
-                            ?.nextSibling() // <span> with description
-                            ?.let { it as? Element }
-                            ?.text()
-                            ?: throw NewsletterParsingException(
-                                "Cannot find article description for article \"$title\" in Kotlin Weekly"
-                            )
+        val libraries = sections
+            .firstOrNull { it.title == LIBRARIES_SECTION_TITLE }
+            ?.process()
 
-                        Article(
-                            title = title,
-                            link = link,
-                            description = description,
-                        )
-                    }
+        return buildMap {
+            put(defaultNewsletter, articles)
+            if (libraries != null) {
+                put(librariesNewsletter, libraries)
             }
-        }.values.flatten()
+        }
+    }
+
+    private fun Section.process() = process { sectionDocument ->
+        sectionDocument.select("a[href]:has(span)")
+            .mapNotNull { tag ->
+                // Ignore entries with invalid link
+                val link = tag.attr("href").toUrlOrNull()
+                    ?: return@mapNotNull null
+                val title = markSponsoredTitle(this, tag.text()).trim()
+
+                val description = tag
+                    .nextSibling()
+                    ?.nextSibling() // <br>
+                    ?.nextSibling() // <span> with description
+                    ?.let { it as? Element }
+                    ?.text()
+                    ?: throw NewsletterParsingException(
+                        "Cannot find article description for article \"$title\" in Kotlin Weekly"
+                    )
+
+                Article(
+                    title = title,
+                    link = link,
+                    description = description,
+                )
+            }
     }
 
     private fun markSponsoredTitle(section: Section, articleTitle: String) =
@@ -88,6 +103,20 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerSingleFeed {
         }
 
     companion object {
+        private const val LIBRARIES_SECTION_TITLE = "Libraries"
+
         private val excludedSections = listOf("Videos", "Libraries", "Contribute")
+
+        val defaultNewsletter = Newsletter(
+            code = "kotlin_weekly",
+            name = "Kotlin Weekly",
+            websiteUrl = "https://kotlinweekly.net/",
+        )
+
+        val librariesNewsletter = Newsletter(
+            code = "kotlin_weekly/libs",
+            name = "Kotlin Weekly (Libraries)",
+            websiteUrl = "https://kotlinweekly.net/",
+        )
     }
 }
