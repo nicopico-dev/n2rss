@@ -37,12 +37,17 @@ data class GroupedNewsletterInfo(
 // - FunctionNaming: this function simulate an "extension constructor"
 @Suppress("FunctionNaming")
 fun GroupedNewsletterInfo(
-    newsletterInfo: NewsletterInfo
-) = GroupedNewsletterInfo(
-    title = newsletterInfo.title,
-    websiteUrl = newsletterInfo.websiteUrl,
-    newsletterInfos = listOf(newsletterInfo),
-)
+    vararg newsletterInfos: NewsletterInfo
+): GroupedNewsletterInfo {
+    require(newsletterInfos.isNotEmpty()) {
+        "At least one newsletterInfo must be provided"
+    }
+    return GroupedNewsletterInfo(
+        title = newsletterInfos[0].title,
+        websiteUrl = newsletterInfos[0].websiteUrl,
+        newsletterInfos = newsletterInfos.toList(),
+    )
+}
 
 fun List<NewsletterInfo>.toGroupedNewsletterInfo() = GroupedNewsletterInfo(
     title = this[0].title,
