@@ -44,6 +44,9 @@ class N2RssConfiguration {
 
     @Bean
     fun analyticsProperties() = properties.analytics
+
+	@Bean
+    fun githubRepository() = properties.github
 }
 
 private const val DEFAULT_PORT = 993
@@ -59,6 +62,7 @@ constructor(
     val recaptcha: ReCaptchaProperties,
     val email: EmailProperties,
     val analytics: AnalyticsProperties,
+    val github: GitHubProperties,
 ) {
     data class MaintenanceProperties(
         val secretKey: String,
@@ -88,5 +92,12 @@ constructor(
         val enabled: Boolean = true,
         val userAgent: String,
         val hostname: String,
+    )
+    data class GitHubProperties(
+        val owner: String,
+        val repository: String,
+        val accessToken: String,
+        val issueLabels: List<String> = listOf("n2rss", "monitoring"),
+        val requestLabels: List<String> = listOf("n2rss", "request"),
     )
 }

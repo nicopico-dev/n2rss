@@ -15,20 +15,8 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.data
 
-import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.newsletters
-import fr.nicopico.n2rss.models.Newsletter
-import org.springframework.stereotype.Repository
+package fr.nicopico.n2rss.github
 
-@Repository
-class NewsletterRepository(
-    private val handlers: List<NewsletterHandler>
-) {
-    fun findNewsletterByCode(code: String): Newsletter? {
-        return handlers
-            .flatMap { it.newsletters }
-            .firstOrNull { it.code == code }
-    }
-}
+@JvmInline
+value class IssueId(val value: Int)
