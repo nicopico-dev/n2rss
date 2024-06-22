@@ -18,7 +18,7 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
-import fr.nicopico.n2rss.models.Newsletter
+import fr.nicopico.n2rss.models.GroupedNewsletterInfo
 import fr.nicopico.n2rss.models.NewsletterInfo
 import fr.nicopico.n2rss.service.NewsletterService
 import fr.nicopico.n2rss.service.ReCaptchaService
@@ -123,17 +123,17 @@ class HomeControllerTest {
 
             // THEN
             result shouldBe "index"
-            val newslettersSlot = slot<List<Newsletter>>()
+            val newslettersSlot = slot<List<GroupedNewsletterInfo>>()
             verify {
-                model.addAttribute("newsletters", capture(newslettersSlot))
+                model.addAttribute("groupedNewsletters", capture(newslettersSlot))
                 model.addAttribute("requestUrl", "http://localhost:8134")
             }
 
             // Newsletters without publication should not be displayed
             newslettersSlot.captured shouldContainExactly listOf(
-                newsletterA,
-                newsletterB,
-                newsletterD,
+                GroupedNewsletterInfo(newsletterA),
+                GroupedNewsletterInfo(newsletterB),
+                GroupedNewsletterInfo(newsletterD),
             )
         }
 
@@ -157,7 +157,7 @@ class HomeControllerTest {
             // THEN
             result shouldBe "index"
             verify {
-                model.addAttribute("newsletters", any())
+                model.addAttribute("groupedNewsletters", any())
                 model.addAttribute("requestUrl", "https://localhost:8134")
             }
         }

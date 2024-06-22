@@ -33,6 +33,17 @@ data class GroupedNewsletterInfo(
     }
 }
 
+// @Suppress
+// - FunctionNaming: this function simulate an "extension constructor"
+@Suppress("FunctionNaming")
+fun GroupedNewsletterInfo(
+    newsletterInfo: NewsletterInfo
+) = GroupedNewsletterInfo(
+    title = newsletterInfo.title,
+    websiteUrl = newsletterInfo.websiteUrl,
+    newsletterInfos = listOf(newsletterInfo),
+)
+
 fun List<NewsletterInfo>.toGroupedNewsletterInfo() = GroupedNewsletterInfo(
     title = this[0].title,
     websiteUrl = this[0].websiteUrl,
