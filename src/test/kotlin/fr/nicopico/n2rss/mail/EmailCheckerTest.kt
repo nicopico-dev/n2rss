@@ -18,12 +18,13 @@
 
 package fr.nicopico.n2rss.mail
 
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.mail.client.EmailClient
+import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.process
-import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.models.Publication
+import fr.nicopico.n2rss.newsletter.service.MonitoringService
 import io.mockk.MockKAnnotations
 import io.mockk.Runs
 import io.mockk.confirmVerified
@@ -52,6 +53,8 @@ class EmailCheckerTest {
     private lateinit var publicationRepository: PublicationRepository
     @MockK(relaxed = true)
     private lateinit var taskScheduler: TaskScheduler
+    @MockK
+    private lateinit var monitoringService: MonitoringService
 
     private lateinit var emailChecker: EmailChecker
 
@@ -67,6 +70,7 @@ class EmailCheckerTest {
             ),
             publicationRepository,
             taskScheduler,
+            monitoringService,
         )
     }
 
@@ -151,9 +155,11 @@ class EmailCheckerTest {
 
         every { newsletterHandlerA.canHandle(any()) } returns true
         every { newsletterHandlerB.canHandle(any()) } returns false
-        every { newsletterHandlerA.process(errorEmail) } throws Exception("Processing error")
+        val errorEmailProcessing = Exception("Processing error")
+        every { newsletterHandlerA.process(errorEmail) } throws errorEmailProcessing
         every { newsletterHandlerA.process(validEmail) } returns listOf(publication)
         every { publication.articles } returns listOf(mockk())
+        every { monitoringService.notifyEmailProcessingError(any(), any()) } just Runs
 
         // When we check the emails
         emailChecker.savePublicationsFromEmails()
@@ -165,23 +171,30 @@ class EmailCheckerTest {
 
         verify { emailClient.markAsRead(validEmail) }
         verify(exactly = 0) { emailClient.markAsRead(errorEmail) }
+
+        verify { monitoringService.notifyEmailProcessingError(errorEmail, errorEmailProcessing) }
     }
 
     @Test
     fun `emailChecker will not crash if the client fails`() {
         // Given that emailClient fails when checking emails
-        every { emailClient.checkEmails() } throws RuntimeException("TEST")
+        val emailError = RuntimeException("TEST")
+        every { emailClient.checkEmails() } throws emailError
+        every { monitoringService.notifyEmailClientError(any()) } just Runs
 
         // When we check the emails
         emailChecker.savePublicationsFromEmails()
 
         // Then emailChecker should proceed without doing anything
         verify { emailClient.checkEmails() }
+        verify { monitoringService.notifyEmailClientError(emailError) }
+
         confirmVerified(
             emailClient,
             newsletterHandlerA,
             newsletterHandlerB,
             publicationRepository,
+            monitoringService,
         )
     }
 

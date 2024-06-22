@@ -18,11 +18,12 @@
 package fr.nicopico.n2rss.mail
 
 import fr.nicopico.n2rss.config.NewsletterConfiguration
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.mail.client.EmailClient
+import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.process
-import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.service.MonitoringService
 import jakarta.annotation.PostConstruct
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Qualifier
@@ -40,6 +41,7 @@ class EmailChecker(
     private val newsletterHandlers: List<NewsletterHandler>,
     private val publicationRepository: PublicationRepository,
     private val taskScheduler: TaskScheduler,
+    private val monitoringService: MonitoringService,
 ) {
     @PostConstruct
     fun checkEmailsOnStart() {
@@ -68,6 +70,7 @@ class EmailChecker(
                             }
                     } catch (e: Exception) {
                         LOG.error("Error processing email {}", email.subject, e)
+                        monitoringService.notifyEmailProcessingError(email, e)
                         null
                     }
                 }
@@ -81,6 +84,7 @@ class EmailChecker(
             LOG.info("Processing done!")
         } catch (e: Exception) {
             LOG.error("Error while checking emails", e)
+            monitoringService.notifyEmailClientError(e)
         }
     }
 
