@@ -10,13 +10,15 @@ Once an email has been processed, it is marked as read.
 Each newsletter will map to a separate RSS feed, 
 and each articles extracted from the newsletter publication will map to different RSS entry in the corresponding feed.
 
-| Newsletter     | URL                               | Status |
-|----------------|-----------------------------------|--------|
-| Android Weekly | https://androidweekly.net         | OK     |
-| Kotlin Weekly  | http://kotlinweekly.net           | OK     |
-| Pointer        | https://www.pointer.io            | OK     |
-| QuickBird      | https://quickbirdstudios.com/blog | OK     |
-| Built for Mars | https://builtformars.com          | OK     |
+| Newsletter          | URL                                                                  |
+|---------------------|----------------------------------------------------------------------|
+| Android Weekly      | https://androidweekly.net                                            |
+| Built for Mars      | https://builtformars.com                                             |
+| Kotlin Weekly       | https://kotlinweekly.net                                             |
+| MIT - The Download  | https://forms.technologyreview.com/newsletters/briefing-the-download |
+| MIT - Weekend Reads | https://forms.technologyreview.com/newsletters/tech-weekend-reads/   |
+| Pointer             | https://www.pointer.io                                               |
+| QuickBird           | https://quickbirdstudios.com/blog                                    |
 
 ## Built With
 
