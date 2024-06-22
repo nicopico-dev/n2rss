@@ -20,9 +20,9 @@ package fr.nicopico.n2rss.newsletter.data
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import fr.nicopico.n2rss.newsletter.models.Newsletter
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Repository
 
-@Component
+@Repository
 class NewsletterRepository(
     private val handlers: List<NewsletterHandler>
 ) {

@@ -15,28 +15,8 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.service
 
-import fr.nicopico.n2rss.github.GithubClient
-import fr.nicopico.n2rss.mail.models.Email
-import org.springframework.scheduling.annotation.Async
-import org.springframework.stereotype.Service
-import java.net.URL
+package fr.nicopico.n2rss.github
 
-@Service
-class MonitoringService(
-    private val githubClient: GithubClient
-) {
-    fun notifyEmailClientError(error: Exception) {
-        TODO("Not yet implemented")
-    }
-
-    fun notifyEmailProcessingError(email: Email, error: Exception) {
-        TODO("Not yet implemented")
-    }
-
-    @Async
-    fun notifyRequest(uniqueUrl: URL) {
-        githubClient.createIssue("TEST ISSUE", "THIS IS A TEST")
-    }
-}
+@JvmInline
+value class IssueId(val value: Int)
