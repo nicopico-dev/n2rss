@@ -50,30 +50,46 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="newsletter : ${newsletters}">
-            <td>
-                <a th:href="${newsletter.websiteUrl}"
-                   th:text="${newsletter.title}"
-                   target="_blank"/>
-                <span
-                    class="newsletter-notes"
-                    th:text="${newsletter.notes}"/>
-            </td>
-            <td>
-                <a th:href="${requestUrl + 'rss/' + newsletter.code}"
-                   target="_blank">
-                    RSS Feed
-                </a>
-            </td>
-            <td>
-                <span class="publication-count">
-                    <span th:text="${newsletter.publicationCount}"/> publications<br/>
-                </span>
-                <span class="publication-start">
-                    since <span th:text="${newsletter.startingDate}"/>
-                </span>
-            </td>
-        </tr>
+        <th:block
+            th:each="newsletterGroup : ${groupedNewsletters}"
+            th:with="multipleFeeds=${newsletterGroup.newsletterInfos.size() > 1}">
+            <tr th:if="${multipleFeeds}">
+                <td>
+                    <a th:href="${newsletterGroup.websiteUrl}"
+                       th:text="${newsletterGroup.title}"
+                       target="_blank"/>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr th:each="newsletter : ${newsletterGroup.newsletterInfos}">
+                <td>
+                    <th:block
+                        th:unless="${multipleFeeds}">
+                        <a th:href="${newsletterGroup.websiteUrl}"
+                           th:text="${newsletterGroup.title}"
+                           target="_blank"/>
+                    </th:block>
+                    <span
+                        th:class="${multipleFeeds}? 'newsletter-notes-multiple-feeds' : 'newsletter-notes'"
+                        th:text="${newsletter.notes}"/>
+                </td>
+                <td>
+                    <a th:href="${requestUrl + 'rss/' + newsletter.code}"
+                       target="_blank">
+                        RSS Feed
+                    </a>
+                </td>
+                <td>
+                    <span class="publication-count">
+                        <span th:text="${newsletter.publicationCount}"/> publications<br/>
+                    </span>
+                    <span class="publication-start">
+                        since <span th:text="${newsletter.startingDate}"/>
+                    </span>
+                </td>
+            </tr>
+        </th:block>
         </tbody>
     </table>
 </div>

@@ -18,7 +18,7 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
-import fr.nicopico.n2rss.models.Newsletter
+import fr.nicopico.n2rss.models.GroupedNewsletterInfo
 import fr.nicopico.n2rss.models.NewsletterInfo
 import fr.nicopico.n2rss.service.NewsletterService
 import fr.nicopico.n2rss.service.ReCaptchaService
@@ -123,17 +123,86 @@ class HomeControllerTest {
 
             // THEN
             result shouldBe "index"
-            val newslettersSlot = slot<List<Newsletter>>()
+            val newslettersSlot = slot<List<GroupedNewsletterInfo>>()
             verify {
-                model.addAttribute("newsletters", capture(newslettersSlot))
+                model.addAttribute("groupedNewsletters", capture(newslettersSlot))
                 model.addAttribute("requestUrl", "http://localhost:8134")
             }
 
             // Newsletters without publication should not be displayed
             newslettersSlot.captured shouldContainExactly listOf(
-                newsletterA,
+                GroupedNewsletterInfo(newsletterA),
+                GroupedNewsletterInfo(newsletterB),
+                GroupedNewsletterInfo(newsletterD),
+            )
+        }
+
+        @Test
+        fun `home should group multiple feeds from the same newsletter`() {
+            // GIVEN
+            val newsletterA1 = NewsletterInfo(
+                code = "A1",
+                title = "Newsletter A",
+                websiteUrl = "Website A",
+                publicationCount = 12,
+                startingDate = null,
+                notes = null,
+            )
+            val newsletterA2 = NewsletterInfo(
+                code = "A2",
+                title = "Newsletter A",
+                websiteUrl = "Website A",
+                publicationCount = 0,
+                startingDate = null,
+                notes = null
+            )
+            val newsletterA3 = NewsletterInfo(
+                code = "A3",
+                title = "Newsletter A",
+                websiteUrl = "Website A",
+                publicationCount = 1,
+                startingDate = null,
+                notes = null,
+            )
+            val newsletterB = NewsletterInfo(
+                code = "B",
+                title = "Newsletter B",
+                websiteUrl = "Website B",
+                publicationCount = 3,
+                startingDate = null,
+                notes = null,
+            )
+            val newslettersInfo = listOf(
+                newsletterA1,
+                newsletterA2,
+                newsletterA3,
                 newsletterB,
-                newsletterD,
+            )
+            every { newsletterService.getNewslettersInfo() } returns newslettersInfo
+            every { feedsProperties.forceHttps } returns false
+
+            val requestUrl = StringBuffer("http://localhost:8134")
+            val request = mockk<HttpServletRequest> {
+                every { requestURL } returns requestUrl
+            }
+
+            val model = mockk<Model>(relaxed = true)
+
+            // WHEN
+            val result = homeController.home(request, model)
+
+            // THEN
+            result shouldBe "index"
+            val newslettersSlot = slot<List<GroupedNewsletterInfo>>()
+            verify {
+                model.addAttribute("groupedNewsletters", capture(newslettersSlot))
+                model.addAttribute("requestUrl", "http://localhost:8134")
+            }
+
+            // Newsletters without publication should not be displayed
+            newslettersSlot.captured shouldContainExactly listOf(
+                GroupedNewsletterInfo(newsletterA1, newsletterA3),
+                GroupedNewsletterInfo(newsletterB),
             )
         }
 
@@ -157,7 +226,7 @@ class HomeControllerTest {
             // THEN
             result shouldBe "index"
             verify {
-                model.addAttribute("newsletters", any())
+                model.addAttribute("groupedNewsletters", any())
                 model.addAttribute("requestUrl", "https://localhost:8134")
             }
         }

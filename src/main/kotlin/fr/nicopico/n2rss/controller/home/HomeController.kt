@@ -18,6 +18,8 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.models.GroupedNewsletterInfo
+import fr.nicopico.n2rss.models.toGroupedNewsletterInfo
 import fr.nicopico.n2rss.service.NewsletterService
 import fr.nicopico.n2rss.service.ReCaptchaService
 import fr.nicopico.n2rss.utils.url.Url
@@ -47,9 +49,14 @@ class HomeController(
 
     @GetMapping("/")
     fun home(request: HttpServletRequest, model: Model): String {
-        val newslettersInfo = newsletterService.getNewslettersInfo()
+        val groupedNewsletterInfos: List<GroupedNewsletterInfo> = newsletterService.getNewslettersInfo()
             .sortedBy { it.title }
             .filter { it.publicationCount > 0 }
+            .groupBy { it.title.lowercase() }
+            .map { (_, newsletterInfos) ->
+                newsletterInfos.toGroupedNewsletterInfo()
+            }
+
         val requestUrl: String = request.requestURL
             .let {
                 if (feedProperties.forceHttps) {
@@ -60,11 +67,12 @@ class HomeController(
             }
 
         with(model) {
-            addAttribute("newsletters", newslettersInfo)
+            addAttribute("groupedNewsletters", groupedNewsletterInfos)
             addAttribute("requestUrl", requestUrl)
             addAttribute("reCaptchaEnabled", recaptchaProperties.enabled)
             addAttribute("reCaptchaSiteKey", recaptchaProperties.siteKey)
         }
+
         return "index"
     }
 
