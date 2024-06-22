@@ -105,6 +105,12 @@ table tbody tr:nth-child(odd) {
     font-style: italic;
 }
 
+.newsletter-notes-multiple-feeds {
+    color: #555;
+    padding-left: 32px;
+    font-style: italic;
+}
+
 .publication-count span {
     font-weight: bold;
     font-size: 1em;
