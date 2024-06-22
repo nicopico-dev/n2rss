@@ -52,6 +52,8 @@ class NewsletterServiceTest {
     private lateinit var publicationRepository: PublicationRepository
     @MockK
     private lateinit var newsletterRequestRepository: NewsletterRequestRepository
+    @MockK(relaxUnitFun = true)
+    private lateinit var monitoringService: MonitoringService
 
     private lateinit var newsletterService: NewsletterService
 
@@ -62,6 +64,7 @@ class NewsletterServiceTest {
             newsletterHandlers = newsletterHandlers,
             publicationRepository = publicationRepository,
             newsletterRequestRepository = newsletterRequestRepository,
+            monitoringService = monitoringService,
         )
     }
 
@@ -151,6 +154,8 @@ class NewsletterServiceTest {
             it.requestCount shouldBe 1
             it.firstRequestDate shouldBe it.lastRequestDate
         }
+
+        verify { monitoringService.notifyRequest(newsletterUrl) }
     }
 
     @Test
@@ -176,6 +181,7 @@ class NewsletterServiceTest {
             it.requestCount shouldBe 1
             it.firstRequestDate shouldBe it.lastRequestDate
         }
+        verify { monitoringService.notifyRequest(uniqueUrl) }
     }
 
     @Test

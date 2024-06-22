@@ -35,6 +35,7 @@ class NewsletterService(
     private val newsletterHandlers: List<NewsletterHandler>,
     private val publicationRepository: PublicationRepository,
     private val newsletterRequestRepository: NewsletterRequestRepository,
+    private val monitoringService: MonitoringService,
 ) {
     fun getNewslettersInfo(): List<NewsletterInfo> {
         return newsletterHandlers
@@ -75,5 +76,7 @@ class NewsletterService(
         )
 
         newsletterRequestRepository.save(updatedRequest)
+
+        monitoringService.notifyRequest(uniqueUrl)
     }
 }
