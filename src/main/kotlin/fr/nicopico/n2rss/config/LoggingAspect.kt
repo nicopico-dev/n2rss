@@ -25,11 +25,11 @@ import org.aspectj.lang.annotation.Pointcut
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 
+private val LOG = LoggerFactory.getLogger(LoggingAspect::class.java)
+
 @Aspect
 @Component
 class LoggingAspect {
-
-    private val logger = LoggerFactory.getLogger(this::class.java)
 
     @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
     fun getMapping() = Unit
@@ -46,6 +46,6 @@ class LoggingAspect {
     private fun logBefore(joinPoint: JoinPoint) {
         val arguments = joinPoint.args.joinToString()
         val message = with(joinPoint.signature) { "$declaringTypeName -- Calling $name($arguments)..." }
-        logger.info(message)
+        LOG.info(message)
     }
 }

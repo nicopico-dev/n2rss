@@ -20,11 +20,11 @@ package fr.nicopico.n2rss.analytics
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
+private val LOG = LoggerFactory.getLogger(AnalyticService::class.java)
+
 @Service
 class AnalyticService {
-    private val logger = LoggerFactory.getLogger(this.javaClass)
-
     fun track(event: AnalyticEvent) {
-        logger.info("TRACK: $event")
+        LOG.info("TRACK: $event")
     }
 }

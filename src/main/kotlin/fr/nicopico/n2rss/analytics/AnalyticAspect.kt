@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.analytics
 
 import org.aspectj.lang.JoinPoint
@@ -25,12 +24,13 @@ import org.aspectj.lang.annotation.Pointcut
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 
+private val LOG = LoggerFactory.getLogger(AnalyticAspect::class.java)
+
 @Aspect
 @Component
 class AnalyticAspect(
     private val analyticService: AnalyticService
 ) {
-    private val logger = LoggerFactory.getLogger(this.javaClass)
 
     @Pointcut(
         "@annotation(org.springframework.web.bind.annotation.GetMapping)" +
@@ -44,7 +44,7 @@ class AnalyticAspect(
             val code = joinPoint.args[0] as String
             analyticService.track(AnalyticEvent.GetFeed(code))
         } catch (e: Exception) {
-            logger.error("Could not track GetFeed event", e)
+            LOG.error("Could not track GetFeed event", e)
         }
     }
 
@@ -60,7 +60,7 @@ class AnalyticAspect(
             val newsletterUrl = joinPoint.args[0] as String
             analyticService.track(AnalyticEvent.RequestNewsletter(newsletterUrl))
         } catch (e: Exception) {
-            logger.error("Could not track RequestNewsletter event", e)
+            LOG.error("Could not track RequestNewsletter event", e)
         }
     }
 }
