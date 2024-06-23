@@ -15,37 +15,16 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.analytics
 
-package fr.nicopico.n2rss.config
-
-import org.aspectj.lang.JoinPoint
-import org.aspectj.lang.annotation.Aspect
-import org.aspectj.lang.annotation.Before
-import org.aspectj.lang.annotation.Pointcut
 import org.slf4j.LoggerFactory
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 
-@Aspect
-@Component
-class LoggingAspect {
+@Service
+class AnalyticService {
+    private val logger = LoggerFactory.getLogger(this.javaClass)
 
-    private val logger = LoggerFactory.getLogger(this::class.java)
-
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
-    fun getMapping() = Unit
-
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.PostMapping)")
-    fun postMapping() = Unit
-
-    @Before("getMapping()")
-    fun logBeforeGet(joinPoint: JoinPoint) = logBefore(joinPoint)
-
-    @Before("postMapping()")
-    fun logBeforePost(joinPoint: JoinPoint) = logBefore(joinPoint)
-
-    private fun logBefore(joinPoint: JoinPoint) {
-        val arguments = joinPoint.args.joinToString()
-        val message = with(joinPoint.signature) { "$declaringTypeName -- Calling $name($arguments)..." }
-        logger.info(message)
+    fun track(event: AnalyticEvent) {
+        logger.info("TRACK: $event")
     }
 }

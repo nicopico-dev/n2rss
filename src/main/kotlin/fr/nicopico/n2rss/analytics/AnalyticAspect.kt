@@ -16,7 +16,7 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.config
+package fr.nicopico.n2rss.analytics
 
 import org.aspectj.lang.JoinPoint
 import org.aspectj.lang.annotation.Aspect
@@ -27,25 +27,40 @@ import org.springframework.stereotype.Component
 
 @Aspect
 @Component
-class LoggingAspect {
+class AnalyticAspect(
+    private val analyticService: AnalyticService
+) {
+    private val logger = LoggerFactory.getLogger(this.javaClass)
 
-    private val logger = LoggerFactory.getLogger(this::class.java)
+    @Pointcut(
+        "@annotation(org.springframework.web.bind.annotation.GetMapping)" +
+            "&& execution(* getFeed(..))"
+    )
+    fun getFeedPointcut() = Unit
 
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
-    fun getMapping() = Unit
+    @Before("getFeedPointcut()")
+    fun trackGetFeedAccess(joinPoint: JoinPoint) {
+        try {
+            val code = joinPoint.args[0] as String
+            analyticService.track(AnalyticEvent.GetFeed(code))
+        } catch (e: Exception) {
+            logger.error("Could not track GetFeed event", e)
+        }
+    }
 
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.PostMapping)")
-    fun postMapping() = Unit
+    @Pointcut(
+        "@annotation(org.springframework.web.bind.annotation.PostMapping)" +
+            "&& execution(* requestNewsletter(..))"
+    )
+    fun requestNewsletterPointcut() = Unit
 
-    @Before("getMapping()")
-    fun logBeforeGet(joinPoint: JoinPoint) = logBefore(joinPoint)
-
-    @Before("postMapping()")
-    fun logBeforePost(joinPoint: JoinPoint) = logBefore(joinPoint)
-
-    private fun logBefore(joinPoint: JoinPoint) {
-        val arguments = joinPoint.args.joinToString()
-        val message = with(joinPoint.signature) { "$declaringTypeName -- Calling $name($arguments)..." }
-        logger.info(message)
+    @Before("requestNewsletterPointcut()")
+    fun trackRequestNewsletter(joinPoint: JoinPoint) {
+        try {
+            val newsletterUrl = joinPoint.args[0] as String
+            analyticService.track(AnalyticEvent.RequestNewsletter(newsletterUrl))
+        } catch (e: Exception) {
+            logger.error("Could not track RequestNewsletter event", e)
+        }
     }
 }
