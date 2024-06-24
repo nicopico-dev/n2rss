@@ -40,6 +40,8 @@ class AnalyticAspect(
 
     @Before("getFeedPointcut()")
     fun trackGetFeedAccess(joinPoint: JoinPoint) {
+        // We want to prevent any crash coming from this method
+        @Suppress("TooGenericExceptionCaught")
         try {
             val code = joinPoint.args[0] as String
             analyticService.track(AnalyticEvent.GetFeed(code))
@@ -56,6 +58,8 @@ class AnalyticAspect(
 
     @Before("requestNewsletterPointcut()")
     fun trackRequestNewsletter(joinPoint: JoinPoint) {
+        // We want to prevent any crash coming from this method
+        @Suppress("TooGenericExceptionCaught")
         try {
             val newsletterUrl = joinPoint.args[0] as String
             analyticService.track(AnalyticEvent.RequestNewsletter(newsletterUrl))
