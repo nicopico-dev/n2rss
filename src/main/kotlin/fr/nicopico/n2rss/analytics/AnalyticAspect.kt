@@ -45,7 +45,7 @@ class AnalyticAspect(
         try {
             val code = joinPoint.args[0] as String
             analyticService.track(AnalyticEvent.GetFeed(code))
-        } catch (e: Exception) {
+        } catch (e: AnalyticException) {
             LOG.error("Could not track GetFeed event", e)
         }
     }
@@ -63,7 +63,7 @@ class AnalyticAspect(
         try {
             val newsletterUrl = joinPoint.args[0] as String
             analyticService.track(AnalyticEvent.RequestNewsletter(newsletterUrl))
-        } catch (e: Exception) {
+        } catch (e: AnalyticException) {
             LOG.error("Could not track RequestNewsletter event", e)
         }
     }

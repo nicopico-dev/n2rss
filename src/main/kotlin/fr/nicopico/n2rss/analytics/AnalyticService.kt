@@ -20,8 +20,10 @@ package fr.nicopico.n2rss.analytics
 import com.fasterxml.jackson.annotation.JsonProperty
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
+import org.springframework.web.client.HttpClientErrorException
 import org.springframework.web.client.RestClient
 
 private val LOG = LoggerFactory.getLogger(AnalyticService::class.java)
@@ -29,20 +31,40 @@ private val LOG = LoggerFactory.getLogger(AnalyticService::class.java)
 @Service
 class AnalyticService(
     restClientBuilder: RestClient.Builder = RestClient.builder(),
+    private val analyticsApiBaseUrl: String,
     private val analyticsProperties: N2RssProperties.AnalyticsProperties,
 ) {
-    private val restClient by lazy { restClientBuilder.build() }
+    @Autowired
+    constructor(
+        restClientBuilder: RestClient.Builder,
+        analyticsProperties: N2RssProperties.AnalyticsProperties,
+    ) : this(
+        restClientBuilder = restClientBuilder,
+        analyticsApiBaseUrl = "https://queue.simpleanalyticscdn.com",
+        analyticsProperties = analyticsProperties,
+    )
 
+    private val restClient by lazy {
+        restClientBuilder
+            .baseUrl(analyticsApiBaseUrl)
+            .build()
+    }
+
+    @Throws(AnalyticException::class)
     fun track(event: AnalyticEvent) {
         if (analyticsProperties.enabled) {
             LOG.info("TRACK: $event")
-            restClient
-                .post()
-                .uri("https://queue.simpleanalyticscdn.com/events")
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(event.toSimpleAnalyticsEvent())
-                .retrieve()
-                .toBodilessEntity()
+            try {
+                restClient
+                    .post()
+                    .uri("/events")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body(event.toSimpleAnalyticsEvent())
+                    .retrieve()
+                    .toBodilessEntity()
+            } catch (e: HttpClientErrorException) {
+                throw AnalyticException("Unable to send analytics event $event", e)
+            }
         }
     }
 
