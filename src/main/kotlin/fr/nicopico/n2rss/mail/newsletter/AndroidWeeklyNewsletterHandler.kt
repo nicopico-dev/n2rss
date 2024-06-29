@@ -109,7 +109,7 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
         )
 
         val librariesNewsletter = Newsletter(
-            code = "android_weekly/libs",
+            code = "android_weekly/libraries",
             name = "Android Weekly",
             websiteUrl = "https://androidweekly.net",
             notes = "Libraries"

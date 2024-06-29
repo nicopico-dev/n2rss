@@ -28,7 +28,6 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
-import kotlin.text.Typography.section
 
 @Component
 class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
@@ -115,7 +114,7 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
         )
 
         val librariesNewsletter = Newsletter(
-            code = "kotlin_weekly/libs",
+            code = "kotlin_weekly/libraries",
             name = "Kotlin Weekly",
             websiteUrl = "https://kotlinweekly.net/",
             notes = "Libraries"
