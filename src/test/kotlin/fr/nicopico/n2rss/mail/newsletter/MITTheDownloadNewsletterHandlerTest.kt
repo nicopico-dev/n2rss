@@ -20,9 +20,12 @@ package fr.nicopico.n2rss.mail.newsletter
 
 import fr.nicopico.n2rss.models.Email
 import io.kotest.assertions.assertSoftly
+import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
+import io.kotest.matchers.collections.beEmpty
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNot
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -119,6 +122,44 @@ class MITTheDownloadNewsletterHandlerTest {
                         "for cancer. Read the full story., —Sally Adee"
                 }
             }
+        }
+
+        @Test
+        fun `should be able to process any mail from MIT The Download`() {
+            // GIVEN
+            val emails = loadEmails("stubs/emails/MIT/The Download")
+
+            // WHEN - THEN
+            shouldNotThrowAny {
+                emails.forEach { email ->
+                    println(email.subject)
+                    handler.process(email)
+                }
+            }
+        }
+
+        @Test
+        fun `should be able to process mail #139 from MIT The Download`() {
+            // GIVEN
+            val email = loadEmail("stubs/emails/MIT/The Download/139 Synthesia’s hype.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            publication.articles shouldNot beEmpty()
+        }
+
+        @Test
+        fun `should be able to process mail #144 from MIT The Download`() {
+            // GIVEN
+            val email = loadEmail("stubs/emails/MIT/The Download/144 How AI video gam.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            publication.articles shouldNot beEmpty()
         }
     }
 }
