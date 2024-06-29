@@ -16,36 +16,6 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.config
+package fr.nicopico.n2rss.analytics
 
-import org.aspectj.lang.JoinPoint
-import org.aspectj.lang.annotation.Aspect
-import org.aspectj.lang.annotation.Before
-import org.aspectj.lang.annotation.Pointcut
-import org.slf4j.LoggerFactory
-import org.springframework.stereotype.Component
-
-private val LOG = LoggerFactory.getLogger(LoggingAspect::class.java)
-
-@Aspect
-@Component
-class LoggingAspect {
-
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
-    fun getMapping() = Unit
-
-    @Pointcut("@annotation(org.springframework.web.bind.annotation.PostMapping)")
-    fun postMapping() = Unit
-
-    @Before("getMapping()")
-    fun logBeforeGet(joinPoint: JoinPoint) = logBefore(joinPoint)
-
-    @Before("postMapping()")
-    fun logBeforePost(joinPoint: JoinPoint) = logBefore(joinPoint)
-
-    private fun logBefore(joinPoint: JoinPoint) {
-        val arguments = joinPoint.args.joinToString()
-        val message = with(joinPoint.signature) { "$declaringTypeName -- Calling $name($arguments)..." }
-        LOG.info(message)
-    }
-}
+class AnalyticException(message: String?, cause: Throwable?) : Exception(message, cause)

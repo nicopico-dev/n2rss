@@ -41,6 +41,9 @@ class N2RssConfiguration {
 
     @Bean
     fun recaptchaProperties() = properties.recaptcha
+
+    @Bean
+    fun analyticsProperties() = properties.analytics
 }
 
 private const val DEFAULT_PORT = 993
@@ -55,6 +58,7 @@ constructor(
     val feeds: FeedsProperties = FeedsProperties(),
     val recaptcha: ReCaptchaProperties,
     val email: EmailProperties,
+    val analytics: AnalyticsProperties,
 ) {
     data class MaintenanceProperties(
         val secretKey: String,
@@ -72,7 +76,6 @@ constructor(
         val cron: String,
         val client: EmailClientProperties,
     )
-
     data class EmailClientProperties(
         val host: String,
         val username: String,
@@ -80,5 +83,10 @@ constructor(
         val port: Int = DEFAULT_PORT,
         val protocol: String = DEFAULT_PROTOCOL,
         val inboxFolder: String = DEFAULT_INBOX_FOLDER,
+    )
+    data class AnalyticsProperties(
+        val enabled: Boolean = true,
+        val userAgent: String,
+        val hostname: String,
     )
 }
