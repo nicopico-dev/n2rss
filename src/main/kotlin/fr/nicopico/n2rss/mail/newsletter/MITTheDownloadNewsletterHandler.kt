@@ -49,21 +49,24 @@ class MITTheDownloadNewsletterHandler : NewsletterHandlerSingleFeed {
                 .addAttributes("h2", "class"),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
+        print(document)
 
         val titles = listOf(document.select("h1")[1]) +
-            document.select("h2").toList()
+            document.select("h2:not(:empty)").toList()
+        print(titles)
 
-        return titles.map { retrieveArticle(it) }
+        return titles.mapNotNull { retrieveArticle(it) }
     }
 
-    private fun retrieveArticle(titleElement: Element): Article {
+    private fun retrieveArticle(titleElement: Element): Article? {
         val title = titleElement.text()
+
         val descriptionElements = titleElement.nextElementSiblings()
             .takeWhile { it.tagName() == "p" }
         val link = descriptionElements
             .mapNotNull { it.select("a[href]").last() }
             .lastOrNull()?.attr("href")
-            ?: throw NewsletterParsingException("Unable to find link for article $title")
+            ?: return null
 
         return Article(
             title = title,

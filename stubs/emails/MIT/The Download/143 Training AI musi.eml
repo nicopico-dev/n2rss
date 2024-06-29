@@ -1,0 +1,3204 @@
+Return-Path: <bounce-mc.us11_44406561.858449-4fc74d6331@mail69.atl231.mcsv.net>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap3.paris1.alwaysdata.com with LMTPS
+	id IHppEL1VfWb9FQAA5hnrLg
+	(envelope-from <bounce-mc.us11_44406561.858449-4fc74d6331@mail69.atl231.mcsv.net>)
+	for <n2rss@nicopico.fr>; Thu, 27 Jun 2024 14:06:21 +0200
+Return-path: <bounce-mc.us11_44406561.858449-4fc74d6331@mail69.atl231.mcsv.net>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Thu, 27 Jun 2024 14:06:21 +0200
+Received: from mail69.atl231.mcsv.net ([198.2.141.69])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <bounce-mc.us11_44406561.858449-4fc74d6331@mail69.atl231.mcsv.net>)
+	id 1sMntI-00071O-26
+	for n2rss@nicopico.fr; Thu, 27 Jun 2024 14:06:18 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=technologyreview.com; s=k3; t=1719489975; x=1719750475;
+	i=newsletters@technologyreview.com;
+	bh=6CpFr+lnBCjQgPKVP/KrDIm+OZmCCVPM6wmw0pKcbKU=;
+	h=Subject:From:Reply-To:To:Date:Message-ID:X-MC-User:Feedback-ID:
+	 List-ID:List-Unsubscribe:List-Unsubscribe-Post:Content-Type:
+	 MIME-Version:CC:Date:Subject:From;
+	b=MnRgWVpQifWGHpPQEpSzsfRqZyzB9EycakVXlAuC9tPrbK2+WbzlQx/lQjtd3NTXF
+	 NeXO/JEmnreKWCCqAGCsipedPQ3h8MfggpJg7NBdRw6tggNK7AOMnj5g1o3G5dFKS5
+	 4Y57MoWrA/HqbiOjxOlyvb18SpygiBOrhNKP48x9jV3KIbQWrJKOuAACcifmBQc6gD
+	 3Yb76nOVKQhC1FsBRxNK7R4FJtiHxGQcww1ihPta7CLZ9gUw/Rj7ZcYymIUH2cv/8d
+	 +ovhOotUpXRVWpPBL1X2I4ondySGw+v5Vtv2ylmMPcKwqbZxpDeJ0TObf8ZHWcHeoL
+	 ItHqX4fdeXBgQ==
+Received: from localhost (localhost [127.0.0.1])
+	by mail69.atl231.mcsv.net (Mailchimp) with ESMTP id 4W8y2t6w8Gz35yRQR
+	for <n2rss@nicopico.fr>; Thu, 27 Jun 2024 12:06:14 +0000 (GMT)
+Subject: =?utf-8?Q?Training=20AI=20music=20models=20is=20about=20to=20get=20very=20expensive?=
+From: The Download from MIT Technology Review <newsletters@technologyreview.com>
+Reply-To: =?utf-8?Q?The=20Download=20from=20MIT=20Technology=20Review?= <newsletters@technologyreview.com>
+To: <n2rss@nicopico.fr>
+Date: Thu, 27 Jun 2024 12:06:01 +0000
+Message-ID: <47c1a9cec9749a8f8cbc83e78.4fc74d6331.20240627120544.2c6ba2047a.ef284110@mail69.atl231.mcsv.net>
+X-Mailer: Mailchimp Mailer - **CID2c6ba2047a4fc74d6331**
+X-Campaign: mailchimp47c1a9cec9749a8f8cbc83e78.2c6ba2047a
+X-campaignid: mailchimp47c1a9cec9749a8f8cbc83e78.2c6ba2047a
+X-Report-Abuse: Please report abuse for this campaign here: https://mailchimp.com/contact/abuse/?u=47c1a9cec9749a8f8cbc83e78&id=2c6ba2047a&e=4fc74d6331
+X-MC-User: 47c1a9cec9749a8f8cbc83e78
+Feedback-ID: 44406561:44406561.858449:us11:mc
+List-ID: 47c1a9cec9749a8f8cbc83e78mc list <47c1a9cec9749a8f8cbc83e78.310113.list-id.mcsv.net>
+X-Accounttype: pr
+List-Unsubscribe: <https://technologyreview.us11.list-manage.com/unsubscribe?u=47c1a9cec9749a8f8cbc83e78&id=e2349bbf6b&t=h&e=4fc74d6331&c=2c6ba2047a>, <mailto:unsubscribe-mc.us11_47c1a9cec9749a8f8cbc83e78.2c6ba2047a-4fc74d6331@unsubscribe.mailchimpapp.net?subject=unsubscribe>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Content-Type: multipart/alternative; boundary="_----------=_MCPart_1991728008"
+MIME-Version: 1.0
+X-alwaysdata-Spam-Report: 	2.00 DCC_REJECT [bulk Body=1 Fuz1=many Fuz2=many ] - Rejected by DCC
+	0.60 SUBJ_EXCESS_QP - Subject is unnecessarily encoded in quoted-printable
+	0.50 REPLYTO_EXCESS_QP - Reply-To that contains encoded characters while
+ quoted-printable is not needed as all symbols are 7bit
+	0.10 ZERO_FONT [1] - Zero sized font used
+	0.05 MANY_INVISIBLE_PARTS [1] - Many parts are visually hidden
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 REPLYTO_DN_EQ_FROM_DN - Reply-To display name matches From
+	0.00 REPLYTO_ADDR_EQ_FROM - Reply-To header is identical to SMTP From
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_TWO [2] - Message has two Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PREVIOUSLY_DELIVERED [n2rss@nicopico.fr] - Message either to a list or
+ was forwarded
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [newsletters@technologyreview.com] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [technologyreview.com:+] - DKIM trace symbol
+	0.00 BAYES_HAM [100.00%] - Message probably ham, probability:
+	0.00 ASN [asn:14782, ipnet:198.2.128.0/19, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.18 IP_REPUTATION_HAM [asn: 14782(-0.17), country: US(-0.00),
+ ip: 198.2.141.69(0.00)]
+	-0.20 R_DKIM_ALLOW [technologyreview.com:s=k3] - DKIM verification succeed
+	-0.49 URL_REPUTATION [-0.49073814278554]
+	-0.50 DMARC_POLICY_ALLOW [technologyreview.com,
+ quarantine] - DMARC permit policy
+X-alwaysdata-Spam-Score: 1.77
+
+This is a multi-part message in MIME format
+
+--_----------=_MCPart_1991728008
+Content-Type: text/plain; charset="utf-8"; format="fixed"
+Content-Transfer-Encoding: quoted-printable
+
+These climate tech companies just got $60 million
+
+https://ter.li/JA24Play-Download-Offer?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID
+Subscribe & Save (https://ter.li/JA24Play-Download-Offer?mc_cid=3D2c6ba204=
+7a&mc_eid=3DUNIQID)
+
+
+**
+The Download
+------------------------------------------------------------
+
+
+** Your daily dose of what=E2=80=99s up in emerging technology
+------------------------------------------------------------
+
+
+** By Charlotte Jee =E2=80=A2 06.27.24
+------------------------------------------------------------
+
+Hello! Today: why we=E2=80=99re at a critical juncture for the future of A=
+I music. Also: check out which climate tech companies are getting funding=
+ from the US government=E2=80=99s =E2=80=9Cenergy moonshot factory=E2=80=
+=9D=2C and how researchers are using Lego for serious scientific endeavors=
+=2E
+
+Also: if you want to learn more about the wild world of deepfakes=2C join=
+ me and my colleagues Melissa Heikkil=C3=A4 and Zeyi Yang later at 12pm ET=
+ for a half-hour discussion live on LinkedIn! Sign up here (https://www.li=
+nkedin.com/events/thestateofdeepfakesin20247207434428678111232/?mc_cid=3D2=
+c6ba2047a&mc_eid=3DUNIQID) .
+https://www.technologyreview.com/2024/06/27/1094379/ai-music-suno-udio-law=
+suit-record-labels-youtube-licensing/?truid=3D&utm_source=
+=3Dthe_download&utm_medium=3Demail&utm_campaign=3Dthe_download.unpaid.enga=
+gement&utm_term=3D&utm_content=3D06-27-2024&mc_cid=3D2c6b=
+a2047a&mc_eid=3DUNIQID
+
+
+** Training AI music models is about to get very expensive
+------------------------------------------------------------
+
+AI music is suddenly in a make-or-break moment (https://www.technologyrevi=
+ew.com/2024/06/27/1094379/ai-music-suno-udio-lawsuit-record-labels-youtube=
+-licensing/?truid=3D&utm_source=3Dthe_download&utm_medium=
+=3Demail&utm_campaign=3Dthe_download.unpaid.engagement&utm_term=3D&utm_content=3D06-27-2024&mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) .=
+ On June 24=2C Suno and Udio=2C two startups that let you generate songs f=
+rom a prompt in seconds=2C were sued by major record labels. The labels al=
+leged the startups had used copyrighted music as training data =E2=80=9Cat=
+ an almost unimaginable scale=E2=80=9D.
+
+Just two days later=2C the Financial Times reported that YouTube is pursui=
+ng a comparatively above-board approach=2C offering unspecified lump sums=
+ to top record labels in exchange for licenses to use their catalogs for t=
+raining data.
+
+While the ground here is moving fast=2C none of these moves should be all=
+ that surprising: litigious training-data battles have become something li=
+ke a rite of passage for generative AI companies. The trend has led many t=
+o pay for licensing deals while the cases unfold.
+
+But the stakes of a fight over training data for AI music are different=E2=
+=80=94and arguably even higher. Read our story to find out why=2C and what=
+ might happen next (https://www.technologyreview.com/2024/06/27/1094379/ai=
+-music-suno-udio-lawsuit-record-labels-youtube-licensing/?truid=3D&utm_source=3Dthe_download&utm_medium=3Demail&utm_campaign=3Dthe_d=
+ownload.unpaid.engagement&utm_term=3D&utm_content=3D06-27=
+-2024&mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) .
+
+=E2=80=94James O=E2=80=99Donnell
+------------------------------------------------------------
+
+
+** These climate tech companies just got $60 million
+------------------------------------------------------------
+Every few years=2C the US agency that=E2=80=99s often called the =E2=80=9C=
+energy moonshot factory=E2=80=9D announces big funding awards for a few co=
+mpanies to help them scale up their technology. (The agency=E2=80=99s offi=
+cial name is the Advanced Research Projects Agency=E2=80=94Energy=2C or AR=
+PA-E.)
+
+The grants are designed to help companies take their tech from the lab or=
+ pilot stage and get it out into the world. The latest batch of these awar=
+ds was just announced=2C totaling over $63 million split between four comp=
+anies. Read our story that digs into the winners and examines what each on=
+e=E2=80=99s technology says about their respective corners of climate acti=
+on.
+
+=E2=80=94Casey Crownhart
+
+This story is from The Spark=2C our weekly newsletter giving you the insid=
+e track on all things climate tech. Sign up (https://forms.technologyrevie=
+w.com/newsletters/biotech-the-checkup/?truid=3D&utm_source=
+=3Dthe_download&utm_medium=3Demail&utm_campaign=3Dthe_download.unpaid.enga=
+gement&utm_term=3D&utm_content=3D06-27-2024&mc_cid=3D2c6b=
+a2047a&mc_eid=3DUNIQID) to receive it in your inbox every Wednesday.
+------------------------------------------------------------
+
+
+** Lego bricks are making science more accessible
+------------------------------------------------------------
+Etienne Boulter walked into his lab at the Universit=C3=A9 C=C3=B4te d=E2=
+=80=99Azur in Nice=2C France=2C one morning with a Lego Technic excavator=
+ set tucked under his arm. His plan was simple yet ambitious: to use the p=
+ieces of the set to build a mechanical cell stretcher.
+
+Boulter and his colleagues study mechanobiology=E2=80=94the way things lik=
+e stretching or compression affect cells=E2=80=94and this piece of equipme=
+nt is essential for his research. Commercial cell stretchers cost over $50=
+=2C000. But one day=2C after playing with the Lego set=2C Boulter and his=
+ colleagues found a way to build one out of its components for only a litt=
+le over $200.
+
+Their Lego system stretches a silicone plate where cells are growing. This=
+ process causes the cells to deform and mimics how our own skin cells stre=
+tch. And Boulter is not alone. In fact=2C he=E2=80=99s one of many researc=
+hers turning to Lego components to build inexpensive yet extremely effecti=
+ve lab equipment. Read the full story (https://www.technologyreview.com/20=
+24/06/25/1093639/lego-bricks-science-accessibility/?truid=3D&utm_source=3Dthe_download&utm_medium=3Demail&utm_campaign=3Dthe_downloa=
+d.unpaid.engagement&utm_term=3D&utm_content=3D06-27-2024&=
+mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) .
+
+=E2=80=94Elizabeth Fernandez
+
+This story is from the latest issue (https://www.technologyreview.com/maga=
+zines/the-play-issue/?truid=3D&utm_source=3Dthe_download&u=
+tm_medium=3Demail&utm_campaign=3Dthe_download.unpaid.engagement&utm_term=
+=3D&utm_content=3D06-27-2024&mc_cid=3D2c6ba2047a&mc_eid=
+=3DUNIQID) of MIT Technology Review=2C which explores the theme of Play.
+
+
+** The must-reads
+------------------------------------------------------------
+I=E2=80=99ve combed the internet to find you today=E2=80=99s most fun/impo=
+rtant/scary/fascinating stories about technology.
+
+1 The Supreme Court ruled the White House can contact social media firms
+It=E2=80=99s a blow for right-wing campaigners who argue their views are b=
+eing censored online. (WP (https://www.washingtonpost.com/politics/2024/06=
+/26/supreme-court-social-media-white-house/?mc_cid=3D2c6ba2047a&mc_eid=3DU=
+NIQID) $)
++ Here=E2=80=99s what it means for the election. (NPR (https://www.npr.org=
+/2024/06/17/nx-s1-5009201/supreme-court-social-media-censorship-election-d=
+isinformation?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) )
++ Russian propagandists are promoting deepfakes of Biden. (Wired (https://=
+www.wired.com/story/russia-disinformation-network-ai-generated-biden-video=
+/?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) $)
+
+2 How AI has revolutionized protein science
+And the most exciting part? We=E2=80=99re really only at the beginning of=
+ discovering what machine learning could unlock. (Quanta (https://www.quan=
+tamagazine.org/how-ai-revolutionized-protein-science-but-didnt-end-it-2024=
+0626/?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) $)
++ Google DeepMind=E2=80=99s new AlphaFold can model a much larger slice of=
+ biological life. (MIT Technology Review (https://www.technologyreview.com=
+/2024/05/08/1092183/google-deepminds-new-alphafold-can-model-a-much-larger=
+-slice-of-biological-life/?truid=3D&utm_source=3Dthe_downl=
+oad&utm_medium=3Demail&utm_campaign=3Dthe_download.unpaid.engagement&utm_t=
+erm=3D&utm_content=3D06-27-2024&mc_cid=3D2c6ba2047a&mc_ei=
+d=3DUNIQID) )
+
+3 Inside California's green energy revolution
+The state is showing how you can run a thriving modern economy on clean en=
+ergy. (New Yorker (https://www.newyorker.com/news/daily-comment/california=
+-is-showing-how-a-big-state-can-power-itself-without-fossil-fuels?mc_cid=
+=3D2c6ba2047a&mc_eid=3DUNIQID) $)
+
+4 Toys =E2=80=98R=E2=80=99 Us used OpenAI=E2=80=99s video AI system Sora t=
+o make a commercial
+It=E2=80=99s a milestone for the use of AI in video production=E2=80=94but=
+ the response to it was very mixed. (NBC (https://www.nbcnews.com/tech/int=
+ernet/toys-r-us-ai-video-ad-controversy-explained-commercial-rcna159030?mc=
+_cid=3D2c6ba2047a&mc_eid=3DUNIQID) )
++ I tested out a buzzy new text-to-video AI model from China. (MIT Technol=
+ogy Review (https://www.technologyreview.com/2024/06/19/1094027/kling-kuai=
+shou-video-ai-china/?truid=3D&utm_source=3Dthe_download&ut=
+m_medium=3Demail&utm_campaign=3Dthe_download.unpaid.engagement&utm_term=3D=
+&utm_content=3D06-27-2024&mc_cid=3D2c6ba2047a&mc_eid=3DUN=
+IQID) )
+
+5 Secret Telegram channels are providing refuge for LGBTQ+ people in Russi=
+a
+Up to and including advice on how to leave the country=2C which is becomin=
+g less and less safe. (Wired (https://www.wired.com/story/telegram-lgbtq-r=
+ussia-refuge/?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) $)
+
+6 We really need AI to be able to cite its sources
+The trouble is=2C even if it could=2C would they be factually accurate? (T=
+he Atlantic (https://www.theatlantic.com/technology/archive/2024/06/chatgp=
+t-citations-rag/678796/?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) $)
++ At least 10% of scientific research may already be co-authored by AI. (T=
+he Economist (https://www.economist.com/science-and-technology/2024/06/26/=
+at-least-10-of-research-may-already-be-co-authored-by-ai?mc_cid=3D2c6ba204=
+7a&mc_eid=3DUNIQID) $)
+
+7 Consultants are raking it in thanks to the AI boom
+But of course they are. (NYT (https://www.nytimes.com/2024/06/26/technolog=
+y/ai-consultants.html?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) $)
+
+8 It=E2=80=99s become worryingly normalized to snoop on your partner=E2=80=
+=99s online life
+Yet it=E2=80=99s still a really=2C really bad idea. (WP (https://www.washi=
+ngtonpost.com/technology/2024/06/26/micro-cheating-tiktok-instagram/?mc_ci=
+d=3D2c6ba2047a&mc_eid=3DUNIQID) $)
+
+9 Lawn Mowing Simulator is the latest anti-escapist video game
+Struggling to see the appeal personally=2C but hey=2C each to their own. (=
+The Guardian (https://www.theguardian.com/games/article/2024/jun/26/lawn-m=
+owing-simulator-simulation-games?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) )
+
+10 McDonalds has rejected plant-based burgers =F0=9F=8D=94
+After tests of its McPlant burger in San Francisco and Dallas failed. (Qua=
+rtz (https://qz.com/mcdonalds-mcplant-test-failure-california-san-francisc=
+o-1851562763?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) $)
++ Here=E2=80=99s what a lab-grown burger tastes like. (MIT Technology Revi=
+ew (https://www.technologyreview.com/2023/05/25/1073590/lab-grown-burger-t=
+aste-cultured-meat/?truid=3D&utm_source=3Dthe_download&utm=
+_medium=3Demail&utm_campaign=3Dthe_download.unpaid.engagement&utm_term=3D&utm_content=3D06-27-2024&mc_cid=3D2c6ba2047a&mc_eid=3DUNI=
+QID) )
+
+
+** Quote of the day
+------------------------------------------------------------
+------------------------------------------------------------
+
+
+**
+------------------------------------------------------------
+
+
+** =E2=80=9CThere=E2=80=99s no question that this crosses a line that they=
+ hadn=E2=80=99t previously crossed. I think that suggests that the lines a=
+re becoming meaningless.=E2=80=9D
+------------------------------------------------------------
+
+=E2=80=94Darren Linvill=2C a founder of the Media Forensics Hub at Clemson=
+ University=2C tells the New York Times (https://www.nytimes.com/2024/06/2=
+7/business/china-disinformation-critics-harassment.html?mc_cid=3D2c6ba2047=
+a&mc_eid=3DUNIQID) that aggressively targeting a US-based Chinese dissiden=
+t=E2=80=99s 16-year-old daughter online represents a new low for the count=
+ry=E2=80=99s security services.
+
+
+** The big story
+------------------------------------------------------------
+https://www.technologyreview.com/2022/09/05/1058933/universal-covid-vaccin=
+e-research/?truid=3D&utm_source=3Dthe_download&utm_medium=
+=3Demail&utm_campaign=3Dthe_download.unpaid.engagement&utm_term=3D&utm_content=3D06-27-2024&mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID
+
+
+**
+------------------------------------------------------------
+
+
+** Think that your plastic is being recycled? Think again.
+------------------------------------------------------------
+
+October 2023
+
+The problem of plastic waste hides in plain sight=2C a ubiquitous part of=
+ our lives we rarely question. But a closer examination of the situation i=
+s shocking.
+
+To date=2C humans have created around 11 billion metric tons of plastic=2C=
+ the vast majority of which ends up in landfills or the environment. Only=
+ 9% of the plastic ever produced has been recycled.
+
+To make matters worse=2C plastic production is growing dramatically; in fa=
+ct=2C half of all plastics in existence have been produced in just the las=
+t two decades.
+
+So what do we do? Sadly=2C solutions such as recycling and reuse aren't eq=
+ual to the scale of the task. The only answer is drastic cuts in productio=
+n in the first place. Read the full story (https://www.technologyreview.co=
+m/2023/10/12/1081129/plastic-recycling-climate-change-microplastics/?truid=
+=3D&utm_source=3Dthe_download&utm_medium=3Demail&utm_campa=
+ign=3Dthe_download.unpaid.engagement&utm_term=3D&utm_cont=
+ent=3D06-27-2024&mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) .
+
+=E2=80=94Douglas Main
+
+
+** We can still have nice things
+------------------------------------------------------------
+
+A place for comfort=2C fun and distraction to brighten up your day. (Got a=
+ny ideas? Drop me a line (mailto:rhiannon.williams@technologyreview.com) =
+ or tweet 'em at me (https://twitter.com/yannon_?mc_cid=3D2c6ba2047a&mc_ei=
+d=3DUNIQID) .)
+
++ Enjoy these award-winning black-and-white photos (https://exposureoneawa=
+rds.com/contests/winners/one-shot?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID) .
++ Is owning a pet good for you? On balance=2C it seems so! (https://arstec=
+hnica.com/science/2024/06/is-having-a-pet-good-for-you-the-fuzzy-science-o=
+f-pet-ownership/?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID)
++ I just learned that there=E2=80=99s more than one type of aurora (https:=
+//www.nature.com/articles/d41586-024-02072-7?mc_cid=3D2c6ba2047a&mc_eid=3D=
+UNIQID) .
++ Tis the season for potato salad=2C and this recipe (https://www.waitrose=
+=2Ecom/ecom/recipe/remoulade-style-potato-salad?mc_cid=3D2c6ba2047a&mc_eid=
+=3DUNIQID) is so good.
+https://ter.li/ETM24-homepage?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID
+https://ter.li/JA24Play-Download-Offer?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID
+
+Subscribe to save up to 17% (https://ter.li/JA24Play-Download-Offer?mc_cid=
+=3D2c6ba2047a&mc_eid=3DUNIQID) and unlock unlimited access to our new Play=
+ issue. Discover how AI is revolutionizing gaming=2C running=2C surfing=2C=
+ and more.
+SUBSCRIBE & SAVE (https://ter.li/JA24Play-Download-Offer?mc_cid=3D2c6ba204=
+7a&mc_eid=3DUNIQID)
+
+Top image credit: SARAH ROGERS/MITTIR | GETTY
+
+Please send potato salad to hi@technologyreview.com (mailto:hi@technologyr=
+eview.com) .
+
+=E2=80=94Charlotte
+
+
+**
+Was this newsletter forwarded to you=2C and you=E2=80=99d like to see more=
+?
+------------------------------------------------------------
+Sign up today =E2=86=92 (https://ter.li/newsletters-preferences-signup-dow=
+nload?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID)
+
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+Download the MIT Technology Review app
+
+** Download on the App Store (https://apps.apple.com/us/app/mit-technology=
+-review/id1449141080?mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID)
+** Get it on Google Play (https://play.google.com/store/apps/details?id=3D=
+com.technologyreview.mit&hl=3Den_US=E2=89=B7=3DUS&pli=3D1)
+** LinkedIn (https://www.linkedin.com/company/mit-technology-review/?mc_ci=
+d=3D2c6ba2047a&mc_eid=3DUNIQID)
+** Twitter (https://twitter.com/techreview?mc_cid=3D2c6ba2047a&mc_eid=3DUN=
+IQID)
+** Facebook (https://www.facebook.com/technologyreview/?mc_cid=3D2c6ba2047=
+a&mc_eid=3DUNIQID)
+** View in browser (https://mailchi.mp/technologyreview/the-download-85844=
+9?e=3D4fc74d6331)
+| This email was sent to ** n2rss@nicopico.fr (mailto:n2rss@nicopico.fr)
+=2E
+
+** Manage your preferences (https://www.technologyreview.com/newsletter-pr=
+eferences?email_address=3Dn2rss@nicopico.fr&mc_cid=3D2c6ba2047a&mc_eid=3DUN=
+IQID)
+| ** Unsubscribe (https://www.technologyreview.com/newsletter-preferences?=
+email_address=3Dn2rss@nicopico.fr&mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID)
+| ** Terms of Service (https://www.technologyreview.com/terms-of-service/?=
+mc_cid=3D2c6ba2047a&mc_eid=3DUNIQID)
+| ** Privacy Policy (https://www.technologyreview.com/privacy/?mc_cid=3D2c=
+6ba2047a&mc_eid=3DUNIQID)
+MIT Technology Review . 196 Broadway=2C 3rd fl=2C . Cambridge=2C MA 02139=
+ . USA
+
+Copyright =C2=A9 2024 MIT Technology Review=2C All rights reserved.
+** Opt out of all promotional emails and newsletters from MIT Technology R=
+eview (https://technologyreview.us11.list-manage.com/unsubscribe?u=3D47c1a=
+9cec9749a8f8cbc83e78&id=3De2349bbf6b&t=3Db&e=3D4fc74d6331&c=3D2c6ba2047a)
+--_----------=_MCPart_1991728008
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-micros=
+oft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+    <head>
+        <!-- NAME: TELL A STORY -->
+        <!--[if gte mso 15]>
+        <xml>
+            <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+        <![endif]-->
+        <meta charset=3D"UTF-8">
+        <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width=2C initial=
+-scale=3D1">
+        <title>Training AI music models is about to get very expensive</ti=
+tle>
+
+    <style type=3D"text/css">
+=09=09p{
+=09=09=09margin:10px 0;
+=09=09=09padding:0;
+=09=09}
+=09=09table{
+=09=09=09border-collapse:collapse;
+=09=09}
+=09=09h1=2Ch2=2Ch3=2Ch4=2Ch5=2Ch6{
+=09=09=09display:block;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09}
+=09=09img=2Ca img{
+=09=09=09border:0;
+=09=09=09height:auto;
+=09=09=09outline:none;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09body=2C#bodyTable=2C#bodyCell{
+=09=09=09height:100%;
+=09=09=09margin:0;
+=09=09=09padding:0;
+=09=09=09width:100%;
+=09=09}
+=09=09.mcnPreviewText{
+=09=09=09display:none !important;
+=09=09}
+=09=09#outlook a{
+=09=09=09padding:0;
+=09=09}
+=09=09img{
+=09=09=09-ms-interpolation-mode:bicubic;
+=09=09}
+=09=09table{
+=09=09=09mso-table-lspace:0pt;
+=09=09=09mso-table-rspace:0pt;
+=09=09}
+=09=09.ReadMsgBody{
+=09=09=09width:100%;
+=09=09}
+=09=09.ExternalClass{
+=09=09=09width:100%;
+=09=09}
+=09=09p=2Ca=2Cli=2Ctd=2Cblockquote{
+=09=09=09mso-line-height-rule:exactly;
+=09=09}
+=09=09a[href^=3Dtel]=2Ca[href^=3Dsms]{
+=09=09=09color:inherit;
+=09=09=09cursor:default;
+=09=09=09text-decoration:none;
+=09=09}
+=09=09p=2Ca=2Cli=2Ctd=2Cbody=2Ctable=2Cblockquote{
+=09=09=09-ms-text-size-adjust:100%;
+=09=09=09-webkit-text-size-adjust:100%;
+=09=09}
+=09=09.ExternalClass=2C.ExternalClass p=2C.ExternalClass td=2C.ExternalCla=
+ss div=2C.ExternalClass span=2C.ExternalClass font{
+=09=09=09line-height:100%;
+=09=09}
+=09=09a[x-apple-data-detectors]{
+=09=09=09color:inherit !important;
+=09=09=09text-decoration:none !important;
+=09=09=09font-size:inherit !important;
+=09=09=09font-family:inherit !important;
+=09=09=09font-weight:inherit !important;
+=09=09=09line-height:inherit !important;
+=09=09}
+=09=09table[align=3Dleft]{
+=09=09=09float:left;
+=09=09}
+=09=09table[align=3Dright]{
+=09=09=09float:right;
+=09=09}
+=09=09.templateContainer{
+=09=09=09max-width:600px !important;
+=09=09}
+=09=09a.mcnButton{
+=09=09=09display:block;
+=09=09}
+=09=09.mcnImage=2C.mcnRetinaImage{
+=09=09=09vertical-align:bottom;
+=09=09}
+=09=09.mcnTextContent{
+=09=09=09word-break:break-word;
+=09=09}
+=09=09.mcnTextContent img{
+=09=09=09height:auto !important;
+=09=09}
+=09=09.mcnDividerBlock{
+=09=09=09table-layout:fixed !important;
+=09=09}
+=09=09h1{
+=09=09=09color:#08090c;
+=09=09=09font-family:'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C=
+ sans-serif;
+=09=09=09font-size:30px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:-1px;
+=09=09=09text-align:left;
+=09=09}
+=09=09h2{
+=09=09=09color:#08090c;
+=09=09=09font-family:'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C=
+ sans-serif;
+=09=09=09font-size:18px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:bold;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h3{
+=09=09=09color:#08090c;
+=09=09=09font-family:'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C=
+ sans-serif;
+=09=09=09font-size:18px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:normal;
+=09=09=09line-height:125%;
+=09=09=09letter-spacing:normal;
+=09=09=09text-align:left;
+=09=09}
+=09=09h4{
+=09=09=09color:#08090c;
+=09=09=09font-family:'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C=
+ sans-serif;
+=09=09=09font-size:14px;
+=09=09=09font-style:normal;
+=09=09=09font-weight:normal;
+=09=09=09line-height:200%;
+=09=09=09letter-spacing:0px;
+=09=09=09text-align:left;
+=09=09}
+=09=09#templateHeader{
+=09=09=09background-color:#ebecf0;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:bottom;
+=09=09=09background-size:contain;
+=09=09=09border-top:1px none #222222;
+=09=09=09border-bottom:1px none #130b0b;
+=09=09=09padding-top:0px;
+=09=09=09padding-bottom:0px;
+=09=09}
+=09=09.headerContainer{
+=09=09=09background-color:#ffffff;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:0px;
+=09=09=09padding-bottom:0px;
+=09=09}
+=09=09.headerContainer .mcnTextContent=2C.headerContainer .mcnTextContent=
+ p{
+=09=09=09color:#333333;
+=09=09=09font-family:'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C=
+ sans-serif;
+=09=09=09font-size:16px;
+=09=09=09line-height:125%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.headerContainer .mcnTextContent a=2C.headerContainer .mcnTextConten=
+t p a{
+=09=09=09color:#222222;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateBody{
+=09=09=09background-color:#ebecf0;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:8px;
+=09=09=09padding-bottom:24px;
+=09=09}
+=09=09.bodyContainer{
+=09=09=09background-color:#ffffff;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:10px none ;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:24px;
+=09=09=09padding-bottom:24px;
+=09=09}
+=09=09.bodyContainer .mcnTextContent=2C.bodyContainer .mcnTextContent p{
+=09=09=09color:#08090c;
+=09=09=09font-family:'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C=
+ sans-serif;
+=09=09=09font-size:16px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.bodyContainer .mcnTextContent a=2C.bodyContainer .mcnTextContent p=
+ a{
+=09=09=09color:#08090c;
+=09=09=09font-weight:bold;
+=09=09=09text-decoration:underline;
+=09=09}
+=09=09#templateFooter{
+=09=09=09background-color:#ebecf0;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:30px;
+=09=09=09padding-bottom:30px;
+=09=09}
+=09=09.footerContainer{
+=09=09=09background-color:#transparent;
+=09=09=09background-image:none;
+=09=09=09background-repeat:no-repeat;
+=09=09=09background-position:center;
+=09=09=09background-size:cover;
+=09=09=09border-top:0;
+=09=09=09border-bottom:0;
+=09=09=09padding-top:0px;
+=09=09=09padding-bottom:0;
+=09=09}
+=09=09.footerContainer .mcnTextContent=2C.footerContainer .mcnTextContent=
+ p{
+=09=09=09color:#222222;
+=09=09=09font-family:'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C=
+ sans-serif;
+=09=09=09font-size:12px;
+=09=09=09line-height:150%;
+=09=09=09text-align:left;
+=09=09}
+=09=09.footerContainer .mcnTextContent a=2C.footerContainer .mcnTextConten=
+t p a{
+=09=09=09color:#222222;
+=09=09=09font-weight:normal;
+=09=09=09text-decoration:underline;
+=09=09}
+=09@media only screen and (min-width:768px){
+=09=09.templateContainer{
+=09=09=09width:600px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body=2Ctable=2Ctd=2Cp=2Ca=2Cli=2Cblockquote{
+=09=09=09-webkit-text-size-adjust:none !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09body{
+=09=09=09width:100% !important;
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnRetinaImage{
+=09=09=09max-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImage{
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCartContainer=2C.mcnCaptionTopContent=2C.mcnRecContentContainer=
+=2C.mcnCaptionBottomContent=2C.mcnTextContentContainer=2C.mcnBoxedTextCont=
+entContainer=2C.mcnImageGroupContentContainer=2C.mcnCaptionLeftTextContent=
+Container=2C.mcnCaptionRightTextContentContainer=2C.mcnCaptionLeftImageCon=
+tentContainer=2C.mcnCaptionRightImageContentContainer=2C.mcnImageCardLeftT=
+extContentContainer=2C.mcnImageCardRightTextContentContainer=2C.mcnImageCa=
+rdLeftImageContentContainer=2C.mcnImageCardRightImageContentContainer{
+=09=09=09max-width:100% !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer{
+=09=09=09min-width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupContent{
+=09=09=09padding:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnCaptionLeftContentOuter .mcnTextContent=2C.mcnCaptionRightConten=
+tOuter .mcnTextContent{
+=09=09=09padding-top:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardTopImageContent=2C.mcnCaptionBottomContent:last-child .=
+mcnCaptionBottomImageContent=2C.mcnCaptionBlockInner .mcnCaptionTopContent=
+:last-child .mcnTextContent{
+=09=09=09padding-top:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardBottomImageContent{
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockInner{
+=09=09=09padding-top:0 !important;
+=09=09=09padding-bottom:0 !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageGroupBlockOuter{
+=09=09=09padding-top:9px !important;
+=09=09=09padding-bottom:9px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnTextContent=2C.mcnBoxedTextContentColumn{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnImageCardLeftImageContent=2C.mcnImageCardRightImageContent{
+=09=09=09padding-right:18px !important;
+=09=09=09padding-bottom:0 !important;
+=09=09=09padding-left:18px !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcpreview-image-uploader{
+=09=09=09display:none !important;
+=09=09=09width:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h1{
+=09=09=09font-size:30px !important;
+=09=09=09line-height:100% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h2{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h3{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09h4{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.mcnBoxedTextContentContainer .mcnTextContent=2C.mcnBoxedTextContent=
+Container .mcnTextContent p{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.headerContainer .mcnTextContent=2C.headerContainer .mcnTextContent=
+ p{
+=09=09=09font-size:18px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.bodyContainer .mcnTextContent=2C.bodyContainer .mcnTextContent p{
+=09=09=09font-size:16px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}=09@media only screen and (max-width: 480px){
+=09=09.footerContainer .mcnTextContent=2C.footerContainer .mcnTextContent=
+ p{
+=09=09=09font-size:12px !important;
+=09=09=09line-height:150% !important;
+=09=09}
+
+}</style></head>
+    <body style=3D"height: 100%;margin: 0;padding: 0;width: 100%;-ms-text-=
+size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+        <!--
+-->
+        <!--[if !gte mso 9]><!----><span class=3D"mcnPreviewText" style=
+=3D"display:none; font-size:0px; line-height:0px; max-height:0px; max-widt=
+h:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">These=
+ climate tech companies just got $60 million</span><!--<![endif]-->
+        <!--
+-->
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" height=3D"100%" width=3D"100%" id=3D"bodyTable" style=3D"border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;height: 100%;margin: 0;pad=
+ding: 0;width: 100%;">
+                <tr>
+                    <td align=3D"center" valign=3D"top" id=3D"bodyCell" st=
+yle=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-te=
+xt-size-adjust: 100%;height: 100%;margin: 0;padding: 0;width: 100%;">
+                        <!-- BEGIN TEMPLATE // -->
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"border-collapse: collapse;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;">
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"=
+templateHeader" data-template-container=3D"" style=3D"background:#ebecf0 n=
+one no-repeat bottom/contain;mso-line-height-rule: exactly;-ms-text-size-a=
+djust: 100%;-webkit-text-size-adjust: 100%;background-color: #ebecf0;backg=
+round-image: none;background-repeat: no-repeat;background-position: bottom=
+;background-size: contain;border-top: 1px none #222222;border-bottom: 1px=
+ none #130b0b;padding-top: 0px;padding-bottom: 0px;">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wi=
+dth=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContain=
+er" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;max-wid=
+th: 600px !important;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"he=
+aderContainer" style=3D"background:#ffffff none no-repeat center/cover;mso=
+-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;background-color: #ffffff;background-image: none;background-rep=
+eat: no-repeat;background-position: center;background-size: cover;border-t=
+op: 0;border-bottom: 0;padding-top: 0px;padding-bottom: 0px;"><table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnTex=
+tBlock" style=3D"min-width: 100%;border-collapse: collapse;mso-table-lspac=
+e: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #333333;font-family: 'Helv=
+etica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px=
+;line-height: 125%;text-align: left;">
+
+                            <div style=3D"text-align: right;"><span style=
+=3D"font-size:12px"><a href=3D"https://technologyreview.us11.list-manage.c=
+om/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D39dfef5261&e=3D4fc74d6331" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size=
+-adjust: 100%;-webkit-text-size-adjust: 100%;color: #222222;font-weight: n=
+ormal;text-decoration: underline;"><span style=3D"color:#808080"><span sty=
+le=3D"font-family:helvetica neue=2Chelvetica=2Carial=2Cverdana=2Csans-seri=
+f"><img align=3D"left" alt=3D"MIT Technology Review" data-file-id=3D"15537=
+14" height=3D"49" src=3D"https://mcusercontent.com/47c1a9cec9749a8f8cbc83e=
+78/images/495e60db-d84b-9b4e-a243-ade41f3f084c.png" style=3D"border-image:=
+ none;width: 100px;height: 49px;margin: 15px 0px;border: 0;outline: none;t=
+ext-decoration: none;-ms-interpolation-mode: bicubic;" width=3D"100"></spa=
+n></span></a><br>
+<span style=3D"color:#808080"><span style=3D"font-family:helvetica neue=2C=
+helvetica=2Carial=2Cverdana=2Csans-serif"><a href=3D"https://technologyrev=
+iew.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3Dcb=
+75fa0851&e=3D4fc74d6331" style=3D"font-weight: bold;mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #222222;text-decoration: underline;" target=3D"_blank">Subscribe &amp; Sa=
+ve</a></span></span></span></div>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"=
+templateBody" data-template-container=3D"" style=3D"background:#ebecf0 non=
+e no-repeat center/cover;mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;background-color: #ebecf0;backgroun=
+d-image: none;background-repeat: no-repeat;background-position: center;bac=
+kground-size: cover;border-top: 0;border-bottom: 0;padding-top: 8px;paddin=
+g-bottom: 24px;">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wi=
+dth=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContain=
+er" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;max-wid=
+th: 600px !important;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"bo=
+dyContainer" style=3D"background:#ffffff none no-repeat center/cover;mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;background-color: #ffffff;background-image: none;background-repea=
+t: no-repeat;background-position: center;background-size: cover;border-top=
+: 10px none;border-bottom: 0;padding-top: 24px;padding-bottom: 24px;"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=
+=3D"mcnCodeBlock" style=3D"border-collapse: collapse;mso-table-lspace: 0pt=
+;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"mso-li=
+ne-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjus=
+t: 100%;">
+                <style type=3D"text/css">
+
+=2Earticle-title {
+  =09font-size:20px;
+=09line-height:24px;
+    letter-spacing:-0.5px;
+=09vertical-align: text-top;
+}
+  =09
+p {
+    margin-bottom:15px;
+    font-family:Helvetica=2C sans-serif;
+    font-size:16px;
+    line-height:20px;
+    color:#222222;
+}
+
+a {
+=09color:#222222;
+    font-weight:bold;
+}
+
+
+@media only screen and (max-width: 500px){
+
+=2Earticle-image=2C .sponsor-image {
+    height:auto !important;
+    max-width:100% !important;
+    width: 250px !important;
+}
+
+#templateColumns{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:100% !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+}
+
+=2EtemplateColumnContainer{
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:100% !important;
+}
+
+=2EcolumnLeftImage {
+    height:auto !important;
+    max-width:250px !important;
+    width:250px !important;
+}
+
+=2EleftColumnContent{
+    font-size:16px !important;
+    line-height:100% !important;
+}
+
+=2ErightColumnContent{
+    font-size:16px !important;
+    line-height:100% !important;
+
+}
+
+
+
+}
+</style>
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding: 0px 18px 9px;font-family: &quot;Helvetica Neue&quot;=2C Helve=
+tica=2C Arial=2C Verdana=2C sans-serif;font-size: 14px;line-height: 150%;m=
+so-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;word-break: break-word;color: #08090c;text-align: left;">
+
+                            <h1 class=3D"null" style=3D"display: block;mar=
+gin: 0;padding: 0;color: #08090c;font-family: 'Helvetica Neue'=2C Helvetic=
+a=2C Arial=2C Verdana=2C sans-serif;font-size: 30px;font-style: normal;fon=
+t-weight: bold;line-height: 125%;letter-spacing: -1px;text-align: left;"><=
+img align=3D"middle" data-file-id=3D"1559074" height=3D"30" src=3D"https:/=
+/mcusercontent.com/47c1a9cec9749a8f8cbc83e78/images/36112525-fb45-02bd-b3f=
+7-03eac263cca1.png" style=3D"border-image: none 100% / 1 / 0 stretch;width=
+: 30px;height: 30px;margin: 5px;border: 0;outline: none;text-decoration: n=
+one;-ms-interpolation-mode: bicubic;" width=3D"30"><br>
+The Download</h1>
+
+<h4 class=3D"null" style=3D"display: block;margin: 0;padding: 0;color: #08=
+090c;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C san=
+s-serif;font-size: 14px;font-style: normal;font-weight: normal;line-height=
+: 200%;letter-spacing: 0px;text-align: left;"><em>Your daily dose of what=
+=E2=80=99s up in emerging technology</em></h4>
+
+<h4 class=3D"null" style=3D"display: block;margin: 0;padding: 0;color: #08=
+090c;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C san=
+s-serif;font-size: 14px;font-style: normal;font-weight: normal;line-height=
+: 200%;letter-spacing: 0px;text-align: left;"><strong>By Charlotte Jee =E2=
+=80=A2 06.27.24</strong></h4>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-collapse: c=
+ollapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace: 0pt;mso-=
+table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #08090c;font-family: 'Helv=
+etica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px=
+;line-height: 150%;text-align: left;">
+
+                            <p dir=3D"ltr" style=3D"margin: 10px 0;padding=
+: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica Neue'=2C Hel=
+vetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-height: 150%=
+;color: #08090c;text-align: left;"><em>Hello! Today: why we=E2=80=99re at=
+ a critical juncture for the future of AI music. Also: check out which cli=
+mate tech companies are getting funding from the US government=E2=80=99s=
+ =E2=80=9Cenergy moonshot factory=E2=80=9D=2C and how researchers are usin=
+g Lego for serious scientific endeavors.&nbsp;</em></p>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;"><em>Also: if you want to learn more about the wild world of deepf=
+akes=2C join me and my colleagues Melissa Heikkil=C3=A4 and Zeyi Yang late=
+r at 12pm ET for a half-hour discussion live on LinkedIn! <a href=3D"https=
+://technologyreview.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8=
+cbc83e78&id=3D4689ca9ecd&e=3D4fc74d6331" style=3D"mso-line-height-rule: e=
+xactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #0=
+8090c;font-weight: bold;text-decoration: underline;">Sign up here</a>.</em=
+></p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnImageBlock" style=3D"min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" c=
+lass=3D"mcnImageBlockInner">
+                    <table align=3D"left" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mcnImageContentContainer" style=
+=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-ta=
+ble-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+float: left;">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" valign=3D"top" s=
+tyle=3D"padding-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom=
+: 0;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+
+                                    <a href=3D"https://technologyreview.us=
+11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D5c2280bd=
+02&e=3D4fc74d6331" title=3D"" class=3D"" target=3D"_blank" style=3D"mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;color: #222222;font-weight: bold;">
+                                        <img align=3D"center" alt=3D"" src=
+=3D"https://mcusercontent.com/47c1a9cec9749a8f8cbc83e78/images/7f5efc22-d3=
+69-723b-d48e-cf7e6f504195.jpg" width=3D"564" style=3D"max-width: 600px;pad=
+ding-bottom: 0;display: inline !important;vertical-align: bottom;border: 0=
+;height: auto;outline: none;text-decoration: none;-ms-interpolation-mode:=
+ bicubic;" class=3D"mcnImage">
+                                    </a>
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding: 0px 18px 9px;font-style: normal;font-weight: normal;mso-line-=
+height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;word-break: break-word;color: #08090c;font-family: 'Helvetica Neue'=
+=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-heigh=
+t: 150%;text-align: left;">
+
+                            <h1 class=3D"null" dir=3D"ltr" style=3D"displa=
+y: block;margin: 0;padding: 0;color: #08090c;font-family: 'Helvetica Neue'=
+=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 30px;font-style=
+: normal;font-weight: bold;line-height: 125%;letter-spacing: -1px;text-ali=
+gn: left;">Training AI music models is about to get very expensive</h1>
+
+<div dir=3D"ltr">&nbsp;</div>
+AI music is suddenly in a <a href=3D"https://technologyreview.us11.list-ma=
+nage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3Db0f34fd4db&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;color: #08090c;font-weight: bold;text-dec=
+oration: underline;">make-or-break moment</a>. On June 24=2C Suno and Udio=
+=2C two startups that let you generate songs from a prompt in seconds=2C w=
+ere sued by major record labels. The labels alleged the startups had used=
+ copyrighted music as training data =E2=80=9Cat an almost unimaginable sca=
+le=E2=80=9D.
+
+<p dir=3D"ltr" style=3D"font-style: normal;font-weight: normal;margin: 10p=
+x 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica N=
+eue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-h=
+eight: 150%;color: #08090c;text-align: left;">Just two days later=2C the F=
+inancial Times reported that YouTube is pursuing a comparatively above-boa=
+rd approach=2C offering unspecified lump sums to top record labels in exch=
+ange for licenses to use their catalogs for training data.</p>
+
+<p dir=3D"ltr" style=3D"font-style: normal;font-weight: normal;margin: 10p=
+x 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica N=
+eue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-h=
+eight: 150%;color: #08090c;text-align: left;">While the ground here is mov=
+ing fast=2C none of these moves should be all that surprising: litigious t=
+raining-data battles have become something like a rite of passage for gene=
+rative AI companies. The trend has led many to pay for licensing deals whi=
+le the cases unfold.&nbsp;</p>
+
+<p dir=3D"ltr" style=3D"font-style: normal;font-weight: normal;margin: 10p=
+x 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica N=
+eue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-h=
+eight: 150%;color: #08090c;text-align: left;">But the stakes of a fight ov=
+er training data for AI music are different=E2=80=94and arguably even high=
+er. <a href=3D"https://technologyreview.us11.list-manage.com/track/click?u=
+=3D47c1a9cec9749a8f8cbc83e78&id=3D7ce285b62f&e=3D4fc74d6331" style=3D"mso=
+-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;color: #08090c;font-weight: bold;text-decoration: underline;">R=
+ead our story to find out why=2C and what might happen next</a>.&nbsp;</p>
+
+<p dir=3D"ltr" style=3D"text-align: right;font-style: normal;font-weight:=
+ normal;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bottom: 15px;font-f=
+amily: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;fon=
+t-size: 16px;line-height: 150%;color: #08090c;"><span style=3D"color:#6969=
+69"><em>=E2=80=94James O=E2=80=99Donnell</em></span></p>
+
+<hr>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding: 0px 18px 9px;font-style: normal;font-weight: normal;mso-line-=
+height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;word-break: break-word;color: #08090c;font-family: 'Helvetica Neue'=
+=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-heigh=
+t: 150%;text-align: left;">
+
+                            <h2 class=3D"null" dir=3D"ltr" style=3D"displa=
+y: block;margin: 0;padding: 0;color: #08090c;font-family: 'Helvetica Neue'=
+=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 18px;font-style=
+: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;text-a=
+lign: left;">These climate tech companies just got $60 million</h2>
+Every few years=2C the US agency that=E2=80=99s often called the =E2=80=9C=
+energy moonshot factory=E2=80=9D announces big funding awards for a few co=
+mpanies to help them scale up their technology. (The agency=E2=80=99s offi=
+cial name is the Advanced Research Projects Agency=E2=80=94Energy=2C or AR=
+PA-E.)&nbsp;
+
+<p dir=3D"ltr" style=3D"font-style: normal;font-weight: normal;margin: 10p=
+x 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica N=
+eue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-h=
+eight: 150%;color: #08090c;text-align: left;">The grants are designed to h=
+elp companies take their tech from the lab or pilot stage and get it out i=
+nto the world. The latest batch of these awards was just announced=2C tota=
+ling over $63 million split between four companies. Read our story that di=
+gs into the winners and examines what each one=E2=80=99s technology says a=
+bout their respective corners of climate action.</p>
+
+<p dir=3D"ltr" style=3D"text-align: right;font-style: normal;font-weight:=
+ normal;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bottom: 15px;font-f=
+amily: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;fon=
+t-size: 16px;line-height: 150%;color: #08090c;"><span style=3D"color:#6969=
+69"><em>=E2=80=94Casey Crownhart</em></span></p>
+
+<p dir=3D"ltr" style=3D"font-style: normal;font-weight: normal;margin: 10p=
+x 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica N=
+eue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-h=
+eight: 150%;color: #08090c;text-align: left;"><strong>This story is from T=
+he Spark=2C our weekly newsletter giving you the inside track on all thing=
+s climate tech. <a href=3D"https://technologyreview.us11.list-manage.com/t=
+rack/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3Dd51949b7bb&e=3D4fc74d6331"=
+ style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;color: #08090c;font-weight: bold;text-decoration:=
+ underline;">Sign up</a> to receive it in your inbox every Wednesday.</str=
+ong></p>
+
+<hr>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding: 0px 18px 9px;font-style: normal;font-weight: normal;mso-line-=
+height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;word-break: break-word;color: #08090c;font-family: 'Helvetica Neue'=
+=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-heigh=
+t: 150%;text-align: left;">
+
+                            <h2 class=3D"null" dir=3D"ltr" style=3D"displa=
+y: block;margin: 0;padding: 0;color: #08090c;font-family: 'Helvetica Neue'=
+=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 18px;font-style=
+: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;text-a=
+lign: left;">Lego bricks are making science more accessible</h2>
+Etienne Boulter walked into his lab at the Universit=C3=A9 C=C3=B4te d=E2=
+=80=99Azur in Nice=2C France=2C one morning with a Lego Technic excavator=
+ set tucked under his arm. His plan was simple yet ambitious: to use the p=
+ieces of the set to build a mechanical cell stretcher.&nbsp;
+
+<p dir=3D"ltr" style=3D"font-style: normal;font-weight: normal;margin: 10p=
+x 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica N=
+eue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-h=
+eight: 150%;color: #08090c;text-align: left;">Boulter and his colleagues s=
+tudy mechanobiology=E2=80=94the way things like stretching or compression=
+ affect cells=E2=80=94and this piece of equipment is essential for his res=
+earch. Commercial cell stretchers cost over $50=2C000. But one day=2C afte=
+r playing with the Lego set=2C Boulter and his colleagues found a way to b=
+uild one out of its components for only a little over $200.&nbsp;</p>
+
+<p dir=3D"ltr" style=3D"font-style: normal;font-weight: normal;margin: 10p=
+x 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica N=
+eue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-h=
+eight: 150%;color: #08090c;text-align: left;">Their Lego system stretches=
+ a silicone plate where cells are growing. This process causes the cells t=
+o deform and mimics how our own skin cells stretch. And Boulter is not alo=
+ne. In fact=2C he=E2=80=99s one of many researchers turning to Lego compon=
+ents to build inexpensive yet extremely effective lab equipment. <a href=
+=3D"https://technologyreview.us11.list-manage.com/track/click?u=3D47c1a9ce=
+c9749a8f8cbc83e78&id=3D744e713f08&e=3D4fc74d6331" style=3D"mso-line-heigh=
+t-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+color: #08090c;font-weight: bold;text-decoration: underline;">Read the ful=
+l story</a>.&nbsp;</p>
+
+<p dir=3D"ltr" style=3D"text-align: right;font-style: normal;font-weight:=
+ normal;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bottom: 15px;font-f=
+amily: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;fon=
+t-size: 16px;line-height: 150%;color: #08090c;"><span style=3D"color:#6969=
+69"><em>=E2=80=94Elizabeth Fernandez</em></span></p>
+
+<p dir=3D"ltr" style=3D"font-style: normal;font-weight: normal;margin: 10p=
+x 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica N=
+eue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-h=
+eight: 150%;color: #08090c;text-align: left;"><strong>This story is from t=
+he <a href=3D"https://technologyreview.us11.list-manage.com/track/click?u=
+=3D47c1a9cec9749a8f8cbc83e78&id=3D80e8b69536&e=3D4fc74d6331" style=3D"mso=
+-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;color: #08090c;font-weight: bold;text-decoration: underline;">l=
+atest issue</a> of MIT Technology Review=2C which explores the theme of Pl=
+ay.&nbsp;</strong></p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding: 0px 18px 9px;font-style: normal;font-weight: normal;mso-line-=
+height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;word-break: break-word;color: #08090c;font-family: 'Helvetica Neue'=
+=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-heigh=
+t: 150%;text-align: left;">
+
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;background-color:=
+ #FFFFFF;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace:=
+ 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;table-layou=
+t: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 4px 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px none #EAEAEA;border-collapse: collapse;mso-table-lspace: 0pt;mso-t=
+able-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%=
+;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;background-color:=
+ #FFFFFF;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace:=
+ 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;table-layou=
+t: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 4px 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px none #EAEAEA;border-collapse: collapse;mso-table-lspace: 0pt;mso-t=
+able-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%=
+;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-collapse: c=
+ollapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace: 0pt;mso-=
+table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #08090c;font-family: 'Helv=
+etica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px=
+;line-height: 150%;text-align: left;">
+
+                            <h1 class=3D"mc-toc-title" style=3D"display: b=
+lock;margin: 0;padding: 0;color: #08090c;font-family: 'Helvetica Neue'=2C=
+ Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 30px;font-style: n=
+ormal;font-weight: bold;line-height: 125%;letter-spacing: -1px;text-align:=
+ left;"><strong>The must-reads</strong></h1>
+<em>I=E2=80=99ve combed the internet to find you today=E2=80=99s most fun/=
+important/scary/fascinating stories about technology.</em><br>
+<br>
+<strong>1 The Supreme Court ruled the White House <em>can </em>contact soc=
+ial media firms</strong><br>
+It=E2=80=99s a blow for right-wing campaigners who argue their views are b=
+eing censored online. (<a href=3D"https://technologyreview.us11.list-manag=
+e.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D3413880084&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #08090c;font-weight: bold;text-decora=
+tion: underline;">WP</a> $)<br>
++ <em>Here=E2=80=99s what it means for the election.</em> (<a href=3D"http=
+s://technologyreview.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f=
+8cbc83e78&id=3Db7463cbd43&e=3D4fc74d6331" style=3D"mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #08090c;font-weight: bold;text-decoration: underline;">NPR</a>)<br>
++<em> Russian propagandists are promoting deepfakes of Biden.</em> (<a hre=
+f=3D"https://technologyreview.us11.list-manage.com/track/click?u=3D47c1a9c=
+ec9749a8f8cbc83e78&id=3D0ea8a924b7&e=3D4fc74d6331" style=3D"mso-line-heig=
+ht-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%=
+;color: #08090c;font-weight: bold;text-decoration: underline;">Wired</a> $=
+)<br>
+&nbsp;<br>
+<strong>2 How AI has revolutionized protein science</strong><br>
+And the most exciting part? We=E2=80=99re really only at the beginning of=
+ discovering what machine learning could unlock. (<a href=3D"https://techn=
+ologyreview.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78=
+&id=3D8b6910ea39&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #08090c;fo=
+nt-weight: bold;text-decoration: underline;">Quanta</a> $)<br>
++ <em>Google DeepMind=E2=80=99s new AlphaFold can model a much larger slic=
+e of biological life.</em> (<a href=3D"https://technologyreview.us11.list-=
+manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D26a3305476&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;color: #08090c;font-weight: bold;text-d=
+ecoration: underline;">MIT Technology Review</a>)<br>
+&nbsp;<br>
+<strong>3 Inside California's green energy revolution</strong><br>
+The state is showing how you can run a thriving modern economy on clean en=
+ergy. (<a href=3D"https://technologyreview.us11.list-manage.com/track/clic=
+k?u=3D47c1a9cec9749a8f8cbc83e78&id=3D38629831db&e=3D4fc74d6331" style=3D"=
+mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size=
+-adjust: 100%;color: #08090c;font-weight: bold;text-decoration: underline;=
+">New Yorker</a> $)<br>
+&nbsp;<br>
+<strong>4 Toys =E2=80=98R=E2=80=99 Us used OpenAI=E2=80=99s video AI syste=
+m Sora to make a commercial</strong><br>
+It=E2=80=99s a milestone for the use of AI in video production=E2=80=94but=
+ the response to it was very mixed. (<a href=3D"https://technologyreview.u=
+s11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D055af2e=
+61b&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-ms-text-size-=
+adjust: 100%;-webkit-text-size-adjust: 100%;color: #08090c;font-weight: bo=
+ld;text-decoration: underline;">NBC</a>)<br>
++<em> I tested out a buzzy new text-to-video AI model from China</em>. (<a=
+ href=3D"https://technologyreview.us11.list-manage.com/track/click?u=3D47c=
+1a9cec9749a8f8cbc83e78&id=3D0274add827&e=3D4fc74d6331" style=3D"mso-line-=
+height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;color: #08090c;font-weight: bold;text-decoration: underline;">MIT Te=
+chnology Review</a>)<br>
+&nbsp;<br>
+<strong>5 Secret Telegram channels are providing refuge for LGBTQ+ people=
+ in Russia</strong><br>
+Up to and including advice on how to leave the country=2C which is becomin=
+g less and less safe. (<a href=3D"https://technologyreview.us11.list-manag=
+e.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D50c62d8fe2&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;color: #08090c;font-weight: bold;text-decora=
+tion: underline;">Wired</a> $)<br>
+&nbsp;<br>
+<strong>6 We really need AI to be able to cite its sources</strong><br>
+The trouble is=2C even if it <em>could</em>=2C would they be factually acc=
+urate? (<a href=3D"https://technologyreview.us11.list-manage.com/track/cli=
+ck?u=3D47c1a9cec9749a8f8cbc83e78&id=3D901417e15f&e=3D4fc74d6331" style=3D=
+"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;color: #08090c;font-weight: bold;text-decoration: underline=
+;">The Atlantic</a> $)<br>
++ <em>At least 10% of scientific research may already be co-authored by AI=
+=2E</em> (<a href=3D"https://technologyreview.us11.list-manage.com/track/cli=
+ck?u=3D47c1a9cec9749a8f8cbc83e78&id=3D3cf154bd05&e=3D4fc74d6331" style=3D=
+"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;color: #08090c;font-weight: bold;text-decoration: underline=
+;">The Economist</a> $)<br>
+&nbsp;<br>
+<strong>7 Consultants are raking it in thanks to the AI boom</strong><br>
+But of course they are. (<a href=3D"https://technologyreview.us11.list-man=
+age.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D86ed7635de&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #08090c;font-weight: bold;text-deco=
+ration: underline;">NYT</a> $)<br>
+&nbsp;<br>
+<strong>8 It=E2=80=99s become worryingly normalized to snoop on your partn=
+er=E2=80=99s online life&nbsp;</strong><br>
+Yet it=E2=80=99s still a really=2C really bad idea. (<a href=3D"https://te=
+chnologyreview.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83=
+e78&id=3Db9786522a7&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactl=
+y;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #08090c=
+;font-weight: bold;text-decoration: underline;">WP</a> $)<br>
+&nbsp;<br>
+<strong>9 Lawn Mowing Simulator is the latest anti-escapist video game</st=
+rong><br>
+Struggling to see the appeal personally=2C but hey=2C each to their own. (=
+<a href=3D"https://technologyreview.us11.list-manage.com/track/click?u=3D4=
+7c1a9cec9749a8f8cbc83e78&id=3Dacc5ede5ed&e=3D4fc74d6331" style=3D"mso-lin=
+e-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;color: #08090c;font-weight: bold;text-decoration: underline;">The G=
+uardian</a>)<br>
+<br>
+<strong>10 McDonalds has rejected plant-based burgers&nbsp;=F0=9F=8D=94</s=
+trong><br>
+After tests of its McPlant burger in San Francisco and Dallas failed. (<a=
+ href=3D"https://technologyreview.us11.list-manage.com/track/click?u=3D47c=
+1a9cec9749a8f8cbc83e78&id=3D3c5ad78463&e=3D4fc74d6331" style=3D"mso-line-=
+height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;color: #08090c;font-weight: bold;text-decoration: underline;">Quartz=
+</a> $)<br>
+<em>+ Here=E2=80=99s what a lab-grown burger tastes like</em>. (<a href=3D=
+"https://technologyreview.us11.list-manage.com/track/click?u=3D47c1a9cec97=
+49a8f8cbc83e78&id=3Daf1c04c94d&e=3D4fc74d6331" style=3D"mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;col=
+or: #08090c;font-weight: bold;text-decoration: underline;">MIT Technology=
+ Review</a>)
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnBoxedTextBlock" style=3D"min-width: 100%;border-collapse:=
+ collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust=
+: 100%;-webkit-text-size-adjust: 100%;">
+    <!--[if gte mso 9]>
+=09<table align=3D"center" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" width=3D"100%">
+=09<![endif]-->
+=09<tbody class=3D"mcnBoxedTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnBoxedTextBlockInner" style=3D"m=
+so-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;">
+
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09<td align=3D"center" valign=3D"top" ">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;float: left;" class=3D"mcnBoxedTextConten=
+tContainer">
+                    <tbody><tr>
+
+                        <td style=3D"padding-top: 9px;padding-left: 18px;p=
+adding-bottom: 9px;padding-right: 18px;mso-line-height-rule: exactly;-ms-t=
+ext-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+                            <table border=3D"0" cellspacing=3D"0" class=3D=
+"mcnTextContentContainer" width=3D"100%" style=3D"min-width: 100% !importa=
+nt;background-color: #F5F5F7;border: 1px none;border-collapse: collapse;ms=
+o-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                                <tbody><tr>
+                                    <td valign=3D"top" class=3D"mcnTextCon=
+tent" style=3D"padding: 18px;color: #222222;font-family: &quot;Helvetica N=
+eue&quot;=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 14px;f=
+ont-weight: normal;text-align: left;mso-line-height-rule: exactly;-ms-text=
+-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-word;l=
+ine-height: 150%;">
+                                        <h1 class=3D"mc-toc-title" style=
+=3D"display: block;margin: 0;padding: 0;color: #08090c;font-family: 'Helve=
+tica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 30px;=
+font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: -1p=
+x;text-align: left;"><strong>Quote of the day</strong></h1>
+
+<hr>
+<h1 class=3D"mc-toc-title" dir=3D"ltr" style=3D"display: block;margin: 0;p=
+adding: 0;color: #08090c;font-family: 'Helvetica Neue'=2C Helvetica=2C Ari=
+al=2C Verdana=2C sans-serif;font-size: 30px;font-style: normal;font-weight=
+: bold;line-height: 125%;letter-spacing: -1px;text-align: left;"></h1>
+
+<h1 class=3D"mc-toc-title" dir=3D"ltr" style=3D"display: block;margin: 0;p=
+adding: 0;color: #08090c;font-family: 'Helvetica Neue'=2C Helvetica=2C Ari=
+al=2C Verdana=2C sans-serif;font-size: 30px;font-style: normal;font-weight=
+: bold;line-height: 125%;letter-spacing: -1px;text-align: left;">=E2=80=9C=
+There=E2=80=99s no question that this crosses a line that they hadn=E2=80=
+=99t previously crossed. I think that suggests that the lines are becoming=
+ meaningless.=E2=80=9D</h1>
+
+<div dir=3D"ltr">&nbsp;</div>
+=E2=80=94Darren Linvill=2C a founder of the Media Forensics Hub at Clemson=
+ University=2C tells the <a href=3D"https://technologyreview.us11.list-man=
+age.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D840400de27&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%=
+;-webkit-text-size-adjust: 100%;color: #08090c;font-weight: bold;text-deco=
+ration: underline;">New York Times</a> that aggressively targeting a US-ba=
+sed Chinese dissident=E2=80=99s 16-year-old daughter online represents a n=
+ew low for the country=E2=80=99s security services.
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if gte mso 9]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if gte mso 9]>
+                </tr>
+                </table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;background-color:=
+ #FFFFFF;border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace:=
+ 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;table-layou=
+t: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 4px 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-=
+webkit-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px none #EAEAEA;border-collapse: collapse;mso-table-lspace: 0pt;mso-t=
+able-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%=
+;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnCaptionBlock" style=3D"border-collapse: collapse;mso-tabl=
+e-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;">
+    <tbody class=3D"mcnCaptionBlockOuter">
+        <tr>
+            <td class=3D"mcnCaptionBlockInner" valign=3D"top" style=3D"pad=
+ding: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit=
+-text-size-adjust: 100%;">
+
+
+
+
+<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cla=
+ss=3D"mcnCaptionTopContent mcnBlockFloatLeft" style=3D"border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;float: left;">
+    <tbody><tr>
+        <td class=3D"mcnTextContent" valign=3D"top" style=3D"padding: 0px=
+ 9px;text-align: left;mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;word-break: break-word;color: #08090c=
+;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-se=
+rif;font-size: 16px;line-height: 150%;" width=3D"564">
+            <h1 class=3D"mc-toc-title" style=3D"display: block;margin: 0;p=
+adding: 0;color: #08090c;font-family: 'Helvetica Neue'=2C Helvetica=2C Ari=
+al=2C Verdana=2C sans-serif;font-size: 30px;font-style: normal;font-weight=
+: bold;line-height: 125%;letter-spacing: -1px;text-align: left;"><strong>T=
+he big story</strong></h1>
+
+        </td>
+    </tr>
+    <tr>
+        <td class=3D"mcnCaptionTopImageContent" align=3D"center" valign=3D=
+"top" style=3D"padding: 9px 9px 0 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+
+
+            <a href=3D"https://technologyreview.us11.list-manage.com/track=
+/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3Daef32d3565&e=3D4fc74d6331" titl=
+e=3D"" class=3D"" target=3D"_blank" style=3D"mso-line-height-rule: exactly=
+;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #222222;=
+font-weight: bold;">
+
+
+            <img alt=3D"" src=3D"https://mcusercontent.com/47c1a9cec9749a8=
+f8cbc83e78/images/183a99e6-80f4-efde-15f6-f5fd61bcd37d.jpeg" width=3D"564"=
+ style=3D"max-width: 600px;border: 0;height: auto;outline: none;text-decor=
+ation: none;-ms-interpolation-mode: bicubic;vertical-align: bottom;" class=
+=3D"mcnImage">
+
+            </a>
+
+        </td>
+    </tr>
+</tbody></table>
+
+
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #08090c;font-family: 'Helv=
+etica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px=
+;line-height: 150%;text-align: left;">
+
+                            <h2 class=3D"null" dir=3D"ltr" style=3D"displa=
+y: block;margin: 0;padding: 0;color: #08090c;font-family: 'Helvetica Neue'=
+=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 18px;font-style=
+: normal;font-weight: bold;line-height: 125%;letter-spacing: normal;text-a=
+lign: left;"></h2>
+
+<h2 class=3D"null" dir=3D"ltr" style=3D"display: block;margin: 0;padding:=
+ 0;color: #08090c;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C V=
+erdana=2C sans-serif;font-size: 18px;font-style: normal;font-weight: bold;=
+line-height: 125%;letter-spacing: normal;text-align: left;">Think that you=
+r plastic is being recycled? Think again.</h2>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;"><strong>October 2023</strong></p>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;">The problem of plastic waste hides in plain sight=2C a ubiquitous=
+ part of our lives we rarely question. But a closer examination of the sit=
+uation is shocking.</p>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;">To date=2C humans have created around 11 billion metric tons of p=
+lastic=2C the vast majority of which ends up in landfills or the environme=
+nt. Only 9% of the plastic ever produced has been recycled.</p>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;">To make matters worse=2C plastic production is growing dramatical=
+ly; in fact=2C half of all plastics in existence have been produced in jus=
+t the last two decades.&nbsp;</p>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;">So what do we do? Sadly=2C solutions such as recycling and reuse=
+ aren't equal to the scale of the task. The only answer is drastic cuts in=
+ production in the first place. <a href=3D"https://technologyreview.us11.l=
+ist-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3Db120c54a1c&e=
+=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;color: #08090c;font-weight: bold;te=
+xt-decoration: underline;">Read the full story</a>.&nbsp;</p>
+
+<p dir=3D"ltr" style=3D"text-align: right;margin: 10px 0;padding: 0;mso-li=
+ne-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjus=
+t: 100%;margin-bottom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C=
+ Arial=2C Verdana=2C sans-serif;font-size: 16px;line-height: 150%;color: #=
+08090c;"><span style=3D"color:#696969"><em>=E2=80=94Douglas Main</em></spa=
+n></p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-collapse: c=
+ollapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webk=
+it-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px solid #F5F5F7;border-collapse: collapse;mso-table-lspace: 0pt;mso-=
+table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #08090c;font-family: 'Helv=
+etica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px=
+;line-height: 150%;text-align: left;">
+
+                            <h2 class=3D"null" style=3D"display: block;mar=
+gin: 0;padding: 0;color: #08090c;font-family: 'Helvetica Neue'=2C Helvetic=
+a=2C Arial=2C Verdana=2C sans-serif;font-size: 18px;font-style: normal;fon=
+t-weight: bold;line-height: 125%;letter-spacing: normal;text-align: left;"=
+>We can still have nice things</h2>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;"><em>A place for comfort=2C fun and distraction to brighten up you=
+r day. (Got any ideas?&nbsp;<a href=3D"mailto:rhiannon.williams@technology=
+review.com" rel=3D"noopener noreferrer" target=3D"_blank" style=3D"mso-lin=
+e-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust=
+: 100%;color: #08090c;font-weight: bold;text-decoration: underline;">Drop=
+ me a line</a>&nbsp;or&nbsp;<a href=3D"https://technologyreview.us11.list-=
+manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3Dc9367ae265&e=3D4fc74d6331" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-t=
+ext-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #08090c;font-w=
+eight: bold;text-decoration: underline;">tweet 'em at me</a>.)</em></p>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;"></p>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;">+ Enjoy these award-winning black-and-white <a href=3D"https://te=
+chnologyreview.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83=
+e78&id=3D69a30a277e&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactl=
+y;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #08090c=
+;font-weight: bold;text-decoration: underline;">photos</a>.<br>
++ Is owning a pet good for you? <a href=3D"https://technologyreview.us11.l=
+ist-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D0827b20bd2&e=
+=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;color: #08090c;font-weight: bold;te=
+xt-decoration: underline;">On&nbsp;balance=2C it seems so!</a>&nbsp;<br>
++ I just learned that there=E2=80=99s more than one type of <a href=3D"htt=
+ps://technologyreview.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8=
+f8cbc83e78&id=3D120d943a3f&e=3D4fc74d6331" style=3D"mso-line-height-rule:=
+ exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #08090c;font-weight: bold;text-decoration: underline;">aurora</a>.&nbsp;<=
+br>
++ Tis the season for potato salad=2C and this <a href=3D"https://technolog=
+yreview.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=
+=3De520d5c586&e=3D4fc74d6331" style=3D"mso-line-height-rule: exactly;-ms-=
+text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #08090c;font-=
+weight: bold;text-decoration: underline;">recipe</a> is so good.</p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-collapse: c=
+ollapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 25px 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;=
+-webkit-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace: 0pt;mso-=
+table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnImageBlock" style=3D"min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" c=
+lass=3D"mcnImageBlockInner">
+                    <table align=3D"left" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mcnImageContentContainer" style=
+=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-ta=
+ble-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+float: left;">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" valign=3D"top" s=
+tyle=3D"padding-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom=
+: 0;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+
+                                    <a href=3D"https://technologyreview.us=
+11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D1b90bb48=
+a2&e=3D4fc74d6331" title=3D"" class=3D"" target=3D"_blank" style=3D"mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;color: #222222;font-weight: bold;">
+                                        <img align=3D"center" alt=3D"EmTec=
+h MIT 2024" src=3D"https://mcusercontent.com/47c1a9cec9749a8f8cbc83e78/ima=
+ges/4ea42c2c-e8c7-9af1-2c34-0b565685d508.gif" width=3D"564" style=3D"max-w=
+idth: 600px;padding-bottom: 0;display: inline !important;vertical-align: b=
+ottom;border: 0;height: auto;outline: none;text-decoration: none;-ms-inter=
+polation-mode: bicubic;" class=3D"mcnImage">
+                                    </a>
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-collapse: c=
+ollapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 25px 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;=
+-webkit-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace: 0pt;mso-=
+table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnImageBlock" style=3D"min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnImageBlockOuter">
+            <tr>
+                <td valign=3D"top" style=3D"padding: 9px;mso-line-height-r=
+ule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" c=
+lass=3D"mcnImageBlockInner">
+                    <table align=3D"left" width=3D"100%" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"mcnImageContentContainer" style=
+=3D"min-width: 100%;border-collapse: collapse;mso-table-lspace: 0pt;mso-ta=
+ble-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;=
+float: left;">
+                        <tbody><tr>
+                            <td class=3D"mcnImageContent" valign=3D"top" s=
+tyle=3D"padding-right: 9px;padding-left: 9px;padding-top: 0;padding-bottom=
+: 0;text-align: center;mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+
+                                    <a href=3D"https://technologyreview.us=
+11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3Ddc91600c=
+8c&e=3D4fc74d6331" title=3D"" class=3D"" target=3D"_blank" style=3D"mso-l=
+ine-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adju=
+st: 100%;color: #222222;font-weight: bold;">
+                                        <img align=3D"center" alt=3D"July/=
+August 2024 edition: The Play issue" src=3D"https://mcusercontent.com/47c1=
+a9cec9749a8f8cbc83e78/images/01af3acc-98d5-c575-0539-6285e67b6abe.gif" wid=
+th=3D"564" style=3D"max-width: 600px;padding-bottom: 0;display: inline !im=
+portant;vertical-align: bottom;border: 0;height: auto;outline: none;text-d=
+ecoration: none;-ms-interpolation-mode: bicubic;" class=3D"mcnImage">
+                                    </a>
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding: 0px 18px 9px;font-size: 16px;mso-line-height-rule: exactly;-m=
+s-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;word-break: break-=
+word;color: #08090c;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C=
+ Verdana=2C sans-serif;line-height: 150%;text-align: left;">
+
+                            <p style=3D"font-size: 16px;margin: 10px 0;pad=
+ding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-t=
+ext-size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica Neue'=2C=
+ Helvetica=2C Arial=2C Verdana=2C sans-serif;line-height: 150%;color: #080=
+90c;text-align: left;"><a href=3D"https://technologyreview.us11.list-manag=
+e.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D7b7dd7a51d&e=3D4fc74d6331" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;color: #08090c;font-weight=
+: bold;text-decoration: underline;">Subscribe to save up to 17%</a> and un=
+lock unlimited access to our new Play issue. Discover how AI is revolution=
+izing gaming=2C running=2C surfing=2C and more.</p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnButtonBlock" style=3D"min-width: 100%;border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnButtonBlockOuter">
+        <tr>
+            <td style=3D"padding-top: 0;padding-right: 18px;padding-bottom=
+: 18px;padding-left: 18px;mso-line-height-rule: exactly;-ms-text-size-adju=
+st: 100%;-webkit-text-size-adjust: 100%;" valign=3D"top" align=3D"left" cl=
+ass=3D"mcnButtonBlockInner">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"mcnButtonContentContainer" style=3D"border-collapse: separate !impo=
+rtant;border-radius: 0px;background-color: #285E60;mso-table-lspace: 0pt;m=
+so-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust:=
+ 100%;">
+                    <tbody>
+                        <tr>
+                            <td align=3D"center" valign=3D"middle" class=
+=3D"mcnButtonContent" style=3D"font-family: Arial;font-size: 16px;padding:=
+ 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-tex=
+t-size-adjust: 100%;">
+                                <a class=3D"mcnButton " title=3D"SUBSCRIBE=
+ & SAVE" href=3D"https://technologyreview.us11.list-manage.com/track/click=
+?u=3D47c1a9cec9749a8f8cbc83e78&id=3D9f60d8a957&e=3D4fc74d6331" target=3D"=
+_blank" style=3D"font-weight: bold;letter-spacing: normal;line-height: 100=
+%;text-align: center;text-decoration: none;color: #FFFFFF;mso-line-height-=
+rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;di=
+splay: block;">SUBSCRIBE &amp; SAVE</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnDividerBlock" style=3D"min-width: 100%;border-collapse: c=
+ollapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;table-layout: fixed !important;">
+    <tbody class=3D"mcnDividerBlockOuter">
+        <tr>
+            <td class=3D"mcnDividerBlockInner" style=3D"min-width: 100%;pa=
+dding: 25px 18px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;=
+-webkit-text-size-adjust: 100%;">
+                <table class=3D"mcnDividerContent" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width: 100%;border-t=
+op: 2px solid #EAEAEA;border-collapse: collapse;mso-table-lspace: 0pt;mso-=
+table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100=
+%;">
+                    <tbody><tr>
+                        <td style=3D"mso-line-height-rule: exactly;-ms-tex=
+t-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+<!--
+                <td class=3D"mcnDividerBlockInner" style=3D"padding: 18px;=
+">
+                <hr class=3D"mcnDividerContent" style=3D"border-bottom-col=
+or:none; border-left-color:none; border-right-color:none; border-bottom-wi=
+dth:0; border-left-width:0; border-right-width:0; margin-top:0; margin-rig=
+ht:0; margin-bottom:0; margin-left:0;" />
+-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #08090c;font-family: 'Helv=
+etica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px=
+;line-height: 150%;text-align: left;">
+
+                            <p dir=3D"ltr" style=3D"margin: 10px 0;padding=
+: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;margin-bottom: 15px;font-family: 'Helvetica Neue'=2C Hel=
+vetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px;line-height: 150%=
+;color: #08090c;text-align: left;"><em>Top image credit: SARAH ROGERS/MITT=
+IR | GETTY</em><em></em></p>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;">Please send potato salad to <a href=3D"mailto:hi@technologyreview=
+=2Ecom" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-w=
+ebkit-text-size-adjust: 100%;color: #08090c;font-weight: bold;text-decorat=
+ion: underline;">hi@technologyreview.com</a>.</p>
+
+<p dir=3D"ltr" style=3D"margin: 10px 0;padding: 0;mso-line-height-rule: ex=
+actly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin-bot=
+tom: 15px;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C Verdana=
+=2C sans-serif;font-size: 16px;line-height: 150%;color: #08090c;text-align=
+: left;">=E2=80=94Charlotte</p>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #08090c;font-family: 'Helv=
+etica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 16px=
+;line-height: 150%;text-align: left;">
+
+                            <h4 class=3D"null" style=3D"display: block;mar=
+gin: 0;padding: 0;color: #08090c;font-family: 'Helvetica Neue'=2C Helvetic=
+a=2C Arial=2C Verdana=2C sans-serif;font-size: 14px;font-style: normal;fon=
+t-weight: normal;line-height: 200%;letter-spacing: 0px;text-align: left;">=
+<br>
+<span class=3D"mc-toc-title">Was this newsletter forwarded to you=2C and y=
+ou=E2=80=99d like to see more?</span></h4>
+<a href=3D"https://technologyreview.us11.list-manage.com/track/click?u=3D4=
+7c1a9cec9749a8f8cbc83e78&id=3Ddb5f1c430b&e=3D4fc74d6331" target=3D"_blank=
+" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #08090c;font-weight: bold;text-decoration:=
+ underline;">Sign up today =E2=86=92</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align=3D"center" valign=3D"top" id=3D"=
+templateFooter" data-template-container=3D"" style=3D"background:#ebecf0 n=
+one no-repeat center/cover;mso-line-height-rule: exactly;-ms-text-size-adj=
+ust: 100%;-webkit-text-size-adjust: 100%;background-color: #ebecf0;backgro=
+und-image: none;background-repeat: no-repeat;background-position: center;b=
+ackground-size: cover;border-top: 0;border-bottom: 0;padding-top: 30px;pad=
+ding-bottom: 30px;">
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    <table align=3D"center" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" width=3D"600" style=3D"width:600px;">
+                                    <tr>
+                                    <td align=3D"center" valign=3D"top" wi=
+dth=3D"600" style=3D"width:600px;">
+                                    <![endif]-->
+                                    <table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"templateContain=
+er" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rsp=
+ace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;max-wid=
+th: 600px !important;">
+                                        <tr>
+                                            <td valign=3D"top" class=3D"fo=
+oterContainer" style=3D"background:#transparent none no-repeat center/cove=
+r;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-si=
+ze-adjust: 100%;background-color: #transparent;background-image: none;back=
+ground-repeat: no-repeat;background-position: center;background-size: cove=
+r;border-top: 0;border-bottom: 0;padding-top: 0px;padding-bottom: 0;"><tab=
+le border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=
+=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: collapse;mso-t=
+able-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-=
+text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #222222;font-family: 'Helv=
+etica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 12px=
+;line-height: 150%;text-align: left;">
+
+                            <table border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" width=3D"100%" style=3D"border-collapse: collapse;mso-table-lspa=
+ce: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size=
+-adjust: 100%;">
+=09<tbody>
+=09=09<tr>
+=09=09=09<td style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;">
+=09=09=09<h3 style=3D"text-align: center;display: block;margin: 0;padding:=
+ 0;color: #08090c;font-family: 'Helvetica Neue'=2C Helvetica=2C Arial=2C V=
+erdana=2C sans-serif;font-size: 18px;font-style: normal;font-weight: norma=
+l;line-height: 125%;letter-spacing: normal;"><span style=3D"color:#333333;=
+ font-size:14px"><strong>Download the MIT Technology Review app</strong></=
+span></h3>
+=09=09=09</td>
+=09=09</tr>
+=09=09<tr>
+=09=09=09<td style=3D"text-align: center;mso-line-height-rule: exactly;-ms=
+-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"><a href=3D"https:=
+//technologyreview.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8c=
+bc83e78&id=3Dd747534afd&e=3D4fc74d6331" title=3D"https://apps.apple.com/u=
+s/app/mit-technology-review/id1449141080" style=3D"mso-line-height-rule: e=
+xactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #2=
+22222;font-weight: normal;text-decoration: underline;"><img alt=3D"Downloa=
+d on the App Store" border=3D"0" height=3D"58" id=3D"_x0000_i1029" src=3D"=
+https://mcusercontent.com/47c1a9cec9749a8f8cbc83e78/images/10b1115c-db27-0=
+aeb-f8f7-46f175f6b598.png" style=3D"border: 0px;width: 146px;height: 58px;=
+margin: 0px;outline: none;text-decoration: none;-ms-interpolation-mode: bi=
+cubic;" tabindex=3D"0" width=3D"146"></a> <a href=3D"https://technologyrev=
+iew.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D91=
+5a8bf5b0&e=3D4fc74d6331" title=3D"https://play.google.com/store/apps/deta=
+ils?id=3Dcom.technologyreview.mit&hl=3Den_US&gl=3DUS&pli=3D1" style=3D"mso=
+-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;color: #222222;font-weight: normal;text-decoration: underline;"=
+><img alt=3D"Get it on Google Play" border=3D"0" height=3D"58" id=3D"_x000=
+0_i1028" src=3D"https://mcusercontent.com/47c1a9cec9749a8f8cbc83e78/images=
+/30ec18b8-c7e2-7229-59dc-d9d766dc4b70.png" style=3D"border: 0px;height: 58=
+px;width: 160px;margin: 0px;outline: none;text-decoration: none;-ms-interp=
+olation-mode: bicubic;"></a></td>
+=09=09</tr>
+=09</tbody>
+</table>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnFollowBlock" style=3D"min-width: 100%;border-collapse: co=
+llapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 1=
+00%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnFollowBlockOuter">
+        <tr>
+            <td align=3D"center" valign=3D"top" style=3D"padding: 9px;mso-=
+line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adj=
+ust: 100%;" class=3D"mcnFollowBlockInner">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"100%" class=3D"mcnFollowContentContainer" style=3D"min-width: 100%;=
+border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-=
+text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+    <tbody><tr>
+        <td align=3D"left" style=3D"padding-left: 9px;padding-right: 9px;m=
+so-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-=
+adjust: 100%;">
+            <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%" style=3D"min-width: 100%;border-collapse: collapse;mso-table-lsp=
+ace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;" class=3D"mcnFollowContent">
+                <tbody><tr>
+                    <td align=3D"left" valign=3D"top" style=3D"padding-top=
+: 9px;padding-right: 9px;padding-left: 9px;mso-line-height-rule: exactly;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                        <table align=3D"left" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" style=3D"border-collapse: collapse;mso-table-lspace:=
+ 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-ad=
+just: 100%;float: left;">
+                            <tbody><tr>
+                                <td align=3D"left" valign=3D"top" style=3D=
+"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-siz=
+e-adjust: 100%;">
+                                    <!--[if mso]>
+                                    <table align=3D"left" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0">
+                                    <tr>
+                                    <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display: inline;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;float: left;">
+                                                <tbody><tr>
+                                                    <td valign=3D"top" sty=
+le=3D"padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactl=
+y;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcn=
+FollowContentItemContainer">
+                                                        <table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowCon=
+tentItem" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td align=
+=3D"left" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 10px;=
+padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;float: le=
+ft;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFol=
+lowIconContent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://technologyreview.us11.list-manage.com/track/=
+click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D2577bd507d&e=3D4fc74d6331" targe=
+t=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;color: #222222;font-weight: bold;"><i=
+mg src=3D"https://cdn-images.mailchimp.com/icons/social-block-v2/light-lin=
+kedin-48.png" alt=3D"LinkedIn" style=3D"display: block;border: 0;height: a=
+uto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;"=
+ height=3D"24" width=3D"24" class=3D""></a>
+                                                                         =
+       </td>
+
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display: inline;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;float: left;">
+                                                <tbody><tr>
+                                                    <td valign=3D"top" sty=
+le=3D"padding-right: 10px;padding-bottom: 9px;mso-line-height-rule: exactl=
+y;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcn=
+FollowContentItemContainer">
+                                                        <table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowCon=
+tentItem" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td align=
+=3D"left" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 10px;=
+padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;float: le=
+ft;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFol=
+lowIconContent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://technologyreview.us11.list-manage.com/track/=
+click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D4c8ce07598&e=3D4fc74d6331" targe=
+t=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;color: #222222;font-weight: bold;"><i=
+mg src=3D"https://cdn-images.mailchimp.com/icons/social-block-v2/light-twi=
+tter-48.png" alt=3D"Twitter" style=3D"display: block;border: 0;height: aut=
+o;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;" he=
+ight=3D"24" width=3D"24" class=3D""></a>
+                                                                         =
+       </td>
+
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                        <!--[if mso]>
+                                        <td align=3D"center" valign=3D"top=
+">
+                                        <![endif]-->
+
+
+                                            <table align=3D"left" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"display: inline;border=
+-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;float: left;">
+                                                <tbody><tr>
+                                                    <td valign=3D"top" sty=
+le=3D"padding-right: 0;padding-bottom: 9px;mso-line-height-rule: exactly;-=
+ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" class=3D"mcnFol=
+lowContentItemContainer">
+                                                        <table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" class=3D"mcnFollowCon=
+tentItem" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-tab=
+le-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;"=
+>
+                                                            <tbody><tr>
+                                                                <td align=
+=3D"left" valign=3D"middle" style=3D"padding-top: 5px;padding-right: 10px;=
+padding-bottom: 5px;padding-left: 9px;mso-line-height-rule: exactly;-ms-te=
+xt-size-adjust: 100%;-webkit-text-size-adjust: 100%;">
+                                                                    <table=
+ align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"=
+" style=3D"border-collapse: collapse;mso-table-lspace: 0pt;mso-table-rspac=
+e: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;float: le=
+ft;">
+                                                                        <t=
+body><tr>
+
+                                                                         =
+       <td align=3D"center" valign=3D"middle" width=3D"24" class=3D"mcnFol=
+lowIconContent" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjus=
+t: 100%;-webkit-text-size-adjust: 100%;">
+                                                                         =
+           <a href=3D"https://technologyreview.us11.list-manage.com/track/=
+click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D52e9e7a358&e=3D4fc74d6331" targe=
+t=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust:=
+ 100%;-webkit-text-size-adjust: 100%;color: #222222;font-weight: bold;"><i=
+mg src=3D"https://cdn-images.mailchimp.com/icons/social-block-v2/light-fac=
+ebook-48.png" alt=3D"Facebook" style=3D"display: block;border: 0;height: a=
+uto;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;"=
+ height=3D"24" width=3D"24" class=3D""></a>
+                                                                         =
+       </td>
+
+
+                                                                        </=
+tr>
+                                                                    </tbod=
+y></table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+
+                                        <!--[if mso]>
+                                        </td>
+                                        <![endif]-->
+
+                                    <!--[if mso]>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"1=
+00%" class=3D"mcnTextBlock" style=3D"min-width: 100%;border-collapse: coll=
+apse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 100=
+%;-webkit-text-size-adjust: 100%;">
+    <tbody class=3D"mcnTextBlockOuter">
+        <tr>
+            <td valign=3D"top" class=3D"mcnTextBlockInner" style=3D"paddin=
+g-top: 9px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;">
+              =09<!--[if mso]>
+=09=09=09=09<table align=3D"left" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" width=3D"100%" style=3D"width:100%;">
+=09=09=09=09<tr>
+=09=09=09=09<![endif]-->
+=09=09=09
+=09=09=09=09<!--[if mso]>
+=09=09=09=09<td valign=3D"top" width=3D"600" style=3D"width:600px;">
+=09=09=09=09<![endif]-->
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" style=3D"max-width: 100%;min-width: 100%;border-collapse: col=
+lapse;mso-table-lspace: 0pt;mso-table-rspace: 0pt;-ms-text-size-adjust: 10=
+0%;-webkit-text-size-adjust: 100%;float: left;" width=3D"100%" class=3D"mc=
+nTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"mcnTextContent" style=
+=3D"padding-top: 0;padding-right: 18px;padding-bottom: 9px;padding-left: 1=
+8px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-=
+size-adjust: 100%;word-break: break-word;color: #222222;font-family: 'Helv=
+etica Neue'=2C Helvetica=2C Arial=2C Verdana=2C sans-serif;font-size: 12px=
+;line-height: 150%;text-align: left;">
+<a href=3D"https://mailchi.mp/technologyreview/the-download-858449?e=3D4fc74d6331" target=3D"_blank" style=3D"mso-line-height-rule: exactly;-ms-text-s=
+ize-adjust: 100%;-webkit-text-size-adjust: 100%;color: #222222;font-weight=
+: normal;text-decoration: underline;">View in browser</a> | This email was=
+ sent to <a href=3D"mailto:n2rss@nicopico.fr" style=3D"mso-line-height-rule=
+: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:=
+ #222222;font-weight: normal;text-decoration: underline;">n2rss@nicopico.fr=
+</a>.<br>
+<br>
+<a href=3D"https://technologyreview.us11.list-manage.com/track/click?u=3D4=
+7c1a9cec9749a8f8cbc83e78&id=3Db2eaf37428&e=3D4fc74d6331" target=3D"_blank=
+" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #222222;font-weight: normal;text-decoratio=
+n: underline;">Manage your preferences</a> | <a href=3D"https://technology=
+review.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=
+=3D0cef3ac601&e=3D4fc74d6331" target=3D"_blank" style=3D"mso-line-height-=
+rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;co=
+lor: #222222;font-weight: normal;text-decoration: underline;">Unsubscribe<=
+/a> | <a href=3D"https://technologyreview.us11.list-manage.com/track/click=
+?u=3D47c1a9cec9749a8f8cbc83e78&id=3Db69b031325&e=3D4fc74d6331" target=3D"=
+_blank" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;=
+-webkit-text-size-adjust: 100%;color: #222222;font-weight: normal;text-dec=
+oration: underline;">Terms of Service</a> | <a href=3D"https://technologyr=
+eview.us11.list-manage.com/track/click?u=3D47c1a9cec9749a8f8cbc83e78&id=3D=
+54d63ebec2&e=3D4fc74d6331" target=3D"_blank" style=3D"mso-line-height-rul=
+e: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color=
+: #222222;font-weight: normal;text-decoration: underline;">Privacy Policy<=
+/a>
+<br>
+<br>
+MIT Technology Review &middot; 196 Broadway=2C 3rd fl=2C &middot; Cambridg=
+e=2C MA 02139 &middot; USA<br>
+<br>
+Copyright =C2=A9 2024 MIT Technology Review=2C All rights reserved.<br>
+<br>
+<a href=3D"https://technologyreview.us11.list-manage.com/unsubscribe?u=3D4=
+7c1a9cec9749a8f8cbc83e78&id=3De2349bbf6b&t=3Db&e=3D4fc74d6331&c=3D2c6ba2047a=
+" style=3D"mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webki=
+t-text-size-adjust: 100%;color: #222222;font-weight: normal;text-decoratio=
+n: underline;">Opt out of all promotional emails and newsletters from MIT=
+ Technology Review</a>
+                        </td>
+                    </tr>
+                </tbody></table>
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</td>
+=09=09=09=09<![endif]-->
+
+=09=09=09=09<!--[if mso]>
+=09=09=09=09</tr>
+=09=09=09=09</table>
+=09=09=09=09<![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                                        </tr>
+                                    </table>
+                                    <!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <![endif]-->
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <img src=3D"https://technologyreview.us11.list-manage.com/track/open.p=
+hp?u=3D47c1a9cec9749a8f8cbc83e78&id=3D2c6ba2047a&e=3D4fc74d6331" height=
+=3D"1" width=3D"1" alt=3D""></body>
+</html>
+--_----------=_MCPart_1991728008--
