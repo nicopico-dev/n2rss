@@ -49,11 +49,9 @@ class MITTheDownloadNewsletterHandler : NewsletterHandlerSingleFeed {
                 .addAttributes("h2", "class"),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        print(document)
 
         val titles = listOf(document.select("h1")[1]) +
             document.select("h2:not(:empty)").toList()
-        print(titles)
 
         return titles.mapNotNull { retrieveArticle(it) }
     }
