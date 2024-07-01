@@ -25,7 +25,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.5"
     kotlin("jvm") version "1.9.24"
     kotlin("plugin.spring") version "1.9.24"
-    id("org.jetbrains.kotlinx.kover") version "0.8.1"
+    id("org.jetbrains.kotlinx.kover") version "0.8.2"
     id("io.gitlab.arturbosch.detekt") version("1.23.5")
 }
 
