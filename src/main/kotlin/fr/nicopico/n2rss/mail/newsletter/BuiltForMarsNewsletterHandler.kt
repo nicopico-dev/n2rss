@@ -46,7 +46,9 @@ class BuiltForMarsNewsletterHandler : NewsletterHandlerSingleFeed {
         )
 
         val document = Jsoup.clean(
-            Jsoup.parseBodyFragment(cleanedHtml)
+            Jsoup.parseBodyFragment(cleanedHtml).also {
+                println(it)
+            }
                 .selectFirst("tr#content-blocks")
                 ?.html()
                 ?: throw NewsletterParsingException("Unable to find content-blocks"),

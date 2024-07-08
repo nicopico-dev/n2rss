@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.mail.newsletter
 
 import fr.nicopico.n2rss.models.Email
 import io.kotest.assertions.assertSoftly
+import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
@@ -60,6 +61,19 @@ class BuiltForMarsNewsletterHandlerTest {
 
     @Nested
     inner class ProcessTest {
+        @Test
+        fun `should process any Built for Mars email`() {
+            // GIVEN
+            val emails = loadEmails("stubs/emails/Built for Mars")
+
+            // WHEN - THEN
+            shouldNotThrowAny {
+                for (email in emails) {
+                    handler.process(email)
+                }
+            }
+        }
+
         @Test
         fun `should extract an articles from an email (1)`() {
             // GIVEN
@@ -105,6 +119,17 @@ In this study, I’ve tried to break down these subtleties, and explain exactly 
                 }
 
             }
+        }
+    }
+
+    @Test
+    fun `should process email #22`() {
+        // GIVEN
+        val email = loadEmail("stubs/emails/Built for Mars/UX Bites #22 — Monzo, Uber & Booking.eml")
+
+        // WHEN - THEN
+        shouldNotThrowAny {
+            handler.process(email)
         }
     }
 }

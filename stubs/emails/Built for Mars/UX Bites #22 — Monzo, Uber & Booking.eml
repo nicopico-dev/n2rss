@@ -1,0 +1,1423 @@
+Return-Path: <0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000@envelope.builtformars.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap3.paris1.alwaysdata.com with LMTPS
+	id qAwhKhnyi2ZvUgAA5hnrLg
+	(envelope-from <0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000@envelope.builtformars.com>)
+	for <n2rss@nicopico.fr>; Mon, 08 Jul 2024 16:05:13 +0200
+Return-path: <0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000@envelope.builtformars.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Mon, 08 Jul 2024 16:05:13 +0200
+Received: from c139-17.smtp-out.amazonses.com ([76.223.139.17])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000@envelope.builtformars.com>)
+	id 1sQozO-00041F-1o
+	for n2rss@nicopico.fr; Mon, 08 Jul 2024 16:05:11 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=i4nn6orizbjoi2hrjxwdh5kzi7psyv3z; d=builtformars.com;
+	t=1720447508;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:List-Unsubscribe:List-Unsubscribe-Post:List-ID:Content-Type;
+	bh=JNxmspMw4WefY65p3tQ+hXUqIuTjvQcXLVOYGM0wgWM=;
+	b=zHlcZebfBvl1+fJk1Yy9ZgyePSvcsXflSH/cenpzwES6eJWLdylji+stNs0JCNEq
+	hHfKgd56SON9LEeJe28CedK6kOHyPTWk5tHX65YlVS/L7cu7ne9sYP0SU0EHGQ/BrE+
+	Vb3UnPbXJBFjZ/e/0+sCeBMaWXDIRIv4NNMKAfn041dy6DqrtW09I5G7mF2HbbY77uy
+	zmNYunSIx4C8Njgx7wOaP5CD2pgzL9uZ3pWtksOt1u1ue6aRaxVWwKO5Xcl8FI02Uva
+	haE/e/IFEJ0kQxDGUNRkPWw+ERrYe81PXqmAv/owzDM7RDtVMrTBNdH3kNj2Ik6QDAb
+	Wq33kTcz3w==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1720447508;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:List-Unsubscribe:List-Unsubscribe-Post:List-ID:Content-Type:Feedback-ID;
+	bh=JNxmspMw4WefY65p3tQ+hXUqIuTjvQcXLVOYGM0wgWM=;
+	b=axZ6p1cfii6YY7oI4dpLtINxF1oAxedchB+j3sIEH4RjIIwjeN0uUQkN+wv69jsc
+	5mHSHVVgd3Vcx1cUiW6BAgNjXj/Bf+WRMfvHw7L1RFW8++USYSPIrFj5LlEdjXORAwK
+	UBAiO0/YvvMjQlJbY0PVBo2Aj4t6U5pn9LRGqzHA=
+Date: Mon, 8 Jul 2024 14:05:08 +0000
+From: =?utf-8?B?QnVpbHQgZm9yIE1hcnM=?= <peter@builtformars.com>
+Reply-To: Built for Mars <peter@builtformars.com>
+To: n2rss@nicopico.fr
+Message-ID: <0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000@email.amazonses.com>
+Subject: =?utf-8?B?VVggQml0ZXMgIzIyIOKAlCBNb256bywgVWJlciAmIEJvb2tpbmc=?=
+MIME-Version: 1.0
+List-Unsubscribe: <mailto:clyd20wul006q0lmj6bwo5uh2+c1603a63bd02116ff0bedc26775b2a2c115609b9555c6c1ca2665dbb1a4e9e9c@unsubscribe.loops.so?subject=unsubscribe>,<https://app.loops.so/unsubscribe/clyd20wul006q0lmj6bwo5uh2/c1603a63bd02116ff0bedc26775b2a2c115609b9555c6c1ca2665dbb1a4e9e9c>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Precedence: Bulk
+X-Auto-Response-Suppress: All
+List-ID: "Built for Mars - UX Bites" <clxf2u7un000o0ljz7zd96xvr.builtformars.com>
+Content-Type: multipart/alternative; boundary=7jq6kxyjiul
+Feedback-ID: ::1.us-east-1.1nRXWOT+ETvogqnAUaOa7HjKGx1p40xVES7T8DfH/Gc=:AmazonSES
+X-SES-Outgoing: 2024.07.08-76.223.139.17
+X-alwaysdata-Spam-Report: 	2.00 DCC_REJECT [bulk Body=1 Fuz1=1 Fuz2=many rep=99% ] - Rejected by DCC
+	1.50 FROM_EXCESS_BASE64 - From that contains encoded characters while base 64
+ is not needed as all symbols are 7bit
+	0.50 URI_COUNT_ODD [19]
+	0.10 ONCE_RECEIVED - One received header in a message
+	0.10 MANY_INVISIBLE_PARTS [2] - Many parts are visually hidden
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 RWL_MAILSPIKE_VERYGOOD [76.223.139.17:from] - From address is listed in
+ RWL - very good reputation
+	0.00 REPLYTO_DN_EQ_FROM_DN - Reply-To display name matches From
+	0.00 REPLYTO_ADDR_EQ_FROM - Reply-To header is identical to SMTP From
+	0.00 RCVD_TLS_ALL - All hops used encrypted transports
+	0.00 RCVD_COUNT_ONE [1] - Message has one Received header
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PRECEDENCE_BULK - Message marked as bulk
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [peter@builtformars.com] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [builtformars.com:+, amazonses.com:+] - DKIM trace symbol
+	0.00 BAYES_HAM [13.53%] - Message probably ham, probability:
+	0.00 ASN [asn:14618, ipnet:76.223.136.0/21, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.13 URL_REPUTATION [-0.13043315862318]
+	-0.20 R_DKIM_ALLOW [builtformars.com:s=i4nn6orizbjoi2hrjxwdh5kzi7psyv3z,
+ amazonses.com:s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug] - DKIM verification succeed
+	-0.27 IP_REPUTATION_HAM [asn: 14618(-0.17), country: US(-0.00),
+ ip: 76.223.139.17(-0.09)]
+	-0.50 DMARC_POLICY_ALLOW [builtformars.com, none] - DMARC permit policy
+X-alwaysdata-Spam-Score: 2.99
+
+--7jq6kxyjiul
+Content-Type: text/plain; charset=UTF-8
+
+Your weekly dose of UX ideas and inspiration, curated by Built for Mars.
+
+͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏
+    ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏  
+  ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­ ͏     ­
+Hey 👋, 
+Some people start their week with Yoga, positive affirmation or slapping themselves in a sauna with giant leaves.
+Not me, I like a quiet coffee and to flood my brain with UX inspiration.
+Oh, would you look at that...
+
+
+
+
+1. Euros 2024 celebration
+
+If you Google a specific football result, you might see this celebratory overlay.
+
+[https://d3b9kr64nievew.cloudfront.net/clybjyqvk00hm9i0mfcii8l5v/clybjyr6h00hr9i0mqxxa12hg.jpg]
+https://builtformars.com/ux-bites/euros-2024-celebration
+
+Google — User Delight
+https://link.mail.beehiiv.com/ss/c/u001.IjP4tPQBd4ThSE9ZLE1FDglBooqN0mdoUQ75f8XHGoRPbLWmJYCI3OattGKKdp3wrjZzm_DUw-DJiLa6GO2qL8IYnGbvQ-9tJVsQ9Dm_4R9tKUPIMajr8KQYUiVYQfhNBVWinFxoIjGzGFX9-4Cf9aWZapeuOg7eah7B6SgUBf5cLUx9aJwfuySdbtVI5qe-M1Tgvx2WiIA2Xwlb_V_OBg/46x/yzApv6GZREWgLMO11cC6Pw/h1/h001.ZoBYDm7yn0jV3YYosNzKYp5_SscONScN_vRQ9rjDNNU
+
+
+
+
+2. Casting a shadow
+
+As your Uber Eats driver moves along the map, they cast a shadow on the ground.
+
+[https://d3b9kr64nievew.cloudfront.net/clybjyqvk00hm9i0mfcii8l5v/clybjyra400hv9i0m69itld82.jpg]
+https://builtformars.com/ux-bites/casting-a-shadow
+
+Uber Eats — User Delight
+
+
+
+
+3. Limited supply of hotels
+
+In the checkout, Booking will tell you that similar hotels which match your criteria have already sold out, creating scarcity.
+
+[https://d3b9kr64nievew.cloudfront.net/clybjyqvk00hm9i0mfcii8l5v/clybjyr1l00hn9i0m5df7gylj.jpg]
+https://builtformars.com/ux-bites/limited-supply-of-hotels
+
+Booking — Scarcity
+
+
+
+
+4. A nudge that you're premium
+
+After upgrading to a paid Monzo account, the logo on your card will have a gradient as a subtle reminder that you're on a premium
+experience.
+
+[https://d3b9kr64nievew.cloudfront.net/clybjyqvk00hm9i0mfcii8l5v/clybjyr4q00hq9i0movf3h28d.jpg]
+https://builtformars.com/ux-bites/a-nudge-that-youre-premium
+
+Monzo — Framing (nudges)
+
+
+
+
+5. Pre-delivery "use by" dates
+
+Ocado will order your receipt by the 'use by' dates, so you know which items will have a short shelf life before they arrive.
+
+[https://d3b9kr64nievew.cloudfront.net/clybjyqvk00hm9i0mfcii8l5v/clybjyr7d00hs9i0m708jz2d0.jpg]
+https://builtformars.com/ux-bites/pre-delivery-use-by-dates
+
+Ocado — Happiness & enjoyment
+BFM+ CONTENT LOCKED 🔒
+
+
+
+To get the extended version of these every week, subscribe to BFM+ [https://builtformars.com/pricing].
+
+
+
+
+Schedule update:
+
+Today marks the first day of a new email schedule, with extra flexibility. From now on, you can expect:
+ * UX Bite digests every Monday (start your week with a bit of UX inspiration).
+
+ * Case study alerts on Thursdays (still 1x per month)
+
+ 
+BFM+ members [https://builtformars.com/pricing] will also get:
+ * 🔒 Extended UX Bite digests (more Bites, content and exercises)
+
+ * 🔒 Cheatsheet alerts on Thursdays (still 1x per month)
+
+ * 🔒 Case Study reruns on Thursdays (experimenting with 1x per month)
+
+ 
+Because I've increased the frequency of the emails, you can now toggle on which you're interested in receiving via the unsubscribe
+link at the bottom of every email.
+
+
+
+Thanks for reading, as always!
+Peter
+
+[https://d3b9kr64nievew.cloudfront.net/cly96l55r002w23z55x3ofj44/cly977vjf00sx1r8eqt8q0wta.png]
+
+Original UX research, curated for the best teams.
+You are receiving this email because you opted-in to receive email from the list UX Bites from Built for Mars
+Built for Mars, 10 Beacon Drive, Seaford, BN252JY, UK
+Unsubscribe [https://app.loops.so/unsubscribe/clyd20wul006q0lmj6bwo5uh2/c1603a63bd02116ff0bedc26775b2a2c115609b9555c6c1ca2665dbb1a4e9e9c]
+
+--7jq6kxyjiul
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html lang=3D"en" dir=3D"auto" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=
+:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:o=
+ffice:office" style=3D"background-color: #ffffff;">
+  <head>
+    <title>UX Bites #22 =E2=80=94 Monzo, Uber &amp; Booking</title>
+    <!--[if !mso]><!-->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <!--<![endif]-->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1">
+    <style type=3D"text/css">
+      #outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }
+    </style>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+   =20
+      <!--[if !mso]><!-->
+        <link href=3D"https://fonts.googleapis.com/css?family=3DArial:400,6=
+00" rel=3D"stylesheet" type=3D"text/css">
+        <style type=3D"text/css">
+          @import url(https://fonts.googleapis.com/css?family=3DArial:400,6=
+00);
+        </style>
+      <!--<![endif]-->
+
+   =20
+   =20
+    <style type=3D"text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+      }
+    </style>
+    <style media=3D"screen and (min-width:480px)">
+      .moz-text-html .mj-column-per-100 { width:100% !important; max-width:=
+ 100%; }
+    </style>
+   =20
+   =20
+ =20
+   =20
+    <style type=3D"text/css">
+
+    @media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }
+ =20
+    </style>
+    =20
+    <style type=3D"text/css">
+.wfix {
+          max-width: 2400px !important;
+        }
+        @media(max-width: 599px) {
+          .social-icon-mobile-spacer {
+            display: inline-block !important;
+          }
+        }
+    </style>
+    <style>
+          .wrapper {
+            padding: 0 12px;
+          }
+
+          /* Superhuman selector */
+          .ShadowHTML .wrapper {
+            padding: 0 !important;
+          }
+
+        =20
+        =20
+        =20
+      .ShadowHTML.isMarketing { background-color: #ffffff !important; }
+      .ShadowHTML.isMarketing .styled-primary-column { background-color: #f=
+fffff !important; border-radius: 12px; }
+   =20
+        =20
+
+          /* Gmail selectors */
+          u + .body .wrapper {
+            padding: 0 !important;
+          }
+          div > u + .body .wrapper {
+            padding: 0 !important;
+          }
+         =20
+    u + .body a {
+      text-decoration: underline !important;
+      color: #E44D1D !important;
+    }
+    u + .body .button a {
+      text-decoration: none !important;
+    }
+ =20
+         =20
+    a:not(.link-nostyle) {
+      text-decoration: underline;
+      color: #E44D1D !important;
+    }
+   =20
+ =20
+         =20
+         =20
+          </style>
+<meta name=3D"color-scheme" content=3D"light">
+          <meta name=3D"supported-color-schemes" content=3D"light">
+  </head>
+  <body class=3D"body" style=3D"word-spacing:normal;background-color:#fffff=
+f;">
+   =20
+    <div style=3D"display:none;font-size:1px;color:#ffffff;line-height:1px;=
+max-height:0px;max-width:0px;opacity:0;overflow:hidden;">Your weekly dose o=
+f UX ideas and inspiration, curated by Built for Mars.</div>
+ =20
+   =20
+      <div class=3D"email-body" style=3D"background-color:#ffffff;" lang=3D=
+"en" dir=3D"auto">
+        <img alt=3D"" src=3D"http://c.vialoops.com/CI0/0100019092a99f62-c44=
+d094f-0ed6-4a9a-87d4-a7c2748d2276-000000/1LPwKm2NoUIbukHknvxU-ECYGVHIEXYmjK=
+MuCdyWzBQ=3D360" style=3D"display: none; width: 1px; height: 1px;">
+<div style=3D"display: none; max-height: 0px; overflow: hidden;">&#847; &#8=
+203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+&#847; &#8203; &nbsp; &#8199; &shy; &#847; &#8203; &nbsp; &#8199; &shy;
+</div>
+        <!--[if mso]><style type=3D"text/css"> .outlook-list-fix { margin-l=
+eft:4px !important; } .outlook-break-full-link { word-break: break-all !imp=
+ortant; } .outlook-hide-social-icon { display: none !important; mso-hide:al=
+l; width: 0px !important; padding: 0px !important; } .outlook-hide-social-i=
+con * { display: none !important; mso-hide:all; width: 0px !important; padd=
+ing: 0px !important; } .outlook-hide-social-icon table { display: none !imp=
+ortant; mso-hide:all; width: 0px !important; padding: 0px !important; } .ou=
+tlook-hide-social-icon tbody { display: none !important; mso-hide:all; widt=
+h: 0px !important; padding: 0px !important; } .outlook-hide-social-icon tr =
+{ display: none !important; mso-hide:all; width: 0px !important; padding: 0=
+px !important; } .outlook-hide-social-icon td { display: none !important; m=
+so-hide:all; width: 0px !important; padding: 0px !important; } .outlook-hid=
+e-social-icon img { display: none !important; mso-hide:all; width: 0px !imp=
+ortant; padding: 0px !important; } .outlook-hide-social-icon a { display: n=
+one !important; mso-hide:all; width: 0px !important; padding: 0px !importan=
+t; }
+</style><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"ml-outlook wfix-outlook gmail-no-padding-outlook wrapper-ou=
+tlook" role=3D"presentation" style=3D"width:600px;" width=3D"600" ><tr><td =
+style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![en=
+dif]-->
+   =20
+     =20
+      <div class=3D"ml wfix gmail-no-padding wrapper" style=3D"margin: 0px =
+auto; max-width: 600px; margin-left: 0px !important;">
+       =20
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;paddi=
+ng-top:0;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"wfix-outlook" width=
+=3D"600px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"wfix-outlook" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-h=
+eight-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div class=3D"wfix" style=3D"margin:0px auto;max-width:600px;">
+       =20
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;paddi=
+ng-bottom:24px;padding-left:0px;padding-right:0px;padding-top:24px;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td align=3D"center" class=3D"wfix=
+-outlook rounded-corners-outlook styled-primary-column-outlook" style=3D"ve=
+rtical-align:top;width:600px;" ><![endif]-->
+           =20
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix wfix rounded-cor=
+ners styled-primary-column" style=3D"font-size: 0px; text-align: left; dire=
+ction: ltr; display: inline-block; vertical-align: top; width: 100%; max-wi=
+dth: 600px !important;">
+       =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" width=3D"100%" style=3D"border-collapse: separate;">
+        <tbody>
+          <tr>
+            <td style=3D"background-color:#ffffff;border-radius:12px;vertic=
+al-align:top;padding-top:0px;padding-right:12px;padding-bottom:0px;padding-=
+left:12px;">
+             =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style width=3D"100%">
+        <tbody>
+         =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Hey=C2=A0=F0=9F=91=8B,=C2=A0</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Some people start their week with Yoga, positive affirmation =
+or slapping themselves in a sauna with giant leaves.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Not me, I like a quiet coffee and to flood my brain with UX i=
+nspiration.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Oh, would you look at that...</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:4px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:20px;line-heigh=
+t:36px !important;text-align:left;color:#000000;"><h2 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 20px; color: #=
+000000 !important; line-height: 36px !important; font-size: 20px !important=
+;"><span style=3D"font-weight: 600; font-size: 20px; white-space: pre-wrap;=
+ line-height: 36px !important; font-size: 20px !important;" class=3D"bold">=
+1. Euros 2024 celebration</span></h2></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">If you Google a specific football result, you might see this =
+celebratory overlay.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" style=3D"font-size:0px;padding:10px 25px=
+;padding-top:20px;padding-right:0px;padding-bottom:4px;padding-left:0px;wor=
+d-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fux-bites%2Feuros-2024-celebration/1/0100019092a99f62-c44d094f-0ed6-4a9a-8=
+7d4-a7c2748d2276-000000/z2-9ZzSn7NKjESxr4dt5Rebu0BiOiVwLyAnDjzCuDOk=3D360" =
+target=3D"_blank" style=3D"text-decoration: underline; color: #E44D1D !impo=
+rtant;">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/clybjyqvk00hm9i=
+0mfcii8l5v/clybjyr6h00hr9i0mqxxa12hg.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">Google =E2=80=94 User Delight</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0p=
+x;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:center;color:#000000;"><a target=3D"_blank" re=
+l=3D"noopener noreferrer" class=3D"body-link" href=3D"https://c.vialoops.co=
+m/CL0/https:%2F%2Flink.mail.beehiiv.com%2Fss%2Fc%2Fu001.IjP4tPQBd4ThSE9ZLE1=
+FDglBooqN0mdoUQ75f8XHGoRPbLWmJYCI3OattGKKdp3wrjZzm_DUw-DJiLa6GO2qL8IYnGbvQ-=
+9tJVsQ9Dm_4R9tKUPIMajr8KQYUiVYQfhNBVWinFxoIjGzGFX9-4Cf9aWZapeuOg7eah7B6SgUB=
+f5cLUx9aJwfuySdbtVI5qe-M1Tgvx2WiIA2Xwlb_V_OBg%2F46x%2FyzApv6GZREWgLMO11cC6P=
+w%2Fh1%2Fh001.ZoBYDm7yn0jV3YYosNzKYp5_SscONScN_vRQ9rjDNNU/1/0100019092a99f6=
+2-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000/xGJQZgyRV4Af3MhqB2dmIH4-KSOhw=
+DKHkQNt3b2YzAI=3D360" style=3D"text-decoration: underline; color: #E44D1D !=
+important;"></a></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:4px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:20px;line-heigh=
+t:36px !important;text-align:left;color:#000000;"><h2 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 20px; color: #=
+000000 !important; line-height: 36px !important; font-size: 20px !important=
+;"><span style=3D"font-weight: 600; font-size: 20px; white-space: pre-wrap;=
+ line-height: 36px !important; font-size: 20px !important;" class=3D"bold">=
+2. Casting a shadow</span></h2></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">As your Uber Eats driver moves along the map, they cast a sha=
+dow on the ground.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" style=3D"font-size:0px;padding:10px 25px=
+;padding-top:20px;padding-right:0px;padding-bottom:4px;padding-left:0px;wor=
+d-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fux-bites%2Fcasting-a-shadow/1/0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7=
+c2748d2276-000000/bVadl8McGE8cT9wTeyVNtJHqeFpJSTR68zPhMJjfFx8=3D360" target=
+=3D"_blank" style=3D"text-decoration: underline; color: #E44D1D !important;=
+">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/clybjyqvk00hm9i=
+0mfcii8l5v/clybjyra400hv9i0m69itld82.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">Uber Eats =E2=80=94 User Delight</span></di=
+v>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:4px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:20px;line-heigh=
+t:36px !important;text-align:left;color:#000000;"><h2 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 20px; color: #=
+000000 !important; line-height: 36px !important; font-size: 20px !important=
+;"><span style=3D"font-weight: 600; font-size: 20px; white-space: pre-wrap;=
+ line-height: 36px !important; font-size: 20px !important;" class=3D"bold">=
+3. Limited supply of hotels</span></h2></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">In the checkout, Booking will tell you that similar hotels wh=
+ich match your criteria have already sold out, creating scarcity.</span></d=
+iv>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" style=3D"font-size:0px;padding:10px 25px=
+;padding-top:20px;padding-right:0px;padding-bottom:4px;padding-left:0px;wor=
+d-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fux-bites%2Flimited-supply-of-hotels/1/0100019092a99f62-c44d094f-0ed6-4a9a=
+-87d4-a7c2748d2276-000000/sxyWPsJNEnZcArwQ7BV45bntZ1fNueeZkzNWwtcVwiE=3D360=
+" target=3D"_blank" style=3D"text-decoration: underline; color: #E44D1D !im=
+portant;">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/clybjyqvk00hm9i=
+0mfcii8l5v/clybjyr1l00hn9i0m5df7gylj.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">Booking =E2=80=94 Scarcity</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:4px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:20px;line-heigh=
+t:36px !important;text-align:left;color:#000000;"><h2 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 20px; color: #=
+000000 !important; line-height: 36px !important; font-size: 20px !important=
+;"><span style=3D"font-weight: 600; font-size: 20px; white-space: pre-wrap;=
+ line-height: 36px !important; font-size: 20px !important;" class=3D"bold">=
+4. A nudge that you're premium</span></h2></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">After upgrading to a paid Monzo account, the logo on your car=
+d will have a gradient as a subtle reminder that you're on a premium experi=
+ence.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" style=3D"font-size:0px;padding:10px 25px=
+;padding-top:20px;padding-right:0px;padding-bottom:4px;padding-left:0px;wor=
+d-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fux-bites%2Fa-nudge-that-youre-premium/1/0100019092a99f62-c44d094f-0ed6-4a=
+9a-87d4-a7c2748d2276-000000/NEtVABNMGhUotYWWoAREzlIaeYWajyBfQ0266KgkODI=3D3=
+60" target=3D"_blank" style=3D"text-decoration: underline; color: #E44D1D !=
+important;">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/clybjyqvk00hm9i=
+0mfcii8l5v/clybjyr4q00hq9i0movf3h28d.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">Monzo =E2=80=94 Framing (nudges)</span></di=
+v>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:4px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:20px;line-heigh=
+t:36px !important;text-align:left;color:#000000;"><h2 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 20px; color: #=
+000000 !important; line-height: 36px !important; font-size: 20px !important=
+;"><span style=3D"font-weight: 600; font-size: 20px; white-space: pre-wrap;=
+ line-height: 36px !important; font-size: 20px !important;" class=3D"bold">=
+5. Pre-delivery "use by" dates</span></h2></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Ocado will order your receipt by the 'use by' dates, so you k=
+now which items will have a short shelf life before they arrive.</span></di=
+v>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" style=3D"font-size:0px;padding:10px 25px=
+;padding-top:20px;padding-right:0px;padding-bottom:4px;padding-left:0px;wor=
+d-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fux-bites%2Fpre-delivery-use-by-dates/1/0100019092a99f62-c44d094f-0ed6-4a9=
+a-87d4-a7c2748d2276-000000/B-a-O89AJ2AJXhG1p6d9cFbUV3_QeupCRFGzVDLEPF4=3D36=
+0" target=3D"_blank" style=3D"text-decoration: underline; color: #E44D1D !i=
+mportant;">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/clybjyqvk00hm9i=
+0mfcii8l5v/clybjyr7d00hs9i0m708jz2d0.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">Ocado =E2=80=94 Happiness & enjoyment</span=
+></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:60px;padding-right:0px;padding-bottom:0=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:12px;line-heigh=
+t:22px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+a8a8a8; line-height: 22px !important; font-size: 12px; font-size: 12px !imp=
+ortant; white-space: pre-wrap;">BFM+ CONTENT LOCKED </span><span style=3D"l=
+ine-height: 22px !important; font-size: 12px; font-size: 12px !important; w=
+hite-space: pre-wrap;">=F0=9F=94=92</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:4px;padding-right:0px;padding-bottom:12px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"border-radius-12" style=3D"bo=
+rder-radius: 12px; overflow: hidden; background: #F5F3ED; font-size: 0px; p=
+adding: 10px 25px; padding-top: 20px; padding-right: 16px; padding-bottom: =
+20px; padding-left: 16px; word-break: break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:center;color:#000000;"><span style=3D"line-hei=
+ght: 27px !important; font-size: 15px; font-size: 15px !important; white-sp=
+ace: pre-wrap;">To get the extended version of these every week, subscribe =
+to </span><a target=3D"_blank" rel=3D"noopener noreferrer" class=3D"body-li=
+nk" href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%2Fprici=
+ng/1/0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000/FzzOh93IF=
+ksoyDgFpVu_6hhnlC-mO1WlT45hgL8sQLQ=3D360" style=3D"text-decoration: underli=
+ne; color: #E44D1D !important;"><span style=3D"font-size: 15px; white-space=
+: pre-wrap; text-decoration: underline !important; line-height: 27px !impor=
+tant; font-size: 15px !important;" class=3D"underline">BFM+</span></a><span=
+ style=3D"line-height: 27px !important; font-size: 15px; font-size: 15px !i=
+mportant; white-space: pre-wrap;">.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:60px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:12p=
+x;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:16px;line-heigh=
+t:29px !important;text-align:left;color:#000000;"><h3 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 16px; color: #=
+000000 !important; line-height: 29px !important; font-size: 16px !important=
+;"><span style=3D"font-weight: 600; font-size: 16px; white-space: pre-wrap;=
+ text-decoration: underline !important; line-height: 29px !important; font-=
+size: 16px !important;" class=3D"bold underline">Schedule update</span><spa=
+n style=3D"font-weight: 600; font-size: 16px; white-space: pre-wrap; line-h=
+eight: 29px !important; font-size: 16px !important;" class=3D"bold">:</span=
+><span style=3D"line-height: 29px !important; font-size: 16px; font-size: 1=
+6px !important; white-space: pre-wrap;"> </span></h3></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Today marks the first day of a new email schedule, with extra=
+ flexibility. From now on, you can expect:</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:0;padding-top:0px;padding-right:0px;padding-left:6px;word-break=
+:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:14.4px;line-hei=
+ght:23.04px;text-align:left;color:#000000;"><mj-raw>
+  <ul style=3D"list-style-type: disc; text-align: left; padding: 0; margin:=
+ 0px 0px 2px 20px;">
+    <li value=3D"1" class=3D"outlook-list-fix" style=3D"line-height: 27px !=
+important; font-size: 15px; font-size: 15px !important; margin: 0;">
+    <span style=3D"font-weight: 600; font-size: 15px; white-space: pre-wrap=
+; line-height: 27px !important; font-size: 15px !important;" class=3D"bold"=
+>UX Bite digests </span><span style=3D"font-weight: 600; font-style: italic=
+; font-size: 15px; white-space: pre-wrap; line-height: 27px !important; fon=
+t-size: 15px !important;" class=3D"bold italic">every</span><span style=3D"=
+font-weight: 600; font-size: 15px; white-space: pre-wrap; line-height: 27px=
+ !important; font-size: 15px !important;" class=3D"bold"> Monday</span><spa=
+n style=3D"line-height: 27px !important; font-size: 15px; font-size: 15px !=
+important; white-space: pre-wrap;"> (</span><span style=3D"font-style: ital=
+ic; font-size: 15px; white-space: pre-wrap; line-height: 27px !important; f=
+ont-size: 15px !important;" class=3D"italic">start your week with a bit of =
+UX inspiration</span><span style=3D"line-height: 27px !important; font-size=
+: 15px; font-size: 15px !important; white-space: pre-wrap;">).</span>
+    </li>
+  </ul>
+  </mj-raw></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:0;padding-top:0px;padding-right:0px;padding-left:6px;word-break=
+:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:14.4px;line-hei=
+ght:23.04px;text-align:left;color:#000000;"><mj-raw>
+  <ul style=3D"list-style-type: disc; text-align: left; padding: 0; margin:=
+ 0px 0px 2px 20px;">
+    <li value=3D"2" class=3D"outlook-list-fix" style=3D"line-height: 27px !=
+important; font-size: 15px; font-size: 15px !important; margin: 0;">
+    <span style=3D"font-weight: 600; font-size: 15px; white-space: pre-wrap=
+; line-height: 27px !important; font-size: 15px !important;" class=3D"bold"=
+>Case study alerts</span><span style=3D"line-height: 27px !important; font-=
+size: 15px; font-size: 15px !important; white-space: pre-wrap;"> on Thursda=
+ys (still 1x per month)</span>
+    </li>
+  </ul>
+  </mj-raw></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span>&nbsp;</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><a target=3D"_blank" rel=
+=3D"noopener noreferrer" class=3D"body-link" href=3D"https://c.vialoops.com=
+/CL0/https:%2F%2Fbuiltformars.com%2Fpricing/2/0100019092a99f62-c44d094f-0ed=
+6-4a9a-87d4-a7c2748d2276-000000/oqGM3e_ZkC1CL4_R70ylCqRZ_EfOFmsxkkQBvDAWAxE=
+=3D360" style=3D"text-decoration: underline; color: #E44D1D !important;"><s=
+pan style=3D"font-size: 15px; white-space: pre-wrap; text-decoration: under=
+line !important; line-height: 27px !important; font-size: 15px !important;"=
+ class=3D"underline">BFM+ members</span></a><span style=3D"line-height: 27p=
+x !important; font-size: 15px; font-size: 15px !important; white-space: pre=
+-wrap;"> will also get:</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:0;padding-top:0px;padding-right:0px;padding-left:6px;word-break=
+:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:14.4px;line-hei=
+ght:23.04px;text-align:left;color:#000000;"><mj-raw>
+  <ul style=3D"list-style-type: disc; text-align: left; padding: 0; margin:=
+ 0px 0px 2px 20px;">
+    <li value=3D"1" class=3D"outlook-list-fix" style=3D"line-height: 27px !=
+important; font-size: 15px; font-size: 15px !important; margin: 0;">
+    <span style=3D"line-height: 27px !important; font-size: 15px; font-size=
+: 15px !important; white-space: pre-wrap;">=F0=9F=94=92 Extended UX Bite di=
+gests (more Bites, content and exercises)</span>
+    </li>
+  </ul>
+  </mj-raw></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:0;padding-top:0px;padding-right:0px;padding-left:6px;word-break=
+:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:14.4px;line-hei=
+ght:23.04px;text-align:left;color:#000000;"><mj-raw>
+  <ul style=3D"list-style-type: disc; text-align: left; padding: 0; margin:=
+ 0px 0px 2px 20px;">
+    <li value=3D"2" class=3D"outlook-list-fix" style=3D"line-height: 27px !=
+important; font-size: 15px; font-size: 15px !important; margin: 0;">
+    <span style=3D"line-height: 27px !important; font-size: 15px; font-size=
+: 15px !important; white-space: pre-wrap;">=F0=9F=94=92 Cheatsheet alerts o=
+n Thursdays (still 1x per month)</span>
+    </li>
+  </ul>
+  </mj-raw></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:0;padding-top:0px;padding-right:0px;padding-left:6px;word-break=
+:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:14.4px;line-hei=
+ght:23.04px;text-align:left;color:#000000;"><mj-raw>
+  <ul style=3D"list-style-type: disc; text-align: left; padding: 0; margin:=
+ 0px 0px 2px 20px;">
+    <li value=3D"3" class=3D"outlook-list-fix" style=3D"line-height: 27px !=
+important; font-size: 15px; font-size: 15px !important; margin: 0;">
+    <span style=3D"line-height: 27px !important; font-size: 15px; font-size=
+: 15px !important; white-space: pre-wrap;">=F0=9F=94=92 Case Study reruns o=
+n Thursdays (experimenting with 1x per month)</span>
+    </li>
+  </ul>
+  </mj-raw></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span>&nbsp;</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Because I've increased the frequency of the emails, you can n=
+ow toggle on which you're interested in receiving via the unsubscribe link =
+at the bottom of every email.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Thanks for reading, as always!</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"font-style=
+: italic; font-size: 15px; white-space: pre-wrap; line-height: 27px !import=
+ant; font-size: 15px !important;" class=3D"italic">Peter</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" style=3D"font-size:0px;padding:10px 25px=
+;padding-top:60px;padding-right:0px;padding-bottom:12px;padding-left:0px;wo=
+rd-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:110px;">
+             =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/cly96l55r002w23=
+z55x3ofj44/cly977vjf00sx1r8eqt8q0wta.png" style=3D"border:0;border-radius:0=
+px;display:block;outline:none;text-decoration:none;height:auto;width:100%;f=
+ont-size:13px;" width=3D"110" height=3D"auto">
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:14px;line-heigh=
+t:25px !important;text-align:left;color:#000000;"><span style=3D"color: #7F=
+7F7F; line-height: 25px !important; font-size: 14px; font-size: 14px !impor=
+tant; white-space: pre-wrap;">Original UX research, curated for the best te=
+ams.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:24px;padding-right:0px;padding-left:0px;w=
+ord-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:12px;line-heigh=
+t:22px !important;text-align:left;color:#9ca3af;"><span class=3D"opt-in-exp=
+lanation" style=3D"color: #9ca3af !important; font-size: 12px !important; l=
+ine-height: 22px !important;">
+  You are receiving this email because you opted-in to receive email from t=
+he list UX Bites from Built for Mars<br>
+  Built for Mars, 10 Beacon Drive, Seaford, BN252JY, UK<br>
+  <a style=3D"font-weight: 600; text-decoration: none !important; color: #9=
+ca3af !important; font-size: 12px !important; line-height: 22px !important;=
+" href=3D"https://c.vialoops.com/CL0/https:%2F%2Fapp.loops.so%2Funsubscribe=
+%2Fclyd20wul006q0lmj6bwo5uh2%2Fc1603a63bd02116ff0bedc26775b2a2c115609b9555c=
+6c1ca2665dbb1a4e9e9c/1/0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d227=
+6-000000/_jkQq5e02zsIht_T_5qVrWH1oOETizKrQNWpEGWlEZ4=3D360" target=3D"_blan=
+k" rel=3D"noopener noreferrer" class=3D"bold link-nostyle link-unsubscribe"=
+>
+  Unsubscribe
+  </a>
+  </span></div>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+   =20
+   =20
+      </div>
+   =20
+  </body>
+</html>
+ =20
+
+--7jq6kxyjiul--
