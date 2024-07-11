@@ -52,9 +52,9 @@ class RssService(
 
         val feed = SyndFeedImpl().apply {
             feedType = "rss_2.0"
-            title = newsletter.name
+            title = newsletter.feedTitle
             link = newsletter.websiteUrl
-            description = "This is an RSS Feed for the newsletter \"${newsletter.name}\""
+            description = "This is an RSS Feed for the newsletter \"${newsletter.feedTitle}\""
         }
 
         val sort = Sort.by(Sort.Direction.DESC, "date")

@@ -22,4 +22,5 @@ data class Newsletter(
     val name: String,
     val websiteUrl: String,
     val notes: String? = null,
+    val feedTitle: String = name,
 )
