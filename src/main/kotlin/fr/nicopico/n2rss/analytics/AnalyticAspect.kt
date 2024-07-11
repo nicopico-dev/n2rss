@@ -31,6 +31,20 @@ private val LOG = LoggerFactory.getLogger(AnalyticAspect::class.java)
 class AnalyticAspect(
     private val analyticService: AnalyticService
 ) {
+    @Pointcut(
+        "@annotation(org.springframework.web.bind.annotation.GetMapping)" +
+            "&& execution(* home(..))"
+    )
+    fun homePointcut() = Unit
+
+    @Before("homePointcut()")
+    fun trackHome(joinPoint: JoinPoint) {
+        try {
+            analyticService.track(AnalyticEvent.Home)
+        } catch (e: AnalyticException) {
+            LOG.error("Could not track GetFeed event", e)
+        }
+    }
 
     @Pointcut(
         "@annotation(org.springframework.web.bind.annotation.GetMapping)" +
@@ -39,9 +53,7 @@ class AnalyticAspect(
     fun getFeedPointcut() = Unit
 
     @Before("getFeedPointcut()")
-    fun trackGetFeedAccess(joinPoint: JoinPoint) {
-        // We want to prevent any crash coming from this method
-        @Suppress("TooGenericExceptionCaught")
+    fun trackGetFeed(joinPoint: JoinPoint) {
         try {
             val code = joinPoint.args[0] as String
             analyticService.track(AnalyticEvent.GetFeed(code))
@@ -58,8 +70,6 @@ class AnalyticAspect(
 
     @Before("requestNewsletterPointcut()")
     fun trackRequestNewsletter(joinPoint: JoinPoint) {
-        // We want to prevent any crash coming from this method
-        @Suppress("TooGenericExceptionCaught")
         try {
             val newsletterUrl = joinPoint.args[0] as String
             analyticService.track(AnalyticEvent.RequestNewsletter(newsletterUrl))

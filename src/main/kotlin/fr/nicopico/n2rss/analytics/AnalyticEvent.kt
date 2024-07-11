@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.analytics
 
 sealed class AnalyticEvent {
+    data object Home : AnalyticEvent()
     data class GetFeed(val code: String) : AnalyticEvent()
     data class RequestNewsletter(val newsletterUrl: String) : AnalyticEvent()
 }

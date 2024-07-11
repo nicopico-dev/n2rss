@@ -50,15 +50,10 @@ class AnalyticServiceTest {
 
     private fun createAnalyticService(
         enabled: Boolean = true,
-        userAgent: String = "some-user-agent",
-        hostname: String = "some-hostname",
     ): AnalyticService {
         return AnalyticService(
-            analyticsApiBaseUrl = server.url("/").toString(),
             analyticsProperties = N2RssProperties.AnalyticsProperties(
                 enabled = enabled,
-                userAgent = userAgent,
-                hostname = hostname,
             ),
         )
     }

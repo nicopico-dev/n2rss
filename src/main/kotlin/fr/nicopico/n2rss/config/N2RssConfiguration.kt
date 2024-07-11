@@ -86,7 +86,5 @@ constructor(
     )
     data class AnalyticsProperties(
         val enabled: Boolean = true,
-        val userAgent: String,
-        val hostname: String,
     )
 }
