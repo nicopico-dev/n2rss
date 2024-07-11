@@ -17,10 +17,14 @@
  */
 package fr.nicopico.n2rss.mail.newsletter
 
+import fr.nicopico.n2rss.mail.newsletter.jsoup.indexOf
+import fr.nicopico.n2rss.mail.newsletter.jsoup.select
 import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.models.Newsletter
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 import java.net.URL
@@ -42,22 +46,34 @@ class BuiltForMarsNewsletterHandler : NewsletterHandlerSingleFeed {
             email.content,
             Safelist.basic()
                 .addTags("table", "tr", "td")
-                .addAttributes("tr", "id"),
+                .addAttributes("tr", "id")
+                .addAttributes("span", "id", "class"),
         )
+        val cleanedDocument = Jsoup.parseBodyFragment(cleanedHtml)
 
+        val singleArticleElement: Element? = cleanedDocument
+            .selectFirst("tr#content-blocks")
+
+        return if (singleArticleElement != null) {
+            processSingleArticleDocument(
+                title = email.subject.substringAfter(":").trim(),
+                element = singleArticleElement
+            )
+        } else {
+            processMultipleArticlesDocument(cleanedDocument)
+        }
+    }
+
+    private fun processSingleArticleDocument(title: String, element: Element): List<Article> {
         val document = Jsoup.clean(
-            Jsoup.parseBodyFragment(cleanedHtml).also {
-                println(it)
-            }
-                .selectFirst("tr#content-blocks")
-                ?.html()
+            element
+                .html()
                 ?: throw NewsletterParsingException("Unable to find content-blocks"),
             Safelist.basic()
         ).let {
             Jsoup.parseBodyFragment(it)
         }
 
-        val title = email.subject.substringAfter(":").trim()
         val link = document.select("a[href]")
             .firstOrNull { it.text().isNotBlank() }
             ?.let { URL(it.attr("href")) }
@@ -73,5 +89,34 @@ class BuiltForMarsNewsletterHandler : NewsletterHandlerSingleFeed {
                 description = description,
             )
         )
+    }
+
+    private fun processMultipleArticlesDocument(document: Document): List<Article> {
+        return document.select("span.bold")
+            .filter { titleElement ->
+                MULTIPLE_ARTICLES_PREFIX_REGEX.containsMatchIn(titleElement.text())
+            }
+            .map { titleElement ->
+                val title = titleElement.text()
+                    .replace(MULTIPLE_ARTICLES_PREFIX_REGEX, "")
+
+                val titleElementIndex = document.indexOf(titleElement)
+                val description = document.select("span", startingAfterIndex = titleElementIndex)?.text()
+                    ?: throw NewsletterParsingException("Unable to find description for article \"$title\"")
+
+                val linkElement = document.select("a[href]", startingAfterIndex = titleElementIndex)
+                    ?: throw NewsletterParsingException("Unable to find link for article \"$title\"")
+                val link = URL(linkElement.attr("href"))
+
+                Article(
+                    title = title,
+                    link = link,
+                    description = description,
+                )
+            }
+    }
+
+    companion object {
+        private val MULTIPLE_ARTICLES_PREFIX_REGEX = Regex("\\d+\\.\\s+")
     }
 }
