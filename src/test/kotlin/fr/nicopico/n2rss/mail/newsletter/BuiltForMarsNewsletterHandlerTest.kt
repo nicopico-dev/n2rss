@@ -17,9 +17,12 @@
  */
 package fr.nicopico.n2rss.mail.newsletter
 
+import fr.nicopico.n2rss.models.Article
 import fr.nicopico.n2rss.models.Email
 import io.kotest.assertions.assertSoftly
+import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
+import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
@@ -60,6 +63,19 @@ class BuiltForMarsNewsletterHandlerTest {
 
     @Nested
     inner class ProcessTest {
+        @Test
+        fun `should process any Built for Mars email`() {
+            // GIVEN
+            val emails = loadEmails("stubs/emails/Built for Mars")
+
+            // WHEN - THEN
+            shouldNotThrowAny {
+                for (email in emails) {
+                    handler.process(email)
+                }
+            }
+        }
+
         @Test
         fun `should extract an articles from an email (1)`() {
             // GIVEN
@@ -106,5 +122,29 @@ In this study, I’ve tried to break down these subtleties, and explain exactly 
 
             }
         }
+    }
+
+    @Test
+    fun `should process email #22`() {
+        // GIVEN
+        val email = loadEmail("stubs/emails/Built for Mars/UX Bites #22 — Monzo, Uber & Booking.eml")
+
+        // WHEN
+        val publication = handler.process(email)
+
+        // THEN
+        publication.articles shouldHaveSize 5
+        publication.articles shouldContainInOrder listOf(
+            Article(
+                title = "Euros 2024 celebration",
+                link = URL("https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%2Fux-bites%2Feuros-2024-celebration/1/0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000/z2-9ZzSn7NKjESxr4dt5Rebu0BiOiVwLyAnDjzCuDOk=360"),
+                description = "If you Google a specific football result, you might see this celebratory overlay.",
+            ),
+            Article(
+                title = "Casting a shadow",
+                link = URL("https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%2Fux-bites%2Fcasting-a-shadow/1/0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000/bVadl8McGE8cT9wTeyVNtJHqeFpJSTR68zPhMJjfFx8=360"),
+                description = "As your Uber Eats driver moves along the map, they cast a shadow on the ground.",
+            )
+        )
     }
 }
