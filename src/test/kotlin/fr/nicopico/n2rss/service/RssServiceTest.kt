@@ -24,6 +24,7 @@ import fr.nicopico.n2rss.models.Newsletter
 import fr.nicopico.n2rss.models.Publication
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -58,7 +59,12 @@ class RssServiceTest {
     @Test
     fun `getFeed should return the content of the feed`() {
         // GIVEN
-        val expectedNewsletter = Newsletter("test", "test newsletter", "https://test.com")
+        val expectedNewsletter = Newsletter(
+            code = "test",
+            name = "test newsletter",
+            websiteUrl = "https://test.com",
+            feedTitle = "This is a test FEED",
+        )
         val expectedPublication = Publication(
             title = "test publication",
             date = LocalDate.fromEpochDays(321),
@@ -75,6 +81,7 @@ class RssServiceTest {
         val feed = rssService.getFeed("test", 0, 2)
 
         // THEN
+        feed.title shouldBe "This is a test FEED"
         feed.entries shouldHaveSize expectedPublication.articles.size
         verifySequence {
             newsletterRepository.findNewsletterByCode("test")
@@ -83,6 +90,33 @@ class RssServiceTest {
                 PageRequest.of(0, 2, Sort.by(Sort.Direction.DESC, "date"))
             )
         }
+    }
+
+    @Test
+    fun `getFeed should default to newsletter name if no feedTitle are provided`() {
+        // GIVEN
+        val expectedNewsletter = Newsletter(
+            code = "test",
+            name = "test newsletter",
+            websiteUrl = "https://test.com",
+        )
+        val expectedPublication = Publication(
+            title = "test publication",
+            date = LocalDate.fromEpochDays(321),
+            newsletter = expectedNewsletter,
+            articles = listOf(
+                Article("Article 1", URL("https://article1.com"), "Some description")
+            )
+        )
+        every { newsletterRepository.findNewsletterByCode("test") } returns expectedNewsletter
+        every { publicationRepository.findByNewsletter(expectedNewsletter, any()) } returns
+            PageImpl(listOf(expectedPublication))
+
+        // WHEN
+        val feed = rssService.getFeed("test", 0, 2)
+
+        // THEN
+        feed.title shouldBe "test newsletter"
     }
 
     @Test
