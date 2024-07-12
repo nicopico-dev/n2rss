@@ -17,12 +17,14 @@
  */
 package fr.nicopico.n2rss.analytics.data
 
+import kotlinx.datetime.Instant
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document(collection = "analytics")
 class AnalyticsData(
     val code: String,
+    val timestamp: Instant,
     val data: String? = null,
     @Id val id: String? = null,
 )

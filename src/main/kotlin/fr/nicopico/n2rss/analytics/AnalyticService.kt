@@ -21,7 +21,10 @@ import fr.nicopico.n2rss.analytics.data.AnalyticsData
 import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode
 import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
 import fr.nicopico.n2rss.config.N2RssProperties
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 private val LOG = LoggerFactory.getLogger(AnalyticService::class.java)
@@ -30,13 +33,20 @@ private val LOG = LoggerFactory.getLogger(AnalyticService::class.java)
 class AnalyticService(
     private val analyticsRepository: AnalyticsRepository,
     private val analyticsProperties: N2RssProperties.AnalyticsProperties,
+    private val clock: Clock,
 ) {
+    @Autowired
+    constructor(
+        analyticsRepository: AnalyticsRepository,
+        analyticsProperties: N2RssProperties.AnalyticsProperties,
+    ) : this(analyticsRepository, analyticsProperties, Clock.System)
+
     @Throws(AnalyticException::class)
     fun track(event: AnalyticEvent) {
         if (analyticsProperties.enabled) {
             LOG.info("TRACK: $event")
             try {
-                val data = event.toAnalyticsData()
+                val data = event.toAnalyticsData(clock.now())
                 analyticsRepository.save(data)
             } catch (e: Exception) {
                 throw AnalyticException("Unable to send analytics event $event", e)
@@ -44,17 +54,22 @@ class AnalyticService(
         }
     }
 
-    private fun AnalyticEvent.toAnalyticsData(): AnalyticsData {
+    private fun AnalyticEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
         return when (this) {
             is AnalyticEvent.GetFeed -> AnalyticsData(
                 code = AnalyticsDataCode.GET_FEED,
                 data = code,
+                timestamp = timestamp,
             )
 
-            is AnalyticEvent.Home -> AnalyticsData(code = AnalyticsDataCode.HOME)
+            is AnalyticEvent.Home -> AnalyticsData(
+                code = AnalyticsDataCode.HOME,
+                timestamp = timestamp,
+            )
             is AnalyticEvent.RequestNewsletter -> AnalyticsData(
                 code = AnalyticsDataCode.REQUEST_NEWSLETTER,
                 data = newsletterUrl,
+                timestamp = timestamp,
             )
         }
     }
