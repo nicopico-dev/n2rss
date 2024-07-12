@@ -17,15 +17,18 @@
  */
 package fr.nicopico.n2rss.analytics
 
+import fr.nicopico.n2rss.analytics.data.AnalyticsData
+import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode
+import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
-import org.springframework.web.client.HttpClientErrorException
 
 private val LOG = LoggerFactory.getLogger(AnalyticService::class.java)
 
 @Service
 class AnalyticService(
+    private val analyticsRepository: AnalyticsRepository,
     private val analyticsProperties: N2RssProperties.AnalyticsProperties,
 ) {
     @Throws(AnalyticException::class)
@@ -33,10 +36,26 @@ class AnalyticService(
         if (analyticsProperties.enabled) {
             LOG.info("TRACK: $event")
             try {
-                TODO("Track event")
-            } catch (e: HttpClientErrorException) {
+                val data = event.toAnalyticsData()
+                analyticsRepository.save(data)
+            } catch (e: Exception) {
                 throw AnalyticException("Unable to send analytics event $event", e)
             }
+        }
+    }
+
+    private fun AnalyticEvent.toAnalyticsData(): AnalyticsData {
+        return when (this) {
+            is AnalyticEvent.GetFeed -> AnalyticsData(
+                code = AnalyticsDataCode.GET_FEED,
+                data = code,
+            )
+
+            is AnalyticEvent.Home -> AnalyticsData(code = AnalyticsDataCode.HOME)
+            is AnalyticEvent.RequestNewsletter -> AnalyticsData(
+                code = AnalyticsDataCode.REQUEST_NEWSLETTER,
+                data = newsletterUrl,
+            )
         }
     }
 }

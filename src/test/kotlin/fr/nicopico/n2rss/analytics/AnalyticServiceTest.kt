@@ -15,43 +15,41 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.analytics
 
+import fr.nicopico.n2rss.analytics.data.AnalyticsData
+import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode
+import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldThrow
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
 import io.kotest.matchers.string.beEmpty
-import io.kotest.matchers.string.shouldContain
-import io.kotest.matchers.types.beInstanceOf
-import okhttp3.mockwebserver.MockResponse
-import okhttp3.mockwebserver.MockWebServer
-import org.junit.jupiter.api.AfterEach
+import io.mockk.MockKAnnotations
+import io.mockk.confirmVerified
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
+import io.mockk.slot
+import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.springframework.web.client.HttpClientErrorException
 
 class AnalyticServiceTest {
 
-    private val server = MockWebServer()
+    @MockK
+    private lateinit var analyticsRepository: AnalyticsRepository
 
     @BeforeEach
     fun setUp() {
-        server.start()
+        MockKAnnotations.init(this)
+
+        every { analyticsRepository.save(any()) } answers { firstArg() }
     }
 
-    @AfterEach
-    fun tearDown() {
-        server.shutdown()
-    }
-
-    private fun createAnalyticService(
-        enabled: Boolean = true,
-    ): AnalyticService {
+    private fun createAnalyticService(enabled: Boolean = true): AnalyticService {
         return AnalyticService(
+            analyticsRepository = analyticsRepository,
             analyticsProperties = N2RssProperties.AnalyticsProperties(
                 enabled = enabled,
             ),
@@ -59,47 +57,55 @@ class AnalyticServiceTest {
     }
 
     @Test
-    fun `GetFeed analytic events should be sent to the API`() {
+    fun `Home analytic events should be stored`() {
         // GIVEN
         val analyticService = createAnalyticService()
-        server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticService.track(AnalyticEvent.GetFeed("rss-code"))
+        analyticService.track(AnalyticEvent.Home)
 
         // THEN
-        val request = server.takeRequest()
-        assertSoftly(request) {
-            path shouldBe "/events"
-            method shouldBe "POST"
-            body.readUtf8() should {
-                it shouldContain Regex("\"hostname\"\\s*:\"some-hostname\"")
-                it shouldContain Regex("\"ua\"\\s*:\"some-user-agent\"")
-                it shouldContain Regex("\"event\"\\s*:\"get-feed\"")
-                it shouldContain Regex("\"get-feed-code\"\\s*:\"rss-code\"")
-            }
+        val dataSlot = slot<AnalyticsData>()
+        verify { analyticsRepository.save(capture(dataSlot)) }
+        assertSoftly(dataSlot.captured) {
+            it.code shouldBe AnalyticsDataCode.HOME
+            it.data shouldBe null
         }
     }
 
     @Test
-    fun `RequestNewsletter analytic events should be sent to the API`() {
+    fun `GetFeed analytic events should be stored`() {
         // GIVEN
+        val rssCode = "rss-code"
         val analyticService = createAnalyticService()
-        server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticService.track(AnalyticEvent.RequestNewsletter("some-newsletter-url"))
+        analyticService.track(AnalyticEvent.GetFeed(rssCode))
 
         // THEN
-        val request = server.takeRequest()
-        assertSoftly(request) {
-            path shouldBe "/events"
-            method shouldBe "POST"
-            body.readUtf8() should {
-                it shouldContain Regex("\"hostname\"\\s*:\"some-hostname\"")
-                it shouldContain Regex("\"event\"\\s*:\"request-newsletter\"")
-                it shouldContain Regex("\"request-newsletter-url\"\\s*:\"some-newsletter-url\"")
-            }
+        val dataSlot = slot<AnalyticsData>()
+        verify { analyticsRepository.save(capture(dataSlot)) }
+        assertSoftly(dataSlot.captured) {
+            it.code shouldBe AnalyticsDataCode.GET_FEED
+            it.data shouldBe rssCode
+        }
+    }
+
+    @Test
+    fun `RequestNewsletter analytic events should be stored`() {
+        // GIVEN
+        val newsletterUrl = "some-newsletter-url"
+        val analyticService = createAnalyticService()
+
+        // WHEN
+        analyticService.track(AnalyticEvent.RequestNewsletter(newsletterUrl))
+
+        // THEN
+        val dataSlot = slot<AnalyticsData>()
+        verify { analyticsRepository.save(capture(dataSlot)) }
+        assertSoftly(dataSlot.captured) {
+            it.code shouldBe AnalyticsDataCode.REQUEST_NEWSLETTER
+            it.data shouldBe newsletterUrl
         }
     }
 
@@ -107,14 +113,15 @@ class AnalyticServiceTest {
     fun `Analytics API error should throw a specific exception`() {
         // GIVEN
         val analyticService = createAnalyticService()
-        server.enqueue(MockResponse().setResponseCode(400))
+        val internalError = RuntimeException("TEST")
+        every { analyticsRepository.save(any()) } throws internalError
 
         // WHEN - THEN
         val error = shouldThrow<AnalyticException> {
             analyticService.track(AnalyticEvent.GetFeed("code"))
         }
         error.message shouldNot beEmpty()
-        error.cause should beInstanceOf<HttpClientErrorException>()
+        error.cause shouldBe internalError
     }
 
     @Test
@@ -123,10 +130,11 @@ class AnalyticServiceTest {
         val analyticService = createAnalyticService(enabled = false)
 
         // WHEN
+        analyticService.track(AnalyticEvent.Home)
         analyticService.track(AnalyticEvent.GetFeed("code"))
         analyticService.track(AnalyticEvent.RequestNewsletter("url"))
 
         // THEN
-        server.requestCount shouldBe 0
+        confirmVerified(analyticsRepository)
     }
 }
