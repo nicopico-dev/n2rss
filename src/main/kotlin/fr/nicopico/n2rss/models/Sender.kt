@@ -15,14 +15,21 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+
 package fr.nicopico.n2rss.models
 
-import kotlinx.datetime.LocalDate
-
-data class Email(
-    val sender: Sender,
-    val date: LocalDate,
-    val subject: String,
-    val content: String,
-    val msgnum: Int,
-)
+/**
+ * Email sender in the format "Newsletter Name <email@domain.com>"
+ */
+@JvmInline
+value class Sender(val sender: String) {
+    val email: String
+        get() = sender
+            .dropWhile { it != '<' }
+            .drop(1)
+            .dropLast(1)
+    val name: String
+        get() = sender
+            .takeWhile { it != '<' }
+            .trim()
+}
