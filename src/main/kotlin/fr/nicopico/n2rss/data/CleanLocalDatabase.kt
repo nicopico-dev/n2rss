@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.data
 
+import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Profile
 import org.springframework.context.event.ContextRefreshedEvent
@@ -29,10 +30,14 @@ private val LOG = LoggerFactory.getLogger(CleanLocalDatabase::class.java)
 @Component
 class CleanLocalDatabase(
     private val publicationRepository: PublicationRepository,
+    private val newsletterRequestRepository: NewsletterRequestRepository,
+    private val analyticsRepository: AnalyticsRepository,
 ) {
     @EventListener
     fun onApplicationEvent(ignored: ContextRefreshedEvent) {
         LOG.info("Clean-up local database...")
         publicationRepository.deleteAll()
+        newsletterRequestRepository.deleteAll()
+        analyticsRepository.deleteAll()
     }
 }
