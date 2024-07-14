@@ -17,7 +17,9 @@
  */
 package fr.nicopico.n2rss.analytics
 
+import fr.nicopico.n2rss.models.Email
 import org.aspectj.lang.JoinPoint
+import org.aspectj.lang.annotation.AfterThrowing
 import org.aspectj.lang.annotation.Aspect
 import org.aspectj.lang.annotation.Before
 import org.aspectj.lang.annotation.Pointcut
@@ -31,6 +33,7 @@ private val LOG = LoggerFactory.getLogger(AnalyticAspect::class.java)
 class AnalyticAspect(
     private val analyticService: AnalyticService
 ) {
+    //region Home
     @Pointcut(
         "@annotation(org.springframework.web.bind.annotation.GetMapping)" +
             "&& execution(* home(..))"
@@ -42,10 +45,21 @@ class AnalyticAspect(
         try {
             analyticService.track(AnalyticEvent.Home)
         } catch (e: AnalyticException) {
-            LOG.error("Could not track GetFeed event", e)
+            LOG.error("Could not track Home event", e)
         }
     }
 
+    @AfterThrowing("homePointcut()", throwing = "error")
+    fun homeError(joinPoint: JoinPoint, error: Exception) {
+        try {
+            analyticService.track(AnalyticEvent.Error.HomeError)
+        } catch (e: AnalyticException) {
+            LOG.error("Could not track HomeError event", e)
+        }
+    }
+    //endregion
+
+    //region GetFeed
     @Pointcut(
         "@annotation(org.springframework.web.bind.annotation.GetMapping)" +
             "&& execution(* getFeed(..))"
@@ -55,13 +69,33 @@ class AnalyticAspect(
     @Before("getFeedPointcut()")
     fun trackGetFeed(joinPoint: JoinPoint) {
         try {
-            val code = joinPoint.args[0] as String
+            val code = extractCode(joinPoint.args)
             analyticService.track(AnalyticEvent.GetFeed(code))
         } catch (e: AnalyticException) {
             LOG.error("Could not track GetFeed event", e)
         }
     }
 
+    @AfterThrowing("getFeedPointcut()", throwing = "error")
+    fun getFeedError(joinPoint: JoinPoint, error: Exception) {
+        try {
+            val code = extractCode(joinPoint.args)
+            analyticService.track(AnalyticEvent.Error.GetFeedError(code))
+        } catch (e: AnalyticException) {
+            LOG.error("Could not track GetFeedError event", e)
+        }
+    }
+
+    private fun extractCode(args: Array<Any>): String {
+        return if (args[1] is String) {
+            args[0] as String + "/" + args[1] as String
+        } else {
+            args[0] as String
+        }
+    }
+    //endregion
+
+    //region RequestNewsletter
     @Pointcut(
         "@annotation(org.springframework.web.bind.annotation.PostMapping)" +
             "&& execution(* requestNewsletter(..))"
@@ -77,4 +111,36 @@ class AnalyticAspect(
             LOG.error("Could not track RequestNewsletter event", e)
         }
     }
+
+    @AfterThrowing("requestNewsletterPointcut()", throwing = "error")
+    fun requestNewsletterError(joinPoint: JoinPoint, error: Exception) {
+        try {
+            analyticService.track(AnalyticEvent.Error.RequestNewsletterError)
+        } catch (e: AnalyticException) {
+            LOG.error("Could not track RequestNewsletterError event", e)
+        }
+    }
+    //endregion
+
+    //region Parsing
+    @Pointcut("execution(* fr.nicopico.n2rss.mail.newsletter.NewsletterHandler+.process(fr.nicopico.n2rss.models.Email))")
+    fun newsletterHandlerProcessPointcut() = Unit
+
+    @AfterThrowing("newsletterHandlerProcessPointcut()", throwing = "error")
+    fun newsletterHandlerProcessError(joinPoint: JoinPoint, error: Exception) {
+        try {
+            val email = joinPoint.args[0] as Email
+            val newsletterHandlerName = (joinPoint.target).javaClass.simpleName
+            val emailTitle = email.subject
+            analyticService.track(
+                AnalyticEvent.Error.EmailParsingError(
+                    handlerName = newsletterHandlerName,
+                    emailTitle = emailTitle,
+                )
+            )
+        } catch (e: AnalyticException) {
+            LOG.error("Could not track EmailParsingError event", e)
+        }
+    }
+    //endregion
 }

@@ -17,12 +17,10 @@
  */
 package fr.nicopico.n2rss.analytics
 
-import fr.nicopico.n2rss.analytics.data.AnalyticsData
-import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode
 import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
+import fr.nicopico.n2rss.analytics.data.toAnalyticsData
 import fr.nicopico.n2rss.config.N2RssProperties
 import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -51,26 +49,6 @@ class AnalyticService(
             } catch (e: Exception) {
                 throw AnalyticException("Unable to send analytics event $event", e)
             }
-        }
-    }
-
-    private fun AnalyticEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
-        return when (this) {
-            is AnalyticEvent.GetFeed -> AnalyticsData(
-                code = AnalyticsDataCode.GET_FEED,
-                data = code,
-                timestamp = timestamp,
-            )
-
-            is AnalyticEvent.Home -> AnalyticsData(
-                code = AnalyticsDataCode.HOME,
-                timestamp = timestamp,
-            )
-            is AnalyticEvent.RequestNewsletter -> AnalyticsData(
-                code = AnalyticsDataCode.REQUEST_NEWSLETTER,
-                data = newsletterUrl,
-                timestamp = timestamp,
-            )
         }
     }
 }

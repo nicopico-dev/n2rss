@@ -18,7 +18,33 @@
 package fr.nicopico.n2rss.analytics
 
 sealed class AnalyticEvent {
+    /**
+     * A user accessed the home page
+     */
     data object Home : AnalyticEvent()
-    data class GetFeed(val code: String) : AnalyticEvent()
+
+    /**
+     * A user accessed an RSS feed
+     */
+    data class GetFeed(val feedCode: String) : AnalyticEvent()
+
+    /**
+     * A user requested support for a newsletter
+     */
     data class RequestNewsletter(val newsletterUrl: String) : AnalyticEvent()
+
+    sealed class Error : AnalyticEvent() {
+        data object HomeError : Error()
+        data class GetFeedError(val feedCode: String) : Error()
+        data object RequestNewsletterError : Error()
+        data class EmailParsingError(
+            val handlerName: String,
+            val emailTitle: String
+        ) : Error()
+    }
+
+    /**
+     * A new version has been released to production
+     */
+    data class Release(val version: String) : AnalyticEvent()
 }
