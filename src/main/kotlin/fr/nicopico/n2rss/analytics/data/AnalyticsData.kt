@@ -46,7 +46,7 @@ fun AnalyticEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
     return when (this) {
         is AnalyticEvent.GetFeed -> AnalyticsData(
             code = AnalyticsDataCode.GET_FEED,
-            data = feedCode,
+            data = "$feedCode;;$userAgent",
             timestamp = timestamp,
         )
 

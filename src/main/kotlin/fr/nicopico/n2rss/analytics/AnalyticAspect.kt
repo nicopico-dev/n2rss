@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.analytics
 
 import fr.nicopico.n2rss.models.Email
+import jakarta.servlet.http.HttpServletResponse
 import org.aspectj.lang.JoinPoint
 import org.aspectj.lang.annotation.AfterThrowing
 import org.aspectj.lang.annotation.Aspect
@@ -70,7 +71,13 @@ class AnalyticAspect(
     fun trackGetFeed(joinPoint: JoinPoint) {
         try {
             val code = extractCode(joinPoint.args)
-            analyticService.track(AnalyticEvent.GetFeed(code))
+            val userAgent = extractUserAgent(joinPoint.args)
+            analyticService.track(
+                AnalyticEvent.GetFeed(
+                    feedCode = code,
+                    userAgent = userAgent,
+                )
+            )
         } catch (e: AnalyticException) {
             LOG.error("Could not track GetFeed event", e)
         }
@@ -92,6 +99,10 @@ class AnalyticAspect(
         } else {
             args[0] as String
         }
+    }
+
+    private fun extractUserAgent(args: Array<Any>): String? {
+        return args.getOrNull(args.indexOfFirst { it is HttpServletResponse } + 1) as? String
     }
     //endregion
 

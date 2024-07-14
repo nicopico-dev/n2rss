@@ -26,7 +26,10 @@ sealed class AnalyticEvent {
     /**
      * A user accessed an RSS feed
      */
-    data class GetFeed(val feedCode: String) : AnalyticEvent()
+    data class GetFeed(
+        val feedCode: String,
+        val userAgent: String?,
+    ) : AnalyticEvent()
 
     /**
      * A user requested support for a newsletter
