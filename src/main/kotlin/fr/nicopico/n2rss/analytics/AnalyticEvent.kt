@@ -49,5 +49,5 @@ sealed class AnalyticEvent {
     /**
      * A new version has been released to production
      */
-    data class Release(val version: String) : AnalyticEvent()
+    data class NewRelease(val version: String) : AnalyticEvent()
 }

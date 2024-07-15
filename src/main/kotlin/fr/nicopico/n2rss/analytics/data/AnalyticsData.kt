@@ -61,7 +61,7 @@ fun AnalyticEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
             timestamp = timestamp,
         )
 
-        is AnalyticEvent.Release -> AnalyticsData(
+        is AnalyticEvent.NewRelease -> AnalyticsData(
             code = AnalyticsDataCode.RELEASE,
             data = version,
             timestamp = timestamp,

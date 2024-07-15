@@ -17,6 +17,8 @@
  */
 package fr.nicopico.n2rss.controller.maintenance
 
+import fr.nicopico.n2rss.analytics.AnalyticEvent
+import fr.nicopico.n2rss.analytics.AnalyticService
 import fr.nicopico.n2rss.config.N2RssProperties
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.boot.SpringApplication
@@ -26,12 +28,28 @@ import org.springframework.http.MediaType
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestHeader
+import org.springframework.web.bind.annotation.RequestParam
 
 @Controller
 class MaintenanceController(
     private val applicationContext: ApplicationContext,
+    private val analyticService: AnalyticService,
     private val properties: N2RssProperties.MaintenanceProperties,
 ) {
+    @PostMapping("/notifyRelease")
+    fun notifyRelease(
+        @RequestHeader("X-Secret-Key") secretKey: String,
+        @RequestParam(value = "version") version: String,
+        response: HttpServletResponse,
+    ) {
+        if (secretKey != properties.secretKey) {
+            response.sendError(HttpServletResponse.SC_FORBIDDEN, "Not authorized")
+            return
+        }
+
+        analyticService.track(AnalyticEvent.NewRelease(version))
+    }
+
     @PostMapping("/stop", produces = [MediaType.TEXT_PLAIN_VALUE])
     fun stopServer(
         @RequestHeader("X-Secret-Key") secretKey: String,
