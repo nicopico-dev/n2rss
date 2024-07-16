@@ -48,7 +48,7 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           draft: true
-  notify-release:
+  notify-release-analytics:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
