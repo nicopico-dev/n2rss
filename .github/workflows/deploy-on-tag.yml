@@ -48,8 +48,6 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           draft: true
-          files: |
-            *.jar
   notify-release:
     needs: deploy
     runs-on: ubuntu-latest
