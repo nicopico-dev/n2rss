@@ -30,7 +30,7 @@ jobs:
         run: ./gradlew --no-daemon bootJar copyJarToDeploy
       - name: Deploy to server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        if: ${{ !env.ACT }}
+        if: false # TODO NPI TEST #${{ !env.ACT }}
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
