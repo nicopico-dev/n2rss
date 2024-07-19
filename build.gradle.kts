@@ -19,6 +19,7 @@
 import kotlinx.kover.gradle.plugin.dsl.AggregationType
 import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.io.OutputStream
 
 plugins {
     id("org.springframework.boot") version "3.3.1"
@@ -133,3 +134,34 @@ val copyJarToDeploy by tasks.registering(Copy::class) {
 tasks.named("build") {
     finalizedBy(copyJarToDeploy)
 }
+
+
+//region RestartServer Test
+val restartServerPath = "/tmp/n2rss-test"
+
+val copyJarToRestartTest by tasks.registering(Copy::class) {
+    group = "restart server test"
+    // Use "assemble" instead of "build" to not be bothered by checks while testing
+    dependsOn(tasks.named("assemble"))
+    val bootJar = tasks.getByName("bootJar") as
+        org.springframework.boot.gradle.tasks.bundling.BootJar
+    from(bootJar.archiveFile)
+    into(restartServerPath)
+    rename { "n2rss.jar" }
+}
+
+val startRestartTestServer by tasks.registering(Exec::class) {
+    group = "restart server test"
+    workingDir = file(restartServerPath)
+    commandLine = listOf("java", "-jar", "n2rss.jar", "--server.address=::", "--server.port:8080")
+
+    val customOutput = object : OutputStream() {
+        override fun write(b: Int) {
+            print(b.toChar())
+        }
+    }
+
+    standardOutput = customOutput
+    errorOutput = customOutput
+}
+//endregion
