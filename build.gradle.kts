@@ -23,10 +23,10 @@ import java.io.OutputStream
 
 plugins {
     id("org.springframework.boot") version "3.3.1"
-    id("io.spring.dependency-management") version "1.1.5"
+    id("io.spring.dependency-management") version "1.1.6"
     kotlin("jvm") version "1.9.24"
     kotlin("plugin.spring") version "1.9.24"
-    id("org.jetbrains.kotlinx.kover") version "0.8.1"
+    id("org.jetbrains.kotlinx.kover") version "0.8.2"
     id("io.gitlab.arturbosch.detekt") version("1.23.5")
 }
 
@@ -86,7 +86,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.sun.mail:jakarta.mail:2.0.1")
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
-    implementation("org.jsoup:jsoup:1.17.2")
+    implementation("org.jsoup:jsoup:1.18.1")
     implementation("com.rometools:rome:2.1.0")
     implementation("com.jayway.jsonpath:json-path:2.9.0")
     implementation("org.jetbrains:annotations:24.1.0")
@@ -94,10 +94,10 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.mockito")
     }
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.3")
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.9.1")
     testImplementation("io.kotest.extensions:kotest-assertions-kotlinx-datetime:1.1.0")
-    testImplementation("io.mockk:mockk:1.13.11")
+    testImplementation("io.mockk:mockk:1.13.12")
     testImplementation("com.icegreen:greenmail:2.0.1")
     testImplementation("com.icegreen:greenmail-junit5:2.0.1")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
