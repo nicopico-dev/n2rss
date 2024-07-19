@@ -21,6 +21,7 @@ import fr.nicopico.n2rss.analytics.AnalyticEvent
 import fr.nicopico.n2rss.analytics.AnalyticService
 import fr.nicopico.n2rss.config.N2RssProperties
 import jakarta.servlet.http.HttpServletResponse
+import org.jetbrains.annotations.VisibleForTesting
 import org.springframework.boot.SpringApplication
 import org.springframework.context.ApplicationContext
 import org.springframework.context.ConfigurableApplicationContext
@@ -29,6 +30,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestParam
+import kotlin.concurrent.thread
 
 @Controller
 class MaintenanceController(
@@ -63,6 +65,14 @@ class MaintenanceController(
         val context = applicationContext as ConfigurableApplicationContext
         response.status = HttpServletResponse.SC_OK
         response.writer.write("Bye!")
-        SpringApplication.exit(context)
+        thread {
+            Thread.sleep(RESTART_DELAY_MS)
+            SpringApplication.exit(context)
+        }
+    }
+
+    companion object {
+        @VisibleForTesting
+        const val RESTART_DELAY_MS = 1000L
     }
 }

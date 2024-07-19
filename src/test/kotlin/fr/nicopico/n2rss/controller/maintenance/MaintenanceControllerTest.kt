@@ -53,7 +53,7 @@ class MaintenanceControllerTest {
     }
 
     @Test
-    fun `stop should stop the application if the secret key is correct`() {
+    fun `stop should stop the application after a delay if the secret key is correct`() {
         // GIVEN
         every { maintenanceProps.secretKey } returns "secret"
         val response: HttpServletResponse = mockk(relaxed = true)
@@ -63,6 +63,8 @@ class MaintenanceControllerTest {
 
         // THEN
         verify { response.status = 200 }
+        verify(exactly = 0) { SpringApplication.exit(applicationContext) }
+        Thread.sleep(MaintenanceController.RESTART_DELAY_MS)
         verify(exactly = 1) { SpringApplication.exit(applicationContext) }
     }
 
