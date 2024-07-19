@@ -96,7 +96,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.2")
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.9.1")
     testImplementation("io.kotest.extensions:kotest-assertions-kotlinx-datetime:1.1.0")
-    testImplementation("io.mockk:mockk:1.13.11")
+    testImplementation("io.mockk:mockk:1.13.12")
     testImplementation("com.icegreen:greenmail:2.0.1")
     testImplementation("com.icegreen:greenmail-junit5:2.0.1")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
