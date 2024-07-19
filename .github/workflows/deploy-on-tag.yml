@@ -30,15 +30,41 @@ jobs:
         run: ./gradlew --no-daemon bootJar copyJarToDeploy
       - name: Deploy to server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        if: ${{ !env.ACT }}
+        if: false # TODO NPI TEST #${{ !env.ACT }}
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ vars.FTP_DIR }}
           local-dir: ./deploy/
+  create-github-release:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: marvinpinto/action-automatic-releases@v1.2.1
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          draft: true
+  notify-release-analytics:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the version
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      - name: Notify release
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.SERVER_ENDPOINT }}/notifyRelease?version=${{ steps.get_version.outputs.VERSION }}
+          method: POST
+          customHeaders: >-
+            {
+              "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
+            }
   restart-server:
-    if: false
     needs: deploy
     runs-on: ubuntu-latest
     steps:
@@ -52,6 +78,9 @@ jobs:
               "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
             }
           preventFailureOnNoResponse: true
+      - name: Wait for 5 minutes
+        run: |
+          sleep 300
       - name: Restart Server
         uses: fjogeleit/http-request-action@v1
         with:
