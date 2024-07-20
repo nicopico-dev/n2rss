@@ -32,7 +32,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 @Suppress("unused")
 @Document(collection = "analytics")
-class AnalyticsData(
+data class AnalyticsData(
     val code: String,
     val timestamp: Instant,
     val data: Map<String, String?> = emptyMap(),
@@ -50,12 +50,12 @@ object AnalyticsDataCode {
     const val ERROR_HOME = "error-home"
     const val ERROR_REQUEST_NEWSLETTER = "error-request-newsletter"
 
-    const val DATA_FEED_CODE = "data-feed-code"
-    const val DATA_USER_AGENT = "data-user-agent"
-    const val DATA_NEWSLETTER_URL = "data-newsletter-url"
-    const val DATA_VERSION = "data-version"
-    const val DATA_HANDLER_NAME = "data-handler-name"
-    const val DATA_EMAIL_TITLE = "data-email-title"
+    const val DATA_FEED_CODE = "feedCode"
+    const val DATA_USER_AGENT = "userAgent"
+    const val DATA_NEWSLETTER_URL = "newsletterUrl"
+    const val DATA_VERSION = "version"
+    const val DATA_HANDLER_NAME = "handlerName"
+    const val DATA_EMAIL_TITLE = "emailTitle"
 }
 
 fun AnalyticEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {

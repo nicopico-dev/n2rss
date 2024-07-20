@@ -18,24 +18,21 @@
 package fr.nicopico.n2rss.analytics
 
 import fr.nicopico.n2rss.analytics.data.AnalyticsData
-import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode
 import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
+import fr.nicopico.n2rss.analytics.data.toAnalyticsData
 import fr.nicopico.n2rss.config.N2RssProperties
-import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldThrow
-import io.kotest.matchers.maps.shouldContainAll
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
 import io.mockk.MockKAnnotations
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import io.mockk.slot
-import io.mockk.verify
+import io.mockk.mockk
+import io.mockk.mockkStatic
+import io.mockk.verifyOrder
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import io.kotest.matchers.maps.beEmpty as beAnEmptyMap
 import io.kotest.matchers.string.beEmpty as beAnEmptyString
 
 class AnalyticServiceTest {
@@ -60,61 +57,24 @@ class AnalyticServiceTest {
     }
 
     @Test
-    fun `Home analytic events should be stored`() {
+    fun `Analytic events should be converted before being saved`() {
         // GIVEN
         val analyticService = createAnalyticService()
+        val data = mockk<AnalyticsData>()
+        val event = mockk<AnalyticEvent>()
 
-        // WHEN
-        analyticService.track(AnalyticEvent.Home)
+        // SETUP
+        mockkStatic(AnalyticEvent::toAnalyticsData) {
+            every { any<AnalyticEvent>().toAnalyticsData(any()) } returns data
 
-        // THEN
-        val dataSlot = slot<AnalyticsData>()
-        verify { analyticsRepository.save(capture(dataSlot)) }
-        assertSoftly(dataSlot.captured) {
-            it.code shouldBe AnalyticsDataCode.HOME
-            it.data should beAnEmptyMap()
-        }
-    }
+            // WHEN
+            analyticService.track(event)
 
-    @Test
-    fun `GetFeed analytic events should be stored`() {
-        // GIVEN
-        val rssCode = "rss-code"
-        val userAgent = "userAgent"
-        val analyticService = createAnalyticService()
-
-        // WHEN
-        analyticService.track(AnalyticEvent.GetFeed(rssCode, userAgent))
-
-        // THEN
-        val dataSlot = slot<AnalyticsData>()
-        verify { analyticsRepository.save(capture(dataSlot)) }
-        assertSoftly(dataSlot.captured) {
-            it.code shouldBe AnalyticsDataCode.GET_FEED
-            it.data shouldContainAll mapOf(
-                AnalyticsDataCode.DATA_FEED_CODE to rssCode,
-                AnalyticsDataCode.DATA_USER_AGENT to userAgent,
-            )
-        }
-    }
-
-    @Test
-    fun `RequestNewsletter analytic events should be stored`() {
-        // GIVEN
-        val newsletterUrl = "some-newsletter-url"
-        val analyticService = createAnalyticService()
-
-        // WHEN
-        analyticService.track(AnalyticEvent.RequestNewsletter(newsletterUrl))
-
-        // THEN
-        val dataSlot = slot<AnalyticsData>()
-        verify { analyticsRepository.save(capture(dataSlot)) }
-        assertSoftly(dataSlot.captured) {
-            it.code shouldBe AnalyticsDataCode.REQUEST_NEWSLETTER
-            it.data shouldContainAll mapOf(
-                AnalyticsDataCode.DATA_NEWSLETTER_URL to newsletterUrl,
-            )
+            // THEN
+            verifyOrder {
+                event.toAnalyticsData(any())
+                analyticsRepository.save(data)
+            }
         }
     }
 
@@ -137,13 +97,12 @@ class AnalyticServiceTest {
     fun `No events should be sent if analytics is disabled`() {
         // GIVEN
         val analyticService = createAnalyticService(enabled = false)
+        val event = mockk<AnalyticEvent>()
 
         // WHEN
-        analyticService.track(AnalyticEvent.Home)
-        analyticService.track(AnalyticEvent.GetFeed("code", "userAgent"))
-        analyticService.track(AnalyticEvent.RequestNewsletter("url"))
+        analyticService.track(event)
 
         // THEN
-        confirmVerified(analyticsRepository)
+        confirmVerified(analyticsRepository, event)
     }
 }
