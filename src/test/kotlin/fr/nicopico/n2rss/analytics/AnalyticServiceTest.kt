@@ -23,9 +23,10 @@ import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.maps.shouldContainAll
+import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
-import io.kotest.matchers.string.beEmpty
 import io.mockk.MockKAnnotations
 import io.mockk.confirmVerified
 import io.mockk.every
@@ -34,8 +35,8 @@ import io.mockk.slot
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-
-private const val s = "userAgent"
+import io.kotest.matchers.maps.beEmpty as beAnEmptyMap
+import io.kotest.matchers.string.beEmpty as beAnEmptyString
 
 class AnalyticServiceTest {
 
@@ -71,7 +72,7 @@ class AnalyticServiceTest {
         verify { analyticsRepository.save(capture(dataSlot)) }
         assertSoftly(dataSlot.captured) {
             it.code shouldBe AnalyticsDataCode.HOME
-            it.data shouldBe null
+            it.data should beAnEmptyMap()
         }
     }
 
@@ -90,7 +91,10 @@ class AnalyticServiceTest {
         verify { analyticsRepository.save(capture(dataSlot)) }
         assertSoftly(dataSlot.captured) {
             it.code shouldBe AnalyticsDataCode.GET_FEED
-            it.data shouldBe rssCode
+            it.data shouldContainAll mapOf(
+                AnalyticsDataCode.DATA_FEED_CODE to rssCode,
+                AnalyticsDataCode.DATA_USER_AGENT to userAgent,
+            )
         }
     }
 
@@ -108,7 +112,9 @@ class AnalyticServiceTest {
         verify { analyticsRepository.save(capture(dataSlot)) }
         assertSoftly(dataSlot.captured) {
             it.code shouldBe AnalyticsDataCode.REQUEST_NEWSLETTER
-            it.data shouldBe newsletterUrl
+            it.data shouldContainAll mapOf(
+                AnalyticsDataCode.DATA_NEWSLETTER_URL to newsletterUrl,
+            )
         }
     }
 
@@ -123,7 +129,7 @@ class AnalyticServiceTest {
         val error = shouldThrow<AnalyticException> {
             analyticService.track(AnalyticEvent.GetFeed("code", "userAgent"))
         }
-        error.message shouldNot beEmpty()
+        error.message shouldNot beAnEmptyString()
         error.cause shouldBe internalError
     }
 
