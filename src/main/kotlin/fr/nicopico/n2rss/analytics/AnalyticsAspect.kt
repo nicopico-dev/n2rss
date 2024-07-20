@@ -18,13 +18,13 @@
 package fr.nicopico.n2rss.analytics
 
 import fr.nicopico.n2rss.models.Email
+import fr.nicopico.n2rss.utils.proceed
 import jakarta.servlet.http.HttpServletResponse
 import org.aspectj.lang.JoinPoint
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.AfterThrowing
 import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
-import org.aspectj.lang.annotation.Before
 import org.aspectj.lang.annotation.Pointcut
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
@@ -46,14 +46,10 @@ class AnalyticsAspect(
     // Note: I was not able to make it work with both @AfterReturning and @AfterThrowing
     @Around("homePointcut()")
     fun trackHome(joinPoint: ProceedingJoinPoint): Any? {
-        try {
-            val result = joinPoint.proceed()
-            trackHomeSuccess(joinPoint)
-            return result
-        } catch (e: Exception) {
-            trackHomeError(joinPoint, e)
-            throw e
-        }
+        return joinPoint.proceed(
+            ::trackHomeSuccess,
+            ::trackHomeError,
+        )
     }
 
     //@AfterReturning("homePointcut()")
@@ -82,8 +78,15 @@ class AnalyticsAspect(
     )
     fun getRssFeedsPointcut() = Unit
 
-    @Before("getRssFeedsPointcut()")
-    fun trackGetRssFeeds(joinPoint: JoinPoint) {
+    @Around("getRssFeedsPointcut()")
+    fun trackGetRssFeeds(joinPoint: ProceedingJoinPoint): Any? {
+        return joinPoint.proceed(
+            ::trackGetRssFeedsSuccess,
+            ::trackGetRssFeedsError,
+        )
+    }
+
+    fun trackGetRssFeedsSuccess(joinPoint: JoinPoint) {
         try {
             analyticsService.track(AnalyticsEvent.GetRssFeeds)
         } catch (e: AnalyticsException) {
@@ -91,7 +94,6 @@ class AnalyticsAspect(
         }
     }
 
-    @AfterThrowing("getRssFeedsPointcut()", throwing = "error")
     fun trackGetRssFeedsError(joinPoint: JoinPoint, error: Exception) {
         try {
             analyticsService.track(AnalyticsEvent.Error.GetRssFeedsError)
@@ -108,8 +110,15 @@ class AnalyticsAspect(
     )
     fun getFeedPointcut() = Unit
 
-    @Before("getFeedPointcut()")
-    fun trackGetFeed(joinPoint: JoinPoint) {
+    @Around("getFeedPointcut()")
+    fun trackGetFeed(joinPoint: ProceedingJoinPoint): Any? {
+        return joinPoint.proceed(
+            ::trackGetFeedSuccess,
+            ::trackGetFeedError,
+        )
+    }
+
+    fun trackGetFeedSuccess(joinPoint: JoinPoint) {
         try {
             val code = extractCode(joinPoint.args)
             val userAgent = extractUserAgent(joinPoint.args)
@@ -124,7 +133,6 @@ class AnalyticsAspect(
         }
     }
 
-    @AfterThrowing("getFeedPointcut()", throwing = "error")
     fun trackGetFeedError(joinPoint: JoinPoint, error: Exception) {
         try {
             val code = extractCode(joinPoint.args)
@@ -154,8 +162,15 @@ class AnalyticsAspect(
     )
     fun requestNewsletterPointcut() = Unit
 
-    @Before("requestNewsletterPointcut()")
-    fun trackRequestNewsletter(joinPoint: JoinPoint) {
+    @Around("requestNewsletterPointcut()")
+    fun trackRequestNewsletter(joinPoint: ProceedingJoinPoint): Any? {
+        return joinPoint.proceed(
+            ::trackRequestNewsletterSuccess,
+            ::trackRequestNewsletterError,
+        )
+    }
+
+    fun trackRequestNewsletterSuccess(joinPoint: JoinPoint) {
         try {
             val newsletterUrl = joinPoint.args[0] as String
             analyticsService.track(AnalyticsEvent.RequestNewsletter(newsletterUrl))
@@ -164,7 +179,6 @@ class AnalyticsAspect(
         }
     }
 
-    @AfterThrowing("requestNewsletterPointcut()", throwing = "error")
     fun trackRequestNewsletterError(joinPoint: JoinPoint, error: Exception) {
         try {
             analyticsService.track(AnalyticsEvent.Error.RequestNewsletterError)

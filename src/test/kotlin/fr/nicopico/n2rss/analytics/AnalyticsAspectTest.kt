@@ -47,7 +47,7 @@ import org.springframework.context.annotation.Import
 import org.springframework.ui.Model
 
 // TODO Disable access to MongoDB
-@SpringBootTest
+@SpringBootTest()
 @Import(TestConfig::class)
 class AnalyticsAspectTest {
 
@@ -146,7 +146,6 @@ class AnalyticsAspectTest {
                 }
 
                 // THEN
-                verify { analyticsService.track(AnalyticsEvent.RequestNewsletter(newsletterUrl)) }
                 verify { analyticsService.track(AnalyticsEvent.Error.RequestNewsletterError) }
             }
 
@@ -256,7 +255,6 @@ class AnalyticsAspectTest {
                 }
 
                 // THEN
-                verify { analyticsService.track(AnalyticsEvent.GetFeed(feedCode, userAgent)) }
                 verify { analyticsService.track(AnalyticsEvent.Error.GetFeedError(feedCode)) }
             }
 
@@ -335,7 +333,6 @@ class AnalyticsAspectTest {
 
                 // THEN
                 val feedCode = "$folder/$feed"
-                verify { analyticsService.track(AnalyticsEvent.GetFeed(feedCode, userAgent)) }
                 verify { analyticsService.track(AnalyticsEvent.Error.GetFeedError(feedCode)) }
             }
 
