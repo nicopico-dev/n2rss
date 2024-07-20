@@ -110,5 +110,9 @@ fun AnalyticsEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
             code = AnalyticsDataCode.ERROR_REQUEST_NEWSLETTER,
             timestamp = timestamp,
         )
+
+        AnalyticsEvent.Error.GetRssFeedsError -> TODO()
+
+        AnalyticsEvent.GetRssFeeds -> TODO()
     }
 }

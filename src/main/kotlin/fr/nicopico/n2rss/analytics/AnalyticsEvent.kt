@@ -24,6 +24,11 @@ sealed class AnalyticsEvent {
     data object Home : AnalyticsEvent()
 
     /**
+     * A user accessed the JSON list of RSS feeds
+     */
+    data object GetRssFeeds : AnalyticsEvent()
+
+    /**
      * A user accessed an RSS feed
      */
     data class GetFeed(
@@ -38,6 +43,7 @@ sealed class AnalyticsEvent {
 
     sealed class Error : AnalyticsEvent() {
         data object HomeError : Error()
+        data object GetRssFeedsError : Error()
         data class GetFeedError(val feedCode: String) : Error()
         data object RequestNewsletterError : Error()
         data class EmailParsingError(
