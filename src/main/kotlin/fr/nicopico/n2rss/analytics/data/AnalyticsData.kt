@@ -43,9 +43,11 @@ data class AnalyticsData(
 object AnalyticsDataCode {
     const val HOME = "home"
     const val GET_FEED = "get-feed"
+    const val GET_RSS_FEEDS = "get-rss-feeds"
     const val REQUEST_NEWSLETTER = "request-newsletter"
     const val RELEASE = "release"
     const val ERROR_GET_FEED = "error-get-feed"
+    const val ERROR_GET_RSS_FEEDS = "error-get-rss-feeds"
     const val ERROR_PARSING = "error-parsing"
     const val ERROR_HOME = "error-home"
     const val ERROR_REQUEST_NEWSLETTER = "error-request-newsletter"
@@ -66,6 +68,11 @@ fun AnalyticsEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
                 DATA_FEED_CODE to feedCode,
                 DATA_USER_AGENT to userAgent,
             ),
+            timestamp = timestamp,
+        )
+
+        is AnalyticsEvent.GetRssFeeds -> AnalyticsData(
+            code = AnalyticsDataCode.GET_RSS_FEEDS,
             timestamp = timestamp,
         )
 
@@ -92,6 +99,11 @@ fun AnalyticsEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
             timestamp = timestamp,
         )
 
+        AnalyticsEvent.Error.GetRssFeedsError -> AnalyticsData(
+            code = AnalyticsDataCode.ERROR_GET_RSS_FEEDS,
+            timestamp = timestamp,
+        )
+
         is AnalyticsEvent.Error.EmailParsingError -> AnalyticsData(
             code = AnalyticsDataCode.ERROR_PARSING,
             data = mapOf(
@@ -111,8 +123,6 @@ fun AnalyticsEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
             timestamp = timestamp,
         )
 
-        AnalyticsEvent.Error.GetRssFeedsError -> TODO()
 
-        AnalyticsEvent.GetRssFeeds -> TODO()
     }
 }

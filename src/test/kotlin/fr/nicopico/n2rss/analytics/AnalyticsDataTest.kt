@@ -103,6 +103,20 @@ class AnalyticsDataTest {
                     timestamp = timestamp
                 )
             ),
+            Arguments.of(
+                AnalyticsEvent.GetRssFeeds,
+                AnalyticsData(
+                    code = "get-rss-feeds",
+                    timestamp = timestamp,
+                )
+            ),
+            Arguments.of(
+                AnalyticsEvent.Error.GetRssFeedsError,
+                AnalyticsData(
+                    code = "error-get-rss-feeds",
+                    timestamp = timestamp,
+                )
+            )
         )
     }
 
