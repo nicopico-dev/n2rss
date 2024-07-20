@@ -51,11 +51,37 @@ class AnalyticsAspect(
     }
 
     @AfterThrowing("homePointcut()", throwing = "error")
-    fun homeError(joinPoint: JoinPoint, error: Exception) {
+    fun trackHomeError(joinPoint: JoinPoint, error: Exception) {
         try {
             analyticsService.track(AnalyticsEvent.Error.HomeError)
         } catch (e: AnalyticsException) {
             LOG.error("Could not track HomeError event", e)
+        }
+    }
+    //endregion
+
+    //region GetRssFeeds
+    @Pointcut(
+        "@annotation(org.springframework.web.bind.annotation.GetMapping)" +
+            "&& execution(* getRssFeeds(..))"
+    )
+    fun getRssFeedsPointcut() = Unit
+
+    @Before("getRssFeedsPointcut()")
+    fun trackGetRssFeeds(joinPoint: JoinPoint) {
+        try {
+            analyticsService.track(AnalyticsEvent.GetRssFeeds)
+        } catch (e: AnalyticsException) {
+            LOG.error("Could not track GetRssFeeds event", e)
+        }
+    }
+
+    @AfterThrowing("getRssFeedsPointcut()", throwing = "error")
+    fun trackGetRssFeedsError(joinPoint: JoinPoint, error: Exception) {
+        try {
+            analyticsService.track(AnalyticsEvent.Error.GetRssFeedsError)
+        } catch (e: AnalyticsException) {
+            LOG.error("Could not track GetRssFeedsError event", e)
         }
     }
     //endregion
@@ -84,7 +110,7 @@ class AnalyticsAspect(
     }
 
     @AfterThrowing("getFeedPointcut()", throwing = "error")
-    fun getFeedError(joinPoint: JoinPoint, error: Exception) {
+    fun trackGetFeedError(joinPoint: JoinPoint, error: Exception) {
         try {
             val code = extractCode(joinPoint.args)
             analyticsService.track(AnalyticsEvent.Error.GetFeedError(code))
@@ -124,7 +150,7 @@ class AnalyticsAspect(
     }
 
     @AfterThrowing("requestNewsletterPointcut()", throwing = "error")
-    fun requestNewsletterError(joinPoint: JoinPoint, error: Exception) {
+    fun trackRequestNewsletterError(joinPoint: JoinPoint, error: Exception) {
         try {
             analyticsService.track(AnalyticsEvent.Error.RequestNewsletterError)
         } catch (e: AnalyticsException) {
@@ -138,7 +164,7 @@ class AnalyticsAspect(
     fun newsletterHandlerProcessPointcut() = Unit
 
     @AfterThrowing("newsletterHandlerProcessPointcut()", throwing = "error")
-    fun newsletterHandlerProcessError(joinPoint: JoinPoint, error: Exception) {
+    fun trackNewsletterHandlerProcessError(joinPoint: JoinPoint, error: Exception) {
         try {
             val email = joinPoint.args[0] as Email
             val newsletterHandlerName = (joinPoint.target).javaClass.simpleName
