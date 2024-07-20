@@ -18,4 +18,7 @@
 
 package fr.nicopico.n2rss.analytics
 
-class AnalyticsException(message: String?, cause: Throwable?) : Exception(message, cause)
+class AnalyticsException(
+    message: String? = null,
+    cause: Throwable? = null
+) : Exception(message, cause)
