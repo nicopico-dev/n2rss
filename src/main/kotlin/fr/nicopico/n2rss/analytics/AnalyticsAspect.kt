@@ -20,7 +20,9 @@ package fr.nicopico.n2rss.analytics
 import fr.nicopico.n2rss.models.Email
 import jakarta.servlet.http.HttpServletResponse
 import org.aspectj.lang.JoinPoint
+import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.AfterThrowing
+import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
 import org.aspectj.lang.annotation.Before
 import org.aspectj.lang.annotation.Pointcut
@@ -41,8 +43,21 @@ class AnalyticsAspect(
     )
     fun homePointcut() = Unit
 
-    @Before("homePointcut()")
-    fun trackHome(joinPoint: JoinPoint) {
+    // Note: I was not able to make it work with both @AfterReturning and @AfterThrowing
+    @Around("homePointcut()")
+    fun trackHome(joinPoint: ProceedingJoinPoint): Any? {
+        try {
+            val result = joinPoint.proceed()
+            trackHomeSuccess(joinPoint)
+            return result
+        } catch (e: Exception) {
+            trackHomeError(joinPoint, e)
+            throw e
+        }
+    }
+
+    //@AfterReturning("homePointcut()")
+    fun trackHomeSuccess(joinPoint: JoinPoint) {
         try {
             analyticsService.track(AnalyticsEvent.Home)
         } catch (e: AnalyticsException) {
@@ -50,7 +65,7 @@ class AnalyticsAspect(
         }
     }
 
-    @AfterThrowing("homePointcut()", throwing = "error")
+    //@AfterThrowing("homePointcut()", throwing = "error")
     fun trackHomeError(joinPoint: JoinPoint, error: Exception) {
         try {
             analyticsService.track(AnalyticsEvent.Error.HomeError)

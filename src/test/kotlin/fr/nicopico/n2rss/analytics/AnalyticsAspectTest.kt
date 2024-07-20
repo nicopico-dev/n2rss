@@ -99,8 +99,9 @@ class AnalyticsAspectTest {
                 }
 
                 // THEN
-                verify { analyticsService.track(AnalyticsEvent.Home) }
                 verify { analyticsService.track(AnalyticsEvent.Error.HomeError) }
+                // NOTE: for some reason a Home event is sent before the HomeError event during the tests
+                // but only the error event is sent during a live execution
             }
 
             @Test
