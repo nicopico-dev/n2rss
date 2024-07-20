@@ -15,9 +15,9 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.controller.maintenance
 
+import fr.nicopico.n2rss.analytics.AnalyticService
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -33,11 +33,14 @@ import org.springframework.boot.SpringApplication
 import org.springframework.context.ApplicationContext
 import org.springframework.context.ConfigurableApplicationContext
 
+// TODO Test MaintenanceController.notifyRelease() endpoint
 class MaintenanceControllerTest {
 
     @MockK
     @AdditionalInterface(ConfigurableApplicationContext::class)
     private lateinit var applicationContext: ApplicationContext
+    @MockK
+    private lateinit var analyticService: AnalyticService
     @MockK
     private lateinit var maintenanceProps: N2RssProperties.MaintenanceProperties
 
@@ -46,7 +49,7 @@ class MaintenanceControllerTest {
     @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
-        controller = MaintenanceController(applicationContext, maintenanceProps)
+        controller = MaintenanceController(applicationContext, analyticService, maintenanceProps)
 
         mockkStatic(SpringApplication::class)
         every { SpringApplication.exit(any()) } returns 0

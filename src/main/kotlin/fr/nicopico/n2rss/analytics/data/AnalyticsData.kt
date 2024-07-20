@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.analytics.data
 
 import fr.nicopico.n2rss.analytics.AnalyticEvent
 import kotlinx.datetime.Instant
+import org.jetbrains.annotations.VisibleForTesting
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
@@ -31,7 +32,8 @@ class AnalyticsData(
     @Id val id: String? = null,
 )
 
-private object AnalyticsDataCode {
+@VisibleForTesting
+object AnalyticsDataCode {
     const val HOME = "home"
     const val GET_FEED = "get-feed"
     const val REQUEST_NEWSLETTER = "request-newsletter"

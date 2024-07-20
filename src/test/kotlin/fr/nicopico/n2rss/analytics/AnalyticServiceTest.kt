@@ -35,6 +35,8 @@ import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
+private const val s = "userAgent"
+
 class AnalyticServiceTest {
 
     @MockK
@@ -77,10 +79,11 @@ class AnalyticServiceTest {
     fun `GetFeed analytic events should be stored`() {
         // GIVEN
         val rssCode = "rss-code"
+        val userAgent = "userAgent"
         val analyticService = createAnalyticService()
 
         // WHEN
-        analyticService.track(AnalyticEvent.GetFeed(rssCode))
+        analyticService.track(AnalyticEvent.GetFeed(rssCode, userAgent))
 
         // THEN
         val dataSlot = slot<AnalyticsData>()
@@ -118,7 +121,7 @@ class AnalyticServiceTest {
 
         // WHEN - THEN
         val error = shouldThrow<AnalyticException> {
-            analyticService.track(AnalyticEvent.GetFeed("code"))
+            analyticService.track(AnalyticEvent.GetFeed("code", "userAgent"))
         }
         error.message shouldNot beEmpty()
         error.cause shouldBe internalError
@@ -131,7 +134,7 @@ class AnalyticServiceTest {
 
         // WHEN
         analyticService.track(AnalyticEvent.Home)
-        analyticService.track(AnalyticEvent.GetFeed("code"))
+        analyticService.track(AnalyticEvent.GetFeed("code", "userAgent"))
         analyticService.track(AnalyticEvent.RequestNewsletter("url"))
 
         // THEN
