@@ -20,6 +20,7 @@ package fr.nicopico.n2rss.utils
 import org.aspectj.lang.JoinPoint
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.Around
+import org.aspectj.lang.reflect.CodeSignature
 
 /**
  * Call this function on the [ProceedingJoinPoint] retrieved from
@@ -40,5 +41,24 @@ fun ProceedingJoinPoint.proceed(
     } catch (e: Exception) {
         trackError(this, e)
         throw e
+    }
+}
+
+inline fun <reified T> JoinPoint.getCallArgument(name: String): T {
+    val signature = signature as CodeSignature
+
+    val arguments = List(args.size) { i ->
+        signature.parameterNames[i] to signature.parameterTypes[i]
+    }
+
+    val matchingArgIndex = arguments.mapIndexedNotNull { index, (argName, argType) ->
+        val matching = (argType == T::class.java) && (argName == name)
+        if (matching) index else null
+    }
+
+    when (matchingArgIndex.size) {
+        1 -> return args[matchingArgIndex[0]] as T
+        0 -> throw NoSuchElementException("Argument $name not found in ${signature.name}")
+        else -> error("More than 1 argument matching $name in ${signature.name}")
     }
 }

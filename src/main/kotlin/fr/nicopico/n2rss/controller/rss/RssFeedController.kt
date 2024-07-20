@@ -44,21 +44,21 @@ class RssFeedController(
     /**
      * Retrieves the RSS feed of publications.
      *
-     * @param code Code associated with the feed
+     * @param feed Code associated with the feed
      * @param publicationStart The starting index of publications to retrieve. Default is 0.
      * @param publicationCount The maximum number of publications to retrieve. Default is 2.
      * @param response The HttpServletResponse object used for writing the feed to the response output stream.
      */
     @GetMapping("{feed}", produces = [RSS_CONTENT_TYPE])
     fun getFeed(
-        @PathVariable("feed") code: String,
+        @PathVariable("feed") feed: String,
         @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
         @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
         response: HttpServletResponse,
     ) {
-        writeFeedToResponse(code, publicationStart, publicationCount, response)
+        writeFeedToResponse(feed, publicationStart, publicationCount, response)
     }
 
     /**

@@ -234,7 +234,7 @@ class AnalyticsAspectTest {
 
                 // WHEN
                 rssFeedController.getFeed(
-                    code = feedCode,
+                    feed = feedCode,
                     publicationStart = 0,
                     publicationCount = 1,
                     userAgent = userAgent,
@@ -255,7 +255,7 @@ class AnalyticsAspectTest {
                 // SETUP
                 every {
                     rssFeedController.getFeed(
-                        code = any(),
+                        feed = any(),
                         publicationStart = any(),
                         publicationCount = any(),
                         userAgent = any(),
@@ -266,7 +266,7 @@ class AnalyticsAspectTest {
                 // WHEN
                 shouldThrowAny {
                     rssFeedController.getFeed(
-                        code = feedCode,
+                        feed = feedCode,
                         publicationStart = 0,
                         publicationCount = 1,
                         userAgent = userAgent,
@@ -286,7 +286,7 @@ class AnalyticsAspectTest {
                 // WHEN - THEN
                 shouldNotThrowAny {
                     rssFeedController.getFeed(
-                        code = "",
+                        feed = "",
                         publicationStart = 0,
                         publicationCount = 0,
                         userAgent = "",

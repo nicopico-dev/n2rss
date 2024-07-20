@@ -18,8 +18,8 @@
 package fr.nicopico.n2rss.analytics
 
 import fr.nicopico.n2rss.models.Email
+import fr.nicopico.n2rss.utils.getCallArgument
 import fr.nicopico.n2rss.utils.proceed
-import jakarta.servlet.http.HttpServletResponse
 import org.aspectj.lang.JoinPoint
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.AfterThrowing
@@ -121,8 +121,8 @@ class AnalyticsAspect(
 
     fun trackGetFeedSuccess(joinPoint: JoinPoint) {
         try {
-            val code = extractCode(joinPoint.args)
-            val userAgent = extractUserAgent(joinPoint.args)
+            val code = joinPoint.extractCode()
+            val userAgent = joinPoint.getCallArgument<String>("userAgent")
             analyticsService.track(
                 AnalyticsEvent.GetFeed(
                     feedCode = code,
@@ -136,23 +136,24 @@ class AnalyticsAspect(
 
     fun trackGetFeedError(joinPoint: JoinPoint, error: Exception) {
         try {
-            val code = extractCode(joinPoint.args)
+            val code = joinPoint.extractCode()
             analyticsService.track(AnalyticsEvent.Error.GetFeedError(code))
         } catch (e: AnalyticsException) {
             LOG.error("Could not track GetFeedError event", e)
         }
     }
 
-    private fun extractCode(args: Array<Any>): String {
-        return if (args[1] is String) {
-            args[0] as String + "/" + args[1] as String
-        } else {
-            args[0] as String
+    private fun JoinPoint.extractCode(): String {
+        val feedCode = getCallArgument<String>("feed")
+        val folder = try {
+            getCallArgument<String>("folder")
+        } catch (_: NoSuchElementException) {
+            null
         }
-    }
 
-    private fun extractUserAgent(args: Array<Any>): String? {
-        return args.getOrNull(args.indexOfFirst { it is HttpServletResponse } + 1) as? String
+        return if (folder != null) {
+            "$folder/$feedCode"
+        } else feedCode
     }
     //endregion
 
