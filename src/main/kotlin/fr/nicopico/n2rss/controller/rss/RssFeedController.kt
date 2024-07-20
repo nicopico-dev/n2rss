@@ -54,8 +54,9 @@ class RssFeedController(
         @PathVariable("feed") code: String,
         @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
-        response: HttpServletResponse,
+        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
+        response: HttpServletResponse,
     ) {
         writeFeedToResponse(code, publicationStart, publicationCount, response)
     }
@@ -70,13 +71,15 @@ class RssFeedController(
      * @param response The HttpServletResponse object used for writing the feed to the response output stream.
      */
     @GetMapping("{folder}/{feed}", produces = [RSS_CONTENT_TYPE])
+    @Suppress("LongParameterList")
     fun getFeed(
         @PathVariable("folder") folder: String,
         @PathVariable("feed") feed: String,
         @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
-        response: HttpServletResponse,
+        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
+        response: HttpServletResponse,
     ) {
         val code = "$folder/$feed"
         writeFeedToResponse(code, publicationStart, publicationCount, response)

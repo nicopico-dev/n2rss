@@ -33,6 +33,7 @@ private val LOG = LoggerFactory.getLogger(AnalyticsAspect::class.java)
 
 @Aspect
 @Component
+@Suppress("UnusedParameter", "TooManyFunctions")
 class AnalyticsAspect(
     private val analyticsService: AnalyticsService
 ) {
@@ -189,7 +190,10 @@ class AnalyticsAspect(
     //endregion
 
     //region Parsing
-    @Pointcut("execution(* fr.nicopico.n2rss.mail.newsletter.NewsletterHandler+.process(fr.nicopico.n2rss.models.Email))")
+    @Pointcut(
+        "execution(* fr.nicopico.n2rss.mail.newsletter.NewsletterHandler+" +
+            ".process(fr.nicopico.n2rss.models.Email))"
+    )
     fun newsletterHandlerProcessPointcut() = Unit
 
     @AfterThrowing("newsletterHandlerProcessPointcut()", throwing = "error")

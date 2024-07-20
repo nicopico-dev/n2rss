@@ -43,6 +43,8 @@ class AnalyticsService(
     fun track(event: AnalyticsEvent) {
         if (analyticsProperties.enabled) {
             LOG.info("TRACK: $event")
+            // We want to catch all possible issues here
+            @Suppress("TooGenericExceptionCaught")
             try {
                 val data = event.toAnalyticsData(clock.now())
                 analyticsRepository.save(data)

@@ -40,6 +40,7 @@ class AnalyticsDataTest {
         val timestamp = Clock.System.now()
 
         @JvmStatic
+        @Suppress("LongMethod")
         fun provideEvents(): List<Arguments> = listOf(
             Arguments.of(
                 AnalyticsEvent.Home,
@@ -101,7 +102,7 @@ class AnalyticsDataTest {
                     code = "error-request-newsletter",
                     timestamp = timestamp
                 )
-            )
+            ),
         )
     }
 

@@ -31,6 +31,8 @@ fun ProceedingJoinPoint.proceed(
     trackSuccess: (JoinPoint) -> Unit,
     trackError: (JoinPoint, Exception) -> Unit,
 ): Any? {
+    // We want to catch all possible issues here
+    @Suppress("TooGenericExceptionCaught")
     try {
         val result = proceed()
         trackSuccess(this)

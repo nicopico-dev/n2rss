@@ -51,7 +51,7 @@ import org.springframework.ui.Model
  * Events are sent that should not, Mocks configured to throw do not throw...
  * Probably some conflicts between Mocks and Aspect shenanigans
  *
- * TODO : Check if I can make it works better with https://github.com/mock4aj/mock4aj
+ * Check if I can make it works better with https://github.com/mock4aj/mock4aj ?
  */
 @ExtendWith(MockKExtension::class)
 class AnalyticsAspectTest {
@@ -237,8 +237,8 @@ class AnalyticsAspectTest {
                     code = feedCode,
                     publicationStart = 0,
                     publicationCount = 1,
-                    response = mockk(),
-                    userAgent = userAgent
+                    userAgent = userAgent,
+                    response = mockk()
                 )
 
                 // THEN
@@ -258,8 +258,8 @@ class AnalyticsAspectTest {
                         code = any(),
                         publicationStart = any(),
                         publicationCount = any(),
-                        response = any(),
-                        userAgent = any()
+                        userAgent = any(),
+                        response = any()
                     )
                 } throws RuntimeException("TEST")
 
@@ -269,8 +269,8 @@ class AnalyticsAspectTest {
                         code = feedCode,
                         publicationStart = 0,
                         publicationCount = 1,
-                        response = mockk(),
-                        userAgent = userAgent
+                        userAgent = userAgent,
+                        response = mockk()
                     )
                 }
 
@@ -289,8 +289,8 @@ class AnalyticsAspectTest {
                         code = "",
                         publicationStart = 0,
                         publicationCount = 0,
-                        response = mockk(),
-                        userAgent = ""
+                        userAgent = "",
+                        response = mockk()
                     )
                 }
             }
@@ -311,8 +311,8 @@ class AnalyticsAspectTest {
                     feed = feed,
                     publicationStart = 0,
                     publicationCount = 1,
-                    response = mockk(),
-                    userAgent = userAgent
+                    userAgent = userAgent,
+                    response = mockk()
                 )
 
                 // THEN
@@ -335,8 +335,8 @@ class AnalyticsAspectTest {
                         feed = any(),
                         publicationStart = any(),
                         publicationCount = any(),
-                        response = any(),
-                        userAgent = any()
+                        userAgent = any(),
+                        response = any()
                     )
                 } throws RuntimeException("TEST")
 
@@ -347,8 +347,8 @@ class AnalyticsAspectTest {
                         feed = feed,
                         publicationStart = 0,
                         publicationCount = 1,
-                        response = mockk(),
-                        userAgent = userAgent
+                        userAgent = userAgent,
+                        response = mockk()
                     )
                 }
 
@@ -369,8 +369,8 @@ class AnalyticsAspectTest {
                         feed = "",
                         publicationStart = 0,
                         publicationCount = 0,
-                        response = mockk<HttpServletResponse>(),
-                        userAgent = ""
+                        userAgent = "",
+                        response = mockk<HttpServletResponse>()
                     )
                 }
             }

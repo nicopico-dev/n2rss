@@ -19,5 +19,4 @@ package fr.nicopico.n2rss.analytics.data
 
 import org.springframework.data.mongodb.repository.MongoRepository
 
-interface AnalyticsRepository : MongoRepository<AnalyticsData, String> {
-}
+interface AnalyticsRepository : MongoRepository<AnalyticsData, String>
