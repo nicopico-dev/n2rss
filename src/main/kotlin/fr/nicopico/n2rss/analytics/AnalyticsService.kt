@@ -25,10 +25,10 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
-private val LOG = LoggerFactory.getLogger(AnalyticService::class.java)
+private val LOG = LoggerFactory.getLogger(AnalyticsService::class.java)
 
 @Service
-class AnalyticService(
+class AnalyticsService(
     private val analyticsRepository: AnalyticsRepository,
     private val analyticsProperties: N2RssProperties.AnalyticsProperties,
     private val clock: Clock,
@@ -39,15 +39,15 @@ class AnalyticService(
         analyticsProperties: N2RssProperties.AnalyticsProperties,
     ) : this(analyticsRepository, analyticsProperties, Clock.System)
 
-    @Throws(AnalyticException::class)
-    fun track(event: AnalyticEvent) {
+    @Throws(AnalyticsException::class)
+    fun track(event: AnalyticsEvent) {
         if (analyticsProperties.enabled) {
             LOG.info("TRACK: $event")
             try {
                 val data = event.toAnalyticsData(clock.now())
                 analyticsRepository.save(data)
             } catch (e: Exception) {
-                throw AnalyticException("Unable to send analytics event $event", e)
+                throw AnalyticsException("Unable to send analytics event $event", e)
             }
         }
     }

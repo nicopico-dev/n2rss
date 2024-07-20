@@ -17,7 +17,7 @@
  */
 package fr.nicopico.n2rss.controller.maintenance
 
-import fr.nicopico.n2rss.analytics.AnalyticService
+import fr.nicopico.n2rss.analytics.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.mockk.MockKAnnotations
 import io.mockk.every
@@ -40,7 +40,7 @@ class MaintenanceControllerTest {
     @AdditionalInterface(ConfigurableApplicationContext::class)
     private lateinit var applicationContext: ApplicationContext
     @MockK
-    private lateinit var analyticService: AnalyticService
+    private lateinit var analyticsService: AnalyticsService
     @MockK
     private lateinit var maintenanceProps: N2RssProperties.MaintenanceProperties
 
@@ -49,7 +49,7 @@ class MaintenanceControllerTest {
     @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
-        controller = MaintenanceController(applicationContext, analyticService, maintenanceProps)
+        controller = MaintenanceController(applicationContext, analyticsService, maintenanceProps)
 
         mockkStatic(SpringApplication::class)
         every { SpringApplication.exit(any()) } returns 0

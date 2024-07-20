@@ -17,8 +17,8 @@
  */
 package fr.nicopico.n2rss.controller.maintenance
 
-import fr.nicopico.n2rss.analytics.AnalyticEvent
-import fr.nicopico.n2rss.analytics.AnalyticService
+import fr.nicopico.n2rss.analytics.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import jakarta.servlet.http.HttpServletResponse
 import org.jetbrains.annotations.VisibleForTesting
@@ -35,7 +35,7 @@ import kotlin.concurrent.thread
 @Controller
 class MaintenanceController(
     private val applicationContext: ApplicationContext,
-    private val analyticService: AnalyticService,
+    private val analyticsService: AnalyticsService,
     private val properties: N2RssProperties.MaintenanceProperties,
 ) {
     @PostMapping("/notifyRelease")
@@ -49,7 +49,7 @@ class MaintenanceController(
             return
         }
 
-        analyticService.track(AnalyticEvent.NewRelease(version))
+        analyticsService.track(AnalyticsEvent.NewRelease(version))
     }
 
     @PostMapping("/stop", produces = [MediaType.TEXT_PLAIN_VALUE])

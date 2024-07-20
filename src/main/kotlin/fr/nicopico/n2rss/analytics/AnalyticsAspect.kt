@@ -27,12 +27,12 @@ import org.aspectj.lang.annotation.Pointcut
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 
-private val LOG = LoggerFactory.getLogger(AnalyticAspect::class.java)
+private val LOG = LoggerFactory.getLogger(AnalyticsAspect::class.java)
 
 @Aspect
 @Component
-class AnalyticAspect(
-    private val analyticService: AnalyticService
+class AnalyticsAspect(
+    private val analyticsService: AnalyticsService
 ) {
     //region Home
     @Pointcut(
@@ -44,8 +44,8 @@ class AnalyticAspect(
     @Before("homePointcut()")
     fun trackHome(joinPoint: JoinPoint) {
         try {
-            analyticService.track(AnalyticEvent.Home)
-        } catch (e: AnalyticException) {
+            analyticsService.track(AnalyticsEvent.Home)
+        } catch (e: AnalyticsException) {
             LOG.error("Could not track Home event", e)
         }
     }
@@ -53,8 +53,8 @@ class AnalyticAspect(
     @AfterThrowing("homePointcut()", throwing = "error")
     fun homeError(joinPoint: JoinPoint, error: Exception) {
         try {
-            analyticService.track(AnalyticEvent.Error.HomeError)
-        } catch (e: AnalyticException) {
+            analyticsService.track(AnalyticsEvent.Error.HomeError)
+        } catch (e: AnalyticsException) {
             LOG.error("Could not track HomeError event", e)
         }
     }
@@ -72,13 +72,13 @@ class AnalyticAspect(
         try {
             val code = extractCode(joinPoint.args)
             val userAgent = extractUserAgent(joinPoint.args)
-            analyticService.track(
-                AnalyticEvent.GetFeed(
+            analyticsService.track(
+                AnalyticsEvent.GetFeed(
                     feedCode = code,
                     userAgent = userAgent,
                 )
             )
-        } catch (e: AnalyticException) {
+        } catch (e: AnalyticsException) {
             LOG.error("Could not track GetFeed event", e)
         }
     }
@@ -87,8 +87,8 @@ class AnalyticAspect(
     fun getFeedError(joinPoint: JoinPoint, error: Exception) {
         try {
             val code = extractCode(joinPoint.args)
-            analyticService.track(AnalyticEvent.Error.GetFeedError(code))
-        } catch (e: AnalyticException) {
+            analyticsService.track(AnalyticsEvent.Error.GetFeedError(code))
+        } catch (e: AnalyticsException) {
             LOG.error("Could not track GetFeedError event", e)
         }
     }
@@ -117,8 +117,8 @@ class AnalyticAspect(
     fun trackRequestNewsletter(joinPoint: JoinPoint) {
         try {
             val newsletterUrl = joinPoint.args[0] as String
-            analyticService.track(AnalyticEvent.RequestNewsletter(newsletterUrl))
-        } catch (e: AnalyticException) {
+            analyticsService.track(AnalyticsEvent.RequestNewsletter(newsletterUrl))
+        } catch (e: AnalyticsException) {
             LOG.error("Could not track RequestNewsletter event", e)
         }
     }
@@ -126,8 +126,8 @@ class AnalyticAspect(
     @AfterThrowing("requestNewsletterPointcut()", throwing = "error")
     fun requestNewsletterError(joinPoint: JoinPoint, error: Exception) {
         try {
-            analyticService.track(AnalyticEvent.Error.RequestNewsletterError)
-        } catch (e: AnalyticException) {
+            analyticsService.track(AnalyticsEvent.Error.RequestNewsletterError)
+        } catch (e: AnalyticsException) {
             LOG.error("Could not track RequestNewsletterError event", e)
         }
     }
@@ -143,13 +143,13 @@ class AnalyticAspect(
             val email = joinPoint.args[0] as Email
             val newsletterHandlerName = (joinPoint.target).javaClass.simpleName
             val emailTitle = email.subject
-            analyticService.track(
-                AnalyticEvent.Error.EmailParsingError(
+            analyticsService.track(
+                AnalyticsEvent.Error.EmailParsingError(
                     handlerName = newsletterHandlerName,
                     emailTitle = emailTitle,
                 )
             )
-        } catch (e: AnalyticException) {
+        } catch (e: AnalyticsException) {
             LOG.error("Could not track EmailParsingError event", e)
         }
     }

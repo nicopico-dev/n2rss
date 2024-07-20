@@ -35,7 +35,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import io.kotest.matchers.string.beEmpty as beAnEmptyString
 
-class AnalyticServiceTest {
+class AnalyticsServiceTest {
 
     @MockK
     private lateinit var analyticsRepository: AnalyticsRepository
@@ -47,8 +47,8 @@ class AnalyticServiceTest {
         every { analyticsRepository.save(any()) } answers { firstArg() }
     }
 
-    private fun createAnalyticService(enabled: Boolean = true): AnalyticService {
-        return AnalyticService(
+    private fun createAnalyticService(enabled: Boolean = true): AnalyticsService {
+        return AnalyticsService(
             analyticsRepository = analyticsRepository,
             analyticsProperties = N2RssProperties.AnalyticsProperties(
                 enabled = enabled,
@@ -61,11 +61,11 @@ class AnalyticServiceTest {
         // GIVEN
         val analyticService = createAnalyticService()
         val data = mockk<AnalyticsData>()
-        val event = mockk<AnalyticEvent>()
+        val event = mockk<AnalyticsEvent>()
 
         // SETUP
-        mockkStatic(AnalyticEvent::toAnalyticsData) {
-            every { any<AnalyticEvent>().toAnalyticsData(any()) } returns data
+        mockkStatic(AnalyticsEvent::toAnalyticsData) {
+            every { any<AnalyticsEvent>().toAnalyticsData(any()) } returns data
 
             // WHEN
             analyticService.track(event)
@@ -86,8 +86,8 @@ class AnalyticServiceTest {
         every { analyticsRepository.save(any()) } throws internalError
 
         // WHEN - THEN
-        val error = shouldThrow<AnalyticException> {
-            analyticService.track(AnalyticEvent.GetFeed("code", "userAgent"))
+        val error = shouldThrow<AnalyticsException> {
+            analyticService.track(AnalyticsEvent.GetFeed("code", "userAgent"))
         }
         error.message shouldNot beAnEmptyString()
         error.cause shouldBe internalError
@@ -97,7 +97,7 @@ class AnalyticServiceTest {
     fun `No events should be sent if analytics is disabled`() {
         // GIVEN
         val analyticService = createAnalyticService(enabled = false)
-        val event = mockk<AnalyticEvent>()
+        val event = mockk<AnalyticsEvent>()
 
         // WHEN
         analyticService.track(event)

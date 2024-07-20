@@ -15,7 +15,39 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.analytics
 
-class AnalyticException(message: String?, cause: Throwable?) : Exception(message, cause)
+sealed class AnalyticsEvent {
+    /**
+     * A user accessed the home page
+     */
+    data object Home : AnalyticsEvent()
+
+    /**
+     * A user accessed an RSS feed
+     */
+    data class GetFeed(
+        val feedCode: String,
+        val userAgent: String?,
+    ) : AnalyticsEvent()
+
+    /**
+     * A user requested support for a newsletter
+     */
+    data class RequestNewsletter(val newsletterUrl: String) : AnalyticsEvent()
+
+    sealed class Error : AnalyticsEvent() {
+        data object HomeError : Error()
+        data class GetFeedError(val feedCode: String) : Error()
+        data object RequestNewsletterError : Error()
+        data class EmailParsingError(
+            val handlerName: String,
+            val emailTitle: String
+        ) : Error()
+    }
+
+    /**
+     * A new version has been released to production
+     */
+    data class NewRelease(val version: String) : AnalyticsEvent()
+}

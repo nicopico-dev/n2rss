@@ -17,7 +17,7 @@
  */
 package fr.nicopico.n2rss.analytics.data
 
-import fr.nicopico.n2rss.analytics.AnalyticEvent
+import fr.nicopico.n2rss.analytics.AnalyticsEvent
 import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode.DATA_EMAIL_TITLE
 import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode.DATA_FEED_CODE
 import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode.DATA_HANDLER_NAME
@@ -58,9 +58,9 @@ object AnalyticsDataCode {
     const val DATA_EMAIL_TITLE = "emailTitle"
 }
 
-fun AnalyticEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
+fun AnalyticsEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
     return when (this) {
-        is AnalyticEvent.GetFeed -> AnalyticsData(
+        is AnalyticsEvent.GetFeed -> AnalyticsData(
             code = GET_FEED,
             data = mapOf(
                 DATA_FEED_CODE to feedCode,
@@ -69,30 +69,30 @@ fun AnalyticEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
             timestamp = timestamp,
         )
 
-        is AnalyticEvent.Home -> AnalyticsData(
+        is AnalyticsEvent.Home -> AnalyticsData(
             code = AnalyticsDataCode.HOME,
             timestamp = timestamp,
         )
 
-        is AnalyticEvent.RequestNewsletter -> AnalyticsData(
+        is AnalyticsEvent.RequestNewsletter -> AnalyticsData(
             code = AnalyticsDataCode.REQUEST_NEWSLETTER,
             data = mapOf(DATA_NEWSLETTER_URL to newsletterUrl),
             timestamp = timestamp,
         )
 
-        is AnalyticEvent.NewRelease -> AnalyticsData(
+        is AnalyticsEvent.NewRelease -> AnalyticsData(
             code = AnalyticsDataCode.RELEASE,
             data = mapOf(DATA_VERSION to version),
             timestamp = timestamp,
         )
 
-        is AnalyticEvent.Error.GetFeedError -> AnalyticsData(
+        is AnalyticsEvent.Error.GetFeedError -> AnalyticsData(
             code = AnalyticsDataCode.ERROR_GET_FEED,
             data = mapOf(DATA_FEED_CODE to feedCode),
             timestamp = timestamp,
         )
 
-        is AnalyticEvent.Error.EmailParsingError -> AnalyticsData(
+        is AnalyticsEvent.Error.EmailParsingError -> AnalyticsData(
             code = AnalyticsDataCode.ERROR_PARSING,
             data = mapOf(
                 DATA_HANDLER_NAME to handlerName,
@@ -101,12 +101,12 @@ fun AnalyticEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
             timestamp = timestamp,
         )
 
-        is AnalyticEvent.Error.HomeError -> AnalyticsData(
+        is AnalyticsEvent.Error.HomeError -> AnalyticsData(
             code = AnalyticsDataCode.ERROR_HOME,
             timestamp = timestamp,
         )
 
-        is AnalyticEvent.Error.RequestNewsletterError -> AnalyticsData(
+        is AnalyticsEvent.Error.RequestNewsletterError -> AnalyticsData(
             code = AnalyticsDataCode.ERROR_REQUEST_NEWSLETTER,
             timestamp = timestamp,
         )

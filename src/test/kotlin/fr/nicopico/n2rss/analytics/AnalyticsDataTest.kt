@@ -30,7 +30,7 @@ class AnalyticsDataTest {
     @ParameterizedTest
     @MethodSource("provideEvents")
     fun `AnalyticEvent should convert to AnalyticsData`(
-        event: AnalyticEvent, expected: AnalyticsData,
+        event: AnalyticsEvent, expected: AnalyticsData,
     ) {
         val actual = event.toAnalyticsData(timestamp)
         actual shouldBe expected
@@ -42,14 +42,14 @@ class AnalyticsDataTest {
         @JvmStatic
         fun provideEvents(): List<Arguments> = listOf(
             Arguments.of(
-                AnalyticEvent.Home,
+                AnalyticsEvent.Home,
                 AnalyticsData(
                     code = "home",
                     timestamp = timestamp,
                 )
             ),
             Arguments.of(
-                AnalyticEvent.GetFeed("feed1", "user1"),
+                AnalyticsEvent.GetFeed("feed1", "user1"),
                 AnalyticsData(
                     code = "get-feed",
                     timestamp = timestamp,
@@ -57,7 +57,7 @@ class AnalyticsDataTest {
                 )
             ),
             Arguments.of(
-                AnalyticEvent.RequestNewsletter("url1"),
+                AnalyticsEvent.RequestNewsletter("url1"),
                 AnalyticsData(
                     code = "request-newsletter",
                     timestamp = timestamp,
@@ -65,7 +65,7 @@ class AnalyticsDataTest {
                 )
             ),
             Arguments.of(
-                AnalyticEvent.NewRelease("1.0.0"),
+                AnalyticsEvent.NewRelease("1.0.0"),
                 AnalyticsData(
                     code = "release",
                     timestamp = timestamp,
@@ -73,14 +73,14 @@ class AnalyticsDataTest {
                 )
             ),
             Arguments.of(
-                AnalyticEvent.Error.HomeError,
+                AnalyticsEvent.Error.HomeError,
                 AnalyticsData(
                     code = "error-home",
                     timestamp = timestamp
                 )
             ),
             Arguments.of(
-                AnalyticEvent.Error.GetFeedError("feed1"),
+                AnalyticsEvent.Error.GetFeedError("feed1"),
                 AnalyticsData(
                     code = "error-get-feed",
                     timestamp = timestamp,
@@ -88,7 +88,7 @@ class AnalyticsDataTest {
                 )
             ),
             Arguments.of(
-                AnalyticEvent.Error.EmailParsingError("handler1", "title1"),
+                AnalyticsEvent.Error.EmailParsingError("handler1", "title1"),
                 AnalyticsData(
                     code = "error-parsing",
                     timestamp = timestamp,
@@ -96,7 +96,7 @@ class AnalyticsDataTest {
                 )
             ),
             Arguments.of(
-                AnalyticEvent.Error.RequestNewsletterError,
+                AnalyticsEvent.Error.RequestNewsletterError,
                 AnalyticsData(
                     code = "error-request-newsletter",
                     timestamp = timestamp
