@@ -71,7 +71,7 @@ class RssFeedControllerTest {
         }
 
         // WHEN
-        val result = rssFeedController.getRssFeeds()
+        val result = rssFeedController.getRssFeeds("userAgent")
 
         // THEN
         result shouldHaveSize 2

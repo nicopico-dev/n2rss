@@ -43,14 +43,20 @@ class AnalyticsDataTest {
         @Suppress("LongMethod")
         fun provideEvents(): List<Arguments> = listOf(
             Arguments.of(
-                AnalyticsEvent.Home,
+                AnalyticsEvent.Home(
+                    userAgent = "user1"
+                ),
                 AnalyticsData(
                     code = "home",
+                    data = mapOf("userAgent" to "user1"),
                     timestamp = timestamp,
                 )
             ),
             Arguments.of(
-                AnalyticsEvent.GetFeed("feed1", "user1"),
+                AnalyticsEvent.GetFeed(
+                    feedCode = "feed1",
+                    userAgent = "user1"
+                ),
                 AnalyticsData(
                     code = "get-feed",
                     timestamp = timestamp,
@@ -58,15 +64,18 @@ class AnalyticsDataTest {
                 )
             ),
             Arguments.of(
-                AnalyticsEvent.RequestNewsletter("url1"),
+                AnalyticsEvent.RequestNewsletter(
+                    newsletterUrl = "url1",
+                    userAgent = "user1"
+                ),
                 AnalyticsData(
                     code = "request-newsletter",
                     timestamp = timestamp,
-                    data = mapOf("newsletterUrl" to "url1")
+                    data = mapOf("newsletterUrl" to "url1", "userAgent" to "user1")
                 )
             ),
             Arguments.of(
-                AnalyticsEvent.NewRelease("1.0.0"),
+                AnalyticsEvent.NewRelease(version = "1.0.0"),
                 AnalyticsData(
                     code = "release",
                     timestamp = timestamp,
@@ -81,7 +90,7 @@ class AnalyticsDataTest {
                 )
             ),
             Arguments.of(
-                AnalyticsEvent.Error.GetFeedError("feed1"),
+                AnalyticsEvent.Error.GetFeedError(feedCode = "feed1"),
                 AnalyticsData(
                     code = "error-get-feed",
                     timestamp = timestamp,
@@ -89,7 +98,10 @@ class AnalyticsDataTest {
                 )
             ),
             Arguments.of(
-                AnalyticsEvent.Error.EmailParsingError("handler1", "title1"),
+                AnalyticsEvent.Error.EmailParsingError(
+                    handlerName = "handler1",
+                    emailTitle = "title1"
+                ),
                 AnalyticsData(
                     code = "error-parsing",
                     timestamp = timestamp,
@@ -104,9 +116,12 @@ class AnalyticsDataTest {
                 )
             ),
             Arguments.of(
-                AnalyticsEvent.GetRssFeeds,
+                AnalyticsEvent.GetRssFeeds(
+                    userAgent = "user1",
+                ),
                 AnalyticsData(
                     code = "get-rss-feeds",
+                    data = mapOf("userAgent" to "user1"),
                     timestamp = timestamp,
                 )
             ),

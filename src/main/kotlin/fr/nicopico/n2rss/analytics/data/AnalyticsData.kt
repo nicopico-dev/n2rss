@@ -60,6 +60,7 @@ object AnalyticsDataCode {
     const val DATA_EMAIL_TITLE = "emailTitle"
 }
 
+@Suppress("LongMethod")
 fun AnalyticsEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
     return when (this) {
         is AnalyticsEvent.GetFeed -> AnalyticsData(
@@ -73,17 +74,26 @@ fun AnalyticsEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
 
         is AnalyticsEvent.GetRssFeeds -> AnalyticsData(
             code = AnalyticsDataCode.GET_RSS_FEEDS,
+            data = mapOf(
+                DATA_USER_AGENT to userAgent,
+            ),
             timestamp = timestamp,
         )
 
         is AnalyticsEvent.Home -> AnalyticsData(
             code = AnalyticsDataCode.HOME,
+            data = mapOf(
+                DATA_USER_AGENT to userAgent,
+            ),
             timestamp = timestamp,
         )
 
         is AnalyticsEvent.RequestNewsletter -> AnalyticsData(
             code = AnalyticsDataCode.REQUEST_NEWSLETTER,
-            data = mapOf(DATA_NEWSLETTER_URL to newsletterUrl),
+            data = mapOf(
+                DATA_NEWSLETTER_URL to newsletterUrl,
+                DATA_USER_AGENT to userAgent,
+            ),
             timestamp = timestamp,
         )
 
@@ -122,7 +132,5 @@ fun AnalyticsEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
             code = AnalyticsDataCode.ERROR_REQUEST_NEWSLETTER,
             timestamp = timestamp,
         )
-
-
     }
 }

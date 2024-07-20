@@ -37,6 +37,11 @@ private val LOG = LoggerFactory.getLogger(AnalyticsAspect::class.java)
 class AnalyticsAspect(
     private val analyticsService: AnalyticsService
 ) {
+    private fun JoinPoint.getUserAgent(): String {
+        val userAgent = getCallArgument<String>("userAgent")
+        return userAgent
+    }
+
     //region Home
     @Pointcut(
         "@annotation(org.springframework.web.bind.annotation.GetMapping)" +
@@ -56,7 +61,8 @@ class AnalyticsAspect(
     //@AfterReturning("homePointcut()")
     fun trackHomeSuccess(joinPoint: JoinPoint) {
         try {
-            analyticsService.track(AnalyticsEvent.Home)
+            val userAgent = joinPoint.getUserAgent()
+            analyticsService.track(AnalyticsEvent.Home(userAgent))
         } catch (e: AnalyticsException) {
             LOG.error("Could not track Home event", e)
         }
@@ -89,7 +95,8 @@ class AnalyticsAspect(
 
     fun trackGetRssFeedsSuccess(joinPoint: JoinPoint) {
         try {
-            analyticsService.track(AnalyticsEvent.GetRssFeeds)
+            val userAgent = joinPoint.getUserAgent()
+            analyticsService.track(AnalyticsEvent.GetRssFeeds(userAgent))
         } catch (e: AnalyticsException) {
             LOG.error("Could not track GetRssFeeds event", e)
         }
@@ -122,7 +129,7 @@ class AnalyticsAspect(
     fun trackGetFeedSuccess(joinPoint: JoinPoint) {
         try {
             val code = joinPoint.extractCode()
-            val userAgent = joinPoint.getCallArgument<String>("userAgent")
+            val userAgent = joinPoint.getUserAgent()
             analyticsService.track(
                 AnalyticsEvent.GetFeed(
                     feedCode = code,
@@ -174,8 +181,14 @@ class AnalyticsAspect(
 
     fun trackRequestNewsletterSuccess(joinPoint: JoinPoint) {
         try {
-            val newsletterUrl = joinPoint.args[0] as String
-            analyticsService.track(AnalyticsEvent.RequestNewsletter(newsletterUrl))
+            val newsletterUrl = joinPoint.getCallArgument<String>("newsletterUrl")
+            val userAgent = joinPoint.getUserAgent()
+            analyticsService.track(
+                AnalyticsEvent.RequestNewsletter(
+                    newsletterUrl = newsletterUrl,
+                    userAgent = userAgent,
+                )
+            )
         } catch (e: AnalyticsException) {
             LOG.error("Could not track RequestNewsletter event", e)
         }

@@ -36,7 +36,10 @@ class RssFeedController(
     private val rssOutputWriter: RssOutputWriter,
 ) {
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getRssFeeds(): List<NewsletterDTO> {
+    fun getRssFeeds(
+        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @RequestHeader(value = "User-Agent") userAgent: String,
+    ): List<NewsletterDTO> {
         return newsletterService.getNewslettersInfo()
             .map { it.toDTO() }
     }

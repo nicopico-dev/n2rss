@@ -21,25 +21,32 @@ sealed class AnalyticsEvent {
     /**
      * A user accessed the home page
      */
-    data object Home : AnalyticsEvent()
+    data class Home(
+        val userAgent: String,
+    ) : AnalyticsEvent()
 
     /**
      * A user accessed the JSON list of RSS feeds
      */
-    data object GetRssFeeds : AnalyticsEvent()
+    data class GetRssFeeds(
+        val userAgent: String,
+    ) : AnalyticsEvent()
 
     /**
      * A user accessed an RSS feed
      */
     data class GetFeed(
         val feedCode: String,
-        val userAgent: String?,
+        val userAgent: String,
     ) : AnalyticsEvent()
 
     /**
      * A user requested support for a newsletter
      */
-    data class RequestNewsletter(val newsletterUrl: String) : AnalyticsEvent()
+    data class RequestNewsletter(
+        val newsletterUrl: String,
+        val userAgent: String,
+    ) : AnalyticsEvent()
 
     sealed class Error : AnalyticsEvent() {
         data object HomeError : Error()
