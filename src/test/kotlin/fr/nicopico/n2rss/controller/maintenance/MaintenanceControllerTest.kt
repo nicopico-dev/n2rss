@@ -17,15 +17,19 @@
  */
 package fr.nicopico.n2rss.controller.maintenance
 
+import fr.nicopico.n2rss.analytics.AnalyticsEvent
 import fr.nicopico.n2rss.analytics.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.mockk.MockKAnnotations
+import io.mockk.Runs
 import io.mockk.every
 import io.mockk.impl.annotations.AdditionalInterface
 import io.mockk.impl.annotations.MockK
+import io.mockk.just
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.verify
+import io.mockk.verifySequence
 import jakarta.servlet.http.HttpServletResponse
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -33,7 +37,6 @@ import org.springframework.boot.SpringApplication
 import org.springframework.context.ApplicationContext
 import org.springframework.context.ConfigurableApplicationContext
 
-// TODO Test MaintenanceController.notifyRelease() endpoint
 class MaintenanceControllerTest {
 
     @MockK
@@ -53,6 +56,37 @@ class MaintenanceControllerTest {
 
         mockkStatic(SpringApplication::class)
         every { SpringApplication.exit(any()) } returns 0
+    }
+
+    @Test
+    fun `notifyRelease should track an analytic event`() {
+        // GIVEN
+        every { maintenanceProps.secretKey } returns "secret"
+        val version = "1.2.3"
+        val response: HttpServletResponse = mockk(relaxed = true)
+
+        // SETUP
+        every { analyticsService.track(any()) } just Runs
+
+        // WHEN
+        controller.notifyRelease("secret", version, response)
+
+        // THEN
+        verifySequence { analyticsService.track(AnalyticsEvent.NewRelease(version)) }
+    }
+
+    @Test
+    fun `notifyRelease should respond with 403 if the secret key is incorrect`() {
+        // GIVEN
+        every { maintenanceProps.secretKey } returns "secret"
+        val response: HttpServletResponse = mockk(relaxed = true)
+
+        // WHEN
+        controller.notifyRelease("another", "1.2.3", response)
+
+        // THEN
+        verify { response.sendError(403, any()) }
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test
