@@ -39,39 +39,42 @@ class AnalyticsDataTest {
     companion object {
         val timestamp = Clock.System.now()
 
+        private const val UA = "user1"
+        private const val UA_FINGERPRINT = "0a041b9462caa4a31bac3567e0b6e6fd9100787db2ab433d96f6d178cabfce90"
+
         @JvmStatic
         @Suppress("LongMethod")
         fun provideEvents(): List<Arguments> = listOf(
             Arguments.of(
                 AnalyticsEvent.Home(
-                    userAgent = "user1"
+                    userAgent = UA
                 ),
                 AnalyticsData(
                     code = "home",
-                    data = mapOf("userAgent" to "user1"),
+                    data = mapOf("userAgent" to UA_FINGERPRINT),
                     timestamp = timestamp,
                 )
             ),
             Arguments.of(
                 AnalyticsEvent.GetFeed(
                     feedCode = "feed1",
-                    userAgent = "user1"
+                    userAgent = UA
                 ),
                 AnalyticsData(
                     code = "get-feed",
                     timestamp = timestamp,
-                    data = mapOf("feedCode" to "feed1", "userAgent" to "user1")
+                    data = mapOf("feedCode" to "feed1", "userAgent" to UA_FINGERPRINT)
                 )
             ),
             Arguments.of(
                 AnalyticsEvent.RequestNewsletter(
                     newsletterUrl = "url1",
-                    userAgent = "user1"
+                    userAgent = UA
                 ),
                 AnalyticsData(
                     code = "request-newsletter",
                     timestamp = timestamp,
-                    data = mapOf("newsletterUrl" to "url1", "userAgent" to "user1")
+                    data = mapOf("newsletterUrl" to "url1", "userAgent" to UA_FINGERPRINT)
                 )
             ),
             Arguments.of(
@@ -117,11 +120,11 @@ class AnalyticsDataTest {
             ),
             Arguments.of(
                 AnalyticsEvent.GetRssFeeds(
-                    userAgent = "user1",
+                    userAgent = UA,
                 ),
                 AnalyticsData(
                     code = "get-rss-feeds",
-                    data = mapOf("userAgent" to "user1"),
+                    data = mapOf("userAgent" to UA_FINGERPRINT),
                     timestamp = timestamp,
                 )
             ),
