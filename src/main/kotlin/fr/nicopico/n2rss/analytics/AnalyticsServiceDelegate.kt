@@ -18,7 +18,24 @@
 
 package fr.nicopico.n2rss.analytics
 
-interface AnalyticsService {
-    @Throws(AnalyticsException::class)
-    fun track(event: AnalyticsEvent)
+class AnalyticsServiceDelegate(
+    private val analyticsServices: List<AnalyticsService>,
+): AnalyticsService {
+
+    override fun track(event: AnalyticsEvent) {
+        val results = analyticsServices.map {
+            runCatching { it.track(event) }
+        }
+        if (results.any { it.isFailure }) {
+            val throwable = AnalyticsException("Some analytics failed to process the event $event")
+            results
+                .mapNotNull { it.exceptionOrNull() }
+                .forEach { throwable.addSuppressed(it) }
+
+            throw AnalyticsException(
+                "Some analytics failed to process the event $event",
+                throwable,
+            )
+        }
+    }
 }

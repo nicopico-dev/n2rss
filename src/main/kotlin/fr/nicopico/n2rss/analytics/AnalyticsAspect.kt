@@ -19,7 +19,6 @@ package fr.nicopico.n2rss.analytics
 
 import fr.nicopico.n2rss.models.Email
 import fr.nicopico.n2rss.utils.getCallArgument
-import fr.nicopico.n2rss.utils.getFingerprint
 import fr.nicopico.n2rss.utils.proceed
 import org.aspectj.lang.JoinPoint
 import org.aspectj.lang.ProceedingJoinPoint
@@ -40,8 +39,7 @@ class AnalyticsAspect(
 ) {
     private fun JoinPoint.getUserAgent(): String {
         val userAgent = getCallArgument<String>("userAgent")
-        return getFingerprint(userAgent)
-            ?: "[[UNKNOWN UA]]"
+        return userAgent
     }
 
     //region Home

@@ -18,7 +18,8 @@
 
 package fr.nicopico.n2rss.analytics
 
-interface AnalyticsService {
-    @Throws(AnalyticsException::class)
-    fun track(event: AnalyticsEvent)
+class NoOpAnalyticsService : AnalyticsService {
+    override fun track(event: AnalyticsEvent) {
+        // no-op
+    }
 }

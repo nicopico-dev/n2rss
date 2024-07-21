@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.analytics
 
 import fr.nicopico.n2rss.analytics.data.AnalyticsData
 import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
+import fr.nicopico.n2rss.analytics.data.DataAnalyticsService
 import fr.nicopico.n2rss.analytics.data.toAnalyticsData
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.kotest.assertions.throwables.shouldThrow
@@ -35,7 +36,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import io.kotest.matchers.string.beEmpty as beAnEmptyString
 
-class AnalyticsServiceTest {
+class DataAnalyticsServiceTest {
 
     @MockK
     private lateinit var analyticsRepository: AnalyticsRepository
@@ -47,8 +48,8 @@ class AnalyticsServiceTest {
         every { analyticsRepository.save(any()) } answers { firstArg() }
     }
 
-    private fun createAnalyticService(enabled: Boolean = true): AnalyticsService {
-        return AnalyticsService(
+    private fun createAnalyticService(enabled: Boolean = true): DataAnalyticsService {
+        return DataAnalyticsService(
             analyticsRepository = analyticsRepository,
             analyticsProperties = N2RssProperties.AnalyticsProperties(
                 enabled = enabled,

@@ -18,7 +18,36 @@
 
 package fr.nicopico.n2rss.analytics
 
-interface AnalyticsService {
-    @Throws(AnalyticsException::class)
-    fun track(event: AnalyticsEvent)
+import fr.nicopico.n2rss.analytics.simpleanalytics.SimpleAnalyticsService
+import fr.nicopico.n2rss.config.N2RssProperties
+import org.apache.coyote.http11.Constants.a
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+
+@Configuration
+class AnalyticsConfig {
+
+    @Bean
+    fun analyticsService(
+        analyticsProperties: N2RssProperties.AnalyticsProperties,
+        dataAnalyticsService: AnalyticsService,
+        simpleAnalyticsService: SimpleAnalyticsService,
+    ): AnalyticsService {
+        val profiles = analyticsProperties.analyticsProfiles
+        val services: List<AnalyticsService> = profiles.mapNotNull {
+            when (it) {
+                "data-analytics" -> dataAnalyticsService
+                "simple-analytics" -> simpleAnalyticsService
+                else -> null
+            }
+        }
+
+        return if (services.isEmpty()) {
+            NoOpAnalyticsService()
+        } else if (services.size == 1) {
+            services[0]
+        } else {
+            AnalyticsServiceDelegate(services)
+        }
+    }
 }

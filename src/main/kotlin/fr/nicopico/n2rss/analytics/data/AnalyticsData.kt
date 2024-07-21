@@ -17,16 +17,17 @@
  */
 package fr.nicopico.n2rss.analytics.data
 
+import fr.nicopico.n2rss.analytics.AnalyticsCode
 import fr.nicopico.n2rss.analytics.AnalyticsEvent
-import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode.DATA_EMAIL_TITLE
-import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode.DATA_FEED_CODE
-import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode.DATA_HANDLER_NAME
-import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode.DATA_NEWSLETTER_URL
-import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode.DATA_USER_AGENT
-import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode.DATA_VERSION
-import fr.nicopico.n2rss.analytics.data.AnalyticsDataCode.GET_FEED
+import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_EMAIL_TITLE
+import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_FEED_CODE
+import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_HANDLER_NAME
+import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_NEWSLETTER_URL
+import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_USER_AGENT
+import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_VERSION
+import fr.nicopico.n2rss.analytics.AnalyticsCode.EVENT_GET_FEED
+import fr.nicopico.n2rss.utils.getFingerprint
 import kotlinx.datetime.Instant
-import org.jetbrains.annotations.VisibleForTesting
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
@@ -39,83 +40,64 @@ data class AnalyticsData(
     @Id val id: String? = null,
 )
 
-@VisibleForTesting
-object AnalyticsDataCode {
-    const val HOME = "home"
-    const val GET_FEED = "get-feed"
-    const val GET_RSS_FEEDS = "get-rss-feeds"
-    const val REQUEST_NEWSLETTER = "request-newsletter"
-    const val RELEASE = "release"
-    const val ERROR_GET_FEED = "error-get-feed"
-    const val ERROR_GET_RSS_FEEDS = "error-get-rss-feeds"
-    const val ERROR_PARSING = "error-parsing"
-    const val ERROR_HOME = "error-home"
-    const val ERROR_REQUEST_NEWSLETTER = "error-request-newsletter"
-
-    const val DATA_FEED_CODE = "feedCode"
-    const val DATA_USER_AGENT = "userAgent"
-    const val DATA_NEWSLETTER_URL = "newsletterUrl"
-    const val DATA_VERSION = "version"
-    const val DATA_HANDLER_NAME = "handlerName"
-    const val DATA_EMAIL_TITLE = "emailTitle"
-}
-
 @Suppress("LongMethod")
 fun AnalyticsEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
+    fun String.fingerprint() = getFingerprint(this)
+
     return when (this) {
         is AnalyticsEvent.GetFeed -> AnalyticsData(
-            code = GET_FEED,
+            code = EVENT_GET_FEED,
             data = mapOf(
                 DATA_FEED_CODE to feedCode,
-                DATA_USER_AGENT to userAgent,
+                DATA_USER_AGENT to userAgent.fingerprint(),
             ),
             timestamp = timestamp,
         )
 
         is AnalyticsEvent.GetRssFeeds -> AnalyticsData(
-            code = AnalyticsDataCode.GET_RSS_FEEDS,
+            code = AnalyticsCode.EVENT_GET_RSS_FEEDS,
             data = mapOf(
-                DATA_USER_AGENT to userAgent,
+                DATA_USER_AGENT to userAgent.fingerprint(),
             ),
             timestamp = timestamp,
         )
 
         is AnalyticsEvent.Home -> AnalyticsData(
-            code = AnalyticsDataCode.HOME,
+            code = AnalyticsCode.EVENT_HOME,
             data = mapOf(
-                DATA_USER_AGENT to userAgent,
+                DATA_USER_AGENT to userAgent.fingerprint(),
             ),
             timestamp = timestamp,
         )
 
         is AnalyticsEvent.RequestNewsletter -> AnalyticsData(
-            code = AnalyticsDataCode.REQUEST_NEWSLETTER,
+            code = AnalyticsCode.EVENT_REQUEST_NEWSLETTER,
             data = mapOf(
                 DATA_NEWSLETTER_URL to newsletterUrl,
-                DATA_USER_AGENT to userAgent,
+                DATA_USER_AGENT to userAgent.fingerprint(),
             ),
             timestamp = timestamp,
         )
 
         is AnalyticsEvent.NewRelease -> AnalyticsData(
-            code = AnalyticsDataCode.RELEASE,
+            code = AnalyticsCode.EVENT_RELEASE,
             data = mapOf(DATA_VERSION to version),
             timestamp = timestamp,
         )
 
         is AnalyticsEvent.Error.GetFeedError -> AnalyticsData(
-            code = AnalyticsDataCode.ERROR_GET_FEED,
+            code = AnalyticsCode.EVENT_ERROR_GET_FEED,
             data = mapOf(DATA_FEED_CODE to feedCode),
             timestamp = timestamp,
         )
 
         AnalyticsEvent.Error.GetRssFeedsError -> AnalyticsData(
-            code = AnalyticsDataCode.ERROR_GET_RSS_FEEDS,
+            code = AnalyticsCode.EVENT_ERROR_GET_RSS_FEEDS,
             timestamp = timestamp,
         )
 
         is AnalyticsEvent.Error.EmailParsingError -> AnalyticsData(
-            code = AnalyticsDataCode.ERROR_PARSING,
+            code = AnalyticsCode.EVENT_ERROR_PARSING,
             data = mapOf(
                 DATA_HANDLER_NAME to handlerName,
                 DATA_EMAIL_TITLE to emailTitle,
@@ -124,12 +106,12 @@ fun AnalyticsEvent.toAnalyticsData(timestamp: Instant): AnalyticsData {
         )
 
         is AnalyticsEvent.Error.HomeError -> AnalyticsData(
-            code = AnalyticsDataCode.ERROR_HOME,
+            code = AnalyticsCode.EVENT_ERROR_HOME,
             timestamp = timestamp,
         )
 
         is AnalyticsEvent.Error.RequestNewsletterError -> AnalyticsData(
-            code = AnalyticsDataCode.ERROR_REQUEST_NEWSLETTER,
+            code = AnalyticsCode.EVENT_ERROR_REQUEST_NEWSLETTER,
             timestamp = timestamp,
         )
     }

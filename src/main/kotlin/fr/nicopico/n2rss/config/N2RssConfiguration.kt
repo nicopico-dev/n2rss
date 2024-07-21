@@ -86,5 +86,11 @@ constructor(
     )
     data class AnalyticsProperties(
         val enabled: Boolean = true,
+        val analyticsProfiles: List<String> = emptyList(),
+        val simpleAnalytics: SimpleAnalyticsProperties? = null
+    )
+    data class SimpleAnalyticsProperties(
+        val userAgent: String,
+        val hostname: String,
     )
 }
