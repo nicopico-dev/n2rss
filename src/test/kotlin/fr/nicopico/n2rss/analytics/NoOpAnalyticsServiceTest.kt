@@ -18,27 +18,28 @@
 
 package fr.nicopico.n2rss.analytics
 
-import org.jetbrains.annotations.VisibleForTesting
+import io.mockk.mockk
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
-class AnalyticsServiceDelegate(
-    @VisibleForTesting
-    internal val analyticsServices: List<AnalyticsService>,
-): AnalyticsService {
+class NoOpAnalyticsServiceTest {
 
-    override fun track(event: AnalyticsEvent) {
-        val results = analyticsServices.map {
-            runCatching { it.track(event) }
-        }
-        if (results.any { it.isFailure }) {
-            val throwable = AnalyticsException("Some analytics failed to process the event $event")
-            results
-                .mapNotNull { it.exceptionOrNull() }
-                .forEach { throwable.addSuppressed(it) }
+    private lateinit var analyticsService: NoOpAnalyticsService
 
-            throw AnalyticsException(
-                "Some analytics failed to process the event $event",
-                throwable,
-            )
-        }
+    @BeforeEach
+    fun setUp() {
+        analyticsService = NoOpAnalyticsService()
+    }
+
+    @Test
+    fun `track should do nothing`() {
+        // GIVEN
+        val event = mockk<AnalyticsEvent>()
+
+        // WHEN
+        analyticsService.track(event)
+
+        // THEN ?
+        // nothing happens
     }
 }

@@ -71,7 +71,6 @@ fun AnalyticsEvent.toSimpleAnalyticsEvent(
         simpleAnalyticsProperties,
         // Add feed code to the event to get better reporting
         event = AnalyticsCode.EVENT_GET_FEED + "-" + feedCode,
-        userAgent = userAgent,
         metadata = mapOf(
             AnalyticsCode.DATA_FEED_CODE to feedCode
         )
@@ -79,12 +78,10 @@ fun AnalyticsEvent.toSimpleAnalyticsEvent(
     is AnalyticsEvent.GetRssFeeds -> createSimpleAnalyticsEvent(
         simpleAnalyticsProperties,
         event = AnalyticsCode.EVENT_GET_RSS_FEEDS,
-        userAgent = userAgent,
     )
     is AnalyticsEvent.Home -> createSimpleAnalyticsEvent(
         simpleAnalyticsProperties,
         event = AnalyticsCode.EVENT_HOME,
-        userAgent = userAgent,
     )
     is AnalyticsEvent.NewRelease -> createSimpleAnalyticsEvent(
         simpleAnalyticsProperties,
@@ -96,7 +93,6 @@ fun AnalyticsEvent.toSimpleAnalyticsEvent(
     is AnalyticsEvent.RequestNewsletter -> createSimpleAnalyticsEvent(
         simpleAnalyticsProperties,
         event = AnalyticsCode.EVENT_REQUEST_NEWSLETTER,
-        userAgent = userAgent,
         metadata = mapOf(
             AnalyticsCode.DATA_NEWSLETTER_URL to newsletterUrl
         )
@@ -107,12 +103,10 @@ private fun createSimpleAnalyticsEvent(
     simpleAnalyticsProperties: N2RssProperties.SimpleAnalyticsProperties,
     event: String,
     metadata: Map<String, String> = emptyMap(),
-    userAgent: String? = null
 ) = SimpleAnalyticsEvent(
     type = "event",
     hostname = simpleAnalyticsProperties.hostname,
     event = event,
-    ua = userAgent
-        ?: simpleAnalyticsProperties.userAgent,
+    ua = simpleAnalyticsProperties.userAgent,
     metadata = metadata,
 )

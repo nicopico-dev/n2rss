@@ -20,7 +20,7 @@ package fr.nicopico.n2rss.analytics
 
 import fr.nicopico.n2rss.analytics.simpleanalytics.SimpleAnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
-import org.apache.coyote.http11.Constants.a
+import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -34,20 +34,30 @@ class AnalyticsConfig {
         simpleAnalyticsService: SimpleAnalyticsService,
     ): AnalyticsService {
         val profiles = analyticsProperties.analyticsProfiles
-        val services: List<AnalyticsService> = profiles.mapNotNull {
-            when (it) {
-                "data-analytics" -> dataAnalyticsService
-                "simple-analytics" -> simpleAnalyticsService
-                else -> null
+        val enabledServices: List<AnalyticsService> = profiles
+            .distinct()
+            .mapNotNull {
+                when (it) {
+                    "data-analytics" -> dataAnalyticsService
+                    "simple-analytics" -> simpleAnalyticsService
+                    else -> null
+                }
             }
+
+        val analyticsService = if (enabledServices.isEmpty()) {
+            NoOpAnalyticsService()
+        } else if (enabledServices.size == 1) {
+            enabledServices[0]
+        } else {
+            AnalyticsServiceDelegate(enabledServices)
         }
 
-        return if (services.isEmpty()) {
-            NoOpAnalyticsService()
-        } else if (services.size == 1) {
-            services[0]
-        } else {
-            AnalyticsServiceDelegate(services)
-        }
+        LOG.info("Analytics services enabled: {}", enabledServices)
+
+        return analyticsService
+    }
+
+    companion object {
+        private val LOG = LoggerFactory.getLogger(AnalyticsConfig::class.java)
     }
 }

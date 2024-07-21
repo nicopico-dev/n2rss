@@ -15,10 +15,9 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.analytics
+package fr.nicopico.n2rss.analytics.data
 
-import fr.nicopico.n2rss.analytics.data.AnalyticsData
-import fr.nicopico.n2rss.analytics.data.toAnalyticsData
+import fr.nicopico.n2rss.analytics.AnalyticsEvent
 import io.kotest.matchers.shouldBe
 import kotlinx.datetime.Clock
 import org.junit.jupiter.params.ParameterizedTest

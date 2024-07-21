@@ -62,6 +62,11 @@ class SimpleAnalyticsService(
                 restClient
                     .post()
                     .uri("/events")
+                    .header(
+                        "User-Agent",
+                        event.userAgent
+                            ?: simpleAnalyticsProperties.userAgent
+                    )
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(event.toSimpleAnalyticsEvent(simpleAnalyticsProperties))
                     .retrieve()
@@ -71,6 +76,20 @@ class SimpleAnalyticsService(
             }
         }
     }
+
+    private val AnalyticsEvent.userAgent: String?
+        get() = when (this) {
+            is AnalyticsEvent.Home -> userAgent
+            is AnalyticsEvent.GetFeed -> userAgent
+            is AnalyticsEvent.GetRssFeeds -> userAgent
+            is AnalyticsEvent.RequestNewsletter -> userAgent
+            is AnalyticsEvent.NewRelease,
+            is AnalyticsEvent.Error.EmailParsingError,
+            is AnalyticsEvent.Error.GetFeedError,
+            is AnalyticsEvent.Error.GetRssFeedsError,
+            is AnalyticsEvent.Error.HomeError,
+            is AnalyticsEvent.Error.RequestNewsletterError -> null
+        }
 
     companion object {
         private val LOG = LoggerFactory.getLogger(SimpleAnalyticsService::class.java)
