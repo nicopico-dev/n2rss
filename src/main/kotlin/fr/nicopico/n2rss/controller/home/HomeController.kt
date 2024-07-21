@@ -109,6 +109,9 @@ class HomeController(
         }
     }
 
+    @GetMapping("/privacy-policy")
+    fun privacyPolicy(): String = "privacy"
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ConstraintViolationException::class)
     fun handleExceptions(

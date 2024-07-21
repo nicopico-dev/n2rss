@@ -1,0 +1,130 @@
+<!--
+  ~ Copyright (c) 2024 Nicolas PICON
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  ~ documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+  ~ the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+  ~ and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial portions
+  ~ of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+  ~ TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  ~ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+  ~ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  ~ DEALINGS IN THE SOFTWARE.
+  -->
+<!DOCTYPE html>
+<html
+    lang="en"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>N2RSS — Privacy Policy</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/n2rss.css}"/>
+    <link rel="icon" th:href="@{/images/n2rss.ico}" type="image/x-icon">
+</head>
+<body>
+<div class="header">
+    <h1>Privacy Policy</h1>
+    <p><strong>Effective Date:</strong> 01/08/2024</p>
+</div>
+<div class="container">
+    <h2>Introduction</h2>
+    <p>
+        Welcome to "Newsletters to RSS" (N2RSS), an open-source project designed to provide RSS feeds for a selection of
+        newsletters.
+        We value your privacy and are committed to protecting your personal data. This Privacy Policy outlines the types
+        of information we collect, how we use it, and the measures we take to ensure your data is protected.</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>When you interact with our application, we collect the following types of information:</p>
+    <ul>
+        <li>
+            <strong>Feed Access Information:</strong>
+            <ul>
+                <li><strong>Timestamp:</strong> The time when the feed is accessed.</li>
+                <li><strong>Unique ID of the Feed:</strong> An identifier associated with the specific feed being
+                    accessed.
+                </li>
+                <li><strong>User-Agent:</strong> Information about the software making the HTTP request, which is hashed
+                    to identify unique users.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <strong>Newsletter Request Information:</strong>
+            <ul>
+                <li><strong>Timestamp:</strong> The time when the newsletter is requested.</li>
+                <li><strong>URL Provided by the User:</strong> The URL of the newsletter requested.</li>
+                <li><strong>User-Agent:</strong> Information about the software making the HTTP request, which is hashed
+                    to identify unique users.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <strong>Error Logging Information:</strong>
+            <ul>
+                <li><strong>Timestamp of Errors:</strong> The time when an error occurs in the application.</li>
+                <li><strong>Error Details:</strong> While we do not collect detailed error information such as exception
+                    class names and stack traces, we do record the occurrence of errors for diagnostic purposes.
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <h2>2. How We Use the Information</h2>
+    <p>The information we collect is used for the following purposes:</p>
+    <ul>
+        <li><strong>Service Improvement:</strong> To enhance the functionality and performance of N2RSS.</li>
+        <li><strong>User Experience:</strong> To ensure the service is meeting the needs of our users by identifying and
+            fixing issues.
+        </li>
+        <li><strong>Usage Statistics:</strong> To gather aggregate data on the usage patterns of the service.</li>
+    </ul>
+
+    <h2>3. Data Protection and Security</h2>
+    <p>We are committed to ensuring that your information is secure.
+        To prevent unauthorized access or disclosure, we have put in place suitable physical, electronic, and managerial
+        procedures to safeguard and secure the information we collect.</p>
+
+    <h2>4. Sharing of Information</h2>
+    <p>We do not sell, trade, or otherwise transfer your personal information to outside parties.
+        This does not include trusted third parties who assist us in operating our website or conducting our business,
+        so long as those parties agree to keep this information confidential.</p>
+
+    <h2>5. Open-Source Nature</h2>
+    <p>As N2RSS is an open-source project, its source code is publicly available on GitHub at <a
+        href="https://github.com/nicopico-dev/n2rss">https://github.com/nicopico-dev/n2rss</a>. This transparency allows
+        users to understand how their data is being handled and to contribute to improving the privacy and security
+        measures in place.</p>
+
+    <h2>6. Your Consent</h2>
+    <p>By using N2RSS, you consent to our Privacy Policy.</p>
+
+    <h2>7. Changes to Our Privacy Policy</h2>
+    <p>We may update our Privacy Policy from time to time.
+        Any changes will be posted on this page, and you are encouraged to review this policy periodically to stay
+        informed about how we are protecting the information we collect.</p>
+
+    <h2>8. Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at
+        <a href="mailto:n2rss-contact@nicopico.fr">n2rss-contact@nicopico.fr</a>.</p>
+
+    <h2>Conclusion</h2>
+    <p>Your privacy is important to us, and we are committed to protecting the information you share with us. Thank you
+        for using N2RSS.</p>
+</div>
+
+<!-- 100% privacy-first analytics -->
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript>
+    <img
+        alt=""
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://queue.simpleanalyticscdn.com/noscript.gif"/>
+</noscript>
+</body>
+</html>
