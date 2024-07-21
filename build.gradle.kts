@@ -41,7 +41,7 @@ kover {
     reports {
         filters {
             excludes {
-                packages("fr.nicopico.n2rss.config.*")
+                packages("fr.nicopico.n2rss.config")
                 classes(
                     "fr.nicopico.n2rss.N2RssApplication",
                     "fr.nicopico.n2rss.N2RssApplicationKt"
