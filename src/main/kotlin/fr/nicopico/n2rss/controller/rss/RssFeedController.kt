@@ -23,6 +23,7 @@ import jakarta.servlet.http.HttpServletResponse
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -35,7 +36,10 @@ class RssFeedController(
     private val rssOutputWriter: RssOutputWriter,
 ) {
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getRssFeeds(): List<NewsletterDTO> {
+    fun getRssFeeds(
+        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @RequestHeader(value = "User-Agent") userAgent: String,
+    ): List<NewsletterDTO> {
         return newsletterService.getNewslettersInfo()
             .map { it.toDTO() }
     }
@@ -43,22 +47,21 @@ class RssFeedController(
     /**
      * Retrieves the RSS feed of publications.
      *
-     * @param code Code associated with the feed
+     * @param feed Code associated with the feed
      * @param publicationStart The starting index of publications to retrieve. Default is 0.
      * @param publicationCount The maximum number of publications to retrieve. Default is 2.
      * @param response The HttpServletResponse object used for writing the feed to the response output stream.
      */
-    @GetMapping(
-        "{feed}",
-        produces = [RSS_CONTENT_TYPE],
-    )
+    @GetMapping("{feed}", produces = [RSS_CONTENT_TYPE])
     fun getFeed(
-        @PathVariable("feed") code: String,
+        @PathVariable("feed") feed: String,
         @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
+        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @RequestHeader(value = "User-Agent") userAgent: String,
         response: HttpServletResponse,
     ) {
-        writeFeedToResponse(code, publicationStart, publicationCount, response)
+        writeFeedToResponse(feed, publicationStart, publicationCount, response)
     }
 
     /**
@@ -70,15 +73,15 @@ class RssFeedController(
      * @param publicationCount The maximum number of publications to retrieve. Default is 2.
      * @param response The HttpServletResponse object used for writing the feed to the response output stream.
      */
-    @GetMapping(
-        "{folder}/{feed}",
-        produces = [RSS_CONTENT_TYPE],
-    )
+    @GetMapping("{folder}/{feed}", produces = [RSS_CONTENT_TYPE])
+    @Suppress("LongParameterList")
     fun getFeed(
         @PathVariable("folder") folder: String,
         @PathVariable("feed") feed: String,
         @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
+        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @RequestHeader(value = "User-Agent") userAgent: String,
         response: HttpServletResponse,
     ) {
         val code = "$folder/$feed"

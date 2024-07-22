@@ -15,17 +15,21 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.controller.maintenance
 
+import fr.nicopico.n2rss.analytics.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.mockk.MockKAnnotations
+import io.mockk.Runs
 import io.mockk.every
 import io.mockk.impl.annotations.AdditionalInterface
 import io.mockk.impl.annotations.MockK
+import io.mockk.just
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.verify
+import io.mockk.verifySequence
 import jakarta.servlet.http.HttpServletResponse
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -39,6 +43,8 @@ class MaintenanceControllerTest {
     @AdditionalInterface(ConfigurableApplicationContext::class)
     private lateinit var applicationContext: ApplicationContext
     @MockK
+    private lateinit var analyticsService: AnalyticsService
+    @MockK
     private lateinit var maintenanceProps: N2RssProperties.MaintenanceProperties
 
     private lateinit var controller: MaintenanceController
@@ -46,10 +52,41 @@ class MaintenanceControllerTest {
     @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
-        controller = MaintenanceController(applicationContext, maintenanceProps)
+        controller = MaintenanceController(applicationContext, analyticsService, maintenanceProps)
 
         mockkStatic(SpringApplication::class)
         every { SpringApplication.exit(any()) } returns 0
+    }
+
+    @Test
+    fun `notifyRelease should track an analytic event`() {
+        // GIVEN
+        every { maintenanceProps.secretKey } returns "secret"
+        val version = "1.2.3"
+        val response: HttpServletResponse = mockk(relaxed = true)
+
+        // SETUP
+        every { analyticsService.track(any()) } just Runs
+
+        // WHEN
+        controller.notifyRelease("secret", version, response)
+
+        // THEN
+        verifySequence { analyticsService.track(AnalyticsEvent.NewRelease(version)) }
+    }
+
+    @Test
+    fun `notifyRelease should respond with 403 if the secret key is incorrect`() {
+        // GIVEN
+        every { maintenanceProps.secretKey } returns "secret"
+        val response: HttpServletResponse = mockk(relaxed = true)
+
+        // WHEN
+        controller.notifyRelease("another", "1.2.3", response)
+
+        // THEN
+        verify { response.sendError(403, any()) }
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test

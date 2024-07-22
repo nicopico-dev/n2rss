@@ -15,29 +15,42 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.data
+package fr.nicopico.n2rss.analytics
 
 import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
+import fr.nicopico.n2rss.analytics.data.toAnalyticsData
+import fr.nicopico.n2rss.config.N2RssProperties
+import kotlinx.datetime.Clock
 import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.Profile
-import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.context.event.EventListener
-import org.springframework.stereotype.Component
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
 
-private val LOG = LoggerFactory.getLogger(CleanLocalDatabase::class.java)
+private val LOG = LoggerFactory.getLogger(AnalyticsService::class.java)
 
-@Profile("local")
-@Component
-class CleanLocalDatabase(
-    private val publicationRepository: PublicationRepository,
-    private val newsletterRequestRepository: NewsletterRequestRepository,
+@Service
+class AnalyticsService(
     private val analyticsRepository: AnalyticsRepository,
+    private val analyticsProperties: N2RssProperties.AnalyticsProperties,
+    private val clock: Clock,
 ) {
-    @EventListener
-    fun onApplicationEvent(ignored: ContextRefreshedEvent) {
-        LOG.info("Clean-up local database...")
-        publicationRepository.deleteAll()
-        newsletterRequestRepository.deleteAll()
-        analyticsRepository.deleteAll()
+    @Autowired
+    constructor(
+        analyticsRepository: AnalyticsRepository,
+        analyticsProperties: N2RssProperties.AnalyticsProperties,
+    ) : this(analyticsRepository, analyticsProperties, Clock.System)
+
+    @Throws(AnalyticsException::class)
+    fun track(event: AnalyticsEvent) {
+        if (analyticsProperties.enabled) {
+            LOG.info("TRACK: $event")
+            // We want to catch all possible issues here
+            @Suppress("TooGenericExceptionCaught")
+            try {
+                val data = event.toAnalyticsData(clock.now())
+                analyticsRepository.save(data)
+            } catch (e: Exception) {
+                throw AnalyticsException("Unable to send analytics event $event", e)
+            }
+        }
     }
 }

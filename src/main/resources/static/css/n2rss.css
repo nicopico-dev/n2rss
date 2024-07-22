@@ -137,6 +137,16 @@ div.g-recaptcha {
     justify-content: center;
 }
 
+div.legalese {
+    margin: 8px auto 34px auto;
+    display: flex;
+    justify-content: center;
+}
+
+div.legalese a {
+    font-size: 0.8em;
+}
+
 .message {
     margin: 8px auto;
 }
