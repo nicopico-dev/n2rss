@@ -24,7 +24,7 @@ import java.io.OutputStream
 plugins {
     id("org.springframework.boot") version "3.3.1"
     id("io.spring.dependency-management") version "1.1.6"
-    kotlin("jvm") version "1.9.24"
+    kotlin("jvm") version "2.0.10"
     kotlin("plugin.spring") version "1.9.24"
     id("org.jetbrains.kotlinx.kover") version "0.8.2"
     id("io.gitlab.arturbosch.detekt") version("1.23.5")
