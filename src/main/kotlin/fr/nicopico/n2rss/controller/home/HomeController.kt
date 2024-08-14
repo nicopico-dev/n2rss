@@ -109,6 +109,7 @@ class HomeController(
         }
     }
 
+    @Suppress("FunctionOnlyReturningConstant")
     @GetMapping("/privacy-policy")
     fun privacyPolicy(): String = "privacy"
 
