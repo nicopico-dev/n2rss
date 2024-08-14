@@ -314,5 +314,14 @@ class HomeControllerTest {
             verify { newsletterService.saveRequest(capture(slotUrl)) }
             slotUrl.captured.toString() shouldBe "https://www.google.com"
         }
+
+        @Test
+        fun `privacyPolicy should direct to the privacy page`() {
+            // WHEN
+            val value = homeController.privacyPolicy()
+
+            // THEN
+            value shouldBe "privacy"
+        }
     }
 }
