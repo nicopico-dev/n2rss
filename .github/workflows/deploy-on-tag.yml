@@ -65,7 +65,9 @@ jobs:
               "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
             }
   restart-server:
-    needs: deploy
+    needs:
+      - deploy
+      - notify-release-analytics
     runs-on: ubuntu-latest
     steps:
       - name: Stop Server
