@@ -15,29 +15,11 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.data
 
-import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
-import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.Profile
-import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.context.event.EventListener
-import org.springframework.stereotype.Component
+package fr.nicopico.n2rss.analytics
 
-private val LOG = LoggerFactory.getLogger(CleanLocalDatabase::class.java)
-
-@Profile("local")
-@Component
-class CleanLocalDatabase(
-    private val publicationRepository: PublicationRepository,
-    private val newsletterRequestRepository: NewsletterRequestRepository,
-    private val analyticsRepository: AnalyticsRepository,
-) {
-    @EventListener
-    fun onApplicationEvent(ignored: ContextRefreshedEvent) {
-        LOG.info("Clean-up local database...")
-        publicationRepository.deleteAll()
-        newsletterRequestRepository.deleteAll()
-        analyticsRepository.deleteAll()
+class NoOpAnalyticsService : AnalyticsService {
+    override fun track(event: AnalyticsEvent) {
+        // no-op
     }
 }

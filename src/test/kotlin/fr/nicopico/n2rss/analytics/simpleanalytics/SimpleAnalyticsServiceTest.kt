@@ -16,8 +16,10 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.analytics
+package fr.nicopico.n2rss.analytics.simpleanalytics
 
+import fr.nicopico.n2rss.analytics.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.AnalyticsException
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldThrow
@@ -34,8 +36,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.web.client.HttpClientErrorException
 
-class AnalyticServiceTest {
-
+class SimpleAnalyticsServiceTest {
     private val server = MockWebServer()
 
     @BeforeEach
@@ -52,13 +53,15 @@ class AnalyticServiceTest {
         enabled: Boolean = true,
         userAgent: String = "some-user-agent",
         hostname: String = "some-hostname",
-    ): AnalyticService {
-        return AnalyticService(
+    ): SimpleAnalyticsService {
+        return SimpleAnalyticsService(
             analyticsApiBaseUrl = server.url("/").toString(),
             analyticsProperties = N2RssProperties.AnalyticsProperties(
                 enabled = enabled,
-                userAgent = userAgent,
-                hostname = hostname,
+                simpleAnalytics = N2RssProperties.SimpleAnalyticsProperties(
+                    userAgent = userAgent,
+                    hostname = hostname,
+                ),
             ),
         )
     }
@@ -70,7 +73,7 @@ class AnalyticServiceTest {
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticService.track(AnalyticEvent.GetFeed("rss-code"))
+        analyticService.track(AnalyticsEvent.GetFeed("rss-code", "ua"))
 
         // THEN
         val request = server.takeRequest()
@@ -80,8 +83,8 @@ class AnalyticServiceTest {
             body.readUtf8() should {
                 it shouldContain Regex("\"hostname\"\\s*:\"some-hostname\"")
                 it shouldContain Regex("\"ua\"\\s*:\"some-user-agent\"")
-                it shouldContain Regex("\"event\"\\s*:\"get-feed\"")
-                it shouldContain Regex("\"get-feed-code\"\\s*:\"rss-code\"")
+                it shouldContain Regex("\"event\"\\s*:\"get-feed-rss-code\"")
+                it shouldContain Regex("\"feedCode\"\\s*:\"rss-code\"")
             }
         }
     }
@@ -93,7 +96,7 @@ class AnalyticServiceTest {
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticService.track(AnalyticEvent.RequestNewsletter("some-newsletter-url"))
+        analyticService.track(AnalyticsEvent.RequestNewsletter("some-newsletter-url", "ua"))
 
         // THEN
         val request = server.takeRequest()
@@ -103,7 +106,7 @@ class AnalyticServiceTest {
             body.readUtf8() should {
                 it shouldContain Regex("\"hostname\"\\s*:\"some-hostname\"")
                 it shouldContain Regex("\"event\"\\s*:\"request-newsletter\"")
-                it shouldContain Regex("\"request-newsletter-url\"\\s*:\"some-newsletter-url\"")
+                it shouldContain Regex("\"newsletterUrl\"\\s*:\"some-newsletter-url\"")
             }
         }
     }
@@ -115,8 +118,8 @@ class AnalyticServiceTest {
         server.enqueue(MockResponse().setResponseCode(400))
 
         // WHEN - THEN
-        val error = shouldThrow<AnalyticException> {
-            analyticService.track(AnalyticEvent.GetFeed("code"))
+        val error = shouldThrow<AnalyticsException> {
+            analyticService.track(AnalyticsEvent.GetFeed("code", "ua"))
         }
         error.message shouldNot beEmpty()
         error.cause should beInstanceOf<HttpClientErrorException>()
@@ -128,8 +131,8 @@ class AnalyticServiceTest {
         val analyticService = createAnalyticService(enabled = false)
 
         // WHEN
-        analyticService.track(AnalyticEvent.GetFeed("code"))
-        analyticService.track(AnalyticEvent.RequestNewsletter("url"))
+        analyticService.track(AnalyticsEvent.GetFeed("code", "ua"))
+        analyticService.track(AnalyticsEvent.RequestNewsletter("url", "ua"))
 
         // THEN
         server.requestCount shouldBe 0

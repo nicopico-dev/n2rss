@@ -18,4 +18,22 @@
 
 package fr.nicopico.n2rss.analytics
 
-class AnalyticException(message: String?, cause: Throwable?) : Exception(message, cause)
+object AnalyticsCode {
+    const val EVENT_HOME = "home"
+    const val EVENT_GET_FEED = "get-feed"
+    const val EVENT_GET_RSS_FEEDS = "get-rss-feeds"
+    const val EVENT_REQUEST_NEWSLETTER = "request-newsletter"
+    const val EVENT_RELEASE = "release"
+    const val EVENT_ERROR_GET_FEED = "error-get-feed"
+    const val EVENT_ERROR_GET_RSS_FEEDS = "error-get-rss-feeds"
+    const val EVENT_ERROR_PARSING = "error-parsing"
+    const val EVENT_ERROR_HOME = "error-home"
+    const val EVENT_ERROR_REQUEST_NEWSLETTER = "error-request-newsletter"
+
+    const val DATA_FEED_CODE = "feedCode"
+    const val DATA_USER_AGENT = "userAgent"
+    const val DATA_NEWSLETTER_URL = "newsletterUrl"
+    const val DATA_VERSION = "version"
+    const val DATA_HANDLER_NAME = "handlerName"
+    const val DATA_EMAIL_TITLE = "emailTitle"
+}

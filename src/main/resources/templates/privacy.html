@@ -1,0 +1,103 @@
+<!--
+  ~ Copyright (c) 2024 Nicolas PICON
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  ~ documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+  ~ the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+  ~ and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial portions
+  ~ of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+  ~ TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  ~ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+  ~ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  ~ DEALINGS IN THE SOFTWARE.
+  -->
+<!DOCTYPE html>
+<html
+    lang="en"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>N2RSS — Privacy Policy</title>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" th:href="@{/css/n2rss.css}"/>
+    <link rel="icon" th:href="@{/images/n2rss.ico}" type="image/x-icon">
+</head>
+<body>
+<div class="header">
+    <h1>Privacy Policy</h1>
+</div>
+<div class="container">
+    <h2>Introduction</h2>
+    <p>
+        Welcome to Newsletters to RSS (n2rss).
+        This privacy policy explains how we collect, use, and protect your information when you use our application.
+        By using n2rss, you agree to the collection and use of information in accordance with this policy.
+    </p>
+
+    <h3>1. Data Collection</h3>
+    <p>We collect data for analytics purposes to help us understand how our service is being used and to improve it. The
+        data collected includes:</p>
+    <ul>
+        <li><strong>Home Page Access:</strong> When you access the Home page, we collect the user-agent of your browser
+            and the timestamp of your visit.
+        </li>
+        <li><strong>JSON Data Retrieval:</strong> When you retrieve JSON data about the available RSS feeds, we collect
+            the user-agent of your browser and the timestamp of the access.
+        </li>
+        <li><strong>RSS Feed Access:</strong> When you access an RSS feed, we collect the identifier of the RSS feed,
+            the user-agent of your browser, and the timestamp of the access.
+        </li>
+        <li><strong>Newsletter Support Request:</strong> When you request support for a newsletter, we collect the URL
+            associated with the newsletter, the user-agent of your browser, and the timestamp of the request.
+        </li>
+    </ul>
+
+    <h3>2. Use of Data</h3>
+    <p>The data collected is used for the following purposes:</p>
+    <ul>
+        <li>To analyze usage patterns and improve our service.</li>
+        <li>To monitor the performance and reliability of the application.</li>
+        <li>To respond to user requests and provide support for additional newsletters.</li>
+    </ul>
+
+    <h3>3. Data Storage</h3>
+    <p>Data collected through the n2rss application is stored securely in our database. We take appropriate security
+        measures to protect your data from unauthorized access, disclosure, or modification.</p>
+
+    <h3>4. Third-Party Services</h3>
+    <p>We use Simple Analytics to collect anonymous usage data for analytics purposes. Simple Analytics does not track
+        personal data and is fully compliant with GDPR and other privacy regulations. For more information, you can
+        visit the Simple Analytics <a href="https://simpleanalytics.com/privacy-policy" target="_blank">Privacy
+            Policy</a>.</p>
+
+    <h3>5. Open Source</h3>
+    <p>n2rss is an open-source project, and the source code is available on GitHub at <a
+        href="https://github.com/nicopico-dev/n2rss" target="_blank">https://github.com/nicopico-dev/n2rss</a>. By
+        contributing to the project or using the code, you should be aware that any contributions may be publicly
+        visible and accessible.</p>
+
+    <h3>6. Changes to This Policy</h3>
+    <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy
+        on this page. You are advised to review this privacy policy periodically for any changes.</p>
+
+    <h3>7. Contact Us</h3>
+    <p>If you have any questions or concerns about this privacy policy, please contact us at <a
+        href="mailto:n2rss-contact@nicopico.fr">n2rss-contact@nicopico.fr</a>.</p>
+
+    <p>Last updated: August 15, 2024</p>
+</div>
+
+<!-- 100% privacy-first analytics -->
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript>
+    <img
+        alt=""
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://queue.simpleanalyticscdn.com/noscript.gif"/>
+</noscript>
+</body>
+</html>

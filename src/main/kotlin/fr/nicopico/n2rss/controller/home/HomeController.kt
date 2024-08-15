@@ -34,6 +34,7 @@ import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseStatus
 import java.net.URL
@@ -48,7 +49,12 @@ class HomeController(
 ) {
 
     @GetMapping("/")
-    fun home(request: HttpServletRequest, model: Model): String {
+    fun home(
+        request: HttpServletRequest,
+        model: Model,
+        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @RequestHeader(value = "User-Agent") userAgent: String,
+    ): String {
         val groupedNewsletterInfos: List<GroupedNewsletterInfo> = newsletterService.getNewslettersInfo()
             .sortedBy { it.title }
             .filter { it.publicationCount > 0 }
@@ -80,6 +86,8 @@ class HomeController(
     fun requestNewsletter(
         @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String,
         @RequestParam("g-recaptcha-response") captchaResponse: String? = null,
+        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @RequestHeader(value = "User-Agent") userAgent: String,
     ): ResponseEntity<String> {
         val isCaptchaValid = if (recaptchaProperties.enabled) {
             reCaptchaService.isCaptchaValid(
@@ -100,6 +108,10 @@ class HomeController(
                 .body("reCaptcha challenge failed")
         }
     }
+
+    @Suppress("FunctionOnlyReturningConstant")
+    @GetMapping("/privacy-policy")
+    fun privacyPolicy(): String = "privacy"
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ConstraintViolationException::class)

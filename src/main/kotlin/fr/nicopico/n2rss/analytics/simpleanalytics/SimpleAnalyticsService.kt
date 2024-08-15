@@ -15,9 +15,12 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.analytics
 
-import com.fasterxml.jackson.annotation.JsonProperty
+package fr.nicopico.n2rss.analytics.simpleanalytics
+
+import fr.nicopico.n2rss.analytics.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.AnalyticsException
+import fr.nicopico.n2rss.analytics.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -26,14 +29,15 @@ import org.springframework.stereotype.Service
 import org.springframework.web.client.HttpClientErrorException
 import org.springframework.web.client.RestClient
 
-private val LOG = LoggerFactory.getLogger(AnalyticService::class.java)
-
 @Service
-class AnalyticService(
+class SimpleAnalyticsService(
     restClientBuilder: RestClient.Builder = RestClient.builder(),
     private val analyticsApiBaseUrl: String,
     private val analyticsProperties: N2RssProperties.AnalyticsProperties,
-) {
+) : AnalyticsService {
+
+    private val simpleAnalyticsProperties = analyticsProperties.simpleAnalytics
+
     @Autowired
     constructor(
         restClientBuilder: RestClient.Builder,
@@ -50,63 +54,44 @@ class AnalyticService(
             .build()
     }
 
-    @Throws(AnalyticException::class)
-    fun track(event: AnalyticEvent) {
-        if (analyticsProperties.enabled) {
+    @Throws(AnalyticsException::class)
+    override fun track(event: AnalyticsEvent) {
+        if (analyticsProperties.enabled && simpleAnalyticsProperties != null) {
             LOG.info("TRACK: $event")
             try {
                 restClient
                     .post()
                     .uri("/events")
+                    .header(
+                        "User-Agent",
+                        event.userAgent
+                            ?: simpleAnalyticsProperties.userAgent
+                    )
                     .contentType(MediaType.APPLICATION_JSON)
-                    .body(event.toSimpleAnalyticsEvent())
+                    .body(event.toSimpleAnalyticsEvent(simpleAnalyticsProperties))
                     .retrieve()
                     .toBodilessEntity()
             } catch (e: HttpClientErrorException) {
-                throw AnalyticException("Unable to send analytics event $event", e)
+                throw AnalyticsException("Unable to send analytics event $event", e)
             }
         }
     }
 
-    private fun AnalyticEvent.toSimpleAnalyticsEvent(): SimpleAnalyticsEvent {
-        return SimpleAnalyticsEvent(
-            type = "event",
-            hostname = analyticsProperties.hostname,
-            event = when (this) {
-                is AnalyticEvent.GetFeed -> EVENT_GET_FEED
-                is AnalyticEvent.RequestNewsletter -> EVENT_REQUEST_NEWSLETTER
-            },
-            ua = analyticsProperties.userAgent,
-            metadata = when (this) {
-                is AnalyticEvent.GetFeed -> mapOf(
-                    METADATA_GET_FEED_CODE to code
-                )
-
-                is AnalyticEvent.RequestNewsletter -> mapOf(
-                    METADATA_REQUEST_NEWSLETTER_URL to newsletterUrl
-                )
-            }
-        )
-    }
+    private val AnalyticsEvent.userAgent: String?
+        get() = when (this) {
+            is AnalyticsEvent.Home -> userAgent
+            is AnalyticsEvent.GetFeed -> userAgent
+            is AnalyticsEvent.GetRssFeeds -> userAgent
+            is AnalyticsEvent.RequestNewsletter -> userAgent
+            is AnalyticsEvent.NewRelease,
+            is AnalyticsEvent.Error.EmailParsingError,
+            is AnalyticsEvent.Error.GetFeedError,
+            is AnalyticsEvent.Error.GetRssFeedsError,
+            is AnalyticsEvent.Error.HomeError,
+            is AnalyticsEvent.Error.RequestNewsletterError -> null
+        }
 
     companion object {
-        private const val EVENT_GET_FEED = "get-feed"
-        private const val EVENT_REQUEST_NEWSLETTER = "request-newsletter"
-
-        private const val METADATA_GET_FEED_CODE = "get-feed-code"
-        private const val METADATA_REQUEST_NEWSLETTER_URL = "request-newsletter-url"
+        private val LOG = LoggerFactory.getLogger(SimpleAnalyticsService::class.java)
     }
 }
-
-private data class SimpleAnalyticsEvent(
-    @JsonProperty("type")
-    val type: String,
-    @JsonProperty("hostname")
-    val hostname: String,
-    @JsonProperty("event")
-    val event: String,
-    @JsonProperty("ua")
-    val ua: String,
-    @JsonProperty("metadata")
-    val metadata: Map<String, String>
-)

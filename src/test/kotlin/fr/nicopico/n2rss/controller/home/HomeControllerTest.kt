@@ -53,6 +53,8 @@ class HomeControllerTest {
 
     private lateinit var homeController: HomeController
 
+    private val userAgent = "USER_AGENT"
+
     @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
@@ -119,7 +121,7 @@ class HomeControllerTest {
             val model = mockk<Model>(relaxed = true)
 
             // WHEN
-            val result = homeController.home(request, model)
+            val result = homeController.home(request, model, userAgent)
 
             // THEN
             result shouldBe "index"
@@ -189,7 +191,7 @@ class HomeControllerTest {
             val model = mockk<Model>(relaxed = true)
 
             // WHEN
-            val result = homeController.home(request, model)
+            val result = homeController.home(request, model, userAgent)
 
             // THEN
             result shouldBe "index"
@@ -221,7 +223,7 @@ class HomeControllerTest {
             val model = mockk<Model>(relaxed = true)
 
             // WHEN
-            val result = homeController.home(request, model)
+            val result = homeController.home(request, model, userAgent)
 
             // THEN
             result shouldBe "index"
@@ -248,7 +250,7 @@ class HomeControllerTest {
             every { reCaptchaService.isCaptchaValid(any(), any()) } returns true
 
             // WHEN
-            val response = homeController.requestNewsletter(newsletterUrl, captchaResponse)
+            val response = homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
 
             // THEN
             verify { newsletterService.saveRequest(URL(newsletterUrl)) }
@@ -269,7 +271,7 @@ class HomeControllerTest {
             every { reCaptchaService.isCaptchaValid(any(), any()) } returns false
 
             // WHEN
-            val response = homeController.requestNewsletter(newsletterUrl, captchaResponse)
+            val response = homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
 
             // THEN
             verify(exactly = 0) { newsletterService.saveRequest(any()) }
@@ -286,7 +288,7 @@ class HomeControllerTest {
             every { newsletterService.saveRequest(any()) } just Runs
 
             // WHEN
-            val response = homeController.requestNewsletter(newsletterUrl)
+            val response = homeController.requestNewsletter(newsletterUrl, userAgent = userAgent)
 
             // THEN
             verify(exactly = 1) { newsletterService.saveRequest(any()) }
@@ -305,12 +307,21 @@ class HomeControllerTest {
             every { newsletterService.saveRequest(any()) } just Runs
 
             // WHEN
-            homeController.requestNewsletter(newsletterUrl, captchaResponse)
+            homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
 
             // THEN
             val slotUrl = slot<URL>()
             verify { newsletterService.saveRequest(capture(slotUrl)) }
             slotUrl.captured.toString() shouldBe "https://www.google.com"
+        }
+
+        @Test
+        fun `privacyPolicy should direct to the privacy page`() {
+            // WHEN
+            val value = homeController.privacyPolicy()
+
+            // THEN
+            value shouldBe "privacy"
         }
     }
 }
