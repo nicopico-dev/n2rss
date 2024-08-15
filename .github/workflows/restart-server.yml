@@ -1,0 +1,29 @@
+name: Restart Server
+
+on:
+  workflow_dispatch: # Allows manual triggering
+  repository_dispatch:
+    types: [ trigger-restart-server ]
+
+jobs:
+  restart-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stop Server
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.SERVER_ENDPOINT }}/stop
+          method: POST
+          customHeaders: >-
+            {
+              "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
+            }
+          preventFailureOnNoResponse: true
+      - name: Wait for 5 minutes
+        run: |
+          sleep 300
+      - name: Restart Server
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.SERVER_ENDPOINT }}
+          method: GET
