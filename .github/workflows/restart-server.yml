@@ -19,9 +19,9 @@ jobs:
               "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
             }
           preventFailureOnNoResponse: true
-      - name: Wait for 5 minutes
+      - name: Wait for 1 minutes
         run: |
-          sleep 300
+          sleep 60
       - name: Restart Server
         uses: fjogeleit/http-request-action@v1
         with:
