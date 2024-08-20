@@ -83,7 +83,7 @@ class SimpleAnalyticsServiceTest {
             body.readUtf8() should {
                 it shouldContain Regex("\"hostname\"\\s*:\"some-hostname\"")
                 it shouldContain Regex("\"ua\"\\s*:\"some-user-agent\"")
-                it shouldContain Regex("\"event\"\\s*:\"get-feed-rss-code\"")
+                it shouldContain Regex("\"event\"\\s*:\"get-feed\"")
                 it shouldContain Regex("\"feedCode\"\\s*:\"rss-code\"")
             }
         }
