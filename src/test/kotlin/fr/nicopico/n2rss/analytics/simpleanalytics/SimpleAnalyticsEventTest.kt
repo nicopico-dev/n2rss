@@ -81,9 +81,7 @@ class SimpleAnalyticsEventTest {
                 ),
                 analyticsProperties,
                 createSimpleAnalyticsEvent(
-                    // Feed code should be appended to the event,
-                    // as metadata is not available for analysis in Simple Analytics
-                    AnalyticsCode.EVENT_GET_FEED + "-feed1",
+                    AnalyticsCode.EVENT_GET_FEED,
                     mapOf(
                         AnalyticsCode.DATA_FEED_CODE to "feed1"
                     )

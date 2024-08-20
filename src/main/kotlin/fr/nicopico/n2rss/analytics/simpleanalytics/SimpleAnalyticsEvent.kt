@@ -69,8 +69,7 @@ fun AnalyticsEvent.toSimpleAnalyticsEvent(
     )
     is AnalyticsEvent.GetFeed -> createSimpleAnalyticsEvent(
         simpleAnalyticsProperties,
-        // Add feed code to the event to get better reporting
-        event = AnalyticsCode.EVENT_GET_FEED + "-" + feedCode,
+        event = AnalyticsCode.EVENT_GET_FEED,
         metadata = mapOf(
             AnalyticsCode.DATA_FEED_CODE to feedCode
         )
