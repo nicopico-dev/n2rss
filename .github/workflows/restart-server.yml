@@ -18,12 +18,12 @@ jobs:
             {
               "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
             }
-          preventFailureOnNoResponse: true
-      - name: Wait for 1 minutes
+      - name: Wait until the server has stopped
         run: |
-          sleep 60
+          sleep 15
       - name: Restart Server
         uses: fjogeleit/http-request-action@v1
         with:
           url: ${{ vars.SERVER_ENDPOINT }}
           method: GET
+          preventFailureOnNoResponse: true
