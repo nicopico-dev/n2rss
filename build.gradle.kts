@@ -85,7 +85,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.sun.mail:jakarta.mail:2.0.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
     implementation("org.jsoup:jsoup:1.18.1")
     implementation("com.rometools:rome:2.1.0")
     implementation("com.jayway.jsonpath:json-path:2.9.0")
