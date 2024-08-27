@@ -16,15 +16,7 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.github
+package fr.nicopico.n2rss.monitoring.github
 
-import com.fasterxml.jackson.annotation.JsonProperty
-
-data class GithubIssueDTO(
-    @JsonProperty("title")
-    val title: String,
-    @JsonProperty("body")
-    val body: String,
-    @JsonProperty("labels")
-    val labels: List<String> = emptyList(),
-)
+@JvmInline
+value class IssueId(val value: Int)

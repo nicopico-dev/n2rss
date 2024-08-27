@@ -15,7 +15,7 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.github
+package fr.nicopico.n2rss.monitoring.github
 
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory

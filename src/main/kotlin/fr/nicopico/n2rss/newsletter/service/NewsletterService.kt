@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.service
 
+import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.data.NewsletterRequestRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler

@@ -15,10 +15,10 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.service
+package fr.nicopico.n2rss.monitoring
 
-import fr.nicopico.n2rss.github.GithubClient
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.monitoring.github.GithubClient
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 import java.net.URL
