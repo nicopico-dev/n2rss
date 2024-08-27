@@ -25,4 +25,12 @@ jobs:
         with:
           url: ${{ vars.SERVER_ENDPOINT }}
           method: GET
-          preventFailureOnNoResponse: true
+          ignoreStatusCodes: 502
+      - name: Wait until the server has restarted
+        run: |
+          sleep ${{ vars.DELAY_BEFORE_CHECK }}
+      - name: Check Server
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.SERVER_ENDPOINT }}
+          method: GET
