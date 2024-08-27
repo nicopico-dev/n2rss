@@ -38,6 +38,7 @@ jobs:
           server-dir: ${{ vars.FTP_DIR }}
           local-dir: ./deploy/
   create-github-release:
+    if: ${{ !env.ACT }}
     needs: deploy
     runs-on: ubuntu-latest
     permissions:
