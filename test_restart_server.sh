@@ -16,13 +16,10 @@
 # DEALINGS IN THE SOFTWARE.
 #
 
-echo "{ \"ref\": \"refs/tags/1.0.0\" }" > act_cd_event.json
-
-act push -e act_cd_event.json \
+act workflow_dispatch \
+  -W .github/workflows/restart-server.yml \
   -s GITHUB_TOKEN="$(gh auth token)" \
   --container-architecture linux/amd64 \
   --artifact-server-path ./act/artifacts \
   --var-file ./act/n2rss_dev.variables \
   --secret-file ./act/n2rss_dev.secrets
-
-rm act_cd_event.json

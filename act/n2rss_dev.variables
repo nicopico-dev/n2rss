@@ -1,2 +1,2 @@
 FTP_DIR=/n2rss/
-SERVER_ENDPOINT=http://localhost:8080
+SERVER_ENDPOINT=http://host.docker.internal:8080
