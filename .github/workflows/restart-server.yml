@@ -2,8 +2,7 @@ name: Restart Server
 
 on:
   workflow_dispatch: # Allows manual triggering
-  repository_dispatch:
-    types: [ trigger-restart-server ]
+  workflow_call: # Allows calling from another workflow
 
 jobs:
   restart-server:

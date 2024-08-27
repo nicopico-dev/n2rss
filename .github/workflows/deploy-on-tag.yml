@@ -72,7 +72,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Restart Server workflow
-        uses: peter-evans/repository-dispatch@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          event-type: trigger-restart-server
+        uses: ./.github/workflows/restart-server.yml
+        secrets: inherit
