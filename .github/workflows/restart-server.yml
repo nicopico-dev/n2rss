@@ -19,7 +19,7 @@ jobs:
             }
       - name: Wait until the server has stopped
         run: |
-          sleep 15
+          sleep ${{ vars.DELAY_BEFORE_RESTART }}
       - name: Restart Server
         uses: fjogeleit/http-request-action@v1
         with:
