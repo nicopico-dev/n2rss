@@ -19,9 +19,11 @@ package fr.nicopico.n2rss.monitoring.github
 
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory
+import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import org.springframework.web.client.RestClient
+import org.springframework.web.client.RestClientResponseException
 
 private val LOG = LoggerFactory.getLogger(GithubClient::class.java)
 
@@ -45,24 +47,64 @@ class GithubClient(
             .build()
     }
 
-    val issueLabels = githubProperties.issueLabels
-    val requestLabels = githubProperties.requestLabels
-
-    fun createIssue(title: String, body: String, labels: List<String> = emptyList()): IssueId {
+    /**
+     * Create a GitHub issue with the given [title] and [body].
+     * [labels] can also be provided, default is none.
+     * @return ID of the issue
+     *
+     *
+     * API: https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#create-an-issue
+     */
+    fun createIssue(
+        title: String,
+        body: String,
+        labels: List<String> = emptyList()
+    ): IssueId {
         val issue = GithubIssueDTO(title, body, labels)
 
-        restClient
-            .post()
-            .uri("/issues")
-            .contentType(MediaType.APPLICATION_JSON)
-            .body(issue)
-            .retrieve()
-            .toBodilessEntity()
+        val responseBody: Map<String, Any?> = try {
+            restClient
+                .post()
+                .uri("/issues")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(issue)
+                .retrieve()
+                .body(ParameterizedTypeReference.forType(Map::class.java))
+                ?: throw GithubException("Cannot create GitHub issue, response body is empty")
 
-        TODO()
+        } catch (e: RestClientResponseException) {
+            throw GithubException("Failed to create GitHub issue", e)
+        }
+
+        val rawIssueId = responseBody["number"]
+
+        return (rawIssueId as? Int)
+            ?.let { IssueId(it) }
+            ?: throw GithubException("Unable to retrieve Github issue ID ($rawIssueId)")
     }
 
-    fun addCommentToIssue(issueId: IssueId, body: String) {
-        TODO()
+    /**
+     * Add a comment to an issue with the given [issueId]
+     *
+     * API: https://docs.github.com/en/rest/issues/comments?apiVersion=2022-11-28#create-an-issue-comment
+     */
+    fun addCommentToIssue(
+        issueId: IssueId,
+        body: String
+    ) {
+        try {
+            restClient
+                .post()
+                .uri("/issues/${issueId.value}/comments")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(
+                    mapOf("body" to body)
+                )
+                .retrieve()
+                .toBodilessEntity()
+
+        } catch (e: RestClientResponseException) {
+            throw GithubException("Failed to add comment to GitHub issue $issueId", e)
+        }
     }
 }

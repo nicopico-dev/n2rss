@@ -30,6 +30,8 @@ import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.verifyOrder
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import io.kotest.matchers.string.beEmpty as beAnEmptyString
@@ -38,6 +40,7 @@ class DataAnalyticsServiceTest {
 
     @MockK
     private lateinit var analyticsRepository: AnalyticsRepository
+    private val now by lazy { Clock.System.now() }
 
     @BeforeEach
     fun setUp() {
@@ -52,6 +55,9 @@ class DataAnalyticsServiceTest {
             analyticsProperties = N2RssProperties.AnalyticsProperties(
                 enabled = enabled,
             ),
+            clock = object : Clock {
+                override fun now(): Instant = now
+            }
         )
     }
 

@@ -23,7 +23,6 @@ import fr.nicopico.n2rss.analytics.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import kotlinx.datetime.Clock
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
@@ -32,11 +31,6 @@ class DataAnalyticsService(
     private val analyticsProperties: N2RssProperties.AnalyticsProperties,
     private val clock: Clock,
 ) : AnalyticsService {
-    @Autowired
-    constructor(
-        analyticsRepository: AnalyticsRepository,
-        analyticsProperties: N2RssProperties.AnalyticsProperties,
-    ) : this(analyticsRepository, analyticsProperties, Clock.System)
 
     @Throws(AnalyticsException::class)
     override fun track(event: AnalyticsEvent) {

@@ -18,25 +18,96 @@
 package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.monitoring.data.GithubIssueData
+import fr.nicopico.n2rss.monitoring.data.GithubIssueRepository
 import fr.nicopico.n2rss.monitoring.github.GithubClient
+import fr.nicopico.n2rss.monitoring.github.GithubException
+import kotlinx.datetime.Clock
+import kotlinx.datetime.format
+import kotlinx.datetime.format.DateTimeComponents
+import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 import java.net.URL
 
 @Service
 class MonitoringService(
-    private val githubClient: GithubClient
+    private val repository: GithubIssueRepository,
+    private val client: GithubClient,
+    private val clock: Clock,
 ) {
+    @Async
     fun notifyEmailClientError(error: Exception) {
-        TODO("Not yet implemented")
+        try {
+            val existing = repository.getEmailClientError(error)
+            if (existing == null) {
+                val id = client.createIssue(
+                    title = "Email client error on \"${error.message}\"",
+                    body = "Retrieving emails failed with the following error:\n"
+                        + "${error.message}\n"
+                        + error.stackTraceToString(),
+                    labels = listOf(
+                        "n2rss-bot",
+                        "email-client-error",
+                        "bug",
+                    )
+                )
+                repository.save(GithubIssueData.EmailClientError(id, error))
+            }
+        } catch (e: GithubException) {
+            LOG.error("Unable to notify emailClient error", e)
+        }
     }
 
+    @Async
     fun notifyEmailProcessingError(email: Email, error: Exception) {
-        TODO("Not yet implemented")
+        val emailTitle = email.subject
+        try {
+            val existing = repository.getEmailProcessingError(email, error)
+            if (existing == null) {
+                val id = client.createIssue(
+                    title = "Email processing error on \"$emailTitle\"",
+                    body = "Processing of email \"$emailTitle\" sent by ${email.sender} failed with the following error:\n"
+                        + "${error.message}\n"
+                        + error.stackTraceToString(),
+                    labels = listOf(
+                        "n2rss-bot",
+                        "email-processing-error",
+                        "bug",
+                    )
+                )
+                repository.save(GithubIssueData.EmailProcessingError(id, emailTitle, error))
+            }
+        } catch (e: GithubException) {
+            LOG.error("Unable to notify email processing error on email $emailTitle", e)
+        }
     }
 
     @Async
     fun notifyRequest(uniqueUrl: URL) {
-        githubClient.createIssue("TEST ISSUE", "THIS IS A TEST")
+        try {
+            val today = clock.now().format(DateTimeComponents.Formats.RFC_1123)
+            val existing = repository.getNewsletterRequestByNewsletterUrl(uniqueUrl)
+            if (existing == null) {
+                val id = client.createIssue(
+                    title = "Add support for newsletter $uniqueUrl",
+                    body = "Initial request to support $uniqueUrl received on $today",
+                    labels = listOf(
+                        "n2rss-bot",
+                        "newsletter-request"
+                    )
+                )
+                repository.save(GithubIssueData.NewsletterRequest(id, uniqueUrl))
+            } else {
+                val id = existing.issueId
+                client.addCommentToIssue(id, "New request received on $today")
+            }
+        } catch (e: GithubException) {
+            LOG.error("Unable to notify request for $uniqueUrl", e)
+        }
+    }
+
+    companion object {
+        private val LOG = LoggerFactory.getLogger(this::class.java)
     }
 }
