@@ -18,12 +18,12 @@
 
 package fr.nicopico.n2rss.mail
 
-import fr.nicopico.n2rss.data.PublicationRepository
+import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.mail.client.EmailClient
-import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.process
-import fr.nicopico.n2rss.models.Email
-import fr.nicopico.n2rss.models.Publication
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
+import fr.nicopico.n2rss.newsletter.handlers.process
+import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.models.Publication
 import io.mockk.MockKAnnotations
 import io.mockk.Runs
 import io.mockk.confirmVerified

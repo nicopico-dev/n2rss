@@ -17,7 +17,7 @@
  */
 package fr.nicopico.n2rss.analytics
 
-import fr.nicopico.n2rss.models.Email
+import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.utils.getCallArgument
 import fr.nicopico.n2rss.utils.proceed
 import org.aspectj.lang.JoinPoint
@@ -205,8 +205,8 @@ class AnalyticsAspect(
 
     //region Parsing
     @Pointcut(
-        "execution(* fr.nicopico.n2rss.mail.newsletter.NewsletterHandler+" +
-            ".process(fr.nicopico.n2rss.models.Email))"
+        "execution(* fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler+" +
+            ".process(fr.nicopico.n2rss.mail.models.Email))"
     )
     fun newsletterHandlerProcessPointcut() = Unit
 

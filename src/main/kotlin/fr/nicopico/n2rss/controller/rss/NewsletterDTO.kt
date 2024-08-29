@@ -19,7 +19,7 @@ package fr.nicopico.n2rss.controller.rss
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
-import fr.nicopico.n2rss.models.NewsletterInfo
+import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
 import fr.nicopico.n2rss.utils.toLegacyDate
 import java.util.*
 

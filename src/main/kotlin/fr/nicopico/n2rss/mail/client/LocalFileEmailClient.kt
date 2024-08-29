@@ -17,7 +17,7 @@
  */
 package fr.nicopico.n2rss.mail.client
 
-import fr.nicopico.n2rss.models.Email
+import fr.nicopico.n2rss.mail.models.Email
 import jakarta.mail.Session
 import jakarta.mail.internet.MimeMessage
 import java.io.FileInputStream
