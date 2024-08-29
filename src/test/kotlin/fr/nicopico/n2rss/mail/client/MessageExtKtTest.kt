@@ -18,7 +18,7 @@
 
 package fr.nicopico.n2rss.mail.client
 
-import fr.nicopico.n2rss.models.Sender
+import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldThrowWithMessage

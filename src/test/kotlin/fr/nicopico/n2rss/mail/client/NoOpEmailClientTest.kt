@@ -1,6 +1,6 @@
 package fr.nicopico.n2rss.mail.client
 
-import fr.nicopico.n2rss.models.Email
+import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.matchers.collections.beEmpty
 import io.kotest.matchers.should

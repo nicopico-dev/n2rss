@@ -17,9 +17,8 @@
  */
 package fr.nicopico.n2rss.config
 
-import fr.nicopico.n2rss.mail.newsletter.NewsletterHandler
-import fr.nicopico.n2rss.mail.newsletter.newsletters
-import fr.nicopico.n2rss.service.ReCaptchaService
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
+import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import org.slf4j.LoggerFactory
 import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Bean

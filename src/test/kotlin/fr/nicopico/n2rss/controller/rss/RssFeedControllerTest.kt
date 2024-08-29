@@ -19,9 +19,9 @@
 package fr.nicopico.n2rss.controller.rss
 
 import com.rometools.rome.feed.synd.SyndFeed
-import fr.nicopico.n2rss.models.NewsletterInfo
-import fr.nicopico.n2rss.service.NewsletterService
-import fr.nicopico.n2rss.service.RssService
+import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
+import fr.nicopico.n2rss.newsletter.service.NewsletterService
+import fr.nicopico.n2rss.newsletter.service.RssService
 import io.kotest.assertions.assertSoftly
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe

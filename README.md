@@ -4,11 +4,11 @@ N2RSS (*Newsletter to RSS*) goal is to publish RSS feeds containing separate art
 extracted from selected newsletters.
 
 It will run an email check periodically for new emails on an inbox.
-A recognized email will be processed, while unrecognized email are left as-is.
+A recognized email will be processed, while an unrecognized email is left as-is.
 Once an email has been processed, it is marked as read.
 
-Each newsletter will map to a separate RSS feed, 
-and each articles extracted from the newsletter publication will map to different RSS entry in the corresponding feed.
+Each newsletter will map to a separate RSS feed,
+and each article extracted from the newsletter publication will map to different RSS entry in the corresponding feed.
 
 | Newsletter          | URL                                                                  |
 |---------------------|----------------------------------------------------------------------|
