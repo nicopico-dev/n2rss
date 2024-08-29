@@ -23,25 +23,30 @@ import java.net.URL
 
 @Repository
 class GithubIssueRepository(
+    private val emailClientErrorRepository: GithubIssueEmailClientErrorRepository,
+    private val emailProcessingErrorRepository: GithubIssueEmailProcessingErrorRepository,
     private val newsletterRequestRepository: GithubIssueNewsletterRequestRepository,
 ) {
     //region EmailClientError
-    fun getEmailClientError(error: Exception): GithubIssueData.EmailClientError? {
-        TODO("Not yet implemented")
+    fun getEmailClientError(errorMessage: String): GithubIssueData.EmailClientError? {
+        return emailClientErrorRepository.getEmailClientErrorByErrorMessage(errorMessage)
     }
 
     fun save(emailClientError: GithubIssueData.EmailClientError) {
-        TODO("Not yet implemented")
+        emailClientErrorRepository.save(emailClientError)
     }
     //endregion
 
     //region EmailProcessingError
-    fun getEmailProcessingError(email: Email, error: Exception): GithubIssueData.EmailProcessingError? {
-        TODO("Not yet implemented")
+    fun getEmailProcessingError(email: Email, errorMessage: String): GithubIssueData.EmailProcessingError? {
+        return emailProcessingErrorRepository.getEmailProcessingErrorByEmailTitleAndErrorMessage(
+            emailTitle = email.subject,
+            errorMessage = errorMessage,
+        )
     }
 
     fun save(emailProcessingError: GithubIssueData.EmailProcessingError) {
-        TODO("Not yet implemented")
+        emailProcessingErrorRepository.save(emailProcessingError)
     }
     //endregion
 

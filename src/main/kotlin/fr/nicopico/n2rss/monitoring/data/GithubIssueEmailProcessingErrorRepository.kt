@@ -16,19 +16,14 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.monitoring.github
+package fr.nicopico.n2rss.monitoring.data
 
-import com.fasterxml.jackson.annotation.JsonProperty
+import fr.nicopico.n2rss.monitoring.github.IssueId
+import org.springframework.data.mongodb.repository.MongoRepository
 
-class GithubIssueDTO(
-    @JsonProperty("title")
-    val title: String,
-    @JsonProperty("body")
-    val body: String,
-    @JsonProperty("labels")
-    val labels: List<String> = emptyList(),
-) {
-    override fun toString(): String {
-        return "GithubIssueDTO(title='$title', labels=$labels)"
-    }
+interface GithubIssueEmailProcessingErrorRepository : MongoRepository<GithubIssueData.EmailProcessingError, IssueId> {
+    fun getEmailProcessingErrorByEmailTitleAndErrorMessage(
+        emailTitle: String,
+        errorMessage: String
+    ): GithubIssueData.EmailProcessingError?
 }

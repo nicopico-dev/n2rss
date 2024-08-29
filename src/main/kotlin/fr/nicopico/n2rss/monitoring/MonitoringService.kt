@@ -38,21 +38,28 @@ class MonitoringService(
 ) {
     @Async
     fun notifyEmailClientError(error: Exception) {
+        val errorMessage = error.message ?: error.toString()
         try {
-            val existing = repository.getEmailClientError(error)
+            val existing = repository.getEmailClientError(errorMessage)
             if (existing == null) {
                 val id = client.createIssue(
-                    title = "Email client error on \"${error.message}\"",
-                    body = "Retrieving emails failed with the following error:\n"
-                        + "${error.message}\n"
-                        + error.stackTraceToString(),
+                    title = "Email client fails with `$errorMessage`",
+                    body = "Retrieving emails failed with the following error: `$errorMessage`\n"
+                        + "```\n"
+                        + error.stackTraceToString()
+                        + "```\n",
                     labels = listOf(
                         "n2rss-bot",
                         "email-client-error",
                         "bug",
                     )
                 )
-                repository.save(GithubIssueData.EmailClientError(id, error))
+                repository.save(
+                    GithubIssueData.EmailClientError(
+                        issueId = id,
+                        errorMessage = errorMessage,
+                    )
+                )
             }
         } catch (e: GithubException) {
             LOG.error("Unable to notify emailClient error", e)
@@ -62,21 +69,31 @@ class MonitoringService(
     @Async
     fun notifyEmailProcessingError(email: Email, error: Exception) {
         val emailTitle = email.subject
+        val errorMessage = error.message ?: error.toString()
         try {
-            val existing = repository.getEmailProcessingError(email, error)
+            val existing = repository.getEmailProcessingError(email, errorMessage)
             if (existing == null) {
                 val id = client.createIssue(
                     title = "Email processing error on \"$emailTitle\"",
-                    body = "Processing of email \"$emailTitle\" sent by ${email.sender} failed with the following error:\n"
-                        + "${error.message}\n"
-                        + error.stackTraceToString(),
+                    body = "Processing of email \"$emailTitle\" sent by `${email.sender}` failed "
+                        + "with the following error:\n" +
+                        "`$errorMessage`\n"
+                        + "```"
+                        + error.stackTraceToString()
+                        + "```\n",
                     labels = listOf(
                         "n2rss-bot",
                         "email-processing-error",
                         "bug",
                     )
                 )
-                repository.save(GithubIssueData.EmailProcessingError(id, emailTitle, error))
+                repository.save(
+                    GithubIssueData.EmailProcessingError(
+                        issueId = id,
+                        emailTitle = emailTitle,
+                        errorMessage = errorMessage,
+                    )
+                )
             }
         } catch (e: GithubException) {
             LOG.error("Unable to notify email processing error on email $emailTitle", e)
@@ -100,7 +117,7 @@ class MonitoringService(
                 repository.save(GithubIssueData.NewsletterRequest(id, uniqueUrl))
             } else {
                 val id = existing.issueId
-                client.addCommentToIssue(id, "New request received on $today")
+                client.addCommentToIssue(issueId = id, body = "New request received on $today")
             }
         } catch (e: GithubException) {
             LOG.error("Unable to notify request for $uniqueUrl", e)

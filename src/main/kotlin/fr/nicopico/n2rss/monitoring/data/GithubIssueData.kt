@@ -30,14 +30,15 @@ sealed class GithubIssueData(
 ) {
     class EmailClientError(
         issueId: IssueId,
-        val error: Exception
+        val errorMessage: String
     ) : GithubIssueData(issueId)
 
     class EmailProcessingError(
         issueId: IssueId,
         @Indexed
         val emailTitle: String,
-        val error: Exception,
+        @Indexed
+        val errorMessage: String,
     ) : GithubIssueData(issueId)
 
     class NewsletterRequest(
