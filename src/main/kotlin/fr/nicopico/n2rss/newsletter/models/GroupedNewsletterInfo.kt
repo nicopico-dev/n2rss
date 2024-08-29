@@ -33,7 +33,7 @@ data class GroupedNewsletterInfo(
 }
 
 // @Suppress
-// - FunctionNaming: this function simulate an "extension constructor"
+// - FunctionNaming: this function simulates an "extension constructor"
 @Suppress("FunctionNaming")
 fun GroupedNewsletterInfo(
     vararg newsletterInfos: NewsletterInfo

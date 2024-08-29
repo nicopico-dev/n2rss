@@ -20,7 +20,7 @@ package fr.nicopico.n2rss.controller.home
 import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.newsletter.models.GroupedNewsletterInfo
 import fr.nicopico.n2rss.newsletter.models.toGroupedNewsletterInfo
-import fr.nicopico.n2rss.service.NewsletterService
+import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.ReCaptchaService
 import fr.nicopico.n2rss.utils.url.Url
 import jakarta.servlet.http.HttpServletRequest

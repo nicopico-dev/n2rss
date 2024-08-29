@@ -17,7 +17,7 @@
  */
 package fr.nicopico.n2rss.controller.rss
 
-import fr.nicopico.n2rss.service.NewsletterService
+import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.RssService
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.http.MediaType
