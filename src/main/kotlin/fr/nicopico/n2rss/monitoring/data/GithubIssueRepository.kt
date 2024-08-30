@@ -28,33 +28,67 @@ class GithubIssueRepository(
     private val newsletterRequestRepository: GithubIssueNewsletterRequestRepository,
 ) {
     //region EmailClientError
-    fun getEmailClientError(errorMessage: String): GithubIssueData.EmailClientError? {
+    /**
+     * Finds an EmailClientError from the repository based on the provided error message.
+     *
+     * @param errorMessage The error message to search for in the repository.
+     * @return The EmailClientError corresponding to the provided error message, or null if not found.
+     */
+    fun findEmailClientError(errorMessage: String): GithubIssueData.EmailClientError? {
         return emailClientErrorRepository.getEmailClientErrorByErrorMessage(errorMessage)
     }
 
+    /**
+     * Saves the provided EmailClientError to the repository.
+     *
+     * @param emailClientError The EmailClientError instance to be saved.
+     */
     fun save(emailClientError: GithubIssueData.EmailClientError) {
         emailClientErrorRepository.save(emailClientError)
     }
     //endregion
 
     //region EmailProcessingError
-    fun getEmailProcessingError(email: Email, errorMessage: String): GithubIssueData.EmailProcessingError? {
+    /**
+     * Finds an EmailProcessingError from the repository based on the provided email and error message.
+     *
+     * @param email The email whose processing error is to be found.
+     * @param errorMessage The error message associated with the email.
+     * @return The EmailProcessingError corresponding to the provided email and error message, or null if not found.
+     */
+    fun findEmailProcessingError(email: Email, errorMessage: String): GithubIssueData.EmailProcessingError? {
         return emailProcessingErrorRepository.getEmailProcessingErrorByEmailTitleAndErrorMessage(
             emailTitle = email.subject,
             errorMessage = errorMessage,
         )
     }
 
+    /**
+     * Saves the provided EmailProcessingError to the repository.
+     *
+     * @param emailProcessingError The EmailProcessingError instance to be saved.
+     */
     fun save(emailProcessingError: GithubIssueData.EmailProcessingError) {
         emailProcessingErrorRepository.save(emailProcessingError)
     }
     //endregion
 
     //region NewsletterRequest
-    fun getNewsletterRequestByNewsletterUrl(newsletterUrl: URL): GithubIssueData.NewsletterRequest? {
+    /**
+     * Finds a NewsletterRequest from the repository based on the provided newsletter URL.
+     *
+     * @param newsletterUrl The URL of the newsletter to search for in the repository.
+     * @return The NewsletterRequest corresponding to the provided URL, or null if not found.
+     */
+    fun findNewsletterRequest(newsletterUrl: URL): GithubIssueData.NewsletterRequest? {
         return newsletterRequestRepository.getNewsletterRequestByNewsletterUrl(newsletterUrl)
     }
 
+    /**
+     * Saves the provided NewsletterRequest to the repository.
+     *
+     * @param newsletterRequest The NewsletterRequest instance to be saved.
+     */
     fun save(newsletterRequest: GithubIssueData.NewsletterRequest) {
         newsletterRequestRepository.save(newsletterRequest)
     }

@@ -25,8 +25,6 @@ import org.springframework.stereotype.Component
 import org.springframework.web.client.RestClient
 import org.springframework.web.client.RestClientResponseException
 
-private val LOG = LoggerFactory.getLogger(GithubClient::class.java)
-
 @Component
 class GithubClient(
     clientBuilder: RestClient.Builder = RestClient.builder(),
@@ -106,5 +104,9 @@ class GithubClient(
         } catch (e: RestClientResponseException) {
             throw GithubException("Failed to add comment to GitHub issue $issueId", e)
         }
+    }
+
+    companion object {
+        private val LOG = LoggerFactory.getLogger(GithubClient::class.java)
     }
 }

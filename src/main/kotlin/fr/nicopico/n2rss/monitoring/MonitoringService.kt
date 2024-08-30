@@ -40,7 +40,7 @@ class MonitoringService(
     fun notifyEmailClientError(error: Exception) {
         val errorMessage = error.message ?: error.toString()
         try {
-            val existing = repository.getEmailClientError(errorMessage)
+            val existing = repository.findEmailClientError(errorMessage)
             if (existing == null) {
                 val id = client.createIssue(
                     title = "Email client fails with `$errorMessage`",
@@ -71,7 +71,7 @@ class MonitoringService(
         val emailTitle = email.subject
         val errorMessage = error.message ?: error.toString()
         try {
-            val existing = repository.getEmailProcessingError(email, errorMessage)
+            val existing = repository.findEmailProcessingError(email, errorMessage)
             if (existing == null) {
                 val id = client.createIssue(
                     title = "Email processing error on \"$emailTitle\"",
@@ -104,7 +104,7 @@ class MonitoringService(
     fun notifyRequest(uniqueUrl: URL) {
         try {
             val today = clock.now().format(DateTimeComponents.Formats.RFC_1123)
-            val existing = repository.getNewsletterRequestByNewsletterUrl(uniqueUrl)
+            val existing = repository.findNewsletterRequest(uniqueUrl)
             if (existing == null) {
                 val id = client.createIssue(
                     title = "Add support for newsletter $uniqueUrl",
