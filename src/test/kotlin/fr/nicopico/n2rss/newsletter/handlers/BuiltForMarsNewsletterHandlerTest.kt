@@ -64,6 +64,19 @@ class BuiltForMarsNewsletterHandlerTest {
     @Nested
     inner class ProcessTest {
         @Test
+        fun `should be able to process all the newsletter emails`() {
+            // GIVEN
+            val emails = loadEmails("stubs/emails/Built for Mars")
+
+            // WHEN - THEN
+            shouldNotThrowAny {
+                emails.forEach { email ->
+                    handler.process(email)
+                }
+            }
+        }
+
+        @Test
         fun `should process any Built for Mars email`() {
             // GIVEN
             val emails = loadEmails("stubs/emails/Built for Mars")
