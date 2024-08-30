@@ -53,6 +53,7 @@ class GithubClient(
      *
      * API: https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#create-an-issue
      */
+    @Suppress("ThrowsCount")
     fun createIssue(
         title: String,
         body: String,

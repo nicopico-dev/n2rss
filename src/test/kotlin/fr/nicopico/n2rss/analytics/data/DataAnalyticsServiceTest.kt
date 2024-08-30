@@ -20,6 +20,7 @@ package fr.nicopico.n2rss.analytics.data
 import fr.nicopico.n2rss.analytics.AnalyticsEvent
 import fr.nicopico.n2rss.analytics.AnalyticsException
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.fakes.FixedClock
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
@@ -31,7 +32,6 @@ import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.verifyOrder
 import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import io.kotest.matchers.string.beEmpty as beAnEmptyString
@@ -55,9 +55,7 @@ class DataAnalyticsServiceTest {
             analyticsProperties = N2RssProperties.AnalyticsProperties(
                 enabled = enabled,
             ),
-            clock = object : Clock {
-                override fun now(): Instant = now
-            }
+            clock = FixedClock(now)
         )
     }
 

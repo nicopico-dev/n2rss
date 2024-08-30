@@ -37,6 +37,7 @@ class NewsletterService(
     private val publicationRepository: PublicationRepository,
     private val newsletterRequestRepository: NewsletterRequestRepository,
     private val monitoringService: MonitoringService,
+    private val clock: Clock,
 ) {
     fun getNewslettersInfo(): List<NewsletterInfo> {
         return newsletterHandlers
@@ -55,7 +56,7 @@ class NewsletterService(
 
     @Transactional
     fun saveRequest(newsletterUrl: URL) {
-        val now = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
+        val now = clock.now().toLocalDateTime(TimeZone.currentSystemDefault())
 
         // Sanitize URL
         val uniqueUrl = URL(

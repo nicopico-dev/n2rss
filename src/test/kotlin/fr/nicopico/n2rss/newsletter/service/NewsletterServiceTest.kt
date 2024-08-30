@@ -18,6 +18,7 @@
 
 package fr.nicopico.n2rss.newsletter.service
 
+import fr.nicopico.n2rss.fakes.FixedClock
 import fr.nicopico.n2rss.fakes.NewsletterHandlerFake
 import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.data.NewsletterRequestRepository
@@ -35,6 +36,7 @@ import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.slot
 import io.mockk.verify
+import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalDateTime
 import org.junit.jupiter.api.BeforeEach
@@ -56,6 +58,8 @@ class NewsletterServiceTest {
     @MockK(relaxUnitFun = true)
     private lateinit var monitoringService: MonitoringService
 
+    private val now by lazy { Clock.System.now() }
+
     private lateinit var newsletterService: NewsletterService
 
     @BeforeEach
@@ -66,6 +70,7 @@ class NewsletterServiceTest {
             publicationRepository = publicationRepository,
             newsletterRequestRepository = newsletterRequestRepository,
             monitoringService = monitoringService,
+            clock = FixedClock(now)
         )
     }
 

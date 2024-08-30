@@ -25,6 +25,8 @@ import fr.nicopico.n2rss.monitoring.github.GithubException
 import kotlinx.datetime.Clock
 import kotlinx.datetime.format
 import kotlinx.datetime.format.DateTimeComponents
+import kotlinx.datetime.format.Padding
+import kotlinx.datetime.format.char
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
@@ -44,7 +46,7 @@ class MonitoringService(
             if (existing == null) {
                 val id = client.createIssue(
                     title = "Email client fails with `$errorMessage`",
-                    body = "Retrieving emails failed with the following error: `$errorMessage`\n"
+                    body = "Retrieving emails failed with the following error:\n\n"
                         + "```\n"
                         + error.stackTraceToString()
                         + "```\n",
@@ -75,10 +77,9 @@ class MonitoringService(
             if (existing == null) {
                 val id = client.createIssue(
                     title = "Email processing error on \"$emailTitle\"",
-                    body = "Processing of email \"$emailTitle\" sent by `${email.sender}` failed "
-                        + "with the following error:\n" +
-                        "`$errorMessage`\n"
-                        + "```"
+                    body = "Processing of email \"$emailTitle\" sent by \"${email.sender.sender}\" failed "
+                        + "with the following error:\n\n"
+                        + "```\n"
                         + error.stackTraceToString()
                         + "```\n",
                     labels = listOf(
@@ -103,12 +104,18 @@ class MonitoringService(
     @Async
     fun notifyRequest(uniqueUrl: URL) {
         try {
-            val today = clock.now().format(DateTimeComponents.Formats.RFC_1123)
+            val today = clock.now().format(DateTimeComponents.Format {
+                year(Padding.ZERO)
+                char('-')
+                monthNumber(Padding.ZERO)
+                char('-')
+                dayOfMonth(Padding.ZERO)
+            })
             val existing = repository.findNewsletterRequest(uniqueUrl)
             if (existing == null) {
                 val id = client.createIssue(
-                    title = "Add support for newsletter $uniqueUrl",
-                    body = "Initial request to support $uniqueUrl received on $today",
+                    title = "Add support for newsletter \"$uniqueUrl\"",
+                    body = "Initial request to support \"$uniqueUrl\" received on $today",
                     labels = listOf(
                         "n2rss-bot",
                         "newsletter-request"
