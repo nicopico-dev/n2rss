@@ -63,6 +63,19 @@ class KotlinWeeklyNewsletterHandlerTest {
     @Nested
     inner class ProcessTest {
         @Test
+        fun `should be able to process all the newsletter emails`() {
+            // GIVEN
+            val emails = loadEmails("stubs/emails/Kotlin Weekly")
+
+            // WHEN - THEN
+            shouldNotThrowAny {
+                emails.forEach { email ->
+                    handler.process(email)
+                }
+            }
+        }
+
+        @Test
         fun `should extract all articles from an email`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")

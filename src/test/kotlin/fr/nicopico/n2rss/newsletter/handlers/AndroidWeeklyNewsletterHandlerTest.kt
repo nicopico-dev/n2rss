@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
+import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
@@ -60,6 +61,19 @@ class AndroidWeeklyNewsletterHandlerTest {
 
     @Nested
     inner class ProcessTest {
+        @Test
+        fun `should be able to process all the newsletter emails`() {
+            // GIVEN
+            val emails = loadEmails("stubs/emails/Android Weekly")
+
+            // WHEN - THEN
+            shouldNotThrowAny {
+                emails.forEach { email ->
+                    handler.process(email)
+                }
+            }
+        }
+
         @Test
         fun `should extract all articles from an Android Weekly email`() {
             // GIVEN

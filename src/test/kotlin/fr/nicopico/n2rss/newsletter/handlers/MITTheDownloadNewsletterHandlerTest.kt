@@ -64,6 +64,19 @@ class MITTheDownloadNewsletterHandlerTest {
     @Nested
     inner class ProcessTest {
         @Test
+        fun `should be able to process all the newsletter emails`() {
+            // GIVEN
+            val emails = loadEmails("stubs/emails/MIT/The Download")
+
+            // WHEN - THEN
+            shouldNotThrowAny {
+                emails.forEach { email ->
+                    handler.process(email)
+                }
+            }
+        }
+
+        @Test
         fun `should extract an articles from an email`() {
             // GIVEN
             val email: Email =
