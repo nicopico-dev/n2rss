@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service
 import java.net.URL
 
 @Service
-class GitHubMonitoringService(
+class GithubMonitoringService(
     private val repository: GithubIssueRepository,
     private val client: GithubClient,
     private val clock: Clock,

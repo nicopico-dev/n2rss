@@ -49,7 +49,7 @@ class GithubClientTest {
     ): GithubClient {
         return GithubClient(
             githubApiBaseUrl = server.url("/").toString(),
-            githubProperties = N2RssProperties.GitHubProperties(
+            githubProperties = N2RssProperties.GithubProperties(
                 owner = owner,
                 repository = repository,
                 accessToken = accessToken,
@@ -75,7 +75,7 @@ class GithubClientTest {
         )
         server.enqueue(
             MockResponse()
-                .setBody(GitHubIssueSuccessResponse)
+                .setBody(GithubIssueSuccessResponse)
                 .addHeader("Content-Type", "application/json")
         )
 
@@ -113,7 +113,7 @@ class GithubClientTest {
         )
         server.enqueue(
             MockResponse()
-                .setBody(GitHubCommentSuccessResponse)
+                .setBody(GithubCommentSuccessResponse)
                 .addHeader("Content-Type", "application/json")
         )
 

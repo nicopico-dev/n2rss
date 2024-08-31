@@ -62,7 +62,7 @@ constructor(
     val recaptcha: ReCaptchaProperties,
     val email: EmailProperties,
     val analytics: AnalyticsProperties,
-    val github: GitHubProperties,
+    val github: GithubProperties,
 ) {
     data class MaintenanceProperties(
         val secretKey: String,
@@ -97,7 +97,7 @@ constructor(
         val userAgent: String,
         val hostname: String,
     )
-    data class GitHubProperties(
+    data class GithubProperties(
         val owner: String,
         val repository: String,
         val accessToken: String,

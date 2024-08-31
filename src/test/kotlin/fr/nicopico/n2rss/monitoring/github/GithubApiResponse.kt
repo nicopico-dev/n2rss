@@ -17,7 +17,7 @@
  */
 package fr.nicopico.n2rss.monitoring.github
 
-val GitHubIssueSuccessResponse = """
+val GithubIssueSuccessResponse = """
     {
       "id": 1,
       "node_id": "MDU6SXNzdWUx",
@@ -178,7 +178,7 @@ val GitHubIssueSuccessResponse = """
     }
 """.trimIndent()
 
-val GitHubCommentSuccessResponse = """
+val GithubCommentSuccessResponse = """
     {
       "id": 1,
       "node_id": "MDEyOklzc3VlQ29tbWVudDE=",

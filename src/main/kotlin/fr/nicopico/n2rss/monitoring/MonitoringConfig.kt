@@ -27,8 +27,8 @@ import org.springframework.context.annotation.Configuration
 class MonitoringConfig {
     @Bean
     fun monitoringService(
-        githubProperties: N2RssProperties.GitHubProperties,
-        gitHubMonitoringService: GitHubMonitoringService,
+        githubProperties: N2RssProperties.GithubProperties,
+        gitHubMonitoringService: GithubMonitoringService,
     ): MonitoringService {
         val monitoringService = if (githubProperties.monitoringEnabled) {
             gitHubMonitoringService

@@ -30,12 +30,12 @@ import org.springframework.web.client.RestClientResponseException
 class GithubClient(
     clientBuilder: RestClient.Builder = RestClient.builder(),
     private val githubApiBaseUrl: String,
-    githubProperties: N2RssProperties.GitHubProperties,
+    githubProperties: N2RssProperties.GithubProperties,
 ) {
     @Autowired
     constructor(
         clientBuilder: RestClient.Builder = RestClient.builder(),
-        githubProperties: N2RssProperties.GitHubProperties,
+        githubProperties: N2RssProperties.GithubProperties,
     ) : this(
         clientBuilder = clientBuilder,
         githubApiBaseUrl = "https://api.github.com",

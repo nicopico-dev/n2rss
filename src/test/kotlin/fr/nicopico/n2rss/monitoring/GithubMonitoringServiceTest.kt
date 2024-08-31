@@ -48,7 +48,7 @@ import java.net.URL
 import kotlin.random.Random
 
 @ExtendWith(MockKExtension::class)
-class MonitoringServiceTest {
+class GithubMonitoringServiceTest {
 
     @MockK
     private lateinit var repository: GithubIssueRepository
@@ -61,7 +61,7 @@ class MonitoringServiceTest {
 
     @BeforeEach
     fun setUp() {
-        monitoringService = MonitoringService(
+        monitoringService = GithubMonitoringService(
             repository = repository,
             client = client,
             clock = FixedClock(now),
@@ -112,7 +112,7 @@ class MonitoringServiceTest {
             |
             |```
             |java.lang.Exception: Some error
-            |	at fr.nicopico.n2rss.monitoring.MonitoringServiceTest.notifyEmailClientError should create a new GitHub issue and save it to the repository(MonitoringServiceTest.kt:
+            |	at fr.nicopico.n2rss.monitoring.GithubMonitoringServiceTest.notifyEmailClientError should create a new GitHub issue and save it to the repository(GithubMonitoringServiceTest.kt:
         """.trimMargin()
 
         bodySlot.captured shouldEndWith """
@@ -211,7 +211,7 @@ class MonitoringServiceTest {
             |
             |```
             |java.lang.Exception: Some error
-            |	at fr.nicopico.n2rss.monitoring.MonitoringServiceTest.notifyEmailProcessingError should create a new GitHub issue and save it to the repository(MonitoringServiceTest.kt:
+            |	at fr.nicopico.n2rss.monitoring.GithubMonitoringServiceTest.notifyEmailProcessingError should create a new GitHub issue and save it to the repository(GithubMonitoringServiceTest.kt:
         """.trimMargin()
 
         bodySlot.captured shouldEndWith """
