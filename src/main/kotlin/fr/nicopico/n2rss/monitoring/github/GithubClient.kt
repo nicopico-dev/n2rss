@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.monitoring.github
 
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
@@ -28,8 +29,19 @@ import org.springframework.web.client.RestClientResponseException
 @Component
 class GithubClient(
     clientBuilder: RestClient.Builder = RestClient.builder(),
+    private val githubApiBaseUrl: String,
     githubProperties: N2RssProperties.GitHubProperties,
 ) {
+    @Autowired
+    constructor(
+        clientBuilder: RestClient.Builder = RestClient.builder(),
+        githubProperties: N2RssProperties.GitHubProperties,
+    ) : this(
+        clientBuilder = clientBuilder,
+        githubApiBaseUrl = "https://api.github.com",
+        githubProperties = githubProperties,
+    )
+
     private val restClient by lazy {
         val owner = githubProperties.owner
         val repository = githubProperties.repository
@@ -38,7 +50,7 @@ class GithubClient(
         LOG.debug("repos: $owner/$repository")
 
         clientBuilder
-            .baseUrl("https://api.github.com/repos/$owner/$repository")
+            .baseUrl("$githubApiBaseUrl/repos/$owner/$repository")
             .defaultHeader("Authorization", "Bearer $accessToken")
             .defaultHeader("Accept", "application/vnd.github+json")
             .defaultHeader("X-GitHub-Api-Version", "2022-11-28")
@@ -48,10 +60,10 @@ class GithubClient(
     /**
      * Create a GitHub issue with the given [title] and [body].
      * [labels] can also be provided, default is none.
+     *
+     * [API documentation](https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#create-an-issue")
+     *
      * @return ID of the issue
-     *
-     *
-     * API: https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#create-an-issue
      */
     @Suppress("ThrowsCount")
     fun createIssue(
@@ -85,7 +97,7 @@ class GithubClient(
     /**
      * Add a comment to an issue with the given [issueId]
      *
-     * API: https://docs.github.com/en/rest/issues/comments?apiVersion=2022-11-28#create-an-issue-comment
+     * [API documentation](https://docs.github.com/en/rest/issues/comments?apiVersion=2022-11-28#create-an-issue-comment)
      */
     fun addCommentToIssue(
         issueId: IssueId,

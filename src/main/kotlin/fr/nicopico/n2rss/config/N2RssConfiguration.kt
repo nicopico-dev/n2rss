@@ -101,7 +101,5 @@ constructor(
         val owner: String,
         val repository: String,
         val accessToken: String,
-        val issueLabels: List<String> = listOf("n2rss", "monitoring"),
-        val requestLabels: List<String> = listOf("n2rss", "request"),
     )
 }
