@@ -47,7 +47,7 @@ class PointerNewsletterHandler : NewsletterHandlerSingleFeed {
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
 
-        // Separator have been changed from <td> tags to <p> tags
+        // Separators have been changed from <td> tags to <p> tags
         // by `String.preserveSeparators()` extension method
         val firstSeparator: Element = document.select("p[style]")
             .first { it.isSeparator }
