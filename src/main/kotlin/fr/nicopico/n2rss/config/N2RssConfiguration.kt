@@ -101,5 +101,6 @@ constructor(
         val owner: String,
         val repository: String,
         val accessToken: String,
+        val monitoringEnabled: Boolean = true,
     )
 }

@@ -18,14 +18,20 @@
 package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
-import org.springframework.scheduling.annotation.Async
+import org.springframework.stereotype.Service
 import java.net.URL
 
-interface MonitoringService {
-    @Async
-    fun notifyEmailClientError(error: Exception)
-    @Async
-    fun notifyEmailProcessingError(email: Email, error: Exception)
-    @Async
-    fun notifyRequest(uniqueUrl: URL)
+@Service
+class NoOpMonitoringService : MonitoringService {
+    override fun notifyEmailClientError(error: Exception) {
+        // No-op
+    }
+
+    override fun notifyEmailProcessingError(email: Email, error: Exception) {
+        // No-op
+    }
+
+    override fun notifyRequest(uniqueUrl: URL) {
+        // No-op
+    }
 }

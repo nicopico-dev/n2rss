@@ -15,17 +15,33 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+
 package fr.nicopico.n2rss.monitoring
 
-import fr.nicopico.n2rss.mail.models.Email
-import org.springframework.scheduling.annotation.Async
-import java.net.URL
+import fr.nicopico.n2rss.config.N2RssProperties
+import org.slf4j.LoggerFactory
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 
-interface MonitoringService {
-    @Async
-    fun notifyEmailClientError(error: Exception)
-    @Async
-    fun notifyEmailProcessingError(email: Email, error: Exception)
-    @Async
-    fun notifyRequest(uniqueUrl: URL)
+@Configuration
+class MonitoringConfig {
+    @Bean
+    fun monitoringService(
+        githubProperties: N2RssProperties.GitHubProperties,
+        gitHubMonitoringService: GitHubMonitoringService,
+    ): MonitoringService {
+        val monitoringService = if (githubProperties.monitoringEnabled) {
+            gitHubMonitoringService
+        } else {
+            NoOpMonitoringService()
+        }
+
+        LOG.info("Monitoring service instance: {}", monitoringService)
+
+        return monitoringService
+    }
+
+    companion object {
+        private val LOG = LoggerFactory.getLogger(MonitoringConfig::class.java)
+    }
 }
