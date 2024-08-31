@@ -1,0 +1,1283 @@
+Return-Path: <bounces+43410512-7953-n2rss=nicopico.fr@em9609.pointer.io>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap3.paris1.alwaysdata.com with LMTPS
+	id yNeSLKSIyGZ6KgAA5hnrLg
+	(envelope-from <bounces+43410512-7953-n2rss=nicopico.fr@em9609.pointer.io>)
+	for <n2rss@nicopico.fr>; Fri, 23 Aug 2024 15:03:32 +0200
+Return-path: <bounces+43410512-7953-n2rss=nicopico.fr@em9609.pointer.io>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Fri, 23 Aug 2024 15:03:32 +0200
+Received: from o16.ptr6223.mail.beehiiv.com ([159.183.141.192])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <bounces+43410512-7953-n2rss=nicopico.fr@em9609.pointer.io>)
+	id 1shTwv-0005Dp-0J
+	for n2rss@nicopico.fr; Fri, 23 Aug 2024 15:03:30 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pointer.io;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:from:subject:to;
+	s=ba6; bh=5o7DwxQZtKwO8V29+MDUM4vE+7cdYhg3zximMAKSOuA=;
+	b=YJYWXQmItEnMbsywveCGzvi/awkeB3l7tmPr9gXo+LDg23GeYN9ZYPYeYcToCW4twBlf
+	PvQrDQa6QOPYG2z8GU6MCP6u7rCo1B7Ys4P6jz73mFVryXoe2StxVrHyl/TS6t/Z5t8D6E
+	Y+7G5crv/Y+rLVcf6QxvZdg68rpy5yn2YV+KEt16+9++4ifjZnMBn8CgHCqOnkVC2owA9O
+	AxSYz2ORpGC1NcDgfgLOCZgiMkNPstGy+lNtPx5pyNxXU4jK3XUKKaz2MbKc9AYVYzJzgy
+	SeBEgfKS9f68/j8iXRgu4a4lX8NcDfk57h4oq7CMHXMRJxQI5oEa96eFhADVf2SA==
+Received: by recvd-6945569f9-ctw8c with SMTP id recvd-6945569f9-ctw8c-1-66C8889A-94
+	2024-08-23 13:03:22.378089349 +0000 UTC m=+139001.433835677
+Received: from NDM0MTA1MTI (unknown)
+	by geopod-ismtpd-4 (SG) with HTTP
+	id Eeh-T8CETn6gyBl1eRAO5A
+	Fri, 23 Aug 2024 13:03:22.211 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=f1d4cc84462521117c535da23df2ea01fc59feec130e31560c6009eff68c
+Date: Fri, 23 Aug 2024 13:03:27 +0000 (UTC)
+From: Pointer <suraj@pointer.io>
+Mime-Version: 1.0
+Message-ID: <Eeh-T8CETn6gyBl1eRAO5A@geopod-ismtpd-4>
+Subject: Issue #543
+Reply-To: Pointer <suraj@pointer.io>
+sId: 8fbbda29-457d-4f93-a351-47fcb6ffc946
+Feedback-ID: 
+ =?us-ascii?Q?60f563f3-67fa-49c6-9928-c5e53fe7e4cf=3Anewsletter=3A8fbbda29-457d-?=
+ =?us-ascii?Q?4f93-a351-47fcb6ffc946=3A9331cfa1921da8b?=
+x-beehiiv-ids: 
+ =?us-ascii?Q?{=22account=5Fname=22=3A=22https=3A=2F=2Fpointerio=2Ebeehiiv=2Ecom=2F=22=2C=22campaign=5Fid=22?=
+ =?us-ascii?Q?=3A=2260f563f3-67fa-49c6-9928-c5e53fe7e4cf=22?=
+ =?us-ascii?Q?=2C=22category=22=3A=22newsletter=22=2C=22email=5Fgenerat?=
+ =?us-ascii?Q?ed=5Fat=22=3A1724418201=2C=22user=5Fid=22=3A=228fbbda29-4?=
+ =?us-ascii?Q?57d-4f93-a351-47fcb6ffc946=22}?=
+x-list-owner: <mailto:suraj@pointer.io>
+x-newsletter: https://pointerio.beehiiv.com/p/issue-543
+x-beehiiv-type: newsletter
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Cmailto=3A8fbbda29-457d-4f93-a351-47fcb6ffc946+b61ea426-a930-446?=
+ =?us-ascii?Q?7-be8d-b5d292fe045b+60f563f3-67fa-49c6-?=
+ =?us-ascii?Q?9928-c5e53fe7e4cf=40unsub=2Ebeehiiv=2Ecom=3E=2C?=
+ =?us-ascii?Q?_=3Chttps=3A=2F=2Fpointerio=2Ebeehiiv=2Ecom=2Funsubscribe=2FeyJ0eXAiOiJKV1QiLCJ?=
+ =?us-ascii?Q?hbGciOiJIUzI1NiJ9=2EeyJzdWJzY3JpYmVyX2lkI?=
+ =?us-ascii?Q?joiYjYxZWE0MjYtYTkzMC00NDY3LWJlOGQtYjVk?=
+ =?us-ascii?Q?MjkyZmUwNDViIiwicG9zdF9pZCI6IjYwZjU2M2Y?=
+ =?us-ascii?Q?zLTY3ZmEtNDljNi05OTI4LWM1ZTUzZmU3ZTRjZi?=
+ =?us-ascii?Q?IsImxhc3RfcmVzb3VyY2VfZ3VpZCI6IlBvc3Q6N?=
+ =?us-ascii?Q?jBmNTYzZjMtNjdmYS00OWM2LTk5MjgtYzVlNTNm?=
+ =?us-ascii?Q?ZTdlNGNmIn0=2EeqD8w40s3e9W7p3Eal8I0eoyKDr?=
+ =?us-ascii?Q?J=5FuQQOuPMFLGkNFw=3E?=
+x-newsletter-id: https://pointerio.beehiiv.com/
+x-list-id: 8fbbda29-457d-4f93-a351-47fcb6ffc946
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+x-newsletter-signup: https://pointerio.beehiiv.com/subscribe
+X-SG-EID: 
+ =?us-ascii?Q?u001=2ELL1=2FVSzR3MWJph38KeJm0gvQp6wytjitbsQuZMnXQ2N0PFVY9br4fbusJ?=
+ =?us-ascii?Q?IHoeqPPJrgxym6c2pICr1uobDxznQwwvBnfkgjT?=
+ =?us-ascii?Q?t1YE2zYV8nMsvB3lIrFE0g6m41NrvV4e=2FUFfFAK?=
+ =?us-ascii?Q?MFlwLaWNQ1Yir4LSwbl89IQ1PIDHUHqF42kzr+X?=
+ =?us-ascii?Q?oSnhuTfDrZzWHwLSRZPYLcwxZBhf1SVDJ8pg5mi?=
+ =?us-ascii?Q?gniW2FFMvJtLQnvqWn=2F8f8=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprAVgeiC8iaV7rEmQ?=
+ =?us-ascii?Q?+cYi2k7wVLX1yegt3SYp7BIH+iiRBlGhdIcbyPh?=
+ =?us-ascii?Q?vNe7OgxS=2FFn28giTgSLllh7iYVsE2qXe1TMK8h9?=
+ =?us-ascii?Q?1hARQu0G3iXahUd4cnXIZ+Fy1QMka1AaxinFMhn?=
+ =?us-ascii?Q?QzXi+LwyLdXubSitWoTxOgXV+0hB5C1lMPRI3R+?=
+ =?us-ascii?Q?ak6FX4c+OqVYkbgGfWQztJbS2PBo1ZbQ9M7EQBA?=
+ =?us-ascii?Q?FXKZHmBC1nlo6REl3sJ1FFO5tQ=3D=3D?=
+To: "n2rss@nicopico.fr" <n2rss@nicopico.fr>
+X-Entity-ID: u001.jkMYBxiVkp6kPh2dzwW1/A==
+X-alwaysdata-Spam-Report: 	1.00 MANY_INVISIBLE_PARTS [10] - Many parts are visually hidden
+	0.50 ZERO_FONT [5] - Zero sized font used
+	0.50 MID_RHS_NOT_FQDN - Message-ID RHS is not a fully-qualified domain name
+	0.00 TO_DN_EQ_ADDR_ALL - All of the recipients have display names that are
+ the same as their address
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 RWL_MAILSPIKE_GOOD [159.183.141.192:from] - From address is listed in
+ RWL - good reputation
+	0.00 REPLYTO_EQ_FROM - Reply-To header is identical to From header
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_THREE [3] - Message has 3-5 Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MV_CASE
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [suraj@pointer.io] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [pointer.io:+] - DKIM trace symbol
+	0.00 ASN [asn:11377, ipnet:159.183.128.0/18, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.20 R_DKIM_ALLOW [pointer.io:s=ba6] - DKIM verification succeed
+	-0.47 URL_REPUTATION [-0.46765849484385]
+	-0.50 DMARC_POLICY_ALLOW [pointer.io, none] - DMARC permit policy
+	-0.65 IP_REPUTATION_HAM [asn: 11377(-0.18), country: US(-0.00),
+ ip: 159.183.141.192(-0.46)]
+X-alwaysdata-Spam-Score: 0.08
+
+--f1d4cc84462521117c535da23df2ea01fc59feec130e31560c6009eff68c
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Friday 23rd August=E2=80=99s issue is presented by Clerk
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/1067d931-4d2a-4=
+082-8336-5bca2288b835/Clerk_White.png?t=3D1724417038)
+Follow image link: (https://go.clerk.com/uAlkzt9)
+Caption:=20
+
+## [Clerk - User Authentication And Management](https://go.clerk.com/uAlkzt=
+9)
+
+[Clerk](https://go.clerk.com/uAlkzt9) offers everything you need to provide=
+ your users a secure experience, tailored to your needs:
+
+* Pre-Built components (Sign-up, Sign-in, User profile) streamline the auth=
+entication process, [increasing developer velocity](https://go.clerk.com/uA=
+lkzt9)
+
+* Flexible authentication solutions: MFA, Social Sign-On, Magic Links, Pass=
+keys, or Custom OAuth Providers
+
+* Polished user experience purpose built with developers and end-users in m=
+ind
+
+* [Simplify complex organization](https://go.clerk.com/uAlkzt9) and role-ba=
+sed management with multi-tenant support
+
+# [Try Clerk For Free And Scale As You Grow](https://go.clerk.com/uAlkzt9)
+
+
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Derisking 12 Common Workplace Scenarios](https://newsletter.weskao.com/p=
+/derisking-12-common-workplace-scenarios)
+
+=E2=80=94 Wes Kao
+
+**tl;dr**: Wes covers simple ways to derisk the following workplace scenari=
+os:(1) Sharing an idea your colleagues might find controversial. (2) Giving=
+ constructive feedback to a direct report. (3) Testing your offer. (4) You =
+made a mistake and need to tell your customer. (5) Troubleshooting a techni=
+cal issue. (6) Giving feedback to a peer. And more.=C2=A0
+
+###### _[CareerAdvice](http://www.pointer.io/tags/career-advice)_
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Enthusiasm: Managing Our Most Precious Resource](https://tidyfirst.subst=
+ack.com/p/enthusiasm-managing-our-most-precious)
+
+=E2=80=94 Kent Beck
+
+**tl;dr**: =E2=80=9CThe enthusiasm-enhancing way to allocate people to task=
+s is to let the people allocate themselves. They have context, in the form =
+of accountability and purpose and approximate proportions, but to preserve =
+enthusiasm they must make their own decision. And a fired up engineer is fi=
+ve times (for some value of five) as valuable as that same engineer just pu=
+tting in hours.=E2=80=9D
+
+###### _[Leadership](http://www.pointer.io/tags/leadership)__ __[Management=
+](http://www.pointer.io/tags/management)_
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Algorithms We Develop Software By](https://grantslatton.com/software-pat=
+hfinding)
+
+=E2=80=94 Grant Slatton
+
+**tl;dr**: =E2=80=9CI recently had a conversation with a distinguished tech=
+ CEO and engineer. I loved hearing his description of a software developmen=
+t methodology he's occasionally used, and it got me thinking about other he=
+uristics and generalizations.=E2=80=9D=C2=A0Grant discusses tactics to deve=
+lop software effectively.=20
+
+###### _[CareerAdvice](http://www.pointer.io/tags/career-advice)_
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Bug Squash: An Underrated Interview Question](https://blog.jez.io/bugsqu=
+ash/)
+
+=E2=80=94 Jake Zimmerman
+
+**tl;dr**: The highest signal-to-noise software engineering interview I=E2=
+=80=99ve seen goes like this: =E2=80=9CHere=E2=80=99s a repo you=E2=80=99ve=
+ never seen before. Here=E2=80=99s how to build and run the tests in this r=
+epo. There=E2=80=99s a bug: what we=E2=80=99re observing is X, but we want =
+to see Y instead. Find the bug and maybe even write some code to fix it.=E2=
+=80=9D Jake explains why he values the question.=C2=A0
+
+###### [_Hiring_](http://www.pointer.io/tags/hiring)
+
+=E2=80=9C**=E2=80=9CThe only way to do great work is to love what you do.=
+=E2=80=9D**=E2=80=9C =E2=80=94 ** =E2=80=93 Steve Jobs**
+
+# [Less Is More: Principles For Simple Comments](https://testing.googleblog=
+.com/2024/08/less-is-more-principles-for-simple.html)
+
+=E2=80=94 David Bendory
+
+**tl;dr**: (1) Adopt the mindset of someone unfamiliar with the project to =
+ensure simplicity. (2) Use self-contained comments to clearly convey intent=
+ without relying on the surrounding code for context. (3) Include only esse=
+ntial information in the comments and leverage external references to reduc=
+e cognitive load on the reader. (4) Avoid extensive implementation details =
+in function-level comments.
+
+###### [_BestPractices_](http://www.pointer.io/tags/best-practices)
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Learn What Role Based Access Control Is And How To Use It To Simplify Pe=
+rmission Management Within Organizations](https://go.clerk.com/erVkE57)
+
+=E2=80=94 Brian Morrison
+
+**tl;dr**: Managing permissions in large SaaS applications can be a nightma=
+re. Providing team owners a way to grant functionality to users in a simpli=
+fied way can be the difference between companies purchasing your software o=
+r going with a competitor. Clerk provides you with a way to build this func=
+tionality with minimal effort.=20
+
+_Promoted by Clerk_
+
+###### _[Guide](https://www.pointer.io/tags/guide)__ __[Management](http://=
+www.pointer.io/tags/management)_
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [LLM Applications I Want To See](https://sarahconstantin.substack.com/p/l=
+lm-applications-i-want-to-see)
+
+=E2=80=94 Sarah Constantin
+
+**tl;dr**: =E2=80=9CBut the most creative and interesting potential applica=
+tions go beyond =E2=80=9Cdoing things humans can already do, but cheaper=E2=
+=80=9D to do things that humans can=E2=80=99t do at all on comparable scale=
+.=E2=80=9D Sarah shares a list of app ideas.=C2=A0
+
+###### [_LLM_](http://www.pointer.io/tags/llm)_ _[_AI_](http://www.pointer.=
+io/tags/ai)
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [The 1 Hour Per Year Bug (But Only In Pacific Time!)](https://tomeraberba=
+.ch/the-1-hour-per-year-bug)
+
+=E2=80=94 Tomer Aberbach
+
+**tl;dr**: =E2=80=9CThe date was November 8, 2021 and I was a bug triager o=
+n the Google Docs team. That day began like any other. I made myself some c=
+offee and started looking through bug reports from the day before. But then=
+ something caught my eye.=E2=80=9D
+
+###### [_Entertaining_](http://www.pointer.io/tags/entertaining)_ _[_Debugg=
+ing_](http://www.pointer.io/tags/debugging)
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Effective Changelogs](https://xavd.id/blog/post/effective-changelogs/)
+
+=E2=80=94 David Brownman
+
+**tl;dr**: =E2=80=9CThe Keep a Changelog project offers some good high-leve=
+l guidelines, but speaking as someone who is frequently frustrated by chang=
+elogs, it seems like more specific advice is in order. I've collected some =
+simple tips and examples to ensure your changelogs are fit for human consum=
+ption.=E2=80=9D=C2=A0
+
+###### _ _[_Tips_](http://www.pointer.io/tags/tips)
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/f1a60110-9479-4=
+cc5-86dc-4ca39959b918/Frame_14.png?t=3D1723764489)
+Caption:=20
+
+##### [**The 3 Motivational Forces Of Developers**](https://www.bennorthrop=
+.com/Essays/2013/developer-motivation.php)** **- Ben Northrop
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/0db18a10-5259-4=
+ed4-b641-bd39b17d23b4/Frame_12.png?t=3D1723764594)
+Caption:=20
+
+##### [**Maestro**](https://github.com/Netflix/maestro)**: **Netflix=E2=80=
+=99s workflow orchestrator.
+
+##### **[N8N](https://github.com/n8n-io/n8n)****: **OS workflow automation =
+tool.
+
+##### [**Srcbook**](https://github.com/srcbookdev/srcbook)**: **TypeScript =
+& JavaScript notebooks.
+
+##### **[TruffleHog](https://github.com/trufflesecurity/trufflehog)****: **=
+Find leaked credentials.
+
+##### [**UV**](https://github.com/astral-sh/uv)**: **An extremely fast Pyth=
+on package and project manager.
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+Click the below and shoot me an email!
+
+1 =3D Didn't enjoy it all // 5 =3D Really enjoyed it
+
+##### _**[1](mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-%20Score%3=
+A%201&amp;body=3DHere%27s%20why%3A)**_** =E2=80=A6 **_**[2](mailto:suraj@po=
+inter.io?subject=3DIssue%20%23518%20-%20Score%3A%202&amp;body=3DHere%27s%20=
+why%3A)**_** =E2=80=A6 **_**[3](mailto:suraj@pointer.io?subject=3DIssue%20%=
+23518%20-%20Score%3A%203&amp;body=3DHere%27s%20why%3A)**_** =E2=80=A6 **_**=
+[4](mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-%20Score%3A%204&amp=
+;body=3DHere%27s%20Why%3A)**_** =E2=80=A6 **_**[5](mailto:suraj@pointer.io?=
+subject=3DIssue%20%23518%20-%20Score%3A%205&amp;body=3DHere%27s%20Why%3A)**=
+_
+
+
+=E2=80=94=E2=80=94=E2=80=94
+
+You are reading a plain text version of this post. For the best experience,=
+ copy and paste this link in your browser to view the post online:
+https://pointerio.beehiiv.com/p/issue-543
+
+--f1d4cc84462521117c535da23df2ea01fc59feec130e31560c6009eff68c
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office" style=3D"font-size:16px;"><head></head><head><meta charset=
+=3D"utf-8"/><!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=
+=3D"IE=3Dedge"/><!--<![endif]--><meta name=3D"viewport" content=3D"width=3D=
+device-width,initial-scale=3D1"/><meta name=3D"x-apple-disable-message-refo=
+rmatting"/><meta name=3D"format-detection" content=3D"telephone=3Dno,addres=
+s=3Dno,email=3Dno,date=3Dno,url=3Dno"/><meta name=3D"color-scheme" content=
+=3D"light"/><meta name=3D"supported-color-schemes" content=3D"light"/><titl=
+e>Issue #543</title><!--[if mso]><xml><o:OfficeDocumentSettings><o:AllowPNG=
+/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![=
+endif]--><style>
+  :root { color-scheme: light; supported-color-schemes: light; }
+  body { margin: 0; padding: 0; min-width: 100%!important; -ms-text-size-ad=
+just: 100% !important; -webkit-transform: scale(1) !important; -webkit-text=
+-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !importa=
+nt; }
+  .body { word-wrap: normal; word-spacing:normal; }
+  table.mso { width: 100%; border-collapse: collapse; padding: 0; table-lay=
+out: fixed; }
+  img { border: 0; outline: none; }
+  table {  mso-table-lspace: 0px; mso-table-rspace: 0px; }
+  td, a, span {  mso-line-height-rule: exactly; }
+  #root [x-apple-data-detectors=3Dtrue],
+  a[x-apple-data-detectors=3Dtrue],
+  #MessageViewBody a { color: inherit !important; text-decoration: inherit =
+!important; font-size: inherit !important; font-family: inherit !important;=
+ font-weight: inherit !important; line-height: inherit !important; }
+  span.MsoHyperlink { color: inherit !important; mso-style-priority: 99 !im=
+portant; }
+  span.MsoHyperlinkFollowed { color: inherit !important; mso-style-priority=
+: 99 !important; }
+  .a { background-color:#ffffff; }
+  .b { background-color:#111827; }
+  .c  { background-color:#ffffff; }
+  .d { background-color:#101720; }
+  .d2 { background-color:#FFFFFF; }
+  .d3 { background-color:#fbbf24; }
+  h1 a { text-decoration:underline;color:#000000 !important; }
+  h2 a { text-decoration:underline;color:#000000 !important; }
+  h3 a { text-decoration:underline;color:#000000 !important; }
+  h4 a { text-decoration:underline;color:#000000 !important; }
+  h5 a { text-decoration:underline;color:#000000 !important; }
+  h6 a { text-decoration:underline;color:#000000 !important; }
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, ul, li, ol, p=
+, p a { margin: 0;padding: 0; }
+  h1 { font-family:'Space Grotesk',sans-serif;font-weight:Bold;font-size:24=
+px;color:#000000;line-height:36px;padding-bottom:0px;padding-top:16px;mso-m=
+argin-top-alt:16px;mso-margin-bottom-alt:0px }
+  h2 { font-family:'Space Grotesk',sans-serif;font-weight:Bold;font-size:20=
+px;color:#000000;line-height:30px;padding-bottom:0px;padding-top:16px;mso-m=
+argin-top-alt:16px;mso-margin-bottom-alt:0px }
+  h3 { font-family:'Space Grotesk',sans-serif;font-weight:Bold;font-size:18=
+px;color:#000000;line-height:27px;padding-bottom:10px;padding-top:10px;mso-=
+margin-top-alt:10px;mso-margin-bottom-alt:10px }
+  h4 { font-family:'Space Grotesk',sans-serif;font-weight:Bold;font-size:16=
+px;color:#000000;line-height:24px;padding-bottom:8px;padding-top:8px;mso-ma=
+rgin-top-alt:8px;mso-margin-bottom-alt:8px }
+  h5 { font-family:'Space Grotesk',sans-serif;font-weight:Normal;font-size:=
+16px;color:#000000;line-height:24px;padding-bottom:10px;padding-top:10px;ms=
+o-margin-top-alt:10px;mso-margin-bottom-alt:10px }
+  h6 { font-family:'Space Grotesk',sans-serif;font-weight:Normal;font-size:=
+12px;color:#000000;line-height:18px;padding-bottom:10px;padding-top:10px;ms=
+o-margin-top-alt:10px;mso-margin-bottom-alt:10px }
+  p { font-family:'Space Grotesk',sans-serif;color:#000000;font-size:16px;l=
+ine-height:24px;padding-bottom:10px;padding-top:10px;mso-margin-top-alt:10p=
+x;mso-margin-bottom-alt:10px; }
+  p a, .e a, ul a, li a, .h a, .h2 a, .h3 a { word-break:break-word;color:#=
+000000 !important;text-decoration:underline;text-decoration-color:#808080; =
+}
+  p a span, .e a span, ul a span, li a span { color: inherit }
+  p .bold { font-weight:bold;color:#000000; }
+  p span[style*=3D"font-size"] { line-height: 1.6; }
+  .f p { font-size:12px;line-height:15px;color:#000000;padding:0; }
+  .f p a { color:#000000 !important; }
+  .g p { font-family:'Space Grotesk',sans-serif;font-size:12px;line-height:=
+17px;font-weight:Normal;margin:0; }
+  .g p a  { text-decoration: underline; }
+  .i p { font-family:'Space Grotesk',sans-serif;line-height:21px;font-size:=
+14px;color:#f3f4f6; }
+  .i p a { color:#f3f4f6 !important; }
+  .i2 p { font-family:'Space Grotesk',sans-serif;line-height:24px;font-size=
+:16px;color:#111827; }
+  .i2 p a { color:#111827 !important; }
+  .i3 p { font-family:'Space Grotesk',sans-serif;line-height:27px;font-size=
+:18px;color:#111827; }
+  .i3 p a { color:#111827 !important; }
+  .h p a { color:#ffffff !important; }
+  .h2 p a { color:#111827 !important; }
+  .h3 p a { color:#111827 !important; }
+  .f p a, .i p a, .i2 p a, .i3 p a, .h p a, .h2 p a, .h3 p a { text-decorat=
+ion:underline; }
+  .j { border-top:1px Solid #e5e7eb; }
+  .k p { padding-left:15px;padding-bottom:0px;padding-top:6px;mso-margin-to=
+p-alt:6px;mso-margin-bottom-alt:0px;mso-margin-left-alt:15px; }
+  .o { background-color:#ffffff;border:1px solid #111827;border-radius:4px;=
+ }
+  .o p { font-family:'Space Grotesk',sans-serif;padding:0px;margin:0px; }
+  .l p,
+  .l p a { font-size:12px;line-height:17px;font-weight: bold;color:#020617;=
+padding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .m p,
+  .m p a { font-size:12px;line-height:17px;font-weight:400;color:#111827;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .n p,
+  .n p a { font-size:12px;line-height:17px;font-weight:400;color:#111827;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .p { background-color:#FFFFFF;max-width:520px;border:1px solid #E1E8ED;bo=
+rder:1px solid rgba(80, 80, 80, 0.3);border-radius:5px; }
+  .q { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !impo=
+rtant;border:1px solid #e1e8ed;border:1px solid rgba(80, 80, 80, 0.3);borde=
+r-radius:10px;background-color:#FFFFFF; }
+  .q p { font-size:16px;font-family:system-ui,Helvetica,Roboto,Calibri,sans=
+-serif !important;color:#222222;padding:4px 0; }
+  .r { border:1px solid #E1E8ED !important;border-radius:5px; }
+  .s p { font-size: 14px; line-height: 17px; font-weight: 400; color: #6978=
+82; text-decoration: none; }
+  .t p { font-family:'Space Grotesk',sans-serif;font-size:12px;line-height:=
+18px;font-weight:400;color:#000000;font-style:normal;padding:0px 0px 0px;}
+  .v { border-radius:4px;border:solid 4px #3c658d;background-color:#3c658d;=
+font-family:'Space Grotesk',sans-serif;color:#f9fafb; }
+  .v a { text-decoration:none;display:block;color:#f9fafb; }
+  .w p { font-size:12px;line-height:15px;font-weight:400;color:#ffffff; }
+  .w p a { text-decoration: underline !important;color:#ffffff !important; =
+}
+  ul { font-family:'Space Grotesk',sans-serif;margin:0px 0px 0px 25px !impo=
+rtant;padding:0px !important;color:#000000;line-height:21px;list-style:disc=
+;font-size:14px; }
+  ul > li { font-family:'Space Grotesk',sans-serif;margin:5px 0px 0px 0px !=
+important;padding: 0px 0px 0px 0px !important; color: #000000; list-style:d=
+isc; }
+  ol { font-family:'Space Grotesk',sans-serif;margin: 0px 0px 0px 25px !imp=
+ortant;padding:0px !important;color:#000000;line-height:21px;list-style:dec=
+imal;font-size:14px; }
+  ol > li { font-family:'Space Grotesk',sans-serif;margin:5px 0px 0px 0px !=
+important;padding: 0px 0px 0px 0px !important; color: #000000; list-style:d=
+ecimal; }
+  .e h3,
+  .e p,
+  .e span { padding-bottom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-m=
+argin-bottom-alt:0px; }
+  .e span,
+  .e li { font-family:'Space Grotesk',sans-serif;font-size:14px;color:#0000=
+00;line-height:21px; }
+  .rec { font-family:  ui-sans-serif, system-ui, -apple-system, BlinkMacSys=
+temFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-ser=
+if, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color E=
+moji" !important; }
+  .rec__button:hover { background-color: #f9fafb !important; }
+  .copyright a {color: inherit !important; text-decoration: none !important=
+; font-size: inherit !important; font-family: inherit !important; font-weig=
+ht: inherit !important; line-height: inherit !important;}
+  .txt_social p { padding: 0; }
+  .table, .table-c, .table-h { border: 2px solid #111827; }
+  .table-c { padding:4px; background-color:#ffffff; }
+  .table-c p { color: #111827; font-family:'Space Grotesk',sans-serif !impo=
+rtant;overflow-wrap: break-word; }
+  .table-h { padding:4px; background-color:#ffffff; }
+  .table-h p { color: #111827; font-family:'Space Grotesk',sans-serif !impo=
+rtant;overflow-wrap: break-word; }
+  @media only screen and (max-width:667px) {
+    .aa { width: 100% !important; }
+    .bb img { width: 100% !important; height: auto !important; max-width: n=
+one !important; }
+    .cc { padding: 0px 8px !important; }
+    .ee { padding-top:10px !important;padding-bottom:10px !important; }
+    .ff ul, .ff ol { margin: 0px 0px 0px 10px !important;padding: 0px !impo=
+rtant; }
+    .ff li { margin:5px 0px 0px 10px !important; }
+    .r {height:140px !important;}
+    .s p { font-size:13px !important;line-height:15px !important; }
+    .mob-hide {display:none !important;}
+    .mob-stack {display:block !important;width:100% !important;}
+    .mob-w-full {width:100% !important;}
+    .mob-block {display:block !important;}
+    .embed-img {padding:0px 0px 12px 0px !important;}
+    .socialShare {padding-top:15px !important;}
+    .rec { padding-left:15px!important;padding-right:15px!important; }
+    .bodyWrapper { padding:10px 4px 10px 4px !important; }
+    .social-mobile {float:left !important;margin-top:10px !important;}
+  }
+  @media screen and (max-width: 480px) {
+    u + .a .gg { width: 100% !important; width: 100vw !important; }
+    .tok-heart { padding-top:75% !important; }
+    .tok-play { padding-top: 250px !important; }
+  }
+  @media screen and (max-width: 320px) {
+    .tok-heart { padding-top:65% !important; }
+  }
+   =20
+
+* {
+  font-family: 'Space Grotesk', 'Space Mono', system-ui, Inter, Roboto, 'He=
+lvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+  font-family: 'Space Mono', 'Space Grotesk', ui-monospace, 'Cascadia Code'=
+, 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace !import=
+ant;
+}
+
+.dd > table a > img {
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+table p a {
+  text-decoration-color: currentcolor !important;
+}
+  .u { border: 1px solid #CACACA !important; border-radius: 2px !important;=
+ background-color: #ffffff !important; padding: 0px 13px 0px 13px !importan=
+t; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Se=
+goe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif !important;fon=
+t-size: 12px !important; color: #767676 !important; }
+  .u a { text-decoration: none; display: block !important; color: #767676 !=
+important; margin: 0px !important; }
+  .u span, .u img { color: #767676 !important;margin:0px !important; max-he=
+ight:32px !important;background-color:#ffffff !important; }
+</style><!--[if mso]><style type=3D"text/css">
+    sup { font-size: 100% !important;vertical-align: .5em !important;mso-te=
+xt-raise: -1.5% !important;line-height: 0 !important; }
+    ul { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ul li { margin-left: 0px !important; mso-special-format: decimal; }
+    ol { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ol li { margin-left: 0px !important; mso-special-format: decimal; }
+    li.listItem { margin-left:15px !important; margin-top:0px !important; }
+    .paddingDesktop { padding: 10px 0 !important; }
+    .edm_outlooklist { margin-left: -20px !important; }
+    .embedImage { display:none !important; }
+</style><![endif]--><style>
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v12/V8mDoQDjQSkFtoMM=
+3T6r8E7mPbF4C_k3HqU.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v12/V8mDoQDjQSkFtoMM=
+3T6r8E7mPbF4C_k3HqU.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-style: italic;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v12/V8mDoQDjQSkFtoMM=
+3T6r8E7mPbF4C_k3HqU.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-style: italic;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v12/V8mDoQDjQSkFtoMM=
+3T6r8E7mPbF4C_k3HqU.woff2') format('woff2');
+  }
+</style></head><body class=3D"a" style=3D"margin:0px auto;padding:0px;word-=
+wrap:normal;word-spacing:normal;background-color:#ffffff;"><div role=3D"art=
+icle" aria-roledescription=3D"email" aria-label=3D"email_name" lang=3D"en" =
+style=3D"font-size:1rem"><div style=3D"display:none;max-height:0px;overflow=
+:hidden;"> What Current & Future Engineering Leaders Read &#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204; </div><table role=3D"none" width=3D"100%"=
+ border=3D"0" cellspacing=3D"0" align=3D"center" cellpadding=3D"0" class=3D=
+"gg"><tr><td align=3D"center" valign=3D"top"><table role=3D"none" width=3D"=
+670" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"aa" style=3D=
+"width:670px;table-layout:fixed;"><tr><td class=3D"bodyWrapper" align=3D"ce=
+nter" valign=3D"top" style=3D"padding:10px 0px 10px 0px;"><table role=3D"no=
+ne" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=
+=3D"center"><tr><td align=3D"center" valign=3D"top" style=3D"border:0px sol=
+id #000000;border-radius:16px;background-color:#ffffff;" class=3D"c"><table=
+ role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"center"><tr><td class=3D"f" align=3D"Right" valign=3D"top" sty=
+le=3D"padding:20px 10px;"><p> August 23rd, 2024 &nbsp; | &nbsp; <a href=3D"=
+https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympS=
+zSDDZUB2_2pQUJJfgE0x16FTL0FO9k5-zjjblBbhg95qfvc4P9LXICy-JLlLJywOC0hHJFLUmqu=
+M5VhVJ5UxmEiM33bzq8bLUYo1gTg6f5Sot3DEpA9wRFCQvnGhtWwscaZzGlGyqMbkRh-umf4FOm=
+q-1Q_IWyHFQ0JXTiN_QtMZCkQCg6r9xE1f8Z0HDzDWPcwFjvj2dUxpXSAerJybutr6h5h94PzzX=
+8IgTNVxEQIIXolGPzZeUlMDs-HJXygbjpITvFBhwDMiRPyTVDJWNIFsKfuAg_qyBi_yyogTFpJG=
+dc9K0LWBIHVb8fPW6DWk_ydIpzrGJvzHouiytyqZnOIziLZLH_rb-0Ufhqqbkp8VhZCjHI6fzlH=
+eMdD_0eVWekpEdcdcWQwbeVGzLn-2etG8c2Svyj1tk_OjhX8Iy1UhFz-GuYGNhHZWK3jerurBlk=
+JUCT2x2T11_1wcegIU3uwroWKxkkJmA5HaQ2Qmkvwq11wfn1U-25K9l86qn1Jzcj7ClG9xf9G5v=
+gI4qJwpUf4ZGC3LyaYszeXsQ3U8barcEOQnZBX1sb5IwwyxQBGzX82LXUGoeztWgY7URmkzLObj=
+fK5ACwXi1_XepZDouYUIPr7251A/495/MU3Sc_BSSHGh1K5AlCWFuw/h0/h001.-xrJYVz_rS08=
+AtGlRG5y8AiPjx8u9SOD2-7UkaXpyB8">Read Online</a></p></td></tr><tr><td class=
+=3D"dd" align=3D"center" valign=3D"top" style=3D"width:100%;"><table role=
+=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"=
+ style=3D"margin:0 auto 16px;"><tbody><tr><td style=3D"width:650px;"><a hre=
+f=3D"https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5vx7I2hzv0=
+juxPfJ8wrd9HV8BKaOUQ9Z3isGbLhIwLMemNIOoKSEkFOtyZBfFS8nkNTCjsim5yxiK3ZyOqbR4=
+zWSTyEAXOo0rF17c0Js8bT5WPTJijN9-0weXjmsjTt5eEFOrUqv9RwKZhGQdA7kr76oJEvgSP9M=
+5TQSMHn-uYSRSEm0GIk6FZBdOeo8Bntj_w/495/MU3Sc_BSSHGh1K5AlCWFuw/h1/h001.QJgT4=
+3VF7wguQAzD48wFwakzp6WCJ1iw07Ho2IAtUVE"><img alt=3D"" width=3D"650" height=
+=3D"auto" border=3D"0" style=3D"width:100%;height:auto;border:0;display:blo=
+ck;outline:none;text-decoration:none;" src=3D"https://media.beehiiv.com/cdn=
+-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/u=
+ploads/asset/file/0e19a781-9451-497c-8305-2d53c38ac0e6/Frame_10.png?t=3D172=
+3724930"/></a></td></tr></tbody></table></td></tr><tr><td style=3D"height:0=
+px;width:0px;"><div style=3D"height:1px;" data-open-tracking=3D"true"> <img=
+ src=3D"https://link.mail.beehiiv.com/ss/o/u001.Cm9ixNrIsKoybDpTAKCzKA/495/=
+MU3Sc_BSSHGh1K5AlCWFuw/ho.gif" alt=3D"" width=3D"1" height=3D"1" border=3D"=
+0" style=3D"height:1px !important;width:1px !important;border-width:0 !impo=
+rtant;margin-top:0 !important;margin-bottom:0 !important;margin-right:0 !im=
+portant;margin-left:0 !important;padding-top:0 !important;padding-bottom:0 =
+!important;padding-right:0 !important;padding-left:0 !important;"/> </div><=
+/td></tr><tr id=3D"content-blocks"><td class=3D"email-card-body" align=3D"c=
+enter" valign=3D"top" style=3D"padding-bottom:10px;"><table role=3D"none" w=
+idth=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"cen=
+ter"><tr><td class=3D"dd" align=3D"center" style=3D"padding:0px 10px;text-a=
+lign:center;word-break:break-word;"><p style=3D"color: ;"> Friday 23rd Augu=
+st=E2=80=99s issue is presented by Clerk </p></td></tr><tr><td align=3D"cen=
+ter" valign=3D"top" style=3D"padding: 20px 10px 20px; " class=3D"dd"><table=
+ role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"ma=
+rgin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width=
+:260px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26Sqbx=
+iB_QNfXTz15G8wGZpE3yYzS4PdaGoBUFKxE9bo5LmMcCex-aufbiRQYkXW5enGGiKuX4HvITv2T=
+jLPY0WX3XSR_pPtBE5aZgGr-DKV9kHBmwsNy83PFHO_ATzEOdYeOzMGtacKXkXaxkV-BW6lYzF9=
+VAo6lBMT2t_hcJucOndokmVorB6X1o7CweIts2IqEE-M0uZpuBvx2q5qH-AZkdkVhbEwRs/495/=
+MU3Sc_BSSHGh1K5AlCWFuw/h2/h001.UuwxDRfito_soiQxRzoS372o7eCjMOEIocxr1jfoQlw"=
+ rel=3D"noopener noreferrer nofollow" style=3D"text-decoration:none;" targe=
+t=3D"_blank"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscal=
+e-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/106=
+7d931-4d2a-4082-8336-5bca2288b835/Clerk_White.png?t=3D1724417038" alt=3D"" =
+height=3D"auto" width=3D"260" style=3D"display:block;width:100%;border-radi=
+us:0px 0px 0px 0px;border-style:solid;border-width:0px 0px 0px 0px;box-sizi=
+ng:border-box;border-color:#E5E7EB;" border=3D"0"/></a></td></tr></table></=
+td></tr><tr><td id=3D"clerk-user-authentication-and-manag" class=3D"dd" ali=
+gn=3D"left" valign=3D"top" style=3D"color:#000000;font-weight:Bold;padding:=
+0px 10px;text-align:left;"><h2 style=3D"color:#000000;font-weight:Bold;"><a=
+ class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26=
+SqbxiB_QNfXTz15G8wGZpE3yYzS4PdaGoBUFKxE9bo5LmMcCex-aufbiRQYkXW5enGGiKuX4HvI=
+Tv2TjLPY0WX3XSR_pPtBE5aZgGr-DKV9kHBmwsNy83PFHO_ATzEOdYeOzMGtacKYytEfekMH9uB=
+I0a6fuGDKBe4A26qzoBkmUJ423HPZNbnbKuK69KbDaHiQMIJmVnX-fd7LtrmqUuZ1pUaGoWcZQ/=
+495/MU3Sc_BSSHGh1K5AlCWFuw/h3/h001.Y15IlxILYCNxTNYngdopuI29BZgg_P7FN3OXJgWg=
+COc" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Clerk - U=
+ser Authentication And Management</span></a></h2></td></tr><tr><td class=3D=
+"dd" align=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:br=
+eak-word;"><p style=3D"color: ;"><a class=3D"link" href=3D"https://link.mai=
+l.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfXTz15G8wGZpE3yYzS4PdaGoBUFKxE9=
+bo5LmMcCex-aufbiRQYkXW5enGGiKuX4HvITv2TjLPY0WX3XSR_pPtBE5aZgGr-DKV9kHBmwsNy=
+83PFHO_ATzEOdYeOzMGtacKfVG50C_7kH9Z5ZO6WNPy4nAXOrnn2wKnI-769vir6OAdTxt4SFnM=
+s2d6C_iY1aQpXtDNp5Ax_2niLCuPQp13GQ/495/MU3Sc_BSSHGh1K5AlCWFuw/h4/h001.6h_SV=
+XhE-nxOjOnf2Lm2ZT3QelS-_B7IQpVGDj7F0KM" target=3D"_blank" rel=3D"noopener n=
+oreferrer nofollow"><span>Clerk</span></a> offers everything you need to pr=
+ovide your users a secure experience, tailored to your needs: </p></td></tr=
+><tr><td style=3D"padding-bottom:10px;padding-left:20px;padding-right:20px;=
+padding-top:10px;" class=3D"ee"><div style=3D"margin-left:0px;" class=3D"ed=
+m_outlooklist"><ul style=3D"list-style-type:disc;margin:0px 0px;padding:0px=
+ 0px 0px 0px;"><li class=3D"listItem ultext"><p style=3D"padding:0px;text-a=
+lign:left;word-break:break-word;"> Pre-Built components (Sign-up, Sign-in, =
+User profile) streamline the authentication process, <a class=3D"link" href=
+=3D"https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfXTz15G8wGZ=
+pE3yYzS4PdaGoBUFKxE9bo5LmMcCex-aufbiRQYkXW5enGGiKuX4HvITv2TjLPY0WX3XSR_pPtB=
+E5aZgGr-DKV9kHBmwsNy83PFHO_ATzEOdYeOzMGtacKdySM7XroyKQ-k8-zb8ONmt7UNj-sy1yP=
+kRmM1nF0c7YW3WPh4FBaQuzGS0Mqlf9RJehmrk5bqX06AoA4Uu8xyw/495/MU3Sc_BSSHGh1K5A=
+lCWFuw/h5/h001.XiicUHWmONXgD_OAsLfHDwGn9U5Rw2OCtG4fzAhY2Ws" target=3D"_blan=
+k" rel=3D"noopener noreferrer nofollow"><span>increasing developer velocity=
+</span></a></p></li><li class=3D"listItem ultext"><p style=3D"padding:0px;t=
+ext-align:left;word-break:break-word;"> Flexible authentication solutions: =
+MFA, Social Sign-On, Magic Links, Passkeys, or Custom OAuth Providers </p><=
+/li><li class=3D"listItem ultext"><p style=3D"padding:0px;text-align:left;w=
+ord-break:break-word;"> Polished user experience purpose built with develop=
+ers and end-users in mind </p></li><li class=3D"listItem ultext"><p style=
+=3D"padding:0px;text-align:left;word-break:break-word;"><a class=3D"link" h=
+ref=3D"https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfXTz15G8=
+wGZpE3yYzS4PdaGoBUFKxE9bo5LmMcCex-aufbiRQYkXW5enGGiKuX4HvITv2TjLPY0WX3XSR_p=
+PtBE5aZgGr-DKV9kHBmwsNy83PFHO_ATzEOdYeOzMGtacKXbZiNtXUD-BslWWovcSH_Z1lu_Gdj=
+PFCOJj2ElGcmJVJH9nqaW7SE1bqq26dD5sqRyfZq1S05Cb2pJs0dJdWTg/495/MU3Sc_BSSHGh1=
+K5AlCWFuw/h6/h001.z2-qphqQjD8s-zkPcHEvOvgajL6q9C1bVEF8h1ToPuM" target=3D"_b=
+lank" rel=3D"noopener noreferrer nofollow"><span>Simplify complex organizat=
+ion</span></a> and role-based management with multi-tenant support </p></li=
+></ul></div></td></tr><tr><td id=3D"try-clerk-for-free-and-scale-as-you" cl=
+ass=3D"dd" align=3D"center" valign=3D"top" style=3D"color:#000000;font-weig=
+ht:Bold;padding:0px 10px;text-align:center;"><h1 style=3D"color:#000000;fon=
+t-weight:Bold;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/=
+c/u001._d02Us3GR26SqbxiB_QNfXTz15G8wGZpE3yYzS4PdaGoBUFKxE9bo5LmMcCex-aufbiR=
+QYkXW5enGGiKuX4HvITv2TjLPY0WX3XSR_pPtBE5aZgGr-DKV9kHBmwsNy83PFHO_ATzEOdYeOz=
+MGtacKa3mxFjdpfaaxJh5LL58uUCAgEEBZJisFHECz8WZx5EFFJz177U6G2SaMKoeLHcHfB0f4e=
+O1-2MTHvaoWEQCs1E/495/MU3Sc_BSSHGh1K5AlCWFuw/h7/h001.FZZOe8zQWgPh3m1shtCdHh=
+whbGT4FpLKCP5e4zf8h18" target=3D"_blank" rel=3D"noopener noreferrer nofollo=
+w"><span>Try Clerk For Free And Scale As You Grow</span></a></h1></td></tr>=
+<tr><td class=3D"dd" align=3D"center" style=3D"padding:0px 10px;text-align:=
+center;word-break:break-word;"><p style=3D"color: ;"></p></td></tr><tr><td =
+align=3D"center" valign=3D"top" style=3D"font-size:0px;line-height:0px;padd=
+ing:20px 0px;" class=3D"dd"><table class=3D"j" role=3D"none" width=3D"96%" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> =
+&nbsp; </td></tr></table></td></tr><tr><td id=3D"derisking-12-common-workpl=
+ace-scena" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#00000=
+0;font-weight:Bold;padding:0px 10px;text-align:left;"><h1 style=3D"color:#0=
+00000;font-weight:Bold;"><a class=3D"link" href=3D"https://link.mail.beehii=
+v.com/ss/c/u001.yC9eJs5Q3flddlsql05gYdOm7DJmwzIcX2w6eS_B24zQiHyvTFxfau_BBNS=
+AnYmzWsVhezGupnBR8L70JSjgvymdx0WTSz1Q0egPZjTL3X-GDpz4n_2UE-FSbiD9G_XRb2XhQC=
+PqEMzrpaXKu03pdul_NuFy6_2uZjm3PPQUU4nM6COgQgPTehqokeNHD58wrXMEOtNr1wtlBViEi=
+EaHKRzN5shmeOtZvHO2dIJggMPzdGNdejcy7u-lBuQo6QfmA84ZdmPHU-RrsvaBHRFejw/495/M=
+U3Sc_BSSHGh1K5AlCWFuw/h8/h001.0dB-XUniUPNf7TW7sVi7qQlZ8-eyG2v1dkJXA5O9fOk" =
+target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Derisking 12 C=
+ommon Workplace Scenarios</span></a></h1></td></tr><tr><td class=3D"dd" ali=
+gn=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:break-word=
+;"><p style=3D"color: ;"> =E2=80=94 Wes Kao </p></td></tr><tr><td class=3D"=
+dd" align=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:bre=
+ak-word;"><p style=3D"color: ;"><b>tl;dr</b>: Wes covers simple ways to der=
+isk the following workplace scenarios:(1) Sharing an idea your colleagues m=
+ight find controversial. (2) Giving constructive feedback to a direct repor=
+t. (3) Testing your offer. (4) You made a mistake and need to tell your cus=
+tomer. (5) Troubleshooting a technical issue. (6) Giving feedback to a peer=
+. And more.=C2=A0 </p></td></tr><tr><td id=3D"career-advice" class=3D"dd" a=
+lign=3D"right" valign=3D"top" style=3D"color:#000000;font-weight:Normal;pad=
+ding:0px 10px;text-align:right;"><h6 style=3D"color:#000000;font-weight:Nor=
+mal;"><span style=3D"font-size:12px;"><i><a class=3D"link" href=3D"https://=
+link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p9=
+OVpJ5Xans03aUvDJ-hchajTuU6vPs1dVd1NCTYJKqTwPHCG5Qc8194fAJbkvj59NDW-QKUR6Qwj=
+Csdah7L_FUg9JEvkq-Zuck8KKmw6UP28lZX9JJPuKLxAEb2DbkD_xrN3TwCYAKr0Grca4s0UvgR=
+yGrfegf_VeMgI_A2zSoFJ-rIz12PnkeVD9xbog8lcQ/495/MU3Sc_BSSHGh1K5AlCWFuw/h9/h0=
+01.5sNOACKeJmHbl5tMjlGTZFUQyGzXcKr6DqaI1g2AM6I" target=3D"_blank" rel=3D"no=
+opener noreferrer nofollow"><span>CareerAdvice</span></a></i></span></h6></=
+td></tr><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0px;line=
+-height:0px;padding:20px 0px;" class=3D"dd"><table class=3D"j" role=3D"none=
+" width=3D"96%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"c=
+enter"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td id=3D"ask-for-ad=
+vice-not-permission" class=3D"dd" align=3D"left" valign=3D"top" style=3D"co=
+lor:#000000;font-weight:Bold;padding:0px 10px;text-align:left;"><h1 style=
+=3D"color:#000000;font-weight:Bold;"><a class=3D"link" href=3D"https://link=
+.mail.beehiiv.com/ss/c/u001.NxDti-hLnxnUue0yjhAbRwGyQXB8U4k8lsy6WPfVyn4EhY1=
+3YS-jA4UheThBuL3mB08YSbtjECWCAhQqqUtyXsJVK5R9s5OWt6ZCStJSFHHTcAnFnjp-a7faJV=
+Rx4j65Zwe_fk_78LpkPeWlQjtaTpGHuR1f7rsPz3VkXrMx7Ad7OeQvRg0-aSenRQlAiRgZFznwW=
+2rJstwsr_q-5osPOcb41fc-U_g84fh6VHpx3Qh8GOkM50WgNxWXXZXtjE5i3xW2ThDGs9FmPuEU=
+mYpakw/495/MU3Sc_BSSHGh1K5AlCWFuw/h10/h001.shD8cnWx3pi_yCFKvstiy3a_pNSgiAue=
+cuENZF9YdBA" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>E=
+nthusiasm: Managing Our Most Precious Resource</span></a></h1></td></tr><tr=
+><td class=3D"dd" align=3D"left" style=3D"padding:0px 10px;text-align:left;=
+word-break:break-word;"><p style=3D"color: ;"> =E2=80=94 Kent Beck </p></td=
+></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 10px;text-al=
+ign:left;word-break:break-word;"><p style=3D"color: ;"><b>tl;dr</b>: =E2=80=
+=9CThe enthusiasm-enhancing way to allocate people to tasks is to let the p=
+eople allocate themselves. They have context, in the form of accountability=
+ and purpose and approximate proportions, but to preserve enthusiasm they m=
+ust make their own decision. And a fired up engineer is five times (for som=
+e value of five) as valuable as that same engineer just putting in hours.=
+=E2=80=9D </p></td></tr><tr><td id=3D"leadership-management-career-advice" =
+class=3D"dd" align=3D"right" valign=3D"top" style=3D"color:#000000;font-wei=
+ght:Normal;padding:0px 10px;text-align:right;"><h6 style=3D"color:#000000;f=
+ont-weight:Normal;"><span style=3D"font-size:12px;"><i><a class=3D"link" hr=
+ef=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus=
+9KCQCezbO-D5p8WNkGh_tqC642CeuS49eXJNWl82Ijvtg-fAmhwHATeOrN66_qIJmOHXIXo_05_=
+OippohATFX1x6dQrvQR-D5Qmvl9SVDV9I2y3TZYAf2Wr2dOrtfHzEXlkdYEcxB49j1ocd6CVLTk=
+sMv7Yyir6NFREp8JFZRHNYF5_FpUtRPOm9pxWUu2xFGyWl0jzV5BxkYo/495/MU3Sc_BSSHGh1K=
+5AlCWFuw/h11/h001.bRrIo3dSTeztVUzq-Ln8WHD8t64847Jif6KQle6iivA" target=3D"_b=
+lank" rel=3D"noopener noreferrer nofollow"><span>Leadership</span></a></i><=
+/span><span style=3D"font-size:12px;"><i>=C2=A0</i></span><span style=3D"fo=
+nt-size:12px;"><i><a class=3D"link" href=3D"https://link.mail.beehiiv.com/s=
+s/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p9Q0BtLekfRFGdL7a9SfO2uBj=
+NfLlnWnSgoCfYPbjQ2XNy6bFXNYdVZmQGESfcjEvf1K1wczuluaSOKobkfZKhutiTbnlQdulDR2=
+6TJlgEf5QweMqJm5zkofzdjkwkgVwMvAN-rGFmhEo-n6UxjXofkGEO8xb6rEuwv-XkC6P1QkTPw=
+77AzH1-_YPFbAEmH3WU/495/MU3Sc_BSSHGh1K5AlCWFuw/h12/h001.OK4q6mGYbGM3t95qBHF=
+lPrBnHf1zmL7AwCaVAEAKi6c" target=3D"_blank" rel=3D"noopener noreferrer nofo=
+llow"><span>Management</span></a></i></span></h6></td></tr><tr><td align=3D=
+"center" valign=3D"top" style=3D"font-size:0px;line-height:0px;padding:20px=
+ 0px;" class=3D"dd"><table class=3D"j" role=3D"none" width=3D"96%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> &nbsp;=
+ </td></tr></table></td></tr><tr><td id=3D"algorithms-we-develop-software-b=
+y" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#000000;font-w=
+eight:Bold;padding:0px 10px;text-align:left;"><h1 style=3D"color:#000000;fo=
+nt-weight:Bold;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss=
+/c/u001._d02Us3GR26SqbxiB_QNfVuqloztWerRJdOgqmq8zxyMyHEMc_EuqlVNfDFdq5oB5vK=
+lDtpiKZtlBf_rW04Yn6vQazXgc8vRobnfyFDyQbt5hv2Hzqpefyy_deyaSeaEU8Zy0qeH7Hlo3Q=
+fYqSiImqqINUScHHiM0tQxhT-KLxzNsWGEGkjh-nc9TTfq0ddzb2TmYaDiNDVH18VVirgWhiDDp=
+_B7kZgm5UCGe9bDsl_F8rgD4-LoyfAHUOdapFuI/495/MU3Sc_BSSHGh1K5AlCWFuw/h13/h001=
+.NUxQLyEdzeTIz1t4fQ87YqNqo8y3aI6fP8kTejR9Bg0" target=3D"_blank" rel=3D"noop=
+ener noreferrer nofollow"><span>Algorithms We Develop Software By</span></a=
+></h1></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 10=
+px;text-align:left;word-break:break-word;"><p style=3D"color: ;"> =E2=80=94=
+ Grant Slatton </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"p=
+adding:0px 10px;text-align:left;word-break:break-word;"><p style=3D"color: =
+;"><b>tl;dr</b>: =E2=80=9CI recently had a conversation with a distinguishe=
+d tech CEO and engineer. I loved hearing his description of a software deve=
+lopment methodology he&#39;s occasionally used, and it got me thinking abou=
+t other heuristics and generalizations.=E2=80=9D=C2=A0Grant discusses tacti=
+cs to develop software effectively. </p></td></tr><tr><td id=3D"career-advi=
+ce" class=3D"dd" align=3D"right" valign=3D"top" style=3D"color:#000000;font=
+-weight:Normal;padding:0px 10px;text-align:right;"><h6 style=3D"color:#0000=
+00;font-weight:Normal;"><span style=3D"font-size:12px;"><i><a class=3D"link=
+" href=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQF=
+hCus9KCQCezbO-D5p9OVpJ5Xans03aUvDJ-hchajTuU6vPs1dVd1NCTYJKqTwPHCG5Qc8194fAJ=
+bkvj59NDW-QKUR6QwjCsdah7L_FUg9JEvkq-Zuck8KKmw6UP28lZX9JJPuKLxAEb2DbkD_xC4u9=
+kEG-7i90gQP46yorh788giL1Y5ZUZJKm7aC5ragcoteTukDO4BV95byfIr2c/495/MU3Sc_BSSH=
+Gh1K5AlCWFuw/h14/h001.4yEel-t0907Ov7eN_cuk52ARV6MXU2aiDvg2F50j02g" target=
+=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>CareerAdvice</span><=
+/a></i></span></h6></td></tr><tr><td align=3D"center" valign=3D"top" style=
+=3D"font-size:0px;line-height:0px;padding:20px 0px;" class=3D"dd"><table cl=
+ass=3D"j" role=3D"none" width=3D"96%" border=3D"0" cellspacing=3D"0" cellpa=
+dding=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr></table></td></tr><t=
+r><td id=3D"bug-squash-an-underrated-interview-" class=3D"dd" align=3D"left=
+" valign=3D"top" style=3D"color:#000000;font-weight:Bold;padding:0px 10px;t=
+ext-align:left;"><h1 style=3D"color:#000000;font-weight:Bold;"><a class=3D"=
+link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.J3WaaJcD-G_P1A1xsf5CH=
+l5RZoSzsOPPHNhBl_LZUPO2AnZylRdywqhbzctFqSWR-UFje72-abd5oxH9hUiopxBqcssQ2Y4k=
+fZkoLGwaqyLP-bcxH4jPAmND1VbHQdmjxim0mHStp1vIwhAWCaUgrexPLVR0WFrr0LoaC0EBwyn=
+-j8oEtBaUoPaHjwiRtCABPU6fW9zoQZ7c7rEwXFZui2KSX7iTY1HQ93_2tgCEh1Y/495/MU3Sc_=
+BSSHGh1K5AlCWFuw/h15/h001.-jbw2ezGq9wfUcdo3mBDtSyuk4PMuXDfUFLWOzcbzIU" targ=
+et=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Bug Squash: An Und=
+errated Interview Question</span></a></h1></td></tr><tr><td class=3D"dd" al=
+ign=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:break-wor=
+d;"><p style=3D"color: ;"> =E2=80=94 Jake Zimmerman </p></td></tr><tr><td c=
+lass=3D"dd" align=3D"left" style=3D"padding:0px 10px;text-align:left;word-b=
+reak:break-word;"><p style=3D"color: ;"><b>tl;dr</b>: The highest signal-to=
+-noise software engineering interview I=E2=80=99ve seen goes like this: =E2=
+=80=9CHere=E2=80=99s a repo you=E2=80=99ve never seen before. Here=E2=80=99=
+s how to build and run the tests in this repo. There=E2=80=99s a bug: what =
+we=E2=80=99re observing is X, but we want to see Y instead. Find the bug an=
+d maybe even write some code to fix it.=E2=80=9D Jake explains why he value=
+s the question.=C2=A0 </p></td></tr><tr><td id=3D"hiring" class=3D"dd" alig=
+n=3D"right" valign=3D"top" style=3D"color:#000000;font-weight:Normal;paddin=
+g:0px 10px;text-align:right;"><h6 style=3D"color:#000000;font-weight:Normal=
+;"><span style=3D"font-size:12px;"><a class=3D"link" href=3D"https://link.m=
+ail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p-m0sX6i=
+cgdSSR6SHYLc7NBv8c4lBmGOHpVKYJ8fhr2lrmaUfB_Din2wiGUC_9bBWkdydhiomhpv9EfkgES=
+ZjDlIE9N6WAgQMMIZSE_uPmJDIw8IHINvR7qBJzZ_VVbldcoM4RVaeFFsanm06OBkw-j4PsWEm_=
+yZ9N6uuXo7bG3mYN7zDOvttnS6sYSsahkQWs/495/MU3Sc_BSSHGh1K5AlCWFuw/h16/h001.c1=
+fBOGTsUItvSuyxHxLE7_bwq2ExGF9_NUs-GGCpm80" target=3D"_blank" rel=3D"noopene=
+r noreferrer nofollow"><span><i>Hiring</i></span></a></span></h6></td></tr>=
+<tr><td align=3D"center" valign=3D"top" style=3D"padding:30px 10px 30px 10p=
+x;" class=3D"dd"><table role=3D"none" width=3D"100%" border=3D"0" cellspaci=
+ng=3D"0" cellpadding=3D"0" align=3D"center" class=3D"d" style=3D"border-rad=
+ius:5px;border:0px solid #ffffff;"><tr><td align=3D"center" valign=3D"top" =
+style=3D"padding:20px 20px 20px 20px;" class=3D"dd"><table role=3D"none" wi=
+dth=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"cent=
+er"><tr><td align=3D"center" valign=3D"top" class=3D"i"><p style=3D"margin:=
+0px;text-align:center;"><b>=E2=80=9CThe only way to do great work is to lov=
+e what you do.=E2=80=9D</b></p></td></tr><tr><td height=3D"14" style=3D"lin=
+e-height:1px;font-size:1px;height:14;">&nbsp;</td></tr><tr><td align=3D"cen=
+ter" valign=3D"top" class=3D"h" style=3D"color:#ffffff;font-family:'Space G=
+rotesk',sans-serif;font-size:14px;"><b> =E2=80=93 Steve Jobs</b></td></tr><=
+/table></td></tr></table></td></tr><tr><td id=3D"less-is-more-principles-fo=
+r-simple-" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#00000=
+0;font-weight:Bold;padding:0px 10px;text-align:left;"><h1 style=3D"color:#0=
+00000;font-weight:Bold;"><a class=3D"link" href=3D"https://link.mail.beehii=
+v.com/ss/c/u001.NxDti-hLnxnUue0yjhAbR9ihDugbmr0sv--A_jFIRE0WoAVoLJWNts6BB1R=
+FMMwf80PnT9lCepYkt5LQhouwNoEXlUeH_7Agndm79TAEQR7ZlmLUNKLuwWxuNjeYDtebaSERzS=
+gNlGkhnMjcEjynNJycRo8aV4IErnmy-Esmm03qf1u9E_nthKBboZnVWn3XI_5ynVE1Gt90OvsGy=
+evevzon2OCTT-5u23Ss-FIP3bfd0lnBUjWQm8dw0T6QhR5bkk8puutAkv3qnGxDBOswd5_8xy1c=
+BVvMGi-UNKNibfI/495/MU3Sc_BSSHGh1K5AlCWFuw/h17/h001.XjYiEqwMI0YvrTCX90iWhR8=
+XtebED8D9cdax8Sejcgg" target=3D"_blank" rel=3D"noopener noreferrer nofollow=
+"><span>Less Is More: Principles For Simple Comments</span></a></h1></td></=
+tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 10px;text-align=
+:left;word-break:break-word;"><p style=3D"color: ;"> =E2=80=94 David Bendor=
+y </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 10=
+px;text-align:left;word-break:break-word;"><p style=3D"color: ;"><b>tl;dr</=
+b>: (1) Adopt the mindset of someone unfamiliar with the project to ensure =
+simplicity. (2) Use self-contained comments to clearly convey intent withou=
+t relying on the surrounding code for context. (3) Include only essential i=
+nformation in the comments and leverage external references to reduce cogni=
+tive load on the reader. (4) Avoid extensive implementation details in func=
+tion-level comments. </p></td></tr><tr><td id=3D"best-practices" class=3D"d=
+d" align=3D"right" valign=3D"top" style=3D"color:#000000;font-weight:Normal=
+;padding:0px 10px;text-align:right;"><h6 style=3D"color:#000000;font-weight=
+:Normal;"><span style=3D"font-size:12px;"><a class=3D"link" href=3D"https:/=
+/link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p=
+8lv4kEt3JZ0n5wGuDDCw-XTQU1r-SXB5FaTlbmBDc_HsnMkgwdoTz6wqK6q02nOOpYQk19vj06P=
+jlZG3qP6d8QFzSeDfyGFDzrBD6pPnOaXPaI98E1E-fmsAoYNVfnoIqftC8uTThr7Tieox_JQXyM=
+7hwP5Ymd1qD3RykcnJXP1w7Nm36GBs7_-Qid5_-eHsU/495/MU3Sc_BSSHGh1K5AlCWFuw/h18/=
+h001.qR3Wc7ESQcd5R2Dx84ogiSRl8yqtzo27PHc2BA007SM" target=3D"_blank" rel=3D"=
+noopener noreferrer nofollow"><span><i>BestPractices</i></span></a></span><=
+/h6></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0p=
+x;line-height:0px;padding:20px 0px;" class=3D"dd"><table class=3D"j" role=
+=3D"none" width=3D"96%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"center"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td id=3D"ag=
+ainst-names" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#000=
+000;font-weight:Bold;padding:0px 10px;text-align:left;"><h1 style=3D"color:=
+#000000;font-weight:Bold;"><a class=3D"link" href=3D"https://link.mail.beeh=
+iiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfbu_9EnJNTeYAWP5rYF8o_wySefms8fqqtlGA=
+8QdUTqBdPEODzx7a9Pv2k6eDTMQbUkHE-u2Rp7DXRtkVDkENeWE1ls4ihlFH_z3mdG1_kpdBrTY=
+SNvOvSClLu0nEOIrZk4U8OZ8vLZTyY0kqy6iOpciXPKfBAqfiYhmKx942g9Cs5FZxbSdcP8jjGT=
+IKy_JVwIRoMb28tLbg44vRQKQKTk/495/MU3Sc_BSSHGh1K5AlCWFuw/h19/h001.dr5yj4y7Z4=
+boNgEP4jVWpidk7MO1r8VopwFgn2S_AVg" target=3D"_blank" rel=3D"noopener norefe=
+rrer nofollow"><span>Learn What Role Based Access Control Is And How To Use=
+ It To Simplify Permission Management Within Organizations</span></a></h1><=
+/td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 10px;text=
+-align:left;word-break:break-word;"><p style=3D"color: ;"> =E2=80=94 Brian =
+Morrison </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding=
+:0px 10px;text-align:left;word-break:break-word;"><p style=3D"color: ;"><b>=
+tl;dr</b>: Managing permissions in large SaaS applications can be a nightma=
+re. Providing team owners a way to grant functionality to users in a simpli=
+fied way can be the difference between companies purchasing your software o=
+r going with a competitor. Clerk provides you with a way to build this func=
+tionality with minimal effort. </p></td></tr><tr><td class=3D"dd" align=3D"=
+left" style=3D"padding:0px 10px;text-align:left;word-break:break-word;"><p =
+style=3D"color: ;"><i>Promoted by Clerk</i></p></td></tr><tr><td id=3D"guid=
+e-management" class=3D"dd" align=3D"right" valign=3D"top" style=3D"color:#0=
+00000;font-weight:Normal;padding:0px 10px;text-align:right;"><h6 style=3D"c=
+olor:#000000;font-weight:Normal;"><span style=3D"font-size:12px;"><i><a cla=
+ss=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8US=
+D2q4p0gEma2zmYGbaUZl6DApqISUANQY5V_Uvoo_mxoyEFp7hV7cDMe-Zyx6wg2PsvE6-4g-oFv=
+_oeTtNHGvOnCHarw4tZlNbXNr-Ze4shepmj98TdXwoAppqP-8vQqbhBNOi6A_DLJTvQ4P5jpKSl=
+TNYZTpi1Bx3e2v10mpLQJhq0WzTluHhtaBGyGzxLHjCQ1JisGZhrqYHUIC1sC4P7IUPGTs/495/=
+MU3Sc_BSSHGh1K5AlCWFuw/h20/h001.Ok9YTSmLl_BfmV0KksgSeQ_N-1e7UA_5u30egsXt5rU=
+" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Guide</span>=
+</a></i></span><span style=3D"font-size:12px;"><i>=C2=A0</i></span><span st=
+yle=3D"font-size:12px;"><i><a class=3D"link" href=3D"https://link.mail.beeh=
+iiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p9Q0BtLekfRFGdL7=
+a9SfO2uBjNfLlnWnSgoCfYPbjQ2XNy6bFXNYdVZmQGESfcjEvf1K1wczuluaSOKobkfZKhutiTb=
+nlQdulDR26TJlgEf5QweMqJm5zkofzdjkwkgVwMy1uFm_tfu5C4jXYvkkZszvxDy5QXAtZGXab1=
+uyXBBHTbqijSAOXliVyMCb_qohh4/495/MU3Sc_BSSHGh1K5AlCWFuw/h21/h001.jlAmu2Pv95=
+TdpASV6YDm6F_EmisNV6HxgJc9lKkmjJY" target=3D"_blank" rel=3D"noopener norefe=
+rrer nofollow"><span>Management</span></a></i></span></h6></td></tr><tr><td=
+ align=3D"center" valign=3D"top" style=3D"font-size:0px;line-height:0px;pad=
+ding:20px 0px;" class=3D"dd"><table class=3D"j" role=3D"none" width=3D"96%"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td>=
+ &nbsp; </td></tr></table></td></tr><tr><td id=3D"llm-applications-i-want-t=
+o-see" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#000000;fo=
+nt-weight:Bold;padding:0px 10px;text-align:left;"><h1 style=3D"color:#00000=
+0;font-weight:Bold;"><a class=3D"link" href=3D"https://link.mail.beehiiv.co=
+m/ss/c/u001.T-cngy-HiLjOztVyxmCjHL8Qe0Mrh3XpU_t8Nrrp3lmSYrupJ3kdjuWQjkeO-WO=
+FET8Ax76OMbYIhC6a9JNbPb95EATxHW8k0eQRWmmBmIKuQ-qIcxZpcjV0_yuwUMbv8bhVLtR09Z=
+VP76sNLMkNmWcSz0rfgoUIKIdziY0QTgLwxF1qJN3BV80R40Ss9CbpI_mHzc5CN8fjp9TaFui-h=
+-X1w7wXlDC36K-QkbvOtSdGj2QnmQWxEXBWDcC4qTIrjYwYhGJEVw06O6l0MpxFlA/495/MU3Sc=
+_BSSHGh1K5AlCWFuw/h22/h001.BEJQVGj9oiD3_PasPecJdYz00PBHW0c_oNJ0opj-OOc" tar=
+get=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>LLM Applications =
+I Want To See</span></a></h1></td></tr><tr><td class=3D"dd" align=3D"left" =
+style=3D"padding:0px 10px;text-align:left;word-break:break-word;"><p style=
+=3D"color: ;"> =E2=80=94 Sarah Constantin </p></td></tr><tr><td class=3D"dd=
+" align=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:break=
+-word;"><p style=3D"color: ;"><b>tl;dr</b>: =E2=80=9CBut the most creative =
+and interesting potential applications go beyond =E2=80=9Cdoing things huma=
+ns can already do, but cheaper=E2=80=9D to do things that humans can=E2=80=
+=99t do at all on comparable scale.=E2=80=9D Sarah shares a list of app ide=
+as.=C2=A0 </p></td></tr><tr><td id=3D"llm-ai" class=3D"dd" align=3D"right" =
+valign=3D"top" style=3D"color:#000000;font-weight:Normal;padding:0px 10px;t=
+ext-align:right;"><h6 style=3D"color:#000000;font-weight:Normal;"><span sty=
+le=3D"font-size:12px;"><a class=3D"link" href=3D"https://link.mail.beehiiv.=
+com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p-Kn_XSeJxCP9lERN18U=
+BBTrS2dUCA7YBmZfq72umgGh65BcC1noC4gnjeY-XW1R7Hz6Ok4xVX8K63qM0gO45ojKxMYsOVA=
+jqp8bLAFGOND3zRXR5EiFRsQhZ_E1l7ZvjjCFIB1rugoD8PGsoIjG8HZ3w6CRKu5TVWXHHzlDLY=
+R6idO1deObf2MEkvSHUxtwzw/495/MU3Sc_BSSHGh1K5AlCWFuw/h23/h001.kSrxJ1XVp0S1-L=
+frxL1KS3GQ8pb58B7N9lqKOr4j5YA" target=3D"_blank" rel=3D"noopener noreferrer=
+ nofollow"><span><i>LLM</i></span></a></span><span style=3D"font-size:12px;=
+"><i>=C2=A0</i></span><span style=3D"font-size:12px;"><a class=3D"link" hre=
+f=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9=
+KCQCezbO-D5p9y5esyOu4EC84AYEdgBjvkDHXVcNE6MsMZ4MW7ttQcp3tFHD0aGmIE4ghjnYQ2V=
+u8BL-yQ6QBZq5VhhvdvyrpTogTlZNyif6cL4S1kc6WeYLofeiYjccoKaQrucjClnUj4Ux1Tja3q=
+f3kNGx9EmgBoc6qeQp4-ah8vYN4McIfYWolUhThkO1r2xh7O5az1TOs/495/MU3Sc_BSSHGh1K5=
+AlCWFuw/h24/h001.HHnUmwL9sRepshvmV3-L0YSQXs3bhB14CaBABB_OXYM" target=3D"_bl=
+ank" rel=3D"noopener noreferrer nofollow"><span><i>AI</i></span></a></span>=
+</h6></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0=
+px;line-height:0px;padding:20px 0px;" class=3D"dd"><table class=3D"j" role=
+=3D"none" width=3D"96%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" al=
+ign=3D"center"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td id=3D"yo=
+u-should-make-a-new-programming-l" class=3D"dd" align=3D"left" valign=3D"to=
+p" style=3D"color:#000000;font-weight:Bold;padding:0px 10px;text-align:left=
+;"><h1 style=3D"color:#000000;font-weight:Bold;"><a class=3D"link" href=3D"=
+https://link.mail.beehiiv.com/ss/c/u001.NxDti-hLnxnUue0yjhAbRw6WzclXdBY_KOE=
+U1UmobT4ENi6RdUaWtXsHl9FlOFVrG3NxgOL0GBLmUqL5jytP-uP6UtjC2jtXY-3qIYsdlu2X_4=
+8fmB5vVJZCL6B7MZ_q4j54CP9X6Imj2Hx0hF_NzGfg7rYjjNmPiZ7Y21s9V9ZAwuyhcmrMqAYQ-=
+ccemWZlOpHSFYPob3YMfRMU5HIRNlsIWGXNFWoDfsvD_mya29jY1EKSmi56RQLbjrA-NHoy/495=
+/MU3Sc_BSSHGh1K5AlCWFuw/h25/h001.5U7wmEAw_9js-Jn_gdCv5TCenOg5L1cvanBKX-obdz=
+o" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>The 1 Hour =
+Per Year Bug (But Only In Pacific Time!)</span></a></h1></td></tr><tr><td c=
+lass=3D"dd" align=3D"left" style=3D"padding:0px 10px;text-align:left;word-b=
+reak:break-word;"><p style=3D"color: ;"> =E2=80=94 Tomer Aberbach </p></td>=
+</tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 10px;text-ali=
+gn:left;word-break:break-word;"><p style=3D"color: ;"><b>tl;dr</b>: =E2=80=
+=9CThe date was November 8, 2021 and I was a bug triager on the Google Docs=
+ team. That day began like any other. I made myself some coffee and started=
+ looking through bug reports from the day before. But then something caught=
+ my eye.=E2=80=9D </p></td></tr><tr><td id=3D"entertaining-debugging" class=
+=3D"dd" align=3D"right" valign=3D"top" style=3D"color:#000000;font-weight:N=
+ormal;padding:0px 10px;text-align:right;"><h6 style=3D"color:#000000;font-w=
+eight:Normal;"><span style=3D"font-size:12px;"><a class=3D"link" href=3D"ht=
+tps://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezb=
+O-D5p88fBI-o-xjBDLYbiB7s29yBrtEZPKa0bX77CXlHrQnJpG4CvZO_mFKRclNlbHudxfh7XGA=
+1rfKbZasuefnucVKu7PMRYzOwae2w-lC-MLb1T5XUhWk06_FweD25JjKZthNajMSZgoLktV8nyd=
+ort3ACEK6b48LX40UiJ65s-ZePa_2Vwf9OGMc7EVQckGyIiQ/495/MU3Sc_BSSHGh1K5AlCWFuw=
+/h26/h001.IrtS2uYvRCzuYV5L19SOSs0vrOo95uh5zwQEOBjrM4k" target=3D"_blank" re=
+l=3D"noopener noreferrer nofollow"><span><i>Entertaining</i></span></a></sp=
+an><span style=3D"font-size:12px;"><i>=C2=A0</i></span><span style=3D"font-=
+size:12px;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u0=
+01.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p-gG71971X0X8jRL-LKmPpv__1fixTx=
+5EtyusQD0lKeSYnOWPAkKJTHZKZxgDB7a00sPEXy5przN6ABsGxWuJmIuHf1oXzz3D2GjAh1FFj=
+Fh_yyXfjvk-KIx8i8RE28q6YUlYeSsN3JA_O55ZWhiEvESgqosn0i028Ch5EIbPRotFU22o4xY_=
+w9VrY3YOaBx_Q/495/MU3Sc_BSSHGh1K5AlCWFuw/h27/h001.0B2JsCXjhTqSjwwOgcVumJnrF=
+aJV0lhe13ZKnPclUKo" target=3D"_blank" rel=3D"noopener noreferrer nofollow">=
+<span><i>Debugging</i></span></a></span></h6></td></tr><tr><td align=3D"cen=
+ter" valign=3D"top" style=3D"font-size:0px;line-height:0px;padding:20px 0px=
+;" class=3D"dd"><table class=3D"j" role=3D"none" width=3D"96%" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> &nbsp; </td>=
+</tr></table></td></tr><tr><td id=3D"effective-changelogs" class=3D"dd" ali=
+gn=3D"left" valign=3D"top" style=3D"color:#000000;font-weight:Bold;padding:=
+0px 10px;text-align:left;"><h1 style=3D"color:#000000;font-weight:Bold;"><a=
+ class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.AuurfvrUtkd=
+AYq0X62H4wGDPZTia1aDSJlDsPGkjqgDDIdHiHyrYm60sht0rO9e7NfBwnALpDWl1h9I2Nnh7-8=
+2ujmHiyp8_09F9ZZzKf7gIL1zIquyr3cSXo6WeWQDY9Fn383UjESd2ffFRxNoDRdf3_US7b6FZG=
+KyGlUrFCcI40Q4axc9HvJoN_fvx1DWHz4ry_vZlo0r7bouk38Ob-XGQ3DFOlmf1Gw5iLqW_iMBN=
+Dzj9n83QNC_77CfeQioK/495/MU3Sc_BSSHGh1K5AlCWFuw/h28/h001.0exbp3UAyh4kQm3GBj=
+myBKCM7m_PNbZpXycYsDwXak0" target=3D"_blank" rel=3D"noopener noreferrer nof=
+ollow"><span>Effective Changelogs</span></a></h1></td></tr><tr><td class=3D=
+"dd" align=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:br=
+eak-word;"><p style=3D"color: ;"> =E2=80=94 David Brownman </p></td></tr><t=
+r><td class=3D"dd" align=3D"left" style=3D"padding:0px 10px;text-align:left=
+;word-break:break-word;"><p style=3D"color: ;"><b>tl;dr</b>: =E2=80=9CThe K=
+eep a Changelog project offers some good high-level guidelines, but speakin=
+g as someone who is frequently frustrated by changelogs, it seems like more=
+ specific advice is in order. I&#39;ve collected some simple tips and examp=
+les to ensure your changelogs are fit for human consumption.=E2=80=9D=C2=A0=
+ </p></td></tr><tr><td id=3D"tips" class=3D"dd" align=3D"right" valign=3D"t=
+op" style=3D"color:#000000;font-weight:Normal;padding:0px 10px;text-align:r=
+ight;"><h6 style=3D"color:#000000;font-weight:Normal;"><span style=3D"font-=
+size:12px;"><i>=C2=A0</i></span><span style=3D"font-size:12px;"><a class=3D=
+"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41Zsr=
+tIWQFhCus9KCQCezbO-D5p8o4SgroB9mkSJ1strQJAy2xP-2HzRxucSMvgoMy8r8RZKKRGVrKLu=
+-ADJjxEpDfvJd66xlHjwcqKZVFT8aQ49M7r5xMzUQjjOfgXIPKMeXp8sg_zjXxyNsNeKFvdGq1o=
+PRz6CAudAhAYZjMC8fZb73jiKbAI1cGV4Avt_Iasq8NuVu3w6BEChw4-LXonee8PI/495/MU3Sc=
+_BSSHGh1K5AlCWFuw/h29/h001.AzaDPLBwcvvhMgzv16ObnZjbSEUYyitXcMAR94LhRec" tar=
+get=3D"_blank" rel=3D"noopener noreferrer nofollow"><span><i>Tips</i></span=
+></a></span></h6></td></tr><tr><td align=3D"center" valign=3D"top" style=3D=
+"padding: 20px 10px 20px; " class=3D"dd"><table role=3D"none" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td=
+ align=3D"center" valign=3D"top" style=3D"width:650px;"><img src=3D"https:/=
+/media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dr=
+edirect,quality=3D80/uploads/asset/file/f1a60110-9479-4cc5-86dc-4ca39959b91=
+8/Frame_14.png?t=3D1723764489" alt=3D"" height=3D"auto" width=3D"650" style=
+=3D"display:block;width:100%;" border=3D"0"/></td></tr></table></td></tr><t=
+r><td id=3D"the-3-motivational-forces-of-develo" class=3D"dd" align=3D"left=
+" valign=3D"top" style=3D"color:#000000;font-weight:Normal;padding:0px 10px=
+;text-align:left;"><h5 style=3D"color:#000000;font-weight:Normal;"><a class=
+=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2=
+q4p0vdihG8EQQkYe0f3fUFjMArpHI1scv3JadghAV8j4HmU9foJSss1DKIi6Kn6eg6K7xiY_x2i=
+Z97btVqAzIv8082qgjSEYy3t9ZFz9xEIOOwM6kCD-3NcTen7urCxEeemzUXAukrWeVbGWio5ufi=
+fk7tZO5R_xyH2r0BB9gontfiB17mzIOEeoq3lt7t5YeFaENs4HbBV-kxaS7znRTqVCp77jscqss=
+6KeDQXCmtW_IWXLvxXUUJDljE62cYt7AC0rQ/495/MU3Sc_BSSHGh1K5AlCWFuw/h30/h001.TY=
+y5pDmbHGX9mhvm5_Dbm4QaS9qZRDXfVhJXh8mYRdU" target=3D"_blank" rel=3D"noopene=
+r noreferrer nofollow"><span><b>The 3 Motivational Forces Of Developers</b>=
+</span></a><b>=C2=A0</b>- Ben Northrop</h5></td></tr><tr><td align=3D"cente=
+r" valign=3D"top" style=3D"padding: 20px 10px 20px; " class=3D"dd"><table r=
+ole=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"marg=
+in:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:6=
+50px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down=
+,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/0db18a10-=
+5259-4ed4-b641-bd39b17d23b4/Frame_12.png?t=3D1723764594" alt=3D"" height=3D=
+"auto" width=3D"650" style=3D"display:block;width:100%;" border=3D"0"/></td=
+></tr></table></td></tr><tr><td id=3D"maestro-netflixs-workflow-orchestra" =
+class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#000000;font-weig=
+ht:Normal;padding:0px 10px;text-align:left;"><h5 style=3D"color:#000000;fon=
+t-weight:Normal;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/s=
+s/c/u001._d02Us3GR26SqbxiB_QNfVv-fBZbslGRyalynCuXWYdczV8oYlIOVViPdNxD__UffK=
+tjwjnX98ZZN0LK0N_UE63FSYTJc09j_SWHps94SLfRaT6ylWyDXE4ReydEEQyx-HeiDURJPBt7f=
+BN4BaZ-X_dPOnO6aFGt-SscxikF3X7YQZZ4HTNkNP_sWZevlqcNycXsJqrgBfha58NPYrLo-FmJ=
+iT4UQHJ6vwqE-0GUk3k/495/MU3Sc_BSSHGh1K5AlCWFuw/h31/h001.nATAxL_lPQE629qxEn1=
+Bcv3akruVfVLavRGwz6IltOg" target=3D"_blank" rel=3D"noopener noreferrer nofo=
+llow"><span><b>Maestro</b></span></a><b>: </b>Netflix=E2=80=99s workflow or=
+chestrator.</h5></td></tr><tr><td id=3D"n-8-n-os-workflow-automation-tool" =
+class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#000000;font-weig=
+ht:Normal;padding:0px 10px;text-align:left;"><h5 style=3D"color:#000000;fon=
+t-weight:Normal;"><b><a class=3D"link" href=3D"https://link.mail.beehiiv.co=
+m/ss/c/u001._d02Us3GR26SqbxiB_QNfXMtMZqOfl0TAeSKqpBU-zpLccFegcioSO6tNLYXaXs=
+7bdErKb2OvsUkfuX3FB4M_SMBQR4ZBJGT75ZqDdJlO4rjEVIoORBZI6lonrINb7BKXfGA2auM-8=
+sR8lHuo50JUJpYlczF-f38Po7ZzwJAkRkOIdwEjFD7zUBwHBTQTcdJeqU3xf7IpR5FmKzUInM2C=
+8gJc-dy9zrK0Bk0OmuQj3Y/495/MU3Sc_BSSHGh1K5AlCWFuw/h32/h001.CfWsKy-Lp9TvyFsb=
+f115_kj5IWz_1e4Sjdi-OxHZQJw" target=3D"_blank" rel=3D"noopener noreferrer n=
+ofollow"><span>N8N</span></a></b><b>: </b>OS workflow automation tool.</h5>=
+</td></tr><tr><td id=3D"srcbook-type-script-java-script-not" class=3D"dd" a=
+lign=3D"left" valign=3D"top" style=3D"color:#000000;font-weight:Normal;padd=
+ing:0px 10px;text-align:left;"><h5 style=3D"color:#000000;font-weight:Norma=
+l;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001._d02U=
+s3GR26SqbxiB_QNfRxGz3bbV6l4KyhHzXYHAPHDNsFCabieFsbuXfZgvY8VyNX4LtYaMCpU2izi=
+gPaWdfvfc_BU_a3H2_VtWGZVq5B0dQwkaMA9ej50RaevPMSsXFE8xA32aUfR4DVSE6Uj4rD5jbY=
+3FZgLuvEoDz0TVDQxChwV1aFz3thVWyZUDJmM87Hd94dddA3W3h0J3wZt0ib_7n8BZ29tEe-bFU=
+w7OAM/495/MU3Sc_BSSHGh1K5AlCWFuw/h33/h001.osp2xIe0y-sUXMJrToDyMMU6uSGWXuvgC=
+fhtMGwzfVU" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span><b=
+>Srcbook</b></span></a><b>: </b>TypeScript & JavaScript notebooks.</h5></td=
+></tr><tr><td id=3D"truffle-hog-find-leaked-credentials" class=3D"dd" align=
+=3D"left" valign=3D"top" style=3D"color:#000000;font-weight:Normal;padding:=
+0px 10px;text-align:left;"><h5 style=3D"color:#000000;font-weight:Normal;">=
+<b><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001._d02Us=
+3GR26SqbxiB_QNfYTJk0-bMJoJ3KpX5i0tg_h1pm1Vj1RGFQpeCE7OQuzcV_uKJ8i8DBpuGigsb=
+IsnvcHGARzJvkWI5Mv5DEiJ6TlYeHp9uhU_FkWN1wde7mgGvgDGSc3ma8AS8NeGgdOuTlvVOXbJ=
+nOXs21t--7WafPYUXv0c9XgssdJHbK_jFCKaOk8BMa_RqirvhxdmCLyImg3kCIxjQLKqYOrzMtK=
+Dl6R2jRX8ltjE_U9yBo4wov4A/495/MU3Sc_BSSHGh1K5AlCWFuw/h34/h001.ccI19djIqgVqV=
+caGUC-cO9i3vxF7FH7KnfwOnQysSRk" target=3D"_blank" rel=3D"noopener noreferre=
+r nofollow"><span>TruffleHog</span></a></b><b>: </b>Find leaked credentials=
+.</h5></td></tr><tr><td id=3D"uv-an-extremely-fast-python-package" class=3D=
+"dd" align=3D"left" valign=3D"top" style=3D"color:#000000;font-weight:Norma=
+l;padding:0px 10px;text-align:left;"><h5 style=3D"color:#000000;font-weight=
+:Normal;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001=
+._d02Us3GR26SqbxiB_QNfb-gFF6454Nie7jPpuFt_TChbKGyhlnTOacE7F95mjPDhFj3MRYE9J=
+DXJrNCf8_YR58tsEaTwGel7yJm_fudEuiWeN0a8yVIIR6lXWhb13273cGkbhPEFX0eQDvxwzehS=
+jMHHaoU5U2sbxs004LX5HxoEO0kws03wJIP2M4zPlq6ESzHojxsJtR2x0NIITBH2a8wD90QbqaK=
+J6nkUjpt6fE/495/MU3Sc_BSSHGh1K5AlCWFuw/h35/h001.DbKRVh0uf7YVABl8Y1d7OZUzohY=
+FmX0mewAZdftmbEU" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><s=
+pan><b>UV</b></span></a><b>: </b>An extremely fast Python package and proje=
+ct manager.</h5></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"=
+font-size:0px;line-height:0px;padding:20px 0px;" class=3D"dd"><table class=
+=3D"j" role=3D"none" width=3D"96%" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr></table></td></tr><tr><=
+td style=3D"padding:4px 10px"><br></td></tr><tr><td class=3D"dd" align=3D"c=
+enter" style=3D"padding:0px 10px;text-align:center;word-break:break-word;">=
+<p style=3D"color: ;"> Click the below and shoot me an email! </p></td></tr=
+><tr><td class=3D"dd" align=3D"center" style=3D"padding:0px 10px;text-align=
+:center;word-break:break-word;"><p style=3D"color: ;"> 1 =3D Didn&#39;t enj=
+oy it all // 5 =3D Really enjoyed it </p></td></tr><tr><td id=3D"1-2-3-4-5"=
+ class=3D"dd" align=3D"center" valign=3D"top" style=3D"color:#000000;font-w=
+eight:Normal;padding:0px 10px;text-align:center;"><h5 style=3D"color:#00000=
+0;font-weight:Normal;"><span style=3D"text-decoration:underline;"><b><a cla=
+ss=3D"link" href=3D"mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-%20=
+Score%3A%201&body=3DHere%27s%20why%3A" target=3D"_blank" rel=3D"noopener no=
+referrer nofollow" clicktracking=3D"off"><span style=3D"color: rgb(0, 0, 0)=
+">1</span></a></b></span><b> =E2=80=A6 </b><span style=3D"text-decoration:u=
+nderline;"><b><a class=3D"link" href=3D"mailto:suraj@pointer.io?subject=3DI=
+ssue%20%23518%20-%20Score%3A%202&body=3DHere%27s%20why%3A" target=3D"_blank=
+" rel=3D"noopener noreferrer nofollow" clicktracking=3D"off"><span style=3D=
+"color: rgb(0, 0, 0)">2</span></a></b></span><b> =E2=80=A6 </b><span style=
+=3D"text-decoration:underline;"><b><a class=3D"link" href=3D"mailto:suraj@p=
+ointer.io?subject=3DIssue%20%23518%20-%20Score%3A%203&body=3DHere%27s%20why=
+%3A" target=3D"_blank" rel=3D"noopener noreferrer nofollow" clicktracking=
+=3D"off"><span style=3D"color: rgb(0, 0, 0)">3</span></a></b></span><b> =E2=
+=80=A6 </b><span style=3D"text-decoration:underline;"><b><a class=3D"link" =
+href=3D"mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-%20Score%3A%204=
+&body=3DHere%27s%20Why%3A" target=3D"_blank" rel=3D"noopener noreferrer nof=
+ollow" clicktracking=3D"off"><span style=3D"color: rgb(0, 0, 0)">4</span></=
+a></b></span><b> =E2=80=A6 </b><span style=3D"text-decoration:underline;"><=
+b><a class=3D"link" href=3D"mailto:suraj@pointer.io?subject=3DIssue%20%2351=
+8%20-%20Score%3A%205&body=3DHere%27s%20Why%3A" target=3D"_blank" rel=3D"noo=
+pener noreferrer nofollow" clicktracking=3D"off"><span style=3D"color: rgb(=
+0, 0, 0)">5</span></a></b></span></h5></td></tr><tr><td style=3D"padding:4p=
+x 10px"><br><br></td></tr></table></td></tr><tr><td class=3D"b" align=3D"ce=
+nter" valign=3D"top" bgcolor=3D"#111827" style=3D"padding:10px;border-botto=
+m-left-radius:16px;border-bottom-right-radius:16px;"><table role=3D"none" w=
+idth=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"cen=
+ter"><tr><td height=3D"10" style=3D"line-height:1px;font-size:1px;height:10=
+px;"> &nbsp; </td></tr><tr><td class=3D"w" align=3D"center" valign=3D"top" =
+style=3D"padding:10px;"><table role=3D"none" width=3D"100%" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center"=
+ valign=3D"top"><p style=3D"font-family:'Space Grotesk',sans-serif;color:#f=
+fffff!important;"> Update your <a href=3D'https://link.mail.beehiiv.com/ss/=
+c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB29F4951mhY03iCawzSQ6pojmI2=
+bcteUC8RU69KgqCyvvKnI4gDKObqQV1pMB9bOw79UaYS-oR9GG_Hzu5PukSJCI5n9N30N56Nc3E=
+kaicjgI-gZ_gVdsN5ur5TeLOkp9cT26UyGBYOEwWC716Dj8tXoLE2wU8_u-bOOeAVzSiBq_sFld=
+RQqqcYH9VCMwEL3Wmu8xmz17nl9mq6ppfQiZhQyoi_MpUVYbZRlxaZi-s7J24r3Bh2KYOBM1I09=
+SPMK_XHPMPZIC-KBOKoCYUVZeXqSe-z2Y-OK6BM5KIiMzyt101Pr5KBM-wof9PRFGb-4GImDKMw=
+vd7be0cmIvPRAYF-vIR-hZjRQ5e9bQrz_GGWclOSTbFowGluR2-c_naB2wl1fSHmeftusq-UBv7=
+wfWl_0fEOMk1j3GvVd9-vInH7upbAZQDwlpH1DIT-AXJgzvHkn3COeBe7CE0r5-zvVMSzwB_97w=
+j9cRnjZbtH6bFa5JcNkf_cVAnfWtNpuVtF-Tw/495/MU3Sc_BSSHGh1K5AlCWFuw/h36/h001.X=
+wJRlOVj-wbJCvx0xFUd7KKoiPecEz7h2QTa23stZGg' style=3D'text-decoration:underl=
+ine;text-decoration-color:#ffffff!important;color:#ffffff!important;'>email=
+ preferences</a> or unsubscribe <a class=3D"link" href=3D"https://link.mail=
+.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB29F4951mhY=
+03iCawzSQ6pojmI2bcteUC8RU69KgqCyvvKnI4gDKObqQV1pMB9bOw731qnVs91BlOFCPBnCBXa=
+26bqJ7COEO708Bn3IJfK7RR3SpIBZqiCdT0oJfBF-wzJ2j-UkR-sAk7X4GyiRirmA7xOROYSchq=
+wQnvvziybdNK0R3SMG8kPnSd99tDckwTfqrq3EkiFPapuIUPW9ey0vLCgFqwZSXCtfLBLjSJvAX=
+v7xBxGE2elDqEquhrOoXu2RS665VajIC0niu3LiSq3JGlWuPJpD4cLAh50jqmle94YJNHig3beu=
+4MzntZAKvcevgA3oyVfuEJMuyn7bZSKhBYAikWO49UbdtgHkDEuEhRKPO4hQSIpR7MUbL63evPJ=
+xVJqTJb82-QyZzDF1_iKD1JjxURp8FlssKOAzLsDWBT6Aw8DL4lrS7-8uik007veQry-tf_OSF0=
+CvFlVtoi6ZtWSd9bhTN8KTWPOTjrz8gpMBLmoLPn-JQW67oF25nXAyO76-abfbXVUl7ih-HZvUQ=
+qeU5f1MpTqtA_au7cqG--S4AF2VDGHeSRw-Yz6XdrdaCIN2ULSwgLJ2SZWqRCrExMzsa7nYG6zL=
+6pdUlXXwOVRJTXCZ-58fb4xWf-AEXAlG-X-61TI3c2Iz_fzwz2ktCKynM_mO6Ku3rGuerf8tQqk=
+hPkrQ3bYBbO2rZ6c5KWQe7sHQfJLoD-gpJ9jy88RM/495/MU3Sc_BSSHGh1K5AlCWFuw/h37/h0=
+01.en8AqTAEZUOTrx4l6ssFYSmZLNpVXl7_0uNgBch2csE" style=3D"text-decoration:un=
+derline;text-decoration-color:#ffffff!important;color:#ffffff!important;"> =
+here</a></p><p class=3D"copyright" style=3D"font-family:'Space Grotesk',san=
+s-serif;color:#ffffff!important;"> &copy; 2024 Pointer </p><p style=3D"font=
+-family:'Space Grotesk',sans-serif;color:#ffffff!important;"> 512 Rose Aven=
+ue, #224<br>Venice, California 90291, United States of America </p></td></t=
+r><tr><td align=3D"left" valign=3D"top" height=3D"2" style=3D"height:2px;">=
+<a href=3D'https://link.mail.beehiiv.com/ss/c/u001.-hnYW5kLMgAgfdYiF39x0spM=
+Lkdp1q7R6HcdH7rpKjPd9Z2mmZHM7OL78HQslvGyyn-Y2x8uJFvgAYSSyRijpopaVVzj1mgHoc4=
+1sC5ANX8/495/MU3Sc_BSSHGh1K5AlCWFuw/h38/h001.CU9lEgQZ0TCRI8oMaQR7_bnhvlJKpp=
+JQUCbbfVfbRc4' style=3D"color: #111827 !important; cursor: default; font-si=
+ze: 1px; text-decoration: none;"> Terms of Service </a></td></tr></table></=
+td></tr></table></td></tr></table></td></tr></table></td></tr></table></td>=
+</tr></table></div></body></html>
+--f1d4cc84462521117c535da23df2ea01fc59feec130e31560c6009eff68c--
