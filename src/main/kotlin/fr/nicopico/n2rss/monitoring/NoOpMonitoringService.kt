@@ -15,39 +15,23 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.analytics.data
+package fr.nicopico.n2rss.monitoring
 
-import fr.nicopico.n2rss.analytics.AnalyticsEvent
-import fr.nicopico.n2rss.analytics.AnalyticsException
-import fr.nicopico.n2rss.analytics.AnalyticsService
-import fr.nicopico.n2rss.config.N2RssProperties
-import kotlinx.datetime.Clock
-import org.slf4j.LoggerFactory
+import fr.nicopico.n2rss.mail.models.Email
 import org.springframework.stereotype.Service
+import java.net.URL
 
 @Service
-class DataAnalyticsService(
-    private val analyticsRepository: AnalyticsRepository,
-    private val analyticsProperties: N2RssProperties.AnalyticsProperties,
-    private val clock: Clock,
-) : AnalyticsService {
-
-    @Throws(AnalyticsException::class)
-    override fun track(event: AnalyticsEvent) {
-        if (analyticsProperties.enabled) {
-            LOG.info("TRACK: $event")
-            // We want to catch all possible issues here
-            @Suppress("TooGenericExceptionCaught")
-            try {
-                val data = event.toAnalyticsData(clock.now())
-                analyticsRepository.save(data)
-            } catch (e: Exception) {
-                throw AnalyticsException("Unable to send analytics event $event", e)
-            }
-        }
+class NoOpMonitoringService : MonitoringService {
+    override fun notifyEmailClientError(error: Exception) {
+        // No-op
     }
 
-    companion object {
-        private val LOG = LoggerFactory.getLogger(DataAnalyticsService::class.java)
+    override fun notifyEmailProcessingError(email: Email, error: Exception) {
+        // No-op
+    }
+
+    override fun notifyRequest(uniqueUrl: URL) {
+        // No-op
     }
 }

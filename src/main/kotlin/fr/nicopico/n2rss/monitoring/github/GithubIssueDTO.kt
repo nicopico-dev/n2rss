@@ -16,21 +16,19 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.mail.models
+package fr.nicopico.n2rss.monitoring.github
 
-/**
- * Email sender in the format "Newsletter Name &lt;email@domain.com&gt;"
- */
-@JvmInline
-value class Sender(val sender: String) {
-    val email: String
-        get() = sender
-            .dropWhile { it != '<' }
-            .drop(1)
-            .dropLast(1)
+import com.fasterxml.jackson.annotation.JsonProperty
 
-    val name: String
-        get() = sender
-            .takeWhile { it != '<' }
-            .trim()
+class GithubIssueDTO(
+    @JsonProperty("title")
+    val title: String,
+    @JsonProperty("body")
+    val body: String,
+    @JsonProperty("labels")
+    val labels: List<String> = emptyList(),
+) {
+    override fun toString(): String {
+        return "GithubIssueDTO(title='$title', labels=$labels)"
+    }
 }

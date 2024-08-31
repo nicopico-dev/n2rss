@@ -15,22 +15,13 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.fakes
 
-package fr.nicopico.n2rss.mail.models
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 
-/**
- * Email sender in the format "Newsletter Name &lt;email@domain.com&gt;"
- */
-@JvmInline
-value class Sender(val sender: String) {
-    val email: String
-        get() = sender
-            .dropWhile { it != '<' }
-            .drop(1)
-            .dropLast(1)
-
-    val name: String
-        get() = sender
-            .takeWhile { it != '<' }
-            .trim()
+class FixedClock(
+    private val now: Instant
+) : Clock {
+    override fun now(): Instant = now
 }

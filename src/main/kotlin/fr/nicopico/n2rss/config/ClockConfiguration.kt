@@ -16,21 +16,14 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.mail.models
+package fr.nicopico.n2rss.config
 
-/**
- * Email sender in the format "Newsletter Name &lt;email@domain.com&gt;"
- */
-@JvmInline
-value class Sender(val sender: String) {
-    val email: String
-        get() = sender
-            .dropWhile { it != '<' }
-            .drop(1)
-            .dropLast(1)
+import kotlinx.datetime.Clock
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 
-    val name: String
-        get() = sender
-            .takeWhile { it != '<' }
-            .trim()
+@Configuration
+class ClockConfiguration {
+    @Bean
+    fun clock(): Clock = Clock.System
 }

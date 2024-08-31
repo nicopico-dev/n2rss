@@ -15,22 +15,35 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.monitoring.data
 
-package fr.nicopico.n2rss.mail.models
+import fr.nicopico.n2rss.monitoring.github.IssueId
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.index.Indexed
+import org.springframework.data.mongodb.core.mapping.Document
+import java.net.URL
 
-/**
- * Email sender in the format "Newsletter Name &lt;email@domain.com&gt;"
- */
-@JvmInline
-value class Sender(val sender: String) {
-    val email: String
-        get() = sender
-            .dropWhile { it != '<' }
-            .drop(1)
-            .dropLast(1)
+@Document(collection = "github_issues")
+sealed class GithubIssueData(
+    @Id
+    val issueId: IssueId
+) {
+    class EmailClientError(
+        issueId: IssueId,
+        val errorMessage: String
+    ) : GithubIssueData(issueId)
 
-    val name: String
-        get() = sender
-            .takeWhile { it != '<' }
-            .trim()
+    class EmailProcessingError(
+        issueId: IssueId,
+        @Indexed
+        val emailTitle: String,
+        @Indexed
+        val errorMessage: String,
+    ) : GithubIssueData(issueId)
+
+    class NewsletterRequest(
+        issueId: IssueId,
+        @Indexed(unique = true)
+        val newsletterUrl: URL,
+    ) : GithubIssueData(issueId)
 }

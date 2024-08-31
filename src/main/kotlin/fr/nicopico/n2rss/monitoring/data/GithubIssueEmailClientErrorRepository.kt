@@ -16,21 +16,11 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.mail.models
+package fr.nicopico.n2rss.monitoring.data
 
-/**
- * Email sender in the format "Newsletter Name &lt;email@domain.com&gt;"
- */
-@JvmInline
-value class Sender(val sender: String) {
-    val email: String
-        get() = sender
-            .dropWhile { it != '<' }
-            .drop(1)
-            .dropLast(1)
+import fr.nicopico.n2rss.monitoring.github.IssueId
+import org.springframework.data.mongodb.repository.MongoRepository
 
-    val name: String
-        get() = sender
-            .takeWhile { it != '<' }
-            .trim()
+interface GithubIssueEmailClientErrorRepository : MongoRepository<GithubIssueData.EmailClientError, IssueId> {
+    fun getEmailClientErrorByErrorMessage(error: String): GithubIssueData.EmailClientError?
 }

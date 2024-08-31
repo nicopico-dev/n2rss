@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.service
 
+import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.data.NewsletterRequestRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
@@ -35,6 +36,8 @@ class NewsletterService(
     private val newsletterHandlers: List<NewsletterHandler>,
     private val publicationRepository: PublicationRepository,
     private val newsletterRequestRepository: NewsletterRequestRepository,
+    private val monitoringService: MonitoringService,
+    private val clock: Clock,
 ) {
     fun getNewslettersInfo(): List<NewsletterInfo> {
         return newsletterHandlers
@@ -53,7 +56,7 @@ class NewsletterService(
 
     @Transactional
     fun saveRequest(newsletterUrl: URL) {
-        val now = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
+        val now = clock.now().toLocalDateTime(TimeZone.currentSystemDefault())
 
         // Sanitize URL
         val uniqueUrl = URL(
@@ -75,5 +78,7 @@ class NewsletterService(
         )
 
         newsletterRequestRepository.save(updatedRequest)
+
+        monitoringService.notifyRequest(uniqueUrl)
     }
 }

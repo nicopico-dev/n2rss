@@ -15,22 +15,17 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.monitoring
 
-package fr.nicopico.n2rss.mail.models
+import fr.nicopico.n2rss.mail.models.Email
+import org.springframework.scheduling.annotation.Async
+import java.net.URL
 
-/**
- * Email sender in the format "Newsletter Name &lt;email@domain.com&gt;"
- */
-@JvmInline
-value class Sender(val sender: String) {
-    val email: String
-        get() = sender
-            .dropWhile { it != '<' }
-            .drop(1)
-            .dropLast(1)
-
-    val name: String
-        get() = sender
-            .takeWhile { it != '<' }
-            .trim()
+interface MonitoringService {
+    @Async
+    fun notifyEmailClientError(error: Exception)
+    @Async
+    fun notifyEmailProcessingError(email: Email, error: Exception)
+    @Async
+    fun notifyRequest(uniqueUrl: URL)
 }
