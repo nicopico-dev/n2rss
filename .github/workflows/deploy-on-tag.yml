@@ -69,8 +69,5 @@ jobs:
     needs:
       - deploy
       - notify-release-analytics
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger Restart Server workflow
-        uses: ./.github/workflows/restart-server.yml
-        secrets: inherit
+    uses: ./.github/workflows/restart-server.yml
+    secrets: inherit
