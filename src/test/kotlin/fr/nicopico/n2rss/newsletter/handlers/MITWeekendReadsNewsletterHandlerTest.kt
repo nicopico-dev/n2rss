@@ -110,5 +110,40 @@ class MITWeekendReadsNewsletterHandlerTest {
                 }
             }
         }
+
+        @Test
+        fun `should process email without article's descriptions correctly`() {
+            // GIVEN
+            val email: Email =
+                loadEmail("stubs/emails/MIT/Weekend Reads/NEW Our ambitious stories, narrated by real voice actors.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            publication.articles shouldHaveSize 8
+            assertSoftly(publication.articles[0]) {
+                withClue("title") {
+                    title shouldBe "What are AI agents?"
+                }
+                withClue("link") {
+                    link shouldBe URL("https://technologyreview.us11.list-manage.com/track/click?u=47c1a9cec9749a8f8cbc83e78&id=35c51e4e4a&e=4fc74d6331")
+                }
+                withClue("description") {
+                    description shouldBe ""
+                }
+            }
+
+            publication.articles.map { it.title } shouldBe listOf(
+                "What are AI agents?",
+                "Is this the end of animal testing?",
+                "How generative AI could reinvent what it means to play",
+                "Is robotics about to have its own ChatGPT moment?",
+                "This architect is cutting up materials to make them stronger and lighter",
+                "The great commercial takeover of low Earth orbit",
+                "It’s time to retire the term “user”",
+                "The cost of building the perfect wave",
+            )
+        }
     }
 }

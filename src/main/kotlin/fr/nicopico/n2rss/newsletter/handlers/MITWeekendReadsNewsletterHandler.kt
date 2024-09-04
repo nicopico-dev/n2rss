@@ -17,8 +17,8 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
-import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import org.jsoup.Jsoup
 import org.jsoup.safety.Safelist
@@ -56,7 +56,8 @@ class MITWeekendReadsNewsletterHandler : NewsletterHandlerSingleFeed {
                     ?: return@mapNotNull null
                 val title = h2.text().trim()
                 val description = h2.nextElementSiblings().select("p").firstOrNull()?.ownText()
-                    ?: throw NewsletterParsingException("Cannot find description for article \"$title\"")
+                // Articles can have no description
+                    ?: ""
 
                 Article(
                     title = title,
