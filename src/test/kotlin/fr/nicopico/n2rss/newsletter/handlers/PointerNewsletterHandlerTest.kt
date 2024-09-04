@@ -189,5 +189,40 @@ class PointerNewsletterHandlerTest {
                 "A Virtual DOM In 200 Lines Of JavaScript",
             )
         }
+
+        @Test
+        fun `should process email #541`() {
+            // GIVEN
+            val email: Email = loadEmail("stubs/emails/Pointer/#541.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            assertSoftly(publication) {
+                withClue("title") {
+                    title shouldBe "#541"
+                }
+                withClue("date") {
+                    date shouldHaveSameDayAs (email.date)
+                }
+                withClue("newsletter") {
+                    newsletter.name shouldBe "Pointer"
+                }
+            }
+
+            publication.articles.map { it.title } shouldBe listOf(
+                "SPONSOR - Start Selling To Enterprises With Just A Few Lines Of Code",
+                "Practices Of Reliable Software Design",
+                "How to Write Great Tech Specs",
+                "Build Vs Buy Part I: Complexities Of Building SSO And SCIM In-House",
+                "The 3 Motivational Forces Of Developers",
+                "Onboarding To A 'Legacy' Codebase With The Help Of AI",
+                "How Developers Really Use AI",
+                "Crazy Debugging Stories - Recursion",
+                "Real-Time Mouse Pointers",
+                "Sort, Sweep, And Prune: Collision Detection Algorithms",
+            )
+        }
     }
 }
