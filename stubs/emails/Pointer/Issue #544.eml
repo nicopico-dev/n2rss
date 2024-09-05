@@ -1,0 +1,1267 @@
+Return-Path: <bounces+43410512-7953-n2rss=nicopico.fr@em9609.pointer.io>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap3.paris1.alwaysdata.com with LMTPS
+	id yHriAnTOzWbrDwAA5hnrLg
+	(envelope-from <bounces+43410512-7953-n2rss=nicopico.fr@em9609.pointer.io>)
+	for <n2rss@nicopico.fr>; Tue, 27 Aug 2024 15:02:44 +0200
+Return-path: <bounces+43410512-7953-n2rss=nicopico.fr@em9609.pointer.io>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Tue, 27 Aug 2024 15:02:44 +0200
+Received: from o122.ptr5934.mail.beehiiv.com ([159.183.217.189])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <bounces+43410512-7953-n2rss=nicopico.fr@em9609.pointer.io>)
+	id 1sivqL-0006pF-Lb
+	for n2rss@nicopico.fr; Tue, 27 Aug 2024 15:02:42 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pointer.io;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe-post:
+	list-unsubscribe:to:cc:content-type:from:subject:to;
+	s=ba6; bh=fLSs22939Xzs/ykw4kfVJo6fPqt1U1kVBLkWPlNNF2c=;
+	b=OwokheTIz60M/ppQgBrD27EjR1xBcyXYW6tdzNN0aLD1HSxuK5jxZyJah2wk/MljizcC
+	zgL6wZcAzYvUb7/917v6PzYjMV+GXVjCOU1BB2OQGv2YciojC7u8y7X8dL2opZescFCYmm
+	+9FOk3dZXvWv+gtlzC5PHBEKFnA8yw+LDllaSx45DX0yYRSc5PbAbXtR0RGy8CPORKWNov
+	agr/cZT3PZB5ct5X8Q++CjX2/em5xFCqPgS1z7L13Wu7V88M4Meh51sWStjwak8vezz8wd
+	yjb0lfKRl1++Mk71jUx/gRtKnNieKJpioUUv42lrs85cK9pRoCsFMW/OLX6Qe/IA==
+Received: by recvd-6fb9658dd4-wdfq5 with SMTP id recvd-6fb9658dd4-wdfq5-1-66CDCE68-54
+	2024-08-27 13:02:32.254172011 +0000 UTC m=+484875.742174827
+Received: from NDM0MTA1MTI (unknown)
+	by geopod-ismtpd-canary-0 (SG)
+	with HTTP
+	id VaKGMExaQeeUF3dBPjeH2g
+	Tue, 27 Aug 2024 13:02:32.085 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=1ac80e8b97d7eb0db539a6bcf19f5e0cf8f3379526719d026a1b158ab890
+Date: Tue, 27 Aug 2024 13:02:39 +0000 (UTC)
+From: Pointer <suraj@pointer.io>
+Mime-Version: 1.0
+Message-ID: <VaKGMExaQeeUF3dBPjeH2g@geopod-ismtpd-canary-0>
+Subject: Issue #544
+Reply-To: Pointer <suraj@pointer.io>
+x-newsletter-id: https://pointerio.beehiiv.com/
+Feedback-ID: 
+ =?us-ascii?Q?4d892482-e93d-4b50-8007-6cc308146512=3Anewsletter=3A8fbbda29-457d-?=
+ =?us-ascii?Q?4f93-a351-47fcb6ffc946=3A9331cfa1921da8b?=
+x-beehiiv-ids: 
+ =?us-ascii?Q?{=22account=5Fname=22=3A=22https=3A=2F=2Fpointerio=2Ebeehiiv=2Ecom=2F=22=2C=22campaign=5Fid=22?=
+ =?us-ascii?Q?=3A=224d892482-e93d-4b50-8007-6cc308146512=22?=
+ =?us-ascii?Q?=2C=22category=22=3A=22newsletter=22=2C=22email=5Fgenerat?=
+ =?us-ascii?Q?ed=5Fat=22=3A1724763751=2C=22user=5Fid=22=3A=228fbbda29-4?=
+ =?us-ascii?Q?57d-4f93-a351-47fcb6ffc946=22}?=
+x-newsletter: https://pointerio.beehiiv.com/p/issue-544
+x-newsletter-signup: https://pointerio.beehiiv.com/subscribe
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+x-beehiiv-type: newsletter
+sId: 8fbbda29-457d-4f93-a351-47fcb6ffc946
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Cmailto=3A8fbbda29-457d-4f93-a351-47fcb6ffc946+b61ea426-a930-446?=
+ =?us-ascii?Q?7-be8d-b5d292fe045b+4d892482-e93d-4b50-?=
+ =?us-ascii?Q?8007-6cc308146512=40unsub=2Ebeehiiv=2Ecom=3E=2C?=
+ =?us-ascii?Q?_=3Chttps=3A=2F=2Fpointerio=2Ebeehiiv=2Ecom=2Funsubscribe=2FeyJ0eXAiOiJKV1QiLCJ?=
+ =?us-ascii?Q?hbGciOiJIUzI1NiJ9=2EeyJzdWJzY3JpYmVyX2lkI?=
+ =?us-ascii?Q?joiYjYxZWE0MjYtYTkzMC00NDY3LWJlOGQtYjVk?=
+ =?us-ascii?Q?MjkyZmUwNDViIiwicG9zdF9pZCI6IjRkODkyNDg?=
+ =?us-ascii?Q?yLWU5M2QtNGI1MC04MDA3LTZjYzMwODE0NjUxMi?=
+ =?us-ascii?Q?IsImxhc3RfcmVzb3VyY2VfZ3VpZCI6IlBvc3Q6N?=
+ =?us-ascii?Q?GQ4OTI0ODItZTkzZC00YjUwLTgwMDctNmNjMzA4?=
+ =?us-ascii?Q?MTQ2NTEyIn0=2EAzU0Nkt2XGc=5Ffp7O128NAyIMdNz?=
+ =?us-ascii?Q?Iwn6aYJhhjcBFpHw=3E?=
+x-list-id: 8fbbda29-457d-4f93-a351-47fcb6ffc946
+x-list-owner: <mailto:suraj@pointer.io>
+X-SG-EID: 
+ =?us-ascii?Q?u001=2ELL1=2FVSzR3MWJph38KeJm0gvQp6wytjitbsQuZMnXQ2N0PFVY9br4fbusJ?=
+ =?us-ascii?Q?IHoeqPP0HxVDy8zm3JmA5xMXRAoMIvRuRnBCPAa?=
+ =?us-ascii?Q?8XdjTYF4SAbGZKs7CUe+veFroM5d36dwtdDaewR?=
+ =?us-ascii?Q?+6vUMuisC7yPNGgY5+w2fkKgjPPmpTPkLrrwlyS?=
+ =?us-ascii?Q?BAGy0mliBxrEBuMr5IXTVCaXK6vD6TzCyVPu+77?=
+ =?us-ascii?Q?5I3CqVpld2=2F2YU1H8a1F1g=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprAVgeiC8iaV7rEmQ?=
+ =?us-ascii?Q?+cYi2k7ESwFaXJfFOKnZ33UXaCZ4U4Kt4VyffA5?=
+ =?us-ascii?Q?+grsEqNXgnSaRrEfExNRzsa2qrPLBRs6q5QOhpt?=
+ =?us-ascii?Q?tH9dbSdwZOsHNzIiG1yF7Yppe6Jl4brr2vFPDMa?=
+ =?us-ascii?Q?7rDRh3N46K5WNao+7qDe7tTtF2mKj+MxtwDn51G?=
+ =?us-ascii?Q?K+DJY9s=2Fwf=2FNHQ4gOks9SBMd9cc7RxcBbgxVVaL?=
+ =?us-ascii?Q?o43xoTAvKeW+P3iMBMtK=2FhQPfg=3D=3D?=
+To: "n2rss@nicopico.fr" <n2rss@nicopico.fr>
+X-Entity-ID: u001.jkMYBxiVkp6kPh2dzwW1/A==
+X-alwaysdata-Spam-Report: 	1.00 MANY_INVISIBLE_PARTS [10] - Many parts are visually hidden
+	0.50 ZERO_FONT [5] - Zero sized font used
+	0.50 URI_COUNT_ODD [77]
+	0.50 MID_RHS_NOT_FQDN - Message-ID RHS is not a fully-qualified domain name
+	0.00 TO_DN_EQ_ADDR_ALL - All of the recipients have display names that are
+ the same as their address
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 RWL_MAILSPIKE_GOOD [159.183.217.189:from] - From address is listed in
+ RWL - good reputation
+	0.00 REPLYTO_EQ_FROM - Reply-To header is identical to From header
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_THREE [3] - Message has 3-5 Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MV_CASE
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [suraj@pointer.io] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [pointer.io:+] - DKIM trace symbol
+	0.00 ASN [asn:11377, ipnet:159.183.192.0/19, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.20 R_DKIM_ALLOW [pointer.io:s=ba6] - DKIM verification succeed
+	-0.41 URL_REPUTATION [-0.41495801287028]
+	-0.50 DMARC_POLICY_ALLOW [pointer.io, none] - DMARC permit policy
+	-0.57 IP_REPUTATION_HAM [asn: 11377(-0.18), country: US(-0.00),
+ ip: 159.183.217.189(-0.39)]
+X-alwaysdata-Spam-Score: 0.70
+
+--1ac80e8b97d7eb0db539a6bcf19f5e0cf8f3379526719d026a1b158ab890
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+Tuesday 27th August=E2=80=99s issue is presented by FusionAuth
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/5a9daad6-e293-4=
+ca1-a3f3-a1169001bc35/FusionAuth.png?t=3D1724706838)
+Follow image link: (https://fusionauth.io/?utm_source=3Dpointer&utm_medium=
+=3Dnewsletter&utm_campaign=3Daug24_newsletter)
+Caption:=20
+
+## [Don=E2=80=99t Build Your Own Auth. Try FusionAuth Today.](https://fusio=
+nauth.io/?utm_source=3Dpointer&utm_medium=3Dnewsletter&utm_campaign=3Daug24=
+_newsletter)
+
+[FusionAuth](https://fusionauth.io/?utm_source=3Dpointer&utm_medium=3Dnewsl=
+etter&utm_campaign=3Daug24_newsletter) integrates with [any tech stack and =
+is deployable anywhere](https://fusionauth.io/?utm_source=3Dpointer&utm_med=
+ium=3Dnewsletter&utm_campaign=3Daug24_newsletter) =E2=80=93 cloud, on-premi=
+se, or even the server running under your desk.=20
+
+[You're less than five minutes](https://fusionauth.io/?utm_source=3Dpointer=
+&utm_medium=3Dnewsletter&utm_campaign=3Daug24_newsletter) from login / regi=
+stration, social logins, SSO, MFA, passwordless, user management, passkeys,=
+ and much more.=20
+
+Join the thousands of developers who trust FusionAuth for their identity ne=
+eds.
+
+# [Start For Free Today](https://fusionauth.io/?utm_source=3Dpointer&utm_me=
+dium=3Dnewsletter&utm_campaign=3Daug24_newsletter)
+
+
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [When To Write Strategy, And How Much?](https://lethain.com/when-write-do=
+wn-engineering-strategy/)
+
+=E2=80=94 Will Larson
+
+**tl;dr**: Will covers: (1) When to write strategy, in particular the pain =
+points (like cross-team friction) and opportunities (like senior hires) tha=
+t are good moments to start writing. (2) How much strategy your org can tol=
+erate, avoiding the traps of writing so much that it=E2=80=99s ignored or s=
+o little that there=E2=80=99s not much impact. (3) Using strategy altitude =
+=E2=80=93 how permissive a given strategy is and where it=E2=80=99s impleme=
+nted =E2=80=93 to manage the overhead that strategies creates. (4) Mechanis=
+ms to debug whether you=E2=80=99re doing too much or too little strategy wo=
+rk.=C2=A0
+
+###### _[Leadership](http://www.pointer.io/tags/leadership)__ __[Management=
+](http://www.pointer.io/tags/management)_
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Manager Antipatterns](https://blogs.newardassociates.com/blog/2024/manag=
+ement-antipatterns.html)
+
+=E2=80=94 Ted Neward
+
+**tl;dr**: =E2=80=9CThere's a whole host of mistakes that companies often f=
+all prey to with respect to those they have leading teams, and I thought it=
+ a good idea to collect them into one place, under the umbrella heading of =
+"manager antipatterns=E2=80=9D.=E2=80=9D
+
+###### _ _[_Management_](http://www.pointer.io/tags/management)_ _[_Antipat=
+tern_](http://www.pointer.io/tags/antipattern)
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [How Passwordless Authentication Works - A Deep Dive](https://fusionauth.=
+io/articles/authentication/how-passwordless-works?utm_medium=3Dnewsletter&u=
+tm_source=3Dpointer&utm_campaign=3Djuly24_newsletter)
+
+=E2=80=94 James Walker
+
+**tl;dr**: Passwordless authentication is a better option than traditional =
+passwords, improving security and increasing convenience by removing the ch=
+allenges associated with passwords. James explains how passwordless works u=
+sing methods like magic links, biometrics, or one-time codes, and the benef=
+its it provides engineering leaders and CTOs.
+
+_Promoted by FusionAuth_
+
+###### [_DeepDive_](http://www.pointer.io/tags/deep-dive)
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [One On One Meeting Format Ideas](https://marcgg.com/blog/2021/03/27/one-=
+on-one-format/)
+
+=E2=80=94 Marc Gauthier
+
+**tl;dr**: =E2=80=9CAs a manager, doing one on one meetings with your direc=
+t reports is your most important tool. I=E2=80=99ve talked a bit before abo=
+ut opening lines, but I figured it could be interesting to dig into how I h=
+andle this every week with my teams. I think it=E2=80=99s important to have=
+ a clear format shared to direct reports. This frames the conversation and =
+helps the manager fullfil the objective, while giving some insights to the =
+direct report regarding what this is all about.=E2=80=9D
+
+###### _[Leadership](http://www.pointer.io/tags/leadership)__ __[Management=
+](http://www.pointer.io/tags/management)_
+
+=E2=80=9C**"What you do has far greater impact than what you say." **=E2=80=
+=9C =E2=80=94 **=E2=80=94 Steven Covey**
+
+# [Shifting E2E Testing Left At Uber](https://www.uber.com/en-IN/blog/shift=
+ing-e2e-testing-left/)
+
+=E2=80=94 Daniel Tsui, Quess Liu
+
+**tl;dr**: =E2=80=9CIn this blog, we describe how we built a system that ga=
+tes every code and configuration change to our core backend systems (1,000+=
+ services). We have several thousand E2E tests that have an average pass ra=
+te of 90%+ per attempt. Imagine each of these tests going through a real E2=
+E user flow, like going through an Uber Eats group order. We do all this fa=
+st enough to run on every diff before it gets landed.=E2=80=9D
+
+###### [_Tests_](http://www.pointer.io/tags/testing)
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Unlocking CI/CD Efficiency](https://raygun.com/blog/ci-cd-github-actions=
+-deployments/?utm_medium=3Dsponsorship&utm_source=3Dpointer&utm_campaign=3D=
+brand&utm_content=3Dblog)
+
+=E2=80=94 Sean Chapman
+
+**tl;dr**: Understanding the impact of each of your deployments is crucial,=
+ especially as they become increasingly frequent. Chances are, your team is=
+ either aiming to increase shipping velocity or has already started deployi=
+ng =E2=80=9Ccontinuously=E2=80=9D. And while CD comes with a host of well-e=
+stablished benefits, it also introduces a heightened risk of introducing ne=
+w errors and issues. Today, Raygun takes a look at the state of continuous =
+deployment according to survey data, so you can see how you stack up compar=
+ed to other teams.=C2=A0
+
+_Promoted by Raygun_
+
+###### [_Process_](http://www.pointer.io/tags/process)_ _[_Management_](htt=
+p://www.pointer.io/tags/management)
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Postgres As A Search Engine](https://anyblockers.com/posts/postgres-as-a=
+-search-engine)
+
+=E2=80=94 Eric Zakariasson
+
+**tl;dr**: =E2=80=9CWhile semantic search is trendy, good old lexical searc=
+h is still the backbone. Semantic techniques can improve results, but they =
+work best when added to a solid text-based search foundation. In this post,=
+ we=E2=80=99ll explore how to use Postgres to create a robust search engine=
+.=E2=80=9D=C2=A0
+
+###### [_Postgresql_](http://www.pointer.io/tags/postgresql)_ _[_Search_](h=
+ttp://www.pointer.io/tags/search)
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Create An Internal CLI](https://blog.chay.dev/create-an-internal-cli/)
+
+=E2=80=94 Chay Choong
+
+**tl;dr**: =E2=80=9COne useful way to preserve institutional knowledge in a=
+ dev team is to grow a collection of useful snippets, scripts, or workflows=
+. Some companies like Slack and Shopify have their own internal CLI. The mo=
+dern terminal Warp has a pretty sick feature for documenting and sharing wo=
+rkflows. It's quite easy to get started with your very own CLI.=E2=80=9D Ch=
+ay shows us how.=C2=A0
+
+###### _[CommandLine](http://www.pointer.io/tags/command-line)_
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+# [Looming Liability Machines (LLMs)](https://muratbuffalo.blogspot.com/202=
+4/08/looming-liability-machines.html)
+
+=E2=80=94 Murat Demirbas
+
+**tl;dr**: =E2=80=9CWe discussed a paper that uses LLMs for automatic root =
+cause analysis (RCA) for cloud incidents. This was a pretty straightforward=
+ application of LLMs. The proposed system employs an LLM to match incoming =
+incidents to incident handlers based on their alert types, predicts the inc=
+ident's root cause category, and provides an explanatory narrative... The u=
+se of LLMs for RCAs spooked me viscerally.=E2=80=9D
+
+###### _ _[_AI_](http://www.pointer.io/tags/ai)_ _[_LLM_](http://www.pointe=
+r.io/tags/llm)
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/f1a60110-9479-4=
+cc5-86dc-4ca39959b918/Frame_14.png?t=3D1723764489)
+Caption:=20
+
+##### **[Algorithms We Develop Software By](https://grantslatton.com/softwa=
+re-pathfinding)**** **- Grant Slatton
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/0db18a10-5259-4=
+ed4-b641-bd39b17d23b4/Frame_12.png?t=3D1723764594)
+Caption:=20
+
+##### **[ChartDB](https://github.com/chartdb/chartdb)****: **Free OS databa=
+se diagrams editor.=C2=A0
+
+##### **[Fuite](https://github.com/nolanlawson/fuite)****: **Finding memory=
+ leaks in web apps.
+
+##### **[Handwriter](https://github.com/hsfzxjy/handwriter.ttf)****: **Hand=
+writing synthesizer.
+
+##### **[Instant](https://github.com/instantdb/instant)****: **Realtime cli=
+ent-side database.
+
+##### **[LitServe](https://github.com/Lightning-AI/LitServe)****: **Lightni=
+ng-fast serving engine for AI models.
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+Click the below and shoot me an email!
+
+1 =3D Didn't enjoy it all // 5 =3D Really enjoyed it
+
+##### _**[1](mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-%20Score%3=
+A%201&amp;body=3DHere%27s%20why%3A)**_** =E2=80=A6 **_**[2](mailto:suraj@po=
+inter.io?subject=3DIssue%20%23518%20-%20Score%3A%202&amp;body=3DHere%27s%20=
+why%3A)**_** =E2=80=A6 **_**[3](mailto:suraj@pointer.io?subject=3DIssue%20%=
+23518%20-%20Score%3A%203&amp;body=3DHere%27s%20why%3A)**_** =E2=80=A6 **_**=
+[4](mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-%20Score%3A%204&amp=
+;body=3DHere%27s%20Why%3A)**_** =E2=80=A6 **_**[5](mailto:suraj@pointer.io?=
+subject=3DIssue%20%23518%20-%20Score%3A%205&amp;body=3DHere%27s%20Why%3A)**=
+_
+
+
+=E2=80=94=E2=80=94=E2=80=94
+
+You are reading a plain text version of this post. For the best experience,=
+ copy and paste this link in your browser to view the post online:
+https://pointerio.beehiiv.com/p/issue-544
+
+--1ac80e8b97d7eb0db539a6bcf19f5e0cf8f3379526719d026a1b158ab890
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office" style=3D"font-size:16px;"><head></head><head><meta charset=
+=3D"utf-8"/><!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=
+=3D"IE=3Dedge"/><!--<![endif]--><meta name=3D"viewport" content=3D"width=3D=
+device-width,initial-scale=3D1"/><meta name=3D"x-apple-disable-message-refo=
+rmatting"/><meta name=3D"format-detection" content=3D"telephone=3Dno,addres=
+s=3Dno,email=3Dno,date=3Dno,url=3Dno"/><meta name=3D"color-scheme" content=
+=3D"light"/><meta name=3D"supported-color-schemes" content=3D"light"/><titl=
+e>Issue #544</title><!--[if mso]><xml><o:OfficeDocumentSettings><o:AllowPNG=
+/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![=
+endif]--><style>
+  :root { color-scheme: light; supported-color-schemes: light; }
+  body { margin: 0; padding: 0; min-width: 100%!important; -ms-text-size-ad=
+just: 100% !important; -webkit-transform: scale(1) !important; -webkit-text=
+-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !importa=
+nt; }
+  .body { word-wrap: normal; word-spacing:normal; }
+  table.mso { width: 100%; border-collapse: collapse; padding: 0; table-lay=
+out: fixed; }
+  img { border: 0; outline: none; }
+  table {  mso-table-lspace: 0px; mso-table-rspace: 0px; }
+  td, a, span {  mso-line-height-rule: exactly; }
+  #root [x-apple-data-detectors=3Dtrue],
+  a[x-apple-data-detectors=3Dtrue],
+  #MessageViewBody a { color: inherit !important; text-decoration: inherit =
+!important; font-size: inherit !important; font-family: inherit !important;=
+ font-weight: inherit !important; line-height: inherit !important; }
+  span.MsoHyperlink { color: inherit !important; mso-style-priority: 99 !im=
+portant; }
+  span.MsoHyperlinkFollowed { color: inherit !important; mso-style-priority=
+: 99 !important; }
+  .a { background-color:#ffffff; }
+  .b { background-color:#111827; }
+  .c  { background-color:#ffffff; }
+  .d { background-color:#101720; }
+  .d2 { background-color:#FFFFFF; }
+  .d3 { background-color:#fbbf24; }
+  h1 a { text-decoration:underline;color:#000000 !important; }
+  h2 a { text-decoration:underline;color:#000000 !important; }
+  h3 a { text-decoration:underline;color:#000000 !important; }
+  h4 a { text-decoration:underline;color:#000000 !important; }
+  h5 a { text-decoration:underline;color:#000000 !important; }
+  h6 a { text-decoration:underline;color:#000000 !important; }
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, ul, li, ol, p=
+, p a { margin: 0;padding: 0; }
+  h1 { font-family:'Space Grotesk',sans-serif;font-weight:Bold;font-size:24=
+px;color:#000000;line-height:36px;padding-bottom:0px;padding-top:16px;mso-m=
+argin-top-alt:16px;mso-margin-bottom-alt:0px }
+  h2 { font-family:'Space Grotesk',sans-serif;font-weight:Bold;font-size:20=
+px;color:#000000;line-height:30px;padding-bottom:0px;padding-top:16px;mso-m=
+argin-top-alt:16px;mso-margin-bottom-alt:0px }
+  h3 { font-family:'Space Grotesk',sans-serif;font-weight:Bold;font-size:18=
+px;color:#000000;line-height:27px;padding-bottom:10px;padding-top:10px;mso-=
+margin-top-alt:10px;mso-margin-bottom-alt:10px }
+  h4 { font-family:'Space Grotesk',sans-serif;font-weight:Bold;font-size:16=
+px;color:#000000;line-height:24px;padding-bottom:8px;padding-top:8px;mso-ma=
+rgin-top-alt:8px;mso-margin-bottom-alt:8px }
+  h5 { font-family:'Space Grotesk',sans-serif;font-weight:Normal;font-size:=
+16px;color:#000000;line-height:24px;padding-bottom:10px;padding-top:10px;ms=
+o-margin-top-alt:10px;mso-margin-bottom-alt:10px }
+  h6 { font-family:'Space Grotesk',sans-serif;font-weight:Normal;font-size:=
+12px;color:#000000;line-height:18px;padding-bottom:10px;padding-top:10px;ms=
+o-margin-top-alt:10px;mso-margin-bottom-alt:10px }
+  p { font-family:'Space Grotesk',sans-serif;color:#000000;font-size:16px;l=
+ine-height:24px;padding-bottom:10px;padding-top:10px;mso-margin-top-alt:10p=
+x;mso-margin-bottom-alt:10px; }
+  p a, .e a, ul a, li a, .h a, .h2 a, .h3 a { word-break:break-word;color:#=
+000000 !important;text-decoration:underline;text-decoration-color:#808080; =
+}
+  p a span, .e a span, ul a span, li a span { color: inherit }
+  p .bold { font-weight:bold;color:#000000; }
+  p span[style*=3D"font-size"] { line-height: 1.6; }
+  .f p { font-size:12px;line-height:15px;color:#000000;padding:0; }
+  .f p a { color:#000000 !important; }
+  .g p { font-family:'Space Grotesk',sans-serif;font-size:12px;line-height:=
+17px;font-weight:Normal;margin:0; }
+  .g p a  { text-decoration: underline; }
+  .i p { font-family:'Space Grotesk',sans-serif;line-height:21px;font-size:=
+14px;color:#f3f4f6; }
+  .i p a { color:#f3f4f6 !important; }
+  .i2 p { font-family:'Space Grotesk',sans-serif;line-height:24px;font-size=
+:16px;color:#111827; }
+  .i2 p a { color:#111827 !important; }
+  .i3 p { font-family:'Space Grotesk',sans-serif;line-height:27px;font-size=
+:18px;color:#111827; }
+  .i3 p a { color:#111827 !important; }
+  .h p a { color:#ffffff !important; }
+  .h2 p a { color:#111827 !important; }
+  .h3 p a { color:#111827 !important; }
+  .f p a, .i p a, .i2 p a, .i3 p a, .h p a, .h2 p a, .h3 p a { text-decorat=
+ion:underline; }
+  .j { border-top:1px Solid #e5e7eb; }
+  .k p { padding-left:15px;padding-bottom:0px;padding-top:6px;mso-margin-to=
+p-alt:6px;mso-margin-bottom-alt:0px;mso-margin-left-alt:15px; }
+  .o { background-color:#ffffff;border:1px solid #111827;border-radius:4px;=
+ }
+  .o p { font-family:'Space Grotesk',sans-serif;padding:0px;margin:0px; }
+  .l p,
+  .l p a { font-size:12px;line-height:17px;font-weight: bold;color:#020617;=
+padding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .m p,
+  .m p a { font-size:12px;line-height:17px;font-weight:400;color:#111827;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .n p,
+  .n p a { font-size:12px;line-height:17px;font-weight:400;color:#111827;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .p { background-color:#FFFFFF;max-width:520px;border:1px solid #E1E8ED;bo=
+rder:1px solid rgba(80, 80, 80, 0.3);border-radius:5px; }
+  .q { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !impo=
+rtant;border:1px solid #e1e8ed;border:1px solid rgba(80, 80, 80, 0.3);borde=
+r-radius:10px;background-color:#FFFFFF; }
+  .q p { font-size:16px;font-family:system-ui,Helvetica,Roboto,Calibri,sans=
+-serif !important;color:#222222;padding:4px 0; }
+  .r { border:1px solid #E1E8ED !important;border-radius:5px; }
+  .s p { font-size: 14px; line-height: 17px; font-weight: 400; color: #6978=
+82; text-decoration: none; }
+  .t p { font-family:'Space Grotesk',sans-serif;font-size:12px;line-height:=
+18px;font-weight:400;color:#000000;font-style:normal;padding:0px 0px 0px;}
+  .v { border-radius:4px;border:solid 4px #3c658d;background-color:#3c658d;=
+font-family:'Space Grotesk',sans-serif;color:#f9fafb; }
+  .v a { text-decoration:none;display:block;color:#f9fafb; }
+  .w p { font-size:12px;line-height:15px;font-weight:400;color:#ffffff; }
+  .w p a { text-decoration: underline !important;color:#ffffff !important; =
+}
+  ul { font-family:'Space Grotesk',sans-serif;margin:0px 0px 0px 25px !impo=
+rtant;padding:0px !important;color:#000000;line-height:21px;list-style:disc=
+;font-size:14px; }
+  ul > li { font-family:'Space Grotesk',sans-serif;margin:5px 0px 0px 0px !=
+important;padding: 0px 0px 0px 0px !important; color: #000000; list-style:d=
+isc; }
+  ol { font-family:'Space Grotesk',sans-serif;margin: 0px 0px 0px 25px !imp=
+ortant;padding:0px !important;color:#000000;line-height:21px;list-style:dec=
+imal;font-size:14px; }
+  ol > li { font-family:'Space Grotesk',sans-serif;margin:5px 0px 0px 0px !=
+important;padding: 0px 0px 0px 0px !important; color: #000000; list-style:d=
+ecimal; }
+  .e h3,
+  .e p,
+  .e span { padding-bottom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-m=
+argin-bottom-alt:0px; }
+  .e span,
+  .e li { font-family:'Space Grotesk',sans-serif;font-size:14px;color:#0000=
+00;line-height:21px; }
+  .rec { font-family:  ui-sans-serif, system-ui, -apple-system, BlinkMacSys=
+temFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-ser=
+if, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color E=
+moji" !important; }
+  .rec__button:hover { background-color: #f9fafb !important; }
+  .copyright a {color: inherit !important; text-decoration: none !important=
+; font-size: inherit !important; font-family: inherit !important; font-weig=
+ht: inherit !important; line-height: inherit !important;}
+  .txt_social p { padding: 0; }
+  .table, .table-c, .table-h { border: 2px solid #111827; }
+  .table-c { padding:4px; background-color:#ffffff; }
+  .table-c p { color: #111827; font-family:'Space Grotesk',sans-serif !impo=
+rtant;overflow-wrap: break-word; }
+  .table-h { padding:4px; background-color:#ffffff; }
+  .table-h p { color: #111827; font-family:'Space Grotesk',sans-serif !impo=
+rtant;overflow-wrap: break-word; }
+  @media only screen and (max-width:667px) {
+    .aa { width: 100% !important; }
+    .bb img { width: 100% !important; height: auto !important; max-width: n=
+one !important; }
+    .cc { padding: 0px 8px !important; }
+    .ee { padding-top:10px !important;padding-bottom:10px !important; }
+    .ff ul, .ff ol { margin: 0px 0px 0px 10px !important;padding: 0px !impo=
+rtant; }
+    .ff li { margin:5px 0px 0px 10px !important; }
+    .r {height:140px !important;}
+    .s p { font-size:13px !important;line-height:15px !important; }
+    .mob-hide {display:none !important;}
+    .mob-stack {display:block !important;width:100% !important;}
+    .mob-w-full {width:100% !important;}
+    .mob-block {display:block !important;}
+    .embed-img {padding:0px 0px 12px 0px !important;}
+    .socialShare {padding-top:15px !important;}
+    .rec { padding-left:15px!important;padding-right:15px!important; }
+    .bodyWrapper { padding:10px 4px 10px 4px !important; }
+    .social-mobile {float:left !important;margin-top:10px !important;}
+  }
+  @media screen and (max-width: 480px) {
+    u + .a .gg { width: 100% !important; width: 100vw !important; }
+    .tok-heart { padding-top:75% !important; }
+    .tok-play { padding-top: 250px !important; }
+  }
+  @media screen and (max-width: 320px) {
+    .tok-heart { padding-top:65% !important; }
+  }
+   =20
+
+* {
+  font-family: 'Space Grotesk', 'Space Mono', system-ui, Inter, Roboto, 'He=
+lvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+  font-family: 'Space Mono', 'Space Grotesk', ui-monospace, 'Cascadia Code'=
+, 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace !import=
+ant;
+}
+
+.dd > table a > img {
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+table p a {
+  text-decoration-color: currentcolor !important;
+}
+  .u { border: 1px solid #CACACA !important; border-radius: 2px !important;=
+ background-color: #ffffff !important; padding: 0px 13px 0px 13px !importan=
+t; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Se=
+goe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif !important;fon=
+t-size: 12px !important; color: #767676 !important; }
+  .u a { text-decoration: none; display: block !important; color: #767676 !=
+important; margin: 0px !important; }
+  .u span, .u img { color: #767676 !important;margin:0px !important; max-he=
+ight:32px !important;background-color:#ffffff !important; }
+</style><!--[if mso]><style type=3D"text/css">
+    sup { font-size: 100% !important;vertical-align: .5em !important;mso-te=
+xt-raise: -1.5% !important;line-height: 0 !important; }
+    ul { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ul li { margin-left: 0px !important; mso-special-format: decimal; }
+    ol { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ol li { margin-left: 0px !important; mso-special-format: decimal; }
+    li.listItem { margin-left:15px !important; margin-top:0px !important; }
+    .paddingDesktop { padding: 10px 0 !important; }
+    .edm_outlooklist { margin-left: -20px !important; }
+    .embedImage { display:none !important; }
+</style><![endif]--><style>
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v12/V8mDoQDjQSkFtoMM=
+3T6r8E7mPbF4C_k3HqU.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v12/V8mDoQDjQSkFtoMM=
+3T6r8E7mPbF4C_k3HqU.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-style: italic;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v12/V8mDoQDjQSkFtoMM=
+3T6r8E7mPbF4C_k3HqU.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-style: italic;
+    font-weight: 700;
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v12/V8mDoQDjQSkFtoMM=
+3T6r8E7mPbF4C_k3HqU.woff2') format('woff2');
+  }
+</style></head><body class=3D"a" style=3D"margin:0px auto;padding:0px;word-=
+wrap:normal;word-spacing:normal;background-color:#ffffff;"><div role=3D"art=
+icle" aria-roledescription=3D"email" aria-label=3D"email_name" lang=3D"en" =
+style=3D"font-size:1rem"><div style=3D"display:none;max-height:0px;overflow=
+:hidden;"> What Current & Future Engineering Leaders Read &#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204; </div><table role=3D"none" width=3D"100%"=
+ border=3D"0" cellspacing=3D"0" align=3D"center" cellpadding=3D"0" class=3D=
+"gg"><tr><td align=3D"center" valign=3D"top"><table role=3D"none" width=3D"=
+670" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"aa" style=3D=
+"width:670px;table-layout:fixed;"><tr><td class=3D"bodyWrapper" align=3D"ce=
+nter" valign=3D"top" style=3D"padding:10px 0px 10px 0px;"><table role=3D"no=
+ne" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=
+=3D"center"><tr><td align=3D"center" valign=3D"top" style=3D"border:0px sol=
+id #000000;border-radius:16px;background-color:#ffffff;" class=3D"c"><table=
+ role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" align=3D"center"><tr><td class=3D"f" align=3D"Right" valign=3D"top" sty=
+le=3D"padding:20px 10px;"><p> August 27th, 2024 &nbsp; | &nbsp; <a href=3D"=
+https://link.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympS=
+zSDDZUB3A7zfcl3qZtHUtspEHk-c6LyQ2WWDruhoautgIcPeFqBIOOOmms2SSMT9pK4X4-PtOCJ=
+VPOsL9D-RLba3I9myn0jzJSS6JRjZgT2TABObjxuf_lrAiBFTt964RXzRyOewlg5tAfmjf7v2GH=
+Xyw7_CtJzsTjZuYRhoSIotOQUT2vNECzxpaW__P921AVb4BVVNiOYwcOTqKYX5HetqIJJ0kb4Rc=
+CmeI48C6npBMKEuyS95_Dgzw-xy65V1zWYemvBWydf5gcqdgmYbe4JaEl-vBzuI0ek5hhkPAfV8=
+qrDoABjbCoSMnUthaKttoueEVMQhXbbXsoENDZTcIfnfthDSA5E7AM0XNoLAJwK2_OsiMoO3u60=
+shlYg-50noB93cIhWsMOFhx1k-ZvUw28d3KDkktVXNGCv7OoFntWxd1KH2P7iUec2RuWOpfj2nG=
+cYtDuABapaFircDF18U4sXM4t1-xyXIGfCByOvSaX5BxbfPODAPtxnxTj4fgZSFq4yLqig/499/=
+O8SkjJwNQ8eCZKkZ2eyPrg/h0/h001.hEXGTZI5oYO2-5ZzItEaNLHd_2HftAIbV3_TXkUeMwo"=
+>Read Online</a></p></td></tr><tr><td class=3D"dd" align=3D"center" valign=
+=3D"top" style=3D"width:100%;"><table role=3D"none" border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0" align=3D"center" style=3D"margin:0 auto 16px;"><t=
+body><tr><td style=3D"width:650px;"><a href=3D"https://link.mail.beehiiv.co=
+m/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5q_YCB9v_9ais7bHpn0n0l06sz26Z8FvnwPMbyRd7Nn=
+8LQR1OeWX6mKJYYPpU3ujggMDgmTo3uirtbiMVXlZA8s/499/O8SkjJwNQ8eCZKkZ2eyPrg/h1/=
+h001.A84g5qOCguOoZVu6NuHt-stUs-IfPiMX4m605WDVgvs"><img alt=3D"" width=3D"65=
+0" height=3D"auto" border=3D"0" style=3D"width:100%;height:auto;border:0;di=
+splay:block;outline:none;text-decoration:none;" src=3D"https://media.beehii=
+v.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quali=
+ty=3D80/uploads/asset/file/0e19a781-9451-497c-8305-2d53c38ac0e6/Frame_10.pn=
+g?t=3D1723724930"/></a></td></tr></tbody></table></td></tr><tr><td style=3D=
+"height:0px;width:0px;"><div style=3D"height:1px;" data-open-tracking=3D"tr=
+ue"> <img src=3D"https://link.mail.beehiiv.com/ss/o/u001.Cm9ixNrIsKoybDpTAK=
+CzKA/499/O8SkjJwNQ8eCZKkZ2eyPrg/ho.gif" alt=3D"" width=3D"1" height=3D"1" b=
+order=3D"0" style=3D"height:1px !important;width:1px !important;border-widt=
+h:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin-ri=
+ght:0 !important;margin-left:0 !important;padding-top:0 !important;padding-=
+bottom:0 !important;padding-right:0 !important;padding-left:0 !important;"/=
+> </div></td></tr><tr id=3D"content-blocks"><td class=3D"email-card-body" a=
+lign=3D"center" valign=3D"top" style=3D"padding-bottom:10px;"><table role=
+=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" a=
+lign=3D"center"><tr><td class=3D"dd" align=3D"center" style=3D"padding:0px =
+10px;text-align:center;word-break:break-word;"><p style=3D"color: ;"> Tuesd=
+ay 27th August=E2=80=99s issue is presented by FusionAuth </p></td></tr><tr=
+><td align=3D"center" valign=3D"top" style=3D"padding: 10px 10px 10px; " cl=
+ass=3D"dd"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"t=
+op" style=3D"width:325px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u0=
+01.TDQMwwTUsDB62J0OSnrlnDeeh53gY0j3m3htE8-QMWOcILSAUsJALFjZ4rh_qGsSsPFTrKTf=
+abb7D-gYOkNsb1cAQ34nPU3cCae5Br4fOvCrXM-10NBWDIIjATS25VCctURi9qXF8KwGw5rAfqr=
+uADbDE9Wiazadd8N3VJhaK0vLje4bbkSyRidk1Q5DLUpu9lsRGlH-SG_26s2SWSzDrw/499/O8S=
+kjJwNQ8eCZKkZ2eyPrg/h2/h001.9jFGBzLvJP08Wqjeu04Vb8PICgxkRMwel-55FvKVQ8E" re=
+l=3D"noopener noreferrer nofollow" style=3D"text-decoration:none;" target=
+=3D"_blank"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale=
+-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/5a9d=
+aad6-e293-4ca1-a3f3-a1169001bc35/FusionAuth.png?t=3D1724706838" alt=3D"" he=
+ight=3D"auto" width=3D"325" style=3D"display:block;width:100%;border-radius=
+:0px 0px 0px 0px;border-style:solid;border-width:0px 0px 0px 0px;box-sizing=
+:border-box;border-color:#E5E7EB;" border=3D"0"/></a></td></tr></table></td=
+></tr><tr><td id=3D"dont-build-your-own-auth-try-fusion" class=3D"dd" align=
+=3D"left" valign=3D"top" style=3D"color:#000000;font-weight:Bold;padding:0p=
+x 10px;text-align:left;"><h2 style=3D"color:#000000;font-weight:Bold;"><a c=
+lass=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.TDQMwwTUsDB62=
+J0OSnrlnDeeh53gY0j3m3htE8-QMWOcILSAUsJALFjZ4rh_qGsSsPFTrKTfabb7D-gYOkNsb1cA=
+Q34nPU3cCae5Br4fOvCrXM-10NBWDIIjATS25VCcdW0UK9_gvwT_gYt9YfiOIZ5PIGqLh0n7S16=
+SJ4T1FYUnv05fkudYWq9-VO5ajhnAhblJFLzm-BS9AYdnC8nLGQ/499/O8SkjJwNQ8eCZKkZ2ey=
+Prg/h3/h001.QXQW-55Jx0rdSpk-FO614O7jNtDOna28psU6OweXlS0" target=3D"_blank" =
+rel=3D"noopener noreferrer nofollow"><span>Don=E2=80=99t Build Your Own Aut=
+h. Try FusionAuth Today.</span></a></h2></td></tr><tr><td class=3D"dd" alig=
+n=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:break-word;=
+"><p style=3D"color: ;"><a class=3D"link" href=3D"https://link.mail.beehiiv=
+.com/ss/c/u001.TDQMwwTUsDB62J0OSnrlnDeeh53gY0j3m3htE8-QMWOcILSAUsJALFjZ4rh_=
+qGsSsPFTrKTfabb7D-gYOkNsb1cAQ34nPU3cCae5Br4fOvCrXM-10NBWDIIjATS25VCcfzK45uW=
+X56J-Yy8UA6UuTMlxMgG9UT9Lt8TFm7kP6wh-Jsn6y2eFVHWEDidn6XuSF4IGpfKbIx1FExt5Je=
+_zag/499/O8SkjJwNQ8eCZKkZ2eyPrg/h4/h001.xlNcG8dDYEQBZaMxrp1l278gMMp_JkTF6Ti=
+3Wvtc0OI" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Fusi=
+onAuth</span></a> integrates with <a class=3D"link" href=3D"https://link.ma=
+il.beehiiv.com/ss/c/u001.TDQMwwTUsDB62J0OSnrlnDeeh53gY0j3m3htE8-QMWOcILSAUs=
+JALFjZ4rh_qGsSsPFTrKTfabb7D-gYOkNsb1cAQ34nPU3cCae5Br4fOvCrXM-10NBWDIIjATS25=
+VCctHtePe4va405kfbSvPuGwFcXJme_jrdV8PMul5fc4f9w7dQob_SWj8chPj0ykcsQ4BL5QoTH=
+lg5TszC_Z3yj0g/499/O8SkjJwNQ8eCZKkZ2eyPrg/h5/h001.fePQmiYgk7WrGg69fFF2RwCBA=
+kb9vMMLaBNT2LngA4o" target=3D"_blank" rel=3D"noopener noreferrer nofollow">=
+<span>any tech stack and is deployable anywhere</span></a> =E2=80=93 cloud,=
+ on-premise, or even the server running under your desk. </p></td></tr><tr>=
+<td class=3D"dd" align=3D"left" style=3D"padding:0px 10px;text-align:left;w=
+ord-break:break-word;"><p style=3D"color: ;"><a class=3D"link" href=3D"http=
+s://link.mail.beehiiv.com/ss/c/u001.TDQMwwTUsDB62J0OSnrlnDeeh53gY0j3m3htE8-=
+QMWOcILSAUsJALFjZ4rh_qGsSsPFTrKTfabb7D-gYOkNsb1cAQ34nPU3cCae5Br4fOvCrXM-10N=
+BWDIIjATS25VCcHfWUm34sYR94uht0fbob7WR6-vC2ZfYqUTIkKaV2FSYw_z5HVc0MnZ1YxlRkR=
+H9h68w50VLraPsVBJJ8XgwfrQ/499/O8SkjJwNQ8eCZKkZ2eyPrg/h6/h001.9UYMRBgnSKHlkC=
+f5C8QYsifWXoMrJntoXwt1ECAVHHc" target=3D"_blank" rel=3D"noopener noreferrer=
+ nofollow"><span>You&#39;re less than five minutes</span></a> from login / =
+registration, social logins, SSO, MFA, passwordless, user management, passk=
+eys, and much more. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=
+=3D"padding:0px 10px;text-align:left;word-break:break-word;"><p style=3D"co=
+lor: ;"> Join the thousands of developers who trust FusionAuth for their id=
+entity needs. </p></td></tr><tr><td id=3D"start-for-free-today" class=3D"dd=
+" align=3D"center" valign=3D"top" style=3D"color:#000000;font-weight:Bold;p=
+adding:0px 10px;text-align:center;"><h1 style=3D"color:#000000;font-weight:=
+Bold;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.TD=
+QMwwTUsDB62J0OSnrlnDeeh53gY0j3m3htE8-QMWOcILSAUsJALFjZ4rh_qGsSsPFTrKTfabb7D=
+-gYOkNsb1cAQ34nPU3cCae5Br4fOvCrXM-10NBWDIIjATS25VCctYUcLtRPkB8i7oq-I9T7i-tz=
+AwsyFXc3VYE9uPZKL73xSFM13XK8MPTw69p35cmyjZzsA4C9tYsgTnxuh2x7Ow/499/O8SkjJwN=
+Q8eCZKkZ2eyPrg/h7/h001.-41gN72a7HeEOzrO-dSv5uQTZm1Su8vwQhD4sCZ6Wac" target=
+=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Start For Free Today=
+</span></a></h1></td></tr><tr><td class=3D"dd" align=3D"center" style=3D"pa=
+dding:0px 10px;text-align:center;word-break:break-word;"><p style=3D"color:=
+ ;"></p></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"font-siz=
+e:0px;line-height:0px;padding:20px 0px;" class=3D"dd"><table class=3D"j" ro=
+le=3D"none" width=3D"96%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" =
+align=3D"center"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td id=3D"=
+when-to-write-strategy-and-how-much" class=3D"dd" align=3D"left" valign=3D"=
+top" style=3D"color:#000000;font-weight:Bold;padding:0px 10px;text-align:le=
+ft;"><h1 style=3D"color:#000000;font-weight:Bold;"><a class=3D"link" href=
+=3D"https://link.mail.beehiiv.com/ss/c/u001.WjplEBHoYsVAvmS39jW9CWJraG1kZ79=
+bGwlm2-s3VQRyohNnjW_jil8jLv92xQwp91DWSrOz1u2G7nfUlkyru7JlPsPoZBeDobZdluSX8l=
+_pdB1wuwgIKTKLKxYeLQwC_4HNONW1S_NAnlyj28IeW_ibP_GpvezGvYAtMwUD7GY/499/O8Skj=
+JwNQ8eCZKkZ2eyPrg/h8/h001.e81qDqWkfU2oUNJpPyfP64MZlPt_XATncshfwFDPLxI" targ=
+et=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>When To Write Stra=
+tegy, And How Much?</span></a></h1></td></tr><tr><td class=3D"dd" align=3D"=
+left" style=3D"padding:0px 10px;text-align:left;word-break:break-word;"><p =
+style=3D"color: ;"> =E2=80=94 Will Larson </p></td></tr><tr><td class=3D"dd=
+" align=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:break=
+-word;"><p style=3D"color: ;"><b>tl;dr</b>: Will covers: (1) When to write =
+strategy, in particular the pain points (like cross-team friction) and oppo=
+rtunities (like senior hires) that are good moments to start writing. (2) H=
+ow much strategy your org can tolerate, avoiding the traps of writing so mu=
+ch that it=E2=80=99s ignored or so little that there=E2=80=99s not much imp=
+act. (3) Using strategy altitude =E2=80=93 how permissive a given strategy =
+is and where it=E2=80=99s implemented =E2=80=93 to manage the overhead that=
+ strategies creates. (4) Mechanisms to debug whether you=E2=80=99re doing t=
+oo much or too little strategy work.=C2=A0 </p></td></tr><tr><td id=3D"lead=
+ership-management" class=3D"dd" align=3D"right" valign=3D"top" style=3D"col=
+or:#000000;font-weight:Normal;padding:0px 10px;text-align:right;"><h6 style=
+=3D"color:#000000;font-weight:Normal;"><span style=3D"font-size:12px;"><i><=
+a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyui=
+AOs3U41ZsrtIWQFhCus9KCQCezbO-D5p-SZ-mgUURgazGeUk5t4hQQ12KGI1nq-HMXFwSE7gkWG=
+C7nGyG-J2NMIIcyRM0zbYJDVyxuQX6i3sUvTHR7D0q3/499/O8SkjJwNQ8eCZKkZ2eyPrg/h9/h=
+001.5NElwAMHix3gpt6hwxpVcET1aotf2ZJu584h_jm9hNk" target=3D"_blank" rel=3D"n=
+oopener noreferrer nofollow"><span>Leadership</span></a></i></span><span st=
+yle=3D"font-size:12px;"><i>=C2=A0</i></span><span style=3D"font-size:12px;"=
+><i><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumH=
+dAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p-6r2zXwx9a-rp7i1xbRYrDMURLQWN4CSj3kIsJ=
+5etN8Jx7ESmKSSzSQsgQGu2ITm-geDnxLx6T9p26HjSYASQp/499/O8SkjJwNQ8eCZKkZ2eyPrg=
+/h10/h001._OS1mlQUUrY8RktfzV54HitaJvoq73eJP6zZWfQMZyY" target=3D"_blank" re=
+l=3D"noopener noreferrer nofollow"><span>Management</span></a></i></span></=
+h6></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0px=
+;line-height:0px;padding:20px 0px;" class=3D"dd"><table class=3D"j" role=3D=
+"none" width=3D"96%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=
+=3D"center"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td id=3D"ask-f=
+or-advice-not-permission" class=3D"dd" align=3D"left" valign=3D"top" style=
+=3D"color:#000000;font-weight:Bold;padding:0px 10px;text-align:left;"><h1 s=
+tyle=3D"color:#000000;font-weight:Bold;"><a class=3D"link" href=3D"https://=
+link.mail.beehiiv.com/ss/c/u001.J3WaaJcD-G_P1A1xsf5CHgWIaMed4lZdZsJG7_4qQKN=
+27eepnjGHXWa-AbtqhY1uEaYmME78eZY1ln0wnAp0_dikz8xORpZKL7xBlpvGTaVerWbCAiVbCy=
+CfxniO5FTwfETA9kmkba8iBvwWoONdB-CoYY9gcBSf1QGOzUQQnf6XD6uWOAJuMIZwKQ1HPWD1/=
+499/O8SkjJwNQ8eCZKkZ2eyPrg/h11/h001.UzRWcTpIUuLBtSJgEthXBWZItpiqOj6e58owEJJ=
+rXJo" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Manager =
+Antipatterns</span></a></h1></td></tr><tr><td class=3D"dd" align=3D"left" s=
+tyle=3D"padding:0px 10px;text-align:left;word-break:break-word;"><p style=
+=3D"color: ;"> =E2=80=94 Ted Neward </p></td></tr><tr><td class=3D"dd" alig=
+n=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:break-word;=
+"><p style=3D"color: ;"><b>tl;dr</b>: =E2=80=9CThere&#39;s a whole host of =
+mistakes that companies often fall prey to with respect to those they have =
+leading teams, and I thought it a good idea to collect them into one place,=
+ under the umbrella heading of &quot;manager antipatterns=E2=80=9D.=E2=80=
+=9D </p></td></tr><tr><td id=3D"leadership-management-career-advice" class=
+=3D"dd" align=3D"right" valign=3D"top" style=3D"color:#000000;font-weight:N=
+ormal;padding:0px 10px;text-align:right;"><h6 style=3D"color:#000000;font-w=
+eight:Normal;"><span style=3D"font-size:12px;"><i>=C2=A0</i></span><span st=
+yle=3D"font-size:12px;"><a class=3D"link" href=3D"https://link.mail.beehiiv=
+.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p-6r2zXwx9a-rp7i1xb=
+RYrDY4w-rRG36dwXJfegAP09Zz8B_L05RyZIsXtm08rX8rX1MmB9U7bUCgMBCj9IAYYT/499/O8=
+SkjJwNQ8eCZKkZ2eyPrg/h12/h001.9Ud7rdLZKSJgiWs4p4yqY8bjPKy4NL2UdbBYrNLfOfA" =
+target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span><i>Management<=
+/i></span></a></span><span style=3D"font-size:12px;"><i>=C2=A0</i></span><s=
+pan style=3D"font-size:12px;"><a class=3D"link" href=3D"https://link.mail.b=
+eehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p8lQhEuF4MlW9=
+WUMu58hb2DZooMOd8yWv9cb3ghr1XlDIYDBycRyBmJm-3H7mAynhIhfnD7HUngTatAUCgpA7L2/=
+499/O8SkjJwNQ8eCZKkZ2eyPrg/h13/h001.F7h5o6KNDvVp0CeAKR_wZ6WT1HLGzOc1LrbDvw_=
+B-jU" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span><i>Antip=
+attern</i></span></a></span></h6></td></tr><tr><td align=3D"center" valign=
+=3D"top" style=3D"font-size:0px;line-height:0px;padding:20px 0px;" class=3D=
+"dd"><table class=3D"j" role=3D"none" width=3D"96%" border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr></tabl=
+e></td></tr><tr><td id=3D"how-passwordless-authentication-wor" class=3D"dd"=
+ align=3D"left" valign=3D"top" style=3D"color:#000000;font-weight:Bold;padd=
+ing:0px 10px;text-align:left;"><h1 style=3D"color:#000000;font-weight:Bold;=
+"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.TDQMwwT=
+UsDB62J0OSnrlnB2q2A2GhtudivB-oCm_JVTLZEI0lC-x5MqfveHnjIF-HyhR8iC_mf9Zc-2Q3A=
+ZSr6-tqCNCcUAKz8jD1jaFPDGCj0hea6dIJxZz7zpJ0KVxgkiaZS4Qia79jTH3io1SCP1yOYR_U=
+efs7khf3b117yvJ2-aTUr3wh7ZLl3WZLX1UpoBDGvW6CG-75lH7lFkAK3vV5jBKUWDeiSTurFXf=
+jXcM2rBzDcIJNEtw_EENb4hKWL4c3eD0f51felFXxTyjbA/499/O8SkjJwNQ8eCZKkZ2eyPrg/h=
+14/h001.QM2JcibC7N4wV3coxfxJpybIUDw_e78HtM5_Zy9FzBA" target=3D"_blank" rel=
+=3D"noopener noreferrer nofollow"><span>How Passwordless Authentication Wor=
+ks - A Deep Dive</span></a></h1></td></tr><tr><td class=3D"dd" align=3D"lef=
+t" style=3D"padding:0px 10px;text-align:left;word-break:break-word;"><p sty=
+le=3D"color: ;"> =E2=80=94 James Walker </p></td></tr><tr><td class=3D"dd" =
+align=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:break-w=
+ord;"><p style=3D"color: ;"><b>tl;dr</b>: Passwordless authentication is a =
+better option than traditional passwords, improving security and increasing=
+ convenience by removing the challenges associated with passwords. James ex=
+plains how passwordless works using methods like magic links, biometrics, o=
+r one-time codes, and the benefits it provides engineering leaders and CTOs=
+. </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 10=
+px;text-align:left;word-break:break-word;"><p style=3D"color: ;"><i>Promote=
+d by FusionAuth</i></p></td></tr><tr><td id=3D"career-advice" class=3D"dd" =
+align=3D"right" valign=3D"top" style=3D"color:#000000;font-weight:Normal;pa=
+dding:0px 10px;text-align:right;"><h6 style=3D"color:#000000;font-weight:No=
+rmal;"><span style=3D"font-size:12px;"><a class=3D"link" href=3D"https://li=
+nk.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p8fs=
+DOgyffqGAGjUJsdJb-yhNW-CpGvrVC5vOt7Wwhow3nwGVFlzhRGW74b6_ox5rDNJeVLXY4Sq9c2=
+a9Yw_9YA/499/O8SkjJwNQ8eCZKkZ2eyPrg/h15/h001.llJRnLPQNzjiQ2BmnaTlZlUHse4yL9=
+aezxPzHiXsQe8" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span=
+><i>DeepDive</i></span></a></span></h6></td></tr><tr><td align=3D"center" v=
+align=3D"top" style=3D"font-size:0px;line-height:0px;padding:20px 0px;" cla=
+ss=3D"dd"><table class=3D"j" role=3D"none" width=3D"96%" border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> &nbsp; </td></tr><=
+/table></td></tr><tr><td id=3D"one-on-one-meeting-format-ideas" class=3D"dd=
+" align=3D"left" valign=3D"top" style=3D"color:#000000;font-weight:Bold;pad=
+ding:0px 10px;text-align:left;"><h1 style=3D"color:#000000;font-weight:Bold=
+;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.u7AEjF=
+G7xD7PeXgObD5uI3tGnO5LUYdFzACO8rmY7flm12PaJFp2u0vBm0ypAMLOP6Z3PODA4F9VWHUAR=
+Ka86T64x6D-wA0_ekhzuMldaUKdSyWoYkOi0GJOlXSG9Xc2Vlx6sS6O9MPUuTq5q1lnLw/499/O=
+8SkjJwNQ8eCZKkZ2eyPrg/h16/h001.EuhQkyp3GG1TPdSi5WiPg_t46JHgNJO9Hpa_YZ1GFB8"=
+ target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>One On One Me=
+eting Format Ideas</span></a></h1></td></tr><tr><td class=3D"dd" align=3D"l=
+eft" style=3D"padding:0px 10px;text-align:left;word-break:break-word;"><p s=
+tyle=3D"color: ;"> =E2=80=94 Marc Gauthier </p></td></tr><tr><td class=3D"d=
+d" align=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:brea=
+k-word;"><p style=3D"color: ;"><b>tl;dr</b>: =E2=80=9CAs a manager, doing o=
+ne on one meetings with your direct reports is your most important tool. I=
+=E2=80=99ve talked a bit before about opening lines, but I figured it could=
+ be interesting to dig into how I handle this every week with my teams. I t=
+hink it=E2=80=99s important to have a clear format shared to direct reports=
+. This frames the conversation and helps the manager fullfil the objective,=
+ while giving some insights to the direct report regarding what this is all=
+ about.=E2=80=9D </p></td></tr><tr><td id=3D"leadership-management" class=
+=3D"dd" align=3D"right" valign=3D"top" style=3D"color:#000000;font-weight:N=
+ormal;padding:0px 10px;text-align:right;"><h6 style=3D"color:#000000;font-w=
+eight:Normal;"><span style=3D"font-size:12px;"><i><a class=3D"link" href=3D=
+"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQC=
+ezbO-D5p-SZ-mgUURgazGeUk5t4hQQAzwktgeRh4AFA4lcV3_0Gku-j4NdBdxvarEVWXdMeBmwZ=
+PAp_VEAa3W0s6wf_-w2/499/O8SkjJwNQ8eCZKkZ2eyPrg/h17/h001.WbiKSBc_7AJFHaDD0Zi=
+Lwk68UtzdDBK_23v5ZfXXYS8" target=3D"_blank" rel=3D"noopener noreferrer nofo=
+llow"><span>Leadership</span></a></i></span><span style=3D"font-size:12px;"=
+><i>=C2=A0</i></span><span style=3D"font-size:12px;"><i><a class=3D"link" h=
+ref=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCu=
+s9KCQCezbO-D5p-6r2zXwx9a-rp7i1xbRYrDn_QCvxdB3Kgnf3WQxECPGGsJrsB7gQMMVpB_aL7=
+WkHcODEmeoQ_gMwy3VLeectXv/499/O8SkjJwNQ8eCZKkZ2eyPrg/h18/h001.PDqCJrk8Cbh5c=
+k3RW9CK8N-5x5_DMYVrDpVrQ-gwkiM" target=3D"_blank" rel=3D"noopener noreferre=
+r nofollow"><span>Management</span></a></i></span></h6></td></tr><tr><td al=
+ign=3D"center" valign=3D"top" style=3D"padding:30px 10px 30px 10px;" class=
+=3D"dd"><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" align=3D"center" class=3D"d" style=3D"border-radius:5px;b=
+order:0px solid #ffffff;"><tr><td align=3D"center" valign=3D"top" style=3D"=
+padding:20px 20px 20px 20px;" class=3D"dd"><table role=3D"none" width=3D"10=
+0%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><=
+td align=3D"center" valign=3D"top" class=3D"i"><p style=3D"margin:0px;text-=
+align:center;"><b>&quot;What you do has far greater impact than what you sa=
+y.&quot; </b></p></td></tr><tr><td height=3D"14" style=3D"line-height:1px;f=
+ont-size:1px;height:14;">&nbsp;</td></tr><tr><td align=3D"center" valign=3D=
+"top" class=3D"h" style=3D"color:#ffffff;font-family:'Space Grotesk',sans-s=
+erif;font-size:14px;"><b>=E2=80=94 Steven Covey</b></td></tr></table></td><=
+/tr></table></td></tr><tr><td id=3D"shifting-e-2-e-testing-left-at-uber" cl=
+ass=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#000000;font-weight=
+:Bold;padding:0px 10px;text-align:left;"><h1 style=3D"color:#000000;font-we=
+ight:Bold;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u0=
+01.3a5P_SwQzY5x8USD2q4p0lpdTZ0Q64LSnahkPMOEM2h1SiaR-rCTrv55HC-SatfFyI0j4vz5=
+n5ChCETM3bRk1VH9JdU9sjrKaI6yj_HstDf4RUssyrg5Iln3THmYv33I3EB54bjqcbJM5FcOE17=
+WLk5XeGaheHxFH2MnxTyMb34/499/O8SkjJwNQ8eCZKkZ2eyPrg/h19/h001.sZjQyLkk_rSWyZ=
+plTzV5tAHKVq5bPWcdTALWjcWWkng" target=3D"_blank" rel=3D"noopener noreferrer=
+ nofollow"><span>Shifting E2E Testing Left At Uber</span></a></h1></td></tr=
+><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 10px;text-align:l=
+eft;word-break:break-word;"><p style=3D"color: ;"> =E2=80=94 Daniel Tsui, Q=
+uess Liu </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding=
+:0px 10px;text-align:left;word-break:break-word;"><p style=3D"color: ;"><b>=
+tl;dr</b>: =E2=80=9CIn this blog, we describe how we built a system that ga=
+tes every code and configuration change to our core backend systems (1,000+=
+ services). We have several thousand E2E tests that have an average pass ra=
+te of 90%+ per attempt. Imagine each of these tests going through a real E2=
+E user flow, like going through an Uber Eats group order. We do all this fa=
+st enough to run on every diff before it gets landed.=E2=80=9D </p></td></t=
+r><tr><td id=3D"tests" class=3D"dd" align=3D"right" valign=3D"top" style=3D=
+"color:#000000;font-weight:Normal;padding:0px 10px;text-align:right;"><h6 s=
+tyle=3D"color:#000000;font-weight:Normal;"><span style=3D"font-size:12px;">=
+<a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyu=
+iAOs3U41ZsrtIWQFhCus9KCQCezbO-D5p_g45HZXCUf7lNYMF-bB10rUjqBAiM3V6DukJNdWQsv=
+jxX9A_EaDT3UZd4GIKGBUyJ2CGPYqs61rhHFlDZvxiP1/499/O8SkjJwNQ8eCZKkZ2eyPrg/h20=
+/h001.TbtSAhovkSmASWKuQYds8QVNsqugTLDmHFaLOY1OH_k" target=3D"_blank" rel=3D=
+"noopener noreferrer nofollow"><span><i>Tests</i></span></a></span></h6></t=
+d></tr><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0px;line-=
+height:0px;padding:20px 0px;" class=3D"dd"><table class=3D"j" role=3D"none"=
+ width=3D"96%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"ce=
+nter"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td id=3D"against-nam=
+es" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#000000;font-=
+weight:Bold;padding:0px 10px;text-align:left;"><h1 style=3D"color:#000000;f=
+ont-weight:Bold;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/s=
+s/c/u001.71LCQkoHczeoiEaexlZjtrQ0GMxmbOAjM5fEsIgQwwQGFlQpL0oNoRqo1UOHladTl6=
+hdUDPoeBb8OD1yrZhs7LB3_lk89zBqKck6iZsvxZTH4il1_rtv_FGK3lpirb-H_lqlowZaIAZiw=
+H2TiIKpuCCcrQX841og64gmOz_LS4z0TslSOFM9JgXrtkAOLTcAwiajOM5mVPSho-HKaLh4gfdA=
+b0QyM3ubvoiDp5vLHvLuHpuqvuU49Mbvzs24VpzY/499/O8SkjJwNQ8eCZKkZ2eyPrg/h21/h00=
+1.J4QTQAdhDqOIurvJ9goChrv-JywSW0kdg0g4UHOnXo0" target=3D"_blank" rel=3D"noo=
+pener noreferrer nofollow"><span>Unlocking CI/CD Efficiency</span></a></h1>=
+</td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 10px;tex=
+t-align:left;word-break:break-word;"><p style=3D"color: ;"> =E2=80=94 Sean =
+Chapman </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:=
+0px 10px;text-align:left;word-break:break-word;"><p style=3D"color: ;"><b>t=
+l;dr</b>: Understanding the impact of each of your deployments is crucial, =
+especially as they become increasingly frequent. Chances are, your team is =
+either aiming to increase shipping velocity or has already started deployin=
+g =E2=80=9Ccontinuously=E2=80=9D. And while CD comes with a host of well-es=
+tablished benefits, it also introduces a heightened risk of introducing new=
+ errors and issues. Today, Raygun takes a look at the state of continuous d=
+eployment according to survey data, so you can see how you stack up compare=
+d to other teams.=C2=A0 </p></td></tr><tr><td class=3D"dd" align=3D"left" s=
+tyle=3D"padding:0px 10px;text-align:left;word-break:break-word;"><p style=
+=3D"color: ;"><i>Promoted by Raygun</i></p></td></tr><tr><td id=3D"guide-ma=
+nagement" class=3D"dd" align=3D"right" valign=3D"top" style=3D"color:#00000=
+0;font-weight:Normal;padding:0px 10px;text-align:right;"><h6 style=3D"color=
+:#000000;font-weight:Normal;"><span style=3D"font-size:12px;"><a class=3D"l=
+ink" href=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtI=
+WQFhCus9KCQCezbO-D5p9Ape_tT5CEnu7PnTMP4_gsrBHOmdQW85ffVraS_PCE9NXagiwj4aOdq=
+teQEcSLTAgvaoYp4Quvgnmr2fxC2-Uk/499/O8SkjJwNQ8eCZKkZ2eyPrg/h22/h001.S8A_ke5=
+W0Y58BHQRhAbdaRvUNn41B7TuJ2Gu1ptA3Co" target=3D"_blank" rel=3D"noopener nor=
+eferrer nofollow"><span><i>Process</i></span></a></span><span style=3D"font=
+-size:12px;"><i>=C2=A0</i></span><span style=3D"font-size:12px;"><a class=
+=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41=
+ZsrtIWQFhCus9KCQCezbO-D5p-6r2zXwx9a-rp7i1xbRYrDVVIKJuZoMwy3bJ8qgToCxGb-9JH1=
+tPKcn5ZHdeSpjxqB8ucmgRDh_TfSpKAEO51w/499/O8SkjJwNQ8eCZKkZ2eyPrg/h23/h001.pR=
+kr4Dw59XIntzqmxKh0ngR2UhSVrWGxQpbhJhKkPbo" target=3D"_blank" rel=3D"noopene=
+r noreferrer nofollow"><span><i>Management</i></span></a></span></h6></td><=
+/tr><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0px;line-hei=
+ght:0px;padding:20px 0px;" class=3D"dd"><table class=3D"j" role=3D"none" wi=
+dth=3D"96%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"cente=
+r"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td id=3D"postgres-as-a-=
+search-engine" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#0=
+00000;font-weight:Bold;padding:0px 10px;text-align:left;"><h1 style=3D"colo=
+r:#000000;font-weight:Bold;"><a class=3D"link" href=3D"https://link.mail.be=
+ehiiv.com/ss/c/u001.K3FzaWG5vnes9asChrWWUAgI6z5A4GbQCzJD0NXiCMqQxoVEugYIxD3=
+BdxIXeA9T7PgejkZRjEdSrzkbpstcdomZQDq5Lifok0VG8GVv5KxqYuJ2PrvBHXrWRZPrQwVrd3=
+9p9vNnQkSh2Oj9qU6XfOXUaS6k-DaRdOPrv26Rf-0/499/O8SkjJwNQ8eCZKkZ2eyPrg/h24/h0=
+01.KHVipoP6pe3PQiyxQQ1iHObyXzaTecQtdW5wmCPInJk" target=3D"_blank" rel=3D"no=
+opener noreferrer nofollow"><span>Postgres As A Search Engine</span></a></h=
+1></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 10px;t=
+ext-align:left;word-break:break-word;"><p style=3D"color: ;"> =E2=80=94 Eri=
+c Zakariasson </p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"pa=
+dding:0px 10px;text-align:left;word-break:break-word;"><p style=3D"color: ;=
+"><b>tl;dr</b>: =E2=80=9CWhile semantic search is trendy, good old lexical =
+search is still the backbone. Semantic techniques can improve results, but =
+they work best when added to a solid text-based search foundation. In this =
+post, we=E2=80=99ll explore how to use Postgres to create a robust search e=
+ngine.=E2=80=9D=C2=A0 </p></td></tr><tr><td id=3D"postgresql-search" class=
+=3D"dd" align=3D"right" valign=3D"top" style=3D"color:#000000;font-weight:N=
+ormal;padding:0px 10px;text-align:right;"><h6 style=3D"color:#000000;font-w=
+eight:Normal;"><span style=3D"font-size:12px;"><a class=3D"link" href=3D"ht=
+tps://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9KCQCezb=
+O-D5p_9_HIqfmuzmQAgu48duH9XjTX3_X-gsTk385fKi9mJxcAcMmxrMHdTZnjNgazInSm5G_8z=
+a1i_mLD8V_9GPTJx/499/O8SkjJwNQ8eCZKkZ2eyPrg/h25/h001.leJF0uENIj9u706U7f4TVN=
+g9qwVndXJZvOoc9r5fHak" target=3D"_blank" rel=3D"noopener noreferrer nofollo=
+w"><span><i>Postgresql</i></span></a></span><span style=3D"font-size:12px;"=
+><i>=C2=A0</i></span><span style=3D"font-size:12px;"><a class=3D"link" href=
+=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhCus9K=
+CQCezbO-D5p80srNPSskGa9Gurc_GRdnqQMmkakTQ9yAGzJlTfAOyDJFQxooMhjKW8o-XoJuc8s=
+6dkBtHQLJIcuw_M1hgzWVG/499/O8SkjJwNQ8eCZKkZ2eyPrg/h26/h001.hF7krcrkje0F6lgz=
+9cYrbMAzOrGCWH2nrqU1QIK3NcI" target=3D"_blank" rel=3D"noopener noreferrer n=
+ofollow"><span><i>Search</i></span></a></span></h6></td></tr><tr><td align=
+=3D"center" valign=3D"top" style=3D"font-size:0px;line-height:0px;padding:2=
+0px 0px;" class=3D"dd"><table class=3D"j" role=3D"none" width=3D"96%" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> &nbsp=
+; </td></tr></table></td></tr><tr><td id=3D"you-should-make-a-new-programmi=
+ng-l" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#000000;fon=
+t-weight:Bold;padding:0px 10px;text-align:left;"><h1 style=3D"color:#000000=
+;font-weight:Bold;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com=
+/ss/c/u001.J3WaaJcD-G_P1A1xsf5CHvsx6OvKw1sCU1ONKOhpl42GxA1ixLK7n2B-FXFVo9jX=
+C77fh860tnoLag7G23kDIQs59mleSC28RJlbI69dBQMbPPCezYTK9o5m1L-g90nWZDsBmKh_X7r=
+geZrKhNFXsQ/499/O8SkjJwNQ8eCZKkZ2eyPrg/h27/h001.47XsIB7L8xiiGQzEkSUGSBY1a44=
+eoKrImtx0Pn-FIZI" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><s=
+pan>Create An Internal CLI</span></a></h1></td></tr><tr><td class=3D"dd" al=
+ign=3D"left" style=3D"padding:0px 10px;text-align:left;word-break:break-wor=
+d;"><p style=3D"color: ;"> =E2=80=94 Chay Choong </p></td></tr><tr><td clas=
+s=3D"dd" align=3D"left" style=3D"padding:0px 10px;text-align:left;word-brea=
+k:break-word;"><p style=3D"color: ;"><b>tl;dr</b>: =E2=80=9COne useful way =
+to preserve institutional knowledge in a dev team is to grow a collection o=
+f useful snippets, scripts, or workflows. Some companies like Slack and Sho=
+pify have their own internal CLI. The modern terminal Warp has a pretty sic=
+k feature for documenting and sharing workflows. It&#39;s quite easy to get=
+ started with your very own CLI.=E2=80=9D Chay shows us how.=C2=A0 </p></td=
+></tr><tr><td id=3D"command-line" class=3D"dd" align=3D"right" valign=3D"to=
+p" style=3D"color:#000000;font-weight:Normal;padding:0px 10px;text-align:ri=
+ght;"><h6 style=3D"color:#000000;font-weight:Normal;"><i><a class=3D"link" =
+href=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtIWQFhC=
+us9KCQCezbO-D5p8iw1PKKr3cPyyHAdUeY6krdCPfpbwc_GUcXxQ72GkVO1D4-OaZ74MIqUastm=
+B0segoBhK50yFk_5wt1mnrKs0K/499/O8SkjJwNQ8eCZKkZ2eyPrg/h28/h001.u-3fuCd4KxcK=
+5V0DlI_c-shYTxIYSur5vxZRMiMbpDk" target=3D"_blank" rel=3D"noopener noreferr=
+er nofollow"><span>CommandLine</span></a></i></h6></td></tr><tr><td align=
+=3D"center" valign=3D"top" style=3D"font-size:0px;line-height:0px;padding:2=
+0px 0px;" class=3D"dd"><table class=3D"j" role=3D"none" width=3D"96%" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td> &nbsp=
+; </td></tr></table></td></tr><tr><td id=3D"looming-liability-machines-ll-m=
+s" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#000000;font-w=
+eight:Bold;padding:0px 10px;text-align:left;"><h1 style=3D"color:#000000;fo=
+nt-weight:Bold;"><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss=
+/c/u001.u7AEjFG7xD7PeXgObD5uIw5ddFRsdrPwRAsyKfCK_wnGUwkyQ96UkksfsceHePzi0b6=
+mq5Ktm4XcaMV1s8VK_8woegHxWGztwEm3dzOq1cgNe5m_XkFY-ubXm5h0ip4TGdxG10gwh64mn-=
+PwOvDaBrpxEUaT-F-XDBjlMpMnSGCsuAhw81b8Osx5D-rK3juk/499/O8SkjJwNQ8eCZKkZ2eyP=
+rg/h29/h001.Cv_cK55oTao5CTU8HG2tY3gncIlioedsgklT2ybRx-w" target=3D"_blank" =
+rel=3D"noopener noreferrer nofollow"><span>Looming Liability Machines (LLMs=
+)</span></a></h1></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"pad=
+ding:0px 10px;text-align:left;word-break:break-word;"><p style=3D"color: ;"=
+> =E2=80=94 Murat Demirbas </p></td></tr><tr><td class=3D"dd" align=3D"left=
+" style=3D"padding:0px 10px;text-align:left;word-break:break-word;"><p styl=
+e=3D"color: ;"><b>tl;dr</b>: =E2=80=9CWe discussed a paper that uses LLMs f=
+or automatic root cause analysis (RCA) for cloud incidents. This was a pret=
+ty straightforward application of LLMs. The proposed system employs an LLM =
+to match incoming incidents to incident handlers based on their alert types=
+, predicts the incident&#39;s root cause category, and provides an explanat=
+ory narrative... The use of LLMs for RCAs spooked me viscerally.=E2=80=9D <=
+/p></td></tr><tr><td id=3D"ai-llm" class=3D"dd" align=3D"right" valign=3D"t=
+op" style=3D"color:#000000;font-weight:Normal;padding:0px 10px;text-align:r=
+ight;"><h6 style=3D"color:#000000;font-weight:Normal;"><span style=3D"font-=
+size:12px;"><i>=C2=A0</i></span><span style=3D"font-size:12px;"><a class=3D=
+"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41Zsr=
+tIWQFhCus9KCQCezbO-D5p9dh7FYUbYG_3kctyyUjzXTbXIdLcc675psFLPDoIYeYXLscVCj3rG=
+pyody-S6IAb36H-vE0gx7_GFPIB-c8U9D/499/O8SkjJwNQ8eCZKkZ2eyPrg/h30/h001.wGcq9=
+TwWlQLlkIPtmTv6uKvHqx4dw9PsS9PaTKrUd90" target=3D"_blank" rel=3D"noopener n=
+oreferrer nofollow"><span><i>AI</i></span></a></span><span style=3D"font-si=
+ze:12px;"><i>=C2=A0</i></span><span style=3D"font-size:12px;"><a class=3D"l=
+ink" href=3D"https://link.mail.beehiiv.com/ss/c/u001.OQumHdAyuiAOs3U41ZsrtI=
+WQFhCus9KCQCezbO-D5p8pA7qlQf1dlTlMfZ3hJaFENChnWATEjkQKC_UhGU2afdv2xYMQPGsYU=
+ktT8PHO1Co-nvbj7s-qjyRF9OuAleDY/499/O8SkjJwNQ8eCZKkZ2eyPrg/h31/h001.xtUrxfW=
+TA8OzfBtavYMZhYznqMBch8KctlVJhuKMNgI" target=3D"_blank" rel=3D"noopener nor=
+eferrer nofollow"><span><i>LLM</i></span></a></span></h6></td></tr><tr><td =
+align=3D"center" valign=3D"top" style=3D"padding: 10px 10px 10px; " class=
+=3D"dd"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" style=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" =
+style=3D"width:650px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/=
+fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asse=
+t/file/f1a60110-9479-4cc5-86dc-4ca39959b918/Frame_14.png?t=3D1723764489" al=
+t=3D"" height=3D"auto" width=3D"650" style=3D"display:block;width:100%;" bo=
+rder=3D"0"/></td></tr></table></td></tr><tr><td id=3D"algorithms-we-develop=
+-software-by-g" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#=
+000000;font-weight:Normal;padding:0px 10px;text-align:left;"><h5 style=3D"c=
+olor:#000000;font-weight:Normal;"><b><a class=3D"link" href=3D"https://link=
+.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfVuqloztWerRJdOgqmq8zxyMyHE=
+Mc_EuqlVNfDFdq5oBCm2Q2RfjZ4fOIwGe_ZVOdaoE5cr69_9xd2260COQOdfri29gAOsdiMJ7hx=
+w2_e7QJO3wO70JjkhyvyfrbPON0Q/499/O8SkjJwNQ8eCZKkZ2eyPrg/h32/h001.CyTAWA2NQ-=
+Dhh5ETokryt3OjhVOatDCXHqWNzMv1cIs" target=3D"_blank" rel=3D"noopener norefe=
+rrer nofollow"><span>Algorithms We Develop Software By</span></a></b><b>=C2=
+=A0</b>- Grant Slatton</h5></td></tr><tr><td align=3D"center" valign=3D"top=
+" style=3D"padding: 10px 10px 10px; " class=3D"dd"><table role=3D"none" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto=
+;"><tr><td align=3D"center" valign=3D"top" style=3D"width:650px;"><img src=
+=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,=
+onerror=3Dredirect,quality=3D80/uploads/asset/file/0db18a10-5259-4ed4-b641-=
+bd39b17d23b4/Frame_12.png?t=3D1723764594" alt=3D"" height=3D"auto" width=3D=
+"650" style=3D"display:block;width:100%;" border=3D"0"/></td></tr></table><=
+/td></tr><tr><td id=3D"chart-db-free-os-database-diagrams-" class=3D"dd" al=
+ign=3D"left" valign=3D"top" style=3D"color:#000000;font-weight:Normal;paddi=
+ng:0px 10px;text-align:left;"><h5 style=3D"color:#000000;font-weight:Normal=
+;"><b><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001._d0=
+2Us3GR26SqbxiB_QNfbqUe4nPJfjWoJ2BvAajvWKphBmznY3CLvn8KUuq7oVjqj7GHa2zKjbf0-=
+1pZGxcC6DdsATeu0TdivTPwGuxYi6P3ZzFxPCEpsFgVni_2151/499/O8SkjJwNQ8eCZKkZ2eyP=
+rg/h33/h001.ZWAxGX1Myd7OZL-2TP9K5IZaz5NO5BEs6GjxEs7FbVY" target=3D"_blank" =
+rel=3D"noopener noreferrer nofollow"><span>ChartDB</span></a></b><b>: </b>F=
+ree OS database diagrams editor.=C2=A0</h5></td></tr><tr><td id=3D"fuite-fi=
+nding-memory-leaks-in-web-a" class=3D"dd" align=3D"left" valign=3D"top" sty=
+le=3D"color:#000000;font-weight:Normal;padding:0px 10px;text-align:left;"><=
+h5 style=3D"color:#000000;font-weight:Normal;"><b><a class=3D"link" href=3D=
+"https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QNfVjjpxRf5qKwec=
+Z_89Lpj-l5p_8SISrPDXJaMOYWppo7z_bfQQTuwzgeOI22U__TzLafwpPCK6JzZjeQS1z1wl3YC=
+vs9bi6XDWKQJptnB59N/499/O8SkjJwNQ8eCZKkZ2eyPrg/h34/h001.AMkRsihkkas0Mbvultj=
+sQO08u7iID9G1gM5IUHRnQEA" target=3D"_blank" rel=3D"noopener noreferrer nofo=
+llow"><span>Fuite</span></a></b><b>: </b>Finding memory leaks in web apps.<=
+/h5></td></tr><tr><td id=3D"handwriter-handwriting-synthesizer" class=3D"dd=
+" align=3D"left" valign=3D"top" style=3D"color:#000000;font-weight:Normal;p=
+adding:0px 10px;text-align:left;"><h5 style=3D"color:#000000;font-weight:No=
+rmal;"><b><a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001=
+._d02Us3GR26SqbxiB_QNfU2mf2FtKG2rE5tTWV94xsUVaUVX-HtOSrgXBKMHoBhQoCdh-JrhyZ=
+WuOFnw9Za3P-A_rSEdy1I27A79aQ_Afs6Sd0MRW9BpX1-_qXKAhHn_0fkJJVk87wvgTc06QK9F5=
+Q/499/O8SkjJwNQ8eCZKkZ2eyPrg/h35/h001.6WwH3s1Jc4tVmsCl3NnUc8ZC33pZZB3vwaYAM=
+pzvCqA" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Handwr=
+iter</span></a></b><b>: </b>Handwriting synthesizer.</h5></td></tr><tr><td =
+id=3D"instant-realtime-clientside-databas" class=3D"dd" align=3D"left" vali=
+gn=3D"top" style=3D"color:#000000;font-weight:Normal;padding:0px 10px;text-=
+align:left;"><h5 style=3D"color:#000000;font-weight:Normal;"><b><a class=3D=
+"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001._d02Us3GR26SqbxiB_QN=
+fdvhBP4kpqR8VkgqmrquK-MmLo92Vb3_5Nehmwjo5-w2pkC-1e--p5z0QMOnG97GB7WIJymyGVM=
+1fPCaI30s7Unc3OxNlCS1CVBSQ_rLkjuK/499/O8SkjJwNQ8eCZKkZ2eyPrg/h36/h001.Xhfl9=
+b1arTaWL3np5S65mIuGeIm-FDEwEnAkZICL7nc" target=3D"_blank" rel=3D"noopener n=
+oreferrer nofollow"><span>Instant</span></a></b><b>: </b>Realtime client-si=
+de database.</h5></td></tr><tr><td id=3D"lit-serve-lightningfast-serving-en=
+g" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#000000;font-w=
+eight:Normal;padding:0px 10px;text-align:left;"><h5 style=3D"color:#000000;=
+font-weight:Normal;"><b><a class=3D"link" href=3D"https://link.mail.beehiiv=
+.com/ss/c/u001._d02Us3GR26SqbxiB_QNfQvzSsjkXd8YYrSTaxDQ_80pk14LqSBHlBgYSAhf=
+0DuIKxEWzp96XTqyY4ej3o15nApWWvhdrJxKZwVyxb3wwcpvdwTvic3Pwxhun7qteUo2/499/O8=
+SkjJwNQ8eCZKkZ2eyPrg/h37/h001.MK1spgXIlaDLK3qOzhhRKiOdFuj5veCO3vDzu6Zpnv8" =
+target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>LitServe</span=
+></a></b><b>: </b>Lightning-fast serving engine for AI models.</h5></td></t=
+r><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0px;line-heigh=
+t:0px;padding:20px 0px;" class=3D"dd"><table class=3D"j" role=3D"none" widt=
+h=3D"96%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"=
+><tr><td> &nbsp; </td></tr></table></td></tr><tr><td style=3D"padding:4px 1=
+0px"><br></td></tr><tr><td class=3D"dd" align=3D"center" style=3D"padding:0=
+px 10px;text-align:center;word-break:break-word;"><p style=3D"color: ;"> Cl=
+ick the below and shoot me an email! </p></td></tr><tr><td class=3D"dd" ali=
+gn=3D"center" style=3D"padding:0px 10px;text-align:center;word-break:break-=
+word;"><p style=3D"color: ;"> 1 =3D Didn&#39;t enjoy it all // 5 =3D Really=
+ enjoyed it </p></td></tr><tr><td id=3D"1-2-3-4-5" class=3D"dd" align=3D"ce=
+nter" valign=3D"top" style=3D"color:#000000;font-weight:Normal;padding:0px =
+10px;text-align:center;"><h5 style=3D"color:#000000;font-weight:Normal;"><s=
+pan style=3D"text-decoration:underline;"><b><a class=3D"link" href=3D"mailt=
+o:suraj@pointer.io?subject=3DIssue%20%23518%20-%20Score%3A%201&body=3DHere%=
+27s%20why%3A" target=3D"_blank" rel=3D"noopener noreferrer nofollow" clickt=
+racking=3D"off"><span style=3D"color: rgb(0, 0, 0)">1</span></a></b></span>=
+<b> =E2=80=A6 </b><span style=3D"text-decoration:underline;"><b><a class=3D=
+"link" href=3D"mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-%20Score=
+%3A%202&body=3DHere%27s%20why%3A" target=3D"_blank" rel=3D"noopener norefer=
+rer nofollow" clicktracking=3D"off"><span style=3D"color: rgb(0, 0, 0)">2</=
+span></a></b></span><b> =E2=80=A6 </b><span style=3D"text-decoration:underl=
+ine;"><b><a class=3D"link" href=3D"mailto:suraj@pointer.io?subject=3DIssue%=
+20%23518%20-%20Score%3A%203&body=3DHere%27s%20why%3A" target=3D"_blank" rel=
+=3D"noopener noreferrer nofollow" clicktracking=3D"off"><span style=3D"colo=
+r: rgb(0, 0, 0)">3</span></a></b></span><b> =E2=80=A6 </b><span style=3D"te=
+xt-decoration:underline;"><b><a class=3D"link" href=3D"mailto:suraj@pointer=
+.io?subject=3DIssue%20%23518%20-%20Score%3A%204&body=3DHere%27s%20Why%3A" t=
+arget=3D"_blank" rel=3D"noopener noreferrer nofollow" clicktracking=3D"off"=
+><span style=3D"color: rgb(0, 0, 0)">4</span></a></b></span><b> =E2=80=A6 <=
+/b><span style=3D"text-decoration:underline;"><b><a class=3D"link" href=3D"=
+mailto:suraj@pointer.io?subject=3DIssue%20%23518%20-%20Score%3A%205&body=3D=
+Here%27s%20Why%3A" target=3D"_blank" rel=3D"noopener noreferrer nofollow" c=
+licktracking=3D"off"><span style=3D"color: rgb(0, 0, 0)">5</span></a></b></=
+span></h5></td></tr><tr><td style=3D"padding:4px 10px"><br><br></td></tr></=
+table></td></tr><tr><td class=3D"b" align=3D"center" valign=3D"top" bgcolor=
+=3D"#111827" style=3D"padding:10px;border-bottom-left-radius:16px;border-bo=
+ttom-right-radius:16px;"><table role=3D"none" width=3D"100%" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td height=3D"10" s=
+tyle=3D"line-height:1px;font-size:1px;height:10px;"> &nbsp; </td></tr><tr><=
+td class=3D"w" align=3D"center" valign=3D"top" style=3D"padding:10px;"><tab=
+le role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center"><tr><td align=3D"center" valign=3D"top"><p style=3D=
+"font-family:'Space Grotesk',sans-serif;color:#ffffff!important;"> Update y=
+our email preferences or unsubscribe <a class=3D"link" href=3D"https://link=
+.mail.beehiiv.com/ss/c/u001.PFjHD-ii0vvUj1FcNnOS5qqF3eJEkrxympSzSDDZUB29F49=
+51mhY03iCawzSQ6pojmI2bcteUC8RU69KgqCyvvKnI4gDKObqQV1pMB9bOw731qnVs91BlOFCPB=
+nCBXa26bqJ7COEO708Bn3IJfK7RWgi6AAEblO0eq_fcHJ9wUstDmmLYCCzNnaDCp89DIn5qcMg0=
+mxPBWzibFv0RDr_yqayRNdB7-xu1agwpB7pqIjt_pziyaYIVd1RraFXlPv2CUNisuKtLoX3vQB4=
+AM2d9SVqYPMw2GTKWn3eTinJOGng9IR-A3kM9ngJG6qjHWyvFVCBc41ro6kvL2TDDTbgob1Y3lD=
+WvvgpABpJ2REaEF3MXyi4IZOjzEMF23rpJUb-0faG6doYP4_hU6h2mk0isq2fb0m9t5M5F8NF8b=
+OPjGnAXCLJeekT3lRngq_7BjHSuTvUp6VpCsWu3N5Fe2N33gnIY_A59iGPbl78wcK2kDtSNdcYU=
+yDnlv_jmLin1ks4xME2REZjEf7Ci6Cg9OWp-Spoz951XZ2T1boEJ75Ye_NiU1Mzw7SUhLH_ERXo=
+kVRqbergudTamUQBG9qzLk_B85FkUxYWsVGCfyIfopM6ATJz5MWMlg2Muev4KIpfRBA1FQbuP-6=
+OcXkiZVLr4vswr1UA5urldvwGSSu-U2HXY_aao9gdQQEyJ-P7E-cEKI7CQOz6Q91cgQGtzj6N1k=
+RiXWqrhVS6i28FcmDfYLXVPwW2LfEB_ofxXtEgTCHXl2-J/499/O8SkjJwNQ8eCZKkZ2eyPrg/h=
+38/h001.n__16dbmqfe2944t3nrG-O0EqyHS2uMoY_IWwddgxRs" style=3D"text-decorati=
+on:underline;text-decoration-color:#ffffff!important;color:#ffffff!importan=
+t;"> here</a></p><p class=3D"copyright" style=3D"font-family:'Space Grotesk=
+',sans-serif;color:#ffffff!important;"> &copy; 2024 Pointer </p><p style=3D=
+"font-family:'Space Grotesk',sans-serif;color:#ffffff!important;"> 512 Rose=
+ Avenue, #224<br>Venice, California 90291, United States of America </p></t=
+d></tr><tr><td align=3D"left" valign=3D"top" height=3D"2" style=3D"height:2=
+px;"><a href=3D'https://link.mail.beehiiv.com/ss/c/u001.-hnYW5kLMgAgfdYiF39=
+x0spMLkdp1q7R6HcdH7rpKjPd9Z2mmZHM7OL78HQslvGyyn-Y2x8uJFvgAYSSyRijpopaVVzj1m=
+gHoc41sC5ANX8/499/O8SkjJwNQ8eCZKkZ2eyPrg/h39/h001.SkJL9ReLd1PpjQKiPDe2VccPV=
+cOhkUqWRRwMNrAzgcE' style=3D"color: #111827 !important; cursor: default; fo=
+nt-size: 1px; text-decoration: none;"> Terms of Service </a></td></tr></tab=
+le></td></tr></table></td></tr></table></td></tr></table></td></tr></table>=
+</td></tr></table></div></body></html>
+--1ac80e8b97d7eb0db539a6bcf19f5e0cf8f3379526719d026a1b158ab890--

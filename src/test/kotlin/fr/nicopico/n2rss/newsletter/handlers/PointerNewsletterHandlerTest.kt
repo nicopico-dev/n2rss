@@ -189,5 +189,56 @@ class PointerNewsletterHandlerTest {
                 "A Virtual DOM In 200 Lines Of JavaScript",
             )
         }
+
+        @Test
+        fun `should process email #541`() {
+            // GIVEN
+            val email: Email = loadEmail("stubs/emails/Pointer/#541.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            assertSoftly(publication) {
+                withClue("title") {
+                    title shouldBe "#541"
+                }
+                withClue("date") {
+                    date shouldHaveSameDayAs (email.date)
+                }
+                withClue("newsletter") {
+                    newsletter.name shouldBe "Pointer"
+                }
+            }
+
+            publication.articles.map { it.title } shouldBe listOf(
+                "SPONSOR - Start Selling To Enterprises With Just A Few Lines Of Code",
+                "Practices Of Reliable Software Design",
+                "How to Write Great Tech Specs",
+                "Build Vs Buy Part I: Complexities Of Building SSO And SCIM In-House",
+                "The 3 Motivational Forces Of Developers",
+                "Onboarding To A ‘Legacy' Codebase With The Help Of AI",
+                "How Developers Really Use AI",
+                "Crazy Debugging Stories - Recursion",
+                "Real-Time Mouse Pointers",
+                "Sort, Sweep, And Prune: Collision Detection Algorithms",
+            )
+
+            withClue("Sponsor description") {
+                publication.articles[0].description shouldBe """
+                    WorkOS is a modern identity platform for B2B SaaS.
+                    With modular and easy-to-use APIs, integrate complex features like SSO and SCIM in minutes of months.
+                    If you care deeply about design and user experience, WorkOS is a perfect fit. From high-quality documentation to self-serve onboarding for your customers, WorkOS removes all the complexity for your engineers.
+                    User Management is also free up to 1 million MAUs and includes MFA, bot protection, domain verification.
+                """.trimIndent()
+            }
+
+            withClue("Article description") {
+                publication.articles[1].description shouldBe """
+                    — Christoffer Stjernlöf
+                    tl;dr: Christoffer discusses the following: (1) Use off-the-shelf. (2) Cost and reliability over features. (3) Idea to production quickly. (4) Simple data structures. (5) Reserve resources early. (6) Set maximums. (7) Make testing easy. (8) Embed performance counters.
+                """.trimIndent()
+            }
+        }
     }
 }
