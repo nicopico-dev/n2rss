@@ -217,7 +217,7 @@ class PointerNewsletterHandlerTest {
                 "How to Write Great Tech Specs",
                 "Build Vs Buy Part I: Complexities Of Building SSO And SCIM In-House",
                 "The 3 Motivational Forces Of Developers",
-                "Onboarding To A 'Legacy' Codebase With The Help Of AI",
+                "Onboarding To A ‘Legacy' Codebase With The Help Of AI",
                 "How Developers Really Use AI",
                 "Crazy Debugging Stories - Recursion",
                 "Real-Time Mouse Pointers",

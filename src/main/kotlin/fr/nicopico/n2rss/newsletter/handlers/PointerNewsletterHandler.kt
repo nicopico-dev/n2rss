@@ -21,6 +21,7 @@ import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.handlers.legacy.LegacyPointer540NewsletterHandler
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
+import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
@@ -49,27 +50,54 @@ class PointerNewsletterHandler : NewsletterHandlerSingleFeed {
         val cleanedHtml = Jsoup.clean(
             email.content.preserveArticleTitles("n2rss-article-title"),
             Safelist.basic()
+                .addTags("h1", "h2")
                 .addAttributes("div", "class"),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        println(document)
 
-        // TODO Sponsors are articles without author. Add the "SPONSOR -" prefix
-        return emptyList()
+        // Sponsor title is <h2>
+        val sponsorArticle = document.selectFirst("div.n2rss-article-title h2 a[href]")
+            ?.extractArticle("SPONSOR - ")
+            ?.let { listOf(it) }
+            ?: emptyList()
+
+        // Article titles are <h1>
+        val articleLinks = document.select("div.n2rss-article-title h1 a[href]")
+        val articles = articleLinks.mapNotNull { it.extractArticle() }
+
+        return sponsorArticle + articles
+    }
+
+    private fun Element.extractArticle(titlePrefix: String = ""): Article? {
+        val link = attr("href").toUrlOrNull()
+            ?: return null
+
+        val title = titlePrefix + text()
+
+        return Article(
+            title = title,
+            link = link,
+            description = "TODO",
+        )
     }
 
     private fun String.preserveArticleTitles(cssClass: String): String {
         val doc = Jsoup.parse(this)
         doc.select("td[id].dd")
             .forEach { td ->
-                // Insert the <p> element as the only child of the <td> element
-                val tdElement = Element("td")
-                    .appendChild(
-                        Element("div")
-                            .attr("class", cssClass)
-                            .appendChildren(td.children())
-                    )
-                td.replaceWith(tdElement)
+                // Ignore centered cell (sponsor link)
+                val isCentered = td.attr("style")
+                    .contains(Regex("text-align\\s*:\\s*center\\s*;"))
+                if (!isCentered) {
+                    // Insert the <p> element as the only child of the <td> element
+                    val tdElement = Element("td")
+                        .appendChild(
+                            Element("div")
+                                .attr("class", cssClass)
+                                .appendChildren(td.children())
+                        )
+                    td.replaceWith(tdElement)
+                }
             }
         return doc.html()
     }
