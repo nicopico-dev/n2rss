@@ -43,7 +43,7 @@ class LegacyPointer540NewsletterHandler : NewsletterHandlerSingleFeed {
 
     override fun canHandle(email: Email): Boolean {
         return email.sender.email.contains("suraj@pointer.io")
-            && email.date < LocalDate(2024, 8, 14)
+            && email.date < lastSupportedEmailDate
     }
 
     override fun extractArticles(email: Email): List<Article> {
@@ -167,4 +167,9 @@ class LegacyPointer540NewsletterHandler : NewsletterHandlerSingleFeed {
                     && style.contains(Regex("border-top-color:\\s*#000000\\b"))
                 )
         }
+
+    companion object {
+        @Suppress("MagicNumber")
+        private val lastSupportedEmailDate = LocalDate(2024, 8, 14)
+    }
 }
