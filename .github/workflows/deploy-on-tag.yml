@@ -66,6 +66,7 @@ jobs:
               "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
             }
   restart-server:
+    if: false # Still failing to restart after a deployment :/
     needs:
       - deploy
       - notify-release-analytics
