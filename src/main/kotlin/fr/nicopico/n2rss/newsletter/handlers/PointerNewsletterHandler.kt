@@ -74,10 +74,24 @@ class PointerNewsletterHandler : NewsletterHandlerSingleFeed {
 
         val title = titlePrefix + text()
 
+        // Description: move up to div.n2rss-article-title, then select all <p> until the next div.n2rss-article-title
+        val descriptionSiblings = parents().select("div.n2rss-article-title")
+            .let {
+                it.first() ?: error("parent element cannot be null !")
+            }
+            .nextElementSiblings()
+
+        val description = StringBuilder()
+        for (element in descriptionSiblings) {
+            if (element.tagName() != "p") break
+            if (description.isNotEmpty()) description.append("\n")
+            description.append(element.text())
+        }
+
         return Article(
             title = title,
             link = link,
-            description = "TODO",
+            description = description.toString(),
         )
     }
 
