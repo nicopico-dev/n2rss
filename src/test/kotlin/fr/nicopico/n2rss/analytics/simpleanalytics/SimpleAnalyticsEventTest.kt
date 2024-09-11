@@ -21,6 +21,7 @@ package fr.nicopico.n2rss.analytics.simpleanalytics
 import fr.nicopico.n2rss.analytics.AnalyticsCode
 import fr.nicopico.n2rss.analytics.AnalyticsEvent
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.utils.getFingerprint
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -48,6 +49,8 @@ class SimpleAnalyticsEventTest {
             hostname = HOSTNAME,
         )
 
+        private val UA_FINGERPRINT = requireNotNull(getFingerprint(UA))
+
         private fun createSimpleAnalyticsEvent(
             event: String,
             metadata: Map<String, String> = emptyMap(),
@@ -71,7 +74,10 @@ class SimpleAnalyticsEventTest {
                 ),
                 analyticsProperties,
                 createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_HOME
+                    AnalyticsCode.EVENT_HOME,
+                    mapOf(
+                        AnalyticsCode.DATA_USER_AGENT to UA_FINGERPRINT,
+                    )
                 ),
             ),
             Arguments.of(
@@ -83,7 +89,8 @@ class SimpleAnalyticsEventTest {
                 createSimpleAnalyticsEvent(
                     AnalyticsCode.EVENT_GET_FEED,
                     mapOf(
-                        AnalyticsCode.DATA_FEED_CODE to "feed1"
+                        AnalyticsCode.DATA_FEED_CODE to "feed1",
+                        AnalyticsCode.DATA_USER_AGENT to UA_FINGERPRINT,
                     )
                 ),
             ),
@@ -96,7 +103,8 @@ class SimpleAnalyticsEventTest {
                 createSimpleAnalyticsEvent(
                     AnalyticsCode.EVENT_REQUEST_NEWSLETTER,
                     mapOf(
-                        AnalyticsCode.DATA_NEWSLETTER_URL to "url1"
+                        AnalyticsCode.DATA_NEWSLETTER_URL to "url1",
+                        AnalyticsCode.DATA_USER_AGENT to UA_FINGERPRINT,
                     )
                 ),
             ),
@@ -154,7 +162,10 @@ class SimpleAnalyticsEventTest {
                 ),
                 analyticsProperties,
                 createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_GET_RSS_FEEDS
+                    AnalyticsCode.EVENT_GET_RSS_FEEDS,
+                    mapOf(
+                        AnalyticsCode.DATA_USER_AGENT to UA_FINGERPRINT,
+                    )
                 ),
             ),
             Arguments.of(
