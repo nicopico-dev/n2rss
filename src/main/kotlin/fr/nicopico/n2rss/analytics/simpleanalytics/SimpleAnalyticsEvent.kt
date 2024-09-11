@@ -15,13 +15,13 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.analytics.simpleanalytics
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import fr.nicopico.n2rss.analytics.AnalyticsCode
 import fr.nicopico.n2rss.analytics.AnalyticsEvent
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.utils.getFingerprint
 
 data class SimpleAnalyticsEvent(
     @JsonProperty("type")
@@ -36,66 +36,95 @@ data class SimpleAnalyticsEvent(
     val metadata: Map<String, String>
 )
 
-@Suppress("LongMethod")
+@Suppress("LongMethod", "CyclomaticComplexMethod")
 fun AnalyticsEvent.toSimpleAnalyticsEvent(
     simpleAnalyticsProperties: N2RssProperties.SimpleAnalyticsProperties,
-): SimpleAnalyticsEvent = when (this) {
-    is AnalyticsEvent.Error.EmailParsingError -> createSimpleAnalyticsEvent(
-        simpleAnalyticsProperties,
-        event = AnalyticsCode.EVENT_ERROR_PARSING,
-        metadata = mapOf(
-            AnalyticsCode.DATA_HANDLER_NAME to handlerName,
-            AnalyticsCode.DATA_EMAIL_TITLE to emailTitle
+): SimpleAnalyticsEvent {
+    fun String.fingerprint() = getFingerprint(this)
+
+    return when (this) {
+        is AnalyticsEvent.Error.EmailParsingError -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_ERROR_PARSING,
+            metadata = mapOf(
+                AnalyticsCode.DATA_HANDLER_NAME to handlerName,
+                AnalyticsCode.DATA_EMAIL_TITLE to emailTitle
+            )
         )
-    )
-    is AnalyticsEvent.Error.GetFeedError -> createSimpleAnalyticsEvent(
-        simpleAnalyticsProperties,
-        event = AnalyticsCode.EVENT_ERROR_GET_FEED,
-        metadata = mapOf(
-            AnalyticsCode.DATA_FEED_CODE to feedCode
+
+        is AnalyticsEvent.Error.GetFeedError -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_ERROR_GET_FEED,
+            metadata = mapOf(
+                AnalyticsCode.DATA_FEED_CODE to feedCode
+            )
         )
-    )
-    is AnalyticsEvent.Error.GetRssFeedsError -> createSimpleAnalyticsEvent(
-        simpleAnalyticsProperties,
-        event = AnalyticsCode.EVENT_ERROR_GET_RSS_FEEDS
-    )
-    is AnalyticsEvent.Error.HomeError -> createSimpleAnalyticsEvent(
-        simpleAnalyticsProperties,
-        event = AnalyticsCode.EVENT_ERROR_HOME
-    )
-    is AnalyticsEvent.Error.RequestNewsletterError -> createSimpleAnalyticsEvent(
-        simpleAnalyticsProperties,
-        event = AnalyticsCode.EVENT_ERROR_REQUEST_NEWSLETTER
-    )
-    is AnalyticsEvent.GetFeed -> createSimpleAnalyticsEvent(
-        simpleAnalyticsProperties,
-        event = AnalyticsCode.EVENT_GET_FEED,
-        metadata = mapOf(
-            AnalyticsCode.DATA_FEED_CODE to feedCode
+
+        is AnalyticsEvent.Error.GetRssFeedsError -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_ERROR_GET_RSS_FEEDS
         )
-    )
-    is AnalyticsEvent.GetRssFeeds -> createSimpleAnalyticsEvent(
-        simpleAnalyticsProperties,
-        event = AnalyticsCode.EVENT_GET_RSS_FEEDS,
-    )
-    is AnalyticsEvent.Home -> createSimpleAnalyticsEvent(
-        simpleAnalyticsProperties,
-        event = AnalyticsCode.EVENT_HOME,
-    )
-    is AnalyticsEvent.NewRelease -> createSimpleAnalyticsEvent(
-        simpleAnalyticsProperties,
-        event = AnalyticsCode.EVENT_RELEASE,
-        metadata = mapOf(
-            AnalyticsCode.DATA_VERSION to version
+
+        is AnalyticsEvent.Error.HomeError -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_ERROR_HOME
         )
-    )
-    is AnalyticsEvent.RequestNewsletter -> createSimpleAnalyticsEvent(
-        simpleAnalyticsProperties,
-        event = AnalyticsCode.EVENT_REQUEST_NEWSLETTER,
-        metadata = mapOf(
-            AnalyticsCode.DATA_NEWSLETTER_URL to newsletterUrl
+
+        is AnalyticsEvent.Error.RequestNewsletterError -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_ERROR_REQUEST_NEWSLETTER
         )
-    )
+
+        is AnalyticsEvent.GetFeed -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_GET_FEED,
+            metadata = buildMap {
+                put(AnalyticsCode.DATA_FEED_CODE, feedCode)
+                userAgent.fingerprint()?.let {
+                    put(AnalyticsCode.DATA_USER_AGENT, it)
+                }
+            }
+        )
+
+        is AnalyticsEvent.GetRssFeeds -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_GET_RSS_FEEDS,
+            metadata = buildMap {
+                userAgent.fingerprint()?.let {
+                    put(AnalyticsCode.DATA_USER_AGENT, it)
+                }
+            }
+        )
+
+        is AnalyticsEvent.Home -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_HOME,
+            metadata = buildMap {
+                userAgent.fingerprint()?.let {
+                    put(AnalyticsCode.DATA_USER_AGENT, it)
+                }
+            }
+        )
+
+        is AnalyticsEvent.NewRelease -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_RELEASE,
+            metadata = mapOf(
+                AnalyticsCode.DATA_VERSION to version
+            )
+        )
+
+        is AnalyticsEvent.RequestNewsletter -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_REQUEST_NEWSLETTER,
+            metadata = buildMap {
+                put(AnalyticsCode.DATA_NEWSLETTER_URL, newsletterUrl)
+                userAgent.fingerprint()?.let {
+                    put(AnalyticsCode.DATA_USER_AGENT, it)
+                }
+            }
+        )
+    }
 }
 
 private fun createSimpleAnalyticsEvent(
