@@ -36,7 +36,7 @@ data class SimpleAnalyticsEvent(
     val metadata: Map<String, String>
 )
 
-@Suppress("LongMethod")
+@Suppress("LongMethod", "CyclomaticComplexMethod")
 fun AnalyticsEvent.toSimpleAnalyticsEvent(
     simpleAnalyticsProperties: N2RssProperties.SimpleAnalyticsProperties,
 ): SimpleAnalyticsEvent {
