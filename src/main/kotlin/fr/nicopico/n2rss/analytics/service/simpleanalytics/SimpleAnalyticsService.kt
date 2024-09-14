@@ -15,11 +15,11 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.analytics.simpleanalytics
+package fr.nicopico.n2rss.analytics.service.simpleanalytics
 
-import fr.nicopico.n2rss.analytics.AnalyticsEvent
-import fr.nicopico.n2rss.analytics.AnalyticsException
-import fr.nicopico.n2rss.analytics.AnalyticsService
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsException
+import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired

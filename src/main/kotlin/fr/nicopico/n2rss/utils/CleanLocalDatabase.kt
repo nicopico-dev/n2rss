@@ -18,7 +18,7 @@
 
 package fr.nicopico.n2rss.utils
 
-import fr.nicopico.n2rss.analytics.data.AnalyticsRepository
+import fr.nicopico.n2rss.analytics.service.data.AnalyticsRepository
 import fr.nicopico.n2rss.newsletter.data.NewsletterRequestRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import org.slf4j.LoggerFactory

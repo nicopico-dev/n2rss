@@ -17,12 +17,15 @@
  */
 package fr.nicopico.n2rss.analytics
 
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsException
+import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import fr.nicopico.n2rss.controller.home.HomeController
 import fr.nicopico.n2rss.controller.rss.RssFeedController
-import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandlerMultipleFeeds
-import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandlerSingleFeed
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.Sender
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandlerMultipleFeeds
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandlerSingleFeed
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.throwables.shouldThrowAny

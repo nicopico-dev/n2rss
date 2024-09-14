@@ -15,17 +15,17 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.analytics.data
+package fr.nicopico.n2rss.analytics.service.data
 
-import fr.nicopico.n2rss.analytics.AnalyticsCode
-import fr.nicopico.n2rss.analytics.AnalyticsEvent
-import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_EMAIL_TITLE
-import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_FEED_CODE
-import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_HANDLER_NAME
-import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_NEWSLETTER_URL
-import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_USER_AGENT
-import fr.nicopico.n2rss.analytics.AnalyticsCode.DATA_VERSION
-import fr.nicopico.n2rss.analytics.AnalyticsCode.EVENT_GET_FEED
+import fr.nicopico.n2rss.analytics.models.AnalyticsCode
+import fr.nicopico.n2rss.analytics.models.AnalyticsCode.DATA_EMAIL_TITLE
+import fr.nicopico.n2rss.analytics.models.AnalyticsCode.DATA_FEED_CODE
+import fr.nicopico.n2rss.analytics.models.AnalyticsCode.DATA_HANDLER_NAME
+import fr.nicopico.n2rss.analytics.models.AnalyticsCode.DATA_NEWSLETTER_URL
+import fr.nicopico.n2rss.analytics.models.AnalyticsCode.DATA_USER_AGENT
+import fr.nicopico.n2rss.analytics.models.AnalyticsCode.DATA_VERSION
+import fr.nicopico.n2rss.analytics.models.AnalyticsCode.EVENT_GET_FEED
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
 import fr.nicopico.n2rss.utils.getFingerprint
 import kotlinx.datetime.Instant
 import org.springframework.data.annotation.Id

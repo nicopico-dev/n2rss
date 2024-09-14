@@ -18,8 +18,10 @@
 
 package fr.nicopico.n2rss.analytics.simpleanalytics
 
-import fr.nicopico.n2rss.analytics.AnalyticsCode
-import fr.nicopico.n2rss.analytics.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsCode
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.service.simpleanalytics.SimpleAnalyticsEvent
+import fr.nicopico.n2rss.analytics.service.simpleanalytics.toSimpleAnalyticsEvent
 import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.utils.getFingerprint
 import io.kotest.matchers.shouldBe

@@ -18,6 +18,9 @@
 
 package fr.nicopico.n2rss.analytics
 
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.service.AnalyticsService
+import fr.nicopico.n2rss.analytics.service.AnalyticsServiceDelegate
 import io.kotest.assertions.throwables.shouldThrowAny
 import io.mockk.confirmVerified
 import io.mockk.every
