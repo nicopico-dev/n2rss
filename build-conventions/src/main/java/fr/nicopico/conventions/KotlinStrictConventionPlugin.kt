@@ -16,6 +16,22 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-rootProject.name = "n2rss"
+package fr.nicopico.conventions
 
-includeBuild("build-conventions")
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+class KotlinStrictConventionPlugin : Plugin<Project> {
+    override fun apply(target: Project) {
+        with(target) {
+            tasks.withType<KotlinCompile> {
+                kotlinOptions {
+                    freeCompilerArgs += "-Xjsr305=strict"
+                    jvmTarget = "17"
+                }
+            }
+        }
+    }
+}

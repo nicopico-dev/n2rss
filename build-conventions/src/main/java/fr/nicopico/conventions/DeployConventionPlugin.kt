@@ -16,6 +16,28 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-rootProject.name = "n2rss"
+package fr.nicopico.conventions
 
-includeBuild("build-conventions")
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.api.tasks.Copy
+import org.gradle.kotlin.dsl.register
+
+// TODO Allow configuration of deploy path
+class DeployConventionPlugin : Plugin<Project> {
+    override fun apply(target: Project) {
+        with(target) {
+            val copyJarToDeploy = tasks.register("copyJarToDeploy", Copy::class) {
+                val bootJar = tasks.getByName("bootJar")
+
+                from(bootJar.property("archiveFile"))
+                into(project.layout.projectDirectory.dir("deploy"))
+                rename { "n2rss.jar" }
+            }
+
+            tasks.named("build") {
+                finalizedBy(copyJarToDeploy)
+            }
+        }
+    }
+}
