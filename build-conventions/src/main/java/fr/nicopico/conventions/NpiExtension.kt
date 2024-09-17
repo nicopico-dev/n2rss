@@ -17,34 +17,38 @@
  */
 package fr.nicopico.conventions
 
-import org.gradle.api.Plugin
+import org.gradle.api.Action
 import org.gradle.api.Project
-import org.gradle.api.tasks.Copy
-import org.gradle.kotlin.dsl.register
+import org.gradle.kotlin.dsl.create
 
-open class DeployExtension {
-    var targetDirectory: String = "deploy"
-    var jarName: String? = null
+open class NpiExtension {
+    val quality = QualityExtension()
+    val deploy = DeployExtension()
+    val restartServerTest = RestartServerTestExtension()
+
+    fun quality(action: Action<QualityExtension>) {
+        action.execute(quality)
+    }
+
+    fun deploy(action: Action<DeployExtension>) {
+        action.execute(deploy)
+    }
+
+    fun restartServerTest(action: Action<RestartServerTestExtension>) {
+        action.execute(restartServerTest)
+    }
 }
 
-class DeployConventionPlugin : Plugin<Project> {
-    override fun apply(target: Project) {
-        with(target) {
-            val extension = createNpiExtension<DeployExtension>()
+const val rootExtensionName = "npi"
 
-            val copyJarToDeploy = tasks.register("copyJarToDeploy", Copy::class) {
-                val bootJar = tasks.getByName("bootJar")
-
-                from(bootJar.property("archiveFile"))
-                into(project.layout.projectDirectory.dir(extension.targetDirectory))
-                extension.jarName?.let { targetName ->
-                    rename { targetName }
-                }
-            }
-
-            tasks.named("build") {
-                finalizedBy(copyJarToDeploy)
-            }
-        }
+inline fun <reified T> Project.createNpiExtension(): T {
+    val npi = extensions.findByName(rootExtensionName)
+        ?.let { it as NpiExtension }
+        ?: extensions.create<NpiExtension>(rootExtensionName)
+    return when {
+        T::class == QualityExtension::class -> npi.quality as T
+        T::class == DeployExtension::class -> npi.deploy as T
+        T::class == RestartServerTestExtension::class -> npi.restartServerTest as T
+        else -> throw UnsupportedOperationException("Unsupported type ${T::class}")
     }
 }

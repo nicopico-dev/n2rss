@@ -25,25 +25,31 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.configure
 
-// TODO Allow configuration of exclusions and minimum coverage
+open class QualityExtension {
+    var minCoveragePercent = 0
+    var excludeClasses: List<String> = emptyList()
+    var excludeClassesWithAnnotations: List<String> = emptyList()
+}
+
 class QualityConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
+            val extension = createNpiExtension<QualityExtension>()
+
             extensions.configure<KoverProjectExtension> {
                 reports {
                     filters {
                         excludes {
-                            packages("fr.nicopico.n2rss.config")
-                            classes(
-                                "fr.nicopico.n2rss.N2RssApplication",
-                                "fr.nicopico.n2rss.N2RssApplicationKt"
-                            )
+                            classes(extension.excludeClasses)
+                            extension.excludeClassesWithAnnotations.forEach {
+                                annotatedBy(it)
+                            }
                         }
                     }
                     verify {
                         rule("Line Coverage") {
-                            minBound(80)
+                            minBound(extension.minCoveragePercent)
                             bound {
                                 coverageUnits = CoverageUnit.LINE
                                 aggregationForGroup = AggregationType.COVERED_PERCENTAGE

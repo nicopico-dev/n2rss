@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 plugins {
     id("org.springframework.boot") version "3.3.3"
     id("io.spring.dependency-management") version "1.1.6"
@@ -44,6 +43,27 @@ configurations {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+
+npi {
+    quality {
+        minCoveragePercent = 80
+        excludeClasses = listOf(
+            "fr.nicopico.n2rss.N2RssApplication",
+            "fr.nicopico.n2rss.N2RssApplicationKt",
+        )
+        excludeClassesWithAnnotations = listOf(
+            "org.springframework.context.annotation.Configuration",
+        )
+    }
+
+    deploy {
+        jarName = "n2rss.jar"
+    }
+
+    restartServerTest {
+        serverPath = "/tmp/n2rss-test"
+    }
 }
 
 repositories {

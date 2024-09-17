@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.conventions
 
 import org.gradle.api.Plugin
@@ -25,13 +24,18 @@ import org.gradle.api.tasks.Exec
 import org.gradle.kotlin.dsl.register
 import java.io.OutputStream
 
-// TODO Allow configuration of server path and port
-class RestartServerTestConventionPlugin : Plugin<Project> {
+open class RestartServerTestExtension {
+    var serverPath: String = "/tmp"
+    var serverPort: Int = 8080
+}
 
-    private val restartServerPath = "/tmp/n2rss-test"
+class RestartServerTestConventionPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
+            // Register the extension
+            val extension = createNpiExtension<RestartServerTestExtension>()
+
             tasks.register("copyJarToRestartTest", Copy::class) {
                 group = "restart server test"
                 // Use "assemble" instead of "build" to not be bothered by checks while testing
@@ -39,14 +43,20 @@ class RestartServerTestConventionPlugin : Plugin<Project> {
                 val bootJar = tasks.getByName("bootJar")
 
                 from(bootJar.property("archiveFile"))
-                into(restartServerPath)
+                into(extension.serverPath)
                 rename { "n2rss.jar" }
             }
 
             tasks.register("startRestartTestServer", Exec::class) {
                 group = "restart server test"
-                workingDir = file(restartServerPath)
-                commandLine = listOf("java", "-jar", "n2rss.jar", "--server.address=::", "--server.port:8080")
+                workingDir = file(extension.serverPath)
+                commandLine = listOf(
+                    "java",
+                    "-jar",
+                    "n2rss.jar",
+                    "--server.address=::",
+                    "--server.port:${extension.serverPort}",
+                )
 
                 val customOutput = object : OutputStream() {
                     override fun write(b: Int) {
