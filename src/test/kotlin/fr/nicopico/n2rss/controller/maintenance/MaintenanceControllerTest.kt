@@ -17,8 +17,8 @@
  */
 package fr.nicopico.n2rss.controller.maintenance
 
-import fr.nicopico.n2rss.analytics.AnalyticsEvent
-import fr.nicopico.n2rss.analytics.AnalyticsService
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.mockk.MockKAnnotations
 import io.mockk.Runs

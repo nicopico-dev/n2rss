@@ -15,11 +15,10 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
-package fr.nicopico.n2rss.analytics
-
-class NoOpAnalyticsService : AnalyticsService {
-    override fun track(event: AnalyticsEvent) {
-        // no-op
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
     }
 }

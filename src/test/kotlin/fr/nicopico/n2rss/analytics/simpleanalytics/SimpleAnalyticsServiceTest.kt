@@ -18,8 +18,9 @@
 
 package fr.nicopico.n2rss.analytics.simpleanalytics
 
-import fr.nicopico.n2rss.analytics.AnalyticsEvent
-import fr.nicopico.n2rss.analytics.AnalyticsException
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsException
+import fr.nicopico.n2rss.analytics.service.simpleanalytics.SimpleAnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldThrow

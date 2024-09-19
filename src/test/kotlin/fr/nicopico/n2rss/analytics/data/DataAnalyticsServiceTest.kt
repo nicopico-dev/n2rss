@@ -17,8 +17,12 @@
  */
 package fr.nicopico.n2rss.analytics.data
 
-import fr.nicopico.n2rss.analytics.AnalyticsEvent
-import fr.nicopico.n2rss.analytics.AnalyticsException
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsException
+import fr.nicopico.n2rss.analytics.service.data.AnalyticsData
+import fr.nicopico.n2rss.analytics.service.data.AnalyticsRepository
+import fr.nicopico.n2rss.analytics.service.data.DataAnalyticsService
+import fr.nicopico.n2rss.analytics.service.data.toAnalyticsData
 import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.fakes.FixedClock
 import io.kotest.assertions.throwables.shouldThrow

@@ -1,0 +1,75 @@
+[versions]
+springBoot = "3.3.3"
+dependencyManagement = "1.1.6"
+kotlin = "1.9.23"
+kover = "0.8.2"
+detekt = "1.23.6"
+jakartaMail = "2.0.1"
+kotlinxDatetime = "0.6.1"
+jsoup = "1.18.1"
+rome = "2.1.0"
+jsonPath = "2.9.0"
+annotations = "24.1.0"
+junitJupiterEngine = "5.10.3"
+kotestAssertions = "5.9.1"
+kotestKotlinxDatetime = "1.1.0"
+mockk = "1.13.12"
+greenmail = "2.0.1"
+mockwebserver = "4.12.0"
+
+[libraries]
+# Kotlin
+kotlin-stdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
+
+# Spring Boot Starters
+springBoot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springBoot" }
+springBoot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "springBoot" }
+springBoot-starter-dataMongo = { module = "org.springframework.boot:spring-boot-starter-data-mongodb", version.ref = "springBoot" }
+springBoot-starter-thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf", version.ref = "springBoot" }
+springBoot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springBoot" }
+springBoot-starter-aop = { module = "org.springframework.boot:spring-boot-starter-aop", version.ref = "springBoot" }
+springBoot-devtools = { module = "org.springframework.boot:spring-boot-devtools", version.ref = "springBoot" }
+springBoot-dockerCompose = { module = "org.springframework.boot:spring-boot-docker-compose", version.ref = "springBoot" }
+springBoot-configurationProcessor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "springBoot" }
+springBoot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
+
+# Other Libraries
+jacksonModuleKotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
+jakartaMail = { module = "com.sun.mail:jakarta.mail", version.ref = "jakartaMail" }
+jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
+rome = { module = "com.rometools:rome", version.ref = "rome" }
+jsonPath = { module = "com.jayway.jsonpath:json-path", version.ref = "jsonPath" }
+annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
+
+# Testing Libraries
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiterEngine" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotestAssertions" }
+kotest-assertions-kotlinxDatetime = { module = "io.kotest.extensions:kotest-assertions-kotlinx-datetime", version.ref = "kotestKotlinxDatetime" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+greenmail = { module = "com.icegreen:greenmail", version.ref = "greenmail" }
+greenmail-junit5 = { module = "com.icegreen:greenmail-junit5", version.ref = "greenmail" }
+mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "mockwebserver" }
+
+[bundles]
+springBoot-starters = [
+    "springBoot-starter-web",
+    "springBoot-starter-actuator",
+    "springBoot-starter-dataMongo",
+    "springBoot-starter-thymeleaf",
+    "springBoot-starter-validation",
+    "springBoot-starter-aop",
+]
+springBoot-dev = [
+    "springBoot-devtools",
+    "springBoot-dockerCompose",
+]
+
+[plugins]
+springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
+dependencyManagement = { id = "io.spring.dependency-management", version.ref = "dependencyManagement" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

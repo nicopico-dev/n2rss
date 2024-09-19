@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.config
 
 import org.aspectj.lang.JoinPoint
@@ -24,8 +23,6 @@ import org.aspectj.lang.annotation.Before
 import org.aspectj.lang.annotation.Pointcut
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
-
-private val LOG = LoggerFactory.getLogger(LoggingAspect::class.java)
 
 @Aspect
 @Component
@@ -47,5 +44,9 @@ class LoggingAspect {
         val arguments = joinPoint.args.joinToString()
         val message = with(joinPoint.signature) { "$declaringTypeName -- Calling $name($arguments)..." }
         LOG.info(message)
+    }
+
+    companion object {
+        private val LOG = LoggerFactory.getLogger(LoggingAspect::class.java)
     }
 }

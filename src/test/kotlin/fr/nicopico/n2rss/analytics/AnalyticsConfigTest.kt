@@ -18,8 +18,10 @@
 
 package fr.nicopico.n2rss.analytics
 
-import fr.nicopico.n2rss.analytics.data.DataAnalyticsService
-import fr.nicopico.n2rss.analytics.simpleanalytics.SimpleAnalyticsService
+import fr.nicopico.n2rss.analytics.service.AnalyticsServiceDelegate
+import fr.nicopico.n2rss.analytics.service.NoOpAnalyticsService
+import fr.nicopico.n2rss.analytics.service.data.DataAnalyticsService
+import fr.nicopico.n2rss.analytics.service.simpleanalytics.SimpleAnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.collections.shouldContainOnly

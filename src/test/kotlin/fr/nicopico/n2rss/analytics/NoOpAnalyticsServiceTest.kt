@@ -18,6 +18,8 @@
 
 package fr.nicopico.n2rss.analytics
 
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.service.NoOpAnalyticsService
 import io.mockk.mockk
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

@@ -16,6 +16,31 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-rootProject.name = "n2rss"
+package fr.nicopico.n2rss.analytics.service
 
-includeBuild("build-conventions")
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsException
+import org.jetbrains.annotations.VisibleForTesting
+
+class AnalyticsServiceDelegate(
+    @VisibleForTesting
+    internal val analyticsServices: List<AnalyticsService>,
+): AnalyticsService {
+
+    override fun track(event: AnalyticsEvent) {
+        val results = analyticsServices.map {
+            runCatching { it.track(event) }
+        }
+        if (results.any { it.isFailure }) {
+            val throwable = AnalyticsException("Some analytics failed to process the event $event")
+            results
+                .mapNotNull { it.exceptionOrNull() }
+                .forEach { throwable.addSuppressed(it) }
+
+            throw AnalyticsException(
+                "Some analytics failed to process the event $event",
+                throwable,
+            )
+        }
+    }
+}

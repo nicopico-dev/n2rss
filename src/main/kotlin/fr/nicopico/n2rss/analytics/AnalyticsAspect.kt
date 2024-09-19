@@ -17,6 +17,9 @@
  */
 package fr.nicopico.n2rss.analytics
 
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsException
+import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.utils.getCallArgument
 import fr.nicopico.n2rss.utils.proceed

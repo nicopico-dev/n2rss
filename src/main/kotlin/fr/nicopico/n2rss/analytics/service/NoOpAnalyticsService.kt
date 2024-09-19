@@ -16,9 +16,12 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.analytics
+package fr.nicopico.n2rss.analytics.service
 
-interface AnalyticsService {
-    @Throws(AnalyticsException::class)
-    fun track(event: AnalyticsEvent)
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+
+class NoOpAnalyticsService : AnalyticsService {
+    override fun track(event: AnalyticsEvent) {
+        // no-op
+    }
 }

@@ -15,10 +15,38 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.mail
 
-package fr.nicopico.n2rss.analytics
+import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.mail.client.EmailClient
+import fr.nicopico.n2rss.mail.client.JavaxEmailClient
+import fr.nicopico.n2rss.mail.client.LocalFileEmailClient
+import fr.nicopico.n2rss.mail.client.NoOpEmailClient
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Profile
 
-class AnalyticsException(
-    message: String? = null,
-    cause: Throwable? = null
-) : Exception(message, cause)
+@Configuration
+class EmailConfiguration {
+
+    @Bean
+    @Profile("default")
+    fun emailClient(config: N2RssProperties.EmailClientProperties): EmailClient {
+        return JavaxEmailClient(
+            protocol = config.protocol,
+            host = config.host,
+            port = config.port,
+            user = config.username,
+            password = config.password,
+            inboxFolder = config.inboxFolder,
+        )
+    }
+
+    @Bean
+    @Profile("local")
+    fun fakeEmailClient(): EmailClient = LocalFileEmailClient("stubs/emails")
+
+    @Bean
+    @Profile("rss-only")
+    fun noopEmailClient(): EmailClient = NoOpEmailClient()
+}

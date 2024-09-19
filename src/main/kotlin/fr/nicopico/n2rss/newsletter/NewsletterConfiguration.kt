@@ -15,16 +15,15 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.config
+package fr.nicopico.n2rss.newsletter
 
+import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import org.slf4j.LoggerFactory
 import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-
-private val LOG = LoggerFactory.getLogger(NewsletterConfiguration::class.java)
 
 @Configuration
 class NewsletterConfiguration(
@@ -49,6 +48,8 @@ class NewsletterConfiguration(
     }
 
     companion object {
+        private val LOG = LoggerFactory.getLogger(NewsletterConfiguration::class.java)
+
         const val ENABLED_NEWSLETTER_HANDLERS = "enabled_newsletter_handlers"
     }
 }

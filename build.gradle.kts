@@ -15,54 +15,54 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
-import kotlinx.kover.gradle.plugin.dsl.AggregationType
-import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.io.OutputStream
-
 plugins {
-    id("org.springframework.boot") version "3.3.3"
-    id("io.spring.dependency-management") version "1.1.6"
-    kotlin("jvm") version "1.9.24"
-    kotlin("plugin.spring") version "1.9.24"
-    id("org.jetbrains.kotlinx.kover") version "0.8.2"
-    id("io.gitlab.arturbosch.detekt") version("1.23.5")
+    alias(libs.plugins.springBoot)
+    alias(libs.plugins.dependencyManagement)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.spring)
+
+    alias(libs.plugins.kover)
+    alias(libs.plugins.detekt)
+
+    id("fr.nicopico.conventions.kotlin-strict")
+    id("fr.nicopico.conventions.quality")
+    id("fr.nicopico.conventions.deploy")
+    id("fr.nicopico.conventions.restartServerTest")
 }
 
 group = "fr.nicopico"
 version = "0.0.1-SNAPSHOT"
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-}
-
-kover {
-    reports {
-        filters {
-            excludes {
-                packages("fr.nicopico.n2rss.config")
-                classes(
-                    "fr.nicopico.n2rss.N2RssApplication",
-                    "fr.nicopico.n2rss.N2RssApplicationKt"
-                )
-            }
-        }
-        verify {
-            rule("Line Coverage") {
-                minBound(80)
-                bound {
-                    coverageUnits = CoverageUnit.LINE
-                    aggregationForGroup = AggregationType.COVERED_PERCENTAGE
-                }
-            }
-        }
-    }
-}
+java.sourceCompatibility = JavaVersion.VERSION_17
 
 configurations {
     compileOnly {
         extendsFrom(configurations.annotationProcessor.get())
+    }
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
+}
+
+npi {
+    quality {
+        minCoveragePercent = 80
+        excludeClasses = listOf(
+            "fr.nicopico.n2rss.N2RssApplication",
+            "fr.nicopico.n2rss.N2RssApplicationKt",
+        )
+        excludeClassesWithAnnotations = listOf(
+            "org.springframework.context.annotation.Configuration",
+        )
+    }
+
+    deploy {
+        jarName = "n2rss.jar"
+    }
+
+    restartServerTest {
+        serverPath = "/tmp/n2rss-test"
     }
 }
 
@@ -71,97 +71,28 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
-    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
-    implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation("org.springframework.boot:spring-boot-starter-aop")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-    developmentOnly("org.springframework.boot:spring-boot-docker-compose")
+    implementation(libs.bundles.springBoot.starters)
+    developmentOnly(libs.bundles.springBoot.dev)
 
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    annotationProcessor(libs.springBoot.configurationProcessor)
 
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("com.sun.mail:jakarta.mail:2.0.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
-    implementation("org.jsoup:jsoup:1.18.1")
-    implementation("com.rometools:rome:2.1.0")
-    implementation("com.jayway.jsonpath:json-path:2.9.0")
-    implementation("org.jetbrains:annotations:24.1.0")
+    implementation(libs.jacksonModuleKotlin)
+    implementation(libs.kotlin.reflect)
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.jakartaMail)
+    implementation(libs.jsoup)
+    implementation(libs.rome)
+    implementation(libs.jsonPath)
+    implementation(libs.annotations)
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+    testImplementation(libs.springBoot.starter.test) {
         exclude(group = "org.mockito")
     }
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.3")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:5.9.1")
-    testImplementation("io.kotest.extensions:kotest-assertions-kotlinx-datetime:1.1.0")
-    testImplementation("io.mockk:mockk:1.13.12")
-    testImplementation("com.icegreen:greenmail:2.0.1")
-    testImplementation("com.icegreen:greenmail-junit5:2.0.1")
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+    testImplementation(libs.junit.jupiter.engine)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotest.assertions.kotlinxDatetime)
+    testImplementation(libs.mockk)
+    testImplementation(libs.greenmail)
+    testImplementation(libs.greenmail.junit5)
+    testImplementation(libs.mockwebserver)
 }
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs += "-Xjsr305=strict"
-        jvmTarget = "17"
-    }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
-}
-
-// Make Detekt 1.23.5 compatible with Kotlin 1.9.23
-configurations.all {
-    resolutionStrategy.eachDependency {
-        if (requested.group == "org.jetbrains.kotlin") {
-            useVersion(io.gitlab.arturbosch.detekt.getSupportedKotlinVersion())
-        }
-    }
-}
-
-val copyJarToDeploy by tasks.registering(Copy::class) {
-    val bootJar = tasks.getByName("bootJar") as
-            org.springframework.boot.gradle.tasks.bundling.BootJar
-    from(bootJar.archiveFile)
-    into(project.layout.projectDirectory.dir("deploy"))
-    rename { "n2rss.jar" }
-}
-
-tasks.named("build") {
-    finalizedBy(copyJarToDeploy)
-}
-
-
-//region RestartServer Test
-val restartServerPath = "/tmp/n2rss-test"
-
-val copyJarToRestartTest by tasks.registering(Copy::class) {
-    group = "restart server test"
-    // Use "assemble" instead of "build" to not be bothered by checks while testing
-    dependsOn(tasks.named("assemble"))
-    val bootJar = tasks.getByName("bootJar") as
-        org.springframework.boot.gradle.tasks.bundling.BootJar
-    from(bootJar.archiveFile)
-    into(restartServerPath)
-    rename { "n2rss.jar" }
-}
-
-val startRestartTestServer by tasks.registering(Exec::class) {
-    group = "restart server test"
-    workingDir = file(restartServerPath)
-    commandLine = listOf("java", "-jar", "n2rss.jar", "--server.address=::", "--server.port:8080")
-
-    val customOutput = object : OutputStream() {
-        override fun write(b: Int) {
-            print(b.toChar())
-        }
-    }
-
-    standardOutput = customOutput
-    errorOutput = customOutput
-}
-//endregion

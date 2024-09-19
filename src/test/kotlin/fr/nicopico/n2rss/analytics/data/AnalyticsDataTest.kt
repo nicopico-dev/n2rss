@@ -17,7 +17,9 @@
  */
 package fr.nicopico.n2rss.analytics.data
 
-import fr.nicopico.n2rss.analytics.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.service.data.AnalyticsData
+import fr.nicopico.n2rss.analytics.service.data.toAnalyticsData
 import io.kotest.matchers.shouldBe
 import kotlinx.datetime.Clock
 import org.junit.jupiter.params.ParameterizedTest

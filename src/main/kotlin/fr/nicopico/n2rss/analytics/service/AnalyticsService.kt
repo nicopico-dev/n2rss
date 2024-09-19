@@ -15,8 +15,12 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.analytics.data
+package fr.nicopico.n2rss.analytics.service
 
-import org.springframework.data.mongodb.repository.MongoRepository
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsException
 
-interface AnalyticsRepository : MongoRepository<AnalyticsData, String>
+interface AnalyticsService {
+    @Throws(AnalyticsException::class)
+    fun track(event: AnalyticsEvent)
+}

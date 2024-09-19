@@ -55,11 +55,11 @@ private class NewsletterHandlerSingleFeedFake(
     constructor(code: String) : this(Newsletter(code, "Newsletter_$code", "Website_$code"))
 
     override fun canHandle(email: Email): Boolean {
-        TODO("Not yet implemented")
+        throw UnsupportedOperationException("Not implemented")
     }
 
     override fun extractArticles(email: Email): List<Article> {
-        TODO("Not yet implemented")
+        throw UnsupportedOperationException("Not implemented")
     }
 }
 
@@ -71,10 +71,10 @@ private class NewsletterHandlerMultipleFeedsFake(
         : this(codes.map { Newsletter(it, "Newsletter_$it", "Website_$it") })
 
     override fun canHandle(email: Email): Boolean {
-        TODO("Not yet implemented")
+        throw UnsupportedOperationException("Not implemented")
     }
 
     override fun extractArticles(email: Email): Map<Newsletter, List<Article>> {
-        TODO("Not yet implemented")
+        throw UnsupportedOperationException("Not implemented")
     }
 }

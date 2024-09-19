@@ -15,11 +15,11 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.analytics.simpleanalytics
+package fr.nicopico.n2rss.analytics.service.simpleanalytics
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import fr.nicopico.n2rss.analytics.AnalyticsCode
-import fr.nicopico.n2rss.analytics.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsCode
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
 import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.utils.getFingerprint
 
