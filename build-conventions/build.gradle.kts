@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 plugins {
     `kotlin-dsl`
 }
@@ -24,11 +23,10 @@ repositories {
     mavenCentral()
 }
 
-// TODO Sync with versions used in the project
 dependencies {
-    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.23")
-    compileOnly("org.jetbrains.kotlinx:kover-gradle-plugin:0.8.2")
-    compileOnly("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.6")
+    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:${libs.versions.kotlin.get()}")
+    compileOnly("org.jetbrains.kotlinx:kover-gradle-plugin:${libs.versions.kover.get()}")
+    compileOnly("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${libs.versions.detekt.get()}")
 }
 
 gradlePlugin {
