@@ -19,10 +19,8 @@ package fr.nicopico.n2rss.mail.client
 
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldNotThrowAny
-import io.kotest.matchers.collections.beEmpty
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldNot
 import jakarta.mail.Flags
 import jakarta.mail.search.FlagTerm
 import org.junit.jupiter.api.BeforeEach
@@ -35,6 +33,7 @@ class JavaxEmailClientTest : GreenMailTestBase(
 
     companion object {
         private const val INBOX_FOLDER = "INBOX"
+        private const val OTHER_FOLDER = "OTHER"
         private const val USER_EMAIL = "user@example.com"
         private const val USER_PASSWORD = "secret"
     }
@@ -50,7 +49,7 @@ class JavaxEmailClientTest : GreenMailTestBase(
             port = greenMail.imap.port,
             user = user.email,
             password = user.password,
-            inboxFolder = INBOX_FOLDER,
+            folders = listOf(INBOX_FOLDER, OTHER_FOLDER),
         )
     }
 
@@ -69,13 +68,19 @@ class JavaxEmailClientTest : GreenMailTestBase(
             subject = "Subject 2",
             content = "Hello World! 2",
         )
+        deliverTextMessage(
+            folderName = OTHER_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 3",
+            content = "Hello World! 3",
+        )
 
         // WHEN
         val emails = emailClient.checkEmails()
 
         // THEN
-        emails shouldNot beEmpty()
-        emails shouldHaveSize 2
+        emails shouldHaveSize 3
+
         assertSoftly(emails[0]) {
             it.sender.sender shouldBe "from@email.com"
             it.subject shouldBe "Subject 1"
@@ -88,8 +93,17 @@ class JavaxEmailClientTest : GreenMailTestBase(
             it.content shouldBe "Hello World! 2"
         }
 
+        assertSoftly(emails[2]) {
+            it.sender.sender shouldBe "from@another-email.com"
+            it.subject shouldBe "Subject 3"
+            it.content shouldBe "Hello World! 3"
+        }
+
         checkMailFolder(INBOX_FOLDER) { folder ->
             folder.search(FlagTerm(Flags(Flags.Flag.SEEN), false)) shouldHaveSize 2
+        }
+        checkMailFolder(OTHER_FOLDER) { folder ->
+            folder.search(FlagTerm(Flags(Flags.Flag.SEEN), false)) shouldHaveSize 1
         }
     }
 
@@ -114,6 +128,12 @@ class JavaxEmailClientTest : GreenMailTestBase(
             subject = "Subject 3",
             content = "Hello World! 3",
         )
+        deliverTextMessage(
+            folderName = OTHER_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 4",
+            content = "Hello World! 4",
+        )
 
         // WHEN - THEN
         val emails = emailClient.checkEmails()
@@ -121,6 +141,7 @@ class JavaxEmailClientTest : GreenMailTestBase(
         // THEN
         shouldNotThrowAny {
             emailClient.markAsRead(emails[1])
+            emailClient.markAsRead(emails[3])
         }
         val unreadEmails = emailClient.checkEmails()
         unreadEmails.map { it.subject } shouldBe listOf("Subject 1", "Subject 3")

@@ -50,7 +50,7 @@ class MessageExtGreenMailTest : GreenMailTestBase() {
             // Read the content of the message
             val message = folder.messages[0]
             println(">>> BEFORE READ CONTENT")
-            println(message.toEmail())
+            println(message.toEmail("INBOX"))
             println(">>> AFTER READ CONTENT")
         }
 

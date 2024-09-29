@@ -48,7 +48,7 @@ class LocalFileEmailClient(
             .map { emlFilePath ->
                 val message = parseEmlFileToMimeMessage(emlFilePath.toString())
 
-                message.toEmail()
+                message.toEmail(emailFolder)
             }
             .filter { it !in readEmails }
             .collect(Collectors.toList())

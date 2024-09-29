@@ -15,22 +15,10 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+
 package fr.nicopico.n2rss.mail.models
 
-import kotlinx.datetime.LocalDate
-
-data class Email(
-    val sender: Sender,
-    val date: LocalDate,
-    val subject: String,
-    val content: String,
-    val messageId: MessageId,
-) {
-    constructor(
-        sender: Sender,
-        date: LocalDate,
-        subject: String,
-        content: String,
-        msgnum: Int,
-    ) : this(sender, date, subject, content, MessageId("INBOX", msgnum))
-}
+data class MessageId(
+    val folder: String,
+    val msgNum: Int,
+)

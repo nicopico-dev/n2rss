@@ -38,7 +38,7 @@ class EmailConfiguration {
             port = config.port,
             user = config.username,
             password = config.password,
-            inboxFolder = config.inboxFolder,
+            folders = listOf(config.inboxFolder),
         )
     }
 

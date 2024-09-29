@@ -18,13 +18,14 @@
 package fr.nicopico.n2rss.mail.client
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import jakarta.mail.Flags
 import jakarta.mail.Message
 import jakarta.mail.internet.MimeMultipart
 
-fun Message.toEmail(): Email {
+fun Message.toEmail(messageFolder: String): Email {
     val originalFlags = flags
     val email = Email(
         Sender(from[0].toString()),
@@ -34,7 +35,10 @@ fun Message.toEmail(): Email {
             is MimeMultipart -> (content as MimeMultipart).getHtmlBodyPart()
             else -> content.toString()
         },
-        msgnum = this.messageNumber,
+        messageId = MessageId(
+            folder = messageFolder,
+            msgNum = this.messageNumber,
+        ),
     )
 
     // Remove flag SEEN if necessary

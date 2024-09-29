@@ -37,5 +37,5 @@ fun loadEmail(filePath: String): Email {
         .use { inputStream ->
             MimeMessage(mailSession, inputStream)
         }
-        .toEmail()
+        .toEmail("INBOX")
 }
