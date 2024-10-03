@@ -19,12 +19,15 @@ package fr.nicopico.conventions
 
 import org.gradle.api.Action
 import org.gradle.api.Project
+import org.gradle.api.model.ObjectFactory
 import org.gradle.kotlin.dsl.create
 
-open class NpiExtension {
-    val quality = QualityExtension()
-    val deploy = DeployExtension()
-    val restartServerTest = RestartServerTestExtension()
+open class NpiExtension(
+    objects: ObjectFactory
+) {
+    val quality = QualityExtension(objects)
+    val deploy = DeployExtension(objects)
+    val restartServerTest = RestartServerTestExtension(objects)
 
     fun quality(action: Action<QualityExtension>) {
         action.execute(quality)

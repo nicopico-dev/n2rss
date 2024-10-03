@@ -22,13 +22,25 @@ import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
 import kotlinx.kover.gradle.plugin.dsl.KoverProjectExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.ListProperty
+import org.gradle.api.provider.Property
+import org.gradle.api.provider.SetProperty
 import org.gradle.kotlin.dsl.assign
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.listProperty
+import org.gradle.kotlin.dsl.property
+import org.gradle.kotlin.dsl.setProperty
 
-open class QualityExtension {
-    var minCoveragePercent = 0
-    var excludeClasses: List<String> = emptyList()
-    var excludeClassesWithAnnotations: List<String> = emptyList()
+open class QualityExtension(
+    objects: ObjectFactory
+) {
+    val minCoveragePercent: Property<Int> = objects.property<Int>()
+        .convention(0)
+    val excludedClasses: ListProperty<String> = objects.listProperty<String>()
+        .convention(emptyList())
+    val excludedAnnotations: SetProperty<String> = objects.setProperty<String>()
+        .convention(emptySet())
 }
 
 class QualityConventionPlugin : Plugin<Project> {
@@ -41,10 +53,8 @@ class QualityConventionPlugin : Plugin<Project> {
                 reports {
                     filters {
                         excludes {
-                            classes(extension.excludeClasses)
-                            extension.excludeClassesWithAnnotations.forEach {
-                                annotatedBy(it)
-                            }
+                            classes.value(extension.excludedClasses)
+                            annotatedBy.value(extension.excludedAnnotations)
                         }
                     }
                     verify {

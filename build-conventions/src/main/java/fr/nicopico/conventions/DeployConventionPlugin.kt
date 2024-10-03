@@ -19,12 +19,18 @@ package fr.nicopico.conventions
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Copy
+import org.gradle.kotlin.dsl.property
 import org.gradle.kotlin.dsl.register
 
-open class DeployExtension {
-    var targetDirectory: String = "deploy"
-    var jarName: String? = null
+open class DeployExtension(
+    objects: ObjectFactory
+) {
+    val targetDirectory: Property<String> = objects.property<String>()
+        .convention("deploy")
+    val jarName: Property<String> = objects.property<String>()
 }
 
 class DeployConventionPlugin : Plugin<Project> {
@@ -32,18 +38,26 @@ class DeployConventionPlugin : Plugin<Project> {
         with(target) {
             val extension = createNpiExtension<DeployExtension>()
 
-            val copyJarToDeploy = tasks.register("copyJarToDeploy", Copy::class) {
-                val bootJar = tasks.getByName("bootJar")
+            tasks.register("copyJarToDeploy", Copy::class) {
+                group = "deploy"
+                val bootJar = tasks.named("bootJar")
+                val bootJarOutput = bootJar.map { it.property("archiveFile")!! }
 
-                from(bootJar.property("archiveFile"))
+                from(bootJarOutput)
                 into(project.layout.projectDirectory.dir(extension.targetDirectory))
-                extension.jarName?.let { targetName ->
-                    rename { targetName }
-                }
-            }
 
-            tasks.named("build") {
-                finalizedBy(copyJarToDeploy)
+                rename { original ->
+                    if (extension.jarName.isPresent) {
+                        extension.jarName.get()
+                    } else {
+                        original
+                    }
+                }
+
+                dependsOn(
+                    tasks.named("build"),
+                    bootJar
+                )
             }
         }
     }

@@ -48,12 +48,12 @@ tasks.withType<Test> {
 npi {
     quality {
         minCoveragePercent = 80
-        excludeClasses = listOf(
+        excludedClasses = listOf(
             "fr.nicopico.n2rss.N2RssApplication",
             "fr.nicopico.n2rss.N2RssApplicationKt",
         )
-        excludeClassesWithAnnotations = listOf(
-            "org.springframework.context.annotation.Configuration",
+        excludedAnnotations = setOf(
+            "org.springframework.context.annotation.Configuration"
         )
     }
 
@@ -63,6 +63,7 @@ npi {
 
     restartServerTest {
         serverPath = "/tmp/n2rss-test"
+        serverPort = 9090
     }
 }
 
