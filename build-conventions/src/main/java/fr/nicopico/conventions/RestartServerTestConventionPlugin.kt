@@ -19,14 +19,21 @@ package fr.nicopico.conventions
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Copy
 import org.gradle.api.tasks.Exec
+import org.gradle.kotlin.dsl.property
 import org.gradle.kotlin.dsl.register
 import java.io.OutputStream
 
-open class RestartServerTestExtension {
-    var serverPath: String = "/tmp"
-    var serverPort: Int = 8080
+open class RestartServerTestExtension(
+    objects: ObjectFactory,
+) {
+    val serverPath: Property<String> = objects.property<String>()
+        .convention("/tmp")
+    val serverPort: Property<Int> = objects.property<Int>()
+        .convention(8080)
 }
 
 class RestartServerTestConventionPlugin : Plugin<Project> {
@@ -55,7 +62,7 @@ class RestartServerTestConventionPlugin : Plugin<Project> {
                     "-jar",
                     "n2rss.jar",
                     "--server.address=::",
-                    "--server.port:${extension.serverPort}",
+                    "--server.port:${extension.serverPort.get()}",
                 )
 
                 val customOutput = object : OutputStream() {

@@ -63,6 +63,7 @@ npi {
 
     restartServerTest {
         serverPath = "/tmp/n2rss-test"
+        serverPort = 9090
     }
 }
 

@@ -26,8 +26,8 @@ open class NpiExtension(
     objects: ObjectFactory
 ) {
     val quality = QualityExtension(objects)
-    val deploy = DeployExtension()
-    val restartServerTest = RestartServerTestExtension()
+    val deploy = DeployExtension(objects)
+    val restartServerTest = RestartServerTestExtension(objects)
 
     fun quality(action: Action<QualityExtension>) {
         action.execute(quality)

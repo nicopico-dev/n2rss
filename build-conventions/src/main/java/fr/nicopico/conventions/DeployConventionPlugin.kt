@@ -19,12 +19,18 @@ package fr.nicopico.conventions
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Copy
+import org.gradle.kotlin.dsl.property
 import org.gradle.kotlin.dsl.register
 
-open class DeployExtension {
-    var targetDirectory: String = "deploy"
-    var jarName: String? = null
+open class DeployExtension(
+    objects: ObjectFactory
+) {
+    val targetDirectory: Property<String> = objects.property<String>()
+        .convention("deploy")
+    val jarName: Property<String> = objects.property<String>()
 }
 
 class DeployConventionPlugin : Plugin<Project> {
@@ -37,8 +43,12 @@ class DeployConventionPlugin : Plugin<Project> {
 
                 from(bootJar.property("archiveFile"))
                 into(project.layout.projectDirectory.dir(extension.targetDirectory))
-                extension.jarName?.let { targetName ->
-                    rename { targetName }
+                rename { original ->
+                    if (extension.jarName.isPresent) {
+                        extension.jarName.get()
+                    } else {
+                        original
+                    }
                 }
             }
 
