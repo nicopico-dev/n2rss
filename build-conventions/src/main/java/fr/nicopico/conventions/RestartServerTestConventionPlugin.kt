@@ -45,13 +45,18 @@ class RestartServerTestConventionPlugin : Plugin<Project> {
 
             tasks.register("copyJarToRestartTest", Copy::class) {
                 group = "restart server test"
-                // Use "assemble" instead of "build" to not be bothered by checks while testing
-                dependsOn(tasks.named("assemble"))
-                val bootJar = tasks.getByName("bootJar")
+                val bootJar = tasks.named("bootJar")
+                val bootJarOutput = bootJar.map { it.property("archiveFile")!! }
 
-                from(bootJar.property("archiveFile"))
+                from(bootJarOutput)
                 into(extension.serverPath)
                 rename { "n2rss.jar" }
+
+                dependsOn(
+                    // Use "assemble" instead of "build" to not be bothered by checks while testing
+                    tasks.named("assemble"),
+                    bootJar
+                )
             }
 
             tasks.register("startRestartTestServer", Exec::class) {

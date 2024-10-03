@@ -38,11 +38,14 @@ class DeployConventionPlugin : Plugin<Project> {
         with(target) {
             val extension = createNpiExtension<DeployExtension>()
 
-            val copyJarToDeploy = tasks.register("copyJarToDeploy", Copy::class) {
-                val bootJar = tasks.getByName("bootJar")
+            tasks.register("copyJarToDeploy", Copy::class) {
+                group = "deploy"
+                val bootJar = tasks.named("bootJar")
+                val bootJarOutput = bootJar.map { it.property("archiveFile")!! }
 
-                from(bootJar.property("archiveFile"))
+                from(bootJarOutput)
                 into(project.layout.projectDirectory.dir(extension.targetDirectory))
+
                 rename { original ->
                     if (extension.jarName.isPresent) {
                         extension.jarName.get()
@@ -50,10 +53,11 @@ class DeployConventionPlugin : Plugin<Project> {
                         original
                     }
                 }
-            }
 
-            tasks.named("build") {
-                finalizedBy(copyJarToDeploy)
+                dependsOn(
+                    tasks.named("build"),
+                    bootJar
+                )
             }
         }
     }
