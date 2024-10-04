@@ -53,7 +53,8 @@ npi {
             "fr.nicopico.n2rss.N2RssApplicationKt",
         )
         excludedAnnotations = setOf(
-            "org.springframework.context.annotation.Configuration"
+            "org.springframework.context.annotation.Configuration",
+            "org.springframework.boot.context.properties.ConfigurationProperties",
         )
     }
 
