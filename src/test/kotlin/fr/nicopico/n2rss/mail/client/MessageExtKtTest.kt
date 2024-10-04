@@ -15,17 +15,20 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.mail.client
 
+import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldThrowWithMessage
 import io.kotest.matchers.shouldBe
+import io.mockk.Runs
 import io.mockk.every
+import io.mockk.just
 import io.mockk.mockk
 import jakarta.mail.Address
+import jakarta.mail.Flags
 import jakarta.mail.Message
 import jakarta.mail.internet.InternetAddress
 import jakarta.mail.internet.InternetHeaders
@@ -56,14 +59,14 @@ class MessageExtKtTest {
         )
 
         // WHEN
-        val email = message.toEmail()
+        val email = message.toEmail("INBOX")
 
         // THEN
         assertSoftly(email) {
             it.subject shouldBe subject
             it.content shouldBe content
             it.sender shouldBe Sender(sender)
-            it.msgnum shouldBe messageNumber
+            it.messageId shouldBe MessageId("INBOX", messageNumber)
             it.date shouldBe sentDate.toKotlinLocaleDate()
         }
     }
@@ -81,7 +84,7 @@ class MessageExtKtTest {
         )
 
         // WHEN
-        val email = message.toEmail()
+        val email = message.toEmail("INBOX")
 
         // THEN
         email.sender.sender shouldBe senders[0]
@@ -111,7 +114,7 @@ class MessageExtKtTest {
         )
 
         // WHEN
-        val email = message.toEmail()
+        val email = message.toEmail("INBOX")
 
         // THEN
         email.content shouldBe htmlContent
@@ -142,7 +145,7 @@ class MessageExtKtTest {
         )
 
         // WHEN
-        val email = message.toEmail()
+        val email = message.toEmail("INBOX")
 
         // THEN
         email.content shouldBe htmlContent1
@@ -172,7 +175,7 @@ class MessageExtKtTest {
 
         // WHEN - THEN
         shouldThrowWithMessage<NoSuchElementException>("no text/html part found in the Message") {
-            message.toEmail()
+            message.toEmail("INBOX")
         }
     }
 
@@ -193,6 +196,8 @@ class MessageExtKtTest {
             every { msg.from } returns from
             every { msg.sentDate } returns sentDate
             every { msg.receivedDate } returns receivedDate
+            every { msg.flags } returns Flags()
+            every { setFlag(any(), any()) } just Runs
         }
     }
     //endregion

@@ -51,7 +51,7 @@ class N2RssConfiguration {
 
 private const val DEFAULT_PORT = 993
 private const val DEFAULT_PROTOCOL = "imaps"
-private const val DEFAULT_INBOX_FOLDER = "inbox"
+private val DEFAULT_INBOX_FOLDERS = listOf("INBOX", "SPAM")
 
 @ConfigurationProperties(prefix = "n2rss")
 data class N2RssProperties
@@ -86,7 +86,7 @@ constructor(
         val password: String,
         val port: Int = DEFAULT_PORT,
         val protocol: String = DEFAULT_PROTOCOL,
-        val inboxFolder: String = DEFAULT_INBOX_FOLDER,
+        val inboxFolders: List<String> = DEFAULT_INBOX_FOLDERS,
     )
     data class AnalyticsProperties(
         val enabled: Boolean = true,

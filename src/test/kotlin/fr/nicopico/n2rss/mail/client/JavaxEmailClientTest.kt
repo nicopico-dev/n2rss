@@ -15,86 +15,76 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.mail.client
 
-import com.icegreen.greenmail.junit5.GreenMailExtension
-import com.icegreen.greenmail.util.GreenMailUtil
-import com.icegreen.greenmail.util.ServerSetup
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldNotThrowAny
-import io.kotest.matchers.collections.beEmpty
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldNot
+import jakarta.mail.Flags
+import jakarta.mail.search.FlagTerm
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.RegisterExtension
 
-class JavaxEmailClientTest {
+class JavaxEmailClientTest : GreenMailTestBase(
+    userEmail = USER_EMAIL,
+    userPassword = USER_PASSWORD,
+) {
 
     companion object {
-        private val serverSetup = ServerSetup.IMAP
-            .dynamicPort()
-            .verbose(true)
-
-        @JvmField
-        @RegisterExtension
-        val greenMail = GreenMailExtension(serverSetup)
+        private const val INBOX_FOLDER = "INBOX"
+        private const val OTHER_FOLDER = "OTHER"
+        private const val USER_EMAIL = "user@example.com"
+        private const val USER_PASSWORD = "secret"
     }
 
     private lateinit var emailClient: EmailClient
 
     @BeforeEach
     fun setUp() {
-        val user = greenMail.setUser("user@email", "secret password")
-
+        val user = greenMail.userManager.getUserByEmail(USER_EMAIL)
         emailClient = JavaxEmailClient(
-            protocol = serverSetup.protocol,
+            protocol = "imap",
             host = greenMail.imap.bindTo,
             port = greenMail.imap.port,
             user = user.email,
             password = user.password,
-            inboxFolder = "inbox",
+            folders = listOf(INBOX_FOLDER, OTHER_FOLDER),
         )
-    }
-
-    private fun deliverMessage(from: String, subject: String, content: String) {
-        val user = greenMail.userManager.listUser().first()
-        val message = GreenMailUtil.createTextEmail(
-            user.email,
-            from,
-            subject,
-            content,
-            serverSetup
-        )
-        user.deliver(message)
     }
 
     @Test
     fun `emailClient should retrieve a list of unread emails from the inbox`() {
         // GIVEN
-        deliverMessage(
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
             from = "from@email.com",
-            subject = "Subject",
-            content = "Hello World!"
+            subject = "Subject 1",
+            content = "Hello World! 1",
         )
-        deliverMessage(
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
             from = "from@another-email.com",
             subject = "Subject 2",
-            content = "Hello World! 2"
+            content = "Hello World! 2",
+        )
+        deliverTextMessage(
+            folderName = OTHER_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 3",
+            content = "Hello World! 3",
         )
 
         // WHEN
         val emails = emailClient.checkEmails()
 
         // THEN
-        emails shouldNot beEmpty()
-        emails shouldHaveSize 2
+        emails shouldHaveSize 3
+
         assertSoftly(emails[0]) {
             it.sender.sender shouldBe "from@email.com"
-            it.subject shouldBe "Subject"
-            it.content shouldBe "Hello World!"
+            it.subject shouldBe "Subject 1"
+            it.content shouldBe "Hello World! 1"
         }
 
         assertSoftly(emails[1]) {
@@ -102,26 +92,58 @@ class JavaxEmailClientTest {
             it.subject shouldBe "Subject 2"
             it.content shouldBe "Hello World! 2"
         }
+
+        assertSoftly(emails[2]) {
+            it.sender.sender shouldBe "from@another-email.com"
+            it.subject shouldBe "Subject 3"
+            it.content shouldBe "Hello World! 3"
+        }
+
+        checkMailFolder(INBOX_FOLDER) { folder ->
+            folder.search(FlagTerm(Flags(Flags.Flag.SEEN), false)) shouldHaveSize 2
+        }
+        checkMailFolder(OTHER_FOLDER) { folder ->
+            folder.search(FlagTerm(Flags(Flags.Flag.SEEN), false)) shouldHaveSize 1
+        }
     }
 
     @Test
     fun `emailClient should mark message as read`() {
         // GIVEN
-        deliverMessage(
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
             from = "from@email.com",
-            subject = "Subject",
-            content = "Hello World!"
+            subject = "Subject 1",
+            content = "Hello World! 1",
         )
-        deliverMessage(
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
             from = "from@another-email.com",
             subject = "Subject 2",
-            content = "Hello World! 2"
+            content = "Hello World! 2",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 3",
+            content = "Hello World! 3",
+        )
+        deliverTextMessage(
+            folderName = OTHER_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 4",
+            content = "Hello World! 4",
         )
 
         // WHEN - THEN
         val emails = emailClient.checkEmails()
+
+        // THEN
         shouldNotThrowAny {
             emailClient.markAsRead(emails[1])
+            emailClient.markAsRead(emails[3])
         }
+        val unreadEmails = emailClient.checkEmails()
+        unreadEmails.map { it.subject } shouldBe listOf("Subject 1", "Subject 3")
     }
 }
