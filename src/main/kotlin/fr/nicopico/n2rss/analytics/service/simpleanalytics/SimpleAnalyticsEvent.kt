@@ -33,13 +33,15 @@ data class SimpleAnalyticsEvent(
     @JsonProperty("ua")
     val ua: String,
     @JsonProperty("metadata")
-    val metadata: Map<String, String>
+    val metadata: Map<String, String>? = null,
+    @JsonProperty("path")
+    val path: String? = null,
 )
 
 @Suppress("LongMethod", "CyclomaticComplexMethod")
 fun AnalyticsEvent.toSimpleAnalyticsEvent(
     simpleAnalyticsProperties: N2RssProperties.SimpleAnalyticsProperties,
-): SimpleAnalyticsEvent {
+): SimpleAnalyticsEvent? {
     fun String.fingerprint() = getFingerprint(this)
 
     return when (this) {
@@ -75,36 +77,20 @@ fun AnalyticsEvent.toSimpleAnalyticsEvent(
             event = AnalyticsCode.EVENT_ERROR_REQUEST_NEWSLETTER
         )
 
-        is AnalyticsEvent.GetFeed -> createSimpleAnalyticsEvent(
+        is AnalyticsEvent.GetFeed -> createSimpleAnalyticsPageView(
             simpleAnalyticsProperties,
-            event = AnalyticsCode.EVENT_GET_FEED,
-            metadata = buildMap {
-                put(AnalyticsCode.DATA_FEED_CODE, feedCode)
-                userAgent.fingerprint()?.let {
-                    put(AnalyticsCode.DATA_USER_AGENT, it)
-                }
-            }
+            path = "/rss/$feedCode",
+            userAgent = userAgent,
         )
 
-        is AnalyticsEvent.GetRssFeeds -> createSimpleAnalyticsEvent(
+        is AnalyticsEvent.GetRssFeeds -> createSimpleAnalyticsPageView(
             simpleAnalyticsProperties,
-            event = AnalyticsCode.EVENT_GET_RSS_FEEDS,
-            metadata = buildMap {
-                userAgent.fingerprint()?.let {
-                    put(AnalyticsCode.DATA_USER_AGENT, it)
-                }
-            }
+            path = "/rss",
+            userAgent = userAgent,
         )
 
-        is AnalyticsEvent.Home -> createSimpleAnalyticsEvent(
-            simpleAnalyticsProperties,
-            event = AnalyticsCode.EVENT_HOME,
-            metadata = buildMap {
-                userAgent.fingerprint()?.let {
-                    put(AnalyticsCode.DATA_USER_AGENT, it)
-                }
-            }
-        )
+        // Home page view is caught by SimpleAnalytics script
+        is AnalyticsEvent.Home -> null
 
         is AnalyticsEvent.NewRelease -> createSimpleAnalyticsEvent(
             simpleAnalyticsProperties,
@@ -133,8 +119,20 @@ private fun createSimpleAnalyticsEvent(
     metadata: Map<String, String> = emptyMap(),
 ) = SimpleAnalyticsEvent(
     type = "event",
-    hostname = simpleAnalyticsProperties.hostname,
     event = event,
-    ua = simpleAnalyticsProperties.userAgent,
     metadata = metadata,
+    hostname = simpleAnalyticsProperties.hostname,
+    ua = simpleAnalyticsProperties.userAgent,
+)
+
+private fun createSimpleAnalyticsPageView(
+    simpleAnalyticsProperties: N2RssProperties.SimpleAnalyticsProperties,
+    path: String,
+    userAgent: String,
+) = SimpleAnalyticsEvent(
+    type = "pageview",
+    event = "pageview",
+    path = path,
+    hostname = simpleAnalyticsProperties.hostname,
+    ua = userAgent,
 )

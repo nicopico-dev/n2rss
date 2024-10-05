@@ -52,8 +52,8 @@ class SimpleAnalyticsServiceTest {
 
     private fun createAnalyticService(
         enabled: Boolean = true,
-        userAgent: String = "some-user-agent",
-        hostname: String = "some-hostname",
+        userAgent: String = "server-user-agent",
+        hostname: String = "server-hostname",
     ): SimpleAnalyticsService {
         return SimpleAnalyticsService(
             analyticsApiBaseUrl = server.url("/").toString(),
@@ -74,7 +74,7 @@ class SimpleAnalyticsServiceTest {
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticService.track(AnalyticsEvent.GetFeed("rss-code", "ua"))
+        analyticService.track(AnalyticsEvent.GetFeed("rss-code", "client-user-agent"))
 
         // THEN
         val request = server.takeRequest()
@@ -82,10 +82,11 @@ class SimpleAnalyticsServiceTest {
             path shouldBe "/events"
             method shouldBe "POST"
             body.readUtf8() should {
-                it shouldContain Regex("\"hostname\"\\s*:\"some-hostname\"")
-                it shouldContain Regex("\"ua\"\\s*:\"some-user-agent\"")
-                it shouldContain Regex("\"event\"\\s*:\"get-feed\"")
-                it shouldContain Regex("\"feedCode\"\\s*:\"rss-code\"")
+                it shouldContain Regex("\"hostname\"\\s*:\"server-hostname\"")
+                it shouldContain Regex("\"ua\"\\s*:\"client-user-agent\"")
+                it shouldContain Regex("\"event\"\\s*:\"pageview\"")
+                it shouldContain Regex("\"type\"\\s*:\"pageview\"")
+                it shouldContain Regex("\"path\"\\s*:\"/rss/rss-code\"")
             }
         }
     }
@@ -105,8 +106,9 @@ class SimpleAnalyticsServiceTest {
             path shouldBe "/events"
             method shouldBe "POST"
             body.readUtf8() should {
-                it shouldContain Regex("\"hostname\"\\s*:\"some-hostname\"")
+                it shouldContain Regex("\"hostname\"\\s*:\"server-hostname\"")
                 it shouldContain Regex("\"event\"\\s*:\"request-newsletter\"")
+                it shouldContain Regex("\"type\"\\s*:\"event\"")
                 it shouldContain Regex("\"newsletterUrl\"\\s*:\"some-newsletter-url\"")
             }
         }

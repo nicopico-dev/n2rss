@@ -56,8 +56,10 @@ class SimpleAnalyticsService(
     @Throws(AnalyticsException::class)
     override fun track(event: AnalyticsEvent) {
         if (analyticsProperties.enabled && simpleAnalyticsProperties != null) {
-            LOG.info("TRACK: $event")
             try {
+                val simpleAnalyticsEvent = event.toSimpleAnalyticsEvent(simpleAnalyticsProperties)
+                    ?: return
+                LOG.info("TRACK: $event")
                 restClient
                     .post()
                     .uri("/events")
@@ -66,7 +68,7 @@ class SimpleAnalyticsService(
                         simpleAnalyticsProperties.userAgent
                     )
                     .contentType(MediaType.APPLICATION_JSON)
-                    .body(event.toSimpleAnalyticsEvent(simpleAnalyticsProperties))
+                    .body(simpleAnalyticsEvent)
                     .retrieve()
                     .toBodilessEntity()
             } catch (e: HttpClientErrorException) {
