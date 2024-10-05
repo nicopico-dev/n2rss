@@ -36,7 +36,7 @@ class SimpleAnalyticsEventTest {
     fun `AnalyticEvent should convert to SimpleAnalyticsEvent`(
         event: AnalyticsEvent,
         analyticsProperties: N2RssProperties.SimpleAnalyticsProperties,
-        expected: SimpleAnalyticsEvent,
+        expected: SimpleAnalyticsEvent?,
     ) {
         val actual = event.toSimpleAnalyticsEvent(analyticsProperties)
         actual shouldBe expected
@@ -44,27 +44,42 @@ class SimpleAnalyticsEventTest {
 
     companion object {
 
-        private const val UA = "user1"
         private const val HOSTNAME = "localhost"
+        private const val SERVER_UA = "server1"
+        private const val CLIENT_UA = "user1"
+
         private val analyticsProperties = N2RssProperties.SimpleAnalyticsProperties(
-            userAgent = UA,
+            userAgent = SERVER_UA,
             hostname = HOSTNAME,
         )
 
-        private val UA_FINGERPRINT = requireNotNull(getFingerprint(UA))
+        private val CLIENT_UA_FINGERPRINT = requireNotNull(getFingerprint(CLIENT_UA))
 
+        @Suppress("SameParameterValue")
         private fun createSimpleAnalyticsEvent(
             event: String,
             metadata: Map<String, String> = emptyMap(),
-            type: String = "event",
-            hostname: String = HOSTNAME,
-            ua: String = UA,
+            hostname: String,
+            ua: String,
         ) = SimpleAnalyticsEvent(
-            type = type,
+            type = "event",
             hostname = hostname,
             event = event,
             ua = ua,
             metadata = metadata,
+        )
+
+        @Suppress("SameParameterValue")
+        private fun createSimpleAnalyticsPageView(
+            path: String,
+            hostname: String,
+            ua: String,
+        ) = SimpleAnalyticsEvent(
+            type = "pageview",
+            event = "pageview",
+            path = path,
+            hostname = hostname,
+            ua = ua,
         )
 
         @JvmStatic
@@ -72,71 +87,104 @@ class SimpleAnalyticsEventTest {
         fun provideEvents(): List<Arguments> = listOf(
             Arguments.of(
                 AnalyticsEvent.Home(
-                    userAgent = UA
+                    userAgent = CLIENT_UA,
                 ),
                 analyticsProperties,
-                createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_HOME,
-                    mapOf(
-                        AnalyticsCode.DATA_USER_AGENT to UA_FINGERPRINT,
-                    )
+                null,   // Home does not send any event or page-view
+            ),
+
+            //region Page views
+            Arguments.of(
+                AnalyticsEvent.GetRssFeeds(
+                    userAgent = CLIENT_UA,
+                ),
+                analyticsProperties,
+                createSimpleAnalyticsPageView(
+                    path = "/rss",
+                    hostname = HOSTNAME,
+                    ua = CLIENT_UA,
                 ),
             ),
+
             Arguments.of(
                 AnalyticsEvent.GetFeed(
                     feedCode = "feed1",
-                    userAgent = UA
+                    userAgent = CLIENT_UA,
                 ),
                 analyticsProperties,
-                createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_GET_FEED,
-                    mapOf(
-                        AnalyticsCode.DATA_FEED_CODE to "feed1",
-                        AnalyticsCode.DATA_USER_AGENT to UA_FINGERPRINT,
-                    )
+                createSimpleAnalyticsPageView(
+                    path = "/rss/feed1",
+                    hostname = HOSTNAME,
+                    ua = CLIENT_UA,
                 ),
             ),
+            //endregion
+
+            //region Events
             Arguments.of(
                 AnalyticsEvent.RequestNewsletter(
                     newsletterUrl = "url1",
-                    userAgent = UA
+                    userAgent = CLIENT_UA,
                 ),
                 analyticsProperties,
                 createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_REQUEST_NEWSLETTER,
-                    mapOf(
+                    event = AnalyticsCode.EVENT_REQUEST_NEWSLETTER,
+                    hostname = HOSTNAME,
+                    ua = SERVER_UA,
+                    metadata = mapOf(
                         AnalyticsCode.DATA_NEWSLETTER_URL to "url1",
-                        AnalyticsCode.DATA_USER_AGENT to UA_FINGERPRINT,
-                    )
+                        AnalyticsCode.DATA_USER_AGENT to CLIENT_UA_FINGERPRINT,
+                    ),
                 ),
             ),
+
             Arguments.of(
                 AnalyticsEvent.NewRelease(version = "1.0.0"),
                 analyticsProperties,
                 createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_RELEASE,
-                    mapOf(
+                    event = AnalyticsCode.EVENT_RELEASE,
+                    hostname = HOSTNAME,
+                    ua = SERVER_UA,
+                    metadata = mapOf(
                         AnalyticsCode.DATA_VERSION to "1.0.0"
                     )
                 ),
             ),
+            //endregion
+
+            //region Errors
             Arguments.of(
                 AnalyticsEvent.Error.HomeError,
                 analyticsProperties,
                 createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_ERROR_HOME,
+                    event = AnalyticsCode.EVENT_ERROR_HOME,
+                    hostname = HOSTNAME,
+                    ua = SERVER_UA,
                 ),
             ),
+            Arguments.of(
+                AnalyticsEvent.Error.GetRssFeedsError,
+                analyticsProperties,
+                createSimpleAnalyticsEvent(
+                    event = AnalyticsCode.EVENT_ERROR_GET_RSS_FEEDS,
+                    hostname = HOSTNAME,
+                    ua = SERVER_UA,
+                ),
+            ),
+
             Arguments.of(
                 AnalyticsEvent.Error.GetFeedError(feedCode = "feed1"),
                 analyticsProperties,
                 createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_ERROR_GET_FEED,
-                    mapOf(
+                    event = AnalyticsCode.EVENT_ERROR_GET_FEED,
+                    hostname = HOSTNAME,
+                    ua = SERVER_UA,
+                    metadata = mapOf(
                         AnalyticsCode.DATA_FEED_CODE to "feed1"
                     )
                 ),
             ),
+
             Arguments.of(
                 AnalyticsEvent.Error.EmailParsingError(
                     handlerName = "handler1",
@@ -145,38 +193,25 @@ class SimpleAnalyticsEventTest {
                 analyticsProperties,
                 createSimpleAnalyticsEvent(
                     AnalyticsCode.EVENT_ERROR_PARSING,
-                    mapOf(
+                    hostname = HOSTNAME,
+                    ua = SERVER_UA,
+                    metadata = mapOf(
                         AnalyticsCode.DATA_HANDLER_NAME to "handler1",
                         AnalyticsCode.DATA_EMAIL_TITLE to "title1",
-                    )
+                    ),
                 ),
             ),
+
             Arguments.of(
                 AnalyticsEvent.Error.RequestNewsletterError,
                 analyticsProperties,
                 createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_ERROR_REQUEST_NEWSLETTER,
+                    event = AnalyticsCode.EVENT_ERROR_REQUEST_NEWSLETTER,
+                    hostname = HOSTNAME,
+                    ua = SERVER_UA,
                 ),
             ),
-            Arguments.of(
-                AnalyticsEvent.GetRssFeeds(
-                    userAgent = UA,
-                ),
-                analyticsProperties,
-                createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_GET_RSS_FEEDS,
-                    mapOf(
-                        AnalyticsCode.DATA_USER_AGENT to UA_FINGERPRINT,
-                    )
-                ),
-            ),
-            Arguments.of(
-                AnalyticsEvent.Error.GetRssFeedsError,
-                analyticsProperties,
-                createSimpleAnalyticsEvent(
-                    AnalyticsCode.EVENT_ERROR_GET_RSS_FEEDS
-                ),
-            )
+            //endregion
         )
     }
 }
