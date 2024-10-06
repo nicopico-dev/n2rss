@@ -19,7 +19,7 @@ package fr.nicopico.n2rss.newsletter.handlers.legacy
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandlerSingleFeed
-import fr.nicopico.n2rss.newsletter.handlers.NewsletterParsingException
+import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.utils.url.toUrlOrNull

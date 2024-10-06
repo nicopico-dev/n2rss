@@ -23,6 +23,7 @@ import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.NewsletterConfiguration
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
+import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
 import fr.nicopico.n2rss.newsletter.handlers.process
 import jakarta.annotation.PostConstruct
 import org.slf4j.LoggerFactory
@@ -65,7 +66,11 @@ class EmailChecker(
                     try {
                         getNewsletterHandler(email)
                             ?.process(email)
-                            ?.also {
+                            ?.also { publications ->
+                                // At least one of the publications must have articles
+                                if (publications.all { it.articles.isEmpty() }) {
+                                    throw NoPublicationFoundException()
+                                }
                                 emailClient.markAsRead(email)
                             }
                     } catch (e: Exception) {
