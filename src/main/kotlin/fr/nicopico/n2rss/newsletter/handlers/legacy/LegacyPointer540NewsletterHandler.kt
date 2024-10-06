@@ -62,14 +62,14 @@ class LegacyPointer540NewsletterHandler : NewsletterHandlerSingleFeed {
         val sponsor = findSponsor(firstSeparator)
         val articles = findArticles(firstSeparator)
 
-        return (sponsor?.let(::listOf) ?: emptyList()) + articles
+        return (sponsor?.let(::listOf).orEmpty()) + articles
     }
 
     private fun findSponsor(firstSeparator: Element): Article? {
         val sponsorSection = Document("")
             .apply {
                 appendChildren(
-                    (firstSeparator.parent()?.childNodes() ?: emptyList())
+                    (firstSeparator.parent()?.childNodes().orEmpty())
                         .takeWhile { it != firstSeparator }
                 )
             }
@@ -106,7 +106,7 @@ class LegacyPointer540NewsletterHandler : NewsletterHandlerSingleFeed {
         val articleSectionDocument = Document("")
             .apply {
                 appendChildren(
-                    (firstSeparator.parent()?.childNodes() ?: emptyList())
+                    (firstSeparator.parent()?.childNodes().orEmpty())
                         .dropWhile { it != firstSeparator }
                 )
             }

@@ -59,7 +59,7 @@ class PointerNewsletterHandler : NewsletterHandlerSingleFeed {
         val sponsorArticle = document.selectFirst("div.n2rss-article-title h2 a[href]")
             ?.extractArticle("SPONSOR - ")
             ?.let { listOf(it) }
-            ?: emptyList()
+            .orEmpty()
 
         // Article titles are <h1>
         val articleLinks = document.select("div.n2rss-article-title h1 a[href]")
