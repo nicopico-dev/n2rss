@@ -23,6 +23,7 @@ import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
+import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
 import fr.nicopico.n2rss.newsletter.handlers.process
 import fr.nicopico.n2rss.newsletter.models.Publication
 import io.mockk.MockKAnnotations
@@ -199,7 +200,7 @@ class EmailCheckerTest {
     }
 
     @Test
-    fun `emailChecker should not save empty publications`(
+    fun `emailChecker should notify an error on empty publications`(
         @MockK(relaxed = true) email: Email,
         @MockK publication: Publication,
     ) {
@@ -208,12 +209,18 @@ class EmailCheckerTest {
         every { newsletterHandlerA.canHandle(email) } returns true
         every { newsletterHandlerA.process(email) } returns listOf(publication)
         every { publication.articles } returns emptyList()
+        every { monitoringService.notifyEmailProcessingError(any(), any()) } just Runs
 
         // When we check the email
         emailChecker.savePublicationsFromEmails()
 
         // Then the email should be marked as read without creating a publication
-        verify(exactly = 0) { publicationRepository.saveAll(eq(listOf(publication))) }
-        verify { emailClient.markAsRead(email) }
+        verify(exactly = 0) {
+            publicationRepository.saveAll(eq(listOf(publication)))
+            emailClient.markAsRead(email)
+        }
+        verify {
+            monitoringService.notifyEmailProcessingError(email, any(NoPublicationFoundException::class))
+        }
     }
 }

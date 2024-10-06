@@ -17,8 +17,9 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
-import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
+import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import org.jsoup.Jsoup
 import org.jsoup.nodes.TextNode
