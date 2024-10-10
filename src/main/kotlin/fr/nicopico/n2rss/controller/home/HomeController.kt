@@ -92,7 +92,7 @@ class HomeController(
         val isCaptchaValid = if (recaptchaProperties.enabled) {
             reCaptchaService.isCaptchaValid(
                 captchaSecretKey = recaptchaProperties.secretKey,
-                captchaResponse = captchaResponse ?: "",
+                captchaResponse = captchaResponse.orEmpty(),
             )
         } else true
 

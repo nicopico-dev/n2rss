@@ -20,11 +20,11 @@ package fr.nicopico.n2rss.monitoring.github
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.core.ParameterizedTypeReference
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Component
 import org.springframework.web.client.RestClient
 import org.springframework.web.client.RestClientResponseException
+import org.springframework.web.client.body
 
 @Component
 class GithubClient(
@@ -80,7 +80,7 @@ class GithubClient(
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(issue)
                 .retrieve()
-                .body(ParameterizedTypeReference.forType(Map::class.java))
+                .body()
                 ?: throw GithubException("Cannot create GitHub issue, response body is empty")
 
         } catch (e: RestClientResponseException) {

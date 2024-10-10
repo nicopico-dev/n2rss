@@ -56,8 +56,8 @@ class MITWeekendReadsNewsletterHandler : NewsletterHandlerSingleFeed {
                     ?: return@mapNotNull null
                 val title = h2.text().trim()
                 val description = h2.nextElementSiblings().select("p").firstOrNull()?.ownText()
-                // Articles can have no description
-                    ?: ""
+                    // Articles can have no description
+                    .orEmpty()
 
                 Article(
                     title = title,

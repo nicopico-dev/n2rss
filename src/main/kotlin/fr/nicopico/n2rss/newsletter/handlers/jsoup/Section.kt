@@ -46,7 +46,7 @@ fun Document.extractSections(
 
 inline fun <T> Section.process(block: (section: Document) -> T): T {
     val section = Document("").apply {
-        val nodesBetween = (start.parent()?.childNodes() ?: emptyList())
+        val nodesBetween = (start.parent()?.childNodes().orEmpty())
             .dropWhile { it != start }
             .takeWhile { it != end }
         appendChildren(nodesBetween)

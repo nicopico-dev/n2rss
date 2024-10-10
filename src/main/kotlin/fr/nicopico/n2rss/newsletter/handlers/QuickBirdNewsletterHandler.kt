@@ -59,7 +59,7 @@ class QuickBirdNewsletterHandler : NewsletterHandlerSingleFeed {
             Article(
                 title = title,
                 link = URL(link),
-                description = description ?: "",
+                description = description.orEmpty(),
             )
         )
     }
