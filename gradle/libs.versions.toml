@@ -13,7 +13,7 @@ annotations = "25.0.0"
 junitJupiterEngine = "5.10.3"
 kotestAssertions = "5.9.1"
 kotestKotlinxDatetime = "1.1.0"
-mockk = "1.13.12"
+mockk = "1.13.13"
 greenmail = "2.1.0"
 mockwebserver = "4.12.0"
 
