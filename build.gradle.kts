@@ -87,6 +87,8 @@ dependencies {
     implementation(libs.jsonPath)
     implementation(libs.annotations)
 
+    runtimeOnly(libs.mariadb.driver)
+
     testImplementation(libs.springBoot.starter.test) {
         exclude(group = "org.mockito")
     }
