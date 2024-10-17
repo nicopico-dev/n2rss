@@ -33,7 +33,6 @@ class AnalyticsConfig {
     @Bean
     fun analyticsService(
         analyticsProperties: N2RssProperties.AnalyticsProperties,
-        dataAnalyticsService: AnalyticsService,
         simpleAnalyticsService: SimpleAnalyticsService,
     ): AnalyticsService {
         val profiles = analyticsProperties.analyticsProfiles
@@ -41,14 +40,13 @@ class AnalyticsConfig {
             .distinct()
             .mapNotNull {
                 when (it) {
-                    "data-analytics" -> dataAnalyticsService
                     "simple-analytics" -> simpleAnalyticsService
                     else -> null
                 }
             }
 
         val analyticsService = if (enabledServices.isEmpty()) {
-            NoOpAnalyticsService()
+            NoOpAnalyticsService
         } else if (enabledServices.size == 1) {
             enabledServices[0]
         } else {

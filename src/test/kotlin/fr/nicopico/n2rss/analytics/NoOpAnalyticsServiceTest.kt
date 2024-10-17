@@ -30,7 +30,7 @@ class NoOpAnalyticsServiceTest {
 
     @BeforeEach
     fun setUp() {
-        analyticsService = NoOpAnalyticsService()
+        analyticsService = NoOpAnalyticsService
     }
 
     @Test

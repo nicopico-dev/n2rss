@@ -18,7 +18,6 @@
 
 package fr.nicopico.n2rss.utils
 
-import fr.nicopico.n2rss.analytics.service.data.AnalyticsRepository
 import fr.nicopico.n2rss.newsletter.data.NewsletterRequestRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import io.mockk.MockKAnnotations
@@ -36,8 +35,6 @@ class CleanLocalDatabaseTest {
     private lateinit var publicationRepository: PublicationRepository
     @MockK(relaxUnitFun = true)
     private lateinit var newsletterRequestRepository: NewsletterRequestRepository
-    @MockK(relaxUnitFun = true)
-    private lateinit var analyticsRepository: AnalyticsRepository
 
     private lateinit var cleanLocalDatabase: CleanLocalDatabase
 
@@ -47,7 +44,6 @@ class CleanLocalDatabaseTest {
         cleanLocalDatabase = CleanLocalDatabase(
             publicationRepository,
             newsletterRequestRepository,
-            analyticsRepository,
         )
     }
 
@@ -63,12 +59,10 @@ class CleanLocalDatabaseTest {
         verify(exactly = 1) {
             publicationRepository.deleteAll()
             newsletterRequestRepository.deleteAll()
-            analyticsRepository.deleteAll()
         }
         confirmVerified(
             publicationRepository,
             newsletterRequestRepository,
-            analyticsRepository,
         )
     }
 }
