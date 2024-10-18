@@ -18,15 +18,10 @@
 package fr.nicopico.n2rss.newsletter.service
 
 import fr.nicopico.n2rss.monitoring.MonitoringService
-import fr.nicopico.n2rss.newsletter.data.NewsletterRequestRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
-import fr.nicopico.n2rss.newsletter.models.NewsletterRequest
-import kotlinx.datetime.Clock
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.net.URL
@@ -35,9 +30,7 @@ import java.net.URL
 class NewsletterService(
     private val newsletterHandlers: List<NewsletterHandler>,
     private val publicationRepository: PublicationRepository,
-    private val newsletterRequestRepository: NewsletterRequestRepository,
     private val monitoringService: MonitoringService,
-    private val clock: Clock,
 ) {
     fun getNewslettersInfo(): List<NewsletterInfo> {
         return newsletterHandlers
@@ -56,8 +49,6 @@ class NewsletterService(
 
     @Transactional
     fun saveRequest(newsletterUrl: URL) {
-        val now = clock.now().toLocalDateTime(TimeZone.currentSystemDefault())
-
         // Sanitize URL
         val uniqueUrl = URL(
             /* protocol = */ "https",
@@ -65,20 +56,6 @@ class NewsletterService(
             /* port = */ newsletterUrl.port,
             /* file = */ "",
         )
-        val request = newsletterRequestRepository.getByNewsletterUrl(uniqueUrl)
-
-        val updatedRequest = request?.copy(
-            lastRequestDate = now,
-            requestCount = request.requestCount + 1
-        ) ?: NewsletterRequest(
-            newsletterUrl = uniqueUrl,
-            firstRequestDate = now,
-            lastRequestDate = now,
-            requestCount = 1,
-        )
-
-        newsletterRequestRepository.save(updatedRequest)
-
         monitoringService.notifyRequest(uniqueUrl)
     }
 }

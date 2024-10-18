@@ -18,27 +18,19 @@
 
 package fr.nicopico.n2rss.newsletter.service
 
-import fr.nicopico.n2rss.fakes.FixedClock
 import fr.nicopico.n2rss.fakes.NewsletterHandlerFake
 import fr.nicopico.n2rss.monitoring.MonitoringService
-import fr.nicopico.n2rss.newsletter.data.NewsletterRequestRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
-import fr.nicopico.n2rss.newsletter.models.NewsletterRequest
 import fr.nicopico.n2rss.newsletter.models.Publication
 import io.kotest.matchers.collections.shouldContainOnly
-import io.kotest.matchers.kotlinx.datetime.shouldBeAfter
-import io.kotest.matchers.should
-import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import io.mockk.slot
 import io.mockk.verify
 import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate
-import kotlinx.datetime.LocalDateTime
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.net.URL
@@ -53,8 +45,6 @@ class NewsletterServiceTest {
 
     @MockK
     private lateinit var publicationRepository: PublicationRepository
-    @MockK
-    private lateinit var newsletterRequestRepository: NewsletterRequestRepository
     @MockK(relaxUnitFun = true)
     private lateinit var monitoringService: MonitoringService
 
@@ -68,9 +58,7 @@ class NewsletterServiceTest {
         newsletterService = NewsletterService(
             newsletterHandlers = newsletterHandlers,
             publicationRepository = publicationRepository,
-            newsletterRequestRepository = newsletterRequestRepository,
-            monitoringService = monitoringService,
-            clock = FixedClock(now)
+            monitoringService = monitoringService
         )
     }
 
@@ -143,24 +131,11 @@ class NewsletterServiceTest {
     fun `new newsletterRequest are added to the database`() {
         // GIVEN
         val newsletterUrl = URL("https://www.nicopico.com")
-        every { newsletterRequestRepository.getByNewsletterUrl(any()) } returns null
-        every { newsletterRequestRepository.save(any()) } answers { firstArg() }
 
         // WHEN
         newsletterService.saveRequest(newsletterUrl)
 
         // THEN
-        val slotNewsletterRequest = slot<NewsletterRequest>()
-        verify {
-            newsletterRequestRepository.getByNewsletterUrl(newsletterUrl)
-            newsletterRequestRepository.save(capture(slotNewsletterRequest))
-        }
-        slotNewsletterRequest.captured should {
-            it.newsletterUrl shouldBe newsletterUrl
-            it.requestCount shouldBe 1
-            it.firstRequestDate shouldBe it.lastRequestDate
-        }
-
         verify { monitoringService.notifyRequest(newsletterUrl) }
     }
 
@@ -169,24 +144,12 @@ class NewsletterServiceTest {
         // GIVEN
         @Suppress("HttpUrlsUsage")
         val newsletterUrl = URL("http://www.nicopico.com/test/")
-        every { newsletterRequestRepository.getByNewsletterUrl(any()) } returns null
-        every { newsletterRequestRepository.save(any()) } answers { firstArg() }
         val uniqueUrl = URL("https://www.nicopico.com")
 
         // WHEN
         newsletterService.saveRequest(newsletterUrl)
 
         // THEN
-        val slotNewsletterRequest = slot<NewsletterRequest>()
-        verify {
-            newsletterRequestRepository.getByNewsletterUrl(uniqueUrl)
-            newsletterRequestRepository.save(capture(slotNewsletterRequest))
-        }
-        slotNewsletterRequest.captured should {
-            it.newsletterUrl shouldBe uniqueUrl
-            it.requestCount shouldBe 1
-            it.firstRequestDate shouldBe it.lastRequestDate
-        }
         verify { monitoringService.notifyRequest(uniqueUrl) }
     }
 
@@ -194,30 +157,15 @@ class NewsletterServiceTest {
     fun `existing newsletterRequest are incremented in the database`() {
         // GIVEN
         val newsletterUrl = URL("https://www.nicopico.com")
-        val existingRequest = NewsletterRequest(
-            newsletterUrl = newsletterUrl,
-            firstRequestDate = LocalDateTime(2020, 1, 1, 0, 0, 0),
-            lastRequestDate = LocalDateTime(2020, 1, 10, 0, 0, 0),
-            requestCount = 2,
-        )
-
-        every { newsletterRequestRepository.getByNewsletterUrl(any()) } returns existingRequest
-        every { newsletterRequestRepository.save(any()) } answers { firstArg() }
 
         // WHEN
         newsletterService.saveRequest(newsletterUrl)
+        newsletterService.saveRequest(newsletterUrl)
 
         // THEN
-        val slotNewsletterRequest = slot<NewsletterRequest>()
         verify {
-            newsletterRequestRepository.getByNewsletterUrl(newsletterUrl)
-            newsletterRequestRepository.save(capture(slotNewsletterRequest))
-        }
-        slotNewsletterRequest.captured should {
-            it.newsletterUrl shouldBe newsletterUrl
-            it.requestCount shouldBe 3
-            it.firstRequestDate shouldBe existingRequest.firstRequestDate
-            it.lastRequestDate shouldBeAfter existingRequest.lastRequestDate
+            monitoringService.notifyRequest(newsletterUrl)
+            monitoringService.notifyRequest(newsletterUrl)
         }
     }
 }
