@@ -17,8 +17,6 @@
  */
 package fr.nicopico.n2rss.newsletter.service
 
-import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
@@ -42,17 +40,17 @@ class RssServiceTest {
     private lateinit var rssService: RssService
 
     @MockK
-    private lateinit var newsletterRepository: NewsletterRepository
+    private lateinit var newsletterService: NewsletterService
     @MockK
-    private lateinit var publicationRepository: PublicationRepository
+    private lateinit var publicationService: PublicationService
 
     @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
 
         rssService = RssService(
-            newsletterRepository = newsletterRepository,
-            publicationRepository = publicationRepository
+            newsletterService = newsletterService,
+            publicationService = publicationService
         )
     }
 
@@ -73,8 +71,8 @@ class RssServiceTest {
                 Article("Article 1", URL("https://article1.com"), "Some description")
             )
         )
-        every { newsletterRepository.findNewsletterByCode("test") } returns expectedNewsletter
-        every { publicationRepository.findByNewsletter(expectedNewsletter, any()) } returns
+        every { newsletterService.findNewsletterByCode("test") } returns expectedNewsletter
+        every { publicationService.getPublications(expectedNewsletter, any()) } returns
             PageImpl(listOf(expectedPublication))
 
         // WHEN
@@ -84,8 +82,8 @@ class RssServiceTest {
         feed.title shouldBe "This is a test FEED"
         feed.entries shouldHaveSize expectedPublication.articles.size
         verifySequence {
-            newsletterRepository.findNewsletterByCode("test")
-            publicationRepository.findByNewsletter(
+            newsletterService.findNewsletterByCode("test")
+            publicationService.getPublications(
                 expectedNewsletter,
                 PageRequest.of(0, 2, Sort.by(Sort.Direction.DESC, "date"))
             )
@@ -108,8 +106,8 @@ class RssServiceTest {
                 Article("Article 1", URL("https://article1.com"), "Some description")
             )
         )
-        every { newsletterRepository.findNewsletterByCode("test") } returns expectedNewsletter
-        every { publicationRepository.findByNewsletter(expectedNewsletter, any()) } returns
+        every { newsletterService.findNewsletterByCode("test") } returns expectedNewsletter
+        every { publicationService.getPublications(expectedNewsletter, any()) } returns
             PageImpl(listOf(expectedPublication))
 
         // WHEN
@@ -122,7 +120,7 @@ class RssServiceTest {
     @Test
     fun `getFeed should throw an error if the feed does not exist`() {
         // GIVEN
-        every { newsletterRepository.findNewsletterByCode(any()) } returns null
+        every { newsletterService.findNewsletterByCode(any()) } returns null
 
         // WHEN-THEN
         shouldThrow<NoSuchElementException> {
@@ -131,7 +129,7 @@ class RssServiceTest {
 
         // THEN
         verifySequence {
-            newsletterRepository.findNewsletterByCode("test")
+            newsletterService.findNewsletterByCode("test")
         }
     }
 }

@@ -18,47 +18,38 @@
 
 package fr.nicopico.n2rss.newsletter.service
 
-import fr.nicopico.n2rss.fakes.FixedClock
-import fr.nicopico.n2rss.fakes.NewsletterHandlerFake
+import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
-import fr.nicopico.n2rss.newsletter.data.NewsletterRequestRepository
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
+import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
-import fr.nicopico.n2rss.newsletter.models.NewsletterRequest
-import fr.nicopico.n2rss.newsletter.models.Publication
 import io.kotest.matchers.collections.shouldContainOnly
-import io.kotest.matchers.kotlinx.datetime.shouldBeAfter
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
-import io.mockk.slot
+import io.mockk.mockk
 import io.mockk.verify
-import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate
-import kotlinx.datetime.LocalDateTime
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.net.URL
 
 class NewsletterServiceTest {
 
-    private val newsletterHandlers = listOf(
-        NewsletterHandlerFake(Newsletter("code1", "Name 1", "website1")),
-        NewsletterHandlerFake(Newsletter("code2", "Name 2", "website2")),
-        NewsletterHandlerFake(Newsletter("code3", "Name 3", "website3", "some notes")),
+    private val newsletters = listOf(
+        Newsletter("code1", "Name 1", "website1"),
+        Newsletter("code2", "Name 2", "website2"),
+        Newsletter("code3", "Name 3", "website3", "some notes"),
     )
 
     @MockK
-    private lateinit var publicationRepository: PublicationRepository
+    private lateinit var newsletterRepository: NewsletterRepository
     @MockK
-    private lateinit var newsletterRequestRepository: NewsletterRequestRepository
+    private lateinit var publicationService: PublicationService
     @MockK(relaxUnitFun = true)
     private lateinit var monitoringService: MonitoringService
-
-    private val now by lazy { Clock.System.now() }
 
     private lateinit var newsletterService: NewsletterService
 
@@ -66,11 +57,9 @@ class NewsletterServiceTest {
     fun setUp() {
         MockKAnnotations.init(this)
         newsletterService = NewsletterService(
-            newsletterHandlers = newsletterHandlers,
-            publicationRepository = publicationRepository,
-            newsletterRequestRepository = newsletterRequestRepository,
-            monitoringService = monitoringService,
-            clock = FixedClock(now)
+            newsletterRepository = newsletterRepository,
+            publicationService = publicationService,
+            monitoringService = monitoringService
         )
     }
 
@@ -79,36 +68,25 @@ class NewsletterServiceTest {
         // GIVEN
         val firstPublicationCode1 = LocalDate(2022, 3, 21)
         val firstPublicationCode2 = LocalDate(2023, 7, 8)
-        every { publicationRepository.countPublicationsByNewsletter(any()) } answers {
+        every { publicationService.getPublicationsCount(any()) } answers {
             when (firstArg<Newsletter>().code) {
                 "code1" -> 32
                 "code2" -> 3
                 else -> 0
             }
         }
-        every { publicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } answers {
+        every { publicationService.getLatestPublicationDate(any()) } answers {
             val newsletter = firstArg<Newsletter>()
             when (newsletter.code) {
-                "code1" -> Publication(
-                    title = "Some title1",
-                    date = firstPublicationCode1,
-                    newsletter = newsletter,
-                    articles = emptyList()
-                )
-
-                "code2" -> Publication(
-                    title = "Some title 2",
-                    date = firstPublicationCode2,
-                    newsletter = newsletter,
-                    articles = emptyList()
-                )
-
+                "code1" -> firstPublicationCode1
+                "code2" -> firstPublicationCode2
                 else -> null
             }
         }
+        every { newsletterRepository.getEnabledNewsletters() } returns newsletters
 
         // WHEN
-        val result = newsletterService.getNewslettersInfo()
+        val result = newsletterService.getEnabledNewslettersInfo()
 
         // WHEN
         result shouldContainOnly listOf(
@@ -143,24 +121,11 @@ class NewsletterServiceTest {
     fun `new newsletterRequest are added to the database`() {
         // GIVEN
         val newsletterUrl = URL("https://www.nicopico.com")
-        every { newsletterRequestRepository.getByNewsletterUrl(any()) } returns null
-        every { newsletterRequestRepository.save(any()) } answers { firstArg() }
 
         // WHEN
-        newsletterService.saveRequest(newsletterUrl)
+        newsletterService.saveNewsletterRequest(newsletterUrl)
 
         // THEN
-        val slotNewsletterRequest = slot<NewsletterRequest>()
-        verify {
-            newsletterRequestRepository.getByNewsletterUrl(newsletterUrl)
-            newsletterRequestRepository.save(capture(slotNewsletterRequest))
-        }
-        slotNewsletterRequest.captured should {
-            it.newsletterUrl shouldBe newsletterUrl
-            it.requestCount shouldBe 1
-            it.firstRequestDate shouldBe it.lastRequestDate
-        }
-
         verify { monitoringService.notifyRequest(newsletterUrl) }
     }
 
@@ -169,24 +134,12 @@ class NewsletterServiceTest {
         // GIVEN
         @Suppress("HttpUrlsUsage")
         val newsletterUrl = URL("http://www.nicopico.com/test/")
-        every { newsletterRequestRepository.getByNewsletterUrl(any()) } returns null
-        every { newsletterRequestRepository.save(any()) } answers { firstArg() }
         val uniqueUrl = URL("https://www.nicopico.com")
 
         // WHEN
-        newsletterService.saveRequest(newsletterUrl)
+        newsletterService.saveNewsletterRequest(newsletterUrl)
 
         // THEN
-        val slotNewsletterRequest = slot<NewsletterRequest>()
-        verify {
-            newsletterRequestRepository.getByNewsletterUrl(uniqueUrl)
-            newsletterRequestRepository.save(capture(slotNewsletterRequest))
-        }
-        slotNewsletterRequest.captured should {
-            it.newsletterUrl shouldBe uniqueUrl
-            it.requestCount shouldBe 1
-            it.firstRequestDate shouldBe it.lastRequestDate
-        }
         verify { monitoringService.notifyRequest(uniqueUrl) }
     }
 
@@ -194,30 +147,95 @@ class NewsletterServiceTest {
     fun `existing newsletterRequest are incremented in the database`() {
         // GIVEN
         val newsletterUrl = URL("https://www.nicopico.com")
-        val existingRequest = NewsletterRequest(
-            newsletterUrl = newsletterUrl,
-            firstRequestDate = LocalDateTime(2020, 1, 1, 0, 0, 0),
-            lastRequestDate = LocalDateTime(2020, 1, 10, 0, 0, 0),
-            requestCount = 2,
-        )
-
-        every { newsletterRequestRepository.getByNewsletterUrl(any()) } returns existingRequest
-        every { newsletterRequestRepository.save(any()) } answers { firstArg() }
 
         // WHEN
-        newsletterService.saveRequest(newsletterUrl)
+        newsletterService.saveNewsletterRequest(newsletterUrl)
+        newsletterService.saveNewsletterRequest(newsletterUrl)
 
         // THEN
-        val slotNewsletterRequest = slot<NewsletterRequest>()
         verify {
-            newsletterRequestRepository.getByNewsletterUrl(newsletterUrl)
-            newsletterRequestRepository.save(capture(slotNewsletterRequest))
+            monitoringService.notifyRequest(newsletterUrl)
+            monitoringService.notifyRequest(newsletterUrl)
         }
-        slotNewsletterRequest.captured should {
-            it.newsletterUrl shouldBe newsletterUrl
-            it.requestCount shouldBe 3
-            it.firstRequestDate shouldBe existingRequest.firstRequestDate
-            it.lastRequestDate shouldBeAfter existingRequest.lastRequestDate
+    }
+
+    @Test
+    fun `should retrieve the newsletter from its code`() {
+        // GIVEN
+        val code = "harvey"
+        val expected: Newsletter = mockk()
+        every { newsletterRepository.findNewsletterByCode(any()) } returns expected
+
+        // WHEN
+        val newsletter = newsletterService.findNewsletterByCode(code)
+
+        // THEN
+        newsletter shouldBe expected
+    }
+
+    @Test
+    fun `should retrieve the correct handler for an email`() {
+        // GIVEN
+        val email: Email = mockk() { every { subject } returns "Title" }
+        val handlerA: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
         }
+        val handlerB: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns true
+        }
+        val handlerC: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        every { newsletterRepository.getEnabledNewsletterHandlers() } returns listOf(handlerA, handlerB, handlerC)
+
+        // WHEN
+        val actual = newsletterService.findNewsletterHandlerForEmail(email)
+
+        // THEN
+        actual shouldBe handlerB
+    }
+
+    @Test
+    fun `should return null if there is no handler for an email`() {
+        // GIVEN
+        val email: Email = mockk() { every { subject } returns "Title" }
+        val handlerA: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        val handlerB: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        val handlerC: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        every { newsletterRepository.getEnabledNewsletterHandlers() } returns listOf(handlerA, handlerB, handlerC)
+
+        // WHEN
+        val actual = newsletterService.findNewsletterHandlerForEmail(email)
+
+        // THEN
+        actual shouldBe null
+    }
+
+    @Test
+    fun `should return null if there is more than one handler for an email`() {
+        // GIVEN
+        val email: Email = mockk() { every { subject } returns "Title" }
+        val handlerA: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns true
+        }
+        val handlerB: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        val handlerC: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns true
+        }
+        every { newsletterRepository.getEnabledNewsletterHandlers() } returns listOf(handlerA, handlerB, handlerC)
+
+        // WHEN
+        val actual = newsletterService.findNewsletterHandlerForEmail(email)
+
+        // THEN
+        actual shouldBe null
     }
 }

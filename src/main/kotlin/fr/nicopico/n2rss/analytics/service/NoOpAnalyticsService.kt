@@ -20,7 +20,7 @@ package fr.nicopico.n2rss.analytics.service
 
 import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
 
-class NoOpAnalyticsService : AnalyticsService {
+object NoOpAnalyticsService : AnalyticsService {
     override fun track(event: AnalyticsEvent) {
         // no-op
     }

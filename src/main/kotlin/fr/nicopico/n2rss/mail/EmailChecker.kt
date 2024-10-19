@@ -18,16 +18,13 @@
 package fr.nicopico.n2rss.mail
 
 import fr.nicopico.n2rss.mail.client.EmailClient
-import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
-import fr.nicopico.n2rss.newsletter.NewsletterConfiguration
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
-import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
 import fr.nicopico.n2rss.newsletter.handlers.process
+import fr.nicopico.n2rss.newsletter.service.NewsletterService
+import fr.nicopico.n2rss.newsletter.service.PublicationService
 import jakarta.annotation.PostConstruct
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.scheduling.TaskScheduler
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
@@ -38,10 +35,9 @@ private val LOG = LoggerFactory.getLogger(EmailChecker::class.java)
 @Component
 class EmailChecker(
     private val emailClient: EmailClient,
-    @Qualifier(NewsletterConfiguration.ENABLED_NEWSLETTER_HANDLERS)
-    private val newsletterHandlers: List<NewsletterHandler>,
-    private val publicationRepository: PublicationRepository,
     private val taskScheduler: TaskScheduler,
+    private val newsletterService: NewsletterService,
+    private val publicationService: PublicationService,
     private val monitoringService: MonitoringService,
 ) {
     @PostConstruct
@@ -64,7 +60,10 @@ class EmailChecker(
             val publications = emails
                 .mapNotNull { email ->
                     try {
-                        getNewsletterHandler(email)
+                        newsletterService.findNewsletterHandlerForEmail(email)
+                            ?.also { processor ->
+                                LOG.info("\"{}\" is being processed by {}", email.subject, processor::class.java)
+                            }
                             ?.process(email)
                             ?.also { publications ->
                                 // At least one of the publications must have articles
@@ -80,32 +79,13 @@ class EmailChecker(
                     }
                 }
                 .flatten()
-                .filter { it.articles.isNotEmpty() }
 
-            if (publications.isNotEmpty()) {
-                publicationRepository.saveAll(publications)
-            }
+            publicationService.savePublications(publications)
 
             LOG.info("Processing done!")
         } catch (e: Exception) {
             LOG.error("Error while checking emails", e)
             monitoringService.notifyEmailClientError(e)
-        }
-    }
-
-    private fun getNewsletterHandler(email: Email): NewsletterHandler? {
-        return try {
-            newsletterHandlers
-                .single { it.canHandle(email) }
-                .also { processor ->
-                    LOG.info("\"{}\" is being processed by {}", email.subject, processor::class.java)
-                }
-        } catch (_: NoSuchElementException) {
-            LOG.warn("No handler found for email {}", email.subject)
-            null
-        } catch (_: IllegalArgumentException) {
-            LOG.error("Too many handlers found for email {}", email.subject)
-            null
         }
     }
 }

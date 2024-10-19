@@ -55,7 +55,7 @@ class HomeController(
         @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
     ): String {
-        val groupedNewsletterInfos: List<GroupedNewsletterInfo> = newsletterService.getNewslettersInfo()
+        val groupedNewsletterInfos: List<GroupedNewsletterInfo> = newsletterService.getEnabledNewslettersInfo()
             .sortedBy { it.title }
             .filter { it.publicationCount > 0 }
             .groupBy { it.title.lowercase() }
@@ -100,7 +100,7 @@ class HomeController(
             val url = with(newsletterUrl) {
                 if (contains("://")) newsletterUrl else "https://$newsletterUrl"
             }.let { URL(it) }
-            newsletterService.saveRequest(url)
+            newsletterService.saveNewsletterRequest(url)
             ResponseEntity.ok().build()
         } else {
             ResponseEntity

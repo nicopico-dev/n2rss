@@ -15,12 +15,25 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.data
 
-import fr.nicopico.n2rss.newsletter.models.NewsletterRequest
-import org.springframework.data.mongodb.repository.MongoRepository
-import java.net.URL
+package fr.nicopico.n2rss.newsletter.data.entity
 
-interface NewsletterRequestRepository : MongoRepository<NewsletterRequest, URL> {
-    fun getByNewsletterUrl(url: URL): NewsletterRequest?
-}
+import fr.nicopico.n2rss.newsletter.data.NewsletterValueConverter
+import fr.nicopico.n2rss.newsletter.models.Article
+import fr.nicopico.n2rss.newsletter.models.Newsletter
+import kotlinx.datetime.LocalDate
+import org.springframework.data.annotation.Id
+import org.springframework.data.convert.ValueConverter
+import org.springframework.data.mongodb.core.mapping.Document
+import java.util.UUID
+
+@Document(collection = "publications")
+data class PublicationDocument(
+    @Id
+    val id: UUID = UUID.randomUUID(),
+    val title: String,
+    val date: LocalDate,
+    @ValueConverter(NewsletterValueConverter::class)
+    val newsletter: Newsletter,
+    val articles: List<Article>,
+)

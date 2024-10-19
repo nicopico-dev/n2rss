@@ -29,7 +29,7 @@ class MongoConfiguration {
     @Bean
     fun customConversions(beanFactory: BeanFactory): MongoCustomConversions {
         // Create a bean-aware PropertyValueConverterFactory
-        // This should allow `NewsLetterValueConverter` to retrieve the NewsletterHandlers
+        // This should allow `NewsletterValueConverter` to retrieve the NewsletterHandlers
         val propertyValueConverterFactory = PropertyValueConverterFactory.beanFactoryAware(beanFactory)
         return MongoCustomConversions.create {
             it.registerPropertyValueConverterFactory(propertyValueConverterFactory)

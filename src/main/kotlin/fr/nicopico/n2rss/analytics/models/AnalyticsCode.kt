@@ -19,9 +19,6 @@
 package fr.nicopico.n2rss.analytics.models
 
 object AnalyticsCode {
-    const val EVENT_HOME = "home"
-    const val EVENT_GET_FEED = "get-feed"
-    const val EVENT_GET_RSS_FEEDS = "get-rss-feeds"
     const val EVENT_REQUEST_NEWSLETTER = "request-newsletter"
     const val EVENT_RELEASE = "release"
     const val EVENT_ERROR_GET_FEED = "error-get-feed"

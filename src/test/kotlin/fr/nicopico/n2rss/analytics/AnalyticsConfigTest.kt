@@ -20,7 +20,6 @@ package fr.nicopico.n2rss.analytics
 
 import fr.nicopico.n2rss.analytics.service.AnalyticsServiceDelegate
 import fr.nicopico.n2rss.analytics.service.NoOpAnalyticsService
-import fr.nicopico.n2rss.analytics.service.data.DataAnalyticsService
 import fr.nicopico.n2rss.analytics.service.simpleanalytics.SimpleAnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
@@ -32,6 +31,7 @@ import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 
@@ -40,8 +40,6 @@ class AnalyticsConfigTest {
 
     @MockK
     private lateinit var analyticsProperties: N2RssProperties.AnalyticsProperties
-    @MockK
-    private lateinit var dataAnalyticsService: DataAnalyticsService
     @MockK
     private lateinit var simpleAnalyticsService: SimpleAnalyticsService
 
@@ -58,10 +56,10 @@ class AnalyticsConfigTest {
         every { analyticsProperties.analyticsProfiles } returns listOf("data-analytics")
 
         // WHEN
-        val actualService = config.analyticsService(analyticsProperties, dataAnalyticsService, simpleAnalyticsService)
+        val actualService = config.analyticsService(analyticsProperties, simpleAnalyticsService)
 
         // THEN
-        actualService shouldBe dataAnalyticsService
+        actualService shouldBe NoOpAnalyticsService
     }
 
     @Test
@@ -70,39 +68,41 @@ class AnalyticsConfigTest {
         every { analyticsProperties.analyticsProfiles } returns listOf("simple-analytics")
 
         // WHEN
-        val actualService = config.analyticsService(analyticsProperties, dataAnalyticsService, simpleAnalyticsService)
+        val actualService = config.analyticsService(analyticsProperties, simpleAnalyticsService)
 
         // THEN
         actualService shouldBe simpleAnalyticsService
     }
 
     @Test
+    @Disabled("There is only 1 valid analytics profile for now")
     fun `AnalyticsService should be Delegate implementation if multiple profiles are enabled`() {
         // WHEN
         every { analyticsProperties.analyticsProfiles } returns listOf("data-analytics", "simple-analytics")
 
         // WHEN
-        val actualService = config.analyticsService(analyticsProperties, dataAnalyticsService, simpleAnalyticsService)
+        val actualService = config.analyticsService(analyticsProperties, simpleAnalyticsService)
 
         // THEN
         actualService should beOfType<AnalyticsServiceDelegate>()
         (actualService as AnalyticsServiceDelegate).analyticsServices shouldContainOnly
-            listOf(dataAnalyticsService, simpleAnalyticsService)
+            listOf(simpleAnalyticsService)
     }
 
     @Test
+    @Disabled("There is only 1 valid analytics profile for now")
     fun `Repeated profiles should not lead to duplicate delegated services`() {
         // WHEN
         every { analyticsProperties.analyticsProfiles } returns
             listOf("data-analytics", "simple-analytics", "data-analytics", "simple-analytics")
 
         // WHEN
-        val actualService = config.analyticsService(analyticsProperties, dataAnalyticsService, simpleAnalyticsService)
+        val actualService = config.analyticsService(analyticsProperties, simpleAnalyticsService)
 
         // THEN
         actualService should beOfType<AnalyticsServiceDelegate>()
         (actualService as AnalyticsServiceDelegate).analyticsServices shouldContainExactlyInAnyOrder
-            listOf(dataAnalyticsService, simpleAnalyticsService)
+            listOf(simpleAnalyticsService)
     }
 
     @Test
@@ -111,7 +111,7 @@ class AnalyticsConfigTest {
         every { analyticsProperties.analyticsProfiles } returns emptyList()
 
         // WHEN
-        val actualService = config.analyticsService(analyticsProperties, dataAnalyticsService, simpleAnalyticsService)
+        val actualService = config.analyticsService(analyticsProperties, simpleAnalyticsService)
 
         // THEN
         actualService should beOfType<NoOpAnalyticsService>()
@@ -123,7 +123,7 @@ class AnalyticsConfigTest {
         every { analyticsProperties.analyticsProfiles } returns listOf("Google", "Facebook")
 
         // WHEN
-        val actualService = config.analyticsService(analyticsProperties, dataAnalyticsService, simpleAnalyticsService)
+        val actualService = config.analyticsService(analyticsProperties, simpleAnalyticsService)
 
         // THEN
         actualService should beOfType<NoOpAnalyticsService>()

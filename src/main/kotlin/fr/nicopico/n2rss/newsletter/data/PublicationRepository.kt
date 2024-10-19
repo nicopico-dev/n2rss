@@ -18,23 +18,23 @@
 package fr.nicopico.n2rss.newsletter.data
 
 import fr.nicopico.n2rss.config.CacheConfiguration
+import fr.nicopico.n2rss.newsletter.data.entity.PublicationDocument
 import fr.nicopico.n2rss.newsletter.models.Newsletter
-import fr.nicopico.n2rss.newsletter.models.Publication
 import org.springframework.cache.annotation.CacheEvict
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.mongodb.repository.MongoRepository
 import java.util.UUID
 
-interface PublicationRepository : MongoRepository<Publication, UUID> {
-    fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<Publication>
+interface PublicationRepository : MongoRepository<PublicationDocument, UUID> {
+    fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<PublicationDocument>
     fun countPublicationsByNewsletter(newsletter: Newsletter): Long
-    fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): Publication?
+    fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): PublicationDocument?
 
     // Clear feed cache when publications are saved
     @CacheEvict(
         cacheNames = [CacheConfiguration.GET_RSS_FEED_CACHE_NAME],
         allEntries = true,
     )
-    override fun <S : Publication> saveAll(entities: Iterable<S>): List<S>
+    override fun <S : PublicationDocument> saveAll(entities: Iterable<S>): List<S>
 }

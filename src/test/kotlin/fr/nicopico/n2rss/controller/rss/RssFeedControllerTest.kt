@@ -59,7 +59,7 @@ class RssFeedControllerTest {
     @Test
     fun `getRssFeeds should returns info on all the current feeds`() {
         // GIVEN
-        every { newsletterService.getNewslettersInfo() } returns List(2) {
+        every { newsletterService.getEnabledNewslettersInfo() } returns List(2) {
             NewsletterInfo(
                 code = "newsletter_$it",
                 title = "Newsletter$it",
