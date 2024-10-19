@@ -33,7 +33,7 @@ open class GreenMailTestBase(
     companion object {
         private val serverSetup = ServerSetup.IMAP
             .dynamicPort()
-            .verbose(true)
+            .verbose(false)
 
         @JvmField
         @RegisterExtension
