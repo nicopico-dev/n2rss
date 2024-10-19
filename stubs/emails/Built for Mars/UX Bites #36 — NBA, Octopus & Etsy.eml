@@ -1,0 +1,1319 @@
+Return-Path: <0100019289de2f93-c8853fe8-1155-4775-bfa9-e7805d82c031-000000@envelope.builtformars.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap3.paris1.alwaysdata.com with LMTPS
+	id gPeJJinEDGfaNAAA5hnrLg
+	(envelope-from <0100019289de2f93-c8853fe8-1155-4775-bfa9-e7805d82c031-000000@envelope.builtformars.com>)
+	for <n2rss@nicopico.fr>; Mon, 14 Oct 2024 09:11:37 +0200
+Return-path: <0100019289de2f93-c8853fe8-1155-4775-bfa9-e7805d82c031-000000@envelope.builtformars.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Mon, 14 Oct 2024 09:11:37 +0200
+Received: from c139-17.smtp-out.amazonses.com ([76.223.139.17])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <0100019289de2f93-c8853fe8-1155-4775-bfa9-e7805d82c031-000000@envelope.builtformars.com>)
+	id 1t0FEs-0003l7-Fh
+	for n2rss@nicopico.fr; Mon, 14 Oct 2024 09:11:35 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=i4nn6orizbjoi2hrjxwdh5kzi7psyv3z; d=builtformars.com;
+	t=1728889893;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:List-Unsubscribe:List-Unsubscribe-Post:List-ID:Content-Type;
+	bh=xBaDTYfyblFR7PiyvoDONkiHMN92qAYY0Ce6YlNKlds=;
+	b=P587iVwgbF44OO28N4jlwbpOHEhnfchZWFRllkzxK0GGIgNVuecUus3cobdbyHh9
+	sFm7789+HsKIOKzLD8MxLeoHY8fNwWC0573IQ2/sbxWMnT4MGkdPcQFIBIk7kywNEZn
+	Yridc5BIutZcd8E1Vdv59jAaSWQ/31F9/Mk6nB1mGfq0KSNwkrUZ+MkHkzuASM+woj7
+	GNeZiK4q8OZG4JxS7adIaUqnrinX3ynCbWD2BCQOUZjKATJy2er9vT8aMnhEKuTy9lJ
+	W/aeNnqHChFtyLL0tjcdxXnDZLwYvtwRtYV+M3gPOkvOc9cBkObYlJDJoH5jsp40VeQ
+	RSHdGc4R1g==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1728889893;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:List-Unsubscribe:List-Unsubscribe-Post:List-ID:Content-Type:Feedback-ID;
+	bh=xBaDTYfyblFR7PiyvoDONkiHMN92qAYY0Ce6YlNKlds=;
+	b=ObjA7ZxJhqWqWtMRYRKCFz0Q3dl0/BP34rP7f5GKxNr+xivONNrQlEZAUBnUBkUQ
+	qm8Dye3smjCUEeHJ5tUlyE44F04kPfzS65tnmo0VmKqSse33QzH4XTcYO0JApsUVb4w
+	RCWt7rNjXMdND3NXWfFAeVswQoK8OKL6/Y8EI9Ho=
+Date: Mon, 14 Oct 2024 07:11:32 +0000
+From: Built for Mars <peter@builtformars.com>
+Reply-To: Built for Mars <peter@builtformars.com>
+To: n2rss@nicopico.fr
+Message-ID: <0100019289de2f93-c8853fe8-1155-4775-bfa9-e7805d82c031-000000@email.amazonses.com>
+Subject: =?utf-8?B?VVggQml0ZXMgIzM2IOKAlCBOQkEsIE9jdG9wdXMgJiBFdHN5?=
+MIME-Version: 1.0
+List-Unsubscribe: <mailto:cm28oeidd00f20lk4h81g1m8b+400709ad930eac7c7bbc6c443aceb2094018eeedf47a34ff4d97471a85715825@unsubscribe.loops.so?subject=unsubscribe>,<https://app.loops.so/unsubscribe/cm28oeidd00f20lk4h81g1m8b/400709ad930eac7c7bbc6c443aceb2094018eeedf47a34ff4d97471a85715825>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Precedence: Bulk
+X-Auto-Response-Suppress: All
+List-ID: "Built for Mars - UX Bites" <clxf2u7un000o0ljz7zd96xvr.builtformars.com>
+Content-Type: multipart/alternative; boundary=p6go3shxu3f
+Feedback-ID: ::1.us-east-1.1nRXWOT+ETvogqnAUaOa7HjKGx1p40xVES7T8DfH/Gc=:AmazonSES
+X-SES-Outgoing: 2024.10.14-76.223.139.17
+X-alwaysdata-Spam-Report: 	2.00 DCC_REJECT [bulk Body=1 Fuz1=1 Fuz2=many rep=88% ] - Rejected by DCC
+	0.50 URI_COUNT_ODD [15]
+	0.10 ONCE_RECEIVED - One received header in a message
+	0.10 MANY_INVISIBLE_PARTS [2] - Many parts are visually hidden
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 RWL_MAILSPIKE_VERYGOOD [76.223.139.17:from] - From address is listed in
+ RWL - very good reputation
+	0.00 REPLYTO_EQ_FROM - Reply-To header is identical to From header
+	0.00 RCVD_TLS_ALL - All hops used encrypted transports
+	0.00 RCVD_COUNT_ONE [1] - Message has one Received header
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PRECEDENCE_BULK - Message marked as bulk
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [peter@builtformars.com] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [builtformars.com:+, amazonses.com:+] - DKIM trace symbol
+	0.00 ASN [asn:14618, ipnet:76.223.136.0/21, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.20 R_DKIM_ALLOW [builtformars.com:s=i4nn6orizbjoi2hrjxwdh5kzi7psyv3z,
+ amazonses.com:s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug] - DKIM verification succeed
+	-0.39 URL_REPUTATION [-0.39364649114613]
+	-0.43 IP_REPUTATION_HAM [asn: 14618(-0.17), country: US(-0.00),
+ ip: 76.223.139.17(-0.26)]
+	-0.50 DMARC_POLICY_ALLOW [builtformars.com, none] - DMARC permit policy
+X-alwaysdata-Spam-Score: 1.06
+
+--p6go3shxu3f
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+Your weekly dose of UX ideas and inspiration, curated by Built for Mars.
+
+͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­
+Hey 👋, 
+I'm in the deep end on a new case study right now.
+The part where I rewrite the same sentence 50 times.
+The part where I just delete it anyway and use a meme.
+Anyway, here's another batch of UX Bites.
+
+
+
+
+1. Spoiler-free mode
+
+The NBA app will let you hide match spoilers as you browse.
+
+https://builtformars.com/ux-bites/nbas-spoiler-free-mode
+
+NBA — Browsing Preferences
+
+
+
+
+2. Your first quick win
+
+When signing up to Me+, you'll be encouraged to pick one "easy" task to start.
+This acts as both onboarding, and gets a quick win under your belt.
+
+https://builtformars.com/ux-bites/your-first-task-is-easy
+
+Me+ — Habits
+
+
+
+
+3. Your hold music...
+
+Octopus Energy allows you to customise your hold music if you call them.
+(And by default, they'll use your date of birth and play a nostalgic hit from your childhood).
+
+https://builtformars.com/ux-bites/select-your-hold-music
+
+Octopus Energy — Personalisation
+
+
+
+
+4. Planning your day
+
+When creating a daily plan on Structured, you can either answer questions about today (in the past tense), or plan for tomorrow
+(framed in the future).
+This subtle framing could make it easier to create a realistic schedule.
+
+https://builtformars.com/ux-bites/planning-your-day
+
+Structured — Framing
+
+
+
+
+5. Getting back on the wagon
+
+If you return to Headspace after a period of inactivity, one of your daily tasks will be to learn about "getting back on the
+wagon".
+It'll tell you about the effectiveness of routine and nudges. And then immediately prompt you to turn on reminders as a way of
+doing that.
+
+https://builtformars.com/ux-bites/getting-back-on-the-wagon
+
+Headspace — Habits
+BFM+ CONTENT LOCKED 🔒
+
+
+
+Get the extended version of these weekly newsletters with BFM+ [https://builtformars.com/pricing].
+
+
+
+P.S. I'm looking to hire a freelance UI designer right now.
+If you're keen, reply to this email with a link to your portfolio (or whatever similar you have).
+Peter
+
+
+
+Good UX takes time. Bad UX costs money.
+You are receiving this email because you opted-in to receive email from the list UX Bites from Built for Mars
+Built for Mars, 10 Beacon Drive, Seaford, BN252JY, UK
+Unsubscribe [https://app.loops.so/unsubscribe/cm28oeidd00f20lk4h81g1m8b/400709ad930eac7c7bbc6c443aceb2094018eeedf47a34ff4d97471a85715825]
+
+--p6go3shxu3f
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html lang=3D"en" dir=3D"auto" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=
+:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:o=
+ffice:office" style=3D"background-color: #ffffff;">
+  <head>
+    <title>UX Bites #36 =E2=80=94 NBA, Octopus &amp; Etsy</title>
+    <!--[if !mso]><!-->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <!--<![endif]-->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1">
+    <style type=3D"text/css">
+      #outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }
+    </style>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+   =20
+      <!--[if !mso]><!-->
+        <link href=3D"https://fonts.googleapis.com/css?family=3DArial:400,6=
+00" rel=3D"stylesheet" type=3D"text/css">
+        <style type=3D"text/css">
+          @import url(https://fonts.googleapis.com/css?family=3DArial:400,6=
+00);
+        </style>
+      <!--<![endif]-->
+
+   =20
+   =20
+    <style type=3D"text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+      }
+    </style>
+    <style media=3D"screen and (min-width:480px)">
+      .moz-text-html .mj-column-per-100 { width:100% !important; max-width:=
+ 100%; }
+    </style>
+   =20
+   =20
+ =20
+   =20
+    <style type=3D"text/css">
+
+    @media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }
+ =20
+    </style>
+    =20
+    <style type=3D"text/css">
+.wfix {
+          max-width: 2400px !important;
+        }
+        @media(max-width: 599px) {
+          .body-image-mobile-width-576 td { width: 576px !important; } .bod=
+y-image-mobile-width-110 td { width: 110px !important; }
+          .body-image td  { max-width: 100% !important; }
+          .body-image img  { box-sizing: border-box; }
+          .social-icon-mobile-spacer {
+            display: inline-block !important;
+          }
+        }
+    </style>
+    <style>
+          .wrapper {
+            padding: 0 12px;
+          }
+
+          /* Superhuman selector */
+          .ShadowHTML .wrapper {
+            padding: 0 !important;
+          }
+
+        =20
+        =20
+        =20
+        =20
+      .isMarketing { background-color: #ffffff !important; }
+      .isMarketing .styled-primary-column { background-color: #ffffff !impo=
+rtant; border-radius: 12px; }
+   =20
+        =20
+
+          /* Gmail selectors */
+          u + .body .wrapper {
+            padding: 0 !important;
+          }
+          div > u + .body .wrapper {
+            padding: 0 !important;
+          }
+         =20
+    a { text-decoration: none; color: #E44D1D !important; }
+   =20
+ =20
+         =20
+         =20
+          .link-unsubscribe { color: #9ca3af !important; }
+          </style>
+<meta name=3D"color-scheme" content=3D"light">
+          <meta name=3D"supported-color-schemes" content=3D"light">
+  </head>
+  <body class=3D"body" style=3D"word-spacing:normal;background-color:#fffff=
+f;">
+   =20
+    <div style=3D"display:none;font-size:1px;color:#ffffff;line-height:1px;=
+max-height:0px;max-width:0px;opacity:0;overflow:hidden;">Your weekly dose o=
+f UX ideas and inspiration, curated by Built for Mars.</div>
+ =20
+   =20
+      <div class=3D"email-body" style=3D"background-color:#ffffff;" lang=3D=
+"en" dir=3D"auto">
+        <img alt=3D"" src=3D"http://c.vialoops.com/CI0/0100019289de2f93-c88=
+53fe8-1155-4775-bfa9-e7805d82c031-000000/PnjVkj0uFpbVaGY5e-WfcvHUPUCjCauPg9=
+j4hmfjqEY=3D374" style=3D"display: none; width: 1px; height: 1px;">
+<div style=3D"display: none; max-height: 0px; overflow: hidden;">&#847;&#82=
+03;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#81=
+99;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847=
+;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp=
+;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;=
+&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;=
+&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;=
+&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#=
+8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#=
+8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#8=
+47;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nb=
+sp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&sh=
+y;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#820=
+3;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#819=
+9;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;=
+&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;=
+&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&=
+#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&=
+nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&=
+shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8=
+203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8=
+199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#84=
+7;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbs=
+p;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy=
+;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203=
+;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199=
+;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&=
+#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&=
+#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#=
+847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&n=
+bsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&s=
+hy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#82=
+03;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#81=
+99;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847=
+;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp=
+;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;=
+&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;=
+&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;=
+&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#=
+8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#=
+8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#8=
+47;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nb=
+sp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&sh=
+y;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#820=
+3;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#819=
+9;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;=
+&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;=
+&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&=
+#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&=
+nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&=
+shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8=
+203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8=
+199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#84=
+7;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbs=
+p;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy=
+;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203=
+;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199=
+;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&=
+#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&=
+#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#=
+847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&n=
+bsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&s=
+hy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#82=
+03;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#81=
+99;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847=
+;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp=
+;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;=
+&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;=
+&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;=
+&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#=
+8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#=
+8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#8=
+47;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nb=
+sp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&sh=
+y;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#820=
+3;&nbsp;&#8199;&shy;</div>
+        <!--[if mso]><style type=3D"text/css"> a { text-decoration: underli=
+ne !important; } .button a { text-decoration: none !important; } .outlook-l=
+ist-fix { margin-left:4px !important; } .outlook-break-full-link { word-bre=
+ak: break-all !important; } .outlook-hide-social-icon { display: none !impo=
+rtant; mso-hide:all; width: 0px !important; padding: 0px !important; } .out=
+look-hide-social-icon * { display: none !important; mso-hide:all; width: 0p=
+x !important; padding: 0px !important; } .outlook-hide-social-icon table { =
+display: none !important; mso-hide:all; width: 0px !important; padding: 0px=
+ !important; } .outlook-hide-social-icon tbody { display: none !important; =
+mso-hide:all; width: 0px !important; padding: 0px !important; } .outlook-hi=
+de-social-icon tr { display: none !important; mso-hide:all; width: 0px !imp=
+ortant; padding: 0px !important; } .outlook-hide-social-icon td { display: =
+none !important; mso-hide:all; width: 0px !important; padding: 0px !importa=
+nt; } .outlook-hide-social-icon img { display: none !important; mso-hide:al=
+l; width: 0px !important; padding: 0px !important; } .outlook-hide-social-i=
+con a { display: none !important; mso-hide:all; width: 0px !important; padd=
+ing: 0px !important; }
+</style><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"ml-outlook wfix-outlook gmail-no-padding-outlook wrapper-ou=
+tlook" role=3D"presentation" style=3D"width:600px;" width=3D"600" ><tr><td =
+style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![en=
+dif]-->
+   =20
+     =20
+      <div class=3D"ml wfix gmail-no-padding wrapper" style=3D"margin: 0px =
+auto; max-width: 600px; margin-left: 0px !important;">
+       =20
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;paddi=
+ng-top:0;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"wfix-outlook" width=
+=3D"600px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"wfix-outlook" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-h=
+eight-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div class=3D"wfix" style=3D"margin:0px auto;max-width:600px;">
+       =20
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;paddi=
+ng-bottom:24px;padding-left:0px;padding-right:0px;padding-top:24px;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td align=3D"center" class=3D"wfix=
+-outlook rounded-corners-outlook styled-primary-column-outlook" style=3D"ve=
+rtical-align:top;width:600px;" ><![endif]-->
+           =20
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix wfix rounded-cor=
+ners styled-primary-column" style=3D"font-size: 0px; text-align: left; dire=
+ction: ltr; display: inline-block; vertical-align: top; width: 100%; max-wi=
+dth: 600px !important;">
+       =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" width=3D"100%" style=3D"border-collapse: separate;">
+        <tbody>
+          <tr>
+            <td style=3D"background-color:#ffffff;border-radius:12px;vertic=
+al-align:top;padding-top:0px;padding-right:12px;padding-bottom:0px;padding-=
+left:12px;">
+             =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style width=3D"100%">
+        <tbody>
+         =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Hey=C2=A0=F0=9F=91=8B,=C2=A0</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">I'm in the </span><span style=3D"font-style: italic; font-siz=
+e: 15px; white-space: pre-wrap; line-height: 27px !important; font-size: 15=
+px !important;" class=3D"italic">deep end</span><span style=3D"line-height:=
+ 27px !important; font-size: 15px; font-size: 15px !important; white-space:=
+ pre-wrap;"> on a new case study right now.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">The part where I rewrite the same sentence 50 times.</span></=
+div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">The part where I just delete it anyway and use a meme.</span>=
+</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Anyway, here's another batch of </span><span style=3D"font-we=
+ight: 600; font-size: 15px; white-space: pre-wrap; line-height: 27px !impor=
+tant; font-size: 15px !important;" class=3D"bold">UX Bites</span><span styl=
+e=3D"line-height: 27px !important; font-size: 15px; font-size: 15px !import=
+ant; white-space: pre-wrap;">.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:12p=
+x;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:20px;line-heigh=
+t:36px !important;text-align:left;color:#000000;"><h2 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 20px; color: #=
+000000 !important; line-height: 36px !important; font-size: 20px !important=
+;"><span style=3D"font-weight: 600; font-size: 20px; white-space: pre-wrap;=
+ line-height: 36px !important; font-size: 20px !important;" class=3D"bold">=
+1. Spoiler-free mode</span></h2></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">The </span><span style=3D"font-weight: 600; font-size: 15px; =
+white-space: pre-wrap; line-height: 27px !important; font-size: 15px !impor=
+tant;" class=3D"bold">NBA</span><span style=3D"line-height: 27px !important=
+; font-size: 15px; font-size: 15px !important; white-space: pre-wrap;"> app=
+ will let you hide match spoilers as you browse.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"body-image body-image-mobile-wi=
+dth-576" style=3D"font-size:0px;padding:10px 25px;padding-top:20px;padding-=
+right:0px;padding-bottom:4px;padding-left:0px;word-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fux-bites%2Fnbas-spoiler-free-mode/1/0100019289de2f93-c8853fe8-1155-4775-b=
+fa9-e7805d82c031-000000/E5CTAxQw7CHGcgY6NPT_2XDaxckGthrXRxHVcygUFEY=3D374" =
+target=3D"_blank" style=3D"text-decoration: none; color: #E44D1D !important=
+;">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/cm28nvfvw006qic=
+7xomk6qt93/cm28nvg57006tic7x7sauojwf.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:4p=
+x;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">NBA =E2=80=94 Browsing Preferences</span></=
+div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:12p=
+x;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:20px;line-heigh=
+t:36px !important;text-align:left;color:#000000;"><h2 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 20px; color: #=
+000000 !important; line-height: 36px !important; font-size: 20px !important=
+;"><span style=3D"font-weight: 600; font-size: 20px; white-space: pre-wrap;=
+ line-height: 36px !important; font-size: 20px !important;" class=3D"bold">=
+2. Your first quick win</span></h2></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">When signing up to </span><span style=3D"font-weight: 600; fo=
+nt-size: 15px; white-space: pre-wrap; line-height: 27px !important; font-si=
+ze: 15px !important;" class=3D"bold">Me+</span><span style=3D"line-height: =
+27px !important; font-size: 15px; font-size: 15px !important; white-space: =
+pre-wrap;">, you'll be encouraged to pick one "easy" task to start. </span>=
+</div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">This acts as both onboarding, and gets a </span><span style=
+=3D"font-weight: 600; font-size: 15px; white-space: pre-wrap; line-height: =
+27px !important; font-size: 15px !important;" class=3D"bold">quick win</spa=
+n><span style=3D"line-height: 27px !important; font-size: 15px; font-size: =
+15px !important; white-space: pre-wrap;"> under your belt.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"body-image body-image-mobile-wi=
+dth-576" style=3D"font-size:0px;padding:10px 25px;padding-top:20px;padding-=
+right:0px;padding-bottom:4px;padding-left:0px;word-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fux-bites%2Fyour-first-task-is-easy/1/0100019289de2f93-c8853fe8-1155-4775-=
+bfa9-e7805d82c031-000000/sBQe_YggUw0CKXLOl7swcE2mVIoNFlBDVzrwSuS8F5A=3D374"=
+ target=3D"_blank" style=3D"text-decoration: none; color: #E44D1D !importan=
+t;">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/cm28nvfvw006qic=
+7xomk6qt93/cm28nvgdc0071ic7x4cp21dog.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">Me+ =E2=80=94 Habits</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:12p=
+x;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:20px;line-heigh=
+t:36px !important;text-align:left;color:#000000;"><h2 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 20px; color: #=
+000000 !important; line-height: 36px !important; font-size: 20px !important=
+;"><span style=3D"font-weight: 600; font-size: 20px; white-space: pre-wrap;=
+ line-height: 36px !important; font-size: 20px !important;" class=3D"bold">=
+3. Your hold music...</span></h2></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"font-weigh=
+t: 600; font-size: 15px; white-space: pre-wrap; line-height: 27px !importan=
+t; font-size: 15px !important;" class=3D"bold">Octopus Energy</span><span s=
+tyle=3D"line-height: 27px !important; font-size: 15px; font-size: 15px !imp=
+ortant; white-space: pre-wrap;"> allows you to customise your hold music if=
+ you call them.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">(And by default, they'll use your date of birth and play a no=
+stalgic hit from your childhood).</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"body-image body-image-mobile-wi=
+dth-576" style=3D"font-size:0px;padding:10px 25px;padding-top:20px;padding-=
+right:0px;padding-bottom:4px;padding-left:0px;word-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fux-bites%2Fselect-your-hold-music/1/0100019289de2f93-c8853fe8-1155-4775-b=
+fa9-e7805d82c031-000000/o0hAKiQ9fq7YsRuLeUcAn7UIMms_4IQww4Q0e47N5nI=3D374" =
+target=3D"_blank" style=3D"text-decoration: none; color: #E44D1D !important=
+;">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/cm28nvfvw006qic=
+7xomk6qt93/cm28nvg2m006ric7xf3b2pqg6.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">Octopus Energy =E2=80=94 Personalisation</s=
+pan></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:12p=
+x;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:20px;line-heigh=
+t:36px !important;text-align:left;color:#000000;"><h2 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 20px; color: #=
+000000 !important; line-height: 36px !important; font-size: 20px !important=
+;"><span style=3D"font-weight: 600; font-size: 20px; white-space: pre-wrap;=
+ line-height: 36px !important; font-size: 20px !important;" class=3D"bold">=
+4. Planning your day</span></h2></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">When creating a daily plan on </span><span style=3D"font-weig=
+ht: 600; font-size: 15px; white-space: pre-wrap; line-height: 27px !importa=
+nt; font-size: 15px !important;" class=3D"bold">Structured</span><span styl=
+e=3D"line-height: 27px !important; font-size: 15px; font-size: 15px !import=
+ant; white-space: pre-wrap;">, you can either answer questions about today =
+(in the past tense), or plan for tomorrow (framed in the future).</span></d=
+iv>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">This subtle framing could make it easier to create a realisti=
+c schedule.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"body-image body-image-mobile-wi=
+dth-576" style=3D"font-size:0px;padding:10px 25px;padding-top:20px;padding-=
+right:0px;padding-bottom:4px;padding-left:0px;word-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fux-bites%2Fplanning-your-day/1/0100019289de2f93-c8853fe8-1155-4775-bfa9-e=
+7805d82c031-000000/HRyg16YmnEqwdUPVqYgfauWbR4nOdv-JamlZnmqeTfc=3D374" targe=
+t=3D"_blank" style=3D"text-decoration: none; color: #E44D1D !important;">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/cm28nvfvw006qic=
+7xomk6qt93/cm28nvg9r006yic7xaq7vjvnb.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">Structured =E2=80=94 Framing</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:32px;padding-right:0px;padding-bottom:32px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:12p=
+x;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:20px;line-heigh=
+t:36px !important;text-align:left;color:#000000;"><h2 class=3D"dark-force" =
+style=3D"padding: 0; margin: 0; font-weight: 500; font-size: 20px; color: #=
+000000 !important; line-height: 36px !important; font-size: 20px !important=
+;"><span style=3D"font-weight: 600; font-size: 20px; white-space: pre-wrap;=
+ line-height: 36px !important; font-size: 20px !important;" class=3D"bold">=
+5. Getting back on the wagon</span></h2></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">If you return to </span><span style=3D"font-weight: 600; font=
+-size: 15px; white-space: pre-wrap; line-height: 27px !important; font-size=
+: 15px !important;" class=3D"bold">Headspace</span><span style=3D"line-heig=
+ht: 27px !important; font-size: 15px; font-size: 15px !important; white-spa=
+ce: pre-wrap;"> after a period of inactivity, one of your daily tasks will =
+be to learn about "getting back on the wagon".</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">It'll tell you about the effectiveness of routine and nudges.=
+ And then </span><span style=3D"font-style: italic; font-size: 15px; white-=
+space: pre-wrap; line-height: 27px !important; font-size: 15px !important;"=
+ class=3D"italic">immediately</span><span style=3D"line-height: 27px !impor=
+tant; font-size: 15px; font-size: 15px !important; white-space: pre-wrap;">=
+ prompt you to turn on reminders as a way of doing that.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"body-image body-image-mobile-wi=
+dth-576" style=3D"font-size:0px;padding:10px 25px;padding-top:20px;padding-=
+right:0px;padding-bottom:4px;padding-left:0px;word-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fux-bites%2Fgetting-back-on-the-wagon/1/0100019289de2f93-c8853fe8-1155-477=
+5-bfa9-e7805d82c031-000000/7U-n9DMu9XxmXaitm8maH8LwBiCqyR-QlhM2TRdjAMU=3D37=
+4" target=3D"_blank" style=3D"text-decoration: none; color: #E44D1D !import=
+ant;">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/cm28nvfvw006qic=
+7xomk6qt93/cm28nvg7c006vic7x4bonziq1.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">Headspace =E2=80=94 Habits</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:60px;padding-right:0px;padding-bottom:0=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:12px;line-heigh=
+t:22px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+a8a8a8; line-height: 22px !important; font-size: 12px; font-size: 12px !imp=
+ortant; white-space: pre-wrap;">BFM+ CONTENT LOCKED </span><span style=3D"l=
+ine-height: 22px !important; font-size: 12px; font-size: 12px !important; w=
+hite-space: pre-wrap;">=F0=9F=94=92</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:4px;padding-right:0px;padding-bottom:12px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"border-radius-12" style=3D"bo=
+rder-radius: 12px; overflow: hidden; background: #F5F3ED; font-size: 0px; p=
+adding: 10px 25px; padding-top: 20px; padding-right: 16px; padding-bottom: =
+20px; padding-left: 16px; word-break: break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:center;color:#000000;"><span style=3D"line-hei=
+ght: 27px !important; font-size: 15px; font-size: 15px !important; white-sp=
+ace: pre-wrap;">Get the </span><span style=3D"font-weight: 600; font-size: =
+15px; white-space: pre-wrap; line-height: 27px !important; font-size: 15px =
+!important;" class=3D"bold">extended</span><span style=3D"line-height: 27px=
+ !important; font-size: 15px; font-size: 15px !important; white-space: pre-=
+wrap;"> version of these weekly newsletters with </span><a target=3D"_blank=
+" rel=3D"noopener noreferrer" class=3D"body-link" href=3D"https://c.vialoop=
+s.com/CL0/https:%2F%2Fbuiltformars.com%2Fpricing/1/0100019289de2f93-c8853fe=
+8-1155-4775-bfa9-e7805d82c031-000000/Cy0uH9pmkIf-UxJny0pNUO_U9tvLmQYxycg7n8=
+T2Qbo=3D374" style=3D"text-decoration: none; color: #E44D1D !important;"><s=
+pan style=3D"font-size: 15px; white-space: pre-wrap; text-decoration: under=
+line !important; line-height: 27px !important; font-size: 15px !important;"=
+ class=3D"underline">BFM+</span></a><span style=3D"line-height: 27px !impor=
+tant; font-size: 15px; font-size: 15px !important; white-space: pre-wrap;">=
+.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"divider" style=3D"font-size:0=
+px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:60px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <p style=3D"border-top:solid 1px #E9E9E9;font-size:1px;margin:0px aut=
+o;width:100%;">
+      </p>
+     =20
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #E9E9E9;font-size:1px;m=
+argin:0px auto;width:576px;" role=3D"presentation" width=3D"576px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]-->
+   =20
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"font-weigh=
+t: 600; font-size: 15px; white-space: pre-wrap; line-height: 27px !importan=
+t; font-size: 15px !important;" class=3D"bold">P.S. I'm looking to hire a f=
+reelance UI designer right now</span><span style=3D"line-height: 27px !impo=
+rtant; font-size: 15px; font-size: 15px !important; white-space: pre-wrap;"=
+>. </span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">If you're keen, reply to this email with a link to your portf=
+olio (or whatever similar you have).</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:28px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"font-style=
+: italic; font-size: 15px; white-space: pre-wrap; line-height: 27px !import=
+ant; font-size: 15px !important;" class=3D"italic">Peter</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"body-image body-image-mobile-wi=
+dth-110" style=3D"font-size:0px;padding:10px 25px;padding-top:60px;padding-=
+right:0px;padding-bottom:12px;padding-left:0px;word-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:110px;">
+             =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/cly96l55r002w23=
+z55x3ofj44/cly977vjf00sx1r8eqt8q0wta.png" style=3D"border:0;border-radius:0=
+px;display:block;outline:none;text-decoration:none;height:auto;width:100%;f=
+ont-size:13px;" width=3D"110" height=3D"auto">
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:14px;line-heigh=
+t:25px !important;text-align:left;color:#000000;"><span style=3D"color: #7F=
+7F7F; line-height: 25px !important; font-size: 14px; font-size: 14px !impor=
+tant; white-space: pre-wrap;">Good UX takes time. Bad UX costs money.</span=
+></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:24px;padding-right:0px;padding-left:0px;w=
+ord-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:12px;line-heigh=
+t:22px !important;text-align:left;color:#9ca3af;"><span class=3D"opt-in-exp=
+lanation" style=3D"color: #9ca3af !important; font-size: 12px !important; l=
+ine-height: 22px !important;">
+  You are receiving this email because you opted-in to receive email from t=
+he list UX Bites from Built for Mars<br>
+  Built for Mars, 10 Beacon Drive, Seaford, BN252JY, UK<br>
+  <a style=3D"font-weight: 600; color: #9ca3af !important; text-decoration:=
+ none !important; font-size: 12px !important; line-height: 22px !important;=
+" href=3D"https://c.vialoops.com/CL0/https:%2F%2Fapp.loops.so%2Funsubscribe=
+%2Fcm28oeidd00f20lk4h81g1m8b%2F400709ad930eac7c7bbc6c443aceb2094018eeedf47a=
+34ff4d97471a85715825/1/0100019289de2f93-c8853fe8-1155-4775-bfa9-e7805d82c03=
+1-000000/D4-av5YKKseUyIRtey8Bq-8VtKgiYAG_kWlvRWytLp8=3D374" target=3D"_blan=
+k" rel=3D"noopener noreferrer" class=3D"bold link-unsubscribe">
+  Unsubscribe
+  </a>
+  </span></div>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+   =20
+   =20
+      </div>
+   =20
+  </body>
+</html>
+ =20
+
+--p6go3shxu3f--

@@ -1,0 +1,746 @@
+Return-Path: <010001929eb05314-53f70251-0ed5-49ab-a597-acf071886e24-000000@envelope.builtformars.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap3.paris1.alwaysdata.com with LMTPS
+	id qCNtNa0YEmegBgAA5hnrLg
+	(envelope-from <010001929eb05314-53f70251-0ed5-49ab-a597-acf071886e24-000000@envelope.builtformars.com>)
+	for <n2rss@nicopico.fr>; Fri, 18 Oct 2024 10:13:33 +0200
+Return-path: <010001929eb05314-53f70251-0ed5-49ab-a597-acf071886e24-000000@envelope.builtformars.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Fri, 18 Oct 2024 10:13:33 +0200
+Received: from c139-17.smtp-out.amazonses.com ([76.223.139.17])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <010001929eb05314-53f70251-0ed5-49ab-a597-acf071886e24-000000@envelope.builtformars.com>)
+	id 1t1i70-0003Oz-KM
+	for n2rss@nicopico.fr; Fri, 18 Oct 2024 10:13:31 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=i4nn6orizbjoi2hrjxwdh5kzi7psyv3z; d=builtformars.com;
+	t=1729239208;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:List-Unsubscribe:List-Unsubscribe-Post:List-ID:Content-Type;
+	bh=kUU8lGPBGQ9sK2MGA8MwZGVoU7nPoUtQiwrCLOcJOm0=;
+	b=DT+2wkAZzqTCyV7wkz1s6XDWlkVvpIpjxVYnOTZmXjLwVUFwSmZ8ZcjD+8xzhZ/b
+	fZ0Dmv4C+ACLZ7F2Cjmya8GlK+UxNKZasUdafNCFJ62xe+IXpCz0z+kEM+X1UbfpdGH
+	r4WcQl8XPaaTEnvpc2soJ4gCgExtACfEM+XbryQ5GmYR3kvtVTVGwUjcGH56HMPa52w
+	D6bnDyM63IRqUs17V+xKGw+hkuEtZIoddweGA5tNdSSUYqs997fDv2Kx8ypdzUFwknN
+	ebVA7W+gnA4nV63LyQdSWST4f/bERnIpXYvyHHK5sYKkjLgGDhIaZmbT+8XYyA0hWpw
+	y4d4DmCJKQ==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug; d=amazonses.com; t=1729239208;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:List-Unsubscribe:List-Unsubscribe-Post:List-ID:Content-Type:Feedback-ID;
+	bh=kUU8lGPBGQ9sK2MGA8MwZGVoU7nPoUtQiwrCLOcJOm0=;
+	b=mhtSB8ojEtDo420hm++AvVN79nL19zvKn6l32duGLkeQnsNLzmILf8D6F+r1woLl
+	YqOhVLsPWdR1T8yWfT0S0aVIZFuBUSPN7C5uJ/OtmeZEjaBrLLyBsvPTQX7ce17I7XW
+	NgokXfFZN4x0/boVckvW1NokOPcX0cb+Tp6USdjs=
+Date: Fri, 18 Oct 2024 08:13:28 +0000
+From: Built for Mars <peter@builtformars.com>
+Reply-To: Built for Mars <peter@builtformars.com>
+To: n2rss@nicopico.fr
+Message-ID: <010001929eb05314-53f70251-0ed5-49ab-a597-acf071886e24-000000@email.amazonses.com>
+Subject: =?utf-8?B?QkZNICM3NzogQSBtYXN0ZXJjbGFzcyBpbiB1c2VyIGFjdGl2YXRpb24g8J+ZjA==?=
+MIME-Version: 1.0
+List-Unsubscribe: <mailto:cm2egdk9500cn0mledvs1clq3+cdf9c3f742d1e2ee71c59f3a693d1ec6d126b3b3a6a5e563848c7d285faea0e8@unsubscribe.loops.so?subject=unsubscribe>,<https://app.loops.so/unsubscribe/cm2egdk9500cn0mledvs1clq3/cdf9c3f742d1e2ee71c59f3a693d1ec6d126b3b3a6a5e563848c7d285faea0e8>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Precedence: Bulk
+X-Auto-Response-Suppress: All
+List-ID: "Built for Mars - Case studies" <clxf2u0q2002r0mjt04zs9d6c.builtformars.com>
+Content-Type: multipart/alternative; boundary=m9xom04k8t
+Feedback-ID: ::1.us-east-1.1nRXWOT+ETvogqnAUaOa7HjKGx1p40xVES7T8DfH/Gc=:AmazonSES
+X-SES-Outgoing: 2024.10.18-76.223.139.17
+X-alwaysdata-Spam-Report: 	2.00 DCC_REJECT [bulk Body=1 Fuz1=many Fuz2=many rep=86% ] - Rejected by DCC
+	0.50 URI_COUNT_ODD [9]
+	0.10 ONCE_RECEIVED - One received header in a message
+	0.10 MANY_INVISIBLE_PARTS [2] - Many parts are visually hidden
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 RWL_MAILSPIKE_VERYGOOD [76.223.139.17:from] - From address is listed in
+ RWL - very good reputation
+	0.00 REPLYTO_EQ_FROM - Reply-To header is identical to From header
+	0.00 RCVD_TLS_ALL - All hops used encrypted transports
+	0.00 RCVD_COUNT_ONE [1] - Message has one Received header
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PRECEDENCE_BULK - Message marked as bulk
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [peter@builtformars.com] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [builtformars.com:+, amazonses.com:+] - DKIM trace symbol
+	0.00 BAYES_HAM [12.37%] - Message probably ham, probability:
+	0.00 ASN [asn:14618, ipnet:76.223.136.0/21, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.20 R_DKIM_ALLOW [builtformars.com:s=i4nn6orizbjoi2hrjxwdh5kzi7psyv3z,
+ amazonses.com:s=ug7nbtf4gccmlpwj322ax3p6ow6yfsug] - DKIM verification succeed
+	-0.45 IP_REPUTATION_HAM [asn: 14618(-0.17), country: US(-0.00),
+ ip: 76.223.139.17(-0.28)]
+	-0.49 URL_REPUTATION [-0.49431419385483]
+	-0.50 DMARC_POLICY_ALLOW [builtformars.com, none] - DMARC permit policy
+X-alwaysdata-Spam-Score: 0.94
+
+--m9xom04k8t
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+This is how Headspace use psychology to activate new users, and why it's so effective.
+
+͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏
+  ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­͏   ­
+Hey 👋, 
+Headspace: the orange-blob-face that tells me to breathe more slowly.
+They're experts at user activation.
+This is a masterclass. Get ready to learn some UX magic.
+
+https://builtformars.com/case-studies/headspace
+
+A masterclass in user activation (96% of them)
+https://link.mail.beehiiv.com/ss/c/u001.IjP4tPQBd4ThSE9ZLE1FDglBooqN0mdoUQ75f8XHGoRPbLWmJYCI3OattGKKdp3wrjZzm_DUw-DJiLa6GO2qL8IYnGbvQ-9tJVsQ9Dm_4R9tKUPIMajr8KQYUiVYQfhNBVWinFxoIjGzGFX9-4Cf9aWZapeuOg7eah7B6SgUBf5cLUx9aJwfuySdbtVI5qe-M1Tgvx2WiIA2Xwlb_V_OBg/46x/yzApv6GZREWgLMO11cC6Pw/h1/h001.ZoBYDm7yn0jV3YYosNzKYp5_SscONScN_vRQ9rjDNNU
+
+Read case study (8 mins) [https://builtformars.com/case-studies/headspace]
+
+P.S., this is the 75th case study. 75 months in a row. Didn't miss a single one.
+Although for some reason the email numbering is 2 ahead (this is #77).
+I have no idea why and I'm too afraid to change it.
+Peter
+
+
+
+Good UX numbering systems takes time. Bad UX numbering systems costs money make you look like an idiot.
+ 
+You are receiving this email because you opted-in to receive email from the list Case studies from Built for Mars
+Built for Mars, 10 Beacon Drive, Seaford, BN252JY, UK
+Unsubscribe [https://app.loops.so/unsubscribe/cm2egdk9500cn0mledvs1clq3/cdf9c3f742d1e2ee71c59f3a693d1ec6d126b3b3a6a5e563848c7d285faea0e8]
+
+--m9xom04k8t
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html lang=3D"en" dir=3D"auto" xmlns=3D"http://www.w3.org/1999/xhtml" xmlns=
+:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:o=
+ffice:office" style=3D"background-color: #ffffff;">
+  <head>
+    <title>BFM #77: A masterclass in user activation =F0=9F=99=8C</title>
+    <!--[if !mso]><!-->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <!--<![endif]-->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8=
+">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1">
+    <style type=3D"text/css">
+      #outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }
+    </style>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+   =20
+      <!--[if !mso]><!-->
+        <link href=3D"https://fonts.googleapis.com/css?family=3DArial:400,6=
+00" rel=3D"stylesheet" type=3D"text/css">
+        <style type=3D"text/css">
+          @import url(https://fonts.googleapis.com/css?family=3DArial:400,6=
+00);
+        </style>
+      <!--<![endif]-->
+
+   =20
+   =20
+    <style type=3D"text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+      }
+    </style>
+    <style media=3D"screen and (min-width:480px)">
+      .moz-text-html .mj-column-per-100 { width:100% !important; max-width:=
+ 100%; }
+    </style>
+   =20
+   =20
+ =20
+   =20
+    <style type=3D"text/css">
+
+    @media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }
+ =20
+    </style>
+    =20
+    <style type=3D"text/css">
+.wfix {
+          max-width: 2400px !important;
+        }
+        @media(max-width: 599px) {
+          .body-image-mobile-width-576 td { width: 576px !important; } .bod=
+y-image-mobile-width-110 td { width: 110px !important; }
+          .body-image td  { max-width: 100% !important; }
+          .body-image img  { box-sizing: border-box; }
+          .social-icon-mobile-spacer {
+            display: inline-block !important;
+          }
+        }
+    </style>
+    <style>
+          .wrapper {
+            padding: 0 12px;
+          }
+
+          /* Superhuman selector */
+          .ShadowHTML .wrapper {
+            padding: 0 !important;
+          }
+
+        =20
+        =20
+        =20
+        =20
+      .isMarketing { background-color: #ffffff !important; }
+      .isMarketing .styled-primary-column { background-color: #ffffff !impo=
+rtant; border-radius: 12px; }
+   =20
+        =20
+
+          /* Gmail selectors */
+          u + .body .wrapper {
+            padding: 0 !important;
+          }
+          div > u + .body .wrapper {
+            padding: 0 !important;
+          }
+         =20
+    a { text-decoration: none; color: #E44D1D !important; }
+   =20
+ =20
+         =20
+         =20
+          .link-unsubscribe { color: #9ca3af !important; }
+          </style>
+<meta name=3D"color-scheme" content=3D"light">
+          <meta name=3D"supported-color-schemes" content=3D"light">
+  </head>
+  <body class=3D"body" style=3D"word-spacing:normal;background-color:#fffff=
+f;">
+   =20
+    <div style=3D"display:none;font-size:1px;color:#ffffff;line-height:1px;=
+max-height:0px;max-width:0px;opacity:0;overflow:hidden;">This is how Headsp=
+ace use psychology to activate new users, and why it&#39;s so effective.</d=
+iv>
+ =20
+   =20
+      <div class=3D"email-body" style=3D"background-color:#ffffff;" lang=3D=
+"en" dir=3D"auto">
+        <img alt=3D"" src=3D"http://c.vialoops.com/CI0/010001929eb05314-53f=
+70251-0ed5-49ab-a597-acf071886e24-000000/owwFmAwpEKVirzOHELrHrNkWcDBCFRn_li=
+klkrAN6Sw=3D375" style=3D"display: none; width: 1px; height: 1px;">
+<div style=3D"display: none; max-height: 0px; overflow: hidden;">&#847;&#82=
+03;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#81=
+99;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847=
+;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp=
+;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;=
+&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;=
+&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;=
+&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#=
+8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#=
+8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#8=
+47;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nb=
+sp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&sh=
+y;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#820=
+3;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#819=
+9;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;=
+&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;=
+&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&=
+#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&=
+nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&=
+shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8=
+203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8=
+199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#84=
+7;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbs=
+p;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy=
+;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203=
+;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199=
+;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&=
+#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&=
+#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#=
+847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&n=
+bsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&s=
+hy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#82=
+03;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#81=
+99;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847=
+;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp=
+;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;=
+&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;=
+&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;=
+&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#=
+8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#=
+8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#8=
+47;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nb=
+sp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&sh=
+y;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#820=
+3;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#819=
+9;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;=
+&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;=
+&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&=
+#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&=
+nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&=
+shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8=
+203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8=
+199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#84=
+7;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbs=
+p;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy=
+;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203=
+;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199=
+;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&=
+#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&=
+#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#=
+847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&n=
+bsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&s=
+hy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#82=
+03;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#81=
+99;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847=
+;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp=
+;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;=
+&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;=
+&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;=
+&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#=
+8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#=
+8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#8=
+47;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nb=
+sp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&sh=
+y;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#8203;&nbsp;&#8199;&shy;&#847;&#820=
+3;&nbsp;&#8199;&shy;</div>
+        <!--[if mso]><style type=3D"text/css"> a { text-decoration: underli=
+ne !important; } .button a { text-decoration: none !important; } .outlook-l=
+ist-fix { margin-left:4px !important; } .outlook-break-full-link { word-bre=
+ak: break-all !important; } .outlook-hide-social-icon { display: none !impo=
+rtant; mso-hide:all; width: 0px !important; padding: 0px !important; } .out=
+look-hide-social-icon * { display: none !important; mso-hide:all; width: 0p=
+x !important; padding: 0px !important; } .outlook-hide-social-icon table { =
+display: none !important; mso-hide:all; width: 0px !important; padding: 0px=
+ !important; } .outlook-hide-social-icon tbody { display: none !important; =
+mso-hide:all; width: 0px !important; padding: 0px !important; } .outlook-hi=
+de-social-icon tr { display: none !important; mso-hide:all; width: 0px !imp=
+ortant; padding: 0px !important; } .outlook-hide-social-icon td { display: =
+none !important; mso-hide:all; width: 0px !important; padding: 0px !importa=
+nt; } .outlook-hide-social-icon img { display: none !important; mso-hide:al=
+l; width: 0px !important; padding: 0px !important; } .outlook-hide-social-i=
+con a { display: none !important; mso-hide:all; width: 0px !important; padd=
+ing: 0px !important; }
+</style><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"ml-outlook wfix-outlook gmail-no-padding-outlook wrapper-ou=
+tlook" role=3D"presentation" style=3D"width:600px;" width=3D"600" ><tr><td =
+style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![en=
+dif]-->
+   =20
+     =20
+      <div class=3D"ml wfix gmail-no-padding wrapper" style=3D"margin: 0px =
+auto; max-width: 600px; margin-left: 0px !important;">
+       =20
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;paddi=
+ng-top:0;text-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"wfix-outlook" width=
+=3D"600px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"wfix-outlook" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-h=
+eight-rule:exactly;"><![endif]-->
+   =20
+     =20
+      <div class=3D"wfix" style=3D"margin:0px auto;max-width:600px;">
+       =20
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;paddi=
+ng-bottom:24px;padding-left:0px;padding-right:0px;padding-top:24px;text-ali=
+gn:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td align=3D"center" class=3D"wfix=
+-outlook rounded-corners-outlook styled-primary-column-outlook" style=3D"ve=
+rtical-align:top;width:600px;" ><![endif]-->
+           =20
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix wfix rounded-cor=
+ners styled-primary-column" style=3D"font-size: 0px; text-align: left; dire=
+ction: ltr; display: inline-block; vertical-align: top; width: 100%; max-wi=
+dth: 600px !important;">
+       =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" width=3D"100%" style=3D"border-collapse: separate;">
+        <tbody>
+          <tr>
+            <td style=3D"background-color:#ffffff;border-radius:12px;vertic=
+al-align:top;padding-top:0px;padding-right:12px;padding-bottom:0px;padding-=
+left:12px;">
+             =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style width=3D"100%">
+        <tbody>
+         =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Hey=C2=A0=F0=9F=91=8B,=C2=A0</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"font-weigh=
+t: 600; font-size: 15px; white-space: pre-wrap; line-height: 27px !importan=
+t; font-size: 15px !important;" class=3D"bold">Headspace</span><span style=
+=3D"line-height: 27px !important; font-size: 15px; font-size: 15px !importa=
+nt; white-space: pre-wrap;">: the orange-blob-face that tells me to breathe=
+ more slowly.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">They're experts at user activation.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">This is a masterclass. Get ready to learn some UX magic.</spa=
+n></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"body-image body-image-mobile-wi=
+dth-576" style=3D"font-size:0px;padding:10px 25px;padding-top:20px;padding-=
+right:0px;padding-bottom:4px;padding-left:0px;word-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:576px;">
+             =20
+        <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%=
+2Fcase-studies%2Fheadspace/1/010001929eb05314-53f70251-0ed5-49ab-a597-acf07=
+1886e24-000000/cdIs_veQeYOYQZ8aAD1TfSBTSlbPibmP-r6pKIFHNJI=3D375" target=3D=
+"_blank" style=3D"text-decoration: none; color: #E44D1D !important;">
+         =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/cm2eel647006wu7=
+1owsc2wmea/cm2eel6co006xu71og6ppyian.jpg" style=3D"border:0;border-radius:1=
+2px;display:block;outline:none;text-decoration:none;height:auto;width:100%;=
+font-size:13px;" width=3D"576" height=3D"auto">
+   =20
+        </a>
+     =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12=
+px;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:13px;line-heigh=
+t:23px !important;text-align:center;color:#000000;"><span style=3D"color: #=
+757575; line-height: 23px !important; font-size: 13px; font-size: 13px !imp=
+ortant; white-space: pre-wrap;">A masterclass in user activation (96% of th=
+em)</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"center" class=3D"dark-force" style=3D"font-siz=
+e:0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0p=
+x;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:center;color:#000000;"><a target=3D"_blank" re=
+l=3D"noopener noreferrer" class=3D"body-link" href=3D"https://c.vialoops.co=
+m/CL0/https:%2F%2Flink.mail.beehiiv.com%2Fss%2Fc%2Fu001.IjP4tPQBd4ThSE9ZLE1=
+FDglBooqN0mdoUQ75f8XHGoRPbLWmJYCI3OattGKKdp3wrjZzm_DUw-DJiLa6GO2qL8IYnGbvQ-=
+9tJVsQ9Dm_4R9tKUPIMajr8KQYUiVYQfhNBVWinFxoIjGzGFX9-4Cf9aWZapeuOg7eah7B6SgUB=
+f5cLUx9aJwfuySdbtVI5qe-M1Tgvx2WiIA2Xwlb_V_OBg%2F46x%2FyzApv6GZREWgLMO11cC6P=
+w%2Fh1%2Fh001.ZoBYDm7yn0jV3YYosNzKYp5_SscONScN_vRQ9rjDNNU/1/010001929eb0531=
+4-53f70251-0ed5-49ab-a597-acf071886e24-000000/KioGtrDd9oxgJ8HdMdfWGVfFFThzT=
+IrhtWCmMlJA5fc=3D375" style=3D"text-decoration: none; color: #E44D1D !impor=
+tant;"></a></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"button" style=3D"font-size:0px;=
+padding:10px 25px;padding-top:28px;padding-right:0px;padding-bottom:28px;pa=
+dding-left:0px;word-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:separate;line-height:100%;">
+        <tbody>
+          <tr>
+            <td align=3D"center" bgcolor=3D"#E44D1D" role=3D"presentation" =
+style=3D"border:none;border-radius:6px;cursor:auto;mso-padding-alt:12px=20
+  20px;background:#E44D1D;" valign=3D"middle">
+              <a href=3D"https://c.vialoops.com/CL0/https:%2F%2Fbuiltformar=
+s.com%2Fcase-studies%2Fheadspace/2/010001929eb05314-53f70251-0ed5-49ab-a597=
+-acf071886e24-000000/25fZvfJtc7Pj6xks0PL2R4A-z_AonjdpxXVFJK0KKnI=3D375" sty=
+le=3D"display: inline-block; background: #E44D1D; font-family: Arial, sans-=
+serif; font-weight: normal; margin: 0; text-decoration: none; text-transfor=
+m: none; padding: 12px=20
+  20px; mso-padding-alt: 0px; border-radius: 6px; color: #ffffff !important=
+; font-size: 15px !important; line-height: 15px !important;" target=3D"_bla=
+nk">
+                Read case study (8 mins)
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:28px;padding-right:0px;padding-bottom:12p=
+x;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">P.S., this is the </span><span style=3D"font-weight: 600; fon=
+t-style: italic; font-size: 15px; white-space: pre-wrap; line-height: 27px =
+!important; font-size: 15px !important;" class=3D"bold italic">75th</span><=
+span style=3D"line-height: 27px !important; font-size: 15px; font-size: 15p=
+x !important; white-space: pre-wrap;"> case study. 75 months in a row. Didn=
+'t miss a single one.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">Although for some reason the email numbering is 2 ahead (this=
+ is #77).</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:12px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"line-heigh=
+t: 27px !important; font-size: 15px; font-size: 15px !important; white-spac=
+e: pre-wrap;">I have no idea why and I'm too afraid to change it.</span></d=
+iv>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:12px;padding-right:0px;padding-bottom:0px=
+;padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span style=3D"font-style=
+: italic; font-size: 15px; white-space: pre-wrap; line-height: 27px !import=
+ant; font-size: 15px !important;" class=3D"italic">Peter</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"body-image body-image-mobile-wi=
+dth-110" style=3D"font-size:0px;padding:10px 25px;padding-top:60px;padding-=
+right:0px;padding-bottom:12px;padding-left:0px;word-break:break-word;">
+                 =20
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"prese=
+ntation" style=3D"border-collapse:collapse;border-spacing:0px;">
+        <tbody>
+          <tr>
+            <td style=3D"width:110px;">
+             =20
+      <img alt src=3D"https://d3b9kr64nievew.cloudfront.net/cly96l55r002w23=
+z55x3ofj44/cly977vjf00sx1r8eqt8q0wta.png" style=3D"border:0;border-radius:0=
+px;display:block;outline:none;text-decoration:none;height:auto;width:100%;f=
+ont-size:13px;" width=3D"110" height=3D"auto">
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:14px;line-heigh=
+t:25px !important;text-align:left;color:#000000;"><span style=3D"color: #7F=
+7F7F; line-height: 25px !important; font-size: 14px; font-size: 14px !impor=
+tant; white-space: pre-wrap;">Good </span><span style=3D"color: #7F7F7F; fo=
+nt-size: 14px; white-space: pre-wrap; text-decoration: line-through !import=
+ant; line-height: 25px !important; font-size: 14px !important;" class=3D"st=
+rikethrough">UX</span><span style=3D"color: #7F7F7F; line-height: 25px !imp=
+ortant; font-size: 14px; font-size: 14px !important; white-space: pre-wrap;=
+"> numbering systems takes time. Bad </span><span style=3D"color: #7F7F7F; =
+font-size: 14px; white-space: pre-wrap; text-decoration: line-through !impo=
+rtant; line-height: 25px !important; font-size: 14px !important;" class=3D"=
+strikethrough">UX</span><span style=3D"color: #7F7F7F; line-height: 25px !i=
+mportant; font-size: 14px; font-size: 14px !important; white-space: pre-wra=
+p;"> numbering systems </span><span style=3D"color: #7F7F7F; font-size: 14p=
+x; white-space: pre-wrap; text-decoration: line-through !important; line-he=
+ight: 25px !important; font-size: 14px !important;" class=3D"strikethrough"=
+>costs money</span><span style=3D"color: #7F7F7F; line-height: 25px !import=
+ant; font-size: 14px; font-size: 14px !important; white-space: pre-wrap;"> =
+make you look like an idiot.</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:0px;padding-right:0px;padding-bottom:0px;=
+padding-left:0px;word-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:15px;line-heigh=
+t:27px !important;text-align:left;color:#000000;"><span>&nbsp;</span></div>
+   =20
+                </td>
+              </tr>
+           =20
+              <tr>
+                <td align=3D"left" class=3D"dark-force" style=3D"font-size:=
+0px;padding:10px 25px;padding-top:24px;padding-right:0px;padding-left:0px;w=
+ord-break:break-word;">
+                 =20
+      <div style=3D"font-family:Arial, sans-serif;font-size:12px;line-heigh=
+t:22px !important;text-align:left;color:#9ca3af;"><span class=3D"opt-in-exp=
+lanation" style=3D"color: #9ca3af !important; font-size: 12px !important; l=
+ine-height: 22px !important;">
+  You are receiving this email because you opted-in to receive email from t=
+he list Case studies from Built for Mars<br>
+  Built for Mars, 10 Beacon Drive, Seaford, BN252JY, UK<br>
+  <a style=3D"font-weight: 600; color: #9ca3af !important; text-decoration:=
+ none !important; font-size: 12px !important; line-height: 22px !important;=
+" href=3D"https://c.vialoops.com/CL0/https:%2F%2Fapp.loops.so%2Funsubscribe=
+%2Fcm2egdk9500cn0mledvs1clq3%2Fcdf9c3f742d1e2ee71c59f3a693d1ec6d126b3b3a6a5=
+e563848c7d285faea0e8/1/010001929eb05314-53f70251-0ed5-49ab-a597-acf071886e2=
+4-000000/-1vVn1yAkF225cxYdYTA4CJt4GvpvkArWrLYx7w5-Vk=3D375" target=3D"_blan=
+k" rel=3D"noopener noreferrer" class=3D"bold link-unsubscribe">
+  Unsubscribe
+  </a>
+  </span></div>
+   =20
+                </td>
+              </tr>
+           =20
+        </tbody>
+      </table>
+   =20
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   =20
+      </div>
+   =20
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+       =20
+      </div>
+   =20
+     =20
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+   =20
+   =20
+      </div>
+   =20
+  </body>
+</html>
+ =20
+
+--m9xom04k8t--
