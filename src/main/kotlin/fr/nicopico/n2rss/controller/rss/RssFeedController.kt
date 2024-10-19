@@ -40,7 +40,7 @@ class RssFeedController(
         @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
     ): List<NewsletterDTO> {
-        return newsletterService.getNewslettersInfo()
+        return newsletterService.getEnabledNewslettersInfo()
             .map { it.toDTO() }
     }
 

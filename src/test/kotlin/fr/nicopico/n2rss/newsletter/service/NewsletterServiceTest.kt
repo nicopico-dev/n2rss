@@ -18,8 +18,8 @@
 
 package fr.nicopico.n2rss.newsletter.service
 
-import fr.nicopico.n2rss.fakes.NewsletterHandlerFake
 import fr.nicopico.n2rss.monitoring.MonitoringService
+import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
 import io.kotest.matchers.collections.shouldContainOnly
@@ -34,12 +34,14 @@ import java.net.URL
 
 class NewsletterServiceTest {
 
-    private val newsletterHandlers = listOf(
-        NewsletterHandlerFake(Newsletter("code1", "Name 1", "website1")),
-        NewsletterHandlerFake(Newsletter("code2", "Name 2", "website2")),
-        NewsletterHandlerFake(Newsletter("code3", "Name 3", "website3", "some notes")),
+    private val newsletters = listOf(
+        Newsletter("code1", "Name 1", "website1"),
+        Newsletter("code2", "Name 2", "website2"),
+        Newsletter("code3", "Name 3", "website3", "some notes"),
     )
 
+    @MockK
+    private lateinit var newsletterRepository: NewsletterRepository
     @MockK
     private lateinit var publicationService: PublicationService
     @MockK(relaxUnitFun = true)
@@ -51,7 +53,7 @@ class NewsletterServiceTest {
     fun setUp() {
         MockKAnnotations.init(this)
         newsletterService = NewsletterService(
-            newsletterHandlers = newsletterHandlers,
+            newsletterRepository = newsletterRepository,
             publicationService = publicationService,
             monitoringService = monitoringService
         )
@@ -77,9 +79,10 @@ class NewsletterServiceTest {
                 else -> null
             }
         }
+        every { newsletterRepository.getEnabledNewsletters() } returns newsletters
 
         // WHEN
-        val result = newsletterService.getNewslettersInfo()
+        val result = newsletterService.getEnabledNewslettersInfo()
 
         // WHEN
         result shouldContainOnly listOf(
@@ -116,7 +119,7 @@ class NewsletterServiceTest {
         val newsletterUrl = URL("https://www.nicopico.com")
 
         // WHEN
-        newsletterService.saveRequest(newsletterUrl)
+        newsletterService.saveNewsletterRequest(newsletterUrl)
 
         // THEN
         verify { monitoringService.notifyRequest(newsletterUrl) }
@@ -130,7 +133,7 @@ class NewsletterServiceTest {
         val uniqueUrl = URL("https://www.nicopico.com")
 
         // WHEN
-        newsletterService.saveRequest(newsletterUrl)
+        newsletterService.saveNewsletterRequest(newsletterUrl)
 
         // THEN
         verify { monitoringService.notifyRequest(uniqueUrl) }
@@ -142,8 +145,8 @@ class NewsletterServiceTest {
         val newsletterUrl = URL("https://www.nicopico.com")
 
         // WHEN
-        newsletterService.saveRequest(newsletterUrl)
-        newsletterService.saveRequest(newsletterUrl)
+        newsletterService.saveNewsletterRequest(newsletterUrl)
+        newsletterService.saveNewsletterRequest(newsletterUrl)
 
         // THEN
         verify {

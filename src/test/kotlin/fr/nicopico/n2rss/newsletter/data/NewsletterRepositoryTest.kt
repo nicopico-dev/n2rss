@@ -30,7 +30,7 @@ class NewsletterRepositoryTest {
     private lateinit var repository: NewsletterRepository
 
     private fun createRepository(handler: NewsletterHandler) {
-        repository = NewsletterRepository(listOf(handler))
+        repository = NewsletterRepository(listOf(handler), listOf(handler))
     }
 
     @Test

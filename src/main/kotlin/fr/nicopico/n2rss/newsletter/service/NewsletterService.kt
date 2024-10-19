@@ -17,23 +17,31 @@
  */
 package fr.nicopico.n2rss.newsletter.service
 
+import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
+import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
-import fr.nicopico.n2rss.newsletter.handlers.newsletters
+import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.net.URL
 
 @Service
 class NewsletterService(
-    private val newsletterHandlers: List<NewsletterHandler>,
+    private val newsletterRepository: NewsletterRepository,
     private val publicationService: PublicationService,
     private val monitoringService: MonitoringService,
 ) {
-    fun getNewslettersInfo(): List<NewsletterInfo> {
-        return newsletterHandlers
-            .flatMap { it.newsletters }
+    /**
+     * Retrieves information on all enabled newsletters.
+     *
+     * @return a list of `NewsletterInfo` objects containing details about each enabled newsletter.
+     */
+    fun getEnabledNewslettersInfo(): List<NewsletterInfo> {
+        return newsletterRepository
+            .getEnabledNewsletters()
             .map {
                 NewsletterInfo(
                     code = it.code,
@@ -46,8 +54,44 @@ class NewsletterService(
             }
     }
 
+    /**
+     * Finds a newsletter by its unique code.
+     *
+     * @param code The unique code of the newsletter.
+     * @return The newsletter associated with the given code, or null if not found.
+     */
+    fun findNewsletterByCode(code: String): Newsletter? {
+        return newsletterRepository.findNewsletterByCode(code)
+    }
+
+    /**
+     * Finds an appropriate `NewsletterHandler` instance capable of handling the provided email.
+     * If a newsletter is disabled, its handler won't be considered here.
+     *
+     * @param email The email to be checked against available newsletter handlers.
+     * @return A `NewsletterHandler` capable of handling the email,
+     * or null if none or multiple handlers are found.
+     */
+    fun findNewsletterHandlerForEmail(email: Email): NewsletterHandler? {
+        return try {
+            newsletterRepository.getEnabledNewsletterHandlers()
+                .single { it.canHandle(email) }
+        } catch (_: NoSuchElementException) {
+            LOG.warn("No enabled handler found for email {}", email.subject)
+            null
+        } catch (_: IllegalArgumentException) {
+            LOG.error("Too many handlers found for email {}", email.subject)
+            null
+        }
+    }
+
+    /**
+     * Saves a given newsletter request by sanitizing the provided URL and notifying the monitoring service.
+     *
+     * @param newsletterUrl The URL of the newsletter request to be saved.
+     */
     @Transactional
-    fun saveRequest(newsletterUrl: URL) {
+    fun saveNewsletterRequest(newsletterUrl: URL) {
         // Sanitize URL
         val uniqueUrl = URL(
             /* protocol = */ "https",
@@ -56,5 +100,9 @@ class NewsletterService(
             /* file = */ "",
         )
         monitoringService.notifyRequest(uniqueUrl)
+    }
+
+    companion object {
+        private val LOG = LoggerFactory.getLogger(NewsletterService::class.java)
     }
 }

@@ -22,7 +22,6 @@ import com.rometools.rome.feed.synd.SyndEntryImpl
 import com.rometools.rome.feed.synd.SyndFeed
 import com.rometools.rome.feed.synd.SyndFeedImpl
 import fr.nicopico.n2rss.config.CacheConfiguration
-import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
 import fr.nicopico.n2rss.utils.toLegacyDate
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.data.domain.PageRequest
@@ -31,7 +30,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class RssService(
-    private val newsletterRepository: NewsletterRepository,
+    private val newsletterService: NewsletterService,
     private val publicationService: PublicationService,
 ) {
 
@@ -46,7 +45,7 @@ class RssService(
      */
     @Cacheable(cacheNames = [CacheConfiguration.GET_RSS_FEED_CACHE_NAME])
     fun getFeed(code: String, publicationStart: Int, publicationCount: Int): SyndFeed {
-        val newsletter = newsletterRepository.findNewsletterByCode(code)
+        val newsletter = newsletterService.findNewsletterByCode(code)
             ?: throw NoSuchElementException("Newsletter with code $code was not found")
 
         val feed = SyndFeedImpl().apply {

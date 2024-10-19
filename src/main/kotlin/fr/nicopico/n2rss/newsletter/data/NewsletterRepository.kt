@@ -17,18 +17,28 @@
  */
 package fr.nicopico.n2rss.newsletter.data
 
+import fr.nicopico.n2rss.newsletter.NewsletterConfiguration
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import fr.nicopico.n2rss.newsletter.models.Newsletter
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Repository
 
 @Repository
 class NewsletterRepository(
-    private val handlers: List<NewsletterHandler>
+    private val allNewsletterHandlers: List<NewsletterHandler>,
+    @Qualifier(NewsletterConfiguration.ENABLED_NEWSLETTER_HANDLERS)
+    private val enabledNewsletterHandlers: List<NewsletterHandler>,
 ) {
     fun findNewsletterByCode(code: String): Newsletter? {
-        return handlers
+        return allNewsletterHandlers
             .flatMap { it.newsletters }
             .firstOrNull { it.code == code }
     }
+
+    fun getEnabledNewsletters(): List<Newsletter> {
+        return enabledNewsletterHandlers.flatMap { it.newsletters }
+    }
+
+    fun getEnabledNewsletterHandlers(): List<NewsletterHandler> = enabledNewsletterHandlers
 }

@@ -25,6 +25,7 @@ import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
 import fr.nicopico.n2rss.newsletter.handlers.process
 import fr.nicopico.n2rss.newsletter.models.Publication
+import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.PublicationService
 import io.mockk.MockKAnnotations
 import io.mockk.Runs
@@ -46,10 +47,8 @@ class EmailCheckerTest {
 
     @MockK(relaxUnitFun = true)
     private lateinit var emailClient: EmailClient
-    @MockK(relaxed = true)
-    private lateinit var newsletterHandlerA: NewsletterHandler
-    @MockK(relaxed = true)
-    private lateinit var newsletterHandlerB: NewsletterHandler
+    @MockK
+    private lateinit var newsletterService: NewsletterService
     @MockK(relaxed = true)
     private lateinit var publicationService: PublicationService
     @MockK(relaxed = true)
@@ -66,10 +65,7 @@ class EmailCheckerTest {
         emailChecker = EmailChecker(
             emailClient,
             taskScheduler,
-            listOf(
-                newsletterHandlerA,
-                newsletterHandlerB,
-            ),
+            newsletterService,
             publicationService,
             monitoringService,
         )
@@ -87,21 +83,21 @@ class EmailCheckerTest {
     @Test
     fun `emailChecker handles email when appropriate handler is present`(
         @MockK(relaxed = true) email: Email,
+        @MockK newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
     ) {
-        // Given an email that should be handled by newsletterHandlerA
+        // Given an email that should be handled by a newsletterHandler
         every { emailClient.checkEmails() } returns listOf(email)
-        every { newsletterHandlerA.canHandle(email) } returns true
-        every { newsletterHandlerA.process(email) } returns listOf(publication)
+        every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
+        every { newsletterHandler.process(email) } returns listOf(publication)
         every { publication.articles } returns listOf(mockk())
 
         // When we check the email
         emailChecker.savePublicationsFromEmails()
 
         // Then the email should be handled by newsletterHandlerA and not by newsletterHandlerB
-        verify { newsletterHandlerA.process(email) }
+        verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
-        verify(exactly = 0) { newsletterHandlerB.process(email) }
         verify { emailClient.markAsRead(email) }
     }
 
@@ -111,36 +107,13 @@ class EmailCheckerTest {
     ) {
         // Given an email that should not be handled by any handler
         every { emailClient.checkEmails() } returns listOf(email)
-        every { newsletterHandlerA.canHandle(email) } returns false
-        every { newsletterHandlerB.canHandle(email) } returns false
+        every { newsletterService.findNewsletterHandlerForEmail(email) } returns null
 
         // When we check the email
         emailChecker.savePublicationsFromEmails()
 
         // Then no handler should try to handle the email and no publication should be saved
         verify { publicationService.savePublications(emptyList()) }
-        verify(exactly = 0) { newsletterHandlerA.process(email) }
-        verify(exactly = 0) { newsletterHandlerB.process(email) }
-        verify(exactly = 0) { emailClient.markAsRead(any()) }
-    }
-
-    @Test
-    fun `emailChecker will not process an email if more than one handler can handle it`(
-        @MockK(relaxed = true) email: Email
-    ) {
-        // Given an email that should be handled by both handlers
-        every { emailClient.checkEmails() } returns listOf(email)
-        every { newsletterHandlerA.canHandle(email) } returns true
-        every { newsletterHandlerB.canHandle(email) } returns true
-
-        // When we check the email
-        emailChecker.savePublicationsFromEmails()
-
-        // Then it should not process any email
-        // And no publication should be saved
-        verify { publicationService.savePublications(emptyList()) }
-        verify(exactly = 0) { newsletterHandlerA.process(email) }
-        verify(exactly = 0) { newsletterHandlerB.process(email) }
         verify(exactly = 0) { emailClient.markAsRead(any()) }
     }
 
@@ -148,17 +121,18 @@ class EmailCheckerTest {
     fun `emailChecker continues processing emails after a processing error`(
         @MockK(relaxed = true) errorEmail: Email,
         @MockK(relaxed = true) validEmail: Email,
+        @MockK newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
     ) {
         // Given an email that causes an error and a valid email
         every { emailClient.checkEmails() } returns listOf(errorEmail, validEmail)
         every { emailClient.markAsRead(any()) } just Runs
 
-        every { newsletterHandlerA.canHandle(any()) } returns true
-        every { newsletterHandlerB.canHandle(any()) } returns false
+        every { newsletterService.findNewsletterHandlerForEmail(any()) } returns newsletterHandler
+
         val errorEmailProcessing = Exception("Processing error")
-        every { newsletterHandlerA.process(errorEmail) } throws errorEmailProcessing
-        every { newsletterHandlerA.process(validEmail) } returns listOf(publication)
+        every { newsletterHandler.process(errorEmail) } throws errorEmailProcessing
+        every { newsletterHandler.process(validEmail) } returns listOf(publication)
         every { publication.articles } returns listOf(mockk())
         every { monitoringService.notifyEmailProcessingError(any(), any()) } just Runs
 
@@ -166,8 +140,8 @@ class EmailCheckerTest {
         emailChecker.savePublicationsFromEmails()
 
         // Then emailChecker should process validEmail after failing with errorEmail
-        verify { newsletterHandlerA.process(errorEmail) }
-        verify { newsletterHandlerA.process(validEmail) }
+        verify { newsletterHandler.process(errorEmail) }
+        verify { newsletterHandler.process(validEmail) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
 
         verify { emailClient.markAsRead(validEmail) }
@@ -192,8 +166,6 @@ class EmailCheckerTest {
 
         confirmVerified(
             emailClient,
-            newsletterHandlerA,
-            newsletterHandlerB,
             publicationService,
             monitoringService,
         )
@@ -202,12 +174,13 @@ class EmailCheckerTest {
     @Test
     fun `emailChecker should notify an error on empty publications`(
         @MockK(relaxed = true) email: Email,
+        @MockK newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
     ) {
         // Given an email without any articles
         every { emailClient.checkEmails() } returns listOf(email)
-        every { newsletterHandlerA.canHandle(email) } returns true
-        every { newsletterHandlerA.process(email) } returns listOf(publication)
+        every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
+        every { newsletterHandler.process(email) } returns listOf(publication)
         every { publication.articles } returns emptyList()
         every { monitoringService.notifyEmailProcessingError(any(), any()) } just Runs
 

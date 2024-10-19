@@ -90,7 +90,7 @@ class AnalyticsAspectTest {
             @Test
             fun `success should trigger an analytic event`() {
                 // GIVEN
-                val request = mockk<HttpServletRequest>() {
+                val request = mockk<HttpServletRequest> {
                     every { requestURL } returns StringBuffer("https://www.google.com")
                 }
                 val model = mockk<Model>(relaxed = true)
@@ -107,7 +107,7 @@ class AnalyticsAspectTest {
             @Disabled("homeController.home() do not throw ?? 🙃")
             fun `error should trigger an analytic event`() {
                 // GIVEN
-                val request = mockk<HttpServletRequest>() {
+                val request = mockk<HttpServletRequest> {
                     every { requestURL } returns StringBuffer("https://www.google.com")
                 }
                 val model = mockk<Model>(relaxed = true)

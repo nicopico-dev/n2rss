@@ -110,7 +110,7 @@ class HomeControllerTest {
                 newsletterD,
                 newsletterB,
             )
-            every { newsletterService.getNewslettersInfo() } returns newslettersInfo
+            every { newsletterService.getEnabledNewslettersInfo() } returns newslettersInfo
             every { feedsProperties.forceHttps } returns false
 
             val requestUrl = StringBuffer("http://localhost:8134")
@@ -180,7 +180,7 @@ class HomeControllerTest {
                 newsletterA3,
                 newsletterB,
             )
-            every { newsletterService.getNewslettersInfo() } returns newslettersInfo
+            every { newsletterService.getEnabledNewslettersInfo() } returns newslettersInfo
             every { feedsProperties.forceHttps } returns false
 
             val requestUrl = StringBuffer("http://localhost:8134")
@@ -212,7 +212,7 @@ class HomeControllerTest {
         fun `home should use HTTPS feed when the feature is activated`() {
             // GIVEN
             val newslettersInfo = listOf<NewsletterInfo>()
-            every { newsletterService.getNewslettersInfo() } returns newslettersInfo
+            every { newsletterService.getEnabledNewslettersInfo() } returns newslettersInfo
             every { feedsProperties.forceHttps } returns true
 
             val requestUrl = StringBuffer("http://localhost:8134")
@@ -246,14 +246,14 @@ class HomeControllerTest {
             // SETUP
             every { reCaptchaProperties.enabled } returns true
             every { reCaptchaProperties.secretKey } returns captchaSecretKey
-            every { newsletterService.saveRequest(any()) } just Runs
+            every { newsletterService.saveNewsletterRequest(any()) } just Runs
             every { reCaptchaService.isCaptchaValid(any(), any()) } returns true
 
             // WHEN
             val response = homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
 
             // THEN
-            verify { newsletterService.saveRequest(URL(newsletterUrl)) }
+            verify { newsletterService.saveNewsletterRequest(URL(newsletterUrl)) }
             verify { reCaptchaService.isCaptchaValid(captchaSecretKey, captchaResponse) }
             response.statusCode shouldBe HttpStatus.OK
         }
@@ -274,7 +274,7 @@ class HomeControllerTest {
             val response = homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
 
             // THEN
-            verify(exactly = 0) { newsletterService.saveRequest(any()) }
+            verify(exactly = 0) { newsletterService.saveNewsletterRequest(any()) }
             response.statusCode shouldBe HttpStatus.BAD_REQUEST
         }
 
@@ -285,13 +285,13 @@ class HomeControllerTest {
 
             // SETUP
             every { reCaptchaProperties.enabled } returns false
-            every { newsletterService.saveRequest(any()) } just Runs
+            every { newsletterService.saveNewsletterRequest(any()) } just Runs
 
             // WHEN
             val response = homeController.requestNewsletter(newsletterUrl, userAgent = userAgent)
 
             // THEN
-            verify(exactly = 1) { newsletterService.saveRequest(any()) }
+            verify(exactly = 1) { newsletterService.saveNewsletterRequest(any()) }
             verify(exactly = 0) { reCaptchaService.isCaptchaValid(any(), any()) }
             response.statusCode shouldBe HttpStatus.OK
         }
@@ -304,14 +304,14 @@ class HomeControllerTest {
 
             // SETUP
             every { reCaptchaProperties.enabled } returns false
-            every { newsletterService.saveRequest(any()) } just Runs
+            every { newsletterService.saveNewsletterRequest(any()) } just Runs
 
             // WHEN
             homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
 
             // THEN
             val slotUrl = slot<URL>()
-            verify { newsletterService.saveRequest(capture(slotUrl)) }
+            verify { newsletterService.saveNewsletterRequest(capture(slotUrl)) }
             slotUrl.captured.toString() shouldBe "https://www.google.com"
         }
 
