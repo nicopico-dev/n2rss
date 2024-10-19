@@ -18,7 +18,6 @@
 package fr.nicopico.n2rss.newsletter.service
 
 import fr.nicopico.n2rss.monitoring.MonitoringService
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
@@ -29,7 +28,7 @@ import java.net.URL
 @Service
 class NewsletterService(
     private val newsletterHandlers: List<NewsletterHandler>,
-    private val publicationRepository: PublicationRepository,
+    private val publicationService: PublicationService,
     private val monitoringService: MonitoringService,
 ) {
     fun getNewslettersInfo(): List<NewsletterInfo> {
@@ -40,8 +39,8 @@ class NewsletterService(
                     code = it.code,
                     title = it.name,
                     websiteUrl = it.websiteUrl,
-                    publicationCount = publicationRepository.countPublicationsByNewsletter(it),
-                    startingDate = publicationRepository.findFirstByNewsletterOrderByDateAsc(it)?.date,
+                    publicationCount = publicationService.getPublicationsCount(it),
+                    startingDate = publicationService.getLatestPublicationDate(it),
                     notes = it.notes,
                 )
             }

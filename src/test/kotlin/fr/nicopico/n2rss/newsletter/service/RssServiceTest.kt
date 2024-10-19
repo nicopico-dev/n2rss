@@ -18,7 +18,6 @@
 package fr.nicopico.n2rss.newsletter.service
 
 import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
@@ -44,7 +43,7 @@ class RssServiceTest {
     @MockK
     private lateinit var newsletterRepository: NewsletterRepository
     @MockK
-    private lateinit var publicationRepository: PublicationRepository
+    private lateinit var publicationService: PublicationService
 
     @BeforeEach
     fun setUp() {
@@ -52,7 +51,7 @@ class RssServiceTest {
 
         rssService = RssService(
             newsletterRepository = newsletterRepository,
-            publicationRepository = publicationRepository
+            publicationService = publicationService
         )
     }
 
@@ -74,7 +73,7 @@ class RssServiceTest {
             )
         )
         every { newsletterRepository.findNewsletterByCode("test") } returns expectedNewsletter
-        every { publicationRepository.findByNewsletter(expectedNewsletter, any()) } returns
+        every { publicationService.getPublications(expectedNewsletter, any()) } returns
             PageImpl(listOf(expectedPublication))
 
         // WHEN
@@ -85,7 +84,7 @@ class RssServiceTest {
         feed.entries shouldHaveSize expectedPublication.articles.size
         verifySequence {
             newsletterRepository.findNewsletterByCode("test")
-            publicationRepository.findByNewsletter(
+            publicationService.getPublications(
                 expectedNewsletter,
                 PageRequest.of(0, 2, Sort.by(Sort.Direction.DESC, "date"))
             )
@@ -109,7 +108,7 @@ class RssServiceTest {
             )
         )
         every { newsletterRepository.findNewsletterByCode("test") } returns expectedNewsletter
-        every { publicationRepository.findByNewsletter(expectedNewsletter, any()) } returns
+        every { publicationService.getPublications(expectedNewsletter, any()) } returns
             PageImpl(listOf(expectedPublication))
 
         // WHEN

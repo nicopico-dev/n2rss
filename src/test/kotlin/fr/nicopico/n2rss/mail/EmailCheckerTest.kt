@@ -21,11 +21,11 @@ package fr.nicopico.n2rss.mail
 import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
 import fr.nicopico.n2rss.newsletter.handlers.process
 import fr.nicopico.n2rss.newsletter.models.Publication
+import fr.nicopico.n2rss.newsletter.service.PublicationService
 import io.mockk.MockKAnnotations
 import io.mockk.Runs
 import io.mockk.confirmVerified
@@ -51,7 +51,7 @@ class EmailCheckerTest {
     @MockK(relaxed = true)
     private lateinit var newsletterHandlerB: NewsletterHandler
     @MockK(relaxed = true)
-    private lateinit var publicationRepository: PublicationRepository
+    private lateinit var publicationService: PublicationService
     @MockK(relaxed = true)
     private lateinit var taskScheduler: TaskScheduler
     @MockK
@@ -65,12 +65,12 @@ class EmailCheckerTest {
 
         emailChecker = EmailChecker(
             emailClient,
+            taskScheduler,
             listOf(
                 newsletterHandlerA,
                 newsletterHandlerB,
             ),
-            publicationRepository,
-            taskScheduler,
+            publicationService,
             monitoringService,
         )
     }
@@ -100,7 +100,7 @@ class EmailCheckerTest {
 
         // Then the email should be handled by newsletterHandlerA and not by newsletterHandlerB
         verify { newsletterHandlerA.process(email) }
-        verify { publicationRepository.saveAll(eq(listOf(publication))) }
+        verify { publicationService.savePublications(eq(listOf(publication))) }
         verify(exactly = 0) { newsletterHandlerB.process(email) }
         verify { emailClient.markAsRead(email) }
     }
@@ -118,8 +118,8 @@ class EmailCheckerTest {
         emailChecker.savePublicationsFromEmails()
 
         // Then no handler should try to handle the email and no publication should be saved
+        verify { publicationService.savePublications(emptyList()) }
         verify(exactly = 0) { newsletterHandlerA.process(email) }
-        verify(exactly = 0) { publicationRepository.saveAll(any<List<Publication>>()) }
         verify(exactly = 0) { newsletterHandlerB.process(email) }
         verify(exactly = 0) { emailClient.markAsRead(any()) }
     }
@@ -138,9 +138,9 @@ class EmailCheckerTest {
 
         // Then it should not process any email
         // And no publication should be saved
+        verify { publicationService.savePublications(emptyList()) }
         verify(exactly = 0) { newsletterHandlerA.process(email) }
         verify(exactly = 0) { newsletterHandlerB.process(email) }
-        verify(exactly = 0) { publicationRepository.saveAll(any<List<Publication>>()) }
         verify(exactly = 0) { emailClient.markAsRead(any()) }
     }
 
@@ -168,7 +168,7 @@ class EmailCheckerTest {
         // Then emailChecker should process validEmail after failing with errorEmail
         verify { newsletterHandlerA.process(errorEmail) }
         verify { newsletterHandlerA.process(validEmail) }
-        verify { publicationRepository.saveAll(eq(listOf(publication))) }
+        verify { publicationService.savePublications(eq(listOf(publication))) }
 
         verify { emailClient.markAsRead(validEmail) }
         verify(exactly = 0) { emailClient.markAsRead(errorEmail) }
@@ -194,7 +194,7 @@ class EmailCheckerTest {
             emailClient,
             newsletterHandlerA,
             newsletterHandlerB,
-            publicationRepository,
+            publicationService,
             monitoringService,
         )
     }
@@ -216,7 +216,7 @@ class EmailCheckerTest {
 
         // Then the email should be marked as read without creating a publication
         verify(exactly = 0) {
-            publicationRepository.saveAll(eq(listOf(publication)))
+            publicationService.savePublications(eq(listOf(publication)))
             emailClient.markAsRead(email)
         }
         verify {

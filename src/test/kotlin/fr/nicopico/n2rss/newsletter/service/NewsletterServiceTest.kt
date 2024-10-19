@@ -20,16 +20,13 @@ package fr.nicopico.n2rss.newsletter.service
 
 import fr.nicopico.n2rss.fakes.NewsletterHandlerFake
 import fr.nicopico.n2rss.monitoring.MonitoringService
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
-import fr.nicopico.n2rss.newsletter.models.Publication
 import io.kotest.matchers.collections.shouldContainOnly
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.verify
-import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -44,11 +41,9 @@ class NewsletterServiceTest {
     )
 
     @MockK
-    private lateinit var publicationRepository: PublicationRepository
+    private lateinit var publicationService: PublicationService
     @MockK(relaxUnitFun = true)
     private lateinit var monitoringService: MonitoringService
-
-    private val now by lazy { Clock.System.now() }
 
     private lateinit var newsletterService: NewsletterService
 
@@ -57,7 +52,7 @@ class NewsletterServiceTest {
         MockKAnnotations.init(this)
         newsletterService = NewsletterService(
             newsletterHandlers = newsletterHandlers,
-            publicationRepository = publicationRepository,
+            publicationService = publicationService,
             monitoringService = monitoringService
         )
     }
@@ -67,30 +62,18 @@ class NewsletterServiceTest {
         // GIVEN
         val firstPublicationCode1 = LocalDate(2022, 3, 21)
         val firstPublicationCode2 = LocalDate(2023, 7, 8)
-        every { publicationRepository.countPublicationsByNewsletter(any()) } answers {
+        every { publicationService.getPublicationsCount(any()) } answers {
             when (firstArg<Newsletter>().code) {
                 "code1" -> 32
                 "code2" -> 3
                 else -> 0
             }
         }
-        every { publicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } answers {
+        every { publicationService.getLatestPublicationDate(any()) } answers {
             val newsletter = firstArg<Newsletter>()
             when (newsletter.code) {
-                "code1" -> Publication(
-                    title = "Some title1",
-                    date = firstPublicationCode1,
-                    newsletter = newsletter,
-                    articles = emptyList()
-                )
-
-                "code2" -> Publication(
-                    title = "Some title 2",
-                    date = firstPublicationCode2,
-                    newsletter = newsletter,
-                    articles = emptyList()
-                )
-
+                "code1" -> firstPublicationCode1
+                "code2" -> firstPublicationCode2
                 else -> null
             }
         }

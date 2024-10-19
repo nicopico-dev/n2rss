@@ -21,10 +21,10 @@ import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.NewsletterConfiguration
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
 import fr.nicopico.n2rss.newsletter.handlers.process
+import fr.nicopico.n2rss.newsletter.service.PublicationService
 import jakarta.annotation.PostConstruct
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Qualifier
@@ -38,10 +38,10 @@ private val LOG = LoggerFactory.getLogger(EmailChecker::class.java)
 @Component
 class EmailChecker(
     private val emailClient: EmailClient,
+    private val taskScheduler: TaskScheduler,
     @Qualifier(NewsletterConfiguration.ENABLED_NEWSLETTER_HANDLERS)
     private val newsletterHandlers: List<NewsletterHandler>,
-    private val publicationRepository: PublicationRepository,
-    private val taskScheduler: TaskScheduler,
+    private val publicationService: PublicationService,
     private val monitoringService: MonitoringService,
 ) {
     @PostConstruct
@@ -82,9 +82,7 @@ class EmailChecker(
                 .flatten()
                 .filter { it.articles.isNotEmpty() }
 
-            if (publications.isNotEmpty()) {
-                publicationRepository.saveAll(publications)
-            }
+            publicationService.savePublications(publications)
 
             LOG.info("Processing done!")
         } catch (e: Exception) {
@@ -93,6 +91,7 @@ class EmailChecker(
         }
     }
 
+    // TODO Defer to NewsletterService.findNewsletterHandlerForEmail()
     private fun getNewsletterHandler(email: Email): NewsletterHandler? {
         return try {
             newsletterHandlers
