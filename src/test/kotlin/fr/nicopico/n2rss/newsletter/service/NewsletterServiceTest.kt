@@ -18,14 +18,18 @@
 
 package fr.nicopico.n2rss.newsletter.service
 
+import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
 import io.kotest.matchers.collections.shouldContainOnly
+import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
+import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.BeforeEach
@@ -153,5 +157,85 @@ class NewsletterServiceTest {
             monitoringService.notifyRequest(newsletterUrl)
             monitoringService.notifyRequest(newsletterUrl)
         }
+    }
+
+    @Test
+    fun `should retrieve the newsletter from its code`() {
+        // GIVEN
+        val code = "harvey"
+        val expected: Newsletter = mockk()
+        every { newsletterRepository.findNewsletterByCode(any()) } returns expected
+
+        // WHEN
+        val newsletter = newsletterService.findNewsletterByCode(code)
+
+        // THEN
+        newsletter shouldBe expected
+    }
+
+    @Test
+    fun `should retrieve the correct handler for an email`() {
+        // GIVEN
+        val email: Email = mockk() { every { subject } returns "Title" }
+        val handlerA: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        val handlerB: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns true
+        }
+        val handlerC: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        every { newsletterRepository.getEnabledNewsletterHandlers() } returns listOf(handlerA, handlerB, handlerC)
+
+        // WHEN
+        val actual = newsletterService.findNewsletterHandlerForEmail(email)
+
+        // THEN
+        actual shouldBe handlerB
+    }
+
+    @Test
+    fun `should return null if there is no handler for an email`() {
+        // GIVEN
+        val email: Email = mockk() { every { subject } returns "Title" }
+        val handlerA: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        val handlerB: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        val handlerC: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        every { newsletterRepository.getEnabledNewsletterHandlers() } returns listOf(handlerA, handlerB, handlerC)
+
+        // WHEN
+        val actual = newsletterService.findNewsletterHandlerForEmail(email)
+
+        // THEN
+        actual shouldBe null
+    }
+
+    @Test
+    fun `should return null if there is more than one handler for an email`() {
+        // GIVEN
+        val email: Email = mockk() { every { subject } returns "Title" }
+        val handlerA: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns true
+        }
+        val handlerB: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns false
+        }
+        val handlerC: NewsletterHandler = mockk() {
+            every { canHandle(email) } returns true
+        }
+        every { newsletterRepository.getEnabledNewsletterHandlers() } returns listOf(handlerA, handlerB, handlerC)
+
+        // WHEN
+        val actual = newsletterService.findNewsletterHandlerForEmail(email)
+
+        // THEN
+        actual shouldBe null
     }
 }

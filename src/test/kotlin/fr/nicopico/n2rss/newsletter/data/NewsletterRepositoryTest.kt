@@ -60,4 +60,46 @@ class NewsletterRepositoryTest {
         // THEN
         actual shouldBe null
     }
+
+    @Test
+    fun `should return all enabled newsletters`() {
+        // GIVEN
+        val allHandlers = listOf(
+            NewsletterHandlerFake("code1"),
+            NewsletterHandlerFake("code2"),
+            NewsletterHandlerFake("code3"),
+        )
+        val enabledHandlers = allHandlers.take(2)
+        repository = NewsletterRepository(
+            allNewsletterHandlers = allHandlers,
+            enabledNewsletterHandlers = enabledHandlers,
+        )
+
+        // WHEN
+        val actual = repository.getEnabledNewsletters()
+
+        // THEN
+        actual.map { it.code } shouldBe listOf("code1", "code2")
+    }
+
+    @Test
+    fun `should return enabled newsletter handlers`() {
+        // GIVEN
+        val allHandlers = listOf(
+            NewsletterHandlerFake("code1"),
+            NewsletterHandlerFake("code2"),
+            NewsletterHandlerFake("code3"),
+        )
+        val enabledHandlers = allHandlers.take(1)
+        repository = NewsletterRepository(
+            allNewsletterHandlers = allHandlers,
+            enabledNewsletterHandlers = enabledHandlers,
+        )
+
+        // WHEN
+        val actual = repository.getEnabledNewsletterHandlers()
+
+        // THEN
+        actual shouldBe enabledHandlers
+    }
 }
