@@ -19,6 +19,7 @@
 package fr.nicopico.n2rss.newsletter.service
 
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
+import fr.nicopico.n2rss.newsletter.data.entity.PublicationDocument
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
 import kotlinx.datetime.LocalDate
@@ -32,10 +33,29 @@ class PublicationService(
 ) {
     fun getPublications(newsletter: Newsletter, pageable: PageRequest): Page<Publication> {
         return publicationRepository.findByNewsletter(newsletter, pageable)
+            .map {
+                Publication(
+                    id = it.id,
+                    title = it.title,
+                    date = it.date,
+                    newsletter = it.newsletter,
+                    articles = it.articles,
+                )
+            }
     }
 
     fun savePublications(publications: List<Publication>) {
-        val nonEmptyPublications = publications.filter { it.articles.isNotEmpty() }
+        val nonEmptyPublications = publications
+            .filter { it.articles.isNotEmpty() }
+            .map {
+                PublicationDocument(
+                    id = it.id,
+                    title = it.title,
+                    date = it.date,
+                    newsletter = it.newsletter,
+                    articles = it.articles,
+                )
+            }
         publicationRepository.saveAll(nonEmptyPublications)
     }
 

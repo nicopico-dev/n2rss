@@ -15,26 +15,25 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.data
 
-import fr.nicopico.n2rss.config.CacheConfiguration
-import fr.nicopico.n2rss.newsletter.data.entity.PublicationDocument
+package fr.nicopico.n2rss.newsletter.data.entity
+
+import fr.nicopico.n2rss.newsletter.data.NewsletterValueConverter
+import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
-import org.springframework.cache.annotation.CacheEvict
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
-import org.springframework.data.mongodb.repository.MongoRepository
+import kotlinx.datetime.LocalDate
+import org.springframework.data.annotation.Id
+import org.springframework.data.convert.ValueConverter
+import org.springframework.data.mongodb.core.mapping.Document
 import java.util.UUID
 
-interface PublicationRepository : MongoRepository<PublicationDocument, UUID> {
-    fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<PublicationDocument>
-    fun countPublicationsByNewsletter(newsletter: Newsletter): Long
-    fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): PublicationDocument?
-
-    // Clear feed cache when publications are saved
-    @CacheEvict(
-        cacheNames = [CacheConfiguration.GET_RSS_FEED_CACHE_NAME],
-        allEntries = true,
-    )
-    override fun <S : PublicationDocument> saveAll(entities: Iterable<S>): List<S>
-}
+@Document(collection = "publications")
+data class PublicationDocument(
+    @Id
+    val id: UUID = UUID.randomUUID(),
+    val title: String,
+    val date: LocalDate,
+    @ValueConverter(NewsletterValueConverter::class)
+    val newsletter: Newsletter,
+    val articles: List<Article>,
+)

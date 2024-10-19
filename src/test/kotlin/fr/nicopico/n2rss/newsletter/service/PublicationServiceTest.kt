@@ -19,10 +19,13 @@
 package fr.nicopico.n2rss.newsletter.service
 
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
+import fr.nicopico.n2rss.newsletter.data.entity.PublicationDocument
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
 import io.kotest.assertions.assertSoftly
+import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -70,13 +73,23 @@ class PublicationServiceTest {
         articles = List(articleCount) { mockk<Article>() }
     )
 
+    private fun createStubPublicationDocument(
+        newsletter: Newsletter,
+    ) = PublicationDocument(
+        id = UUID.randomUUID(),
+        title = "Title 1",
+        date = LocalDate.fromEpochDays(321),
+        newsletter = newsletter,
+        articles = listOf(mockk<Article>())
+    )
+
     @Test
     fun `should get publications by newsletter`() {
         // GIVEN
         val newsletter = createStubNewsletter()
         val pageable = PageRequest.of(0, 10)
-        val publications = listOf(createStubPublication(newsletter))
-        val publicationPage: Page<Publication> = PageImpl(publications)
+        val publications = listOf(createStubPublicationDocument(newsletter))
+        val publicationPage: Page<PublicationDocument> = PageImpl(publications)
         every { publicationRepository.findByNewsletter(newsletter, pageable) } returns publicationPage
 
         // WHEN
@@ -100,15 +113,19 @@ class PublicationServiceTest {
             createStubPublication(newsletter, "Title 3"),
         )
 
-        every { publicationRepository.saveAll(any<List<Publication>>()) } answers { firstArg() }
+        every { publicationRepository.saveAll(any<List<PublicationDocument>>()) } answers { firstArg() }
 
         // WHEN
         publicationService.savePublications(publications)
 
         // THEN
-        val slot = slot<List<Publication>>()
+        val slot = slot<List<PublicationDocument>>()
         verify { publicationRepository.saveAll(capture(slot)) }
-        slot.captured shouldBe publications.filter { it.articles.isNotEmpty() }
+        slot.captured should {
+            it shouldHaveSize 2
+            it[0].title shouldBe "Title 1"
+            it[1].title shouldBe "Title 3"
+        }
     }
 
     @Test
@@ -129,7 +146,7 @@ class PublicationServiceTest {
     fun `should get latest publication date by newsletter`() {
         // GIVEN
         val newsletter = createStubNewsletter()
-        val latestPublication = createStubPublication(newsletter)
+        val latestPublication = createStubPublicationDocument(newsletter)
         every { publicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) } returns latestPublication
 
         // WHEN
