@@ -19,6 +19,7 @@
 package fr.nicopico.n2rss.newsletter.service
 
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
+import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
 import io.kotest.assertions.assertSoftly
@@ -26,6 +27,8 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
+import io.mockk.mockk
+import io.mockk.slot
 import io.mockk.verify
 import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.BeforeEach
@@ -55,12 +58,16 @@ class PublicationServiceTest {
         websiteUrl = "https://test.com"
     )
 
-    private fun createStubPublication(newsletter: Newsletter) = Publication(
+    private fun createStubPublication(
+        newsletter: Newsletter,
+        title: String = "Title 1",
+        articleCount: Int = 1,
+    ) = Publication(
         id = UUID.randomUUID(),
-        title = "Title 1",
+        title = title,
         date = LocalDate.fromEpochDays(321),
         newsletter = newsletter,
-        articles = emptyList()
+        articles = List(articleCount) { mockk<Article>() }
     )
 
     @Test
@@ -68,9 +75,7 @@ class PublicationServiceTest {
         // GIVEN
         val newsletter = createStubNewsletter()
         val pageable = PageRequest.of(0, 10)
-        val publications = listOf(
-            createStubPublication(newsletter)
-        )
+        val publications = listOf(createStubPublication(newsletter))
         val publicationPage: Page<Publication> = PageImpl(publications)
         every { publicationRepository.findByNewsletter(newsletter, pageable) } returns publicationPage
 
@@ -86,31 +91,24 @@ class PublicationServiceTest {
     }
 
     @Test
-    fun `should save publications if the list is not empty`() {
+    fun `should only save publications containing articles`() {
         // GIVEN
         val newsletter = createStubNewsletter()
         val publications = listOf(
-            createStubPublication(newsletter)
+            createStubPublication(newsletter, "Title 1"),
+            createStubPublication(newsletter, "Title 2", articleCount = 0),
+            createStubPublication(newsletter, "Title 3"),
         )
-        every { publicationRepository.saveAll(publications) } returns publications
+
+        every { publicationRepository.saveAll(any<List<Publication>>()) } answers { firstArg() }
 
         // WHEN
         publicationService.savePublications(publications)
 
         // THEN
-        verify { publicationRepository.saveAll(publications) }
-    }
-
-    @Test
-    fun `should not save publications if the list is empty`() {
-        // GIVEN
-        val publications = emptyList<Publication>()
-
-        // WHEN
-        publicationService.savePublications(publications)
-
-        // THEN
-        verify(exactly = 0) { publicationRepository.saveAll(publications) }
+        val slot = slot<List<Publication>>()
+        verify { publicationRepository.saveAll(capture(slot)) }
+        slot.captured shouldBe publications.filter { it.articles.isNotEmpty() }
     }
 
     @Test

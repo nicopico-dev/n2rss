@@ -35,9 +35,8 @@ class PublicationService(
     }
 
     fun savePublications(publications: List<Publication>) {
-        if (publications.isNotEmpty()) {
-            publicationRepository.saveAll(publications)
-        }
+        val nonEmptyPublications = publications.filter { it.articles.isNotEmpty() }
+        publicationRepository.saveAll(nonEmptyPublications)
     }
 
     fun getPublicationsCount(newsletter: Newsletter): Long {

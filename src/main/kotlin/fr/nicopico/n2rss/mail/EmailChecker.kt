@@ -79,7 +79,6 @@ class EmailChecker(
                     }
                 }
                 .flatten()
-                .filter { it.articles.isNotEmpty() }    // TODO Handle this in PublicationService
 
             publicationService.savePublications(publications)
 
