@@ -102,7 +102,7 @@ class BuiltForMarsNewsletterHandler : NewsletterHandlerSingleFeed {
                     .replace(MULTIPLE_ARTICLES_PREFIX_REGEX, "")
 
                 val titleElementIndex = document.indexOf(titleElement)
-                val description = document.select("span", startingAfterIndex = titleElementIndex)?.text()
+                val description = document.select("td", startingAfterIndex = titleElementIndex)?.text()
                     ?: throw NewsletterParsingException("Unable to find description for article \"$title\"")
 
                 val linkElement = document.select("a[href]", startingAfterIndex = titleElementIndex)

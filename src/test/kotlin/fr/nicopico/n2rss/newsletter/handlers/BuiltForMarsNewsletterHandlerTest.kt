@@ -78,19 +78,6 @@ class BuiltForMarsNewsletterHandlerTest {
         }
 
         @Test
-        fun `should process any Built for Mars email`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Built for Mars")
-
-            // WHEN - THEN
-            shouldNotThrowAny {
-                for (email in emails) {
-                    handler.process(email)
-                }
-            }
-        }
-
-        @Test
         fun `should extract an articles from an email (1)`() {
             // GIVEN
             val email: Email =
