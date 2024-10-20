@@ -18,21 +18,17 @@
 package fr.nicopico.n2rss.newsletter.service
 
 import fr.nicopico.n2rss.mail.models.Email
-import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
-import org.springframework.transaction.annotation.Transactional
-import java.net.URL
 
 @Service
 class NewsletterService(
     private val newsletterRepository: NewsletterRepository,
     private val publicationService: PublicationService,
-    private val monitoringService: MonitoringService,
 ) {
     /**
      * Retrieves information on all enabled newsletters.
@@ -83,23 +79,6 @@ class NewsletterService(
             LOG.error("Too many handlers found for email {}", email.subject)
             null
         }
-    }
-
-    /**
-     * Saves a given newsletter request by sanitizing the provided URL and notifying the monitoring service.
-     *
-     * @param newsletterUrl The URL of the newsletter request to be saved.
-     */
-    @Transactional
-    fun saveNewsletterRequest(newsletterUrl: URL) {
-        // Sanitize URL
-        val uniqueUrl = URL(
-            /* protocol = */ "https",
-            /* host = */ newsletterUrl.host,
-            /* port = */ newsletterUrl.port,
-            /* file = */ "",
-        )
-        monitoringService.notifyRequest(uniqueUrl)
     }
 
     companion object {

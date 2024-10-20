@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.models.GroupedNewsletterInfo
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
@@ -47,6 +48,8 @@ class HomeControllerTest {
     @MockK
     private lateinit var reCaptchaService: ReCaptchaService
     @MockK
+    private lateinit var monitoringService: MonitoringService
+    @MockK
     private lateinit var feedsProperties: N2RssProperties.FeedsProperties
     @MockK(relaxed = true)
     private lateinit var reCaptchaProperties: N2RssProperties.ReCaptchaProperties
@@ -62,6 +65,7 @@ class HomeControllerTest {
         homeController = HomeController(
             newsletterService = newsletterService,
             reCaptchaService = reCaptchaService,
+            monitoringService = monitoringService,
             feedProperties = feedsProperties,
             recaptchaProperties = reCaptchaProperties
         )
@@ -246,14 +250,14 @@ class HomeControllerTest {
             // SETUP
             every { reCaptchaProperties.enabled } returns true
             every { reCaptchaProperties.secretKey } returns captchaSecretKey
-            every { newsletterService.saveNewsletterRequest(any()) } just Runs
+            every { monitoringService.notifyNewsletterRequest(any()) } just Runs
             every { reCaptchaService.isCaptchaValid(any(), any()) } returns true
 
             // WHEN
             val response = homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
 
             // THEN
-            verify { newsletterService.saveNewsletterRequest(URL(newsletterUrl)) }
+            verify { monitoringService.notifyNewsletterRequest(URL(newsletterUrl)) }
             verify { reCaptchaService.isCaptchaValid(captchaSecretKey, captchaResponse) }
             response.statusCode shouldBe HttpStatus.OK
         }
@@ -274,7 +278,7 @@ class HomeControllerTest {
             val response = homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
 
             // THEN
-            verify(exactly = 0) { newsletterService.saveNewsletterRequest(any()) }
+            verify(exactly = 0) { monitoringService.notifyNewsletterRequest(any()) }
             response.statusCode shouldBe HttpStatus.BAD_REQUEST
         }
 
@@ -285,13 +289,13 @@ class HomeControllerTest {
 
             // SETUP
             every { reCaptchaProperties.enabled } returns false
-            every { newsletterService.saveNewsletterRequest(any()) } just Runs
+            every { monitoringService.notifyNewsletterRequest(any()) } just Runs
 
             // WHEN
             val response = homeController.requestNewsletter(newsletterUrl, userAgent = userAgent)
 
             // THEN
-            verify(exactly = 1) { newsletterService.saveNewsletterRequest(any()) }
+            verify(exactly = 1) { monitoringService.notifyNewsletterRequest(any()) }
             verify(exactly = 0) { reCaptchaService.isCaptchaValid(any(), any()) }
             response.statusCode shouldBe HttpStatus.OK
         }
@@ -304,14 +308,14 @@ class HomeControllerTest {
 
             // SETUP
             every { reCaptchaProperties.enabled } returns false
-            every { newsletterService.saveNewsletterRequest(any()) } just Runs
+            every { monitoringService.notifyNewsletterRequest(any()) } just Runs
 
             // WHEN
             homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
 
             // THEN
             val slotUrl = slot<URL>()
-            verify { newsletterService.saveNewsletterRequest(capture(slotUrl)) }
+            verify { monitoringService.notifyNewsletterRequest(capture(slotUrl)) }
             slotUrl.captured.toString() shouldBe "https://www.google.com"
         }
 

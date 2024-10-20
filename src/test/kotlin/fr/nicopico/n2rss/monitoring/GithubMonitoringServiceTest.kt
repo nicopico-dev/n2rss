@@ -270,9 +270,9 @@ class GithubMonitoringServiceTest {
     }
     //endregion
 
-    //region notifyRequest
+    //region notifyNewsletterRequest
     @Test
-    fun `notifyRequest should create a new GitHub issue and save it to the repository`() {
+    fun `notifyNewsletterRequest should create a new GitHub issue and save it to the repository`() {
         // GIVEN
         val newsletterUrl = URL("https://www.androidweekly.net")
         val issueId = IssueId(Random.nextInt())
@@ -285,7 +285,7 @@ class GithubMonitoringServiceTest {
         }
 
         // WHEN
-        monitoringService.notifyRequest(newsletterUrl)
+        monitoringService.notifyNewsletterRequest(newsletterUrl)
 
         // THEN
         val bodySlot = slot<String>()
@@ -313,7 +313,7 @@ class GithubMonitoringServiceTest {
     }
 
     @Test
-    fun `notifyRequest should add a comment to an existing GitHub issue`() {
+    fun `notifyNewsletterRequest should add a comment to an existing GitHub issue`() {
         // GIVEN
         val newsletterUrl = URL("https://www.androidweekly.net")
         val issueId = IssueId(Random.nextInt())
@@ -327,7 +327,7 @@ class GithubMonitoringServiceTest {
         every { client.addCommentToIssue(any(), any()) } just Runs
 
         // WHEN
-        monitoringService.notifyRequest(newsletterUrl)
+        monitoringService.notifyNewsletterRequest(newsletterUrl)
 
         // THEN
         verifySequence {
@@ -338,18 +338,47 @@ class GithubMonitoringServiceTest {
     }
 
     @Test
-    fun `notifyRequest should not throw if a GithubException occurs`() {
+    fun `notifyNewsletterRequest should not throw if a GithubException occurs`() {
         // SETUP
         every { repository.findNewsletterRequest(any()) } returns null
         every { client.createIssue(any(), any(), any()) } throws GithubException("Some GitHub error !")
 
         // WHEN
         shouldNotThrowAny {
-            monitoringService.notifyRequest(URL("https://github.com/test"))
+            monitoringService.notifyNewsletterRequest(URL("https://github.com/test"))
         }
 
         // THEN
         verify(exactly = 0) { repository.save(any<GithubIssueData.NewsletterRequest>()) }
+    }
+
+    @Test
+    fun `notifyNewsletterRequest should unify the newsletter url`() {
+        // GIVEN
+        @Suppress("HttpUrlsUsage")
+        val newsletterUrl = URL("http://www.nicopico.com/test/")
+        val uniqueUrl = URL("https://www.nicopico.com")
+        val issueId = IssueId(Random.nextInt())
+
+        // SETUP
+        every { repository.findNewsletterRequest(any()) } returns null
+        every { client.createIssue(any(), any(), any()) } returns issueId
+        every { repository.save(any<GithubIssueData.NewsletterRequest>()) } answers {
+            firstArg<GithubIssueData.NewsletterRequest>()
+        }
+
+        // WHEN
+        monitoringService.notifyNewsletterRequest(newsletterUrl)
+
+        // THEN
+        verify {
+            repository.save(
+                match<GithubIssueData.NewsletterRequest> {
+                    it.issueId == issueId
+                        && it.newsletterUrl.toURI() == uniqueUrl.toURI()
+                }
+            )
+        }
     }
     //endregion
 }
