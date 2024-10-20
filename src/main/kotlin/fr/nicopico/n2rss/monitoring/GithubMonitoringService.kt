@@ -31,6 +31,7 @@ import kotlinx.datetime.format.char
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import java.net.URL
 
 @Service
@@ -103,7 +104,15 @@ class GithubMonitoringService(
     }
 
     @Async
-    override fun notifyRequest(uniqueUrl: URL) {
+    @Transactional
+    override fun notifyNewsletterRequest(newsletterUrl: URL) {
+        // Sanitize URL
+        val uniqueUrl = URL(
+            /* protocol = */ "https",
+            /* host = */ newsletterUrl.host,
+            /* port = */ newsletterUrl.port,
+            /* file = */ "",
+        )
         try {
             val today = clock.now().format(DateTimeComponents.Format {
                 year(Padding.ZERO)

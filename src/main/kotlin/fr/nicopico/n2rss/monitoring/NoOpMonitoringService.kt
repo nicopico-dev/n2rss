@@ -31,7 +31,7 @@ class NoOpMonitoringService : MonitoringService {
         // No-op
     }
 
-    override fun notifyRequest(uniqueUrl: URL) {
+    override fun notifyNewsletterRequest(newsletterUrl: URL) {
         // No-op
     }
 }

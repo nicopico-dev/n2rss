@@ -26,6 +26,12 @@ interface MonitoringService {
     fun notifyEmailClientError(error: Exception)
     @Async
     fun notifyEmailProcessingError(email: Email, error: Exception)
+
+    /**
+     * Saves a given newsletter request by sanitizing the provided URL and notifying the monitoring service.
+     *
+     * @param newsletterUrl The URL of the newsletter request to be saved.
+     */
     @Async
-    fun notifyRequest(uniqueUrl: URL)
+    fun notifyNewsletterRequest(newsletterUrl: URL)
 }

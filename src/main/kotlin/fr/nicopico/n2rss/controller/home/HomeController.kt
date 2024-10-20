@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.models.GroupedNewsletterInfo
 import fr.nicopico.n2rss.newsletter.models.toGroupedNewsletterInfo
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
@@ -44,6 +45,7 @@ import java.net.URL
 class HomeController(
     private val newsletterService: NewsletterService,
     private val reCaptchaService: ReCaptchaService,
+    private val monitoringService: MonitoringService,
     private val feedProperties: N2RssProperties.FeedsProperties,
     private val recaptchaProperties: N2RssProperties.ReCaptchaProperties,
 ) {
@@ -100,7 +102,7 @@ class HomeController(
             val url = with(newsletterUrl) {
                 if (contains("://")) newsletterUrl else "https://$newsletterUrl"
             }.let { URL(it) }
-            newsletterService.saveNewsletterRequest(url)
+            monitoringService.notifyNewsletterRequest(url)
             ResponseEntity.ok().build()
         } else {
             ResponseEntity
