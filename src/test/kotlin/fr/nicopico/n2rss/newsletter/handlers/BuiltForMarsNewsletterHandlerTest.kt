@@ -78,7 +78,7 @@ class BuiltForMarsNewsletterHandlerTest {
         }
 
         @Test
-        fun `should extract an articles from an email (1)`() {
+        fun `should extract an article from an email (1)`() {
             // GIVEN
             val email: Email =
                 loadEmail("stubs/emails/Built for Mars/BFM #72 Why giving away free stocks isn't easy.eml")
@@ -174,10 +174,18 @@ In this study, I’ve tried to break down these subtleties, and explain exactly 
         val publication = handler.process(email)
 
         // THEN
-        publication.articles shouldHaveSize 5
+        publication.articles shouldHaveSize 1
         publication.articles[0] should {
-            it.title shouldBe "Spoiler-free mode"
-            it.description shouldBe "The NBA app will let you hide match spoilers as you browse."
+            it.title shouldBe "A masterclass in user activation \uD83D\uDE4C"
+            it.description shouldBe """
+                Hey 👋,
+                
+                Headspace: the orange-blob-face that tells me to breathe more slowly.
+                
+                They're experts at user activation.
+                
+                This is a masterclass. Get ready to learn some UX magic.
+            """.trimIndent()
         }
     }
 }
