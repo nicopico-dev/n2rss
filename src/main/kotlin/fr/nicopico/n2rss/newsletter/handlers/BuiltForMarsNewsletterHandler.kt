@@ -62,7 +62,37 @@ class BuiltForMarsNewsletterHandler : NewsletterHandlerSingleFeed {
             )
         } else {
             processMultipleArticlesDocument(cleanedDocument)
+        }.ifEmpty {
+            processSingleArticleFallback(
+                title = email.subject.substringAfter(":").trim(),
+                document = cleanedDocument,
+            )
         }
+    }
+
+    private fun processSingleArticleFallback(title: String, document: Document): List<Article> {
+        val articleElement = document
+            .selectFirst(":containsOwn(Hey \uD83D\uDC4B,)")
+            ?.parents()
+            ?.firstOrNull { it.`is`("table") }
+            ?: throw NewsletterParsingException("Unable to find fallback article table")
+
+        val link = articleElement.select("a[href]")
+            .firstOrNull { it.text().isNotBlank() }
+            ?.let { URL(it.attr("href")) }
+            ?: throw NewsletterParsingException("Unable to find article link")
+
+        val description = articleElement.select("td")
+            .takeWhile { it.select("span").isNotEmpty() }
+            .joinToString(separator = "\n\n") { it.text() }
+
+        return listOf(
+            Article(
+                title = title,
+                link = link,
+                description = description,
+            )
+        )
     }
 
     private fun processSingleArticleDocument(title: String, element: Element): List<Article> {
@@ -102,7 +132,7 @@ class BuiltForMarsNewsletterHandler : NewsletterHandlerSingleFeed {
                     .replace(MULTIPLE_ARTICLES_PREFIX_REGEX, "")
 
                 val titleElementIndex = document.indexOf(titleElement)
-                val description = document.select("span", startingAfterIndex = titleElementIndex)?.text()
+                val description = document.select("td", startingAfterIndex = titleElementIndex)?.text()
                     ?: throw NewsletterParsingException("Unable to find description for article \"$title\"")
 
                 val linkElement = document.select("a[href]", startingAfterIndex = titleElementIndex)

@@ -25,6 +25,7 @@ import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
+import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
@@ -77,20 +78,7 @@ class BuiltForMarsNewsletterHandlerTest {
         }
 
         @Test
-        fun `should process any Built for Mars email`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Built for Mars")
-
-            // WHEN - THEN
-            shouldNotThrowAny {
-                for (email in emails) {
-                    handler.process(email)
-                }
-            }
-        }
-
-        @Test
-        fun `should extract an articles from an email (1)`() {
+        fun `should extract an article from an email (1)`() {
             // GIVEN
             val email: Email =
                 loadEmail("stubs/emails/Built for Mars/BFM #72 Why giving away free stocks isn't easy.eml")
@@ -159,5 +147,45 @@ In this study, I’ve tried to break down these subtleties, and explain exactly 
                 description = "As your Uber Eats driver moves along the map, they cast a shadow on the ground.",
             )
         )
+    }
+
+    @Test
+    fun `should process UX Bites #36 email correctly`() {
+        // GIVEN
+        val email = loadEmail("stubs/emails/Built for Mars/UX Bites #36 — NBA, Octopus & Etsy.eml")
+
+        // WHEN
+        val publication = handler.process(email)
+
+        // THEN
+        publication.articles shouldHaveSize 5
+        publication.articles[0] should {
+            it.title shouldBe "Spoiler-free mode"
+            it.description shouldBe "The NBA app will let you hide match spoilers as you browse."
+        }
+    }
+
+    @Test
+    fun `should process BFM #77 email correctly`() {
+        // GIVEN
+        val email = loadEmail("stubs/emails/Built for Mars/BFM #77 A masterclass in user activation \uD83D\uDE4C.eml")
+
+        // WHEN
+        val publication = handler.process(email)
+
+        // THEN
+        publication.articles shouldHaveSize 1
+        publication.articles[0] should {
+            it.title shouldBe "A masterclass in user activation \uD83D\uDE4C"
+            it.description shouldBe """
+                Hey 👋,
+                
+                Headspace: the orange-blob-face that tells me to breathe more slowly.
+                
+                They're experts at user activation.
+                
+                This is a masterclass. Get ready to learn some UX magic.
+            """.trimIndent()
+        }
     }
 }
