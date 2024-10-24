@@ -1,0 +1,18 @@
+name: Test HTTP Client
+
+on:
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  notify-release-analytics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify release
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.SERVER_ENDPOINT }}/notifyRelease?version=0.0.0
+          method: POST
+          customHeaders: >-
+            {
+              "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
+            }
