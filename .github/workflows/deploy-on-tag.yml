@@ -49,9 +49,17 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           draft: true
+  restart-server:
+    if: ${{ vars.ENABLE_HTTP_CALLS }}
+    needs:
+      - deploy
+    uses: ./.github/workflows/restart-server.yml
+    secrets: inherit
   notify-release-analytics:
-    if: false # Failing when launched from GitHub
-    needs: deploy
+    if: ${{ vars.ENABLE_HTTP_CALLS }}
+    needs:
+      - deploy
+      - restart-server
     runs-on: ubuntu-latest
     steps:
       - name: Get the version
@@ -66,10 +74,3 @@ jobs:
             {
               "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
             }
-  restart-server:
-    if: false # Still failing to restart after a deployment :/
-    needs:
-      - deploy
-      - notify-release-analytics
-    uses: ./.github/workflows/restart-server.yml
-    secrets: inherit
