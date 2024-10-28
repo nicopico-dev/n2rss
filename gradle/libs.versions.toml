@@ -1,5 +1,5 @@
 [versions]
-springBoot = "3.3.4"
+springBoot = "3.3.5"
 dependencyManagement = "1.1.6"
 kotlin = "2.0.10"
 kover = "0.8.2"
