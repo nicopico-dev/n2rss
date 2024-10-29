@@ -37,6 +37,9 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ vars.FTP_DIR }}
           local-dir: ./deploy/
+      - name: Wait a bit at the end of deployment
+        run: |
+          sleep ${{ vars.DELAY_AFTER_DEPLOY }}
   create-github-release:
     needs: deploy
     runs-on: ubuntu-latest
