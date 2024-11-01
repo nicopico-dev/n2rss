@@ -23,6 +23,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.Lob
 import java.util.UUID
 
 @Entity(name = "ARTICLES")
@@ -35,9 +36,10 @@ class ArticleEntity(
     @Column(nullable = false)
     val title: String,
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 2000)
     val link: String,
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 5000)
+    @Lob
     val description: String,
 )

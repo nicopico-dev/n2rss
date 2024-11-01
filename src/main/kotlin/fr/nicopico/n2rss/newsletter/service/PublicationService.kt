@@ -30,6 +30,7 @@ import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import fr.nicopico.n2rss.utils.toLegacyDate
+import jakarta.transaction.Transactional
 import kotlinx.datetime.LocalDate
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
@@ -43,6 +44,7 @@ class PublicationService(
     private val newsletterRepository: NewsletterRepository,
     private val persistenceMode: PersistenceMode,
 ) {
+    @Transactional
     fun getPublications(newsletter: Newsletter, pageable: PageRequest): Page<Publication> {
         return if (persistenceMode == PersistenceMode.LEGACY) {
             legacyPublicationRepository.findByNewsletter(newsletter, pageable)
@@ -73,6 +75,7 @@ class PublicationService(
         }
     }
 
+    @Transactional
     fun savePublications(publications: List<Publication>) {
         val nonEmptyPublications = publications
             .filter { it.articles.isNotEmpty() }
