@@ -15,10 +15,9 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.data
+package fr.nicopico.n2rss.newsletter.data.legacy
 
 import fr.nicopico.n2rss.config.CacheConfiguration
-import fr.nicopico.n2rss.newsletter.data.entity.PublicationDocument
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import org.springframework.cache.annotation.CacheEvict
 import org.springframework.data.domain.Page
@@ -26,7 +25,7 @@ import org.springframework.data.domain.Pageable
 import org.springframework.data.mongodb.repository.MongoRepository
 import java.util.UUID
 
-interface PublicationRepository : MongoRepository<PublicationDocument, UUID> {
+interface LegacyPublicationRepository : MongoRepository<PublicationDocument, UUID> {
     fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<PublicationDocument>
     fun countPublicationsByNewsletter(newsletter: Newsletter): Long
     fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): PublicationDocument?

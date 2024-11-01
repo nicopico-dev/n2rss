@@ -19,6 +19,7 @@
 package fr.nicopico.n2rss.newsletter.data
 
 import fr.nicopico.n2rss.fakes.NewsletterHandlerFake
+import fr.nicopico.n2rss.newsletter.data.legacy.NewsletterValueConverter
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import io.kotest.matchers.shouldBe
 import io.mockk.mockk

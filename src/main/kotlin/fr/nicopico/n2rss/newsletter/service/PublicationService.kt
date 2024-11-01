@@ -18,8 +18,8 @@
 
 package fr.nicopico.n2rss.newsletter.service
 
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
-import fr.nicopico.n2rss.newsletter.data.entity.PublicationDocument
+import fr.nicopico.n2rss.newsletter.data.legacy.LegacyPublicationRepository
+import fr.nicopico.n2rss.newsletter.data.legacy.PublicationDocument
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
 import kotlinx.datetime.LocalDate
@@ -29,10 +29,10 @@ import org.springframework.stereotype.Service
 
 @Service
 class PublicationService(
-    private val publicationRepository: PublicationRepository
+    private val legacyPublicationRepository: LegacyPublicationRepository
 ) {
     fun getPublications(newsletter: Newsletter, pageable: PageRequest): Page<Publication> {
-        return publicationRepository.findByNewsletter(newsletter, pageable)
+        return legacyPublicationRepository.findByNewsletter(newsletter, pageable)
             .map {
                 Publication(
                     id = it.id,
@@ -56,14 +56,14 @@ class PublicationService(
                     articles = it.articles,
                 )
             }
-        publicationRepository.saveAll(nonEmptyPublications)
+        legacyPublicationRepository.saveAll(nonEmptyPublications)
     }
 
     fun getPublicationsCount(newsletter: Newsletter): Long {
-        return publicationRepository.countPublicationsByNewsletter(newsletter)
+        return legacyPublicationRepository.countPublicationsByNewsletter(newsletter)
     }
 
     fun getLatestPublicationDate(newsletter: Newsletter): LocalDate? {
-        return publicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter)?.date
+        return legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter)?.date
     }
 }

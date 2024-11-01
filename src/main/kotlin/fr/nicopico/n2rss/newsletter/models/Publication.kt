@@ -17,12 +17,12 @@
  */
 package fr.nicopico.n2rss.newsletter.models
 
-import fr.nicopico.n2rss.newsletter.data.NewsletterValueConverter
+import fr.nicopico.n2rss.newsletter.data.legacy.NewsletterValueConverter
 import kotlinx.datetime.LocalDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.convert.ValueConverter
 import org.springframework.data.mongodb.core.mapping.Document
-import java.util.*
+import java.util.UUID
 
 @Document(collection = "publications")
 data class Publication(
