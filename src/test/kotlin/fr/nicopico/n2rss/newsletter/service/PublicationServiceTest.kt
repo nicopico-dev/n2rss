@@ -18,6 +18,9 @@
 
 package fr.nicopico.n2rss.newsletter.service
 
+import fr.nicopico.n2rss.config.PersistenceMode
+import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
+import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.data.legacy.LegacyPublicationRepository
 import fr.nicopico.n2rss.newsletter.data.legacy.PublicationDocument
 import fr.nicopico.n2rss.newsletter.models.Article
@@ -46,13 +49,22 @@ import java.util.UUID
 class PublicationServiceTest {
 
     @MockK
+    private lateinit var publicationRepository: PublicationRepository
+    @MockK
     private lateinit var legacyPublicationRepository: LegacyPublicationRepository
+    @MockK
+    private lateinit var newsletterRepository: NewsletterRepository
 
     private lateinit var publicationService: PublicationService
 
     @BeforeEach
     fun setUp() {
-        publicationService = PublicationService(legacyPublicationRepository)
+        publicationService = PublicationService(
+            publicationRepository = publicationRepository,
+            legacyPublicationRepository = legacyPublicationRepository,
+            newsletterRepository = newsletterRepository,
+            persistenceMode = PersistenceMode.LEGACY,
+        )
     }
 
     private fun createStubNewsletter() = Newsletter(
@@ -66,7 +78,6 @@ class PublicationServiceTest {
         title: String = "Title 1",
         articleCount: Int = 1,
     ) = Publication(
-        id = UUID.randomUUID(),
         title = title,
         date = LocalDate.fromEpochDays(321),
         newsletter = newsletter,

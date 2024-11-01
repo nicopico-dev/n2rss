@@ -18,6 +18,7 @@
 
 package fr.nicopico.n2rss.utils
 
+import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.data.legacy.LegacyPublicationRepository
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Profile
@@ -28,12 +29,14 @@ import org.springframework.stereotype.Component
 @Profile("local")
 @Component
 class CleanLocalDatabase(
+    private val publicationRepository: PublicationRepository,
     private val legacyPublicationRepository: LegacyPublicationRepository,
 ) {
     @EventListener
     fun onApplicationEvent(ignored: ContextRefreshedEvent) {
         LOG.info("Clean-up local database...")
         legacyPublicationRepository.deleteAll()
+        publicationRepository.deleteAll()
     }
 
     companion object {

@@ -18,52 +18,119 @@
 
 package fr.nicopico.n2rss.newsletter.service
 
+import fr.nicopico.n2rss.config.PersistenceMode
+import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
+import fr.nicopico.n2rss.newsletter.data.PublicationRepository
+import fr.nicopico.n2rss.newsletter.data.entity.ArticleEntity
+import fr.nicopico.n2rss.newsletter.data.entity.PublicationEntity
 import fr.nicopico.n2rss.newsletter.data.legacy.LegacyPublicationRepository
 import fr.nicopico.n2rss.newsletter.data.legacy.PublicationDocument
+import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
+import fr.nicopico.n2rss.utils.toKotlinLocaleDate
+import fr.nicopico.n2rss.utils.toLegacyDate
 import kotlinx.datetime.LocalDate
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
+import java.net.URL
 
 @Service
 class PublicationService(
-    private val legacyPublicationRepository: LegacyPublicationRepository
+    private val publicationRepository: PublicationRepository,
+    private val legacyPublicationRepository: LegacyPublicationRepository,
+    private val newsletterRepository: NewsletterRepository,
+    private val persistenceMode: PersistenceMode,
 ) {
     fun getPublications(newsletter: Newsletter, pageable: PageRequest): Page<Publication> {
-        return legacyPublicationRepository.findByNewsletter(newsletter, pageable)
-            .map {
-                Publication(
-                    id = it.id,
-                    title = it.title,
-                    date = it.date,
-                    newsletter = it.newsletter,
-                    articles = it.articles,
-                )
-            }
+        return if (persistenceMode == PersistenceMode.LEGACY) {
+            legacyPublicationRepository.findByNewsletter(newsletter, pageable)
+                .map {
+                    Publication(
+                        title = it.title,
+                        date = it.date,
+                        newsletter = it.newsletter,
+                        articles = it.articles,
+                    )
+                }
+        } else {
+            publicationRepository.findByNewsletterCode(newsletter.code, pageable)
+                .map {
+                    Publication(
+                        title = it.title,
+                        date = it.date.toKotlinLocaleDate(),
+                        newsletter = newsletterRepository.findNewsletterByCode(it.newsletterCode)!!,
+                        articles = it.articles.map { article ->
+                            Article(
+                                title = article.title,
+                                link = URL(article.link),
+                                description = article.description,
+                            )
+                        },
+                    )
+                }
+        }
     }
 
     fun savePublications(publications: List<Publication>) {
         val nonEmptyPublications = publications
             .filter { it.articles.isNotEmpty() }
-            .map {
-                PublicationDocument(
-                    id = it.id,
-                    title = it.title,
-                    date = it.date,
-                    newsletter = it.newsletter,
-                    articles = it.articles,
-                )
+
+        when (persistenceMode) {
+            PersistenceMode.LEGACY -> saveToMongoDb(nonEmptyPublications)
+            PersistenceMode.MIGRATION -> {
+                saveToMongoDb(nonEmptyPublications)
+                saveToMariaDB(nonEmptyPublications)
             }
-        legacyPublicationRepository.saveAll(nonEmptyPublications)
+
+            PersistenceMode.DEFAULT -> saveToMariaDB(nonEmptyPublications)
+        }
+    }
+
+    private fun saveToMongoDb(publications: List<Publication>) {
+        val publicationDocuments = publications.map {
+            PublicationDocument(
+                title = it.title,
+                date = it.date,
+                newsletter = it.newsletter,
+                articles = it.articles,
+            )
+        }
+        legacyPublicationRepository.saveAll(publicationDocuments)
+    }
+
+    private fun saveToMariaDB(publications: List<Publication>) {
+        val entities = publications.map {
+            PublicationEntity(
+                title = it.title,
+                date = it.date.toLegacyDate(),
+                newsletterCode = it.newsletter.code,
+                articles = it.articles.map { article ->
+                    ArticleEntity(
+                        title = article.title,
+                        link = article.link.toString(),
+                        description = article.description,
+                    )
+                },
+            )
+        }
+        publicationRepository.saveAll(entities)
     }
 
     fun getPublicationsCount(newsletter: Newsletter): Long {
-        return legacyPublicationRepository.countPublicationsByNewsletter(newsletter)
+        return if (persistenceMode == PersistenceMode.LEGACY) {
+            legacyPublicationRepository.countPublicationsByNewsletter(newsletter)
+        } else {
+            publicationRepository.countPublicationsByNewsletterCode(newsletter.code)
+        }
     }
 
     fun getLatestPublicationDate(newsletter: Newsletter): LocalDate? {
-        return legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter)?.date
+        return if (persistenceMode == PersistenceMode.LEGACY) {
+            legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter)?.date
+        } else {
+            publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletter.code)?.date?.toKotlinLocaleDate()
+        }
     }
 }

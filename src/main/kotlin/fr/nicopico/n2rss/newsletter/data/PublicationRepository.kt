@@ -15,13 +15,26 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.models
 
-import kotlinx.datetime.LocalDate
+package fr.nicopico.n2rss.newsletter.data
 
-data class Publication(
-    val title: String,
-    val date: LocalDate,
-    val newsletter: Newsletter,
-    val articles: List<Article>,
-)
+import fr.nicopico.n2rss.config.CacheConfiguration
+import fr.nicopico.n2rss.newsletter.data.entity.PublicationEntity
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.jpa.repository.JpaRepository
+import java.util.UUID
+
+interface PublicationRepository : JpaRepository<PublicationEntity, UUID> {
+    fun findByNewsletterCode(newsletterCode: String, pageable: Pageable): Page<PublicationEntity>
+    fun countPublicationsByNewsletterCode(newsletterCode: String): Long
+    fun findFirstByNewsletterCodeOrderByDateAsc(newsletterCode: String): PublicationEntity?
+
+    // Clear feed cache when publications are saved
+    @CacheEvict(
+        cacheNames = [CacheConfiguration.GET_RSS_FEED_CACHE_NAME],
+        allEntries = true,
+    )
+    override fun <S : PublicationEntity> saveAll(entities: Iterable<S>): List<S>
+}

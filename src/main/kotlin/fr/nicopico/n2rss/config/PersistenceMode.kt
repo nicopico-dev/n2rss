@@ -15,24 +15,11 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+
 package fr.nicopico.n2rss.config
 
-import org.springframework.beans.factory.BeanFactory
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
-import org.springframework.data.convert.PropertyValueConverterFactory
-import org.springframework.data.mongodb.core.convert.MongoCustomConversions
-
-@Configuration
-class MongoConfiguration {
-
-    @Bean
-    fun customConversions(beanFactory: BeanFactory): MongoCustomConversions {
-        // Create a bean-aware PropertyValueConverterFactory
-        // This should allow `NewsletterValueConverter` to retrieve the NewsletterHandlers
-        val propertyValueConverterFactory = PropertyValueConverterFactory.beanFactoryAware(beanFactory)
-        return MongoCustomConversions.create {
-            it.registerPropertyValueConverterFactory(propertyValueConverterFactory)
-        }
-    }
+enum class PersistenceMode {
+    LEGACY,
+    MIGRATION,
+    DEFAULT,
 }
