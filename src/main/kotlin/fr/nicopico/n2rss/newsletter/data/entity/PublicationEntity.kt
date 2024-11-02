@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.newsletter.data.entity
 
 import jakarta.persistence.CascadeType
@@ -28,22 +27,21 @@ import jakarta.persistence.Index
 import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 import java.util.Date
-import java.util.UUID
 
 @Entity(name = "PUBLICATIONS")
 @Table(
     indexes = [
         Index(
             name = "idx_newsletter_code",
-            columnList = "newsletter_code"
+            columnList = "newsletter_code",
         )
     ]
 )
 class PublicationEntity(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    val id: UUID? = null,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null,
 
     @Column(nullable = false)
     val title: String,
@@ -55,6 +53,10 @@ class PublicationEntity(
     val newsletterCode: String,
 
     @Column(nullable = false)
-    @OneToMany(cascade = [(CascadeType.ALL)])
-    val articles: List<ArticleEntity>
+    @OneToMany(
+        mappedBy = "publication",
+        cascade = [(CascadeType.ALL)],
+        orphanRemoval = true,
+    )
+    var articles: List<ArticleEntity> = emptyList(),
 )

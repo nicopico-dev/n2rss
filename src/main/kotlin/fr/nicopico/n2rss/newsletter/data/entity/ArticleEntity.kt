@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.newsletter.data.entity
 
 import jakarta.persistence.Column
@@ -23,15 +22,26 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.Index
+import jakarta.persistence.JoinColumn
 import jakarta.persistence.Lob
-import java.util.UUID
+import jakarta.persistence.ManyToOne
+import jakarta.persistence.Table
 
 @Entity(name = "ARTICLES")
+@Table(
+    indexes = [
+        Index(
+            name = "idx_publication_id",
+            columnList = "publication_id",
+        )
+    ]
+)
 class ArticleEntity(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    val id: UUID? = null,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null,
 
     @Column(nullable = false)
     val title: String,
@@ -42,4 +52,8 @@ class ArticleEntity(
     @Column(nullable = false, length = 5000)
     @Lob
     val description: String,
+
+    @ManyToOne
+    @JoinColumn(name = "publication_id", nullable = false)
+    val publication: PublicationEntity,
 )

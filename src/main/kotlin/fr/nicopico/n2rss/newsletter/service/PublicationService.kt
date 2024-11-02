@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.newsletter.service
 
 import fr.nicopico.n2rss.config.PersistenceMode
@@ -109,15 +108,18 @@ class PublicationService(
                 title = it.title,
                 date = it.date.toLegacyDate(),
                 newsletterCode = it.newsletter.code,
-                articles = it.articles.map { article ->
+            ).also { entity ->
+                entity.articles = it.articles.map { article ->
                     ArticleEntity(
                         title = article.title,
                         link = article.link.toString(),
                         description = article.description,
+                        publication = entity,
                     )
-                },
-            )
+                }
+            }
         }
+
         publicationRepository.saveAll(entities)
     }
 
