@@ -15,18 +15,28 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.data.legacy
+package fr.nicopico.n2rss.utils
 
-import fr.nicopico.n2rss.newsletter.models.Newsletter
-import org.springframework.data.domain.Page
-import org.springframework.data.domain.Pageable
-import org.springframework.data.mongodb.repository.MongoRepository
-import java.util.UUID
+import org.springframework.data.domain.Sort
 
-interface LegacyPublicationRepository : MongoRepository<PublicationDocument, UUID> {
-    fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<PublicationDocument>
-    fun countPublicationsByNewsletter(newsletter: Newsletter): Long
-    fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): PublicationDocument?
+fun <T> List<T>.sortBy(sort: Sort, selector: (T, String) -> Comparable<*>?): List<T> {
+    val orders = sort.stream().toList()
+    return sortedWith(Comparator { a, b ->
+        for (order in orders) {
+            val propName = order.property
+            val aValue = selector(a, propName)
+            val bValue = selector(b, propName)
 
-    override fun <S : PublicationDocument> saveAll(entities: Iterable<S>): List<S>
+            val comparisonResult = when {
+                aValue == null -> if (bValue == null) 0 else -1
+                bValue == null -> 1
+                else -> (aValue as Comparable<Any>).compareTo(bValue)
+            }
+
+            if (comparisonResult != 0) {
+                return@Comparator if (order.isAscending) comparisonResult else -comparisonResult
+            }
+        }
+        0
+    })
 }

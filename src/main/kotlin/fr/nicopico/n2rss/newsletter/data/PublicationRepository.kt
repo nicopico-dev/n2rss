@@ -18,9 +18,7 @@
 
 package fr.nicopico.n2rss.newsletter.data
 
-import fr.nicopico.n2rss.config.CacheConfiguration
 import fr.nicopico.n2rss.newsletter.data.entity.PublicationEntity
-import org.springframework.cache.annotation.CacheEvict
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
@@ -31,10 +29,5 @@ interface PublicationRepository : JpaRepository<PublicationEntity, UUID> {
     fun countPublicationsByNewsletterCode(newsletterCode: String): Long
     fun findFirstByNewsletterCodeOrderByDateAsc(newsletterCode: String): PublicationEntity?
 
-    // Clear feed cache when publications are saved
-    @CacheEvict(
-        cacheNames = [CacheConfiguration.GET_RSS_FEED_CACHE_NAME],
-        allEntries = true,
-    )
     override fun <S : PublicationEntity> saveAll(entities: Iterable<S>): List<S>
 }

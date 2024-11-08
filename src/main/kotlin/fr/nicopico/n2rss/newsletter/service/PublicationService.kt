@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.service
 
+import fr.nicopico.n2rss.config.CacheConfiguration
 import fr.nicopico.n2rss.config.PersistenceMode
 import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
@@ -27,11 +28,14 @@ import fr.nicopico.n2rss.newsletter.data.legacy.PublicationDocument
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
+import fr.nicopico.n2rss.utils.sortBy
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import fr.nicopico.n2rss.utils.toLegacyDate
 import jakarta.transaction.Transactional
 import kotlinx.datetime.LocalDate
+import org.springframework.cache.annotation.CacheEvict
 import org.springframework.data.domain.Page
+import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
 import java.net.URL
@@ -43,66 +47,85 @@ class PublicationService(
     private val newsletterRepository: NewsletterRepository,
     private val persistenceMode: PersistenceMode,
 ) {
+    //region getPublications
     @Transactional
     fun getPublications(newsletter: Newsletter, pageable: PageRequest): Page<Publication> {
-        return if (persistenceMode == PersistenceMode.LEGACY) {
-            legacyPublicationRepository.findByNewsletter(newsletter, pageable)
-                .map {
-                    Publication(
-                        title = it.title,
-                        date = it.date,
-                        newsletter = it.newsletter,
-                        articles = it.articles,
-                    )
-                }
-        } else {
-            publicationRepository.findByNewsletterCode(newsletter.code, pageable)
-                .map {
-                    Publication(
-                        title = it.title,
-                        date = it.date.toKotlinLocaleDate(),
-                        newsletter = newsletterRepository.findNewsletterByCode(it.newsletterCode)!!,
-                        articles = it.articles.map { article ->
-                            Article(
-                                title = article.title,
-                                link = URL(article.link),
-                                description = article.description,
-                            )
-                        },
-                    )
-                }
-        }
-    }
-
-    @Transactional
-    fun savePublications(publications: List<Publication>) {
-        val nonEmptyPublications = publications
-            .filter { it.articles.isNotEmpty() }
-
-        when (persistenceMode) {
-            PersistenceMode.LEGACY -> saveToMongoDb(nonEmptyPublications)
+        return when (persistenceMode) {
+            PersistenceMode.LEGACY -> getPublicationsFromMongoDB(newsletter, pageable)
             PersistenceMode.MIGRATION -> {
-                saveToMongoDb(nonEmptyPublications)
-                saveToMariaDB(nonEmptyPublications)
+                val legacy = getPublicationsFromMongoDB(newsletter, pageable)
+                val default = getPublicationsFromMariaDB(newsletter, pageable)
+
+                val mergedPublications = (legacy + default)
+                    .sortBy(pageable.sort) { publication, property ->
+                        when (property) {
+                            "title" -> publication.title
+                            "date" -> publication.date
+                            "newsletter" -> publication.newsletter.code
+                            else -> null
+                        }
+                    }
+                    .take(pageable.pageSize)
+                PageImpl(mergedPublications)
             }
 
-            PersistenceMode.DEFAULT -> saveToMariaDB(nonEmptyPublications)
+            PersistenceMode.DEFAULT -> getPublicationsFromMariaDB(newsletter, pageable)
         }
     }
 
-    private fun saveToMongoDb(publications: List<Publication>) {
-        val publicationDocuments = publications.map {
-            PublicationDocument(
+    private fun getPublicationsFromMariaDB(
+        newsletter: Newsletter,
+        pageable: PageRequest
+    ) = publicationRepository.findByNewsletterCode(newsletter.code, pageable)
+        .map {
+            Publication(
+                title = it.title,
+                date = it.date.toKotlinLocaleDate(),
+                newsletter = newsletterRepository.findNewsletterByCode(it.newsletterCode)!!,
+                articles = it.articles.map { article ->
+                    Article(
+                        title = article.title,
+                        link = URL(article.link),
+                        description = article.description,
+                    )
+                },
+            )
+        }
+
+    private fun getPublicationsFromMongoDB(
+        newsletter: Newsletter,
+        pageable: PageRequest
+    ) = legacyPublicationRepository.findByNewsletter(newsletter, pageable)
+        .map {
+            Publication(
                 title = it.title,
                 date = it.date,
                 newsletter = it.newsletter,
                 articles = it.articles,
             )
         }
-        legacyPublicationRepository.saveAll(publicationDocuments)
+
+
+    //endregion
+
+    //region savePublications
+    @Transactional
+    @CacheEvict(
+        // Clear feed cache when publications are saved
+        cacheNames = [CacheConfiguration.GET_RSS_FEED_CACHE_NAME],
+        allEntries = true,
+    )
+    fun savePublications(publications: List<Publication>) {
+        val nonEmptyPublications = publications
+            .filter { it.articles.isNotEmpty() }
+
+        when (persistenceMode) {
+            PersistenceMode.LEGACY -> savePublicationsToMongoDb(nonEmptyPublications)
+            PersistenceMode.MIGRATION, PersistenceMode.DEFAULT -> savePublicationsToMariaDB(nonEmptyPublications)
+        }
     }
 
-    private fun saveToMariaDB(publications: List<Publication>) {
+    private fun savePublicationsToMariaDB(publications: List<Publication>) {
         val entities = publications.map {
             PublicationEntity(
                 title = it.title,
@@ -123,19 +146,52 @@ class PublicationService(
         publicationRepository.saveAll(entities)
     }
 
+    private fun savePublicationsToMongoDb(publications: List<Publication>) {
+        val publicationDocuments = publications.map {
+            PublicationDocument(
+                title = it.title,
+                date = it.date,
+                newsletter = it.newsletter,
+                articles = it.articles,
+            )
+        }
+        legacyPublicationRepository.saveAll(publicationDocuments)
+    }
+    //endregion
+
     fun getPublicationsCount(newsletter: Newsletter): Long {
-        return if (persistenceMode == PersistenceMode.LEGACY) {
-            legacyPublicationRepository.countPublicationsByNewsletter(newsletter)
-        } else {
-            publicationRepository.countPublicationsByNewsletterCode(newsletter.code)
+        val getLegacyCount: () -> Long = { legacyPublicationRepository.countPublicationsByNewsletter(newsletter) }
+        val getDefaultCount: () -> Long = { publicationRepository.countPublicationsByNewsletterCode(newsletter.code) }
+
+        return when (persistenceMode) {
+            PersistenceMode.LEGACY -> getLegacyCount()
+            PersistenceMode.MIGRATION -> getLegacyCount() + getDefaultCount()
+            PersistenceMode.DEFAULT -> getDefaultCount()
         }
     }
 
     fun getLatestPublicationDate(newsletter: Newsletter): LocalDate? {
-        return if (persistenceMode == PersistenceMode.LEGACY) {
+        val getLegacyLatest: () -> LocalDate? = {
             legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter)?.date
-        } else {
+        }
+        val getDefaultLatest: () -> LocalDate? = {
             publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletter.code)?.date?.toKotlinLocaleDate()
+        }
+
+        return when (persistenceMode) {
+            PersistenceMode.LEGACY -> getLegacyLatest()
+            PersistenceMode.MIGRATION -> {
+                val legacyLatest = getLegacyLatest()
+                val defaultLatest = getDefaultLatest()
+                when {
+                    legacyLatest == null && defaultLatest == null -> null
+                    legacyLatest == null -> defaultLatest
+                    defaultLatest == null -> legacyLatest
+                    else -> maxOf(defaultLatest, legacyLatest)
+                }
+            }
+
+            PersistenceMode.DEFAULT -> getDefaultLatest()
         }
     }
 }
