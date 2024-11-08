@@ -38,6 +38,7 @@ import io.mockk.slot
 import io.mockk.verify
 import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.data.domain.Page
@@ -55,15 +56,12 @@ class PublicationServiceTest {
     @MockK
     private lateinit var newsletterRepository: NewsletterRepository
 
-    private lateinit var publicationService: PublicationService
-
-    @BeforeEach
-    fun setUp() {
-        publicationService = PublicationService(
+    private fun createPublicationService(persistenceMode: PersistenceMode): PublicationService {
+        return PublicationService(
             publicationRepository = publicationRepository,
             legacyPublicationRepository = legacyPublicationRepository,
             newsletterRepository = newsletterRepository,
-            persistenceMode = PersistenceMode.LEGACY,
+            persistenceMode = persistenceMode,
         )
     }
 
@@ -94,91 +92,102 @@ class PublicationServiceTest {
         articles = listOf(mockk<Article>())
     )
 
-    @Test
-    fun `should get publications by newsletter`() {
-        // GIVEN
-        val newsletter = createStubNewsletter()
-        val pageable = PageRequest.of(0, 10)
-        val publications = listOf(createStubPublicationDocument(newsletter))
-        val publicationPage: Page<PublicationDocument> = PageImpl(publications)
-        every { legacyPublicationRepository.findByNewsletter(newsletter, pageable) } returns publicationPage
+    @Nested
+    inner class LegacyMode {
 
-        // WHEN
-        val result = publicationService.getPublications(newsletter, pageable)
+        private lateinit var publicationService: PublicationService
 
-        // THEN
-        verify { legacyPublicationRepository.findByNewsletter(newsletter, pageable) }
-        assertSoftly {
-            result.content.size shouldBe 1
-            result.content[0].title shouldBe "Title 1"
+        @BeforeEach
+        fun setUp() {
+            publicationService = createPublicationService(PersistenceMode.LEGACY)
         }
-    }
 
-    @Test
-    fun `should only save publications containing articles`() {
-        // GIVEN
-        val newsletter = createStubNewsletter()
-        val publications = listOf(
-            createStubPublication(newsletter, "Title 1"),
-            createStubPublication(newsletter, "Title 2", articleCount = 0),
-            createStubPublication(newsletter, "Title 3"),
-        )
+        @Test
+        fun `should get publications by newsletter`() {
+            // GIVEN
+            val newsletter = createStubNewsletter()
+            val pageable = PageRequest.of(0, 10)
+            val publications = listOf(createStubPublicationDocument(newsletter))
+            val publicationPage: Page<PublicationDocument> = PageImpl(publications)
+            every { legacyPublicationRepository.findByNewsletter(newsletter, pageable) } returns publicationPage
 
-        every { legacyPublicationRepository.saveAll(any<List<PublicationDocument>>()) } answers { firstArg() }
+            // WHEN
+            val result = publicationService.getPublications(newsletter, pageable)
 
-        // WHEN
-        publicationService.savePublications(publications)
-
-        // THEN
-        val slot = slot<List<PublicationDocument>>()
-        verify { legacyPublicationRepository.saveAll(capture(slot)) }
-        slot.captured should {
-            it shouldHaveSize 2
-            it[0].title shouldBe "Title 1"
-            it[1].title shouldBe "Title 3"
+            // THEN
+            verify { legacyPublicationRepository.findByNewsletter(newsletter, pageable) }
+            assertSoftly {
+                result.content.size shouldBe 1
+                result.content[0].title shouldBe "Title 1"
+            }
         }
-    }
 
-    @Test
-    fun `should get publications count by newsletter`() {
-        // GIVEN
-        val newsletter = createStubNewsletter()
-        every { legacyPublicationRepository.countPublicationsByNewsletter(newsletter) } returns 10L
+        @Test
+        fun `should only save publications containing articles`() {
+            // GIVEN
+            val newsletter = createStubNewsletter()
+            val publications = listOf(
+                createStubPublication(newsletter, "Title 1"),
+                createStubPublication(newsletter, "Title 2", articleCount = 0),
+                createStubPublication(newsletter, "Title 3"),
+            )
 
-        // WHEN
-        val result = publicationService.getPublicationsCount(newsletter)
+            every { legacyPublicationRepository.saveAll(any<List<PublicationDocument>>()) } answers { firstArg() }
 
-        // THEN
-        verify { legacyPublicationRepository.countPublicationsByNewsletter(newsletter) }
-        result shouldBe 10L
-    }
+            // WHEN
+            publicationService.savePublications(publications)
 
-    @Test
-    fun `should get latest publication date by newsletter`() {
-        // GIVEN
-        val newsletter = createStubNewsletter()
-        val latestPublication = createStubPublicationDocument(newsletter)
-        every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) } returns latestPublication
+            // THEN
+            val slot = slot<List<PublicationDocument>>()
+            verify { legacyPublicationRepository.saveAll(capture(slot)) }
+            slot.captured should {
+                it shouldHaveSize 2
+                it[0].title shouldBe "Title 1"
+                it[1].title shouldBe "Title 3"
+            }
+        }
 
-        // WHEN
-        val result = publicationService.getLatestPublicationDate(newsletter)
+        @Test
+        fun `should get publications count by newsletter`() {
+            // GIVEN
+            val newsletter = createStubNewsletter()
+            every { legacyPublicationRepository.countPublicationsByNewsletter(newsletter) } returns 10L
 
-        // THEN
-        verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-        result shouldBe latestPublication.date
-    }
+            // WHEN
+            val result = publicationService.getPublicationsCount(newsletter)
 
-    @Test
-    fun `should return null when no publications are available`() {
-        // GIVEN
-        val newsletter = createStubNewsletter()
-        every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) } returns null
+            // THEN
+            verify { legacyPublicationRepository.countPublicationsByNewsletter(newsletter) }
+            result shouldBe 10L
+        }
 
-        // WHEN
-        val result = publicationService.getLatestPublicationDate(newsletter)
+        @Test
+        fun `should get latest publication date by newsletter`() {
+            // GIVEN
+            val newsletter = createStubNewsletter()
+            val latestPublication = createStubPublicationDocument(newsletter)
+            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) } returns latestPublication
 
-        // THEN
-        verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-        result shouldBe null
+            // WHEN
+            val result = publicationService.getLatestPublicationDate(newsletter)
+
+            // THEN
+            verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
+            result shouldBe latestPublication.date
+        }
+
+        @Test
+        fun `should return null when no publications are available`() {
+            // GIVEN
+            val newsletter = createStubNewsletter()
+            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) } returns null
+
+            // WHEN
+            val result = publicationService.getLatestPublicationDate(newsletter)
+
+            // THEN
+            verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
+            result shouldBe null
+        }
     }
 }
