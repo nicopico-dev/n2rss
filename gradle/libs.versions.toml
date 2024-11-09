@@ -74,6 +74,7 @@ springBoot-dev = [
 [plugins]
 dependencyManagement = { id = "io.spring.dependency-management", version.ref = "dependencyManagement" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+flyway = { id = "org.flywaydb.flyway", version.ref = "flyway" }
 kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }

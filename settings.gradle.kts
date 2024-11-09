@@ -19,3 +19,13 @@
 rootProject.name = "n2rss"
 
 includeBuild("build-conventions")
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        // Use by Flyway Gradle Plugin
+        classpath("org.flywaydb:flyway-mysql:10.21.0")
+    }
+}

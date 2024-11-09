@@ -24,6 +24,7 @@ plugins {
 
     alias(libs.plugins.kover)
     alias(libs.plugins.detekt)
+    alias(libs.plugins.flyway)
 
     id("fr.nicopico.conventions.kotlin-strict")
     id("fr.nicopico.conventions.quality")
@@ -67,6 +68,19 @@ npi {
         serverPath = "/tmp/n2rss-test"
         serverPort = 9090
     }
+}
+
+// Allows usage of Flyway commands through the Gradle plugin
+flyway {
+    url = "jdbc:mariadb://localhost:3306/n2rss-database"
+    user = "n2rss"
+    password = "secret"
+
+    schemas = arrayOf("n2rss-database")
+    locations = arrayOf(
+        "classpath:db/migration",
+        "classpath:fr/nicopico/n2rss/newsletter/data/migration",
+    )
 }
 
 repositories {
