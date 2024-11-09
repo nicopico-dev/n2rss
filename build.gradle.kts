@@ -83,6 +83,11 @@ flyway {
     )
 }
 
+// Enable support for Java migration for Flyway Gradle plugin
+tasks.named<Task>("flywayMigrate") {
+    dependsOn(tasks.named("classes"))
+}
+
 repositories {
     mavenCentral()
 }
