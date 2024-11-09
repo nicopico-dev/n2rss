@@ -61,7 +61,6 @@ class PublicationService(
                         when (property) {
                             "title" -> publication.title
                             "date" -> publication.date
-                            "newsletter" -> publication.newsletter.code
                             else -> null
                         }
                     }
