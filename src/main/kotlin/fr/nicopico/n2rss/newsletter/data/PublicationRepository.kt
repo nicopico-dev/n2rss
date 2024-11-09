@@ -28,6 +28,4 @@ interface PublicationRepository : JpaRepository<PublicationEntity, UUID> {
     fun findByNewsletterCode(newsletterCode: String, pageable: Pageable): Page<PublicationEntity>
     fun countPublicationsByNewsletterCode(newsletterCode: String): Long
     fun findFirstByNewsletterCodeOrderByDateAsc(newsletterCode: String): PublicationEntity?
-
-    override fun <S : PublicationEntity> saveAll(entities: Iterable<S>): List<S>
 }

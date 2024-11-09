@@ -26,7 +26,7 @@ import org.springframework.context.event.ContextRefreshedEvent
 import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Component
 
-@Profile("local")
+@Profile("local & reset-db")
 @Component
 class CleanLocalDatabase(
     private val publicationRepository: PublicationRepository,
