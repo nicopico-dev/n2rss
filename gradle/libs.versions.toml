@@ -1,25 +1,25 @@
 [versions]
-springBoot = "3.3.5"
-dependencyManagement = "1.1.6"
-kotlin = "2.0.10"
-kover = "0.8.2"
-detekt = "1.23.7"
-jakartaMail = "2.0.1"
-kotlinxDatetime = "0.6.1"
-jsoup = "1.18.1"
-rome = "2.1.0"
-jsonPath = "2.9.0"
 annotations = "26.0.1"
+dependencyManagement = "1.1.6"
+detekt = "1.23.7"
+flyway = "10.21.0"
+greenmail = "2.1.0"
+jakartaMail = "2.0.1"
+jsonPath = "2.9.0"
+jsoup = "1.18.1"
 junitJupiterEngine = "5.10.3"
 kotestAssertions = "5.9.1"
 kotestKotlinxDatetime = "1.1.0"
+kotlin = "2.0.10"
+kotlinxDatetime = "0.6.1"
+kover = "0.8.2"
 mockk = "1.13.13"
-greenmail = "2.1.0"
 mockwebserver = "4.12.0"
+rome = "2.1.0"
+springBoot = "3.3.5"
 
 [libraries]
 # Kotlin
-kotlin-stdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
 
@@ -37,21 +37,23 @@ springBoot-configurationProcessor = { module = "org.springframework.boot:spring-
 springBoot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
 
 # Other Libraries
+annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
+flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
+flyway-mysql = { module = "org.flywaydb:flyway-mysql", version.ref = "flyway" }
 jacksonModuleKotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
 jakartaMail = { module = "com.sun.mail:jakarta.mail", version.ref = "jakartaMail" }
-jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
-rome = { module = "com.rometools:rome", version.ref = "rome" }
 jsonPath = { module = "com.jayway.jsonpath:json-path", version.ref = "jsonPath" }
-annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
+jsoup = { module = "org.jsoup:jsoup", version.ref = "jsoup" }
 mariadb-driver = { module = "org.mariadb.jdbc:mariadb-java-client" }
+rome = { module = "com.rometools:rome", version.ref = "rome" }
 
 # Testing Libraries
+greenmail = { module = "com.icegreen:greenmail", version.ref = "greenmail" }
+greenmail-junit5 = { module = "com.icegreen:greenmail-junit5", version.ref = "greenmail" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiterEngine" }
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotestAssertions" }
 kotest-assertions-kotlinxDatetime = { module = "io.kotest.extensions:kotest-assertions-kotlinx-datetime", version.ref = "kotestKotlinxDatetime" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
-greenmail = { module = "com.icegreen:greenmail", version.ref = "greenmail" }
-greenmail-junit5 = { module = "com.icegreen:greenmail-junit5", version.ref = "greenmail" }
 mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "mockwebserver" }
 
 [bundles]
@@ -70,10 +72,10 @@ springBoot-dev = [
 ]
 
 [plugins]
-springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }
 dependencyManagement = { id = "io.spring.dependency-management", version.ref = "dependencyManagement" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
-kotlin-jpa = { id = "org.jetbrains.kotlin.plugin.jpa", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+springBoot = { id = "org.springframework.boot", version.ref = "springBoot" }

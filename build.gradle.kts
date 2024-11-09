@@ -89,6 +89,8 @@ dependencies {
     implementation(libs.annotations)
 
     runtimeOnly(libs.mariadb.driver)
+    implementation(libs.flyway.core)
+    implementation(libs.flyway.mysql)
 
     testImplementation(libs.springBoot.starter.test) {
         exclude(group = "org.mockito")
