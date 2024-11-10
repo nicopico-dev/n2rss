@@ -20,7 +20,7 @@ package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.data.GithubIssueData
-import fr.nicopico.n2rss.monitoring.data.GithubIssueRepository
+import fr.nicopico.n2rss.monitoring.data.GithubIssueService
 import fr.nicopico.n2rss.monitoring.github.GithubClient
 import fr.nicopico.n2rss.monitoring.github.GithubException
 import kotlinx.datetime.Clock
@@ -36,7 +36,7 @@ import java.net.URL
 
 @Service
 class GithubMonitoringService(
-    private val repository: GithubIssueRepository,
+    private val repository: GithubIssueService,
     private val client: GithubClient,
     private val clock: Clock,
 ) : MonitoringService {

@@ -21,7 +21,7 @@ import fr.nicopico.n2rss.fakes.FixedClock
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.monitoring.data.GithubIssueData
-import fr.nicopico.n2rss.monitoring.data.GithubIssueRepository
+import fr.nicopico.n2rss.monitoring.data.GithubIssueService
 import fr.nicopico.n2rss.monitoring.github.GithubClient
 import fr.nicopico.n2rss.monitoring.github.GithubException
 import fr.nicopico.n2rss.monitoring.github.IssueId
@@ -51,7 +51,7 @@ import kotlin.random.Random
 class GithubMonitoringServiceTest {
 
     @MockK
-    private lateinit var repository: GithubIssueRepository
+    private lateinit var repository: GithubIssueService
     @MockK
     private lateinit var client: GithubClient
 

@@ -4,6 +4,7 @@ dependencyManagement = "1.1.6"
 detekt = "1.23.7"
 flyway = "10.21.0"
 greenmail = "2.1.0"
+h2 = "2.2.224"
 jakartaMail = "2.0.1"
 jsonPath = "2.9.0"
 jsoup = "1.18.1"
@@ -40,6 +41,7 @@ springBoot-starter-test = { module = "org.springframework.boot:spring-boot-start
 annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
 flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 flyway-mysql = { module = "org.flywaydb:flyway-mysql", version.ref = "flyway" }
+h2-database = { module = "com.h2database:h2", version.ref = "h2" }
 jacksonModuleKotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
 jakartaMail = { module = "com.sun.mail:jakarta.mail", version.ref = "jakartaMail" }
 jsonPath = { module = "com.jayway.jsonpath:json-path", version.ref = "jsonPath" }

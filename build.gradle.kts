@@ -123,4 +123,5 @@ dependencies {
     testImplementation(libs.greenmail)
     testImplementation(libs.greenmail.junit5)
     testImplementation(libs.mockwebserver)
+    testRuntimeOnly(libs.h2.database)
 }

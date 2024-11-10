@@ -44,3 +44,22 @@ alter table articles
 
 create index idx_newsletter_code
     on publications (newsletter_code);
+
+create table github_issues
+(
+    issue_id       int          not null,
+    issue_type varchar(31) not null,
+    error_message  varchar(255),
+    email_title    varchar(255),
+    newsletter_url varchar(255),
+    constraint pk_github_issues primary key (issue_id)
+);
+
+create index idx_github_issue_type
+    on github_issues (issue_type);
+
+create unique index idx_github_issue_newsletter_url
+    on github_issues (newsletter_url);
+
+create index idx_github_issue_email_processing
+    on github_issues (email_title, error_message);
