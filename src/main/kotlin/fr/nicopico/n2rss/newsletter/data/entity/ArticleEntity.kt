@@ -22,21 +22,11 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
-import jakarta.persistence.Index
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.Lob
 import jakarta.persistence.ManyToOne
-import jakarta.persistence.Table
 
 @Entity(name = "ARTICLES")
-@Table(
-    indexes = [
-        Index(
-            name = "idx_publication_id",
-            columnList = "publication_id",
-        )
-    ]
-)
 class ArticleEntity(
 
     @Id
