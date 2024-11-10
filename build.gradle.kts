@@ -81,6 +81,8 @@ flyway {
         "classpath:db/migration",
         "classpath:fr/nicopico/n2rss/newsletter/data/migration",
     )
+
+    cleanDisabled = false
 }
 
 // Enable support for Java migration for Flyway Gradle plugin
