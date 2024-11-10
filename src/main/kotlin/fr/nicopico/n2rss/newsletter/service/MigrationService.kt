@@ -55,12 +55,11 @@ class MigrationService(
                 }
             }
             publicationRepository.saveAll(publicationEntities)
+            legacyPublicationRepository.deleteAll(legacyPage)
 
             page++
             legacyPage = legacyPublicationRepository.findAll(PageRequest.of(page, PAGE_SIZE))
         }
-
-        legacyPublicationRepository.deleteAll()
     }
 
     companion object {
