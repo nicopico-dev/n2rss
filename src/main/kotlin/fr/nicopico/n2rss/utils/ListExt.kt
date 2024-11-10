@@ -15,27 +15,28 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.data
+package fr.nicopico.n2rss.utils
 
-import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
-import fr.nicopico.n2rss.newsletter.handlers.newsletters
-import fr.nicopico.n2rss.newsletter.models.Newsletter
-import org.springframework.data.convert.PropertyValueConverter
-import org.springframework.data.convert.ValueConversionContext
-import org.springframework.stereotype.Component
+import org.springframework.data.domain.Sort
 
-@Component
-class NewsletterValueConverter(
-    private val handlers: List<NewsletterHandler>
-) : PropertyValueConverter<Newsletter, String, ValueConversionContext<*>> {
+fun <T> List<T>.sortBy(sort: Sort, selector: (T, String) -> Comparable<*>?): List<T> {
+    val orders = sort.stream().toList()
+    return sortedWith(Comparator { a, b ->
+        for (order in orders) {
+            val propName = order.property
+            val aValue = selector(a, propName)
+            val bValue = selector(b, propName)
 
-    override fun read(value: String, context: ValueConversionContext<*>): Newsletter? {
-        return handlers
-            .flatMap { it.newsletters }
-            .firstOrNull { it.code == value }
-    }
+            val comparisonResult = when {
+                aValue == null -> if (bValue == null) 0 else -1
+                bValue == null -> 1
+                else -> (aValue as Comparable<Any>).compareTo(bValue)
+            }
 
-    override fun write(value: Newsletter, context: ValueConversionContext<*>): String {
-        return value.code
-    }
+            if (comparisonResult != 0) {
+                return@Comparator if (order.isAscending) comparisonResult else -comparisonResult
+            }
+        }
+        0
+    })
 }

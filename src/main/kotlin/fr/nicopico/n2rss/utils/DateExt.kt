@@ -17,13 +17,14 @@
  */
 package fr.nicopico.n2rss.utils
 
+import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.atStartOfDayIn
 import kotlinx.datetime.toJavaInstant
 import kotlinx.datetime.toKotlinInstant
 import kotlinx.datetime.toLocalDateTime
-import java.util.*
+import java.util.Date
 
 fun Date.toKotlinLocaleDate(): LocalDate {
     val instant = this.toInstant()
@@ -37,4 +38,10 @@ fun Date.toKotlinLocaleDate(): LocalDate {
 fun LocalDate.toLegacyDate(): Date {
     val instant = atStartOfDayIn(TimeZone.UTC)
     return Date.from(instant.toJavaInstant())
+}
+
+fun LocalDate.Companion.now(clock: Clock = Clock.System): LocalDate {
+    return clock.now()
+        .toLocalDateTime(TimeZone.currentSystemDefault())
+        .date
 }

@@ -15,13 +15,38 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.models
+package fr.nicopico.n2rss.newsletter.data.entity
 
-import kotlinx.datetime.LocalDate
+import jakarta.persistence.CascadeType
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
+import jakarta.persistence.OneToMany
+import java.util.Date
 
-data class Publication(
+@Entity(name = "PUBLICATIONS")
+class PublicationEntity(
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null,
+
+    @Column(nullable = false)
     val title: String,
-    val date: LocalDate,
-    val newsletter: Newsletter,
-    val articles: List<Article>,
+
+    @Column(nullable = false)
+    val date: Date,
+
+    @Column(nullable = false)
+    val newsletterCode: String,
+
+    @Column(nullable = false)
+    @OneToMany(
+        mappedBy = "publication",
+        cascade = [(CascadeType.ALL)],
+        orphanRemoval = true,
+    )
+    var articles: List<ArticleEntity> = emptyList(),
 )

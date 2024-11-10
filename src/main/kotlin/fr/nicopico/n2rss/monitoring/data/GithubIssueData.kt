@@ -18,32 +18,55 @@
 package fr.nicopico.n2rss.monitoring.data
 
 import fr.nicopico.n2rss.monitoring.github.IssueId
-import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.index.Indexed
-import org.springframework.data.mongodb.core.mapping.Document
+import jakarta.persistence.Column
+import jakarta.persistence.DiscriminatorColumn
+import jakarta.persistence.DiscriminatorType
+import jakarta.persistence.DiscriminatorValue
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
+import jakarta.persistence.Inheritance
+import jakarta.persistence.InheritanceType
 import java.net.URL
 
-@Document(collection = "github_issues")
-sealed class GithubIssueData(
+@Entity(name = "GITHUB_ISSUES")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(
+    name = "issue_type",
+    discriminatorType = DiscriminatorType.STRING,
+)
+open class GithubIssueData(
     @Id
+    @Column(name = "issue_id")
     val issueId: IssueId
 ) {
+
+    @Entity
+    @DiscriminatorValue("email-client-error")
     class EmailClientError(
         issueId: IssueId,
+
+        @Column(nullable = false)
         val errorMessage: String
     ) : GithubIssueData(issueId)
 
+    @Entity
+    @DiscriminatorValue("email-processing-error")
     class EmailProcessingError(
         issueId: IssueId,
-        @Indexed
+
+        @Column(nullable = false)
         val emailTitle: String,
-        @Indexed
+
+        @Column(nullable = false)
         val errorMessage: String,
     ) : GithubIssueData(issueId)
 
+    @Entity
+    @DiscriminatorValue("newsletter-request")
     class NewsletterRequest(
         issueId: IssueId,
-        @Indexed(unique = true)
+
+        @Column(nullable = false)
         val newsletterUrl: URL,
     ) : GithubIssueData(issueId)
 }

@@ -20,9 +20,11 @@ plugins {
     alias(libs.plugins.dependencyManagement)
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.spring)
+    alias(libs.plugins.kotlin.jpa)
 
     alias(libs.plugins.kover)
     alias(libs.plugins.detekt)
+    alias(libs.plugins.flyway)
 
     id("fr.nicopico.conventions.kotlin-strict")
     id("fr.nicopico.conventions.quality")
@@ -68,6 +70,26 @@ npi {
     }
 }
 
+// Allows usage of Flyway commands through the Gradle plugin
+flyway {
+    url = "jdbc:mariadb://localhost:3306/n2rss-database"
+    user = "n2rss"
+    password = "secret"
+
+    schemas = arrayOf("n2rss-database")
+    locations = arrayOf(
+        "classpath:db/migration",
+        "classpath:fr/nicopico/n2rss/newsletter/data/migration",
+    )
+
+    cleanDisabled = false
+}
+
+// Enable support for Java migration for Flyway Gradle plugin
+tasks.named<Task>("flywayMigrate") {
+    dependsOn(tasks.named("classes"))
+}
+
 repositories {
     mavenCentral()
 }
@@ -87,6 +109,10 @@ dependencies {
     implementation(libs.jsonPath)
     implementation(libs.annotations)
 
+    runtimeOnly(libs.mariadb.driver)
+    implementation(libs.flyway.core)
+    implementation(libs.flyway.mysql)
+
     testImplementation(libs.springBoot.starter.test) {
         exclude(group = "org.mockito")
     }
@@ -97,4 +123,5 @@ dependencies {
     testImplementation(libs.greenmail)
     testImplementation(libs.greenmail.junit5)
     testImplementation(libs.mockwebserver)
+    testRuntimeOnly(libs.h2.database)
 }

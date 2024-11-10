@@ -32,24 +32,16 @@ import java.net.URL
 import kotlin.random.Random
 
 @ExtendWith(MockKExtension::class)
-class GithubIssueRepositoryTest {
+class GithubIssueServiceTest {
 
     @MockK
-    private lateinit var emailClientErrorRepository: GithubIssueEmailClientErrorRepository
-    @MockK
-    private lateinit var emailProcessingErrorRepository: GithubIssueEmailProcessingErrorRepository
-    @MockK
-    private lateinit var newsletterRequestRepository: GithubIssueNewsletterRequestRepository
-
     private lateinit var githubRepository: GithubIssueRepository
+
+    private lateinit var githubService: GithubIssueService
 
     @BeforeEach
     fun setUp() {
-        githubRepository = GithubIssueRepository(
-            emailClientErrorRepository = emailClientErrorRepository,
-            emailProcessingErrorRepository = emailProcessingErrorRepository,
-            newsletterRequestRepository = newsletterRequestRepository,
-        )
+        githubService = GithubIssueService(githubRepository)
     }
 
     @Test
@@ -63,14 +55,14 @@ class GithubIssueRepositoryTest {
         )
 
         // SETUP
-        every { emailClientErrorRepository.getEmailClientErrorByErrorMessage(any()) } returns expected
+        every { githubRepository.findEmailClientError(any()) } returns expected
 
         // WHEN
-        val result = githubRepository.findEmailClientError(errorMessage)
+        val result = githubService.findEmailClientError(errorMessage)
 
         // THEN
         result shouldBe expected
-        verify { emailClientErrorRepository.getEmailClientErrorByErrorMessage(errorMessage) }
+        verify { githubRepository.findEmailClientError(errorMessage) }
     }
 
     @Test
@@ -82,13 +74,13 @@ class GithubIssueRepositoryTest {
         )
 
         // SETUP
-        every { emailClientErrorRepository.save(any()) } returns data
+        every { githubRepository.save(any()) } returns data
 
         // WHEN
-        githubRepository.save(data)
+        githubService.save(data)
 
         // THEN
-        verify { emailClientErrorRepository.save(data) }
+        verify { githubRepository.save(data) }
     }
 
     @Test
@@ -108,16 +100,16 @@ class GithubIssueRepositoryTest {
 
         // SETUP
         every {
-            emailProcessingErrorRepository.getEmailProcessingErrorByEmailTitleAndErrorMessage(any(), any())
+            githubRepository.findEmailProcessingError(any(), any())
         } returns expected
 
         // WHEN
-        val result = githubRepository.findEmailProcessingError(email, errorMessage)
+        val result = githubService.findEmailProcessingError(email, errorMessage)
 
         // THEN
         result shouldBe expected
         verify {
-            emailProcessingErrorRepository.getEmailProcessingErrorByEmailTitleAndErrorMessage(
+            githubRepository.findEmailProcessingError(
                 emailTitle,
                 errorMessage,
             )
@@ -134,13 +126,13 @@ class GithubIssueRepositoryTest {
         )
 
         // SETUP
-        every { emailProcessingErrorRepository.save(any()) } returns data
+        every { githubRepository.save(any()) } returns data
 
         // WHEN
-        githubRepository.save(data)
+        githubService.save(data)
 
         // THEN
-        verify { emailProcessingErrorRepository.save(data) }
+        verify { githubRepository.save(data) }
     }
 
     @Test
@@ -154,16 +146,16 @@ class GithubIssueRepositoryTest {
 
         // SETUP
         every {
-            newsletterRequestRepository.getNewsletterRequestByNewsletterUrl(any())
+            githubRepository.findNewsletterRequest(any())
         } returns expected
 
         // WHEN
-        val result = githubRepository.findNewsletterRequest(newsletterUrl)
+        val result = githubService.findNewsletterRequest(newsletterUrl)
 
         // THEN
         result shouldBe expected
         verify {
-            newsletterRequestRepository.getNewsletterRequestByNewsletterUrl(newsletterUrl)
+            githubRepository.findNewsletterRequest(newsletterUrl)
         }
     }
 
@@ -176,12 +168,12 @@ class GithubIssueRepositoryTest {
         )
 
         // SETUP
-        every { newsletterRequestRepository.save(any()) } returns data
+        every { githubRepository.save(any()) } returns data
 
         // WHEN
-        githubRepository.save(data)
+        githubService.save(data)
 
         // THEN
-        verify { newsletterRequestRepository.save(data) }
+        verify { githubRepository.save(data) }
     }
 }

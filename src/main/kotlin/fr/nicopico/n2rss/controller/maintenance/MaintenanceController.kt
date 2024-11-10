@@ -20,6 +20,7 @@ package fr.nicopico.n2rss.controller.maintenance
 import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
 import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.newsletter.service.MigrationService
 import jakarta.servlet.http.HttpServletResponse
 import org.jetbrains.annotations.VisibleForTesting
 import org.springframework.boot.SpringApplication
@@ -27,6 +28,7 @@ import org.springframework.context.ApplicationContext
 import org.springframework.context.ConfigurableApplicationContext
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestParam
@@ -36,6 +38,7 @@ import kotlin.concurrent.thread
 class MaintenanceController(
     private val applicationContext: ApplicationContext,
     private val analyticsService: AnalyticsService,
+    private val migrationService: MigrationService,
     private val properties: N2RssProperties.MaintenanceProperties,
 ) {
     @PostMapping("/notifyRelease")
@@ -69,6 +72,13 @@ class MaintenanceController(
             Thread.sleep(RESTART_DELAY_MS)
             SpringApplication.exit(context)
         }
+    }
+
+    @GetMapping("/migrate-database")
+    fun migrateDatabase(response: HttpServletResponse) {
+        migrationService.migrateToNewDatabase()
+        response.status = HttpServletResponse.SC_OK
+        response.writer.write("Database has been migrated")
     }
 
     companion object {

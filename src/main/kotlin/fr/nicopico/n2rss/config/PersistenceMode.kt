@@ -16,14 +16,10 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.monitoring.data
+package fr.nicopico.n2rss.config
 
-import fr.nicopico.n2rss.monitoring.github.IssueId
-import org.springframework.data.mongodb.repository.MongoRepository
-
-interface GithubIssueEmailProcessingErrorRepository : MongoRepository<GithubIssueData.EmailProcessingError, IssueId> {
-    fun getEmailProcessingErrorByEmailTitleAndErrorMessage(
-        emailTitle: String,
-        errorMessage: String
-    ): GithubIssueData.EmailProcessingError?
+enum class PersistenceMode {
+    LEGACY,
+    MIGRATION,
+    DEFAULT,
 }

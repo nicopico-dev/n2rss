@@ -15,26 +15,17 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+
 package fr.nicopico.n2rss.newsletter.data
 
-import fr.nicopico.n2rss.config.CacheConfiguration
-import fr.nicopico.n2rss.newsletter.data.entity.PublicationDocument
-import fr.nicopico.n2rss.newsletter.models.Newsletter
-import org.springframework.cache.annotation.CacheEvict
+import fr.nicopico.n2rss.newsletter.data.entity.PublicationEntity
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
-import org.springframework.data.mongodb.repository.MongoRepository
+import org.springframework.data.jpa.repository.JpaRepository
 import java.util.UUID
 
-interface PublicationRepository : MongoRepository<PublicationDocument, UUID> {
-    fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<PublicationDocument>
-    fun countPublicationsByNewsletter(newsletter: Newsletter): Long
-    fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): PublicationDocument?
-
-    // Clear feed cache when publications are saved
-    @CacheEvict(
-        cacheNames = [CacheConfiguration.GET_RSS_FEED_CACHE_NAME],
-        allEntries = true,
-    )
-    override fun <S : PublicationDocument> saveAll(entities: Iterable<S>): List<S>
+interface PublicationRepository : JpaRepository<PublicationEntity, UUID> {
+    fun findByNewsletterCode(newsletterCode: String, pageable: Pageable): Page<PublicationEntity>
+    fun countPublicationsByNewsletterCode(newsletterCode: String): Long
+    fun findFirstByNewsletterCodeOrderByDateAsc(newsletterCode: String): PublicationEntity?
 }

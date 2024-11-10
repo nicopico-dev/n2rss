@@ -15,24 +15,24 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.config
 
-import org.springframework.beans.factory.BeanFactory
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
-import org.springframework.data.convert.PropertyValueConverterFactory
-import org.springframework.data.mongodb.core.convert.MongoCustomConversions
+package fr.nicopico.n2rss.newsletter.data.legacy
 
-@Configuration
-class MongoConfiguration {
+import fr.nicopico.n2rss.newsletter.models.Article
+import fr.nicopico.n2rss.newsletter.models.Newsletter
+import kotlinx.datetime.LocalDate
+import org.springframework.data.annotation.Id
+import org.springframework.data.convert.ValueConverter
+import org.springframework.data.mongodb.core.mapping.Document
+import java.util.UUID
 
-    @Bean
-    fun customConversions(beanFactory: BeanFactory): MongoCustomConversions {
-        // Create a bean-aware PropertyValueConverterFactory
-        // This should allow `NewsletterValueConverter` to retrieve the NewsletterHandlers
-        val propertyValueConverterFactory = PropertyValueConverterFactory.beanFactoryAware(beanFactory)
-        return MongoCustomConversions.create {
-            it.registerPropertyValueConverterFactory(propertyValueConverterFactory)
-        }
-    }
-}
+@Document(collection = "publications")
+data class PublicationDocument(
+    @Id
+    val id: UUID = UUID.randomUUID(),
+    val title: String,
+    val date: LocalDate,
+    @ValueConverter(NewsletterValueConverter::class)
+    val newsletter: Newsletter,
+    val articles: List<Article>,
+)

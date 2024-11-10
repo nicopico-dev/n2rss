@@ -15,13 +15,18 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.models
+package fr.nicopico.n2rss.newsletter.data.legacy
 
-import kotlinx.datetime.LocalDate
+import fr.nicopico.n2rss.newsletter.models.Newsletter
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.mongodb.repository.MongoRepository
+import java.util.UUID
 
-data class Publication(
-    val title: String,
-    val date: LocalDate,
-    val newsletter: Newsletter,
-    val articles: List<Article>,
-)
+interface LegacyPublicationRepository : MongoRepository<PublicationDocument, UUID> {
+    fun findByNewsletter(newsletter: Newsletter, pageable: Pageable): Page<PublicationDocument>
+    fun countPublicationsByNewsletter(newsletter: Newsletter): Long
+    fun findFirstByNewsletterOrderByDateAsc(newsletter: Newsletter): PublicationDocument?
+
+    override fun <S : PublicationDocument> saveAll(entities: Iterable<S>): List<S>
+}

@@ -1,12 +1,26 @@
 version: '3.8'
 services:
   db:
-    image: mongo:latest
+    image: mongo:4.2
     ports:
       - '27017:27017'
     volumes:
       - db:/data/db
+  db2:
+    image: mariadb:10.4
+    environment:
+      - 'MARIADB_DATABASE=n2rss-database'
+      - 'MARIADB_PASSWORD=secret'
+      - 'MARIADB_ROOT_PASSWORD=verysecret'
+      - 'MARIADB_USER=n2rss'
+    ports:
+      - '3306:3306'
+    volumes:
+      - db2:/data/db2
 volumes:
   db:
+    driver:
+      local
+  db2:
     driver:
       local

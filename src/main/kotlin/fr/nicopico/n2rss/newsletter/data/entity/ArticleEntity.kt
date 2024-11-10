@@ -15,12 +15,35 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.newsletter.data.entity
 
-package fr.nicopico.n2rss.monitoring.data
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.Lob
+import jakarta.persistence.ManyToOne
 
-import fr.nicopico.n2rss.monitoring.github.IssueId
-import org.springframework.data.mongodb.repository.MongoRepository
+@Entity(name = "ARTICLES")
+class ArticleEntity(
 
-interface GithubIssueEmailClientErrorRepository : MongoRepository<GithubIssueData.EmailClientError, IssueId> {
-    fun getEmailClientErrorByErrorMessage(error: String): GithubIssueData.EmailClientError?
-}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null,
+
+    @Column(nullable = false)
+    val title: String,
+
+    @Column(nullable = false, length = 2000)
+    val link: String,
+
+    @Column(nullable = false, length = 5000)
+    @Lob
+    val description: String,
+
+    @ManyToOne
+    @JoinColumn(name = "publication_id", nullable = false)
+    val publication: PublicationEntity,
+)

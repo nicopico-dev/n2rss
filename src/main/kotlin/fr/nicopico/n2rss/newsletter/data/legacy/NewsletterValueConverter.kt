@@ -15,25 +15,27 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.newsletter.data.legacy
 
-package fr.nicopico.n2rss.newsletter.data.entity
-
-import fr.nicopico.n2rss.newsletter.data.NewsletterValueConverter
-import fr.nicopico.n2rss.newsletter.models.Article
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
+import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import fr.nicopico.n2rss.newsletter.models.Newsletter
-import kotlinx.datetime.LocalDate
-import org.springframework.data.annotation.Id
-import org.springframework.data.convert.ValueConverter
-import org.springframework.data.mongodb.core.mapping.Document
-import java.util.UUID
+import org.springframework.data.convert.PropertyValueConverter
+import org.springframework.data.convert.ValueConversionContext
+import org.springframework.stereotype.Component
 
-@Document(collection = "publications")
-data class PublicationDocument(
-    @Id
-    val id: UUID = UUID.randomUUID(),
-    val title: String,
-    val date: LocalDate,
-    @ValueConverter(NewsletterValueConverter::class)
-    val newsletter: Newsletter,
-    val articles: List<Article>,
-)
+@Component
+class NewsletterValueConverter(
+    private val handlers: List<NewsletterHandler>
+) : PropertyValueConverter<Newsletter, String, ValueConversionContext<*>> {
+
+    override fun read(value: String, context: ValueConversionContext<*>): Newsletter? {
+        return handlers
+            .flatMap { it.newsletters }
+            .firstOrNull { it.code == value }
+    }
+
+    override fun write(value: Newsletter, context: ValueConversionContext<*>): String {
+        return value.code
+    }
+}
