@@ -35,8 +35,7 @@ class MigrationService(
     @Transactional
     fun migrateToNewDatabase() {
         var page = 0
-        val pageSize = 50
-        var legacyPage = legacyPublicationRepository.findAll(PageRequest.of(page, pageSize))
+        var legacyPage = legacyPublicationRepository.findAll(PageRequest.of(page, PAGE_SIZE))
 
         while (legacyPage.hasContent()) {
             val publicationEntities = legacyPage.content.map { document ->
@@ -58,9 +57,13 @@ class MigrationService(
             publicationRepository.saveAll(publicationEntities)
 
             page++
-            legacyPage = legacyPublicationRepository.findAll(PageRequest.of(page, pageSize))
+            legacyPage = legacyPublicationRepository.findAll(PageRequest.of(page, PAGE_SIZE))
         }
 
         legacyPublicationRepository.deleteAll()
+    }
+
+    companion object {
+        private const val PAGE_SIZE = 50
     }
 }

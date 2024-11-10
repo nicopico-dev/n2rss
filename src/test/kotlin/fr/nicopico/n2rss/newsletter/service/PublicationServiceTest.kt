@@ -359,6 +359,7 @@ class PublicationServiceTest {
         }
 
         @Test
+        @Suppress("LongMethod")
         fun `should get publications by newsletter`() {
             // GIVEN
             val newsletterCode = "test"
