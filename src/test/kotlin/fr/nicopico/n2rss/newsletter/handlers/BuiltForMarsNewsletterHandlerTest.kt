@@ -20,65 +20,25 @@ package fr.nicopico.n2rss.newsletter.handlers
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.models.Article
 import io.kotest.assertions.assertSoftly
-import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.net.URL
 
-class BuiltForMarsNewsletterHandlerTest {
-
-    private lateinit var handler: BuiltForMarsNewsletterHandler
-
-    @BeforeEach
-    fun setUp() {
-        handler = BuiltForMarsNewsletterHandler()
-    }
+class BuiltForMarsNewsletterHandlerTest : BaseNewsletterHandlerTest<BuiltForMarsNewsletterHandler>(
+    handlerProvider = ::BuiltForMarsNewsletterHandler,
+    stubsFolder = "Built for Mars",
+) {
 
     @Nested
-    inner class CanHandleTest {
+    inner class EmailProcessingTest {
         @Test
-        fun `should handle all emails from Built for Mars`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Built for Mars")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe true
-        }
-
-        @Test
-        fun `should ignore all emails from another newsletters`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Android Weekly")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe false
-        }
-    }
-
-    @Nested
-    inner class ProcessTest {
-        @Test
-        fun `should be able to process all the newsletter emails`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Built for Mars")
-
-            // WHEN - THEN
-            shouldNotThrowAny {
-                emails.forEach { email ->
-                    handler.process(email)
-                }
-            }
-        }
-
-        @Test
-        fun `should extract an article from an email (1)`() {
+        fun `should extract an article from an email #72`() {
             // GIVEN
             val email: Email =
                 loadEmail("stubs/emails/Built for Mars/BFM #72 Why giving away free stocks isn't easy.eml")
@@ -123,61 +83,61 @@ In this study, I’ve tried to break down these subtleties, and explain exactly 
 
             }
         }
-    }
 
-    @Test
-    fun `should process email #22`() {
-        // GIVEN
-        val email = loadEmail("stubs/emails/Built for Mars/UX Bites #22 — Monzo, Uber & Booking.eml")
+        @Test
+        fun `should process email #22`() {
+            // GIVEN
+            val email = loadEmail("stubs/emails/Built for Mars/UX Bites #22 — Monzo, Uber & Booking.eml")
 
-        // WHEN
-        val publication = handler.process(email)
+            // WHEN
+            val publication = handler.process(email)
 
-        // THEN
-        publication.articles shouldHaveSize 5
-        publication.articles shouldContainInOrder listOf(
-            Article(
-                title = "Euros 2024 celebration",
-                link = URL("https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%2Fux-bites%2Feuros-2024-celebration/1/0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000/z2-9ZzSn7NKjESxr4dt5Rebu0BiOiVwLyAnDjzCuDOk=360"),
-                description = "If you Google a specific football result, you might see this celebratory overlay.",
-            ),
-            Article(
-                title = "Casting a shadow",
-                link = URL("https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%2Fux-bites%2Fcasting-a-shadow/1/0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000/bVadl8McGE8cT9wTeyVNtJHqeFpJSTR68zPhMJjfFx8=360"),
-                description = "As your Uber Eats driver moves along the map, they cast a shadow on the ground.",
+            // THEN
+            publication.articles shouldHaveSize 5
+            publication.articles shouldContainInOrder listOf(
+                Article(
+                    title = "Euros 2024 celebration",
+                    link = URL("https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%2Fux-bites%2Feuros-2024-celebration/1/0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000/z2-9ZzSn7NKjESxr4dt5Rebu0BiOiVwLyAnDjzCuDOk=360"),
+                    description = "If you Google a specific football result, you might see this celebratory overlay.",
+                ),
+                Article(
+                    title = "Casting a shadow",
+                    link = URL("https://c.vialoops.com/CL0/https:%2F%2Fbuiltformars.com%2Fux-bites%2Fcasting-a-shadow/1/0100019092a99f62-c44d094f-0ed6-4a9a-87d4-a7c2748d2276-000000/bVadl8McGE8cT9wTeyVNtJHqeFpJSTR68zPhMJjfFx8=360"),
+                    description = "As your Uber Eats driver moves along the map, they cast a shadow on the ground.",
+                )
             )
-        )
-    }
-
-    @Test
-    fun `should process UX Bites #36 email correctly`() {
-        // GIVEN
-        val email = loadEmail("stubs/emails/Built for Mars/UX Bites #36 — NBA, Octopus & Etsy.eml")
-
-        // WHEN
-        val publication = handler.process(email)
-
-        // THEN
-        publication.articles shouldHaveSize 5
-        publication.articles[0] should {
-            it.title shouldBe "Spoiler-free mode"
-            it.description shouldBe "The NBA app will let you hide match spoilers as you browse."
         }
-    }
 
-    @Test
-    fun `should process BFM #77 email correctly`() {
-        // GIVEN
-        val email = loadEmail("stubs/emails/Built for Mars/BFM #77 A masterclass in user activation \uD83D\uDE4C.eml")
+        @Test
+        fun `should process UX Bites #36 email correctly`() {
+            // GIVEN
+            val email = loadEmail("stubs/emails/Built for Mars/UX Bites #36 — NBA, Octopus & Etsy.eml")
 
-        // WHEN
-        val publication = handler.process(email)
+            // WHEN
+            val publication = handler.process(email)
 
-        // THEN
-        publication.articles shouldHaveSize 1
-        publication.articles[0] should {
-            it.title shouldBe "A masterclass in user activation \uD83D\uDE4C"
-            it.description shouldBe """
+            // THEN
+            publication.articles shouldHaveSize 5
+            publication.articles[0] should {
+                it.title shouldBe "Spoiler-free mode"
+                it.description shouldBe "The NBA app will let you hide match spoilers as you browse."
+            }
+        }
+
+        @Test
+        fun `should process BFM #77 email correctly`() {
+            // GIVEN
+            val email =
+                loadEmail("stubs/emails/Built for Mars/BFM #77 A masterclass in user activation \uD83D\uDE4C.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            publication.articles shouldHaveSize 1
+            publication.articles[0] should {
+                it.title shouldBe "A masterclass in user activation \uD83D\uDE4C"
+                it.description shouldBe """
                 Hey 👋,
                 
                 Headspace: the orange-blob-face that tells me to breathe more slowly.
@@ -186,6 +146,7 @@ In this study, I’ve tried to break down these subtleties, and explain exactly 
                 
                 This is a masterclass. Get ready to learn some UX magic.
             """.trimIndent()
+            }
         }
     }
 }

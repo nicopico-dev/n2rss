@@ -20,61 +20,21 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
-import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.net.URL
 
-class QuickBirdNewsletterHandlerTest {
-
-    private lateinit var handler: QuickBirdNewsletterHandler
-
-    @BeforeEach
-    fun setUp() {
-        handler = QuickBirdNewsletterHandler()
-    }
+class QuickBirdNewsletterHandlerTest : BaseNewsletterHandlerTest<QuickBirdNewsletterHandler>(
+    handlerProvider = ::QuickBirdNewsletterHandler,
+    stubsFolder = "QuickBird Studios",
+) {
 
     @Nested
-    inner class CanHandleTest {
-        @Test
-        fun `should handle all emails from QuickBird newsletter`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/QuickBird Studios")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe true
-        }
-
-        @Test
-        fun `should ignore all emails from another newsletters`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Kotlin Weekly")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe false
-        }
-    }
-
-    @Nested
-    inner class ProcessTest {
-        @Test
-        fun `should be able to process all the newsletter emails`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/QuickBird Studios")
-
-            // WHEN - THEN
-            shouldNotThrowAny {
-                emails.forEach { email ->
-                    handler.process(email)
-                }
-            }
-        }
-
+    inner class EmailProcessingTest {
         @Test
         fun `should extract an article from an email (1)`() {
             // GIVEN
