@@ -43,14 +43,15 @@ class GithubMonitoringService(
 
     @Async
     @Transactional
-    override fun notifyGenericError(error: Exception) {
+    override fun notifyGenericError(error: Exception, context: String?) {
         val errorMessage = error.message ?: error.toString()
         try {
             val existing = repository.findGenericError(errorMessage)
             if (existing == null) {
                 val id = client.createIssue(
                     title = "An error occurred: `$errorMessage`",
-                    body = "Retrieving emails failed with the following error:\n\n"
+                    body = "Context: ${context ?: "UNSPECIFIED"}\n"
+                        + "Stacktrace:\n\n"
                         + "```\n"
                         + error.stackTraceToString()
                         + "```\n",

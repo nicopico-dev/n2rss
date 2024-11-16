@@ -22,8 +22,10 @@ import org.springframework.scheduling.annotation.Async
 import java.net.URL
 
 interface MonitoringService {
+
     @Async
-    fun notifyGenericError(error: Exception)
+    fun notifyGenericError(error: Exception, context: String? = null)
+
     @Async
     fun notifyEmailProcessingError(email: Email, error: Exception)
 

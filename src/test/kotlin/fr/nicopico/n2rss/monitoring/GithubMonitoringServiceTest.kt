@@ -73,6 +73,60 @@ class GithubMonitoringServiceTest {
     fun `notifyGenericError should create a new GitHub issue and save it to the repository`() {
         // GIVEN
         val errorMessage = "Some error"
+        val context = "CONTEXT"
+        val error = Exception(errorMessage)
+        val issueId = IssueId(Random.nextInt())
+
+        // SETUP
+        every { repository.findGenericError(any()) } returns null
+        every { client.createIssue(any(), any(), any()) } returns issueId
+        every { repository.save(any<GithubIssueData.GenericError>()) } answers {
+            firstArg<GithubIssueData.GenericError>()
+        }
+
+        // WHEN
+        monitoringService.notifyGenericError(error, context)
+
+        // THEN
+        val bodySlot = slot<String>()
+        verifySequence {
+            repository.findGenericError(errorMessage)
+            client.createIssue(
+                title = "An error occurred: `Some error`",
+                body = capture(bodySlot),
+                match { labels ->
+                    "n2rss-bot" in labels
+                    "email-client-error" in labels
+                    "bug" in labels
+                }
+            )
+            repository.save(
+                match<GithubIssueData.GenericError> {
+                    it.issueId == issueId && it.errorMessage == errorMessage
+                }
+            )
+        }
+        confirmVerified(repository, client)
+
+        bodySlot.captured shouldStartWith """
+            |Context: CONTEXT
+            |Stacktrace:
+            |
+            |```
+            |java.lang.Exception: Some error
+            |	at fr.nicopico.n2rss.monitoring.GithubMonitoringServiceTest.notifyGenericError should create a new GitHub issue and save it to the repository(GithubMonitoringServiceTest.kt:
+        """.trimMargin()
+
+        bodySlot.captured shouldEndWith """
+            |```
+            |
+        """.trimMargin()
+    }
+
+    @Test
+    fun `notifyGenericError with unspecified context should create a new GitHub issue and save it to the repository`() {
+        // GIVEN
+        val errorMessage = "Some error"
         val error = Exception(errorMessage)
         val issueId = IssueId(Random.nextInt())
 
@@ -108,11 +162,12 @@ class GithubMonitoringServiceTest {
         confirmVerified(repository, client)
 
         bodySlot.captured shouldStartWith """
-            |Retrieving emails failed with the following error:
+            |Context: UNSPECIFIED
+            |Stacktrace:
             |
             |```
             |java.lang.Exception: Some error
-            |	at fr.nicopico.n2rss.monitoring.GithubMonitoringServiceTest.notifyGenericError should create a new GitHub issue and save it to the repository(GithubMonitoringServiceTest.kt:
+            |	at fr.nicopico.n2rss.monitoring.GithubMonitoringServiceTest.notifyGenericError with unspecified context should create a new GitHub issue and save it to the repository(GithubMonitoringServiceTest.kt:
         """.trimMargin()
 
         bodySlot.captured shouldEndWith """

@@ -23,7 +23,7 @@ import java.net.URL
 
 @Service
 class NoOpMonitoringService : MonitoringService {
-    override fun notifyGenericError(error: Exception) {
+    override fun notifyGenericError(error: Exception, context: String?) {
         // No-op
     }
 

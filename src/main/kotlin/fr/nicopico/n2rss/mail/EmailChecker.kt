@@ -85,7 +85,7 @@ class EmailChecker(
             LOG.info("Processing done!")
         } catch (e: Exception) {
             LOG.error("Error while checking emails", e)
-            monitoringService.notifyGenericError(e)
+            monitoringService.notifyGenericError(e, context = "Checking emails")
         }
     }
 }
