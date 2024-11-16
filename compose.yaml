@@ -8,7 +8,7 @@ services:
   db2:
     image: mariadb:10.4
     environment:
-      - 'MARIADB_DATABASE=n2rss-database'
+      - 'MARIADB_DATABASE=nicopico_n2rss'
       - 'MARIADB_PASSWORD=secret'
       - 'MARIADB_ROOT_PASSWORD=verysecret'
       - 'MARIADB_USER=n2rss'

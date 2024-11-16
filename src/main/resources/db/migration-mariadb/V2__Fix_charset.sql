@@ -16,7 +16,7 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-alter database `n2rss-database` character set utf8mb4 collate utf8mb4_unicode_ci;
+alter database `nicopico_n2rss` character set utf8mb4 collate utf8mb4_unicode_ci;
 alter table publications
     convert to character set utf8mb4 collate utf8mb4_unicode_ci;
 alter table articles
