@@ -68,30 +68,30 @@ class GithubMonitoringServiceTest {
         )
     }
 
-    //region notifyEmailClientError
+    //region notifyGenericError
     @Test
-    fun `notifyEmailClientError should create a new GitHub issue and save it to the repository`() {
+    fun `notifyGenericError should create a new GitHub issue and save it to the repository`() {
         // GIVEN
         val errorMessage = "Some error"
         val error = Exception(errorMessage)
         val issueId = IssueId(Random.nextInt())
 
         // SETUP
-        every { repository.findEmailClientError(any()) } returns null
+        every { repository.findGenericError(any()) } returns null
         every { client.createIssue(any(), any(), any()) } returns issueId
-        every { repository.save(any<GithubIssueData.EmailClientError>()) } answers {
-            firstArg<GithubIssueData.EmailClientError>()
+        every { repository.save(any<GithubIssueData.GenericError>()) } answers {
+            firstArg<GithubIssueData.GenericError>()
         }
 
         // WHEN
-        monitoringService.notifyEmailClientError(error)
+        monitoringService.notifyGenericError(error)
 
         // THEN
         val bodySlot = slot<String>()
         verifySequence {
-            repository.findEmailClientError(errorMessage)
+            repository.findGenericError(errorMessage)
             client.createIssue(
-                title = "Email client fails with `Some error`",
+                title = "An error occurred: `Some error`",
                 body = capture(bodySlot),
                 match { labels ->
                     "n2rss-bot" in labels
@@ -100,7 +100,7 @@ class GithubMonitoringServiceTest {
                 }
             )
             repository.save(
-                match<GithubIssueData.EmailClientError> {
+                match<GithubIssueData.GenericError> {
                     it.issueId == issueId && it.errorMessage == errorMessage
                 }
             )
@@ -112,7 +112,7 @@ class GithubMonitoringServiceTest {
             |
             |```
             |java.lang.Exception: Some error
-            |	at fr.nicopico.n2rss.monitoring.GithubMonitoringServiceTest.notifyEmailClientError should create a new GitHub issue and save it to the repository(GithubMonitoringServiceTest.kt:
+            |	at fr.nicopico.n2rss.monitoring.GithubMonitoringServiceTest.notifyGenericError should create a new GitHub issue and save it to the repository(GithubMonitoringServiceTest.kt:
         """.trimMargin()
 
         bodySlot.captured shouldEndWith """
@@ -122,39 +122,39 @@ class GithubMonitoringServiceTest {
     }
 
     @Test
-    fun `notifyEmailClientError should not do anything if a GitHub issue already exists`() {
+    fun `notifyGenericError should not do anything if a GitHub issue already exists`() {
         // GIVEN
         val errorMessage = "Some error"
         val error = Exception(errorMessage)
         val issueId = IssueId(Random.nextInt())
 
         // SETUP
-        every { repository.findEmailClientError(any()) } returns GithubIssueData.EmailClientError(
+        every { repository.findGenericError(any()) } returns GithubIssueData.GenericError(
             issueId = issueId,
             errorMessage = errorMessage,
         )
 
         // WHEN
-        monitoringService.notifyEmailClientError(error)
+        monitoringService.notifyGenericError(error)
 
         // THEN
-        verify { repository.findEmailClientError(errorMessage) }
+        verify { repository.findGenericError(errorMessage) }
         confirmVerified(repository, client)
     }
 
     @Test
-    fun `notifyEmailClientError should not throw if a GithubException occurs`() {
+    fun `notifyGenericError should not throw if a GithubException occurs`() {
         // SETUP
-        every { repository.findEmailClientError(any()) } returns null
+        every { repository.findGenericError(any()) } returns null
         every { client.createIssue(any(), any(), any()) } throws GithubException("Some GitHub error !")
 
         // WHEN
         shouldNotThrowAny {
-            monitoringService.notifyEmailClientError(Exception("TEST"))
+            monitoringService.notifyGenericError(Exception("TEST"))
         }
 
         // THEN
-        verify(exactly = 0) { repository.save(any<GithubIssueData.EmailClientError>()) }
+        verify(exactly = 0) { repository.save(any<GithubIssueData.GenericError>()) }
     }
     //endregion
 

@@ -155,14 +155,14 @@ class EmailCheckerTest {
         // Given that emailClient fails when checking emails
         val emailError = RuntimeException("TEST")
         every { emailClient.checkEmails() } throws emailError
-        every { monitoringService.notifyEmailClientError(any()) } just Runs
+        every { monitoringService.notifyGenericError(any()) } just Runs
 
         // When we check the emails
         emailChecker.savePublicationsFromEmails()
 
         // Then emailChecker should proceed without doing anything
         verify { emailClient.checkEmails() }
-        verify { monitoringService.notifyEmailClientError(emailError) }
+        verify { monitoringService.notifyGenericError(emailError) }
 
         confirmVerified(
             emailClient,

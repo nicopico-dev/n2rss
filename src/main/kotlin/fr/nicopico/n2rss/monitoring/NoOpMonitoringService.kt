@@ -23,7 +23,7 @@ import java.net.URL
 
 @Service
 class NoOpMonitoringService : MonitoringService {
-    override fun notifyEmailClientError(error: Exception) {
+    override fun notifyGenericError(error: Exception) {
         // No-op
     }
 

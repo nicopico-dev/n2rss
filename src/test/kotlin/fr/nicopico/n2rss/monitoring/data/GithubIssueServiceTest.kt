@@ -45,30 +45,30 @@ class GithubIssueServiceTest {
     }
 
     @Test
-    fun `findEmailClientError should defer to the proper repository`() {
+    fun `findGenericError should defer to the proper repository`() {
         // GIVEN
         val errorMessage =
             "Plug essentials inspections continuing crest chief plymouth, villages superior attempting airline porsche textbook. "
-        val expected = GithubIssueData.EmailClientError(
+        val expected = GithubIssueData.GenericError(
             issueId = IssueId(Random.nextInt()),
             errorMessage = errorMessage,
         )
 
         // SETUP
-        every { githubRepository.findEmailClientError(any()) } returns expected
+        every { githubRepository.findGenericError(any()) } returns expected
 
         // WHEN
-        val result = githubService.findEmailClientError(errorMessage)
+        val result = githubService.findGenericError(errorMessage)
 
         // THEN
         result shouldBe expected
-        verify { githubRepository.findEmailClientError(errorMessage) }
+        verify { githubRepository.findGenericError(errorMessage) }
     }
 
     @Test
     fun `save EmailClientError should defer to the proper repository`() {
         // GIVEN
-        val data = GithubIssueData.EmailClientError(
+        val data = GithubIssueData.GenericError(
             issueId = IssueId(Random.nextInt()),
             errorMessage = "Rolling removal cookie discover heavily typing bracket, units bundle belarus incredible reaction word joined, microwave equally cosmetic earliest monsters magnitude offset, donors opponent jewellery qty photograph. ",
         )

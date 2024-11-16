@@ -25,24 +25,24 @@ import java.net.URL
 class GithubIssueService(
     private val githubIssueRepository: GithubIssueRepository,
 ) {
-    //region EmailClientError
+    //region GenericError
     /**
-     * Finds an EmailClientError from the repository based on the provided error message.
+     * Finds an GenericError from the repository based on the provided error message.
      *
      * @param errorMessage The error message to search for in the repository.
-     * @return The EmailClientError corresponding to the provided error message, or null if not found.
+     * @return The GenericError corresponding to the provided error message, or null if not found.
      */
-    fun findEmailClientError(errorMessage: String): GithubIssueData.EmailClientError? {
-        return githubIssueRepository.findEmailClientError(errorMessage)
+    fun findGenericError(errorMessage: String): GithubIssueData.GenericError? {
+        return githubIssueRepository.findGenericError(errorMessage)
     }
 
     /**
-     * Saves the provided EmailClientError to the repository.
+     * Saves the provided GenericError to the repository.
      *
-     * @param emailClientError The EmailClientError instance to be saved.
+     * @param genericError The GenericError instance to be saved.
      */
-    fun save(emailClientError: GithubIssueData.EmailClientError) {
-        githubIssueRepository.save(emailClientError)
+    fun save(genericError: GithubIssueData.GenericError) {
+        githubIssueRepository.save(genericError)
     }
     //endregion
 

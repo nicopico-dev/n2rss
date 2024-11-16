@@ -42,7 +42,7 @@ open class GithubIssueData(
 
     @Entity
     @DiscriminatorValue("email-client-error")
-    class EmailClientError(
+    class GenericError(
         issueId: IssueId,
 
         @Column(nullable = false)

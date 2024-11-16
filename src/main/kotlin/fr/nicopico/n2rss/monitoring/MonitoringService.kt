@@ -23,7 +23,7 @@ import java.net.URL
 
 interface MonitoringService {
     @Async
-    fun notifyEmailClientError(error: Exception)
+    fun notifyGenericError(error: Exception)
     @Async
     fun notifyEmailProcessingError(email: Email, error: Exception)
 
