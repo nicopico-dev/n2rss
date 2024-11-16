@@ -18,20 +18,51 @@
 package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
-import org.springframework.stereotype.Service
+import fr.nicopico.n2rss.mail.models.Sender
+import fr.nicopico.n2rss.utils.now
+import io.kotest.assertions.throwables.shouldNotThrowAny
+import kotlinx.datetime.LocalDate
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.net.URL
 
-@Service
-class NoOpMonitoringService : MonitoringService {
-    override fun notifyGenericError(error: Exception, context: String?) {
-        // No-op
+class NoOpMonitoringServiceTest {
+
+    private lateinit var service: NoOpMonitoringService
+
+    @BeforeEach
+    fun setUp() {
+        service = NoOpMonitoringService()
     }
 
-    override fun notifyEmailProcessingError(email: Email, error: Exception) {
-        // No-op
+    @Test
+    fun testNotifyGenericError() {
+        val exception = Exception("Test exception")
+        shouldNotThrowAny {
+            service.notifyGenericError(exception, "Test context")
+        }
     }
 
-    override fun notifyNewsletterRequest(newsletterUrl: URL) {
-        // No-op
+    @Test
+    fun testNotifyEmailProcessingError() {
+        val email = Email(
+            sender = Sender("sender@email.com"),
+            date = LocalDate.now(),
+            subject = "test",
+            content = "test",
+            msgnum = 1,
+        )
+        val exception = Exception("Test exception")
+        shouldNotThrowAny {
+            service.notifyEmailProcessingError(email, exception)
+        }
+    }
+
+    @Test
+    fun testNotifyNewsletterRequest() {
+        val url = URL("http://example.com")
+        shouldNotThrowAny {
+            service.notifyNewsletterRequest(url)
+        }
     }
 }

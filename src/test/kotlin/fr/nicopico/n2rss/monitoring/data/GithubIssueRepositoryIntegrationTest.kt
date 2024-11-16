@@ -36,7 +36,7 @@ class GithubIssueRepositoryIntegrationTest {
     lateinit var githubIssueRepository: GithubIssueRepository
 
     // Sample test data
-    val emailClientError = GithubIssueData.EmailClientError(
+    val genericError = GithubIssueData.GenericError(
         issueId = IssueId(1),
         errorMessage = "Sample Error Message",
     )
@@ -51,11 +51,11 @@ class GithubIssueRepositoryIntegrationTest {
     )
 
     @Test
-    fun `test findEmailClientError`() {
+    fun `test findGenericError`() {
         // Save test data in the repository
-        githubIssueRepository.save(emailClientError)
+        githubIssueRepository.save(genericError)
 
-        val result = githubIssueRepository.findEmailClientError("Sample Error Message")
+        val result = githubIssueRepository.findGenericError("Sample Error Message")
 
         result shouldNotBe null
         result?.issueId shouldBe IssueId(1)

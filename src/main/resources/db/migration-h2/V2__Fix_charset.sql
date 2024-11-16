@@ -15,23 +15,5 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.monitoring
 
-import fr.nicopico.n2rss.mail.models.Email
-import org.springframework.stereotype.Service
-import java.net.URL
-
-@Service
-class NoOpMonitoringService : MonitoringService {
-    override fun notifyGenericError(error: Exception, context: String?) {
-        // No-op
-    }
-
-    override fun notifyEmailProcessingError(email: Email, error: Exception) {
-        // No-op
-    }
-
-    override fun notifyNewsletterRequest(newsletterUrl: URL) {
-        // No-op
-    }
-}
+/* Nothing to do */

@@ -40,37 +40,41 @@ class GithubMonitoringService(
     private val client: GithubClient,
     private val clock: Clock,
 ) : MonitoringService {
+
     @Async
-    override fun notifyEmailClientError(error: Exception) {
+    @Transactional
+    override fun notifyGenericError(error: Exception, context: String?) {
         val errorMessage = error.message ?: error.toString()
         try {
-            val existing = repository.findEmailClientError(errorMessage)
+            val existing = repository.findGenericError(errorMessage)
             if (existing == null) {
                 val id = client.createIssue(
-                    title = "Email client fails with `$errorMessage`",
-                    body = "Retrieving emails failed with the following error:\n\n"
+                    title = "An error occurred: `$errorMessage`",
+                    body = "Context: ${context ?: "UNSPECIFIED"}\n"
+                        + "Stacktrace:\n\n"
                         + "```\n"
                         + error.stackTraceToString()
                         + "```\n",
                     labels = listOf(
                         "n2rss-bot",
-                        "email-client-error",
+                        "generic-error",
                         "bug",
                     )
                 )
                 repository.save(
-                    GithubIssueData.EmailClientError(
+                    GithubIssueData.GenericError(
                         issueId = id,
                         errorMessage = errorMessage,
                     )
                 )
             }
         } catch (e: GithubException) {
-            LOG.error("Unable to notify emailClient error", e)
+            LOG.error("Unable to notify generic error", e)
         }
     }
 
     @Async
+    @Transactional
     override fun notifyEmailProcessingError(email: Email, error: Exception) {
         val emailTitle = email.subject
         val errorMessage = error.message ?: error.toString()

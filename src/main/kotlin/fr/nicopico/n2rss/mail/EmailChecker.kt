@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.mail
 
 import fr.nicopico.n2rss.mail.client.EmailClient
+import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
 import fr.nicopico.n2rss.newsletter.handlers.process
@@ -57,35 +58,37 @@ class EmailChecker(
             val emails = emailClient.checkEmails()
             LOG.info("{} emails found, processing...", emails.size)
 
-            val publications = emails
-                .mapNotNull { email ->
-                    try {
-                        newsletterService.findNewsletterHandlerForEmail(email)
-                            ?.also { processor ->
-                                LOG.info("\"{}\" is being processed by {}", email.subject, processor::class.java)
-                            }
-                            ?.process(email)
-                            ?.also { publications ->
-                                // At least one of the publications must have articles
-                                if (publications.all { it.articles.isEmpty() }) {
-                                    throw NoPublicationFoundException()
-                                }
-                                emailClient.markAsRead(email)
-                            }
-                    } catch (e: Exception) {
-                        LOG.error("Error processing email {}", email.subject, e)
-                        monitoringService.notifyEmailProcessingError(email, e)
-                        null
-                    }
-                }
-                .flatten()
-
-            publicationService.savePublications(publications)
+            for (email in emails) {
+                processEmail(email)
+            }
 
             LOG.info("Processing done!")
         } catch (e: Exception) {
             LOG.error("Error while checking emails", e)
-            monitoringService.notifyEmailClientError(e)
+            monitoringService.notifyGenericError(e, context = "Checking emails")
+        }
+    }
+
+    @Suppress("TooGenericExceptionCaught")
+    private fun processEmail(email: Email) {
+        try {
+            val newsletterHandler = newsletterService.findNewsletterHandlerForEmail(email)
+                ?: return
+
+            LOG.info("\"{}\" is being processed by {}", email.subject, newsletterHandler::class.java)
+            val publications = newsletterHandler.process(email)
+
+            // At least one of the publications must have articles
+            if (publications.all { it.articles.isEmpty() }) {
+                throw NoPublicationFoundException()
+            }
+
+            publicationService.savePublications(publications)
+
+            emailClient.markAsRead(email)
+        } catch (e: Exception) {
+            LOG.error("Error processing email {}", email.subject, e)
+            monitoringService.notifyEmailProcessingError(email, e)
         }
     }
 }

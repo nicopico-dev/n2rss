@@ -29,13 +29,13 @@ interface GithubIssueRepository : JpaRepository<GithubIssueData, IssueId> {
         """
         SELECT e 
         FROM GITHUB_ISSUES e
-        WHERE TYPE(e) = fr.nicopico.n2rss.monitoring.data.GithubIssueData${"$"}EmailClientError  
-        AND TREAT(e AS fr.nicopico.n2rss.monitoring.data.GithubIssueData${"$"}EmailClientError).errorMessage = :errorMessage
+        WHERE TYPE(e) = fr.nicopico.n2rss.monitoring.data.GithubIssueData${"$"}GenericError  
+        AND TREAT(e AS fr.nicopico.n2rss.monitoring.data.GithubIssueData${"$"}GenericError).errorMessage = :errorMessage
     """
     )
-    fun findEmailClientError(
+    fun findGenericError(
         @Param("errorMessage") errorMessage: String
-    ): GithubIssueData.EmailClientError?
+    ): GithubIssueData.GenericError?
 
     @Query(
         """
