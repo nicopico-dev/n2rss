@@ -113,7 +113,7 @@ class EmailCheckerTest {
         emailChecker.savePublicationsFromEmails()
 
         // Then no handler should try to handle the email and no publication should be saved
-        verify { publicationService.savePublications(emptyList()) }
+        verify(exactly = 0) { publicationService.savePublications(any()) }
         verify(exactly = 0) { emailClient.markAsRead(any()) }
     }
 
@@ -155,14 +155,14 @@ class EmailCheckerTest {
         // Given that emailClient fails when checking emails
         val emailError = RuntimeException("TEST")
         every { emailClient.checkEmails() } throws emailError
-        every { monitoringService.notifyGenericError(any()) } just Runs
+        every { monitoringService.notifyGenericError(any(), any()) } just Runs
 
         // When we check the emails
         emailChecker.savePublicationsFromEmails()
 
         // Then emailChecker should proceed without doing anything
         verify { emailClient.checkEmails() }
-        verify { monitoringService.notifyGenericError(emailError) }
+        verify { monitoringService.notifyGenericError(emailError, "Checking emails") }
 
         confirmVerified(
             emailClient,
@@ -195,5 +195,35 @@ class EmailCheckerTest {
         verify {
             monitoringService.notifyEmailProcessingError(email, any(NoPublicationFoundException::class))
         }
+    }
+
+    @Test
+    fun `emailChecker should not mark emails as read if the publications could not be saved`(
+        @MockK(relaxed = true) email1: Email,
+        @MockK(relaxed = true) email2: Email,
+        @MockK newsletterHandler: NewsletterHandler,
+        @MockK(relaxed = true) publication1: Publication,
+        @MockK(relaxed = true) publication2: Publication,
+    ) {
+        // Given an email that should be handled by a newsletterHandler
+        every { emailClient.checkEmails() } returns listOf(email1, email2)
+        every { newsletterService.findNewsletterHandlerForEmail(any()) } returns newsletterHandler
+        every { newsletterHandler.process(email1) } returns listOf(publication1)
+        every { newsletterHandler.process(email2) } returns listOf(publication2)
+        every { publication1.articles } returns listOf(mockk())
+        every { publication2.articles } returns listOf(mockk())
+
+        every { publicationService.savePublications(listOf(publication1)) } throws RuntimeException("TEST")
+        every { publicationService.savePublications(listOf(publication2)) } just Runs
+
+        every { monitoringService.notifyEmailProcessingError(any(), any()) } just Runs
+
+        // When we check the email
+        emailChecker.savePublicationsFromEmails()
+
+        verify(exactly = 0) { emailClient.markAsRead(email1) }
+        verify { emailClient.markAsRead(email2) }
+        verify { monitoringService.notifyEmailProcessingError(email1, any()) }
+        confirmVerified(monitoringService)
     }
 }
