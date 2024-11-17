@@ -38,10 +38,8 @@ fun Document.extractSections(
             val nextSectionElement = sectionsElements
                 .getOrNull(index + 1)
 
-            val start = element.parents().first { it.parent() == commonAncestor }
-            val end = nextSectionElement?.let {
-                it.parents().first { p -> p.parent() == commonAncestor }
-            }
+            val start = element.findFirstSpecificAncestor(commonAncestor)
+            val end = nextSectionElement?.findFirstSpecificAncestor(commonAncestor)
 
             Section(
                 title = getSectionTitle(element),
@@ -60,16 +58,10 @@ private fun Iterable<Element>.findCommonAncestor(): Element {
     ).first()
 }
 
-fun findStartAndEnd(element: Element, otherElement: Element?): Pair<Element, Element?> {
-    return if (otherElement == null) {
-        element to null
-    } else {
-        val commonAncestor = element.parents().intersect(otherElement.parents()).first()
-        val start = element.parents().first { it.parent() == commonAncestor }
-        val end = otherElement.parents().first { it.parent() == commonAncestor }
-
-        start to end
-    }
+private fun Element.findFirstSpecificAncestor(commonAncestor: Element): Element {
+    return if (parent() != commonAncestor) {
+        parents().first { it.parent() == commonAncestor }
+    } else this
 }
 
 inline fun <T> Section.process(block: (section: Document) -> T): T {
