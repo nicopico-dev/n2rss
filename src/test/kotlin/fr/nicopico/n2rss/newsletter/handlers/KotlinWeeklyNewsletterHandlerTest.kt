@@ -24,59 +24,20 @@ import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.net.URL
 
-class KotlinWeeklyNewsletterHandlerTest {
-
-    private lateinit var handler: KotlinWeeklyNewsletterHandler
-
-    @BeforeEach
-    fun setUp() {
-        handler = KotlinWeeklyNewsletterHandler()
-    }
+class KotlinWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<KotlinWeeklyNewsletterHandler>(
+    handlerProvider = ::KotlinWeeklyNewsletterHandler,
+    stubsFolder = "Kotlin Weekly"
+) {
 
     @Nested
-    inner class CanHandleTest {
+    inner class EmailProcessingTest {
         @Test
-        fun `should handle all emails from Kotlin Weekly`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Kotlin Weekly")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe true
-        }
-
-        @Test
-        fun `should ignore all emails from another newsletters`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Android Weekly")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe false
-        }
-    }
-
-    @Nested
-    inner class ProcessTest {
-        @Test
-        fun `should be able to process all the newsletter emails`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Kotlin Weekly")
-
-            // WHEN - THEN
-            shouldNotThrowAny {
-                emails.forEach { email ->
-                    handler.process(email)
-                }
-            }
-        }
-
-        @Test
-        fun `should extract all articles from an email`() {
+        fun `should extract all articles from email #388`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")
 
@@ -111,7 +72,7 @@ class KotlinWeeklyNewsletterHandlerTest {
         }
 
         @Test
-        fun `should extract all articles from another email`() {
+        fun `should extract all articles from email #390`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #390.eml")
 
@@ -147,7 +108,7 @@ class KotlinWeeklyNewsletterHandlerTest {
         }
 
         @Test
-        fun `should extract article details from an email`() {
+        fun `should extract article details from email #388`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")
 
@@ -192,7 +153,7 @@ class KotlinWeeklyNewsletterHandlerTest {
         }
 
         @Test
-        fun `should extract all libraries from an email`() {
+        fun `should extract all libraries from email #388`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")
 

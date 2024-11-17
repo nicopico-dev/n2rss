@@ -20,62 +20,22 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
-import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.net.URL
 
-class PointerNewsletterHandlerTest {
-
-    private lateinit var handler: PointerNewsletterHandler
-
-    @BeforeEach
-    fun setUp() {
-        handler = PointerNewsletterHandler()
-    }
+class PointerNewsletterHandlerTest : BaseNewsletterHandlerTest<PointerNewsletterHandler>(
+    handlerProvider = ::PointerNewsletterHandler,
+    stubsFolder = "Pointer",
+) {
 
     @Nested
-    inner class CanHandleTest {
+    inner class EmailProcessingTest {
         @Test
-        fun `should handle all emails from Pointer`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Pointer")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe true
-        }
-
-        @Test
-        fun `should ignore all emails from another newsletters`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Kotlin Weekly")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe false
-        }
-    }
-
-    @Nested
-    inner class ProcessTest {
-        @Test
-        fun `should be able to process all the newsletter emails`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Pointer")
-
-            // WHEN - THEN
-            shouldNotThrowAny {
-                emails.forEach { email ->
-                    handler.process(email)
-                }
-            }
-        }
-
-        @Test
-        fun `should extract all articles from an email`() {
+        fun `should extract all articles from email #480`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Pointer/Issue #480.eml")
 
@@ -109,7 +69,7 @@ class PointerNewsletterHandlerTest {
         }
 
         @Test
-        fun `should extract article details from an email`() {
+        fun `should extract article details from email #480`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Pointer/Issue #480.eml")
 
@@ -131,7 +91,7 @@ class PointerNewsletterHandlerTest {
         }
 
         @Test
-        fun `should extract sponsor details from an email`() {
+        fun `should extract sponsor details from email #480`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Pointer/Issue #480.eml")
 

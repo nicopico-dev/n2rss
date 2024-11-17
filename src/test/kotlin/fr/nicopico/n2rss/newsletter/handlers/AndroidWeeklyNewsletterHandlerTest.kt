@@ -19,63 +19,23 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
-import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.net.URL
 
-class AndroidWeeklyNewsletterHandlerTest {
-
-    private lateinit var handler: AndroidWeeklyNewsletterHandler
-
-    @BeforeEach
-    fun setUp() {
-        handler = AndroidWeeklyNewsletterHandler()
-    }
+class AndroidWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<AndroidWeeklyNewsletterHandler>(
+    handlerProvider = ::AndroidWeeklyNewsletterHandler,
+    stubsFolder = "Android Weekly",
+) {
 
     @Nested
-    inner class CanHandleTest {
+    inner class EmailProcessingTest {
         @Test
-        fun `should handle all emails from AndroidWeekly`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Android Weekly")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe true
-        }
-
-        @Test
-        fun `should ignore all emails from another newsletters`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Kotlin Weekly")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe false
-        }
-    }
-
-    @Nested
-    inner class ProcessTest {
-        @Test
-        fun `should be able to process all the newsletter emails`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Android Weekly")
-
-            // WHEN - THEN
-            shouldNotThrowAny {
-                emails.forEach { email ->
-                    handler.process(email)
-                }
-            }
-        }
-
-        @Test
-        fun `should extract all articles from an Android Weekly email`() {
+        fun `should extract all articles from Android Weekly email #605`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Android Weekly/Android Weekly #605.eml")
 
@@ -131,7 +91,7 @@ class AndroidWeeklyNewsletterHandlerTest {
         }
 
         @Test
-        fun `should extract all libraries from an Android Weekly email`() {
+        fun `should extract all libraries from Android Weekly email #604`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Android Weekly/If you've missed Android Weekly #604.eml")
 
@@ -182,7 +142,7 @@ class AndroidWeeklyNewsletterHandlerTest {
         }
 
         @Test
-        fun `should not publish on library feed if there is no libraries in Android Weekly email`() {
+        fun `should not publish on library feed if there is no libraries in Android Weekly email #606`() {
             // GIVEN
             val email: Email = loadEmail("stubs/emails/Android Weekly/Android Weekly #606.eml")
 

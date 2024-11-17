@@ -20,62 +20,22 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
-import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.beEmpty
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.net.URL
 
-class MITTheDownloadNewsletterHandlerTest {
-
-    private lateinit var handler: MITTheDownloadNewsletterHandler
-
-    @BeforeEach
-    fun setUp() {
-        handler = MITTheDownloadNewsletterHandler()
-    }
+class MITTheDownloadNewsletterHandlerTest : BaseNewsletterHandlerTest<MITTheDownloadNewsletterHandler>(
+    handlerProvider = ::MITTheDownloadNewsletterHandler,
+    stubsFolder = "MIT/The Download",
+) {
 
     @Nested
-    inner class CanHandleTest {
-        @Test
-        fun `should handle all emails from MIT - The Download`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/MIT/The Download")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe true
-        }
-
-        @Test
-        fun `should ignore all emails from another newsletters`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/Kotlin Weekly")
-
-            // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe false
-        }
-    }
-
-    @Nested
-    inner class ProcessTest {
-        @Test
-        fun `should be able to process all the newsletter emails`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/MIT/The Download")
-
-            // WHEN - THEN
-            shouldNotThrowAny {
-                emails.forEach { email ->
-                    handler.process(email)
-                }
-            }
-        }
-
+    inner class EmailProcessingTest {
         @Test
         fun `should extract an articles from an email`() {
             // GIVEN
@@ -133,20 +93,6 @@ class MITTheDownloadNewsletterHandlerTest {
                         "fast-healing bioelectric bandages, novel approaches to treating autoimmune " +
                         "disorders, new ways of repairing nerve damage, and even better treatments " +
                         "for cancer. Read the full story., —Sally Adee"
-                }
-            }
-        }
-
-        @Test
-        fun `should be able to process any mail from MIT The Download`() {
-            // GIVEN
-            val emails = loadEmails("stubs/emails/MIT/The Download")
-
-            // WHEN - THEN
-            shouldNotThrowAny {
-                emails.forEach { email ->
-                    println(email.subject)
-                    handler.process(email)
                 }
             }
         }

@@ -32,16 +32,36 @@ fun Document.extractSections(
     getSectionTitle: (Element) -> String = { it.text() },
 ): List<Section> {
     val sectionsElements = select(cssQuery).filter(filter)
+    val commonAncestor = sectionsElements.findCommonAncestor()
     return sectionsElements
         .mapIndexed { index, element ->
             val nextSectionElement = sectionsElements
                 .getOrNull(index + 1)
+
+            val start = element.findFirstSpecificAncestor(commonAncestor)
+            val end = nextSectionElement?.findFirstSpecificAncestor(commonAncestor)
+
             Section(
                 title = getSectionTitle(element),
-                start = element,
-                end = nextSectionElement,
+                start = start,
+                end = end,
             )
         }
+}
+
+private fun Iterable<Element>.findCommonAncestor(): Element {
+    return fold(
+        initial = first().parents().toSet(),
+        operation = { commonAncestors, element ->
+            commonAncestors.intersect(element.parents())
+        }
+    ).first()
+}
+
+private fun Element.findFirstSpecificAncestor(commonAncestor: Element): Element {
+    return if (parent() != commonAncestor) {
+        parents().first { it.parent() == commonAncestor }
+    } else this
 }
 
 inline fun <T> Section.process(block: (section: Document) -> T): T {
