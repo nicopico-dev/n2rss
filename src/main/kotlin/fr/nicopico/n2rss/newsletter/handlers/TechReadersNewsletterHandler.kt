@@ -18,8 +18,15 @@
 package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.handlers.jsoup.Section
+import fr.nicopico.n2rss.newsletter.handlers.jsoup.extractSections
+import fr.nicopico.n2rss.newsletter.handlers.jsoup.hasGrayscaleColor
+import fr.nicopico.n2rss.newsletter.handlers.jsoup.process
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
+import fr.nicopico.n2rss.utils.url.toUrlOrNull
+import org.jsoup.Jsoup
+import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 
 @Component
@@ -37,11 +44,52 @@ class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
     }
 
     override fun extractArticles(email: Email): List<Article> {
-        // TODO Implement this method
-        return emptyList()
+        val cleanedHtml = Jsoup.clean(
+            email.content,
+            Safelist.basic()
+                .addAttributes("span", "style")
+                .addAttributes("a", "style"),
+        )
+        val document = Jsoup.parseBodyFragment(cleanedHtml)
+
+        val sections = document
+            .extractSections(
+                cssQuery = "span[style]",
+                filter = { it.attr("style").contains(SECTION_STYLE_REGEX) },
+                // Stop articles at "La Newsletter faite par et pour les Tech Leaders !"
+                stopElement = document
+                    .select(":containsOwn(La Newsletter faite par et pour les Tech Leaders !)")
+                    .first(),
+            )
+
+        // TODO Add newsletter introduction as the first article
+
+        return sections.flatMap { it.process() }
+    }
+
+    private fun Section.process(): List<Article> = process { sectionDocument ->
+        sectionDocument.select("a[href]")
+            .filter { link ->
+                link.text().isNotBlank()
+                    && !link.hasGrayscaleColor()
+            }
+            .mapNotNull { tag ->
+                // Ignore entries with an invalid link
+                tag.attr("href").toUrlOrNull()
+                    ?.let { link ->
+                        val title = tag.text().trim()
+                        Article(
+                            title = title,
+                            link = link,
+                            // TODO Extract article description
+                            description = "DESCRIPTION",
+                        )
+                    }
+            }
     }
 
     companion object {
         private val EMAIL_SUBJECT_REGEX = Regex("Tech Readers #\\d+.*")
+        private val SECTION_STYLE_REGEX = Regex("\\bbackground-color\\s*:\\s*#ef7a66;")
     }
 }

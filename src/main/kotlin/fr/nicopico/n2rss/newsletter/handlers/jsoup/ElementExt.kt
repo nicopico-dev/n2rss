@@ -33,3 +33,10 @@ fun Element.textWithLineFeeds(): String {
         .replace(Regex("\\n{3,}"), "\n\n")
         .trim()
 }
+
+private val grayscaleColorRegex = Regex("color\\s*:\\s*#(\\d{1,2})\\1\\1\\b")
+
+fun Element.hasGrayscaleColor(): Boolean {
+    val style = attr("style")
+    return style.contains(grayscaleColorRegex)
+}
