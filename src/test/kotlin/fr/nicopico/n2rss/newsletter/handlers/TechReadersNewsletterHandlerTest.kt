@@ -18,6 +18,7 @@
 
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -36,6 +37,28 @@ class TechReadersNewsletterHandlerTest : BaseNewsletterHandlerTest<TechReadersNe
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe false
+        }
+
+        @Test
+        fun `should extract articles from Tech Readers email #116`() {
+            // GIVEN
+            val email: Email = loadEmail("stubs/emails/Tech Readers/Tech Readers #116 _ Manager par les valeurs.eml")
+
+            // WHEN
+            val articles = handler.extractArticles(email)
+
+            // THEN
+            articles.map { it.title } shouldBe listOf(
+                "4 Traps to Avoid as You Transition into a Leadership Role",
+                "Détection des signaux faible et leadership, les leçons de BlaBlaCar",
+                "La culture Netflix : Le meilleur de nous-mêmes",
+                "Promesses et divination – la malédiction de la grosse release",
+                "La qualité logicielle, une affaire de code ?",
+                "Vague de fuites de données en France : ça va durer encore longtemps ? On a demandé à un expert",
+                "Le feature flip pour réussir à avoir du flow",
+                "IFTTD #291 - Micro front-end : Un patchwork efficace avec Fabien Brunet",
+                "Plus que 2 mois avant le Tech.Rocks Summit !",
+            )
         }
     }
 }
