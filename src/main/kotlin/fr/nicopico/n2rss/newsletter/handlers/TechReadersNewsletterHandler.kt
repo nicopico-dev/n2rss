@@ -26,7 +26,11 @@ import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Element
+import org.jsoup.nodes.Node
 import org.jsoup.safety.Safelist
+import org.jsoup.select.NodeFilter
+import org.jsoup.select.NodeFilter.FilterResult
 import org.springframework.stereotype.Component
 
 @Component
@@ -78,14 +82,56 @@ class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
                 tag.attr("href").toUrlOrNull()
                     ?.let { link ->
                         val title = tag.text().trim()
+                        val description = getArticleDescription(tag)
                         Article(
                             title = title,
                             link = link,
-                            // TODO Extract article description
-                            description = "DESCRIPTION",
+                            description = description,
                         )
                     }
             }
+    }
+
+    private fun getArticleDescription(titleElement: Element): String {
+        // Take the next 2 <span> just after the <a> tag
+        val descriptionNodesVisitor = DescriptionNodesVisitor()
+        titleElement.nextElementSiblings()
+            .filter(descriptionNodesVisitor)
+
+        val description = descriptionNodesVisitor
+            .eachText()
+            .joinToString("\n")
+            .trim()
+
+        return description.ifBlank {
+            titleElement.parent()?.let {
+                getArticleDescription(it)
+            } ?: ""
+        }
+    }
+
+    private class DescriptionNodesVisitor : NodeFilter {
+        private var spanCount = 0
+        private val texts = mutableListOf<String>()
+
+        override fun head(node: Node, depth: Int): FilterResult {
+            return when {
+                spanCount >= 2 -> FilterResult.STOP
+                node is Element && node.tagName() == "span" -> {
+                    // Ignore empty <span>
+                    val content = node.text()
+                    if (content.isNotBlank()) {
+                        spanCount++
+                        texts.add(node.text())
+                    }
+                    FilterResult.SKIP_CHILDREN
+                }
+
+                else -> FilterResult.SKIP_ENTIRELY
+            }
+        }
+
+        fun eachText(): List<String> = texts.toList()
     }
 
     companion object {
