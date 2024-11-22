@@ -72,11 +72,11 @@ npi {
 
 // Allows usage of Flyway commands through the Gradle plugin
 flyway {
-    url = "jdbc:mariadb://localhost:3306/n2rss-database"
+    url = "jdbc:mariadb://localhost:3306/nicopico_n2rss"
     user = "n2rss"
     password = "secret"
 
-    schemas = arrayOf("n2rss-database")
+    schemas = arrayOf("nicopico_n2rss")
     locations = arrayOf(
         "classpath:db/migration",
         "classpath:fr/nicopico/n2rss/newsletter/data/migration",
