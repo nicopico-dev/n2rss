@@ -15,37 +15,46 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.external.temporary
 
-package fr.nicopico.n2rss.utils
-
+import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointEntity
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
-import fr.nicopico.n2rss.newsletter.data.legacy.LegacyPublicationRepository
-import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.Profile
-import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.context.event.EventListener
-import org.springframework.core.Ordered
-import org.springframework.core.annotation.Order
-import org.springframework.stereotype.Component
+import jakarta.transaction.Transactional
+import org.springframework.stereotype.Service
+import org.springframework.transaction.support.TransactionTemplate
+import java.io.Closeable
+import java.util.UUID
 
-@Profile("local & reset-db")
-@Component
-class CleanLocalDatabase(
-    private val publicationRepository: PublicationRepository,
-    private val legacyPublicationRepository: LegacyPublicationRepository,
+@Service
+class TemporaryEndpointService(
     private val temporaryEndpointRepository: TemporaryEndpointRepository,
+    private val transactionTemplate: TransactionTemplate,
 ) {
-    @EventListener
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    fun onApplicationEvent(ignored: ContextRefreshedEvent) {
-        LOG.info("Clean-up local database...")
-        legacyPublicationRepository.deleteAll()
-        publicationRepository.deleteAll()
-        temporaryEndpointRepository.deleteAll()
+
+    @Transactional
+    fun expose(content: String): TemporaryEndpoint {
+        val entity = TemporaryEndpointEntity(exposedId = UUID.randomUUID(), content = content)
+        temporaryEndpointRepository.saveAndFlush(entity)
+        return TemporaryEndpoint(entity.exposedId)
     }
 
-    companion object {
-        private val LOG = LoggerFactory.getLogger(CleanLocalDatabase::class.java)
+    private fun close(temporaryEndpointId: UUID) {
+        transactionTemplate.executeWithoutResult {
+            temporaryEndpointRepository.deleteByExposedId(temporaryEndpointId)
+        }
+    }
+
+    inner class TemporaryEndpoint(
+        private val id: UUID,
+    ) : Closeable {
+        val path: String = "/temp-endpoint/${id}"
+
+        override fun close() {
+            close(id)
+        }
+
+        override fun toString(): String {
+            return "TemporaryEndpoint(path='$path')"
+        }
     }
 }

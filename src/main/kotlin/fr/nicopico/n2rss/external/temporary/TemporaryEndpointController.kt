@@ -15,37 +15,27 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
-package fr.nicopico.n2rss.utils
+package fr.nicopico.n2rss.external.temporary
 
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
-import fr.nicopico.n2rss.newsletter.data.legacy.LegacyPublicationRepository
-import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.Profile
-import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.context.event.EventListener
-import org.springframework.core.Ordered
-import org.springframework.core.annotation.Order
-import org.springframework.stereotype.Component
+import org.springframework.http.ResponseEntity
+import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
+import java.util.Optional
+import java.util.UUID
 
-@Profile("local & reset-db")
-@Component
-class CleanLocalDatabase(
-    private val publicationRepository: PublicationRepository,
-    private val legacyPublicationRepository: LegacyPublicationRepository,
+@Controller
+@RequestMapping("/temp-endpoint")
+class TemporaryEndpointController(
     private val temporaryEndpointRepository: TemporaryEndpointRepository,
 ) {
-    @EventListener
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    fun onApplicationEvent(ignored: ContextRefreshedEvent) {
-        LOG.info("Clean-up local database...")
-        legacyPublicationRepository.deleteAll()
-        publicationRepository.deleteAll()
-        temporaryEndpointRepository.deleteAll()
-    }
-
-    companion object {
-        private val LOG = LoggerFactory.getLogger(CleanLocalDatabase::class.java)
+    @GetMapping("{id}", produces = ["text/html;charset=UTF-8"])
+    fun getTempEndpoint(@PathVariable("id") id: String): ResponseEntity<String> {
+        val uuid = UUID.fromString(id)
+        val entity = temporaryEndpointRepository.findByExposedId(uuid)
+        return ResponseEntity
+            .of(Optional.ofNullable(entity?.content))
     }
 }

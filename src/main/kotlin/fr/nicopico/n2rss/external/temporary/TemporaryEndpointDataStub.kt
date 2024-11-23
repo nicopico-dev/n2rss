@@ -16,36 +16,28 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.utils
+package fr.nicopico.n2rss.external.temporary
 
-import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
-import fr.nicopico.n2rss.newsletter.data.legacy.LegacyPublicationRepository
+import fr.nicopico.n2rss.external.temporary.TemporaryEndpointService.TemporaryEndpoint
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Profile
 import org.springframework.context.event.ContextRefreshedEvent
 import org.springframework.context.event.EventListener
-import org.springframework.core.Ordered
-import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
+import kotlin.random.Random
 
 @Profile("local & reset-db")
 @Component
-class CleanLocalDatabase(
-    private val publicationRepository: PublicationRepository,
-    private val legacyPublicationRepository: LegacyPublicationRepository,
-    private val temporaryEndpointRepository: TemporaryEndpointRepository,
+class TemporaryEndpointDataStub(
+    private val service: TemporaryEndpointService,
 ) {
     @EventListener
-    @Order(Ordered.HIGHEST_PRECEDENCE)
     fun onApplicationEvent(ignored: ContextRefreshedEvent) {
-        LOG.info("Clean-up local database...")
-        legacyPublicationRepository.deleteAll()
-        publicationRepository.deleteAll()
-        temporaryEndpointRepository.deleteAll()
+        val tempEndpoint: TemporaryEndpoint = service.expose("This is some content ${Random.nextInt()}")
+        LOG.warn("Expose temporary endpoint: {}", tempEndpoint)
     }
 
     companion object {
-        private val LOG = LoggerFactory.getLogger(CleanLocalDatabase::class.java)
+        private val LOG = LoggerFactory.getLogger(TemporaryEndpointDataStub::class.java)
     }
 }
