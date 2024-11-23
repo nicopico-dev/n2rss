@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Nicolas PICON
+ * Copyright (c) 2024 Nicolas PICON
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -15,33 +15,29 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.utils
 
-import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
+package fr.nicopico.n2rss.external.temporary
+
+import fr.nicopico.n2rss.external.temporary.TemporaryEndpointService.TemporaryEndpoint
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Profile
 import org.springframework.context.event.ContextRefreshedEvent
 import org.springframework.context.event.EventListener
-import org.springframework.core.Ordered
-import org.springframework.core.annotation.Order
 import org.springframework.stereotype.Component
+import kotlin.random.Random
 
 @Profile("local & reset-db")
 @Component
-class CleanLocalDatabase(
-    private val publicationRepository: PublicationRepository,
-    private val temporaryEndpointRepository: TemporaryEndpointRepository,
+class TemporaryEndpointDataStub(
+    private val service: TemporaryEndpointService,
 ) {
     @EventListener
-    @Order(Ordered.HIGHEST_PRECEDENCE)
     fun onApplicationEvent(ignored: ContextRefreshedEvent) {
-        LOG.info("Clean-up local database...")
-        publicationRepository.deleteAll()
-        temporaryEndpointRepository.deleteAll()
+        val tempEndpoint: TemporaryEndpoint = service.expose("This is some content ${Random.nextInt()}")
+        LOG.warn("Expose temporary endpoint: {}", tempEndpoint)
     }
 
     companion object {
-        private val LOG = LoggerFactory.getLogger(CleanLocalDatabase::class.java)
+        private val LOG = LoggerFactory.getLogger(TemporaryEndpointDataStub::class.java)
     }
 }

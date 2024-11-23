@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Nicolas PICON
+ * Copyright (c) 2024 Nicolas PICON
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -15,33 +15,46 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.utils
+package fr.nicopico.n2rss.external.temporary
 
+import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointEntity
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
-import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.Profile
-import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.context.event.EventListener
-import org.springframework.core.Ordered
-import org.springframework.core.annotation.Order
-import org.springframework.stereotype.Component
+import jakarta.transaction.Transactional
+import org.springframework.stereotype.Service
+import org.springframework.transaction.support.TransactionTemplate
+import java.io.Closeable
+import java.util.UUID
 
-@Profile("local & reset-db")
-@Component
-class CleanLocalDatabase(
-    private val publicationRepository: PublicationRepository,
+@Service
+class TemporaryEndpointService(
     private val temporaryEndpointRepository: TemporaryEndpointRepository,
+    private val transactionTemplate: TransactionTemplate,
 ) {
-    @EventListener
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    fun onApplicationEvent(ignored: ContextRefreshedEvent) {
-        LOG.info("Clean-up local database...")
-        publicationRepository.deleteAll()
-        temporaryEndpointRepository.deleteAll()
+
+    @Transactional
+    fun expose(content: String): TemporaryEndpoint {
+        val entity = TemporaryEndpointEntity(exposedId = UUID.randomUUID(), content = content)
+        temporaryEndpointRepository.saveAndFlush(entity)
+        return TemporaryEndpoint(entity.exposedId)
     }
 
-    companion object {
-        private val LOG = LoggerFactory.getLogger(CleanLocalDatabase::class.java)
+    private fun close(temporaryEndpointId: UUID) {
+        transactionTemplate.executeWithoutResult {
+            temporaryEndpointRepository.deleteByExposedId(temporaryEndpointId)
+        }
+    }
+
+    inner class TemporaryEndpoint(
+        private val id: UUID,
+    ) : Closeable {
+        val path: String = "/temp-endpoint/${id}"
+
+        override fun close() {
+            close(id)
+        }
+
+        override fun toString(): String {
+            return "TemporaryEndpoint(path='$path')"
+        }
     }
 }
