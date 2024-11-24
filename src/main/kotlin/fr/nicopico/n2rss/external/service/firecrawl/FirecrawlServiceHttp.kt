@@ -19,14 +19,13 @@ package fr.nicopico.n2rss.external.service.firecrawl
 
 import fr.nicopico.n2rss.external.service.firecrawl.dto.FirecrawlScrapeRequestDTO
 import fr.nicopico.n2rss.external.service.firecrawl.dto.FirecrawlScrapeResponseDTO
-import fr.nicopico.n2rss.utils.url.Url
 import org.slf4j.LoggerFactory
 import org.springframework.http.MediaType
 import org.springframework.web.client.RestClient
 import org.springframework.web.client.RestClientResponseException
 import org.springframework.web.client.body
+import java.net.URL
 import java.util.concurrent.CompletableFuture
-
 
 class FirecrawlServiceHttp(
     clientBuilder: RestClient.Builder = RestClient.builder(),
@@ -45,12 +44,14 @@ class FirecrawlServiceHttp(
      * Scrape [url] using Firecrawl API
      * https://docs.firecrawl.dev/api-reference/endpoint/scrape
      */
-    override fun scrape(url: Url): CompletableFuture<String> {
-        val payload = FirecrawlScrapeRequestDTO(url.toString())
+    override fun scrape(url: URL): CompletableFuture<String> {
+        val payload = FirecrawlScrapeRequestDTO(
+            url = url.toString(),
+        )
         val response: FirecrawlScrapeResponseDTO = try {
             restClient
                 .post()
-                .uri("/scrape")
+                .uri("/v1/scrape")
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(payload)
                 .retrieve()

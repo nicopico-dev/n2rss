@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class FirecrawlScrapeDataDTO(
     @JsonProperty("markdown")
-    val markdown: String,
+    val markdown: String? = null,
 
     @JsonProperty("html")
     val html: String? = null,
