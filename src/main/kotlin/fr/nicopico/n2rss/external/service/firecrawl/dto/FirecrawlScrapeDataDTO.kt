@@ -15,35 +15,36 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.external
 
-import fr.nicopico.n2rss.config.N2RssProperties
-import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlService
-import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlServiceHttp
-import org.springframework.beans.factory.annotation.Qualifier
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
-import java.net.URL
+package fr.nicopico.n2rss.external.service.firecrawl.dto
 
-@Configuration
-class ExternalConfig {
+import com.fasterxml.jackson.annotation.JsonProperty
 
-    @Bean
-    @Qualifier(BASE_URL_QUALIFIER)
-    fun baseUrl(externalProperties: N2RssProperties.ExternalProperties): URL {
-        return externalProperties.baseUrl
-    }
+data class FirecrawlScrapeDataDTO(
+    @JsonProperty("markdown")
+    val markdown: String? = null,
 
-    @Bean
-    fun firecrawlService(
-        externalProperties: N2RssProperties.ExternalProperties,
-    ): FirecrawlService {
-        return FirecrawlServiceHttp(
-            accessToken = externalProperties.firecrawlToken
-        )
-    }
+    @JsonProperty("html")
+    val html: String? = null,
 
-    companion object {
-        const val BASE_URL_QUALIFIER = "base-url"
-    }
-}
+    @JsonProperty("rawHtml")
+    val rawHtml: String? = null,
+
+    @JsonProperty("screenshot")
+    val screenshot: String? = null,
+
+    @JsonProperty("links")
+    val links: List<String> = emptyList(),
+
+    @JsonProperty("actions")
+    val actions: Map<String, Any>? = null,
+
+    @JsonProperty("metadata")
+    val metadata: Map<String, Any>,
+
+    @JsonProperty("llm_extraction")
+    val llmExtraction: Map<String, Any>? = null,
+
+    @JsonProperty("warning")
+    val warning: String? = null,
+)

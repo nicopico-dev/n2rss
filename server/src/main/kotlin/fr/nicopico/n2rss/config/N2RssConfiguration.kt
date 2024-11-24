@@ -112,6 +112,7 @@ constructor(
     )
     data class ExternalProperties(
         val baseUrl: URL,
+        val firecrawlToken: String,
         val resolveArticleUrls: Boolean = false,
         val userAgent: String = "n2rss",
     )
