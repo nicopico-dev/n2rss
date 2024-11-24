@@ -111,5 +111,6 @@ constructor(
     )
     data class ExternalProperties(
         val baseUrl: URL,
+        val firecrawlToken: String,
     )
 }
