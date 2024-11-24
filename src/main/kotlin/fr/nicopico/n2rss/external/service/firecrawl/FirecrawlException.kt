@@ -15,35 +15,10 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.external
 
-import fr.nicopico.n2rss.config.N2RssProperties
-import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlService
-import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlServiceHttp
-import org.springframework.beans.factory.annotation.Qualifier
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
-import java.net.URL
+package fr.nicopico.n2rss.external.service.firecrawl
 
-@Configuration
-class ExternalConfig {
-
-    @Bean
-    @Qualifier(BASE_URL_QUALIFIER)
-    fun baseUrl(externalProperties: N2RssProperties.ExternalProperties): URL {
-        return externalProperties.baseUrl
-    }
-
-    @Bean
-    fun firecrawlService(
-        externalProperties: N2RssProperties.ExternalProperties,
-    ): FirecrawlService {
-        return FirecrawlServiceHttp(
-            accessToken = externalProperties.firecrawlToken
-        )
-    }
-
-    companion object {
-        const val BASE_URL_QUALIFIER = "base-url"
-    }
-}
+class FirecrawlException(
+    message: String? = null,
+    cause: Throwable? = null,
+) : Exception(message, cause)
