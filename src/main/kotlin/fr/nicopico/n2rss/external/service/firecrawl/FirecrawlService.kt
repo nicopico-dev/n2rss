@@ -17,9 +17,9 @@
  */
 package fr.nicopico.n2rss.external.service.firecrawl
 
-import fr.nicopico.n2rss.utils.url.Url
+import java.net.URL
 import java.util.concurrent.CompletableFuture
 
 interface FirecrawlService {
-    fun scrape(url: Url): CompletableFuture<String>
+    fun scrape(url: URL): CompletableFuture<String>
 }
