@@ -15,29 +15,36 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.external
 
-package fr.nicopico.n2rss.external.temporary
+import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlService
+import fr.nicopico.n2rss.external.temporary.TemporaryEndpointService
+import fr.nicopico.n2rss.mail.models.Email
+import org.jsoup.Jsoup
+import org.jsoup.safety.Safelist
+import org.springframework.scheduling.annotation.Async
+import org.springframework.stereotype.Service
+import java.util.concurrent.TimeUnit
 
-import fr.nicopico.n2rss.external.temporary.TemporaryEndpointService.TemporaryEndpoint
-import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.Profile
-import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.context.event.EventListener
-import org.springframework.stereotype.Component
-import kotlin.random.Random
-
-@Profile("local & reset-db")
-@Component
-class TemporaryEndpointDataStub(
-    private val service: TemporaryEndpointService,
+@Service
+class FirecrawlEmailParser(
+    private val temporaryEndpointService: TemporaryEndpointService,
+    private val firecrawlService: FirecrawlService,
 ) {
-    @EventListener
-    fun onApplicationEvent(ignored: ContextRefreshedEvent) {
-        val tempEndpoint: TemporaryEndpoint = service.expose("This is some content ${Random.nextInt()}")
-        LOG.warn("Expose temporary endpoint: {}", tempEndpoint)
+    @Async
+    fun parseEmail(email: Email): String {
+        val cleanedHtml = Jsoup.clean(
+            email.content,
+            Safelist.basic(),
+        )
+        return temporaryEndpointService.expose(email.subject, cleanedHtml)
+            .use { endpoint ->
+                firecrawlService.scrape(endpoint.url)
+                    .get(TIMEOUT_MS, TimeUnit.MILLISECONDS)
+            }
     }
 
     companion object {
-        private val LOG = LoggerFactory.getLogger(TemporaryEndpointDataStub::class.java)
+        private const val TIMEOUT_MS = 5_000L
     }
 }

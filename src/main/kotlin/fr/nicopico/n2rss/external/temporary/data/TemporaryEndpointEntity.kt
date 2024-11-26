@@ -35,6 +35,9 @@ class TemporaryEndpointEntity(
     val exposedId: UUID,
 
     @Column(nullable = false)
+    val label: String,
+
+    @Column(nullable = false)
     val content: String,
 
     @Column(nullable = false)

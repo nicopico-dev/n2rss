@@ -21,6 +21,7 @@ create table temporary_endpoint
     id            bigint auto_increment
         primary key,
     exposed_id    varchar(36) not null,
+    label varchar(255) not null,
     content       text        not null,
     creation_date datetime    not null
 );

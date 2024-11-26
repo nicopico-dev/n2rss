@@ -37,7 +37,7 @@ class FirecrawlServiceHttpIntegrationTest {
 
         // Only enable Firecrawl when the token environment variable is available
         firecrawlService = if (accessToken != null) {
-            FirecrawlServiceHttp(accessToken = accessToken)
+            FirecrawlHttpService(accessToken = accessToken)
         } else {
             println("Firecrawl service disable")
             object : FirecrawlService {
