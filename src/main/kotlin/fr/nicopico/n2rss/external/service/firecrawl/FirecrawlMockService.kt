@@ -15,56 +15,46 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.external.temporary
+package fr.nicopico.n2rss.external.service.firecrawl
 
-import fr.nicopico.n2rss.external.ExternalConfig
-import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointEntity
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
-import jakarta.transaction.Transactional
-import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
-import org.springframework.transaction.support.TransactionTemplate
-import java.io.Closeable
 import java.net.URL
+import java.nio.file.Paths
 import java.util.UUID
+import java.util.concurrent.CompletableFuture
 
 @Service
-class TemporaryEndpointService(
+class FirecrawlMockService(
     private val temporaryEndpointRepository: TemporaryEndpointRepository,
-    private val transactionTemplate: TransactionTemplate,
-    @Qualifier(ExternalConfig.BASE_URL_QUALIFIER)
-    private val baseUrl: URL,
-) {
+) : FirecrawlService {
 
-    @Transactional
-    fun expose(label: String, content: String): TemporaryEndpoint {
-        val entity = TemporaryEndpointEntity(
-            exposedId = UUID.randomUUID(),
-            label = label,
-            content = content,
-        )
-        temporaryEndpointRepository.saveAndFlush(entity)
-        return TemporaryEndpoint(entity.exposedId)
-    }
+    @Suppress("TooGenericExceptionCaught")
+    override fun scrape(url: URL): CompletableFuture<String> {
+        return try {
+            val tempId = url.path
+                .split("/")
+                .lastOrNull()
+                .let { UUID.fromString(it) }
 
-    private fun close(temporaryEndpointId: UUID) {
-        transactionTemplate.executeWithoutResult {
-            temporaryEndpointRepository.deleteByExposedId(temporaryEndpointId)
+            val tempEndpoint = requireNotNull(
+                temporaryEndpointRepository.findByExposedId(tempId)
+            )
+            val content = getContent(tempEndpoint.label)
+            CompletableFuture.completedFuture(content)
+        } catch (e: Exception) {
+            CompletableFuture.failedFuture(e)
         }
     }
 
-    inner class TemporaryEndpoint(
-        private val id: UUID,
-    ) : Closeable {
-
-        val url: URL = URL(baseUrl, "/temp-endpoint/$id")
-
-        override fun close() {
-            close(id)
+    private fun getContent(label: String): String {
+        val filePath = when {
+            label.startsWith("Tech Readers #116") -> "stubs/markdown/tech-readers #116.md"
+            else -> throw NoSuchElementException("No content for [$label]")
         }
 
-        override fun toString(): String {
-            return "TemporaryEndpoint(path='$url')"
-        }
+        return Paths.get(filePath)
+            .toFile()
+            .readText(Charsets.UTF_8)
     }
 }

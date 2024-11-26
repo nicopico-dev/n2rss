@@ -23,6 +23,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.context.properties.bind.ConstructorBinding
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import java.net.URL
 
 @Configuration
 @EnableConfigurationProperties(N2RssProperties::class)
@@ -109,6 +110,8 @@ constructor(
         val monitoringEnabled: Boolean = true,
     )
     data class ExternalProperties(
+        val baseUrl: URL,
         val firecrawlToken: String,
+        val mockExternalApis: Boolean = false,
     )
 }
