@@ -131,9 +131,12 @@ dependencies {
     testImplementation(libs.junit.jupiter.engine)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.kotest.assertions.kotlinxDatetime)
-    testImplementation(libs.mockk)
-    testImplementation(libs.greenmail)
+    testImplementation(libs.mockk) {
+        exclude(group = "junit")
+    }
     testImplementation(libs.greenmail.junit5)
-    testImplementation(libs.mockwebserver)
+    testImplementation(libs.mockwebserver) {
+        exclude(group = "junit")
+    }
     testRuntimeOnly(libs.h2.database)
 }
