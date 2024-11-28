@@ -51,7 +51,6 @@ mariadb-driver = { module = "org.mariadb.jdbc:mariadb-java-client" }
 rome = { module = "com.rometools:rome", version.ref = "rome" }
 
 # Testing Libraries
-greenmail = { module = "com.icegreen:greenmail", version.ref = "greenmail" }
 greenmail-junit5 = { module = "com.icegreen:greenmail-junit5", version.ref = "greenmail" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiterEngine" }
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotestAssertions" }
