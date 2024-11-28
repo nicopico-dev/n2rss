@@ -116,6 +116,7 @@ dependencies {
     testImplementation(libs.springBoot.starter.test) {
         exclude(group = "org.mockito")
     }
+    testImplementation(libs.springMock)
     testImplementation(libs.junit.jupiter.engine)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.kotest.assertions.kotlinxDatetime)
