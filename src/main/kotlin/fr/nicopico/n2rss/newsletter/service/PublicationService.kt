@@ -169,28 +169,28 @@ class PublicationService(
         }
     }
 
-    fun getLatestPublicationDate(newsletter: Newsletter): LocalDate? {
-        val getLegacyLatest: () -> LocalDate? = {
+    fun getOldestPublicationDate(newsletter: Newsletter): LocalDate? {
+        val getLegacyOldest: () -> LocalDate? = {
             legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter)?.date
         }
-        val getDefaultLatest: () -> LocalDate? = {
+        val getDefaultOldest: () -> LocalDate? = {
             publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletter.code)?.date?.toKotlinLocaleDate()
         }
 
         return when (persistenceMode) {
-            PersistenceMode.LEGACY -> getLegacyLatest()
+            PersistenceMode.LEGACY -> getLegacyOldest()
             PersistenceMode.MIGRATION -> {
-                val legacyLatest = getLegacyLatest()
-                val defaultLatest = getDefaultLatest()
+                val legacyLatest = getLegacyOldest()
+                val defaultLatest = getDefaultOldest()
                 when {
                     legacyLatest == null && defaultLatest == null -> null
                     legacyLatest == null -> defaultLatest
                     defaultLatest == null -> legacyLatest
-                    else -> maxOf(defaultLatest, legacyLatest)
+                    else -> minOf(defaultLatest, legacyLatest)
                 }
             }
 
-            PersistenceMode.DEFAULT -> getDefaultLatest()
+            PersistenceMode.DEFAULT -> getDefaultOldest()
         }
     }
 }

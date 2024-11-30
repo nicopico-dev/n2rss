@@ -44,7 +44,7 @@ class NewsletterService(
                     title = it.name,
                     websiteUrl = it.websiteUrl,
                     publicationCount = publicationService.getPublicationsCount(it),
-                    startingDate = publicationService.getLatestPublicationDate(it),
+                    startingDate = publicationService.getOldestPublicationDate(it),
                     notes = it.notes,
                 )
             }

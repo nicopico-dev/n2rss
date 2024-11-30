@@ -69,7 +69,7 @@ class NewsletterServiceTest {
                 else -> 0
             }
         }
-        every { publicationService.getLatestPublicationDate(any()) } answers {
+        every { publicationService.getOldestPublicationDate(any()) } answers {
             val newsletter = firstArg<Newsletter>()
             when (newsletter.code) {
                 "code1" -> firstPublicationCode1
