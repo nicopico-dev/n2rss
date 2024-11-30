@@ -43,6 +43,7 @@ import io.mockk.verify
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.minus
+import kotlinx.datetime.plus
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -216,7 +217,7 @@ class PublicationServiceTest {
             every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) } returns latestPublication
 
             // WHEN
-            val result = publicationService.getLatestPublicationDate(newsletter)
+            val result = publicationService.getOldestPublicationDate(newsletter)
 
             // THEN
             verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
@@ -230,7 +231,7 @@ class PublicationServiceTest {
             every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) } returns null
 
             // WHEN
-            val result = publicationService.getLatestPublicationDate(newsletter)
+            val result = publicationService.getOldestPublicationDate(newsletter)
 
             // THEN
             verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
@@ -320,7 +321,7 @@ class PublicationServiceTest {
             every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns latestPublication
 
             // WHEN
-            val result = publicationService.getLatestPublicationDate(newsletter)
+            val result = publicationService.getOldestPublicationDate(newsletter)
 
             // THEN
             verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
@@ -340,7 +341,7 @@ class PublicationServiceTest {
             every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns null
 
             // WHEN
-            val result = publicationService.getLatestPublicationDate(newsletter)
+            val result = publicationService.getOldestPublicationDate(newsletter)
 
             // THEN
             verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
@@ -475,93 +476,75 @@ class PublicationServiceTest {
         }
 
         @Test
-        fun `should get latest publication date by newsletter - 1`() {
+        fun `should get latest publication date by newsletter`() {
             // GIVEN
             val newsletterCode = "primarily"
             val newsletter = createStubNewsletter(newsletterCode)
 
-            val latestPublicationDate = LocalDate.now()
-            val latestPublication = createStubPublicationEntity(
-                newsletter = newsletter, publicationDate = latestPublicationDate,
+            val oldestPublicationDate = LocalDate.now()
+            val oldestPublication = createStubPublicationEntity(
+                newsletter = newsletter, publicationDate = oldestPublicationDate + DatePeriod(days = 1),
             )
-            val latestLegacyPublication = createStubPublicationDocument(
-                newsletter = newsletter, publicationDate = latestPublicationDate - DatePeriod(days = 1),
+            val oldestLegacyPublication = createStubPublicationDocument(
+                newsletter = newsletter, publicationDate = oldestPublicationDate,
             )
 
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns latestPublication
-            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns latestLegacyPublication
+            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns oldestPublication
+            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns oldestLegacyPublication
 
             // WHEN
-            val result = publicationService.getLatestPublicationDate(newsletter)
+            val result = publicationService.getOldestPublicationDate(newsletter)
 
             // THEN
             verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
             verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-            result shouldBe latestPublicationDate
+            result shouldBe oldestPublicationDate
         }
 
         @Test
-        fun `should get latest publication date by newsletter - 2`() {
+        fun `should get latest publication date by newsletter - No legacy publication`() {
             // GIVEN
             val newsletterCode = "primarily"
             val newsletter = createStubNewsletter(newsletterCode)
 
-            val latestPublicationDate = LocalDate.now()
-            val latestPublication = createStubPublicationEntity(
-                newsletter = newsletter, publicationDate = latestPublicationDate,
+            val oldestPublicationDate = LocalDate.now()
+            val oldestPublication = createStubPublicationEntity(
+                newsletter = newsletter, publicationDate = oldestPublicationDate,
             )
 
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns latestPublication
+            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns oldestPublication
             every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns null
 
             // WHEN
-            val result = publicationService.getLatestPublicationDate(newsletter)
+            val result = publicationService.getOldestPublicationDate(newsletter)
 
             // THEN
             verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
             verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-            result shouldBe latestPublicationDate
+            result shouldBe oldestPublicationDate
         }
 
         @Test
-        fun `should get latest publication date by newsletter - 3`() {
+        fun `should get latest publication date by newsletter - No default publication`() {
             // GIVEN
             val newsletterCode = "primarily"
             val newsletter = createStubNewsletter(newsletterCode)
 
-            val latestPublicationDate = LocalDate.now()
-            val latestLegacyPublication = createStubPublicationDocument(
-                newsletter = newsletter, publicationDate = latestPublicationDate,
+            val oldestPublicationDate = LocalDate.now()
+            val oldestLegacyPublication = createStubPublicationDocument(
+                newsletter = newsletter, publicationDate = oldestPublicationDate,
             )
 
             every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns null
-            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns latestLegacyPublication
+            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns oldestLegacyPublication
 
             // WHEN
-            val result = publicationService.getLatestPublicationDate(newsletter)
+            val result = publicationService.getOldestPublicationDate(newsletter)
 
             // THEN
             verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
             verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-            result shouldBe latestPublicationDate
-        }
-
-        @Test
-        fun `should get latest publication date by newsletter - 4`() {
-            // GIVEN
-            val newsletterCode = "primarily"
-            val newsletter = createStubNewsletter(newsletterCode)
-
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns null
-            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns null
-
-            // WHEN
-            val result = publicationService.getLatestPublicationDate(newsletter)
-
-            // THEN
-            verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
-            verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-            result shouldBe null
+            result shouldBe oldestPublicationDate
         }
 
         @Test
@@ -573,7 +556,7 @@ class PublicationServiceTest {
             every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns null
 
             // WHEN
-            val result = publicationService.getLatestPublicationDate(newsletter)
+            val result = publicationService.getOldestPublicationDate(newsletter)
 
             // THEN
             verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
