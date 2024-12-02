@@ -22,6 +22,7 @@ import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
 import io.kotest.matchers.nulls.beNull
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldNot
+import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.string.shouldNotEndWith
 import io.kotest.matchers.string.shouldStartWith
 import io.kotest.matchers.url.shouldHaveHost
@@ -84,6 +85,8 @@ class TemporaryEndpointServiceTest {
             it.url shouldHaveHost baseUrl.host
             it.url.path shouldStartWith "/temp-endpoint/"
             it.url.path shouldNotEndWith "/temp-endpoint/"
+
+            it.toString() shouldContain it.url.toString()
         }
 
         // TODO Verify the content of the saved entity
