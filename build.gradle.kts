@@ -72,11 +72,11 @@ npi {
 
 // Allows usage of Flyway commands through the Gradle plugin
 flyway {
-    url = "jdbc:mariadb://localhost:3306/n2rss-database"
+    url = "jdbc:mariadb://localhost:3306/nicopico_n2rss"
     user = "n2rss"
     password = "secret"
 
-    schemas = arrayOf("n2rss-database")
+    schemas = arrayOf("nicopico_n2rss")
     locations = arrayOf(
         "classpath:db/migration",
         "classpath:fr/nicopico/n2rss/newsletter/data/migration",
@@ -116,12 +116,16 @@ dependencies {
     testImplementation(libs.springBoot.starter.test) {
         exclude(group = "org.mockito")
     }
+    testImplementation(libs.springMock)
     testImplementation(libs.junit.jupiter.engine)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.kotest.assertions.kotlinxDatetime)
-    testImplementation(libs.mockk)
-    testImplementation(libs.greenmail)
+    testImplementation(libs.mockk) {
+        exclude(group = "junit")
+    }
     testImplementation(libs.greenmail.junit5)
-    testImplementation(libs.mockwebserver)
+    testImplementation(libs.mockwebserver) {
+        exclude(group = "junit")
+    }
     testRuntimeOnly(libs.h2.database)
 }
