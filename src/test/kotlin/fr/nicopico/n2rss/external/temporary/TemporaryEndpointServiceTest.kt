@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Nicolas PICON
+ * Copyright (c) 2025 Nicolas PICON
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -18,10 +18,14 @@
 
 package fr.nicopico.n2rss.external.temporary
 
+import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointEntity
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
 import io.kotest.matchers.nulls.beNull
 import io.kotest.matchers.should
+import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
+import io.kotest.matchers.string.shouldContain
+import io.kotest.matchers.string.shouldEndWith
 import io.kotest.matchers.string.shouldNotEndWith
 import io.kotest.matchers.string.shouldStartWith
 import io.kotest.matchers.url.shouldHaveHost
@@ -33,6 +37,7 @@ import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
 import io.mockk.just
 import io.mockk.mockk
+import io.mockk.slot
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -78,17 +83,25 @@ class TemporaryEndpointServiceTest {
         val temporaryEndpoint = service.expose(label, content)
 
         // THEN
+        val entitySlot = slot<TemporaryEndpointEntity>()
+        verify { repository.saveAndFlush(capture(entitySlot)) }
+        confirmVerified(repository)
+
         temporaryEndpoint should {
             it shouldNot beNull()
             it.url shouldHaveProtocol baseUrl.protocol
             it.url shouldHaveHost baseUrl.host
             it.url.path shouldStartWith "/temp-endpoint/"
             it.url.path shouldNotEndWith "/temp-endpoint/"
+            it.url.path shouldEndWith entitySlot.captured.exposedId.toString()
+
+            it.toString() shouldContain it.url.toString()
         }
 
-        // TODO Verify the content of the saved entity
-        verify { repository.saveAndFlush(any()) }
-        confirmVerified(repository)
+        entitySlot.captured should {
+            it.label shouldBe label
+            it.content shouldBe content
+        }
     }
 
     @Test
