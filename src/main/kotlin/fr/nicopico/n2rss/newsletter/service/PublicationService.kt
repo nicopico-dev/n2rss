@@ -23,19 +23,15 @@ import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.data.entity.ArticleEntity
 import fr.nicopico.n2rss.newsletter.data.entity.PublicationEntity
-import fr.nicopico.n2rss.newsletter.data.legacy.LegacyPublicationRepository
-import fr.nicopico.n2rss.newsletter.data.legacy.PublicationDocument
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
-import fr.nicopico.n2rss.utils.sortBy
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import fr.nicopico.n2rss.utils.toLegacyDate
 import jakarta.transaction.Transactional
 import kotlinx.datetime.LocalDate
 import org.springframework.cache.annotation.CacheEvict
 import org.springframework.data.domain.Page
-import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.PageRequest
 import org.springframework.stereotype.Service
 import java.net.URL
@@ -43,7 +39,6 @@ import java.net.URL
 @Service
 class PublicationService(
     private val publicationRepository: PublicationRepository,
-    private val legacyPublicationRepository: LegacyPublicationRepository,
     private val newsletterRepository: NewsletterRepository,
     private val persistenceMode: PersistenceMode,
 ) {
@@ -51,23 +46,6 @@ class PublicationService(
     @Transactional
     fun getPublications(newsletter: Newsletter, pageable: PageRequest): Page<Publication> {
         return when (persistenceMode) {
-            PersistenceMode.LEGACY -> getPublicationsFromMongoDB(newsletter, pageable)
-            PersistenceMode.MIGRATION -> {
-                val legacy = getPublicationsFromMongoDB(newsletter, pageable)
-                val default = getPublicationsFromMariaDB(newsletter, pageable)
-
-                val mergedPublications = (legacy + default)
-                    .sortBy(pageable.sort) { publication, property ->
-                        when (property) {
-                            "title" -> publication.title
-                            "date" -> publication.date
-                            else -> null
-                        }
-                    }
-                    .take(pageable.pageSize)
-                PageImpl(mergedPublications)
-            }
-
             PersistenceMode.DEFAULT -> getPublicationsFromMariaDB(newsletter, pageable)
         }
     }
@@ -90,21 +68,6 @@ class PublicationService(
                 },
             )
         }
-
-    private fun getPublicationsFromMongoDB(
-        newsletter: Newsletter,
-        pageable: PageRequest
-    ) = legacyPublicationRepository.findByNewsletter(newsletter, pageable)
-        .map {
-            Publication(
-                title = it.title,
-                date = it.date,
-                newsletter = it.newsletter,
-                articles = it.articles,
-            )
-        }
-
-
     //endregion
 
     //region savePublications
@@ -119,8 +82,7 @@ class PublicationService(
             .filter { it.articles.isNotEmpty() }
 
         when (persistenceMode) {
-            PersistenceMode.LEGACY -> savePublicationsToMongoDb(nonEmptyPublications)
-            PersistenceMode.MIGRATION, PersistenceMode.DEFAULT -> savePublicationsToMariaDB(nonEmptyPublications)
+            PersistenceMode.DEFAULT -> savePublicationsToMariaDB(nonEmptyPublications)
         }
     }
 
@@ -144,52 +106,22 @@ class PublicationService(
 
         publicationRepository.saveAll(entities)
     }
-
-    private fun savePublicationsToMongoDb(publications: List<Publication>) {
-        val publicationDocuments = publications.map {
-            PublicationDocument(
-                title = it.title,
-                date = it.date,
-                newsletter = it.newsletter,
-                articles = it.articles,
-            )
-        }
-        legacyPublicationRepository.saveAll(publicationDocuments)
-    }
     //endregion
 
     fun getPublicationsCount(newsletter: Newsletter): Long {
-        val getLegacyCount: () -> Long = { legacyPublicationRepository.countPublicationsByNewsletter(newsletter) }
         val getDefaultCount: () -> Long = { publicationRepository.countPublicationsByNewsletterCode(newsletter.code) }
 
         return when (persistenceMode) {
-            PersistenceMode.LEGACY -> getLegacyCount()
-            PersistenceMode.MIGRATION -> getLegacyCount() + getDefaultCount()
             PersistenceMode.DEFAULT -> getDefaultCount()
         }
     }
 
     fun getOldestPublicationDate(newsletter: Newsletter): LocalDate? {
-        val getLegacyOldest: () -> LocalDate? = {
-            legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter)?.date
-        }
         val getDefaultOldest: () -> LocalDate? = {
             publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletter.code)?.date?.toKotlinLocaleDate()
         }
 
         return when (persistenceMode) {
-            PersistenceMode.LEGACY -> getLegacyOldest()
-            PersistenceMode.MIGRATION -> {
-                val legacyLatest = getLegacyOldest()
-                val defaultLatest = getDefaultOldest()
-                when {
-                    legacyLatest == null && defaultLatest == null -> null
-                    legacyLatest == null -> defaultLatest
-                    defaultLatest == null -> legacyLatest
-                    else -> minOf(defaultLatest, legacyLatest)
-                }
-            }
-
             PersistenceMode.DEFAULT -> getDefaultOldest()
         }
     }
