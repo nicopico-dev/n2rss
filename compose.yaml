@@ -1,12 +1,6 @@
 services:
   db:
-    image: mongo:4.2
-    ports:
-      - '27017:27017'
-    volumes:
-      - db:/data/db
-  db2:
-    image: mariadb:10.4
+    image: mariadb:10.11
     environment:
       - 'MARIADB_DATABASE=nicopico_n2rss'
       - 'MARIADB_PASSWORD=secret'
@@ -15,11 +9,8 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - db2:/data/db2
+      - db:/data/db
 volumes:
   db:
-    driver:
-      local
-  db2:
     driver:
       local
