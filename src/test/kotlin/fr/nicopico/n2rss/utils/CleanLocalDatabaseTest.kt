@@ -18,32 +18,37 @@
 
 package fr.nicopico.n2rss.utils
 
+import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.data.legacy.LegacyPublicationRepository
-import io.mockk.MockKAnnotations
 import io.mockk.confirmVerified
 import io.mockk.impl.annotations.MockK
+import io.mockk.junit5.MockKExtension
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.context.event.ContextRefreshedEvent
 
+@ExtendWith(MockKExtension::class)
 class CleanLocalDatabaseTest {
 
     @MockK(relaxUnitFun = true)
     private lateinit var publicationRepository: PublicationRepository
     @MockK(relaxUnitFun = true)
     private lateinit var legacyPublicationRepository: LegacyPublicationRepository
+    @MockK(relaxUnitFun = true)
+    private lateinit var temporaryEndpointRepository: TemporaryEndpointRepository
 
     private lateinit var cleanLocalDatabase: CleanLocalDatabase
 
     @BeforeEach
     fun setUp() {
-        MockKAnnotations.init(this)
         cleanLocalDatabase = CleanLocalDatabase(
             publicationRepository = publicationRepository,
             legacyPublicationRepository = legacyPublicationRepository,
+            temporaryEndpointRepository = temporaryEndpointRepository,
         )
     }
 
@@ -59,10 +64,12 @@ class CleanLocalDatabaseTest {
         verify(exactly = 1) {
             publicationRepository.deleteAll()
             legacyPublicationRepository.deleteAll()
+            temporaryEndpointRepository.deleteAll()
         }
         confirmVerified(
             publicationRepository,
             legacyPublicationRepository,
+            temporaryEndpointRepository,
         )
     }
 }
