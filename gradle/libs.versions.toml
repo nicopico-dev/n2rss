@@ -2,7 +2,7 @@
 annotations = "26.0.1"
 dependencyManagement = "1.1.6"
 detekt = "1.23.7"
-flyway = "10.21.0"
+flyway = "11.1.0"
 greenmail = "2.1.2"
 h2 = "2.3.232"
 jakartaMail = "2.0.1"
