@@ -23,8 +23,6 @@ import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.data.entity.ArticleEntity
 import fr.nicopico.n2rss.newsletter.data.entity.PublicationEntity
-import fr.nicopico.n2rss.newsletter.data.legacy.LegacyPublicationRepository
-import fr.nicopico.n2rss.newsletter.data.legacy.PublicationDocument
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
@@ -37,13 +35,9 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
-import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
-import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
-import kotlinx.datetime.minus
-import kotlinx.datetime.plus
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -51,12 +45,7 @@ import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.PageRequest
-import org.springframework.data.domain.Sort
-import org.springframework.data.domain.Sort.Direction.ASC
-import org.springframework.data.domain.Sort.Direction.DESC
-import org.springframework.data.domain.Sort.Order
 import java.net.URL
-import java.util.UUID
 import kotlin.random.Random
 
 @ExtendWith(MockKExtension::class)
@@ -65,17 +54,14 @@ class PublicationServiceTest {
     @MockK
     private lateinit var publicationRepository: PublicationRepository
     @MockK
-    private lateinit var legacyPublicationRepository: LegacyPublicationRepository
-    @MockK
     private lateinit var newsletterRepository: NewsletterRepository
 
     //region Helpers
-    private fun createPublicationService(persistenceMode: PersistenceMode): PublicationService {
+    private fun createPublicationService(): PublicationService {
         return PublicationService(
             publicationRepository = publicationRepository,
-            legacyPublicationRepository = legacyPublicationRepository,
             newsletterRepository = newsletterRepository,
-            persistenceMode = persistenceMode,
+            persistenceMode = PersistenceMode.DEFAULT,
         )
     }
 
@@ -101,18 +87,6 @@ class PublicationServiceTest {
                 description = "This is a description for a random article."
             )
         }
-    )
-
-    private fun createStubPublicationDocument(
-        newsletter: Newsletter,
-        title: String = "Title 1",
-        publicationDate: LocalDate = LocalDate.now(),
-    ) = PublicationDocument(
-        id = UUID.randomUUID(),
-        title = title,
-        date = publicationDate,
-        newsletter = newsletter,
-        articles = listOf(mockk<Article>())
     )
 
     private fun createStubPublicationEntity(
@@ -141,112 +115,13 @@ class PublicationServiceTest {
     //endregion
 
     @Nested
-    inner class LegacyMode {
-
-        private lateinit var publicationService: PublicationService
-
-        @BeforeEach
-        fun setUp() {
-            publicationService = createPublicationService(PersistenceMode.LEGACY)
-        }
-
-        @Test
-        fun `should get publications by newsletter`() {
-            // GIVEN
-            val newsletter = createStubNewsletter()
-            val pageable = PageRequest.of(0, 10)
-            val publications = listOf(createStubPublicationDocument(newsletter))
-            val publicationPage: Page<PublicationDocument> = PageImpl(publications)
-            every { legacyPublicationRepository.findByNewsletter(newsletter, pageable) } returns publicationPage
-
-            // WHEN
-            val result = publicationService.getPublications(newsletter, pageable)
-
-            // THEN
-            verify { legacyPublicationRepository.findByNewsletter(newsletter, pageable) }
-            assertSoftly {
-                result.content.size shouldBe 1
-                result.content[0].title shouldBe "Title 1"
-            }
-        }
-
-        @Test
-        fun `should only save publications containing articles`() {
-            // GIVEN
-            val newsletter = createStubNewsletter()
-            val publications = listOf(
-                createStubPublication(newsletter, "Title 1"),
-                createStubPublication(newsletter, "Title 2", articleCount = 0),
-                createStubPublication(newsletter, "Title 3"),
-            )
-
-            every { legacyPublicationRepository.saveAll(any<List<PublicationDocument>>()) } answers { firstArg() }
-
-            // WHEN
-            publicationService.savePublications(publications)
-
-            // THEN
-            val slot = slot<List<PublicationDocument>>()
-            verify { legacyPublicationRepository.saveAll(capture(slot)) }
-            slot.captured should {
-                it shouldHaveSize 2
-                it[0].title shouldBe "Title 1"
-                it[1].title shouldBe "Title 3"
-            }
-        }
-
-        @Test
-        fun `should get publications count by newsletter`() {
-            // GIVEN
-            val newsletter = createStubNewsletter()
-            every { legacyPublicationRepository.countPublicationsByNewsletter(newsletter) } returns 10L
-
-            // WHEN
-            val result = publicationService.getPublicationsCount(newsletter)
-
-            // THEN
-            verify { legacyPublicationRepository.countPublicationsByNewsletter(newsletter) }
-            result shouldBe 10L
-        }
-
-        @Test
-        fun `should get latest publication date by newsletter`() {
-            // GIVEN
-            val newsletter = createStubNewsletter()
-            val latestPublication = createStubPublicationDocument(newsletter)
-            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) } returns latestPublication
-
-            // WHEN
-            val result = publicationService.getOldestPublicationDate(newsletter)
-
-            // THEN
-            verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-            result shouldBe latestPublication.date
-        }
-
-        @Test
-        fun `should return null when no publications are available`() {
-            // GIVEN
-            val newsletter = createStubNewsletter()
-            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) } returns null
-
-            // WHEN
-            val result = publicationService.getOldestPublicationDate(newsletter)
-
-            // THEN
-            verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-            result shouldBe null
-        }
-    }
-
-    @Nested
     inner class DefaultMode {
 
         private lateinit var publicationService: PublicationService
 
         @BeforeEach
         fun setUp() {
-            publicationService = createPublicationService(PersistenceMode.DEFAULT)
+            publicationService = createPublicationService()
         }
 
         @Test
@@ -345,222 +220,6 @@ class PublicationServiceTest {
 
             // THEN
             verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
-            result shouldBe null
-        }
-    }
-
-    @Nested
-    inner class MigrationMode {
-
-        private lateinit var publicationService: PublicationService
-
-        @BeforeEach
-        fun setUp() {
-            publicationService = createPublicationService(PersistenceMode.MIGRATION)
-        }
-
-        @Test
-        @Suppress("LongMethod")
-        fun `should get publications by newsletter`() {
-            // GIVEN
-            val newsletterCode = "test"
-            val newsletter = createStubNewsletter(newsletterCode)
-            every { newsletterRepository.findNewsletterByCode(any()) } returns newsletter
-
-            val pageable = PageRequest.of(0, 4)
-                .withSort(
-                    Sort.by(
-                        Order(DESC, "date"),
-                        Order(ASC, "title"),
-                        Order(ASC, "newsletter")
-                    )
-                )
-
-            val latestPublicationDate = LocalDate.now()
-            val publications = listOf(
-                createStubPublicationEntity(newsletter, title = "Title 1A", publicationDate = latestPublicationDate),
-                createStubPublicationEntity(
-                    newsletter,
-                    title = "Title 2A",
-                    publicationDate = latestPublicationDate - DatePeriod(days = 1)
-                ),
-                createStubPublicationEntity(
-                    newsletter,
-                    title = "Title 3A",
-                    publicationDate = latestPublicationDate - DatePeriod(days = 2)
-                ),
-                createStubPublicationEntity(
-                    newsletter,
-                    title = "Title 4A",
-                    publicationDate = latestPublicationDate - DatePeriod(days = 3)
-                ),
-            )
-            every { publicationRepository.findByNewsletterCode(any(), any()) } returns PageImpl(publications)
-
-            val legacyPublications = listOf(
-                createStubPublicationDocument(
-                    newsletter,
-                    title = "Title 1B",
-                    publicationDate = latestPublicationDate - DatePeriod(days = 2)
-                ),
-                createStubPublicationDocument(
-                    newsletter,
-                    title = "Title 2B",
-                    publicationDate = latestPublicationDate - DatePeriod(days = 3)
-                ),
-                createStubPublicationDocument(
-                    newsletter,
-                    title = "Title 3B",
-                    publicationDate = latestPublicationDate - DatePeriod(days = 4)
-                ),
-                createStubPublicationDocument(
-                    newsletter,
-                    title = "Title 4B",
-                    publicationDate = latestPublicationDate - DatePeriod(days = 5)
-                ),
-            )
-            every { legacyPublicationRepository.findByNewsletter(any(), any()) } returns PageImpl(legacyPublications)
-
-            // WHEN
-            val result = publicationService.getPublications(newsletter, pageable)
-
-            // THEN
-            verify { newsletterRepository.findNewsletterByCode(newsletterCode) }
-            verify { publicationRepository.findByNewsletterCode(newsletterCode, pageable) }
-            assertSoftly {
-                result.content.size shouldBe 4
-                result.content.map { it.title } shouldBe listOf("Title 1A", "Title 2A", "Title 1B", "Title 3A")
-            }
-        }
-
-        @Test
-        fun `should only save publications containing articles`() {
-            // GIVEN
-            val newsletter = createStubNewsletter()
-            val publications = listOf(
-                createStubPublication(newsletter, "Title 1"),
-                createStubPublication(newsletter, "Title 2", articleCount = 0),
-                createStubPublication(newsletter, "Title 3"),
-            )
-
-            every { publicationRepository.saveAll(any<List<PublicationEntity>>()) } answers { firstArg() }
-
-            // WHEN
-            publicationService.savePublications(publications)
-
-            // THEN
-            val slot = slot<List<PublicationEntity>>()
-            verify { publicationRepository.saveAll(capture(slot)) }
-            slot.captured should {
-                it shouldHaveSize 2
-                it[0].title shouldBe "Title 1"
-                it[1].title shouldBe "Title 3"
-            }
-        }
-
-        @Test
-        fun `should get publications count by newsletter`() {
-            // GIVEN
-            val newsletterCode = "delivering"
-            val newsletter = createStubNewsletter(newsletterCode)
-            every { publicationRepository.countPublicationsByNewsletterCode(any()) } returns 4L
-            every { legacyPublicationRepository.countPublicationsByNewsletter(any()) } returns 7L
-
-            // WHEN
-            val result = publicationService.getPublicationsCount(newsletter)
-
-            // THEN
-            verify { publicationRepository.countPublicationsByNewsletterCode(newsletterCode) }
-            verify { legacyPublicationRepository.countPublicationsByNewsletter(newsletter) }
-            result shouldBe 11L
-        }
-
-        @Test
-        fun `should get latest publication date by newsletter`() {
-            // GIVEN
-            val newsletterCode = "primarily"
-            val newsletter = createStubNewsletter(newsletterCode)
-
-            val oldestPublicationDate = LocalDate.now()
-            val oldestPublication = createStubPublicationEntity(
-                newsletter = newsletter, publicationDate = oldestPublicationDate + DatePeriod(days = 1),
-            )
-            val oldestLegacyPublication = createStubPublicationDocument(
-                newsletter = newsletter, publicationDate = oldestPublicationDate,
-            )
-
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns oldestPublication
-            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns oldestLegacyPublication
-
-            // WHEN
-            val result = publicationService.getOldestPublicationDate(newsletter)
-
-            // THEN
-            verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
-            verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-            result shouldBe oldestPublicationDate
-        }
-
-        @Test
-        fun `should get latest publication date by newsletter - No legacy publication`() {
-            // GIVEN
-            val newsletterCode = "primarily"
-            val newsletter = createStubNewsletter(newsletterCode)
-
-            val oldestPublicationDate = LocalDate.now()
-            val oldestPublication = createStubPublicationEntity(
-                newsletter = newsletter, publicationDate = oldestPublicationDate,
-            )
-
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns oldestPublication
-            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns null
-
-            // WHEN
-            val result = publicationService.getOldestPublicationDate(newsletter)
-
-            // THEN
-            verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
-            verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-            result shouldBe oldestPublicationDate
-        }
-
-        @Test
-        fun `should get latest publication date by newsletter - No default publication`() {
-            // GIVEN
-            val newsletterCode = "primarily"
-            val newsletter = createStubNewsletter(newsletterCode)
-
-            val oldestPublicationDate = LocalDate.now()
-            val oldestLegacyPublication = createStubPublicationDocument(
-                newsletter = newsletter, publicationDate = oldestPublicationDate,
-            )
-
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns null
-            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns oldestLegacyPublication
-
-            // WHEN
-            val result = publicationService.getOldestPublicationDate(newsletter)
-
-            // THEN
-            verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
-            verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
-            result shouldBe oldestPublicationDate
-        }
-
-        @Test
-        fun `should return null when no publications are available`() {
-            // GIVEN
-            val newsletterCode = "codes"
-            val newsletter = createStubNewsletter(newsletterCode)
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns null
-            every { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(any()) } returns null
-
-            // WHEN
-            val result = publicationService.getOldestPublicationDate(newsletter)
-
-            // THEN
-            verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
-            verify { legacyPublicationRepository.findFirstByNewsletterOrderByDateAsc(newsletter) }
             result shouldBe null
         }
     }

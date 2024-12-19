@@ -63,7 +63,7 @@ constructor(
     val email: EmailProperties,
     val analytics: AnalyticsProperties,
     val github: GithubProperties,
-    val persistenceMode: PersistenceMode = PersistenceMode.LEGACY,
+    val persistenceMode: PersistenceMode = PersistenceMode.DEFAULT,
 ) {
     data class MaintenanceProperties(
         val secretKey: String,
