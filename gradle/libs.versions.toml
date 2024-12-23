@@ -1,6 +1,6 @@
 [versions]
 annotations = "26.0.1"
-dependencyManagement = "1.1.6"
+dependencyManagement = "1.1.7"
 detekt = "1.23.7"
 flyway = "10.21.0"
 greenmail = "2.1.2"
