@@ -17,25 +17,11 @@
  */
 package fr.nicopico.n2rss.config
 
-import org.springframework.beans.factory.BeanFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.data.convert.PropertyValueConverterFactory
-import org.springframework.data.mongodb.core.convert.MongoCustomConversions
 
 @Configuration
 class PersistenceConfiguration {
-
-    @Bean
-    fun customConversions(beanFactory: BeanFactory): MongoCustomConversions {
-        // Create a bean-aware PropertyValueConverterFactory
-        // This should allow `NewsletterValueConverter` to retrieve the NewsletterHandlers
-        val propertyValueConverterFactory = PropertyValueConverterFactory.beanFactoryAware(beanFactory)
-        return MongoCustomConversions.create {
-            it.registerPropertyValueConverterFactory(propertyValueConverterFactory)
-        }
-    }
-
     @Bean
     fun persistenceMode(config: N2RssProperties): PersistenceMode {
         return config.persistenceMode
