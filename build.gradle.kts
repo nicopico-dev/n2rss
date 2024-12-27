@@ -90,6 +90,17 @@ tasks.named<Task>("flywayMigrate") {
     dependsOn(tasks.named("classes"))
 }
 
+// Allow using Kotlin 2.1 with Spring Dependency Management and Detekt plugins
+dependencyManagement {
+    configurations.matching { it.name == "detekt" }.all {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.jetbrains.kotlin") {
+                useVersion(io.gitlab.arturbosch.detekt.getSupportedKotlinVersion())
+            }
+        }
+    }
+}
+
 repositories {
     mavenCentral()
 }
