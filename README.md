@@ -22,11 +22,11 @@ and each article extracted from the newsletter publication will map to different
 
 ## Built With
 
-- Kotlin 1.9
+- Kotlin 2.1
 - Java 17
 - Jakarta EE
 - Spring MVC
-- Spring Data MONGO
+- Spring Data
 - JSOUP to parse email content
 - ROME to generate RSS feeds
 
@@ -39,7 +39,7 @@ and testing purposes.
 ### Prerequisites
 
 - Java SDK version 17
-- Kotlin API version 1.9
+- Kotlin API version 2.1
 - IDE that supports Jakarta EE, Spring, Java and Kotlin development (For example: IntelliJ IDEA)
 - Docker (for development purpose only)
 
@@ -56,15 +56,15 @@ N2RSS_EMAIL_USERNAME=<username for the email account>
 N2RSS_EMAIL_PASSWORD=<password for the email account>
 ```
 
-By using the `local` profile, a `ResourceFileEmailClient` will be used instead and use the files located 
-at `src/main/resources/emails`. This profile is recommended to get a faster feedback-loop while developing.
+By using the `local` profile, a `ResourceFileEmailClient` will be used instead and the files located 
+at `stubs/emails` will be the inbox. This profile is recommended to get a faster feedback-loop while developing.
 
 ```shell
 $ ./gradlew bootRun --args='--spring.profiles.active=local'
 ```
 
 When run for development through an IDE or with `bootRun`, Spring Boot will use a Docker container 
-to run the **MongoDB database**. This Docker container will be created automatically on the first run, 
+to run the **MariaDB database**. This Docker container will be created automatically on the first run, 
 using the declarations in `compose.yaml`.
 
 ## Usage
@@ -93,12 +93,14 @@ transfer-encoding: chunked
   {
     "code": "android_weekly",
     "title": "Android Weekly",
-    "publicationCount": 3
+    "publicationCount": 3,
+    "startingDate": "2024-02-18"
   },
   {
     "code": "pointer",
     "title": "Pointer",
-    "publicationCount": 4
+    "publicationCount": 4,
+    "startingDate": "2024-02-20"
   }
 ]
 ```
@@ -106,7 +108,6 @@ transfer-encoding: chunked
 ### GET /rss/\[code]
 
 Retrieve the RSS feed matching the give `code`.
-By default, only the articles of the latest 2 publications are retrieved.
 
 Example:
 ```
@@ -131,6 +132,15 @@ transfer-encoding: chunked
 </rss>
 ```
 
+By default, only the articles of the latest 2 publications are retrieved. This number can be changed with URL parameter `publicationCount`
+
+Example: `GET http://localhost/rss/android_weekly?publicationCount=4`
+
+
+### POST /notifyRelease?version=1.2.3
+This endpoint is used after a deployment to notify the analytics of the release. The release version is passed in the URL parameter `version`
+
+
 ### POST /stop
 This endpoint is used to finalize a deployment by stopping the current instance of the application.
 
@@ -148,42 +158,61 @@ $ ./gradlew check
 The CI enforce a minimum coverage of 80%
 
 ## Deployment
-This project needs access to an email account and a MongoDB database to run.
+This project needs access to an email account and a MariaDB database to run.
 
 1. Build the project using the `build` command
-   ```shell
-    $ ./gradlew build
-    ```
+  ```shell
+  $ ./gradlew build
+  ```
+
 2. Copy files from the `deploy` folder into your server
-   ```
-   n2rss.jar
-   application.properties
-   ```
-3. Declare the following environment variables on the server
-   ```
-   N2RSS_EMAIL_HOST=<host url of the email account>
-   N2RSS_EMAIL_USERNAME=<username for the email account>
-   N2RSS_EMAIL_PASSWORD=<password for the email account>
-   N2RSS_EMAIL_PORT=993
-   
-   N2RSS_DISABLED_NEWSLETTERS=<code of disabled newsletters>
-   
-   N2RSS_MONGODB_HOST=<host of the mongodb database>
-   N2RSS_MONGODB_USERNAME=<username for the mongodb database>
-   N2RSS_MONGODB_PASSWORD=<password for the mongodb database>
-   N2RSS_MONGODB_DATABASE=<name of the database to use>
-   N2RSS_MONGODB_PORT=27017
-   
-   N2RSS_SECRET_KEY=<secret key to interact with /stop endpoint>
-   
-   N2RSS_RECAPTCHA_SITE_KEY=<Site key to interact with reCaptcha API>
-   N2RSS_RECAPTCHA_SECRET_KEY=<Secret key to interact with reCaptcha API>
-   ```
+  ```
+  n2rss.jar
+  application.properties
+  ```
+
+3. Declare the following environment variables on the server (some are optional)
+  ```
+  N2RSS_EMAIL_HOST=<host url of the email server>
+  N2RSS_EMAIL_USERNAME=<username for the email server>
+  N2RSS_EMAIL_PASSWORD=<password for the email server>
+  N2RSS_EMAIL_PORT=<port of the email server. Default to 993>
+  N2RSS_EMAIL_CRON=<CRON expression to check for new emails. Default to "0 0 * * * *">
+  N2RSS_EMAIL_INBOX_FOLDERS=<Folders checked for new emails. Default to inbox>
+
+  N2RSS_DISABLED_NEWSLETTERS=<code of disabled newsletters>
+
+  N2RSS_SECRET_KEY=<secret key to interact with the maintenance endpoint>
+
+  N2RSS_ANALYTICS_HOSTNAME=<website host sent to analytics, for server-side events>
+  N2RSS_ANALYTICS_UA=<user-agent sent to analytics, for server-side events>
+
+  N2RSS_DATABASE_URL=<JDBC url to the MariaDB database>
+  N2RSS_DATABASE_USERNAME=<login used to connect to the database>
+  N2RSS_DATABASE_PASSWORD=<password used to connect to the database>
+  N2RSS_DATABASE_SCHEMA=<name of the schema to use in the database>
+
+  N2RSS_GITHUB_ACCESS_TOKEN=<Token used to interact with GitHub to create issues>
+
+  N2RSS_RECAPTCHA_SITE_KEY=<Site key to interact with reCaptcha API>
+  N2RSS_RECAPTCHA_SECRET_KEY=<Secret key to interact with reCaptcha API>
+  ```
+
+Note on disabled newsletters: these newsletters do not appears on the Home screen and emails are not processed.
+The RSS feed is still accessible at the same URL but won't be updated until the newsletter is enabled again.
+
 4. Run the following command to run the server
-   ```shell
-   java -jar n2rss.jar --server.address=:: --server.port=$PORT
-   ```
-   `$PORT` should be replaced by the port number the server should listen to
+  ```shell
+  java -jar n2rss.jar --server.address=:: --server.port=$PORT
+  ```
+  `$PORT` should be replaced by the port number the server should listen to
+
+## Analytics
+Analytics are handled by Simple Analytics, that respect the GDPR. Most event are sent server-side, and no user-data are collected.
+**TODO: List analytic events**
+
+## Monitoring
+**TODO: Document monitoring with GitHub actions**
 
 ## License
 
