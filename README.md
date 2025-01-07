@@ -40,8 +40,8 @@ and testing purposes.
 
 - Java SDK version 17
 - Kotlin API version 2.1
-- IDE that supports Jakarta EE, Spring, Java and Kotlin development (For example: IntelliJ IDEA)
-- Docker (for development purpose only)
+- IDE that supports Jakarta EE, Spring, Java and Kotlin development (For example, IntelliJ IDEA)
+- Docker (for development purposes only)
 
 ### Installing
 
@@ -155,7 +155,7 @@ $ ./gradlew check
 
 `NewsletterHandler` implementations are tested with the emails stored in `src/main/resources/emails`.
 
-The CI enforce a minimum coverage of 80%
+The CI enforces a minimum coverage of 80%
 
 ## Deployment
 This project needs access to an email account and a MariaDB database to run.
@@ -198,7 +198,7 @@ This project needs access to an email account and a MariaDB database to run.
   N2RSS_RECAPTCHA_SECRET_KEY=<Secret key to interact with reCaptcha API>
   ```
 
-Note on disabled newsletters: these newsletters do not appears on the Home screen and emails are not processed.
+Note on disabled newsletters: these newsletters do not appear on the Home screen, and emails are not processed.
 The RSS feed is still accessible at the same URL but won't be updated until the newsletter is enabled again.
 
 4. Run the following command to run the server
@@ -208,7 +208,9 @@ The RSS feed is still accessible at the same URL but won't be updated until the 
   `$PORT` should be replaced by the port number the server should listen to
 
 ## Analytics
-Analytics are handled by Simple Analytics, that respect the GDPR. Most event are sent server-side, and no user-data are collected.
+
+Analytics are handled by Simple Analytics, that respects the GDPR.
+Most events are sent server-side, and no user-data are collected.
 **TODO: List analytic events**
 
 ## Monitoring
