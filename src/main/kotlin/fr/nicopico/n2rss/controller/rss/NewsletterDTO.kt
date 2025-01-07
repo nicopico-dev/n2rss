@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Nicolas PICON
+ * Copyright (c) 2025 Nicolas PICON
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
 import fr.nicopico.n2rss.utils.toLegacyDate
-import java.util.*
+import java.util.Date
 
 data class NewsletterDTO(
     @JsonProperty("code")
