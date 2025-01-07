@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Nicolas PICON
+ * Copyright (c) 2025 Nicolas PICON
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -17,8 +17,8 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
-import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
