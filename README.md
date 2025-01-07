@@ -211,10 +211,22 @@ The RSS feed is still accessible at the same URL but won't be updated until the 
 
 Analytics are handled by Simple Analytics, that respects the GDPR.
 Most events are sent server-side, and no user-data are collected.
-**TODO: List analytic events**
+
+The following events are tracked:
+
+- Access to the home page
+- Access to the RSS feeds list
+- Access to a specific RSS feed
+- Request support for a new newsletter, with the newsletter URL
+- Publication of a new n2rss release (sent from GitHub Actions CD)
+- Any error detected (also in [Monitoring](#monitoring))
+
+See `fr.nicopico.n2rss.analytics.models.AnalyticsEvent` for more details
 
 ## Monitoring
-**TODO: Document monitoring with GitHub actions**
+
+Any error will be reported as an issue on the GitHub repository defined by `n2rss.github.*` properties in
+`application.properties` (configured to this repository by default), with the label "n2rss-bot".
 
 ## License
 
