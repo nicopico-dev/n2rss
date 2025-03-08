@@ -18,11 +18,13 @@
 package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.stereotype.Service
 import java.net.URL
 
+@ConditionalOnMissingBean
 @Service
-class NoOpMonitoringService : MonitoringService {
+object NoOpMonitoringService : MonitoringService {
     override fun notifyGenericError(error: Exception, context: String?) {
         // No-op
     }

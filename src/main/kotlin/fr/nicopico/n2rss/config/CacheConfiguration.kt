@@ -30,8 +30,8 @@ class CacheConfiguration {
     @Bean
     fun cacheManager(): CacheManager {
         return SimpleCacheManager()
-            .also {
-                it.setCaches(
+            .apply {
+                setCaches(
                     setOf(
                         ConcurrentMapCache(GET_RSS_FEED_CACHE_NAME, false)
                     )

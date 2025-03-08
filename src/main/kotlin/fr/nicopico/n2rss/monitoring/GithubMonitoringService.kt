@@ -29,11 +29,18 @@ import kotlinx.datetime.format.DateTimeComponents
 import kotlinx.datetime.format.Padding
 import kotlinx.datetime.format.char
 import org.slf4j.LoggerFactory
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.net.URL
 
+@ConditionalOnProperty(
+    prefix = "n2rss.github",
+    name = ["monitoring-enabled"],
+    havingValue = "true",
+    matchIfMissing = false,
+)
 @Service
 class GithubMonitoringService(
     private val repository: GithubIssueService,
