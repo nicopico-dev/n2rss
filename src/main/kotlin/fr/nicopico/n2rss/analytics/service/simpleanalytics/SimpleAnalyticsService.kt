@@ -17,17 +17,21 @@
  */
 package fr.nicopico.n2rss.analytics.service.simpleanalytics
 
+import fr.nicopico.n2rss.analytics.condition.ConditionalOnAnalyticsProfile
 import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
 import fr.nicopico.n2rss.analytics.models.AnalyticsException
 import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
 import org.springframework.web.client.HttpClientErrorException
 import org.springframework.web.client.RestClient
 
+@ConditionalOnAnalyticsProfile(profile = "simple-analytics")
+@ConditionalOnProperty("n2rss.analytics.enabled")
 @Service
 class SimpleAnalyticsService(
     restClientBuilder: RestClient.Builder = RestClient.builder(),

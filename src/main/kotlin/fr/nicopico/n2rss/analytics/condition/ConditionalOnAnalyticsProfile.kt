@@ -15,35 +15,14 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.analytics.condition
 
-package fr.nicopico.n2rss.analytics
+import org.springframework.context.annotation.Conditional
 
-import fr.nicopico.n2rss.analytics.service.AnalyticsService
-import fr.nicopico.n2rss.analytics.service.AnalyticsServiceDelegate
-import fr.nicopico.n2rss.analytics.service.NoOpAnalyticsService
-import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
-
-@Configuration
-class AnalyticsConfig {
-
-    @Bean
-    fun analyticsService(
-        services: List<AnalyticsService>
-    ): AnalyticsService {
-        val analyticsService = if (services.size > 1) {
-            AnalyticsServiceDelegate(services)
-        } else {
-            services.firstOrNull() ?: NoOpAnalyticsService
-        }
-
-        LOG.info("Analytics services enabled: {}", services)
-
-        return analyticsService
-    }
-
-    companion object {
-        private val LOG = LoggerFactory.getLogger(AnalyticsConfig::class.java)
-    }
-}
+@Conditional(AnalyticsProfilesCondition::class)
+@Retention(AnnotationRetention.RUNTIME)
+@Target(AnnotationTarget.FUNCTION, AnnotationTarget.CLASS)
+annotation class ConditionalOnAnalyticsProfile(
+    val propertyName: String = "n2rss.analytics.analytics-profiles",
+    val profile: String,
+)

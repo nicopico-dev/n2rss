@@ -16,34 +16,27 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.analytics
+package fr.nicopico.n2rss.analytics.condition
 
-import fr.nicopico.n2rss.analytics.service.AnalyticsService
-import fr.nicopico.n2rss.analytics.service.AnalyticsServiceDelegate
-import fr.nicopico.n2rss.analytics.service.NoOpAnalyticsService
-import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Condition
+import org.springframework.context.annotation.ConditionContext
+import org.springframework.core.annotation.MergedAnnotations
+import org.springframework.core.type.AnnotatedTypeMetadata
 
-@Configuration
-class AnalyticsConfig {
+class AnalyticsProfilesCondition : Condition {
+    override fun matches(
+        context: ConditionContext,
+        metadata: AnnotatedTypeMetadata,
+    ): Boolean {
+        val annotations = MergedAnnotations.from(metadata)
+        val conditional = annotations.get(ConditionalOnAnalyticsProfile::class.java)
+        val propertyName = conditional.getString("propertyName")
+        val profile = conditional.getString("profile")
 
-    @Bean
-    fun analyticsService(
-        services: List<AnalyticsService>
-    ): AnalyticsService {
-        val analyticsService = if (services.size > 1) {
-            AnalyticsServiceDelegate(services)
-        } else {
-            services.firstOrNull() ?: NoOpAnalyticsService
-        }
-
-        LOG.info("Analytics services enabled: {}", services)
-
-        return analyticsService
-    }
-
-    companion object {
-        private val LOG = LoggerFactory.getLogger(AnalyticsConfig::class.java)
+        return context.environment.getProperty(propertyName)
+            ?.split(",")
+            ?.map(String::trim)
+            ?.contains(profile)
+            ?: false
     }
 }

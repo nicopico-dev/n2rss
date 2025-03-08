@@ -22,7 +22,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.stereotype.Service
 import java.net.URL
 
-@ConditionalOnMissingBean
+@ConditionalOnMissingBean(MonitoringService::class)
 @Service
 object NoOpMonitoringService : MonitoringService {
     override fun notifyGenericError(error: Exception, context: String?) {

@@ -28,11 +28,11 @@ import java.net.URL
 
 class NoOpMonitoringServiceTest {
 
-    private lateinit var service: NoOpMonitoringService
+    private lateinit var service: MonitoringService
 
     @BeforeEach
     fun setUp() {
-        service = NoOpMonitoringService()
+        service = NoOpMonitoringService
     }
 
     @Test
