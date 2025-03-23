@@ -55,8 +55,10 @@ class MessageExtGreenMailTest : GreenMailTestBase() {
         }
 
         // THEN
-        checkMailFolder(INBOX_FOLDER) { folder ->
-            folder.search(FlagTerm(Flags(Flags.Flag.SEEN), false)) shouldHaveSize 1
+        withClue("Check the message is still not marked as SEEN after peek") {
+            checkMailFolder(INBOX_FOLDER) { folder ->
+                folder.search(FlagTerm(Flags(Flags.Flag.SEEN), false)) shouldHaveSize 1
+            }
         }
     }
 }

@@ -27,8 +27,8 @@ import jakarta.mail.Message
 import jakarta.mail.internet.MimeMultipart
 
 fun Message.toEmail(messageFolder: String): Email {
-    val content = content
     val originalFlags = flags
+    val content = content
     val email = Email(
         sender = Sender(from[0].toString()),
         date = this.sentDate.toKotlinLocaleDate(),
