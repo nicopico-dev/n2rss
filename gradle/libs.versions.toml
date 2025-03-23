@@ -18,6 +18,7 @@ mockk = "1.13.17"
 mockwebserver = "4.12.0"
 rome = "2.1.0"
 springBoot = "3.4.3"
+springMock = "4.0.2"
 
 [libraries]
 # Kotlin
@@ -35,6 +36,7 @@ springBoot-devtools = { module = "org.springframework.boot:spring-boot-devtools"
 springBoot-dockerCompose = { module = "org.springframework.boot:spring-boot-docker-compose", version.ref = "springBoot" }
 springBoot-configurationProcessor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "springBoot" }
 springBoot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
+springMock = { module = "com.ninja-squad:springmockk", version.ref = "springMock" }
 
 # Other Libraries
 annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
@@ -49,7 +51,6 @@ mariadb-driver = { module = "org.mariadb.jdbc:mariadb-java-client" }
 rome = { module = "com.rometools:rome", version.ref = "rome" }
 
 # Testing Libraries
-greenmail = { module = "com.icegreen:greenmail", version.ref = "greenmail" }
 greenmail-junit5 = { module = "com.icegreen:greenmail-junit5", version.ref = "greenmail" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiterEngine" }
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotestAssertions" }
