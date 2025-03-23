@@ -15,47 +15,46 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.external.service.firecrawl
 
-import io.kotest.matchers.nulls.beNull
-import io.kotest.matchers.shouldNot
-import io.kotest.matchers.string.beEmpty
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
+import org.springframework.stereotype.Service
 import java.net.URL
+import java.nio.file.Paths
+import java.util.UUID
 import java.util.concurrent.CompletableFuture
-import java.util.concurrent.TimeUnit
 
-class FirecrawlServiceHttpIntegrationTest {
+@Service
+class FirecrawlMockService(
+    private val temporaryEndpointRepository: TemporaryEndpointRepository,
+) : FirecrawlService {
 
-    private lateinit var firecrawlService: FirecrawlService
+    @Suppress("TooGenericExceptionCaught")
+    override fun scrape(url: URL): CompletableFuture<String> {
+        return try {
+            val tempId = url.path
+                .split("/")
+                .lastOrNull()
+                .let { UUID.fromString(it) }
 
-    @BeforeEach
-    fun setUp() {
-        val accessToken: String? = System.getenv("FIRECRAWL_TOKEN")
-
-        // Only enable Firecrawl when the token environment variable is available
-        firecrawlService = if (accessToken != null) {
-            FirecrawlHttpService(accessToken = accessToken)
-        } else {
-            println("Firecrawl service disable")
-            object : FirecrawlService {
-                override fun scrape(url: URL): CompletableFuture<String> {
-                    return CompletableFuture.completedFuture("MOCKED DATA")
-                }
-            }
+            val tempEndpoint = requireNotNull(
+                temporaryEndpointRepository.findByExposedId(tempId)
+            )
+            val content = getContent(tempEndpoint.label)
+            CompletableFuture.completedFuture(content)
+        } catch (e: Exception) {
+            CompletableFuture.failedFuture(e)
         }
     }
 
-    @Test
-    fun `scrape Tech Readers #116 (Remote)`() {
-        val response = firecrawlService.scrape(URL("https://www.nicopico.fr/firecrawl_test.html"))
-            .get(5, TimeUnit.SECONDS)
+    private fun getContent(label: String): String {
+        val filePath = when {
+            label.startsWith("Tech Readers #116") -> "stubs/markdown/tech-readers #116.md"
+            else -> throw NoSuchElementException("No content for [$label]")
+        }
 
-        println(response)
-
-        response shouldNot beNull()
-        response shouldNot beEmpty()
+        return Paths.get(filePath)
+            .toFile()
+            .readText(Charsets.UTF_8)
     }
 }
