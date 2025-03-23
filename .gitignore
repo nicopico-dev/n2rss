@@ -41,3 +41,4 @@ deploy/*.jar
 
 ### ACT ###
 act/artifacts/
+backups/
