@@ -15,12 +15,13 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.external
 
-import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlService
+package fr.nicopico.n2rss.external.firecrawl
+
+import fr.nicopico.n2rss.external.firecrawl.service.FirecrawlService
 import fr.nicopico.n2rss.external.temporary.TemporaryEndpointService
 import fr.nicopico.n2rss.mail.models.Email
-import fr.nicopico.n2rss.mail.models.html
+import fr.nicopico.n2rss.mail.models.EmailContent
 import org.jsoup.Jsoup
 import org.jsoup.safety.Safelist
 import org.springframework.scheduling.annotation.Async
@@ -34,6 +35,10 @@ class FirecrawlEmailParser(
 ) {
     @Async
     fun parseEmail(email: Email): String {
+        require(email.content is EmailContent.TextAndHtml) {
+            "FirecrawlEmailParser only supports HTML emails"
+        }
+
         val cleanedHtml = Jsoup.clean(
             email.content.html,
             Safelist.basic(),
