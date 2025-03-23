@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.mail.client
 
+import fr.nicopico.n2rss.mail.models.EmailContent
 import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
@@ -64,7 +65,7 @@ class MessageExtKtTest {
         // THEN
         assertSoftly(email) {
             it.subject shouldBe subject
-            it.content shouldBe content
+            it.content shouldBe EmailContent.TextOnly(content)
             it.sender shouldBe Sender(sender)
             it.messageId shouldBe MessageId("INBOX", messageNumber)
             it.date shouldBe sentDate.toKotlinLocaleDate()
@@ -93,6 +94,7 @@ class MessageExtKtTest {
     @Test
     fun `Email should use the HTML content retrieved from the Message`() {
         // GIVEN
+        val textContent = "Hello World"
         val htmlContent = "<html>Content</html>"
         val message = prepareMessage(
             subject = "Subject",
@@ -101,7 +103,7 @@ class MessageExtKtTest {
                     InternetHeaders().apply {
                         addHeader("Content-Type", "text/plain")
                     },
-                    Random.nextBytes(20),
+                    textContent.toByteArray(),
                 ),
                 MimeBodyPart(
                     InternetHeaders().apply {
@@ -117,7 +119,10 @@ class MessageExtKtTest {
         val email = message.toEmail("INBOX")
 
         // THEN
-        email.content shouldBe htmlContent
+        email.content shouldBe EmailContent.TextAndHtml(
+            text = textContent,
+            html = htmlContent,
+        )
     }
 
     @Test
@@ -125,6 +130,9 @@ class MessageExtKtTest {
         // GIVEN
         val htmlContent1 = "Some magnificent HTML content"
         val htmlContent2 = "Some less interesting HTML content"
+        val textContent1 = "Some text content"
+        val textContent2 = "Secondary text content"
+
         val message = prepareMessage(
             subject = "Subject",
             content = MimeMultipart(
@@ -136,9 +144,21 @@ class MessageExtKtTest {
                 ),
                 MimeBodyPart(
                     InternetHeaders().apply {
+                        addHeader("Content-Type", "text/plain")
+                    },
+                    textContent1.toByteArray(),
+                ),
+                MimeBodyPart(
+                    InternetHeaders().apply {
                         addHeader("Content-Type", "text/html")
                     },
                     htmlContent2.toByteArray(),
+                ),
+                MimeBodyPart(
+                    InternetHeaders().apply {
+                        addHeader("Content-Type", "text/plain")
+                    },
+                    textContent2.toByteArray(),
                 ),
             ),
             from = arrayOf(InternetAddress("email@address.com")),
@@ -148,7 +168,10 @@ class MessageExtKtTest {
         val email = message.toEmail("INBOX")
 
         // THEN
-        email.content shouldBe htmlContent1
+        email.content shouldBe EmailContent.TextAndHtml(
+            text = textContent1,
+            html = htmlContent1,
+        )
     }
 
     @Test

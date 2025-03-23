@@ -17,12 +17,31 @@
  */
 package fr.nicopico.n2rss.mail.models
 
-import kotlinx.datetime.LocalDate
+sealed class EmailContent {
+    data class TextOnly(
+        val text: String
+    ) : EmailContent()
 
-data class Email(
-    val sender: Sender,
-    val date: LocalDate,
-    val subject: String,
-    val content: EmailContent,
-    val messageId: MessageId,
-)
+    data class TextAndHtml(
+        val text: String,
+        val html: String,
+    ) : EmailContent()
+}
+
+val EmailContent.text: String
+    get() = when (this) {
+        is EmailContent.TextAndHtml -> text
+        is EmailContent.TextOnly -> text
+    }
+
+val EmailContent.html: String
+    get() {
+        require(this is EmailContent.TextAndHtml)
+        return html
+    }
+
+val EmailContent.htmlOrNull: String?
+    get() = when (this) {
+        is EmailContent.TextAndHtml -> html
+        is EmailContent.TextOnly -> null
+    }

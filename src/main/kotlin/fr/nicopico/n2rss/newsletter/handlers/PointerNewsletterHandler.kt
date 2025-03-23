@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.html
 import fr.nicopico.n2rss.newsletter.handlers.legacy.LegacyPointer540NewsletterHandler
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
@@ -48,7 +49,7 @@ class PointerNewsletterHandler : NewsletterHandlerSingleFeed {
         }
 
         val cleanedHtml = Jsoup.clean(
-            email.content.preserveArticleTitles("n2rss-article-title"),
+            email.content.html.preserveArticleTitles("n2rss-article-title"),
             Safelist.basic()
                 .addTags("h1", "h2")
                 .addAttributes("div", "class"),

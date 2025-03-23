@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.html
 import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.handlers.jsoup.indexOf
 import fr.nicopico.n2rss.newsletter.handlers.jsoup.select
@@ -44,7 +45,7 @@ class BuiltForMarsNewsletterHandler : NewsletterHandlerSingleFeed {
 
     override fun extractArticles(email: Email): List<Article> {
         val cleanedHtml = Jsoup.clean(
-            email.content,
+            email.content.html,
             Safelist.basic()
                 .addTags("table", "tr", "td")
                 .addAttributes("tr", "id")

@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.mail.client
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.EmailContent
 import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
@@ -27,13 +28,20 @@ import jakarta.mail.internet.MimeMultipart
 
 fun Message.toEmail(messageFolder: String): Email {
     val originalFlags = flags
+    val content = content
     val email = Email(
-        Sender(from[0].toString()),
+        sender = Sender(from[0].toString()),
         date = this.sentDate.toKotlinLocaleDate(),
         subject = subject,
         content = when (content) {
-            is MimeMultipart -> (content as MimeMultipart).getHtmlBodyPart()
-            else -> content.toString()
+            is MimeMultipart -> {
+                EmailContent.TextAndHtml(
+                    html = content.getBodyPartContent("text/html"),
+                    text = content.getBodyPartContent("text/plain"),
+                )
+            }
+
+            else -> EmailContent.TextOnly(content.toString())
         },
         messageId = MessageId(
             folder = messageFolder,
@@ -49,13 +57,13 @@ fun Message.toEmail(messageFolder: String): Email {
     return email
 }
 
-private fun MimeMultipart.getHtmlBodyPart(): String {
+private fun MimeMultipart.getBodyPartContent(mimeType: String): String {
     val partCount = this.count
     for (i in 0 until partCount) {
         val bodyPart = this.getBodyPart(i)
-        if (bodyPart.isMimeType("text/html")) {
+        if (bodyPart.isMimeType(mimeType)) {
             return bodyPart.content as String
         }
     }
-    throw NoSuchElementException("no text/html part found in the Message")
+    throw NoSuchElementException("no $mimeType part found in the Message")
 }
