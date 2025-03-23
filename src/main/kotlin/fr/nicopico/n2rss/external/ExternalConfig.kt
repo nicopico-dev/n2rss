@@ -18,8 +18,9 @@
 package fr.nicopico.n2rss.external
 
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlHttpService
+import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlMockService
 import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlService
-import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlServiceHttp
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -37,8 +38,21 @@ class ExternalConfig {
     @Bean
     fun firecrawlService(
         externalProperties: N2RssProperties.ExternalProperties,
+        mockService: FirecrawlMockService,
+        httpService: FirecrawlHttpService,
     ): FirecrawlService {
-        return FirecrawlServiceHttp(
+        return if (externalProperties.mockExternalApis) {
+            mockService
+        } else {
+            httpService
+        }
+    }
+
+    @Bean
+    fun firecrawlHttpService(
+        externalProperties: N2RssProperties.ExternalProperties,
+    ): FirecrawlHttpService {
+        return FirecrawlHttpService(
             accessToken = externalProperties.firecrawlToken
         )
     }
