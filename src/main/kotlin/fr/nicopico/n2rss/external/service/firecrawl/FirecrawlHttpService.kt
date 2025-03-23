@@ -27,7 +27,7 @@ import org.springframework.web.client.body
 import java.net.URL
 import java.util.concurrent.CompletableFuture
 
-class FirecrawlServiceHttp(
+class FirecrawlHttpService(
     clientBuilder: RestClient.Builder = RestClient.builder(),
     baseUrl: String = "https://api.firecrawl.dev",
     accessToken: String,
@@ -73,6 +73,6 @@ class FirecrawlServiceHttp(
     }
 
     companion object {
-        private val LOG = LoggerFactory.getLogger(FirecrawlServiceHttp::class.java)
+        private val LOG = LoggerFactory.getLogger(FirecrawlHttpService::class.java)
     }
 }
