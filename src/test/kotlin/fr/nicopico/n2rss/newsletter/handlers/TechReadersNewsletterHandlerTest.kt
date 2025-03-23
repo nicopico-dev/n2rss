@@ -153,9 +153,6 @@ class TechReadersNewsletterHandlerTest : BaseNewsletterHandlerTest<TechReadersNe
                 ),
             )
 
-            articles[0].description shouldBe expected[0].description
-            articles[1].description shouldBe expected[1].description
-
             assertSoftly {
                 withClue("title") {
                     articles.map { it.title } shouldBe expected.map { it.title }
