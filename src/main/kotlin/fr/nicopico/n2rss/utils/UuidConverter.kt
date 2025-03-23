@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Nicolas PICON
+ * Copyright (c) 2024 Nicolas PICON
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -17,31 +17,17 @@
  */
 package fr.nicopico.n2rss.utils
 
-import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
-import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.Profile
-import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.context.event.EventListener
-import org.springframework.core.Ordered
-import org.springframework.core.annotation.Order
-import org.springframework.stereotype.Component
+import jakarta.persistence.AttributeConverter
+import jakarta.persistence.Converter
+import java.util.UUID
 
-@Profile("local & reset-db")
-@Component
-class CleanLocalDatabase(
-    private val publicationRepository: PublicationRepository,
-    private val temporaryEndpointRepository: TemporaryEndpointRepository,
-) {
-    @EventListener
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    fun onApplicationEvent(ignored: ContextRefreshedEvent) {
-        LOG.info("Clean-up local database...")
-        publicationRepository.deleteAll()
-        temporaryEndpointRepository.deleteAll()
+@Converter(autoApply = true)
+class UuidConverter : AttributeConverter<UUID?, String> {
+    override fun convertToDatabaseColumn(entityValue: UUID?): String? {
+        return entityValue?.toString()
     }
 
-    companion object {
-        private val LOG = LoggerFactory.getLogger(CleanLocalDatabase::class.java)
+    override fun convertToEntityAttribute(databaseValue: String?): UUID? {
+        return databaseValue?.let { UUID.fromString(it) }
     }
 }

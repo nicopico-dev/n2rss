@@ -23,6 +23,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.context.properties.bind.ConstructorBinding
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import java.net.URL
 
 @Configuration
 @EnableConfigurationProperties(N2RssProperties::class)
@@ -46,7 +47,10 @@ class N2RssConfiguration {
     fun analyticsProperties() = properties.analytics
 
 	@Bean
-    fun githubRepository() = properties.github
+    fun githubProperties() = properties.github
+
+    @Bean
+    fun externalProperties() = properties.externalProperties
 }
 
 private const val DEFAULT_PORT = 993
@@ -64,6 +68,7 @@ constructor(
     val analytics: AnalyticsProperties,
     val github: GithubProperties,
     val persistenceMode: PersistenceMode = PersistenceMode.DEFAULT,
+    val externalProperties: ExternalProperties,
 ) {
     data class MaintenanceProperties(
         val secretKey: String,
@@ -103,5 +108,8 @@ constructor(
         val repository: String,
         val accessToken: String,
         val monitoringEnabled: Boolean = true,
+    )
+    data class ExternalProperties(
+        val baseUrl: URL,
     )
 }

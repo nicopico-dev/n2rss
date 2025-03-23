@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Nicolas PICON
+ * Copyright (c) 2024 Nicolas PICON
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -15,33 +15,24 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.utils
+package fr.nicopico.n2rss.external
 
-import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
-import fr.nicopico.n2rss.newsletter.data.PublicationRepository
-import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.Profile
-import org.springframework.context.event.ContextRefreshedEvent
-import org.springframework.context.event.EventListener
-import org.springframework.core.Ordered
-import org.springframework.core.annotation.Order
-import org.springframework.stereotype.Component
+import fr.nicopico.n2rss.config.N2RssProperties
+import org.springframework.beans.factory.annotation.Qualifier
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import java.net.URL
 
-@Profile("local & reset-db")
-@Component
-class CleanLocalDatabase(
-    private val publicationRepository: PublicationRepository,
-    private val temporaryEndpointRepository: TemporaryEndpointRepository,
-) {
-    @EventListener
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    fun onApplicationEvent(ignored: ContextRefreshedEvent) {
-        LOG.info("Clean-up local database...")
-        publicationRepository.deleteAll()
-        temporaryEndpointRepository.deleteAll()
+@Configuration
+class ExternalConfig {
+
+    @Bean
+    @Qualifier(BASE_URL_QUALIFIER)
+    fun baseUrl(externalProperties: N2RssProperties.ExternalProperties): URL {
+        return externalProperties.baseUrl
     }
 
     companion object {
-        private val LOG = LoggerFactory.getLogger(CleanLocalDatabase::class.java)
+        const val BASE_URL_QUALIFIER = "base-url"
     }
 }

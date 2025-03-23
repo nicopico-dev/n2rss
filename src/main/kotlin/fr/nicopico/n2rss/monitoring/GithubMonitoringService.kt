@@ -146,6 +146,6 @@ class GithubMonitoringService(
     }
 
     companion object {
-        private val LOG = LoggerFactory.getLogger(this::class.java)
+        private val LOG = LoggerFactory.getLogger(GithubMonitoringService::class.java)
     }
 }
