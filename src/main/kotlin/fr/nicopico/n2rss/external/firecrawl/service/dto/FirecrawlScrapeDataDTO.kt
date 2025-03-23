@@ -15,17 +15,35 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.external.service.firecrawl.dto
+package fr.nicopico.n2rss.external.firecrawl.service.dto
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
-data class FirecrawlScrapeResponseDTO(
-    @JsonProperty("success")
-    val success: Boolean = false,
+data class FirecrawlScrapeDataDTO(
+    @JsonProperty("markdown")
+    val markdown: String? = null,
 
-    @JsonProperty("error")
-    val error: String? = null,
+    @JsonProperty("html")
+    val html: String? = null,
 
-    @JsonProperty("data")
-    val data: FirecrawlScrapeDataDTO? = null
+    @JsonProperty("rawHtml")
+    val rawHtml: String? = null,
+
+    @JsonProperty("screenshot")
+    val screenshot: String? = null,
+
+    @JsonProperty("links")
+    val links: List<String> = emptyList(),
+
+    @JsonProperty("actions")
+    val actions: Map<String, Any>? = null,
+
+    @JsonProperty("metadata")
+    val metadata: Map<String, Any>,
+
+    @JsonProperty("llm_extraction")
+    val llmExtraction: Map<String, Any>? = null,
+
+    @JsonProperty("warning")
+    val warning: String? = null,
 )

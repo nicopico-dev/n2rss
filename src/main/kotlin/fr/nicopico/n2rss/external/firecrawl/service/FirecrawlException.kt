@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Nicolas PICON
+ * Copyright (c) 2025 Nicolas PICON
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -15,36 +15,9 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss.external.firecrawl.service
 
-package fr.nicopico.n2rss.external.service.firecrawl.dto
-
-import com.fasterxml.jackson.annotation.JsonProperty
-
-data class FirecrawlScrapeDataDTO(
-    @JsonProperty("markdown")
-    val markdown: String? = null,
-
-    @JsonProperty("html")
-    val html: String? = null,
-
-    @JsonProperty("rawHtml")
-    val rawHtml: String? = null,
-
-    @JsonProperty("screenshot")
-    val screenshot: String? = null,
-
-    @JsonProperty("links")
-    val links: List<String> = emptyList(),
-
-    @JsonProperty("actions")
-    val actions: Map<String, Any>? = null,
-
-    @JsonProperty("metadata")
-    val metadata: Map<String, Any>,
-
-    @JsonProperty("llm_extraction")
-    val llmExtraction: Map<String, Any>? = null,
-
-    @JsonProperty("warning")
-    val warning: String? = null,
-)
+class FirecrawlException(
+    message: String? = null,
+    cause: Throwable? = null,
+) : Exception(message, cause)

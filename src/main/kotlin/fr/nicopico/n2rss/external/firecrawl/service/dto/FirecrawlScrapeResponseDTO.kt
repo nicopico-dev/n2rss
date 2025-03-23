@@ -15,11 +15,17 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.external.service.firecrawl
+package fr.nicopico.n2rss.external.firecrawl.service.dto
 
-import java.net.URL
-import java.util.concurrent.CompletableFuture
+import com.fasterxml.jackson.annotation.JsonProperty
 
-interface FirecrawlService {
-    fun scrape(url: URL): CompletableFuture<String>
-}
+data class FirecrawlScrapeResponseDTO(
+    @JsonProperty("success")
+    val success: Boolean = false,
+
+    @JsonProperty("error")
+    val error: String? = null,
+
+    @JsonProperty("data")
+    val data: FirecrawlScrapeDataDTO? = null
+)

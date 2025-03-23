@@ -18,9 +18,9 @@
 package fr.nicopico.n2rss.external
 
 import fr.nicopico.n2rss.config.N2RssProperties
-import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlHttpService
-import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlMockService
-import fr.nicopico.n2rss.external.service.firecrawl.FirecrawlService
+import fr.nicopico.n2rss.external.firecrawl.service.FirecrawlHttpService
+import fr.nicopico.n2rss.external.firecrawl.service.FirecrawlMockService
+import fr.nicopico.n2rss.external.firecrawl.service.FirecrawlService
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
