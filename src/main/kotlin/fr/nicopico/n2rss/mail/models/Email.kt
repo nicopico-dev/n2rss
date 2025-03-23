@@ -25,12 +25,4 @@ data class Email(
     val subject: String,
     val content: String,
     val messageId: MessageId,
-) {
-    constructor(
-        sender: Sender,
-        date: LocalDate,
-        subject: String,
-        content: String,
-        msgnum: Int,
-    ) : this(sender, date, subject, content, MessageId("INBOX", msgnum))
-}
+)
