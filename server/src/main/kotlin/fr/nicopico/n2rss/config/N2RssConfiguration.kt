@@ -115,5 +115,6 @@ constructor(
         val firecrawlToken: String,
         val resolveArticleUrls: Boolean = false,
         val userAgent: String = "n2rss",
+        val mockExternalApis: Boolean = false,
     )
 }
