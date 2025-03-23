@@ -26,22 +26,30 @@ sealed class EmailContent {
         val text: String,
         val html: String,
     ) : EmailContent()
+
+    data class HtmlOnly(
+        val html: String
+    ) : EmailContent()
 }
 
 val EmailContent.text: String
+    get() = textOrNull
+        ?: throw IllegalArgumentException("$this does not have text content")
+
+val EmailContent.html: String
+    get() = htmlOrNull
+        ?: throw IllegalArgumentException("$this does not have html content")
+
+val EmailContent.textOrNull: String?
     get() = when (this) {
         is EmailContent.TextAndHtml -> text
         is EmailContent.TextOnly -> text
-    }
-
-val EmailContent.html: String
-    get() {
-        require(this is EmailContent.TextAndHtml)
-        return html
+        is EmailContent.HtmlOnly -> null
     }
 
 val EmailContent.htmlOrNull: String?
     get() = when (this) {
+        is EmailContent.HtmlOnly -> html
         is EmailContent.TextAndHtml -> html
         is EmailContent.TextOnly -> null
     }
