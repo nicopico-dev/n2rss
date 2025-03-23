@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.mail.client
 
+import fr.nicopico.n2rss.mail.models.EmailContent
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.matchers.collections.shouldHaveSize
@@ -84,19 +85,19 @@ class JavaxEmailClientTest : GreenMailTestBase(
         assertSoftly(emails[0]) {
             it.sender.sender shouldBe "from@email.com"
             it.subject shouldBe "Subject 1"
-            it.content shouldBe "Hello World! 1"
+            it.content shouldBe EmailContent.TextOnly("Hello World! 1")
         }
 
         assertSoftly(emails[1]) {
             it.sender.sender shouldBe "from@another-email.com"
             it.subject shouldBe "Subject 2"
-            it.content shouldBe "Hello World! 2"
+            it.content shouldBe EmailContent.TextOnly("Hello World! 2")
         }
 
         assertSoftly(emails[2]) {
             it.sender.sender shouldBe "from@another-email.com"
             it.subject shouldBe "Subject 3"
-            it.content shouldBe "Hello World! 3"
+            it.content shouldBe EmailContent.TextOnly("Hello World! 3")
         }
 
         checkMailFolder(INBOX_FOLDER) { folder ->

@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.EmailContent
 import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.now
@@ -50,7 +51,7 @@ class NoOpMonitoringServiceTest {
             sender = Sender("sender@email.com"),
             date = LocalDate.now(),
             subject = "test",
-            content = "test",
+            content = EmailContent.TextOnly("test"),
             messageId = MessageId("INBOX", 1),
         )
         val exception = Exception("Test exception")

@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.html
 import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.handlers.jsoup.Section
 import fr.nicopico.n2rss.newsletter.handlers.jsoup.extractSections
@@ -44,7 +45,7 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
 
     override fun extractArticles(email: Email): Map<Newsletter, List<Article>> {
         val cleanedHtml = Jsoup.clean(
-            email.content,
+            email.content.html,
             Safelist.basic(),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)

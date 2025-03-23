@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.newsletter.handlers.legacy
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.html
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandlerSingleFeed
 import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.models.Article
@@ -48,7 +49,7 @@ class LegacyPointer540NewsletterHandler : NewsletterHandlerSingleFeed {
 
     override fun extractArticles(email: Email): List<Article> {
         val cleanedHtml = Jsoup.clean(
-            email.content.preserveSeparators(),
+            email.content.html.preserveSeparators(),
             Safelist.basic()
                 .addAttributes("p", "style"),
         )

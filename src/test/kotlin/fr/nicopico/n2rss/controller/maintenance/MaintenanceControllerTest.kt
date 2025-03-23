@@ -105,7 +105,7 @@ class MaintenanceControllerTest {
         // THEN
         verify { response.status = 200 }
         verify(exactly = 0) { SpringApplication.exit(applicationContext) }
-        Thread.sleep(MaintenanceController.RESTART_DELAY_MS)
+        Thread.sleep(MaintenanceController.RESTART_DELAY_MS + 1000)
         verify(exactly = 1) { SpringApplication.exit(applicationContext) }
     }
 

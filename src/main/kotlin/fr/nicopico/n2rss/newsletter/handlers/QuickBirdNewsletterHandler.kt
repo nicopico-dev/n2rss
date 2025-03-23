@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.html
 import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
@@ -41,7 +42,7 @@ class QuickBirdNewsletterHandler : NewsletterHandlerSingleFeed {
 
     override fun extractArticles(email: Email): List<Article> {
         val cleanedHtml = Jsoup.clean(
-            email.content,
+            email.content.html,
             Safelist.basic()
                 .addAttributes("p", "style"),
         )
