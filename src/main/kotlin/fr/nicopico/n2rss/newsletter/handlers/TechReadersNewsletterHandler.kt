@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Nicolas PICON
+ * Copyright (c) 2025 Nicolas PICON
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -18,20 +18,11 @@
 package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
-import fr.nicopico.n2rss.newsletter.handlers.jsoup.Section
-import fr.nicopico.n2rss.newsletter.handlers.jsoup.extractSections
-import fr.nicopico.n2rss.newsletter.handlers.jsoup.hasGrayscaleColor
-import fr.nicopico.n2rss.newsletter.handlers.jsoup.process
+import fr.nicopico.n2rss.mail.models.text
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
-import fr.nicopico.n2rss.utils.url.toUrlOrNull
-import org.jsoup.Jsoup
-import org.jsoup.nodes.Element
-import org.jsoup.nodes.Node
-import org.jsoup.safety.Safelist
-import org.jsoup.select.NodeFilter
-import org.jsoup.select.NodeFilter.FilterResult
 import org.springframework.stereotype.Component
+import java.net.URL
 
 @Component
 class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
@@ -48,94 +39,56 @@ class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
     }
 
     override fun extractArticles(email: Email): List<Article> {
-        val cleanedHtml = Jsoup.clean(
-            email.content,
-            Safelist.basic()
-                .addAttributes("span", "style")
-                .addAttributes("a", "style"),
-        )
-        val document = Jsoup.parseBodyFragment(cleanedHtml)
-
-        val sections = document
-            .extractSections(
-                cssQuery = "span[style]",
-                filter = { it.attr("style").contains(SECTION_STYLE_REGEX) },
-                // Stop articles at "La Newsletter faite par et pour les Tech Leaders !"
-                stopElement = document
-                    .select(":containsOwn(La Newsletter faite par et pour les Tech Leaders !)")
-                    .first(),
-            )
-
+        val textContent = email.content.text
         // TODO Add newsletter introduction as the first article
 
-        return sections.flatMap { it.process() }
-    }
+        // Find the first and last sections in the text
+        val firstSectionIndex: Int = SECTION_REGEX.find(textContent)?.range?.first ?: 0
+        val endingVisualIndex: Int = VISUAL_REGEX.find(textContent)?.range?.first ?: textContent.length
 
-    private fun Section.process(): List<Article> = process { sectionDocument ->
-        sectionDocument.select("a[href]")
-            .filter { link ->
-                link.text().isNotBlank()
-                    && !link.hasGrayscaleColor()
-            }
-            .mapNotNull { tag ->
-                // Ignore entries with an invalid link
-                tag.attr("href").toUrlOrNull()
-                    ?.let { link ->
-                        val title = tag.text().trim()
-                        val description = getArticleDescription(tag)
-                        Article(
-                            title = title,
-                            link = link,
-                            description = description,
-                        )
-                    }
-            }
-    }
-
-    private fun getArticleDescription(titleElement: Element): String {
-        // Take the next 2 <span> just after the <a> tag
-        val descriptionNodesVisitor = DescriptionNodesVisitor()
-        titleElement.nextElementSiblings()
-            .filter(descriptionNodesVisitor)
-
-        val description = descriptionNodesVisitor
-            .eachText()
-            .joinToString("\n")
-            .trim()
-
-        return description.ifBlank {
-            titleElement.parent()?.let {
-                getArticleDescription(it)
-            } ?: ""
-        }
-    }
-
-    private class DescriptionNodesVisitor : NodeFilter {
-        private var spanCount = 0
-        private val texts = mutableListOf<String>()
-
-        override fun head(node: Node, depth: Int): FilterResult {
-            return when {
-                spanCount >= 2 -> FilterResult.STOP
-                node is Element && node.tagName() == "span" -> {
-                    // Ignore empty <span>
-                    val content = node.text()
-                    if (content.isNotBlank()) {
-                        spanCount++
-                        texts.add(node.text())
-                    }
-                    FilterResult.SKIP_CHILDREN
+        return ARTICLE_REGEX
+            .findAll(textContent, startIndex = firstSectionIndex)
+            .mapNotNull { matchResult ->
+                if (matchResult.range.last > endingVisualIndex) {
+                    return@mapNotNull null
                 }
 
-                else -> FilterResult.SKIP_ENTIRELY
-            }
-        }
+                val title = matchResult.groupValues[ARTICLE_GROUP_TITLE]
+                val url = URL(matchResult.groupValues[ARTICLE_GROUP_URL])
+                val description = matchResult.groupValues[ARTICLE_GROUP_INFOS].trim()
+                    .plus("\n")
+                    .plus(matchResult.groupValues[ARTICLE_GROUP_DESCRIPTION])
+                    .trim()
 
-        fun eachText(): List<String> = texts.toList()
+                Article(
+                    title = title,
+                    link = url,
+                    description = description,
+                )
+            }
+            .toList()
     }
 
     companion object {
         private val EMAIL_SUBJECT_REGEX = Regex("Tech Readers #\\d+.*")
-        private val SECTION_STYLE_REGEX = Regex("\\bbackground-color\\s*:\\s*#ef7a66;")
+
+        private val SECTION_REGEX = Regex("""([^/]+ / [^/]+)+""")
+        private val VISUAL_REGEX = Regex("""visuel_\d+x\d+""")
+
+        /**
+         * Groups:
+         * - title
+         * - url
+         * - infos (duration and author)
+         * - description
+         */
+        private val ARTICLE_REGEX = Regex(
+            pattern = """(.*)\s+\((https://[^)]+)\)\s+(.*)\n\n(.*)""",
+            option = RegexOption.MULTILINE
+        )
+        private const val ARTICLE_GROUP_TITLE = 1
+        private const val ARTICLE_GROUP_URL = 2
+        private const val ARTICLE_GROUP_INFOS = 3
+        private const val ARTICLE_GROUP_DESCRIPTION = 4
     }
 }
