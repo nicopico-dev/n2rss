@@ -1,14 +1,19 @@
 # N2RSS
 
-N2RSS (*Newsletter to RSS*) goal is to publish RSS feeds containing separate articles
-extracted from selected newsletters.
+N2RSS (*Newsletter to RSS*) is a service that extracts articles from newsletters and publishes them as RSS feeds. The
+project aims to make newsletter content more accessible by converting it into a format that can be consumed by RSS
+readers.
 
-It will run an email check periodically for new emails on an inbox.
-A recognized email will be processed, while an unrecognized email is left as-is.
-Once an email has been processed, it is marked as read.
+## Core Functionality
 
-Each newsletter will map to a separate RSS feed,
-and each article extracted from the newsletter publication will map to different RSS entry in the corresponding feed.
+- Periodically checks an email inbox for new newsletters
+- Processes recognized newsletters and extracts individual articles
+- Publishes each newsletter as a separate RSS feed
+- Maps each article from a newsletter to an individual RSS entry
+- Marks processed emails as read
+
+Each newsletter will map to a separate RSS feed, and each article extracted from the newsletter publication will map to
+different RSS entry in the corresponding feed.
 
 | Newsletter          | URL                                                                  |
 |---------------------|----------------------------------------------------------------------|
@@ -20,15 +25,39 @@ and each article extracted from the newsletter publication will map to different
 | Pointer             | https://www.pointer.io                                               |
 | QuickBird           | https://quickbirdstudios.com/blog                                    |
 
-## Built With
+## Technical Architecture
 
-- Kotlin 2.1
-- Java 17
-- Jakarta EE
-- Spring MVC
-- Spring Data
-- JSOUP to parse email content
-- ROME to generate RSS feeds
+### Technology Stack
+
+- **Programming Languages**: Kotlin 2.1, Java 17
+- **Frameworks**: Spring MVC, Spring Data, Jakarta EE
+- **Libraries**:
+   - JSOUP for parsing email content
+   - ROME for generating RSS feeds
+- **Database**: MariaDB
+- **Development Tools**: Docker (for development environment)
+
+### Key Components
+
+1. **Email Client**: Connects to an email server to retrieve newsletters
+   - Can be configured with environment variables
+   - Supports a local development mode using stub files
+
+2. **Newsletter Handlers**: Process specific newsletter formats
+   - Each handler is responsible for a specific newsletter type
+   - Extracts articles and metadata from the newsletter
+
+3. **RSS Feed Generator**: Creates and serves RSS feeds
+   - Generates XML in standard RSS format
+   - Provides endpoints for accessing feeds
+
+4. **Analytics**: Tracks usage through Simple Analytics
+   - GDPR-compliant
+   - Primarily server-side events
+   - No user data collection
+
+5. **Monitoring**: Reports errors through GitHub issues
+   - Creates issues with the label "n2rss-bot"
 
 ## Getting Started
 
@@ -43,11 +72,23 @@ and testing purposes.
 - IDE that supports Jakarta EE, Spring, Java and Kotlin development (For example, IntelliJ IDEA)
 - Docker (for development purposes only)
 
-### Installing
+### Local Development
 
-This project is a Spring Boot application written in Kotlin
+This project is a Spring Boot application written in Kotlin.
 
-By default, it will connect an `EmailClient` using parameters provided as environment variables:
+1. Use the `local` profile for faster development:
+   ```shell
+   ./gradlew bootRun --args='--spring.profiles.active=local'
+   ```
+
+2. The local profile uses stub emails from `stubs/emails` instead of connecting to an actual email server.
+   This profile is recommended to get a faster feedback-loop while developing.
+
+3. A Docker container for MariaDB is automatically created for development.
+   This Docker container will be created on the first run, using the declarations in `compose.yaml`.
+
+When not using the `local` profile, the application will connect an `EmailClient` using parameters provided as
+environment variables:
 ```
 N2RSS_EMAIL_HOST=<host url of the email account>
 N2RSS_EMAIL_PORT=993
@@ -55,17 +96,6 @@ N2RSS_EMAIL_PROTOCOL=imaps
 N2RSS_EMAIL_USERNAME=<username for the email account>
 N2RSS_EMAIL_PASSWORD=<password for the email account>
 ```
-
-By using the `local` profile, a `ResourceFileEmailClient` will be used instead and the files located 
-at `stubs/emails` will be the inbox. This profile is recommended to get a faster feedback-loop while developing.
-
-```shell
-$ ./gradlew bootRun --args='--spring.profiles.active=local'
-```
-
-When run for development through an IDE or with `bootRun`, Spring Boot will use a Docker container 
-to run the **MariaDB database**. This Docker container will be created automatically on the first run, 
-using the declarations in `compose.yaml`.
 
 ## Usage
 
