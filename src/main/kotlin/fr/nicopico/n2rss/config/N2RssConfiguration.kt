@@ -50,7 +50,7 @@ class N2RssConfiguration {
     fun githubProperties() = properties.github
 
     @Bean
-    fun externalProperties() = properties.externalProperties
+    fun externalProperties() = properties.external
 }
 
 private const val DEFAULT_PORT = 993
@@ -68,7 +68,7 @@ constructor(
     val analytics: AnalyticsProperties,
     val github: GithubProperties,
     val persistenceMode: PersistenceMode = PersistenceMode.DEFAULT,
-    val externalProperties: ExternalProperties,
+    val external: ExternalProperties,
 ) {
     data class MaintenanceProperties(
         val secretKey: String,
