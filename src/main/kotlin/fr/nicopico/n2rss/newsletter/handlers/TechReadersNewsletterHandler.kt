@@ -53,23 +53,37 @@ class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
 
         return ARTICLE_REGEX
             .findAll(articlesText)
-            .mapNotNull { matchResult ->
-                if (matchResult.range.last > endingIndex) {
-                    return@mapNotNull null
-                }
-
+            .flatMap { matchResult ->
                 val title = matchResult.groupValues[ARTICLE_GROUP_TITLE]
                 val url = URL(matchResult.groupValues[ARTICLE_GROUP_URL])
+
                 val description = matchResult.groupValues[ARTICLE_GROUP_INFOS].trim()
                     .plus("\n")
                     .plus(matchResult.groupValues[ARTICLE_GROUP_DESCRIPTION])
                     .trim()
 
-                Article(
-                    title = title,
-                    link = url,
-                    description = description,
-                )
+                buildList {
+                    add(
+                        Article(
+                            title = title,
+                            link = url,
+                            description = description,
+                        )
+                    )
+
+                    if (matchResult.groups[ARTICLE_GROUP_SECONDARY_TITLE] != null) {
+                        val secondaryTitle = matchResult.groupValues[ARTICLE_GROUP_SECONDARY_TITLE]
+                        val secondaryUrl = URL(matchResult.groupValues[ARTICLE_GROUP_SECONDARY_URL])
+
+                        add(
+                            Article(
+                                title = secondaryTitle,
+                                link = secondaryUrl,
+                                description = description,
+                            )
+                        )
+                    }
+                }
             }
             .toList()
     }
@@ -86,14 +100,18 @@ class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
          * - url
          * - infos (duration and author)
          * - description
+         *
+         * An article can have a secondary title and link (cf. #123)
          */
         private val ARTICLE_REGEX = Regex(
-            pattern = """(.+?)\s+\((https://[^)]+)\)\s+(.+)\s+(.+)""",
+            pattern = """(.+?)\s+\((https://[^)]+)\)(?: et (.+?)\s+\((https://[^)]+)\))?\s+(.+)\s+(.+)""",
             options = setOf(RegexOption.MULTILINE, RegexOption.CANON_EQ),
         )
         private const val ARTICLE_GROUP_TITLE = 1
         private const val ARTICLE_GROUP_URL = 2
-        private const val ARTICLE_GROUP_INFOS = 3
-        private const val ARTICLE_GROUP_DESCRIPTION = 4
+        private const val ARTICLE_GROUP_SECONDARY_TITLE = 3
+        private const val ARTICLE_GROUP_SECONDARY_URL = 4
+        private const val ARTICLE_GROUP_INFOS = 5
+        private const val ARTICLE_GROUP_DESCRIPTION = 6
     }
 }
