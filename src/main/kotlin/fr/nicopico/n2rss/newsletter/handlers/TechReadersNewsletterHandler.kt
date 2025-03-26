@@ -23,6 +23,7 @@ import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import org.springframework.stereotype.Component
 import java.net.URL
+import java.text.Normalizer
 
 @Component
 class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
@@ -39,17 +40,21 @@ class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
     }
 
     override fun extractArticles(email: Email): List<Article> {
-        val textContent = email.content.text
+        val textContent = Normalizer.normalize(email.content.text, Normalizer.Form.NFKC)
         // TODO Add newsletter introduction as the first article
 
         // Find the first and last sections in the text
         val firstSectionIndex: Int = SECTION_REGEX.find(textContent)?.range?.first ?: 0
-        val endingVisualIndex: Int = VISUAL_REGEX.find(textContent)?.range?.first ?: textContent.length
+        val endingIndex: Int = END_REGEX.find(textContent)?.range?.first ?: textContent.lastIndex
+        val articlesText = textContent.substring(
+            startIndex = firstSectionIndex,
+            endIndex = endingIndex,
+        )
 
         return ARTICLE_REGEX
-            .findAll(textContent, startIndex = firstSectionIndex)
+            .findAll(articlesText)
             .mapNotNull { matchResult ->
-                if (matchResult.range.last > endingVisualIndex) {
+                if (matchResult.range.last > endingIndex) {
                     return@mapNotNull null
                 }
 
@@ -72,8 +77,8 @@ class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
     companion object {
         private val EMAIL_SUBJECT_REGEX = Regex("Tech Readers #\\d+.*")
 
-        private val SECTION_REGEX = Regex("""([^/]+ / [^/]+)+""")
-        private val VISUAL_REGEX = Regex("""visuel_\d+x\d+""")
+        private val SECTION_REGEX = Regex("""(?:[^/\n\r]+\s/\s[^/\n\r]+)+""", RegexOption.CANON_EQ)
+        private val END_REGEX = Regex("""La Newsletter faite par et pour les Tech Leaders !""")
 
         /**
          * Groups:
@@ -83,8 +88,8 @@ class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
          * - description
          */
         private val ARTICLE_REGEX = Regex(
-            pattern = """(.*)\s+\((https://[^)]+)\)\s+(.*)\n\n(.*)""",
-            option = RegexOption.MULTILINE
+            pattern = """(.+?)\s+\((https://[^)]+)\)\s+(.+)\s+(.+)""",
+            options = setOf(RegexOption.MULTILINE, RegexOption.CANON_EQ),
         )
         private const val ARTICLE_GROUP_TITLE = 1
         private const val ARTICLE_GROUP_URL = 2

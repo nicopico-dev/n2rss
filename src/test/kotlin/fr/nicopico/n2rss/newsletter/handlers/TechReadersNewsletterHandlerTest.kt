@@ -21,7 +21,11 @@ import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.models.Article
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
+import io.kotest.inspectors.forAll
+import io.kotest.matchers.collections.beEmpty
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNot
+import io.kotest.matchers.string.shouldHaveMaxLength
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import java.net.URL
@@ -140,6 +144,33 @@ class TechReadersNewsletterHandlerTest : BaseNewsletterHandlerTest<TechReadersNe
                     articles.map { it.description } shouldBe expected.map { it.description }
                 }
             }
+        }
+
+        @Test
+        fun `should extract articles from Tech Readers email #120`() {
+            // GIVEN
+            val email: Email =
+                loadEmail("stubs/emails/Tech Readers/Tech Readers #120 Gestion des désaccords, autonomie des équipes et IA générative.eml")
+
+            // WHEN
+            val articles = handler.extractArticles(email)
+
+            // THEN
+            articles shouldNot beEmpty()
+        }
+
+        @Test
+        fun `should extract articles from Tech Readers email #123`() {
+            // GIVEN
+            val email: Email =
+                loadEmail("stubs/emails/Tech Readers/Tech Readers #123 Quand l’avenir est flou, revenez aux basiques.eml")
+
+            // WHEN
+            val articles = handler.extractArticles(email)
+
+            // THEN
+            articles shouldNot beEmpty()
+            articles.forAll { it.title shouldHaveMaxLength 255 }
         }
     }
 }
