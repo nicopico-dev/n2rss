@@ -171,6 +171,112 @@ class TechReadersNewsletterHandlerTest : BaseNewsletterHandlerTest<TechReadersNe
             // THEN
             articles shouldNot beEmpty()
             articles.forAll { it.title shouldHaveMaxLength 255 }
+
+            val expected = listOf(
+                Article(
+                    title = "New Junior Developers Can’t Actually Code",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppd3pyd0W6N1vHY6lZ3l3W6jlzj_93ytdBW2qXtPg79wvp-W4cfxK23rJ3vpW2tRrD8592GPfW1T8dZV15w1rBN751KhmjC5zhW8qzg3f3sZjmyW6PZg-d2kYr_GW8F90r85V3cCxW3PB7Zc393d36W7tHRhR1xRnZ2W4bt_3X9cy8YCN99B9Mj5XJfLW3j-zRb853kRZN4vtmtqzsyz2W6zK31g90lq2xW1WMckR35DMW1W1Qw9nY6C1qVKW8YSyDh3cY-tYW3KYrZv18CFRtW1F24yc4HxGjsVSCB4n35PCQgf4x4bpb04"),
+                    description = "#management  • 10 minutes • Proposé par Pierre Vannier\n" +
+                        "Namanyay présente, dans cet article, la dépendance croissante des jeunes développeurs•es aux outils d'IA comme Copilot, Claude ou GPT, qui, bien qu'efficaces, risquent de nuire à leur compréhension profonde du code. L'auteur met en garde contre une approche passive et propose ces solutions : utiliser l’IA de manière critique, participer à des communautés de devs, renforcer les échanges lors des revues de code et coder certaines fonctionnalités sans assistance. Plutôt que de rejeter ces outils, Namanyay invite à un usage réfléchi pour équilibrer rapidité et acquisition réelle de compétences. Un sujet clé pour tous les devs soucieux de progresser !",
+                ),
+                Article(
+                    title = "Tricher aux entretiens d’embauche ? L’IA est là",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppd3pyd0W6N1vHY6lZ3m0W81WR4v1zr8ztW1JltHv5PQgvGW7s44zJ6ddfNdW5qqqDr8tF1PNMBpqmvSY3NSMRD2n7Ds6NbW5NwtQ-95P7JgF76Flb6HG1fW3-Rr5D3bcv0BW7tTc1P35R2JmW5vSBY34RH-jvW3ydYkX7XRHvYW6gRxFL93kVf5W4h7B9s7VsK_GW3059152ZL1lFW41NVzT5nKxmyW65jgpm4Cf3d8W8V3dBJ7dB7hsW2QPqDP1WVNlTW2rZ8DC8G5q1DW7BP_qL4kv77jW6YTJdK68z2WJf158B2804"),
+                    description = "#recrutement  • 3 minutes • proposé par Gilles Dubuc\n" +
+                        "Une solution IA qui aide à coder les solutions à n’importe quel problème logique et autre test de recrutement pour les devs. L’argument ultime : c’est invisible en visio et indétectable par les enregistreurs d’écran. Il va falloir revenir aux bons vieux entretiens en face à face et au test au tableau ? Ou trouver d’autres approches pour évaluer les développeurs•es.",
+                ),
+                Article(
+                    title = "Why Incentive Plans Cannot Work",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppR3pyd0W7Y8-PT6lZ3kvW8XJWnl2nbsBvVpzxvb5hxLJZW8wxdqn3NN_ghW56zfKM80ScnnVXghQm93101jN6ClvqdH8wQSW8X_yKM4Qv57CV8Xklg8vD42PW5PNWBD5G-1mPW4YMQ_w8-l2cqW5MbNKG99jSBNW70QWR13mw0wRW1GBj0q8mPJRXVWBC5j7lFbHZN83tzx_w0Rd6W66-N5G2MY-8MW6yj6yt2Rk9KpW2rMDcd22r1pSW79Tt3Q2Blm8lW38Yty15z143lN2b0X2XtpXlYW5J3bsK3G-9qYW2-h6Yp6Cgg7YW3nt9rc2YC2YKW1p4STl96tpsPMS3YkrsVtg9f8yGBH-04"),
+                    description = "#rémunération • 10 minutes • proposé par Anthony Ricaud\n" +
+                        "Alfie critique les systèmes de rémunération incitative, affirmant qu'ils échouent souvent et peuvent même être contre-productifs. Il explique que ces plans réduisent la motivation intrinsèque des employés en les poussant à se focaliser sur la récompense plutôt que sur l’intérêt du travail lui-même, favorisent des résultats à court terme au détriment de stratégies durables, limitent la créativité et détériorent les relations en instaurant une compétition malsaine. Plutôt que de s’appuyer sur des incitations monétaires, Alfie recommande aux entreprises de créer un environnement où les employés trouvent du sens dans leur travail, bénéficient d’autonomie et développent leurs compétences, des éléments bien plus efficaces pour améliorer la performance sur le long terme.",
+                ),
+                // Secondary article
+                Article(
+                    title = "Research: When Bonuses Backfire",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppx3pyd0W7lCdLW6lZ3mnW99SRsP94BmptW8T5BW-8jTlc2W2NXfQv4y0-ydW7r2YZk2TyntdW2Z48bc8S8wfYVNSBXM2s9y_3W7Z__kX559r8qV99Q491B2GVSN8-FTrjY9sLzW39NwgW8Jwj9YW2kdXJ_2Fz9XVW4Tzgq92_ywQGW6KrzBQ9j8nswN4_Y9Y9PhYsgW6JNJLv4XSGlqW2y-FRB3hvX9-W7jFzhx6SqP9NV36bKj48hdWZVNJlPQ1--z03W1gdKdm95Tt9RW1dND6S3FcxM7W54mxgB4FjGYsW2Ptf0Y3JxYrXW2bWX215z9SY0dHm8fv04"),
+                    description = "#rémunération • 10 minutes • proposé par Anthony Ricaud\n" +
+                        "Alfie critique les systèmes de rémunération incitative, affirmant qu'ils échouent souvent et peuvent même être contre-productifs. Il explique que ces plans réduisent la motivation intrinsèque des employés en les poussant à se focaliser sur la récompense plutôt que sur l’intérêt du travail lui-même, favorisent des résultats à court terme au détriment de stratégies durables, limitent la créativité et détériorent les relations en instaurant une compétition malsaine. Plutôt que de s’appuyer sur des incitations monétaires, Alfie recommande aux entreprises de créer un environnement où les employés trouvent du sens dans leur travail, bénéficient d’autonomie et développent leurs compétences, des éléments bien plus efficaces pour améliorer la performance sur le long terme.",
+                ),
+                Article(
+                    title = "Le variable sur les métiers tech, bonne ou mauvaise idée ?",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppx3pyd0W7lCdLW6lZ3lZW2m53Sg2DstG6W4dsK9V8yn11pW6PNwJL2HbnsCW943fC94mDJs-W3J6yLm2jN-B2W4s7jX12BWdQZV4j85T328NkTN13RWc-y9NDRW7rwdJQ3ks7BtVDcNWX79zFqmW6bbKwd27qBc7W4tHB2R3M9G3SW2vL3zM7znb0-W8820GB2QykKbW56n7B_1P-3SJV6pwL8464jgjW4KC2kb53tg3hW3Jw8SV6cWb2bW1VgyDz1vMmBxW3DhmXG4gdF0BW1LXfWp6QHTdZW6Hctlm58qBJlW5FXWSj8BjFXFW4FR75T3K2vWff3WRC1b04"),
+                    description = "#rémunération • 8 minutes • proposé par Hugo Lassiège\n" +
+                        "Ancré dans l’expérience personnelle d’Hugo, cet article argumente plutôt contre les rémunérations variables dans les équipes de devs mais examine quand même dans quelles conditions ça peut avoir du sens. Hugo donne également quelques pistes alternatives. Une lecture rapide et bien argumentée si vous avez du mal à vous positionner.",
+                ),
+                Article(
+                    title = "The 5 Most Difficult Employees (And How To Actually Handle Them)",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppR3pyd0W7Y8-PT6lZ3nWW75pyGs8pnVNWW4Y3_t15b7yxvW4rnftg6Xl5r8N3lk0hMd7NsgW1krSFZ42r2m8W132jhB6Lf4MpW1Rl50b4K8PDbW6Jrq4n6rBVbgW3hcvGS1PcSXfW44ynSR1xlH5fW17ZqdG2XMpMyVj9Gtb5RbtFfMM0xCTVVJRhW8Y1b1G46JGZpW4Gf5nV5L07Q3VBHdrh8YyY9dW9810j93x5vqvW5PmCNw7lxQKxW1L9Jfl4LjLPgN7NyLBs_LQRjW6HTbMt50fNs7N6rBBtQ303XsW7wBvkD7XhXtsW2Rz8Ps3PtNzhN1yqS21N-256W46MZr64VCSftf6F-G0n04"),
+                    description = "#management  • 12 minutes • proposé par Vladislav Pernin\n" +
+                        "Cet article explore cinq profils d’employés difficiles que tout manager est amené un jour à gérer et propose des stratégies concrètes pour y faire face : le vétéran qui résiste au changement, le résistant passif qui ne tient pas ses engagements, l’agresseur dont l’attitude toxique nuit à l’équipe, la victime qui se déresponsabilise et la montagne russe qui est totalement imprévisible. Un guide pratique pour tout manager souhaitant préserver un environnement de travail à la fois sain et performant.",
+                ),
+                Article(
+                    title = "Les cinq dysfonctionnements d’une équipe : les connaître et y faire face",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnpqq3pyd0W95jsWP6lZ3myW7GkdRV4q54z0W7C5Fx78x9vkgW4Y8Wqj124kF8W3ShJS94cpVQyW6kN2-F2D5V6mW1GdKTV3PJ5WpN8xQHFjh1zdtV-HX963jygrcW7z0h701h3jRDW7y7gld8dwjy8W7qKqd2656FxKVc9FHK3WMz8dVD2Z-J1zS1zQW2GjlyY2w0QDcW4xDtN33dGr2hW4W7LL56rm7dwW4LV3nS6h9lmGW5wmPcb8W7fvkV_8f8c5mdRsJW7YldNF2PwhhdW9d6NN55b1TVrN31Q-j9cQPwkW3Fp8MM74yBxLW6P1_9L7g8j7QW4wTYl47dsyHvW670rRY5xZQJ4W2Rmg0n91vk9lW8wpx3X84z-WZW5vrqK35tclW5W8sM2DL8tfG_Rf74WsbH04"),
+                    description = "#team • 10 minutes • proposé par Michael Bonfils\n" +
+                        "Cet article vous plonge dans l’ouvrage de Patrick Lencioni The Five Dysfunctions of a Team et propose des pistes concrètes et opérationnelles pour surmonter les cinq principaux freins à la performance collective : manque de confiance, peur du conflit, absence d’engagement, évitement des responsabilités et inattention aux résultats. À travers une analyse approfondie et des stratégies applicables, découvrez comment bâtir un  collectif plus soudé et plus efficace.",
+                ),
+                Article(
+                    title = "Et, en bonus, une collection de ressources inspirantes sur l’engineering management et le tech leadership",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnpq63pyd0W8wLKSR6lZ3nqW93k1Xc9d5qSfVmvjXj5hn8DPW8yDkzN27dVhgW8VB4r41GQ1rtW5WXg2b5Jj1JmW7h7fCm56bvNVW7v1Nkb269gC2W3wBXW35k83J9W1rYxCN1Y4mCQW1dhljf34dglvVqtlNB1SbJQrW88TQ638FmBknW8pTT2Z16qCQbW5pFwDG9jhm1JW2X0hsv7Z3pN-W3_jxV14bM0JzW1xcsnX1899K4W4VtLSq4CjGfHN3KMsryhCR_YW2pKNxL53z-RdW28BRyn2msmmRW4lY8L55g-7kJW7vz5X-394dLXW102x1q3C5XsQVS0y-112lbRYW24WM1H5Z5DYnW1lM1Zh3B6-WyW4dvSkW30J6p-f2FMNnH04"),
+                    description = ", compilée par l’un de nos membres, Charles-Axel Dein, et partagée avec la communauté. Merci à lui !\n" +
+                        "LES AUTRES PÉPITES SÉLECTIONNÉES POUR VOUS",
+                ),
+                Article(
+                    title = "Bonjour R2D2 ! - [gibber link]",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppx3pyd0W7lCdLW6lZ3mwW3FP3Y98NYrl3W6NYPYp4WQmmKW4b01JQ8Hsc99W6CcKFJ8gs3CdW1XRzp0751MhDW4zkn-j285DwDW4lksh82glLq_W4DP2fG70kjW_W3HZSsp2mRC1MW7_Y7h56QbpQzW8KWn3d7v8d64N2KNczcfvV40N4s9RlGBVNwJM_gl2YTKgCkW3-K1bQ86fNWMW1lQlFx8qYG-RW3yx5js6S0RtdN2Vz4w3KDY_9V-FrdX5RFqL4VxMMVZ5VY1v-W6NJD0280vs3JV6J-hG6ndV1bW4BQWF82V1XqdW1Qc9vy6f8ZYtf5jPtGb04"),
+                    description = "#IA • 1 minute • proposé par Damien Thouvenin\n" +
+                        "Avec le développement des IA agentiques on va avoir de plus en plus souvent d'IA qui parlent à des IA. Pourquoi continuer en bon anglais (ou français) alors qu’on peut se parler en gazouillis à la R2D2 ? Petite démo d’une solution bluffante pour accélérer les conversations entre agents.",
+                ),
+                Article(
+                    title = "Et bonjour C-3PO - [Introducing Helix]",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppx3pyd0W7lCdLW6lZ3mnW1bYhl983-lLXW8ds27D7kBc3BW1TBtbJ3DGwR3W6jZJ6f5FN8B_W432hYk50n3NGW4WdyP01YCPYTW8-Wx6s7gbdgYW9dx9cC3zMrgMW3nm04Y6TKMfHVjqk9t46kpC3W4mGrzP4p6FBKVhjnnN1w_FZzW4NjGSV4PyNR6W111Tl85lWrsJW239Bwr1Th8F8W7XMjv95DHbVqN5BtvL5kd8v_W1dM44m5ZPZlCW1Bt-dZ3RLkgBN5vXRTrK-2CrN8Z001fYDkHdW1s0vJ6365g66N8qc73lCC6gYN7J9hzCWHYPsdMvRr604"),
+                    description = "#robots • 3 minutes • proposé par Damien Thouvenin\n" +
+                        "Troublante démo de robots ménagers en train de collaborer pour décider comment ranger les courses dans la cuisine.",
+                ),
+                Article(
+                    title = "Microsoft dévoile Majorana 1, le premier processeur quantique au monde alimenté par des qubits topologiques",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppd5n4LbW6N1X8z6lZ3mNW8nX_vS4J3JWBVbksZx2sd18RW3Y3bQF2ZhHn5W5-1fkr1tSnrpW8JMk-z89tjcjW3v5PBM3GhCzJW2XSr3y32-mD1W2w-MVz6ZbrqnW3DNf9R2gkm3nW2ytFlK3fknT2W3sCzjV229ktVW62WgFp6hY3TPW6FZY317-jxb2W2VHD_B3KgNDsW27bnGW229zKyW6P59c39kPmc8W6bj4LR4qqjrRW3Qlzdq4ZsJW9W3Y7cBl9fqnlZW2pqPTb3HqRHfW52s6sT6CP59rVpZHW95D_ftVW983VJQ25S54rVcRwd-4TMj6DN5QrynGr-K6QW80Qvwf3syx-CN4s8bgctwkdsW4nSFl_1Lg6gPW8zPyps3zDxBGW9l3g8v8g3c26W40Fmd62jyqv4W8FbzQd5R9ZwRW83t3Md7jPtCTV-ML0G4Twth3W8sX_wn3pKXJ3W948n75278-bBW2ZlScs87JffXW6YLYWl7sVTkmf4-C8Qg04"),
+                    description = "#quantique • 5 minutes • proposé par Axel Etcheverry\n" +
+                        "Découvrez Majorana 1 de Microsoft, le premier processeur exploitant la supraconductivité topologique – un état de la matière jusqu’ici purement théorique. Cette avancée ouvre la voie à des ordinateurs quantiques ultra-stables, capables de bouleverser des secteurs clés : une cryptographie impénétrable, une intelligence artificielle surpuissante et une puissance de calcul inégalée. Une étape décisive vers l’ère du véritable super ordinateur du futur !",
+                ),
+                Article(
+                    title = "Huit mythes de l’intelligence artificielle pour déconstruire la « hype »",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnpqq3pyd0W95jsWP6lZ3pjVG_kng8b29VFW6xlqTC4YKjDZW791dPb6b80T8W8xsMVR3wllSMW5FHhJB4d9NPZW5QYZ3v35Ds4NW6YRsVS4Mbq6QW13dz5W6CNyq0W1kM9Zh4KNd74VCHv533ycDNJW6j45vm2M_JcGW9hFfjf6Tgln2W5XHMcm1XV6-tW8JVTSf6rD6SNV7zJ2-6QXVh2W4fkGtW5RP8xJW6mCq503ZrlQnN11hvQWWycQGW2ndflK4TKH71W71b56K8DCYr9W97T4cT58x5mwW2x2v8s3gTfGrVDVsC3763GXlN2Nyt1wGV3SJW55RLyt54JSDVW2znfGn7zlWq8W40Cr345rGG7bW7THTx52yWQkQW8006dk5YCQ4VN2WDzNX8lq7wf2VTbs804"),
+                    description = "#IA • 9 minutes • proposé par Marion Ghibaudo\n" +
+                        "Commentaire et résumé, en français, d’un article de recherche qui démonte point par point 8 grands mythes courants de l’IA (elle est artificielle, elle est intelligente, elle va aider à sauver le monde, elle est dominée par les IA ...). Un bon récap.",
+                ),
+                Article(
+                    title = "The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnpnl5n4LbW50kH_H6lZ3lBW5nKVnJ5cvjZMW5PcChl1zmzlCW6ZHR_T3GtpZlV8hdg03sXTrDW6bX3F14jFqQhN215JblhsRWfV36cy66BTBwRW1zN38m1l9GZgW36f1GW8z3ZG5W1yXjlb3mhkWyN1j0ndSzbZHtW2c3LRc8LM-FBW67Jh9f37qTgcW2hFDlv1P0FQ1W3h2CS55nQp4tW6NswWX4tfhkpW2WDF8g73_nPBW1t16gq3bVdkwW7N5tS55bBL_7W8Pc5H-8jt-jKW8tbqMQ6LPZ1wVQCfrQ7nYbvYW25P2zT6Bh4P1W2cm8vK3tdsf0W3DDnJF41nl9SVq_SRc5FpNLlW2944P93cGs7YW8wb52222hx8rW2Rr6y42JFj_JW69snYn4T3TmjW7w_mZl6HgYs1W2bsVJN85pQR1f5YMF9l04"),
+                    description = "#IA • 30 minutes • proposé par Cédric Teyton\n" +
+                        "Impact de l’IA sur nous ! Est-ce que l’IA générative bride notre capacité à avoir une pensée critique ? A l’heure où l’on se questionne sur l’évolution de nos métiers intellectuels, créatifs et techniques, il est indispensable de comprendre comment utiliser l’IA pour nous augmenter plutôt que pour nous réduire.",
+                ),
+                Article(
+                    title = "Tech.Rocks Running Club x Semi Marathon de Paris",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppd3pyd0W6N1vHY6lZ3l6W98_ZTt8yWT42W5dQL0L4Vsb97W2Fnmf07Y6XXKW1TKR6Z54ScLcW2Nyjfw6Dkn1qW2x0cr483w7PwW684NCr4PqWdsW7kSw5L5ZNhLRW4-3l8J7tbYk1W26pPzx381vDRW35z2Cf8QBPPYW4NJGLS4lYwdKN8jt4-nqcPwZLRLfZ6LK95W3d7L2Z7BbfwwW1vzFJz72-jS2W1-B99H30XVHXW90z27q3mG8jwW7pxRRk5XM6jHW1SfmWN8WCwM_W8tKx4p51qWSpW4Hw-Xy6YBm8vf7q-pV204"),
+                    description = "Dimanche 9 mars à Paris • proposé par Antonin Gaunand\n" +
+                        "Plusieurs membres de la communauté Tech.Rocks chaussent leurs baskets et prennent le départ du semi-marathon de Paris. Certain•es courent pour l’association Les Invincibles (maladie de Charcot), d’autres pour soutenir l’institut Gustave Roussy (Cancer). Si vous courez, n’hésitez pas à utiliser le Slack de notre communauté pour vous retrouver autour de Nicolas Silberman ou Antonin Gaunand.",
+                ),
+                Article(
+                    title = "Afterwork Tech.Rocks entre Tech Leaders",
+                    link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnpnl5n4LbW50kH_H6lZ3lJW79Bz8s2HTK1dW1gpjPz39dllZW3bGZJ74Nj7HrW2zBbHr2ypcRmW6RRNDZ3Mf1KWN4p_jNmp77v-W7Th-db2rWXMvW1-_NjJ24FrYqW8f0QlH8G5nrVW77-Q085__bhcW935Ww-6LDlscW1-pV7s4McgqwW35G5jK1mLMQQN6V-h1wMm39vW8Nsw0H5j6nLkW3_ytvG3ffDvKN1JfKN1ltsYrW3dM86b7cYNJzW2sSy2F3cFrhSW1MZKbJ56BZVrVnqKKL32sV-SVH8-Nc5Djh7YV7DrXZ1bCk2PVQnbXw12v4nPW4FKX2j2g8VKMVwPxDb2wZmBkW5sM9pT31-BYvW1l6GKM6cPlM3W153yFr44twW5W43Ttzj3S-866W4TJJXB3xXR3xW814z8X76zq85f7_PVf604"),
+                    description = "Jeudi 10 avril à Paris • proposé par Tech.Rocks et Cockroach Labs\n" +
+                        "Venez célébrer le début du printemps lors de notre afterwork dédié aux Tech Leaders ! Une occasion unique d’échanger, de partager et de créer des synergies dans une ambiance conviviale. L’événement est co-construit avec le soutien de Cockroach Labs.",
+                ),
+            )
+
+            assertSoftly {
+                withClue("title") {
+                    articles.map { it.title } shouldBe expected.map { it.title }
+                }
+                withClue("link") {
+                    articles.map { it.link } shouldBe expected.map { it.link }
+                }
+                withClue("description") {
+                    articles.map { it.description } shouldBe expected.map { it.description }
+                }
+            }
         }
     }
 }
