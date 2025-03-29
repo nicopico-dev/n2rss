@@ -41,7 +41,6 @@ class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
 
     override fun extractArticles(email: Email): List<Article> {
         val textContent = Normalizer.normalize(email.content.text, Normalizer.Form.NFKC)
-        // TODO Add newsletter introduction as the first article
 
         // Find the first and last sections in the text
         val firstSectionIndex: Int = SECTION_REGEX.find(textContent)?.range?.first ?: 0
@@ -51,41 +50,55 @@ class TechReadersNewsletterHandler : NewsletterHandlerSingleFeed {
             endIndex = endingIndex,
         )
 
-        return ARTICLE_REGEX
-            .findAll(articlesText)
-            .flatMap { matchResult ->
-                val title = matchResult.groupValues[ARTICLE_GROUP_TITLE]
-                val url = URL(matchResult.groupValues[ARTICLE_GROUP_URL])
+        val introductionEndIndex = if (firstSectionIndex > 0) {
+            firstSectionIndex - 1
+        } else {
+            val firstArticleIndex = ARTICLE_REGEX.find(articlesText)?.range?.first ?: 0
+            if (firstArticleIndex > 0) firstArticleIndex - 1 else 0
+        }
 
-                val description = matchResult.groupValues[ARTICLE_GROUP_INFOS].trim()
-                    .plus("\n")
-                    .plus(matchResult.groupValues[ARTICLE_GROUP_DESCRIPTION])
-                    .trim()
+        val introduction = Article(
+            title = email.subject,
+            link = URL(newsletter.websiteUrl),
+            description = textContent.slice(0..introductionEndIndex).trim(),
+        )
 
-                buildList {
-                    add(
-                        Article(
-                            title = title,
-                            link = url,
-                            description = description,
-                        )
-                    )
+        return listOf(introduction) +
+            ARTICLE_REGEX
+                .findAll(articlesText)
+                .flatMap { matchResult ->
+                    val title = matchResult.groupValues[ARTICLE_GROUP_TITLE]
+                    val url = URL(matchResult.groupValues[ARTICLE_GROUP_URL])
 
-                    if (matchResult.groups[ARTICLE_GROUP_SECONDARY_TITLE] != null) {
-                        val secondaryTitle = matchResult.groupValues[ARTICLE_GROUP_SECONDARY_TITLE]
-                        val secondaryUrl = URL(matchResult.groupValues[ARTICLE_GROUP_SECONDARY_URL])
+                    val description = matchResult.groupValues[ARTICLE_GROUP_INFOS].trim()
+                        .plus("\n")
+                        .plus(matchResult.groupValues[ARTICLE_GROUP_DESCRIPTION])
+                        .trim()
 
+                    buildList {
                         add(
                             Article(
-                                title = secondaryTitle,
-                                link = secondaryUrl,
+                                title = title,
+                                link = url,
                                 description = description,
                             )
                         )
+
+                        if (matchResult.groups[ARTICLE_GROUP_SECONDARY_TITLE] != null) {
+                            val secondaryTitle = matchResult.groupValues[ARTICLE_GROUP_SECONDARY_TITLE]
+                            val secondaryUrl = URL(matchResult.groupValues[ARTICLE_GROUP_SECONDARY_URL])
+
+                            add(
+                                Article(
+                                    title = secondaryTitle,
+                                    link = secondaryUrl,
+                                    description = description,
+                                )
+                            )
+                        }
                     }
                 }
-            }
-            .toList()
+                .toList()
     }
 
     companion object {
