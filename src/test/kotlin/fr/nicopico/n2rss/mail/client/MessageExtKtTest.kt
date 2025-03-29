@@ -22,8 +22,8 @@ import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import io.kotest.assertions.assertSoftly
-import io.kotest.assertions.throwables.shouldThrowWithMessage
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.instanceOf
 import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
@@ -175,7 +175,7 @@ class MessageExtKtTest {
     }
 
     @Test
-    fun `An error should be thrown if the Message do not have any HTML content part`() {
+    fun `should retrieve text-only content if the Message do not have any HTML content part`() {
         // GIVEN
         val message = prepareMessage(
             subject = "Subject",
@@ -196,10 +196,11 @@ class MessageExtKtTest {
             from = arrayOf(InternetAddress("email@address.com")),
         )
 
-        // WHEN - THEN
-        shouldThrowWithMessage<NoSuchElementException>("no text/html part found in the Message") {
-            message.toEmail("INBOX")
-        }
+        // WHEN
+        val email = message.toEmail("INBOX")
+
+        // THEN
+        email.content shouldBe instanceOf<EmailContent.TextOnly>()
     }
 
     //region Utils

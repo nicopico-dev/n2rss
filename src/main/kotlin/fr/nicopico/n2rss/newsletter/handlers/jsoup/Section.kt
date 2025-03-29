@@ -30,6 +30,7 @@ fun Document.extractSections(
     cssQuery: String,
     filter: (Element) -> Boolean = { true },
     getSectionTitle: (Element) -> String = { it.text() },
+    stopElement: Element? = null,
 ): List<Section> {
     val sectionsElements = select(cssQuery).filter(filter)
     val commonAncestor = sectionsElements.findCommonAncestor()
@@ -37,6 +38,7 @@ fun Document.extractSections(
         .mapIndexed { index, element ->
             val nextSectionElement = sectionsElements
                 .getOrNull(index + 1)
+                ?: stopElement
 
             val start = element.findFirstSpecificAncestor(commonAncestor)
             val end = nextSectionElement?.findFirstSpecificAncestor(commonAncestor)

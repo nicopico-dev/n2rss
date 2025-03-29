@@ -35,10 +35,19 @@ fun Message.toEmail(messageFolder: String): Email {
         subject = subject,
         content = when (content) {
             is MimeMultipart -> {
-                EmailContent.TextAndHtml(
-                    html = content.getBodyPartContent("text/html"),
-                    text = content.getBodyPartContent("text/plain"),
-                )
+                val htmlContent = content.getBodyPartContent("text/html")
+                val textContent = content.getBodyPartContent("text/plain")
+
+                when {
+                    htmlContent != null && textContent != null -> EmailContent.TextAndHtml(
+                        html = htmlContent,
+                        text = textContent,
+                    )
+
+                    htmlContent != null -> EmailContent.HtmlOnly(html = htmlContent)
+                    textContent != null -> EmailContent.TextOnly(text = textContent)
+                    else -> error("should never happen")
+                }
             }
 
             else -> EmailContent.TextOnly(content.toString())
@@ -57,7 +66,7 @@ fun Message.toEmail(messageFolder: String): Email {
     return email
 }
 
-private fun MimeMultipart.getBodyPartContent(mimeType: String): String {
+private fun MimeMultipart.getBodyPartContent(mimeType: String): String? {
     val partCount = this.count
     for (i in 0 until partCount) {
         val bodyPart = this.getBodyPart(i)
@@ -65,5 +74,5 @@ private fun MimeMultipart.getBodyPartContent(mimeType: String): String {
             return bodyPart.content as String
         }
     }
-    throw NoSuchElementException("no $mimeType part found in the Message")
+    return null
 }

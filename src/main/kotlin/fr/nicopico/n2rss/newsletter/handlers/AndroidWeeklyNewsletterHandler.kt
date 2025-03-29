@@ -81,7 +81,7 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
         sectionDocument.select("a[href]")
             .filter { link -> link.text().isNotBlank() }
             .mapNotNull { tag ->
-                // Ignore entries with invalid link
+                // Ignore entries with an invalid link
                 tag.attr("href").toUrlOrNull()
                     ?.let { link ->
                         val title = tag.text().trim()
