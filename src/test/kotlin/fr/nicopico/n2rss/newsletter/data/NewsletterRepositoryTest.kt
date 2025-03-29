@@ -18,19 +18,24 @@
 
 package fr.nicopico.n2rss.newsletter.data
 
+import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.fakes.NewsletterHandlerFake
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import io.kotest.matchers.collections.shouldBeIn
 import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
 import org.junit.jupiter.api.Test
 
 class NewsletterRepositoryTest {
 
     private lateinit var repository: NewsletterRepository
+    private val feedsProperties = mockk<N2RssProperties.FeedsProperties>()
 
     private fun createRepository(handler: NewsletterHandler) {
-        repository = NewsletterRepository(listOf(handler), listOf(handler))
+        every { feedsProperties.hiddenNewsletters } returns emptyList()
+        repository = NewsletterRepository(listOf(handler), listOf(handler), feedsProperties)
     }
 
     @Test
@@ -70,9 +75,11 @@ class NewsletterRepositoryTest {
             NewsletterHandlerFake("code3"),
         )
         val enabledHandlers = allHandlers.take(2)
+        every { feedsProperties.hiddenNewsletters } returns emptyList()
         repository = NewsletterRepository(
             allNewsletterHandlers = allHandlers,
             enabledNewsletterHandlers = enabledHandlers,
+            feedsProperties = feedsProperties,
         )
 
         // WHEN
@@ -91,9 +98,11 @@ class NewsletterRepositoryTest {
             NewsletterHandlerFake("code3"),
         )
         val enabledHandlers = allHandlers.take(1)
+        every { feedsProperties.hiddenNewsletters } returns emptyList()
         repository = NewsletterRepository(
             allNewsletterHandlers = allHandlers,
             enabledNewsletterHandlers = enabledHandlers,
+            feedsProperties = feedsProperties,
         )
 
         // WHEN
@@ -101,5 +110,28 @@ class NewsletterRepositoryTest {
 
         // THEN
         actual shouldBe enabledHandlers
+    }
+
+    @Test
+    fun `should return non-hidden enabled newsletters`() {
+        // GIVEN
+        val allHandlers = listOf(
+            NewsletterHandlerFake("code1"),
+            NewsletterHandlerFake("code2"),
+            NewsletterHandlerFake("code3"),
+        )
+        val enabledHandlers = allHandlers.take(2)
+        every { feedsProperties.hiddenNewsletters } returns listOf("code1")
+        repository = NewsletterRepository(
+            allNewsletterHandlers = allHandlers,
+            enabledNewsletterHandlers = enabledHandlers,
+            feedsProperties = feedsProperties,
+        )
+
+        // WHEN
+        val actual = repository.getNonHiddenEnabledNewsletters()
+
+        // THEN
+        actual.map { it.code } shouldBe listOf("code2")
     }
 }

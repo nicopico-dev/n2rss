@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.data
 
+import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.newsletter.NewsletterConfiguration
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.newsletters
@@ -29,6 +30,7 @@ class NewsletterRepository(
     private val allNewsletterHandlers: List<NewsletterHandler>,
     @Qualifier(NewsletterConfiguration.ENABLED_NEWSLETTER_HANDLERS)
     private val enabledNewsletterHandlers: List<NewsletterHandler>,
+    private val feedsProperties: N2RssProperties.FeedsProperties,
 ) {
     fun findNewsletterByCode(code: String): Newsletter? {
         return allNewsletterHandlers
@@ -38,6 +40,12 @@ class NewsletterRepository(
 
     fun getEnabledNewsletters(): List<Newsletter> {
         return enabledNewsletterHandlers.flatMap { it.newsletters }
+    }
+
+    fun getNonHiddenEnabledNewsletters(): List<Newsletter> {
+        val hiddenNewsletters = feedsProperties.hiddenNewsletters
+        return getEnabledNewsletters()
+            .filter { it.code !in hiddenNewsletters }
     }
 
     fun getEnabledNewsletterHandlers(): List<NewsletterHandler> = enabledNewsletterHandlers

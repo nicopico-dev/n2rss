@@ -114,7 +114,7 @@ class HomeControllerTest {
                 newsletterD,
                 newsletterB,
             )
-            every { newsletterService.getEnabledNewslettersInfo() } returns newslettersInfo
+            every { newsletterService.getNonHiddenEnabledNewslettersInfo() } returns newslettersInfo
             every { feedsProperties.forceHttps } returns false
 
             val requestUrl = StringBuffer("http://localhost:8134")
@@ -184,7 +184,7 @@ class HomeControllerTest {
                 newsletterA3,
                 newsletterB,
             )
-            every { newsletterService.getEnabledNewslettersInfo() } returns newslettersInfo
+            every { newsletterService.getNonHiddenEnabledNewslettersInfo() } returns newslettersInfo
             every { feedsProperties.forceHttps } returns false
 
             val requestUrl = StringBuffer("http://localhost:8134")
@@ -216,7 +216,7 @@ class HomeControllerTest {
         fun `home should use HTTPS feed when the feature is activated`() {
             // GIVEN
             val newslettersInfo = listOf<NewsletterInfo>()
-            every { newsletterService.getEnabledNewslettersInfo() } returns newslettersInfo
+            every { newsletterService.getNonHiddenEnabledNewslettersInfo() } returns newslettersInfo
             every { feedsProperties.forceHttps } returns true
 
             val requestUrl = StringBuffer("http://localhost:8134")

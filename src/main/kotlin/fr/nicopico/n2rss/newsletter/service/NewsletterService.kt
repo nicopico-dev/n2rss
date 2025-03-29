@@ -31,23 +31,25 @@ class NewsletterService(
     private val publicationService: PublicationService,
 ) {
     /**
-     * Retrieves information on all enabled newsletters.
+     * Retrieves information on all enabled newsletters that are not hidden.
      *
-     * @return a list of `NewsletterInfo` objects containing details about each enabled newsletter.
+     * @return a list of `NewsletterInfo` objects containing details about each non-hidden enabled newsletter.
      */
-    fun getEnabledNewslettersInfo(): List<NewsletterInfo> {
+    fun getNonHiddenEnabledNewslettersInfo(): List<NewsletterInfo> {
         return newsletterRepository
-            .getEnabledNewsletters()
-            .map {
-                NewsletterInfo(
-                    code = it.code,
-                    title = it.name,
-                    websiteUrl = it.websiteUrl,
-                    publicationCount = publicationService.getPublicationsCount(it),
-                    startingDate = publicationService.getOldestPublicationDate(it),
-                    notes = it.notes,
-                )
-            }
+            .getNonHiddenEnabledNewsletters()
+            .map { createNewsletterInfo(it) }
+    }
+
+    private fun createNewsletterInfo(newsletter: Newsletter): NewsletterInfo {
+        return NewsletterInfo(
+            code = newsletter.code,
+            title = newsletter.name,
+            websiteUrl = newsletter.websiteUrl,
+            publicationCount = publicationService.getPublicationsCount(newsletter),
+            startingDate = publicationService.getOldestPublicationDate(newsletter),
+            notes = newsletter.notes,
+        )
     }
 
     /**
