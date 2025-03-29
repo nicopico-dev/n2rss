@@ -76,6 +76,7 @@ constructor(
     data class FeedsProperties(
         val forceHttps: Boolean = true,
         val disabledNewsletters: List<String> = emptyList(),
+        val hiddenNewsletters: List<String> = emptyList(),
     )
     data class ReCaptchaProperties(
         val enabled: Boolean = true,
