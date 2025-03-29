@@ -57,7 +57,8 @@ class HomeController(
         @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
     ): String {
-        val groupedNewsletterInfos: List<GroupedNewsletterInfo> = newsletterService.getEnabledNewslettersInfo()
+        val groupedNewsletterInfos: List<GroupedNewsletterInfo> = newsletterService
+            .getNonHiddenEnabledNewslettersInfo()
             .sortedBy { it.title }
             .filter { it.publicationCount > 0 }
             .groupBy { it.title.lowercase() }

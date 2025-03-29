@@ -58,7 +58,7 @@ class NewsletterServiceTest {
     }
 
     @Test
-    fun `should give info about all supported newsletters`() {
+    fun `should give info about enabled non-hidden newsletters`() {
         // GIVEN
         val firstPublicationCode1 = LocalDate(2022, 3, 21)
         val firstPublicationCode2 = LocalDate(2023, 7, 8)
@@ -77,10 +77,10 @@ class NewsletterServiceTest {
                 else -> null
             }
         }
-        every { newsletterRepository.getEnabledNewsletters() } returns newsletters
+        every { newsletterRepository.getNonHiddenEnabledNewsletters() } returns newsletters
 
         // WHEN
-        val result = newsletterService.getEnabledNewslettersInfo()
+        val result = newsletterService.getNonHiddenEnabledNewslettersInfo()
 
         // WHEN
         result shouldContainOnly listOf(
