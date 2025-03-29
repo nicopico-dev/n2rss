@@ -19,20 +19,13 @@ package fr.nicopico.n2rss
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.TestPropertySource
 
 @SpringBootTest(
     webEnvironment = SpringBootTest.WebEnvironment.MOCK,
     useMainMethod = SpringBootTest.UseMainMethod.WHEN_AVAILABLE,
     properties = [
-        "spring.profiles.active=local",
+        "spring.profiles.active=local, test",
     ],
-)
-@TestPropertySource(
-    locations = [
-        "classpath:application.properties",
-        "classpath:application-test.properties",
-    ]
 )
 class N2RssApplicationTest {
 

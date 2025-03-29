@@ -22,14 +22,19 @@ import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
-import org.springframework.test.context.junit.jupiter.SpringExtension
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
+import org.springframework.boot.test.context.SpringBootTest
 import java.net.URL
 
-@DataJpaTest
-@ExtendWith(SpringExtension::class)
+@SpringBootTest(
+    webEnvironment = SpringBootTest.WebEnvironment.MOCK,
+    useMainMethod = SpringBootTest.UseMainMethod.WHEN_AVAILABLE,
+    properties = [
+        "spring.profiles.active=local, test",
+    ],
+)
+@AutoConfigureTestDatabase
 class GithubIssueRepositoryIntegrationTest {
 
     @Autowired
