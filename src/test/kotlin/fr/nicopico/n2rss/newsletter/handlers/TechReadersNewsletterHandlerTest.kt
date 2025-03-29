@@ -57,6 +57,29 @@ class TechReadersNewsletterHandlerTest : BaseNewsletterHandlerTest<TechReadersNe
             // THEN
             val expected = listOf(
                 Article(
+                    title = "Tech Readers #116 : Manager par les valeurs",
+                    link = URL(handler.newsletter.websiteUrl),
+                    description = """
+                        Newsletter #116
+
+                        Cher.e.s Tech Leaders,
+
+                        Comme le précise Netflix, « il est facile de parler de valeurs. Les appliquer l'est un peu moins. »
+
+                        Dans un monde de plus en plus incertain, la flexibilité et l’adaptabilité sont devenues indispensables. L'une des clés pour y parvenir est de manager par les valeurs plutôt que par les process. Deux articles vous permettront d'explorer cette approche, avec des exemples concrets de Netflix et BlaBlaCar.
+
+                        Vous découvrirez également que la qualité logicielle ne se résume pas au code, et que l’humour peut être un levier efficace pour repenser la gestion de nos projets.
+
+                        Et pensez à vous inscrire, si ce n’est pas encore fait, à la 8ème édition du Tech.Rocks Summit (https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VVXPBk69_T7dW5mnZZd80Rvy2W3QbRmh5lL-C0N6WXHZH3pyd0W7lCdLW6lZ3p5W1KWpG-8nD_5rN95pcCFmcW2SW5QVH4g7GgHMqN4cXfXdnQ50SW50NJj21R35xvW50DTD33JplFSW4sLmpq4cJZBLVJ6TtB59n8DWW7fDvj23TkQgNW7pWHGz3Rx3-yW5kCYcJ3ny1JBW70BpRt3PWLKsVHSMvH2R8m1cW5jLzsc7_vS7rW3MtBFH7lY45HW3kq1885NtHlFW4ByT3H3PyFGwVmHVNw6KG_kqW7HLZWj94xkmZW34fvh046533KW2wW9qc6w9Hx8W4jFfpl6z5PfgW6yCnwn6prlplW8PPmJ18YnFL_f2P7mB204 ) , qui aura lieu les 2 et 3 décembre prochains au Théâtre de Paris !
+
+                        Bonne lecture !
+
+                        Antonin Gaunand
+
+                        🙏🏼 Merci à Antonin Gaunand, membres de la Newsletter Tech Readers, pour la coordination de cette édition. Merci également à Dorra Bartaguiz, Florian Fesseler, Aline Paponaud, Damien Thouvenin pour la rédaction des résumés.
+                    """.trimIndent(),
+                ),
+                Article(
                     title = "4 Traps to Avoid as You Transition into a Leadership Role",
                     link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VVXPBk69_T7dW5mnZZd80Rvy2W3QbRmh5lL-C0N6WXH-g3pyd0W8wLKSR6lZ3lMMRbmkSzRpGlW7m61t-2-B-cNW1gcbQq6YD8NDW4D4zRF3z0sc8W6bwPBk41ym-_W3zLVsM5L-tG_W3Y9D2Z2H5Zc8W3r4J226WXQYgW483DF58Dxl42W6VxCfm4LQQJFW7TJw1k7hlr84W1s0LrF4YbdD5W7Qk6y35BygLSVlqmcv1wpzSkW5lp9nw78_D-sW2FhKpD5fZyHxW8zhPzz3Q_JM-W5xxlZJ7nJkp0W4f2HQq7YNDHjW3fV9Pc73H_DYW28dlsM3WpcghW4qJntK3GqlfcW27z6-H1Z4LnpW97ttwZ7Ht5KlW3jkNRl638y5nW6Vnqm-62_pbdVC5rcp2wbZK8V-y6BW8scB4wf2Q9w0R04"),
                     description = """
@@ -173,6 +196,31 @@ class TechReadersNewsletterHandlerTest : BaseNewsletterHandlerTest<TechReadersNe
             articles.forAll { it.title shouldHaveMaxLength 255 }
 
             val expected = listOf(
+                Article(
+                    title = "Tech Readers #123 : Quand l’avenir est flou, revenez aux basiques.",
+                    link = URL(handler.newsletter.websiteUrl),
+                    description = """
+                        Quand l'avenir est flou, revenez aux basiques
+
+                        LE MOT DE LA RÉDACTION
+
+                        Cher.e.s Tech Leaders,
+
+                        « Que va devenir le métier ? Que vais-je devenir ? ». L’actualité rend l’avenir difficilement lisible, les annonces autour de l’IA se multiplient et interrogent les métiers. Difficile, dans ce contexte, de faire son job de leader, c’est-à-dire de donner une direction et d’y emmener les équipes. Comment garder tout le monde mobilisé, quels objectifs donner ?
+
+                        C’est le moment de revenir aux fondamentaux du job de Tech Leader et, justement, parmi les sujets qui animent les discussions sur le Slack Tech.Rocks en ce début d’année, beaucoup de questions sur les bonus, les plans de rémunération, les dynamiques d’équipe et la motivation.
+
+                        Vous trouverez donc dans ce numéro un florilège des ressources qui ont été partagées par nos membres pour aider à relever les défis du management dans la tech, organisées en 3 grands enjeux.
+
+                        Par ailleurs, on a aussi repéré dans l’actualité un peu de science-fiction devenue réalité. C’est dans la rubrique « autres pépites ». Et on termine ce numéro avec les bons plans Tech.Rocks du mois.
+
+                        Bonne lecture,
+
+                        Damien Thouvenin
+
+                        Enjeu #1 : une équipe compétente
+                    """.trimIndent()
+                ),
                 Article(
                     title = "New Junior Developers Can’t Actually Code",
                     link = URL("https://cGhbS04.na1.hubspotlinks.com/Ctc/GD+113/cGhbS04/VWdlqL4Dm7mYW1vm0dG37skNHW6L2xF55sT7yhN6hnppd3pyd0W6N1vHY6lZ3l3W6jlzj_93ytdBW2qXtPg79wvp-W4cfxK23rJ3vpW2tRrD8592GPfW1T8dZV15w1rBN751KhmjC5zhW8qzg3f3sZjmyW6PZg-d2kYr_GW8F90r85V3cCxW3PB7Zc393d36W7tHRhR1xRnZ2W4bt_3X9cy8YCN99B9Mj5XJfLW3j-zRb853kRZN4vtmtqzsyz2W6zK31g90lq2xW1WMckR35DMW1W1Qw9nY6C1qVKW8YSyDh3cY-tYW3KYrZv18CFRtW1F24yc4HxGjsVSCB4n35PCQgf4x4bpb04"),
