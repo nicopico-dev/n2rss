@@ -59,22 +59,4 @@ jobs:
       - deploy
     uses: ./.github/workflows/restart-server.yml
     secrets: inherit
-  notify-release-analytics:
-    if: ${{ vars.ENABLE_HTTP_CALLS }}
-    needs:
-      - deploy
-      - restart-server
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get the version
-        id: get_version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
-      - name: Notify release
-        uses: fjogeleit/http-request-action@v1
-        with:
-          url: ${{ vars.SERVER_ENDPOINT }}/notifyRelease?version=${{ steps.get_version.outputs.VERSION }}
-          method: POST
-          customHeaders: >-
-            {
-              "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
-            }
+    continue-on-error: true
