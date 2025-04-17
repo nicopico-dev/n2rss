@@ -1,101 +1,172 @@
-# N2RSS Project Guidelines
+# N2RSS Project Development Guidelines
 
-## Project Overview
+This document provides essential information for developers working on the N2RSS project.
 
-N2RSS (Newsletter to RSS) is a service that extracts articles from newsletters and publishes them as RSS feeds. The
-project aims to make newsletter content more accessible by converting it into a format that can be consumed by RSS
-readers.
+## Build and Configuration Instructions
 
-### Core Functionality
+### Prerequisites
 
-- Periodically checks an email inbox for new newsletters
-- Processes recognized newsletters and extracts individual articles
-- Publishes each newsletter as a separate RSS feed
-- Maps each article from a newsletter to an individual RSS entry
-- Marks processed emails as read
+- Java 17 or higher
+- Gradle (wrapper included)
+- MariaDB for production, H2 for tests
 
-### Supported Newsletters
+### Building the Project
 
-The application currently supports the following newsletters:
+```bash
+# Build the project
+./gradlew build
 
-- Android Weekly
-- Built for Mars
-- Kotlin Weekly
-- MIT - The Download
-- MIT - Weekend Reads
-- Pointer
-- QuickBird
+# Run tests
+./gradlew test
 
-## Technical Architecture
+# Create deployable JAR
+./gradlew bootJar
 
-### Technology Stack
+# Deploy to the deploy directory
+./gradlew copyJarToDeploy
+```
 
-- **Programming Languages**: Kotlin 2.1, Java 17
-- **Frameworks**: Spring MVC, Spring Data, Jakarta EE
-- **Libraries**:
-    - JSOUP for parsing email content
-    - ROME for generating RSS feeds
-- **Database**: MariaDB
-- **Development Tools**: Docker (for development environment)
+### Configuration
 
-### Key Components
+The application uses Spring Boot's configuration system with the following profiles:
 
-1. **Email Client**: Connects to an email server to retrieve newsletters
-    - Can be configured with environment variables
-    - Supports a local development mode using stub files
+- `local`: Default development profile
+- `reset-db`: Resets the database on startup
+- `test`: Used for testing with H2 database
 
-2. **Newsletter Handlers**: Process specific newsletter formats
-    - Each handler is responsible for a specific newsletter type
-    - Extracts articles and metadata from the newsletter
+Key configuration files:
 
-3. **RSS Feed Generator**: Creates and serves RSS feeds
-    - Generates XML in standard RSS format
-    - Provides endpoints for accessing feeds
+- `src/main/resources/application.properties`: Main configuration
+- `src/test/resources/application-test.properties`: Test-specific configuration
 
-4. **Analytics**: Tracks usage through Simple Analytics
-    - GDPR-compliant
-    - Primarily server-side events
-    - No user data collection
+Environment variables required for production:
 
-5. **Monitoring**: Reports errors through GitHub issues
-    - Creates issues with the label "n2rss-bot"
+- `N2RSS_EMAIL_HOST`: Email server host
+- `N2RSS_EMAIL_PORT`: Email server port (default: 993)
+- `N2RSS_EMAIL_USERNAME`: Email username
+- `N2RSS_EMAIL_PASSWORD`: Email password
+- `N2RSS_EMAIL_INBOX_FOLDERS`: Email inbox folders (default: inbox)
+- `N2RSS_RECAPTCHA_SITE_KEY`: reCAPTCHA site key (if enabled)
+- `N2RSS_RECAPTCHA_SECRET_KEY`: reCAPTCHA secret key (if enabled)
+- `N2RSS_GITHUB_ACCESS_TOKEN`: GitHub access token (if monitoring enabled)
 
-## Development Guidelines
+## Testing Information
 
-### Local Development
+### Running Tests
 
-1. Use the `local` profile for faster development:
-   ```shell
-   ./gradlew bootRun --args='--spring.profiles.active=local'
-   ```
+```bash
+# Run all tests
+./gradlew test
 
-2. The local profile uses stub emails from `stubs/emails` instead of connecting to an actual email server
+# Run a specific test class
+./gradlew test --tests "fr.nicopico.n2rss.utils.ListExtKtTest"
 
-3. A Docker container for MariaDB is automatically created for development
+# Run a specific test method
+./gradlew test --tests "fr.nicopico.n2rss.utils.ListExtKtTest.sortBy should sort items by specified property in ascending order"
+```
 
-### Testing
+### Test Structure
 
-- Run tests with `./gradlew check`
-- Newsletter handlers are tested with emails stored in `src/main/resources/emails`
-- Minimum code coverage requirement: 80%
+Tests follow a consistent structure:
+
+- JUnit 5 for test framework
+- MockK for mocking (not Mockito)
+- Kotest for assertions
+- GreenMail for email testing
+- MockWebServer for HTTP testing
+
+### Writing Tests
+
+1. Create a test class in the same package as the class being tested, with the suffix `Test` or `KtTest` for extension
+   functions
+2. Use descriptive test names with backticks: `` `method should do something when condition` ``
+3. Follow the GIVEN-WHEN-THEN pattern in test methods
+4. Use Kotest assertions with the `shouldBe` infix function
+5. For mocking, use MockK annotations and verification
+
+Example test:
+
+```kotlin
+@Test
+fun `sortBy should sort items by specified property in ascending order`() {
+    // GIVEN
+    val items = listOf(
+        TestItem("Charlie", 30),
+        TestItem("Alice", 25),
+        TestItem("Bob", 35)
+    )
+    val sort = Sort.by(Sort.Direction.ASC, "name")
+
+    // WHEN
+    val result = items.sortBy(sort) { item, prop ->
+        when (prop) {
+            "name" -> item.name
+            "age" -> item.age
+            else -> null
+        }
+    }
+
+    // THEN
+    result shouldBe listOf(
+        TestItem("Alice", 25),
+        TestItem("Bob", 35),
+        TestItem("Charlie", 30)
+    )
+}
+```
+
+### Code Coverage Requirements
+
+The project requires a minimum of 80% code coverage. Certain classes are excluded from coverage requirements:
+
+- Application entry point classes
+- Configuration classes
+- ConfigurationProperties classes
+
+## Development Information
+
+### Code Style
+
+- Kotlin code follows the official Kotlin style guide
+- Uses strict null safety with JSR-305 annotations (`-Xjsr305=strict`)
+- Uses Detekt for static code analysis
+
+### Project Structure
+
+- Spring Boot application with Kotlin
+- Uses Spring Data JPA for database access
+- Uses Flyway for database migrations
+- Separate migration paths for MariaDB (production) and H2 (tests)
+
+### Custom Gradle Plugins
+
+The project uses several custom Gradle plugins:
+
+- `kotlin-strict`: Enforces strict Kotlin compiler settings
+- `quality`: Configures code coverage requirements
+- `deploy`: Sets up deployment tasks
+- `restartServerTest`: Configures server restart testing
+
+### Database
+
+- MariaDB for production
+- H2 for tests
+- Flyway for migrations with separate paths for MariaDB and H2
 
 ### Deployment
 
-The application requires:
+The project includes a custom deployment task:
 
-- Access to an email account
-- A MariaDB database
+```bash
+./gradlew copyJarToDeploy
+```
 
-Deployment steps and required environment variables are detailed in the README.md file.
+This creates a JAR file named `n2rss.jar` in the `deploy` directory.
 
-## API Endpoints
+### Continuous Integration
 
-- `GET /`: HTML presentation of the project
-- `GET /rss`: Information on available RSS feeds
-- `GET /rss/[code]`: Retrieve a specific RSS feed
-- `POST /notifyRelease?version=X.Y.Z`: Notify analytics of a new release
-- `POST /stop`: Stop the application (protected by secret key)
+The project includes test scripts for CI/CD:
 
-## License
-
-This project is licensed under the MIT License.
+- `test_ci.sh`: CI test script
+- `test_cd.sh`: CD test script
+- `test_restart_server.sh`: Server restart test script
