@@ -50,15 +50,25 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ vars.FTP_DIR }}
           local-dir: ./deploy/
+  restart-server:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
       - name: Wait a bit at the end of deployment
         run: |
           sleep ${{ vars.DELAY_AFTER_DEPLOY_SECONDS }}
       - name: Restart the server
         uses: fjogeleit/http-request-action@v1
+        continue-on-error: true
         with:
           url: ${{ vars.SERVER_ENDPOINT }}
           method: GET
+          timeout: ${{ vars.CHECK_SERVER_TIMEOUT_MS }}
           ignoreStatusCodes: 502
+  check-server:
+    needs: restart-server
+    runs-on: ubuntu-latest
+    steps:
       - name: Wait until the server has restarted
         run: |
           sleep ${{ vars.DELAY_BEFORE_CHECK_SECONDS }}
