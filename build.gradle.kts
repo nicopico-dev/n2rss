@@ -114,6 +114,7 @@ dependencies {
     implementation(libs.jacksonModuleKotlin)
     implementation(libs.kotlin.reflect)
     implementation(libs.kotlinx.datetime)
+    implementation(libs.kotlinx.coroutines)
     implementation(libs.jakartaMail)
     implementation(libs.jsoup)
     implementation(libs.rome)

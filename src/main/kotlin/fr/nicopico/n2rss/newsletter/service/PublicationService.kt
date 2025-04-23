@@ -97,7 +97,6 @@ class PublicationService(
                     ArticleEntity(
                         title = article.title,
                         link = article.link.toString(),
-                        resolvedLink = null,
                         description = article.description,
                         publication = entity,
                     )
