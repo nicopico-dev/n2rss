@@ -28,6 +28,18 @@ jobs:
         run: chmod +x gradlew
       - name: Build application JAR
         run: ./gradlew --no-daemon bootJar copyJarToDeploy
+      - name: Stop the server
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.SERVER_ENDPOINT }}/stop
+          method: POST
+          customHeaders: >-
+            {
+              "X-Secret-Key": "${{ secrets.SERVER_MAINTENANCE_SECRET_KEY }}"
+            }
+      - name: Wait until the server has stopped
+        run: |
+          sleep ${{ vars.DELAY_BEFORE_DEPLOY_SECONDS }}
       - name: Deploy to server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         if: ${{ !env.ACT }}
@@ -40,7 +52,21 @@ jobs:
           local-dir: ./deploy/
       - name: Wait a bit at the end of deployment
         run: |
-          sleep ${{ vars.DELAY_AFTER_DEPLOY }}
+          sleep ${{ vars.DELAY_AFTER_DEPLOY_SECONDS }}
+      - name: Restart the server
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.SERVER_ENDPOINT }}
+          method: GET
+          ignoreStatusCodes: 502
+      - name: Wait until the server has restarted
+        run: |
+          sleep ${{ vars.DELAY_BEFORE_CHECK_SECONDS }}
+      - name: Check the server
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{ vars.SERVER_ENDPOINT }}
+          method: GET
   create-github-release:
     needs: deploy
     runs-on: ubuntu-latest
@@ -53,10 +79,3 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           draft: true
-  restart-server:
-    if: ${{ vars.ENABLE_HTTP_CALLS }}
-    needs:
-      - deploy
-    uses: ./.github/workflows/restart-server.yml
-    secrets: inherit
-    continue-on-error: true
