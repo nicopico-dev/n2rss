@@ -47,14 +47,13 @@ class ArticleService(
             resolveUris(articles.map { URI(it.link) })
         }
 
-        articles.toMutableList()
-            .replaceAll { article ->
-                article.copy(
-                    resolvedLink = resolvedUris[URI(article.link)]?.toString() ?: article.link,
-                )
-            }
+        articles.replaceAll { article ->
+            article.copy(
+                resolvedLink = resolvedUris[URI(article.link)]?.toString() ?: article.link,
+            )
+        }
         articleRepository.saveAll(articles)
-        LOG.debug("Resolving urls done!")
+        LOG.debug("Saved resolved url for articles {}", articles.map { it.title })
     }
 
     companion object {
