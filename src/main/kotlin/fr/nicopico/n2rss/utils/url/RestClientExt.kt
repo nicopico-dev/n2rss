@@ -51,6 +51,10 @@ suspend fun resolveUris(
                 }
             }
         )
+        .defaultStatusHandler {
+            // Ignore HTTP errors
+            true
+        }
         .build()
 
     return withContext(dispatcher) {

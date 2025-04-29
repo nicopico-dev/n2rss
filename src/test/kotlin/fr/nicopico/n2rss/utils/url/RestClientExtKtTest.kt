@@ -19,22 +19,64 @@ package fr.nicopico.n2rss.utils.url
 
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.runBlocking
+import okhttp3.mockwebserver.MockResponse
+import okhttp3.mockwebserver.MockWebServer
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.net.URI
 
 class RestClientExtKtTest {
 
+    private val server = MockWebServer()
+
+    @BeforeEach
+    fun setUp() {
+        server.start()
+    }
+
+    @AfterEach
+    fun tearDown() {
+        server.shutdown()
+    }
+
     @Test
     fun `should resolve an URI with 302 redirect`() {
-        val newsletterUri: URI = URI.create(
-            "https://f6p7au8ab.cc.rs6.net/tn.jsp?f=001DOzVYeoi_U8vAlnJAn9bZ-QTgRI4Civmiz1NoNpWDzi1oKjl0VNGULdyb96qdfHWspriSkrhat5m9DQax_Jk849PRYhVw7RmNYbvio2HCsW0H-35rJWcu7j1ItF4Rl0FOkjNKMyjGmRbbCmhi-Ec0QDlnSqGVte5dlxLLqVW9bc1vdCQ3qtZeoqOvvX5y8qFTXfjl-4DagA=&c=Q9c5o8mt_8OViXlfmsJkqA6CorbOewgTT4JDqd720cnkPFc8CUj-WA==&ch=7Dq-GqBxSzH5npeoV9hdFigIdzmKY1iDKFdziUVFscR07n774bwUUw=="
+        val resolvedUrl = server.url("/redirect/url")
+        server.enqueue(
+            // Redirect
+            MockResponse()
+                .setResponseCode(302)
+                .addHeader("Location", resolvedUrl)
         )
-        val resolvedUri = URI.create("https://carrion.dev/en/posts/context-parameters-kotlin/")
+        server.enqueue(
+            // Success
+            MockResponse()
+                .setResponseCode(200)
+        )
+
+        val originalUri: URI = server.url("/original/url").toUri()
 
         val result = runBlocking {
-            resolveUris(listOf(newsletterUri))
+            resolveUris(listOf(originalUri))
         }
 
-        result shouldBe mapOf(newsletterUri to resolvedUri)
+        result shouldBe mapOf(originalUri to resolvedUrl.toUri())
+    }
+
+    @Test
+    fun `should resolve to the original URI if not accessible`() {
+        server.enqueue(
+            // Error 403 Forbidden
+            MockResponse().setResponseCode(403)
+        )
+
+        val originalUri: URI = server.url("/original/url").toUri()
+
+        val result = runBlocking {
+            resolveUris(listOf(originalUri))
+        }
+
+        result shouldBe mapOf(originalUri to originalUri)
     }
 }
