@@ -15,38 +15,15 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.newsletter.data.entity
+package fr.nicopico.n2rss.newsletter.data
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.Lob
-import jakarta.persistence.ManyToOne
+import fr.nicopico.n2rss.newsletter.data.entity.ArticleEntity
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.stereotype.Repository
 
-@Entity(name = "ARTICLES")
-data class ArticleEntity(
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-
-    @Column(nullable = false)
-    val title: String,
-
-    @Column(nullable = false, length = 2000)
-    val link: String,
-
-    @Column(nullable = true, length = 2000)
-    val resolvedLink: String? = null,
-
-    @Column(nullable = false, length = 5000)
-    @Lob
-    val description: String,
-
-    @ManyToOne
-    @JoinColumn(name = "publication_id", nullable = false)
-    val publication: PublicationEntity,
-)
+@Repository
+interface ArticleRepository : JpaRepository<ArticleEntity, Long> {
+    fun findByResolvedLinkIsNull(pageable: Pageable): Page<ArticleEntity>
+}
