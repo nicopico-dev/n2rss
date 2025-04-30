@@ -35,6 +35,7 @@ private const val ARTICLE_RESOLVE_URI_BATCH_SIZE = 15
 class ArticleService(
     private val articleRepository: ArticleRepository,
 ) {
+    // FIXME Disable the scheduled task in development
     @Transactional
     @ConditionalOnProperty(name = ["n2rss.resolve-article-urls"])
     @Scheduled(fixedDelay = 15, timeUnit = TimeUnit.MINUTES, initialDelay = 1)
