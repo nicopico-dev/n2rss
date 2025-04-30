@@ -26,6 +26,7 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
+import org.slf4j.LoggerFactory
 import org.springframework.http.HttpStatus
 import org.springframework.http.client.SimpleClientHttpRequestFactory
 import org.springframework.web.client.RestClient
@@ -34,6 +35,7 @@ import java.net.URI
 import kotlin.coroutines.resume
 
 private const val TIMEOUT_MS = 5000
+private val LOG = LoggerFactory.getLogger("RestClientExt")
 
 suspend fun resolveUris(
     urls: List<URI>,
@@ -51,10 +53,6 @@ suspend fun resolveUris(
                 }
             }
         )
-        .defaultStatusHandler {
-            // Ignore HTTP errors
-            true
-        }
         .build()
 
     return withContext(dispatcher) {
@@ -84,7 +82,15 @@ private val REDIRECT_STATUS_CODES = listOf(
 private suspend fun RestClient.resolveUrl(originalUri: URI): Deferred<URI> = coroutineScope {
     async {
         suspendCancellableCoroutine {
-            val response = get().uri(originalUri).retrieve().toBodilessEntity()
+            val response = get().uri(originalUri).retrieve()
+                .onStatus { httpResponse ->
+                    // Ignore HTTP errors
+                    if (httpResponse.statusCode.is4xxClientError || httpResponse.statusCode.is5xxServerError) {
+                        LOG.warn("HTTP error when resolving url $originalUri -> ${httpResponse.statusCode}")
+                    }
+                    true
+                }
+                .toBodilessEntity()
 
             val resolvedUri = if (response.statusCode in REDIRECT_STATUS_CODES) {
                 response.headers.location
