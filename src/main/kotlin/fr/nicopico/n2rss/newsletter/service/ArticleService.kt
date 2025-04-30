@@ -21,6 +21,7 @@ import fr.nicopico.n2rss.newsletter.data.ArticleRepository
 import fr.nicopico.n2rss.utils.url.resolveUris
 import kotlinx.coroutines.runBlocking
 import org.slf4j.LoggerFactory
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
 import org.springframework.data.domain.PageRequest
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
@@ -34,8 +35,9 @@ private const val ARTICLE_RESOLVE_URI_BATCH_SIZE = 15
 class ArticleService(
     private val articleRepository: ArticleRepository,
 ) {
-    @Scheduled(fixedDelay = 15, timeUnit = TimeUnit.MINUTES, initialDelay = 1)
     @Transactional
+    @ConditionalOnProperty(name = ["n2rss.resolve-article-urls"])
+    @Scheduled(fixedDelay = 15, timeUnit = TimeUnit.MINUTES, initialDelay = 1)
     fun saveResolvedUrls() {
         val pageable = PageRequest.ofSize(ARTICLE_RESOLVE_URI_BATCH_SIZE)
         val articles = articleRepository.findByResolvedLinkIsNull(pageable)
