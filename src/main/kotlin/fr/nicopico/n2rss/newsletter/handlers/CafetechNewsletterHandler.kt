@@ -19,11 +19,15 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.html
+import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
+import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
+import java.net.URL
 
 @Component
 class CafetechNewsletterHandler : NewsletterHandlerSingleFeed {
@@ -43,11 +47,41 @@ class CafetechNewsletterHandler : NewsletterHandlerSingleFeed {
             email.content.html,
             Safelist.none()
                 .addTags("h1", "p", "a")
-                .addAttributes("a", "href"),
+                .addAttributes("h1", "class")
+                .addAttributes("a", "href", "class"),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        println(document)
 
-        return emptyList()
+        // All articles of this newsletter share the same URL
+        val newsletterLink: URL = document.selectFirst("a.email-button-outline[href]")?.attr("href")?.toUrlOrNull()
+            ?: throw NewsletterParsingException("Could not find the newsletter URL for \"${email.subject}\"")
+
+        return document
+            .select("h1.header-anchor-post")
+            .map { articleTitleElement ->
+                val title = articleTitleElement.text()
+                // Take all <p> elements after the title, until "Pour aller plus loin"
+                val contentElements = articleTitleElement
+                    .nextElementSibling()!! // Picture
+                    .nextElementSiblings()
+                    .takeWhile {
+                        it.tagName() == "p" && !it.text().startsWith(ARTICLE_LINKS_P_PREFIX)
+                    }
+                val articleDescription = contentElements
+                    .joinToString(
+                        separator = "\n\n",
+                        transform = Element::text,
+                    )
+
+                Article(
+                    title = title,
+                    description = articleDescription,
+                    link = newsletterLink,
+                )
+            }
+    }
+
+    companion object {
+        private const val ARTICLE_LINKS_P_PREFIX = "Pour aller plus loin"
     }
 }
