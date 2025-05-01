@@ -53,7 +53,8 @@ class CafetechNewsletterHandler : NewsletterHandlerSingleFeed {
         val document = Jsoup.parseBodyFragment(cleanedHtml)
 
         // All articles of this newsletter share the same URL
-        val newsletterLink: URL = document.selectFirst("a.email-button-outline[href]")?.attr("href")?.toUrlOrNull()
+        val newsletterLink: URL = document.selectFirst("a.email-button-outline[href]")?.attr("href")
+            ?.toUrlOrNull()?.removeAppStoreRedirect()
             ?: throw NewsletterParsingException("Could not find the newsletter URL for \"${email.subject}\"")
 
         return document
@@ -81,7 +82,25 @@ class CafetechNewsletterHandler : NewsletterHandlerSingleFeed {
             }
     }
 
+    /**
+     * Remove the query-parameter causing a redirection to the App Store when opening the article
+     */
+    private fun URL.removeAppStoreRedirect(): URL {
+        val queryParams = query
+            ?.split("&")
+            ?.filterNot { it.startsWith("$REDIRECT_QUERY_PARAMETER=") }
+            ?.joinToString("&")
+
+        return URL(
+            protocol,
+            host,
+            port,
+            if (queryParams.isNullOrEmpty()) path else "$path?$queryParams"
+        )
+    }
+
     companion object {
         private const val ARTICLE_LINKS_P_PREFIX = "Pour aller plus loin"
+        private const val REDIRECT_QUERY_PARAMETER = "redirect"
     }
 }

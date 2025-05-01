@@ -50,7 +50,7 @@ class CafetechNewsletterHandlerTest : BaseNewsletterHandlerTest<CafetechNewslett
             val expected = listOf(
                 Article(
                     title = "Apple condamné à une amende en France à cause de ses règles publicitaires",
-                    link = URL("https://open.substack.com/pub/cafetech/p/apple-condamne-en-france-pour-abus?utm_source=email&redirect=app-store&utm_campaign=email-read-in-app"),
+                    link = URL("https://open.substack.com/pub/cafetech/p/apple-condamne-en-france-pour-abus?utm_source=email&utm_campaign=email-read-in-app"),
                     description = """
                         Apple ne semble pas enclin à changer ses pratiques sur le pistage publicitaire. Pourtant, le groupe à la pomme a été condamné lundi par l’autorité de la concurrence à une amende de 150 millions d’euros. Il a été reconnu coupable d’abus de position dominante dans la distribution d’applications mobiles, en raison de la mise en place d’une nouvelle fenêtre de consentement. Se disant “déçu” de ce verdict sans grande surprise, il se contente de souligner que le gendarme antitrust français “n’a pas exigé de changements spécifiques”. Autrement dit: Apple n’a aucune raison de modifier un système qui recueille un “fort soutien” de la part des consommateurs et des défenseurs de la vie privée. “Si aucun changement n’est apporté, l’illégalité persiste”, répondent les quatre organismes, représentant l’industrie publicitaire, à l’origine de l’affaire.
 
@@ -63,7 +63,7 @@ class CafetechNewsletterHandlerTest : BaseNewsletterHandlerTest<CafetechNewslett
                 ),
                 Article(
                     title = "Après son rachat, BeReal veut accélérer dans la publicité",
-                    link = URL("https://open.substack.com/pub/cafetech/p/apple-condamne-en-france-pour-abus?utm_source=email&redirect=app-store&utm_campaign=email-read-in-app"),
+                    link = URL("https://open.substack.com/pub/cafetech/p/apple-condamne-en-france-pour-abus?utm_source=email&utm_campaign=email-read-in-app"),
                     description = """
                         “C’est une cible particulièrement difficile à toucher pour les annonceurs”. D’emblée, Anas Nadifi plante le décor. Cet ancien de Google et de TF1 vient de prendre les commandes de la régie publicitaire française de BeReal. Sa mission: imposer le réseau social tricolore dans le paysage publicitaire. Son principal argument de vente: la Gen Z. Cette catégorie d’âge, qui correspond aux personnes âgées de 13 à 28 ans, représente environ 70% de l’audience. “En France, nous touchons un utilisateur Gen Z sur deux”, souligne le responsable. Depuis ses premiers pas sur le marché l’été dernier, BeReal assure avoir réalisé plus de 200 campagnes publicitaires dans le monde, notamment au Japon et au Royaume-Uni. Seulement un début alors que son nouveau propriétaire, l’éditeur de jeux vidéo mobiles Voodoo, affiche de grandes ambitions.
 
