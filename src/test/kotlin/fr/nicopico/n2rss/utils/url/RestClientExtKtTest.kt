@@ -42,6 +42,8 @@ class RestClientExtKtTest {
 
     @Test
     fun `should resolve an URI with 302 redirect`() {
+        // GIVEN
+        val userAgent = "UA"
         val resolvedUrl = server.url("/redirect/url")
         server.enqueue(
             // Redirect
@@ -57,19 +59,23 @@ class RestClientExtKtTest {
 
         val originalUri: URI = server.url("/original/url").toUri()
 
+        // WHEN
         val result = runBlocking {
-            resolveUris(listOf(originalUri))
+            resolveUris(userAgent, listOf(originalUri))
         }
 
+        // THEN
         result shouldBe mapOf(originalUri to resolvedUrl.toUri())
     }
 
     @Test
     fun `should follow multiple redirects to resolve an URI`() {
+        // GIVEN
+        val userAgent = "UA"
         val originalUri: URI = server.url("/original/url").toUri()
         val resolvedUri: URI = server.url("/redirect2").toUri()
 
-        // Represent "beehiiv" redirection behavior
+        // follow "beehiiv" redirection behavior
         // 302 Found
         server.enqueue(
             MockResponse()
@@ -89,15 +95,19 @@ class RestClientExtKtTest {
                 .setResponseCode(304)
         )
 
+        // WHEN
         val result = runBlocking {
-            resolveUris(listOf(originalUri))
+            resolveUris(userAgent, listOf(originalUri))
         }
 
+        // THEN
         result shouldBe mapOf(originalUri to resolvedUri)
     }
 
     @Test
     fun `should map to null if the original URI if not accessible`() {
+        // GIVEN
+        val userAgent = "UA"
         server.enqueue(
             // Error 403 Forbidden
             MockResponse().setResponseCode(403)
@@ -105,10 +115,12 @@ class RestClientExtKtTest {
 
         val originalUri: URI = server.url("/original/url").toUri()
 
+        // WHEN
         val result = runBlocking {
-            resolveUris(listOf(originalUri))
+            resolveUris(userAgent, listOf(originalUri))
         }
 
+        // THEN
         result shouldBe mapOf(originalUri to null)
     }
 }

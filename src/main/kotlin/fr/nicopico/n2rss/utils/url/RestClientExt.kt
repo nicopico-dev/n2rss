@@ -27,6 +27,7 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import org.slf4j.LoggerFactory
+import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.client.SimpleClientHttpRequestFactory
 import org.springframework.web.client.RestClient
@@ -41,11 +42,13 @@ private val LOG = LoggerFactory.getLogger("RestClientExt")
 //  ex: https://link.mail.beehiiv.com/ss/c/u001.3a5P_SwQzY5x8USD2q4p0r7tZ4Xc_IMfzOhNH-sZPqXF5edqv_aYXhBXdCzcRVykDyq9Wl9a1Ge1hLkoeCwntpQkvfL-5h3Xz0oMO0MNUb4JOZkpL15kAwrX55aT-RUjLDbPVBr78sxN0T17LYZS4Ar3QuxRWfDySw2dWCyJIvNwmllgb9FqevhlQtIWQwJomy11i66WPmIY76Tj39FzlimpG3Ylm2Ay4QNS_wmQzYhLJrM85OjSu_-5vq3RR7SolPqm7MhUq_R5Y3pn_KLdo_cS7p1n9gckSSXS1rLk9LH9PWAEdKGOPayosqQ2YCNR/4bo/zbVYybWiRwSiQr1bey4J-w/h10/h001.2nd4OWD1oRoMgzUpVtSORAo4DI3VH1mAH-36d0sUrRg
 //  -> https://www.qawolf.com/webinars/ai-prompt-evaluations-beyond-golden-datasets
 suspend fun resolveUris(
+    userAgent: String,
     urls: List<URI>,
     dispatcher: CoroutineDispatcher = Dispatchers.IO,
     maxConcurrency: Int = 5,
 ): Map<URI, URI?> {
     val restClient = RestClient.builder()
+        .defaultHeader(HttpHeaders.USER_AGENT, userAgent)
         .requestFactory(
             object : SimpleClientHttpRequestFactory() {
                 override fun prepareConnection(connection: HttpURLConnection, httpMethod: String) {
