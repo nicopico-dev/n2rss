@@ -63,6 +63,7 @@ class N2RssApplicationProdTest {
             registry.add("N2RSS_ANALYTICS_UA") { "<user-agent>" }
 
             registry.add("N2RSS_BASE_URL") { "https://n2rss.nicopico.fr" }
+            registry.add("N2RSS_RESOLVE_ARTICLE_URLS") { "true" }
 
             registry.add("N2RSS_DATABASE_PASSWORD") { "" }
             registry.add("N2RSS_DATABASE_SCHEMA") { "PUBLIC" }

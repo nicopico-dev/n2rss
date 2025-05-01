@@ -112,5 +112,7 @@ constructor(
     )
     data class ExternalProperties(
         val baseUrl: URL,
+        val resolveArticleUrls: Boolean = false,
+        val userAgent: String = "n2rss",
     )
 }
