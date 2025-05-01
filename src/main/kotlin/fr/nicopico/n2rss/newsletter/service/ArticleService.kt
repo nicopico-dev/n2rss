@@ -17,26 +17,38 @@
  */
 package fr.nicopico.n2rss.newsletter.service
 
+import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.newsletter.data.ArticleRepository
 import fr.nicopico.n2rss.utils.url.resolveUris
 import kotlinx.coroutines.runBlocking
 import org.slf4j.LoggerFactory
 import org.springframework.data.domain.PageRequest
+import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.net.URI
+import java.util.concurrent.TimeUnit
 
 private const val ARTICLE_RESOLVE_URI_BATCH_SIZE = 15
 
 @Service
 class ArticleService(
     private val articleRepository: ArticleRepository,
+    private val externalProperties: N2RssProperties.ExternalProperties,
 ) {
-    // Disabled temporarily
-    //@Scheduled(fixedDelay = 15, timeUnit = TimeUnit.MINUTES, initialDelay = 1)
-    @Suppress("unused")
+    @Scheduled(fixedDelay = 15, timeUnit = TimeUnit.MINUTES, initialDelay = 1)
     @Transactional
-    fun saveResolvedUrls() {
+    fun scheduledArticleUrlResolution() {
+        if (!externalProperties.resolveArticleUrls) {
+            LOG.debug("Article URL resolution is disabled")
+            return
+        }
+
+        resolveSomeArticleUrls()
+    }
+
+    @Transactional
+    fun resolveSomeArticleUrls() {
         val pageable = PageRequest.ofSize(ARTICLE_RESOLVE_URI_BATCH_SIZE)
         val articles = articleRepository.findByResolvedLinkIsNull(pageable)
             .content
@@ -49,6 +61,7 @@ class ArticleService(
 
         articles.replaceAll { article ->
             article.copy(
+                // TODO Indicate fails resolved links
                 resolvedLink = resolvedUris[URI(article.link)]?.toString() ?: article.link,
             )
         }

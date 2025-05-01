@@ -112,5 +112,6 @@ constructor(
     )
     data class ExternalProperties(
         val baseUrl: URL,
+        val resolveArticleUrls: Boolean = false,
     )
 }
