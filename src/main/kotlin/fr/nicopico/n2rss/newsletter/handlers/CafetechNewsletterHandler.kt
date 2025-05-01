@@ -28,6 +28,7 @@ import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 import java.net.URL
+import java.util.concurrent.atomic.AtomicInteger
 
 @Component
 class CafetechNewsletterHandler : NewsletterHandlerSingleFeed {
@@ -53,24 +54,30 @@ class CafetechNewsletterHandler : NewsletterHandlerSingleFeed {
         val document = Jsoup.parseBodyFragment(cleanedHtml)
 
         // All articles of this newsletter share the same URL
-        val newsletterLink: URL = document.selectFirst("a.email-button-outline[href]")?.attr("href")?.toUrlOrNull()
+        val newsletterLink: URL = document.selectFirst("a.email-button-outline[href]")?.attr("href")
+            ?.toUrlOrNull()?.removeAppStoreRedirect()
             ?: throw NewsletterParsingException("Could not find the newsletter URL for \"${email.subject}\"")
 
         return document
             .select("h1.header-anchor-post")
             .map { articleTitleElement ->
                 val title = articleTitleElement.text()
-                // Take all <p> elements after the title, until "Pour aller plus loin"
+
+                // Take <p> elements after the title, until "Pour aller plus loin"
+                val paragraphCount = AtomicInteger(0)
                 val contentElements = articleTitleElement
                     .nextElementSibling()!! // Picture
                     .nextElementSiblings()
                     .takeWhile {
-                        it.tagName() == "p" && !it.text().startsWith(ARTICLE_LINKS_P_PREFIX)
+                        it.tagName() == "p"
+                            && paragraphCount.incrementAndGet() <= ARTICLE_DESCRIPTION_PARAGRAPHS
+                            && !it.text().startsWith(ARTICLE_LINKS_P_PREFIX)
                     }
                 val articleDescription = contentElements
                     .joinToString(
                         separator = "\n\n",
                         transform = Element::text,
+                        postfix = ARTICLE_DESCRIPTION_POSTFIX,
                     )
 
                 Article(
@@ -81,7 +88,35 @@ class CafetechNewsletterHandler : NewsletterHandlerSingleFeed {
             }
     }
 
+    /**
+     * Remove the query-parameter causing a redirection to the App Store when opening the article
+     */
+    private fun URL.removeAppStoreRedirect(): URL {
+        val queryParams = query
+            ?.split("&")
+            ?.filterNot { it.startsWith("$REDIRECT_QUERY_PARAMETER=") }
+            ?.joinToString("&")
+
+        return URL(
+            protocol,
+            host,
+            port,
+            if (queryParams.isNullOrEmpty()) path else "$path?$queryParams"
+        )
+    }
+
     companion object {
+        /**
+         * Define how many paragraphs should be used to create the article description
+         */
+        private const val ARTICLE_DESCRIPTION_PARAGRAPHS = 1
+        private const val ARTICLE_DESCRIPTION_POSTFIX = "\n\n(Ouvrir l'article pour continuer)"
+
+        /**
+         * Text indicating the content of this <p> element contains links of the article
+         */
         private const val ARTICLE_LINKS_P_PREFIX = "Pour aller plus loin"
+
+        private const val REDIRECT_QUERY_PARAMETER = "redirect"
     }
 }
