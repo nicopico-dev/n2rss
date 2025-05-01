@@ -22,11 +22,9 @@ import fr.nicopico.n2rss.utils.url.resolveUris
 import kotlinx.coroutines.runBlocking
 import org.slf4j.LoggerFactory
 import org.springframework.data.domain.PageRequest
-import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.net.URI
-import java.util.concurrent.TimeUnit
 
 private const val ARTICLE_RESOLVE_URI_BATCH_SIZE = 15
 
@@ -34,7 +32,9 @@ private const val ARTICLE_RESOLVE_URI_BATCH_SIZE = 15
 class ArticleService(
     private val articleRepository: ArticleRepository,
 ) {
-    @Scheduled(fixedDelay = 15, timeUnit = TimeUnit.MINUTES, initialDelay = 1)
+    // Disabled temporarily
+    //@Scheduled(fixedDelay = 15, timeUnit = TimeUnit.MINUTES, initialDelay = 1)
+    @Suppress("unused")
     @Transactional
     fun saveResolvedUrls() {
         val pageable = PageRequest.ofSize(ARTICLE_RESOLVE_URI_BATCH_SIZE)
