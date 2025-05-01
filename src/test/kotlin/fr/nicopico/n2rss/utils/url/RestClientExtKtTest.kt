@@ -65,7 +65,39 @@ class RestClientExtKtTest {
     }
 
     @Test
-    fun `should resolve to the original URI if not accessible`() {
+    fun `should follow multiple redirects to resolve an URI`() {
+        val originalUri: URI = server.url("/original/url").toUri()
+        val resolvedUri: URI = server.url("/redirect2").toUri()
+
+        // Represent "beehiiv" redirection behavior
+        // 302 Found
+        server.enqueue(
+            MockResponse()
+                .setResponseCode(302)
+                .addHeader("location", server.url("/redirect1"))
+        )
+        // 301 Moved permanently (with a relative path)
+        val resolvedRelativePath = resolvedUri
+        server.enqueue(
+            MockResponse()
+                .setResponseCode(301)
+                .addHeader("location", resolvedRelativePath)
+        )
+        // 304 - Not Modified
+        server.enqueue(
+            MockResponse()
+                .setResponseCode(304)
+        )
+
+        val result = runBlocking {
+            resolveUris(listOf(originalUri))
+        }
+
+        result shouldBe mapOf(originalUri to resolvedUri)
+    }
+
+    @Test
+    fun `should map to null if the original URI if not accessible`() {
         server.enqueue(
             // Error 403 Forbidden
             MockResponse().setResponseCode(403)
@@ -77,6 +109,6 @@ class RestClientExtKtTest {
             resolveUris(listOf(originalUri))
         }
 
-        result shouldBe mapOf(originalUri to originalUri)
+        result shouldBe mapOf(originalUri to null)
     }
 }

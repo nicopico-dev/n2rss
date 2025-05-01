@@ -41,7 +41,7 @@ suspend fun resolveUris(
     urls: List<URI>,
     dispatcher: CoroutineDispatcher = Dispatchers.IO,
     maxConcurrency: Int = 5,
-): Map<URI, URI> {
+): Map<URI, URI?> {
     val restClient = RestClient.builder()
         .requestFactory(
             object : SimpleClientHttpRequestFactory() {
@@ -73,33 +73,37 @@ suspend fun resolveUris(
 }
 
 private val REDIRECT_STATUS_CODES = listOf(
-    HttpStatus.MOVED_PERMANENTLY,
-    HttpStatus.FOUND,
-    HttpStatus.TEMPORARY_REDIRECT,
-    HttpStatus.PERMANENT_REDIRECT,
+    HttpStatus.MOVED_PERMANENTLY,   // 301
+    HttpStatus.FOUND,               // 302
+    HttpStatus.TEMPORARY_REDIRECT,  // 307
+    HttpStatus.PERMANENT_REDIRECT,  // 308
 )
 
-private suspend fun RestClient.resolveUrl(originalUri: URI): Deferred<URI> = coroutineScope {
+private suspend fun RestClient.resolveUrl(originalUri: URI): Deferred<URI?> = coroutineScope {
     async {
         suspendCancellableCoroutine {
-            val response = get().uri(originalUri).retrieve()
+            val response = get()
+                .uri(originalUri)
+                .retrieve()
                 .onStatus { httpResponse ->
                     // Ignore HTTP errors
-                    if (httpResponse.statusCode.is4xxClientError || httpResponse.statusCode.is5xxServerError) {
+                    if (httpResponse.statusCode.isError) {
                         LOG.warn("HTTP error when resolving url $originalUri -> ${httpResponse.statusCode}")
                     }
                     true
                 }
                 .toBodilessEntity()
 
-            val resolvedUri = if (response.statusCode in REDIRECT_STATUS_CODES) {
-                response.headers.location
-            } else null
+            val resolvedUri = when {
+                response.statusCode in REDIRECT_STATUS_CODES -> response.headers.location
+                response.statusCode.isError -> null
+                else -> originalUri
+            }
 
-            it.resume(resolvedUri ?: originalUri)
+            it.resume(resolvedUri)
         }.let { resolvedUri ->
             // Handle multiple redirects
-            if (resolvedUri != originalUri) {
+            if (resolvedUri != null && resolvedUri != originalUri) {
                 resolveUrl(resolvedUri).await()
             } else resolvedUri
         }
