@@ -61,8 +61,8 @@ class ArticleService(
 
         articles.replaceAll { article ->
             article.copy(
-                // TODO Indicate fails resolved links
-                resolvedLink = resolvedUris[URI(article.link)]?.toString() ?: article.link,
+                resolvedLink = resolvedUris[URI(article.link)]?.toString()
+                    ?: FAILED_URL_RESOLUTION_PLACEHOLDER,
             )
         }
         articleRepository.saveAll(articles)
@@ -71,5 +71,7 @@ class ArticleService(
 
     companion object {
         private val LOG = LoggerFactory.getLogger(ArticleService::class.java)
+
+        const val FAILED_URL_RESOLUTION_PLACEHOLDER = "-"
     }
 }
