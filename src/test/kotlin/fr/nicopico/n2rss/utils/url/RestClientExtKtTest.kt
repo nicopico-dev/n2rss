@@ -74,7 +74,7 @@ class RestClientExtKtTest {
         // GIVEN
         val userAgent = "UA"
         val originalUri: URI = server.url("/original/url").toUri()
-        val resolvedUri: URI = server.url("/redirect2").toUri()
+        val resolvedUri: URI = server.url("/redirect2/url").toUri()
 
         // follow "beehiiv" redirection behavior
         // 302 Found
@@ -84,11 +84,10 @@ class RestClientExtKtTest {
                 .addHeader("location", server.url("/redirect1"))
         )
         // 301 Moved permanently (with a relative path)
-        val resolvedRelativePath = resolvedUri
         server.enqueue(
             MockResponse()
                 .setResponseCode(301)
-                .addHeader("location", resolvedRelativePath)
+                .addHeader("location", resolvedUri)
         )
         // 304 - Not Modified
         server.enqueue(
@@ -103,6 +102,28 @@ class RestClientExtKtTest {
 
         // THEN
         result shouldBe mapOf(originalUri to resolvedUri)
+    }
+
+    @Test
+    fun `should not crash on relative redirects`() {
+        // GIVEN
+        val userAgent = "UA"
+        val originalUri: URI = server.url("/original/url").toUri()
+        val relativeRedirectPath = "/redirect/url"
+
+        server.enqueue(
+            MockResponse()
+                .setResponseCode(301)
+                .addHeader("location", relativeRedirectPath)
+        )
+
+        // WHEN
+        val result = runBlocking {
+            resolveUris(userAgent, listOf(originalUri))
+        }
+
+        // THEN
+        result shouldBe mapOf(originalUri to null)
     }
 
     @Test
