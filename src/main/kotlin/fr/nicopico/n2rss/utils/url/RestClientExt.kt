@@ -123,7 +123,15 @@ private suspend fun RestClient.resolveUrl(originalUri: URI): Deferred<URI?> = co
 
             val resolvedUri = when {
                 response == null -> null
-                response.statusCode in REDIRECT_STATUS_CODES -> response.headers.location
+                response.statusCode in REDIRECT_STATUS_CODES ->
+                    @Suppress("TooGenericExceptionCaught")
+                    try {
+                        response.headers.location
+                    } catch (e: Exception) {
+                        LOG.error("Invalid location header in response to GET $originalUri", e)
+                        null
+                    }
+
                 response.statusCode.isError -> null
                 else -> originalUri
             }
