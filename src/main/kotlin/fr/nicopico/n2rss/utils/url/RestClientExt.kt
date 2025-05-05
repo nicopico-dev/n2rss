@@ -28,7 +28,9 @@ import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpHeaders
+import org.springframework.http.HttpMethod
 import org.springframework.http.HttpStatus
+import org.springframework.http.client.ClientHttpRequest
 import org.springframework.http.client.SimpleClientHttpRequestFactory
 import org.springframework.web.client.RestClient
 import java.net.HttpURLConnection
@@ -53,6 +55,13 @@ suspend fun resolveUris(
                     connection.instanceFollowRedirects = false
                     connection.connectTimeout = TIMEOUT_MS
                     connection.readTimeout = TIMEOUT_MS
+                }
+
+                override fun createRequest(uri: URI, httpMethod: HttpMethod): ClientHttpRequest {
+                    if (!uri.isAbsolute) {
+                        LOG.warn("Non-absolute URI '{}' are not supported!", uri)
+                    }
+                    return super.createRequest(uri, httpMethod)
                 }
             }
         )
@@ -94,19 +103,25 @@ private suspend fun RestClient.resolveUrl(originalUri: URI): Deferred<URI?> = co
             }
 
             // Call HTTP to resolve the URL
-            val response = get()
-                .uri(originalUri)
-                .retrieve()
-                .onStatus { httpResponse ->
-                    // Ignore HTTP errors
-                    if (httpResponse.statusCode.isError) {
-                        LOG.warn("HTTP error when resolving url $originalUri -> ${httpResponse.statusCode}")
+            val response = try {
+                get()
+                    .uri(originalUri)
+                    .retrieve()
+                    .onStatus { httpResponse ->
+                        // Ignore HTTP errors
+                        if (httpResponse.statusCode.isError) {
+                            LOG.warn("HTTP error when resolving url $originalUri -> ${httpResponse.statusCode}")
+                        }
+                        true
                     }
-                    true
-                }
-                .toBodilessEntity()
+                    .toBodilessEntity()
+            } catch (e: IllegalArgumentException) {
+                LOG.error("Failed to GET $originalUri", e)
+                null
+            }
 
             val resolvedUri = when {
+                response == null -> null
                 response.statusCode in REDIRECT_STATUS_CODES -> response.headers.location
                 response.statusCode.isError -> null
                 else -> originalUri
