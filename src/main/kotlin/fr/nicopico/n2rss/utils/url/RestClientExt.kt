@@ -103,6 +103,7 @@ private suspend fun RestClient.resolveUrl(originalUri: URI): Deferred<URI?> = co
             }
 
             // Call HTTP to resolve the URL
+            @Suppress("TooGenericExceptionCaught")
             val response = try {
                 get()
                     .uri(originalUri)
@@ -115,7 +116,7 @@ private suspend fun RestClient.resolveUrl(originalUri: URI): Deferred<URI?> = co
                         true
                     }
                     .toBodilessEntity()
-            } catch (e: IllegalArgumentException) {
+            } catch (e: Exception) {
                 LOG.error("Failed to GET $originalUri", e)
                 null
             }
