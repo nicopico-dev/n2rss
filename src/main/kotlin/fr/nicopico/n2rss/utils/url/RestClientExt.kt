@@ -23,9 +23,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
-import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.withTimeoutOrNull
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
@@ -36,15 +37,18 @@ import org.springframework.web.client.RestClient
 import java.net.HttpURLConnection
 import java.net.URI
 import kotlin.coroutines.resume
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.DurationUnit
 
-private const val TIMEOUT_MS = 5000
 private val LOG = LoggerFactory.getLogger("RestClientExt")
 
 suspend fun resolveUris(
-    userAgent: String,
     urls: List<URI>,
+    userAgent: String = "n2rss",
     dispatcher: CoroutineDispatcher = Dispatchers.IO,
     maxConcurrency: Int = 5,
+    timeout: Duration = 5000.milliseconds,
 ): Map<URI, URI?> {
     val restClient = RestClient.builder()
         .defaultHeader(HttpHeaders.USER_AGENT, userAgent)
@@ -53,8 +57,11 @@ suspend fun resolveUris(
                 override fun prepareConnection(connection: HttpURLConnection, httpMethod: String) {
                     super.prepareConnection(connection, httpMethod)
                     connection.instanceFollowRedirects = false
-                    connection.connectTimeout = TIMEOUT_MS
-                    connection.readTimeout = TIMEOUT_MS
+
+                    // Use `timeout + 1` to trigger Kotlin Coroutines withTimeout
+                    val timeoutMs = timeout.toInt(DurationUnit.MILLISECONDS)
+                    connection.connectTimeout = timeoutMs + 1
+                    connection.readTimeout = timeoutMs + 1
                 }
 
                 override fun createRequest(uri: URI, httpMethod: HttpMethod): ClientHttpRequest {
@@ -72,9 +79,7 @@ suspend fun resolveUris(
             .flatMap { urlChunk ->
                 val resolvedUrls = urlChunk
                     .associateWith { articleURI ->
-                        withTimeout(TIMEOUT_MS.toLong()) {
-                            restClient.resolveUrl(articleURI)
-                        }
+                        restClient.resolveUrl(articleURI, timeout)
                     }
                 resolvedUrls.values.awaitAll()
                 resolvedUrls.entries
@@ -92,56 +97,63 @@ private val REDIRECT_STATUS_CODES = listOf(
     HttpStatus.PERMANENT_REDIRECT,  // 308
 )
 
-private suspend fun RestClient.resolveUrl(originalUri: URI): Deferred<URI?> = coroutineScope {
+private suspend fun RestClient.resolveUrl(
+    originalUri: URI,
+    timeout: Duration,
+): Deferred<URI?> = coroutineScope {
     async {
-        suspendCancellableCoroutine {
-            // TODO Add support for beehiiv URLs
-            if (originalUri.host == "link.mail.beehiiv.com") {
-                // beehiiv URLs are not yet supported
-                it.resume(null)
-                return@suspendCancellableCoroutine
-            }
+        val resolvedUri = withTimeoutOrNull(timeout) {
+            suspendCancellableCoroutine { continuation ->
+                // TODO Add support for beehiiv URLs
+                if (originalUri.host == "link.mail.beehiiv.com") {
+                    // beehiiv URLs are not yet supported
+                    continuation.resume(null)
+                    return@suspendCancellableCoroutine
+                }
 
-            // Call HTTP to resolve the URL
-            @Suppress("TooGenericExceptionCaught")
-            val response = try {
-                get()
-                    .uri(originalUri)
-                    .retrieve()
-                    .onStatus { httpResponse ->
-                        // Ignore HTTP errors
-                        if (httpResponse.statusCode.isError) {
-                            LOG.warn("HTTP error when resolving url $originalUri -> ${httpResponse.statusCode}")
+                // Call HTTP to resolve the URL
+                @Suppress("TooGenericExceptionCaught")
+                val response = try {
+                    get()
+                        .uri(originalUri)
+                        .retrieve()
+                        .onStatus { httpResponse ->
+                            // Ignore HTTP errors
+                            if (httpResponse.statusCode.isError) {
+                                LOG.warn("HTTP error when resolving url $originalUri -> ${httpResponse.statusCode}")
+                            }
+                            true
                         }
-                        true
-                    }
-                    .toBodilessEntity()
-            } catch (e: Exception) {
-                LOG.error("Failed to GET $originalUri", e)
-                null
+                        .toBodilessEntity()
+                } catch (e: Exception) {
+                    continuation.context.ensureActive()
+                    LOG.error("Failed to GET $originalUri", e)
+                    null
+                }
+
+                val resolvedUri = when {
+                    response == null -> null
+                    response.statusCode in REDIRECT_STATUS_CODES ->
+                        @Suppress("TooGenericExceptionCaught")
+                        try {
+                            response.headers.location
+                        } catch (e: Exception) {
+                            continuation.context.ensureActive()
+                            LOG.error("Invalid location header in response to GET $originalUri", e)
+                            null
+                        }
+
+                    response.statusCode.isError -> null
+                    else -> originalUri
+                }
+
+                continuation.resume(resolvedUri)
             }
-
-            val resolvedUri = when {
-                response == null -> null
-                response.statusCode in REDIRECT_STATUS_CODES ->
-                    @Suppress("TooGenericExceptionCaught")
-                    try {
-                        response.headers.location
-                    } catch (e: Exception) {
-                        LOG.error("Invalid location header in response to GET $originalUri", e)
-                        null
-                    }
-
-                response.statusCode.isError -> null
-                else -> originalUri
-            }
-
-            it.resume(resolvedUri)
-        }.let { resolvedUri ->
-            // Handle multiple redirects
-            if (resolvedUri != null && resolvedUri != originalUri) {
-                resolveUrl(resolvedUri).await()
-            } else resolvedUri
         }
+
+        // Handle multiple redirects
+        if (resolvedUri != null && resolvedUri != originalUri) {
+            resolveUrl(resolvedUri, timeout).await()
+        } else resolvedUri
     }
 }

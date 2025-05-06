@@ -56,7 +56,10 @@ class ArticleService(
         LOG.debug("Resolving urls for ${articles.size} articles...")
 
         val resolvedUris = runBlocking {
-            resolveUris(externalProperties.userAgent, articles.map { URI(it.link) })
+            resolveUris(
+                urls = articles.map { URI(it.link) },
+                userAgent = externalProperties.userAgent,
+            )
         }
 
         articles.replaceAll { article ->
