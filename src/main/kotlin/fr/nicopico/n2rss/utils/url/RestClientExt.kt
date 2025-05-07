@@ -63,13 +63,6 @@ suspend fun resolveUris(
                     connection.connectTimeout = timeoutMs + 1
                     connection.readTimeout = timeoutMs + 1
                 }
-
-                override fun createRequest(uri: URI, httpMethod: HttpMethod): ClientHttpRequest {
-                    if (!uri.isAbsolute) {
-                        LOG.warn("Non-absolute URI '{}' are not supported!", uri)
-                    }
-                    return super.createRequest(uri, httpMethod)
-                }
             }
         )
         .build()
@@ -137,6 +130,7 @@ private suspend fun RestClient.resolveUrl(
                         @Suppress("TooGenericExceptionCaught")
                         try {
                             response.headers.location
+                                ?.toAbsoluteURI(base = originalUri)
                         } catch (e: Exception) {
                             continuation.context.ensureActive()
                             LOG.error("Invalid location header in response to GET $originalUri", e)
@@ -156,4 +150,9 @@ private suspend fun RestClient.resolveUrl(
             resolveUrl(resolvedUri, timeout).await()
         } else resolvedUri
     }
+}
+
+private fun URI.toAbsoluteURI(base: URI): URI {
+    return if (this.isAbsolute) this
+    else URI(base.scheme, base.userInfo, base.host, base.port, path, query, fragment)
 }
