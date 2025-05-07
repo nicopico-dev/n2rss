@@ -104,7 +104,7 @@ class RestClientExtKtTest {
     }
 
     @Test
-    fun `should not crash on relative redirects`() {
+    fun `should handle relative redirects`() {
         // GIVEN
         val originalUri: URI = server.url("/original/url").toUri()
         val relativeRedirectPath = "/redirect/url"
@@ -114,6 +114,10 @@ class RestClientExtKtTest {
                 .setResponseCode(301)
                 .addHeader("location", relativeRedirectPath)
         )
+        server.enqueue(
+            MockResponse()
+                .setResponseCode(304)
+        )
 
         // WHEN
         val result = runBlocking {
@@ -121,7 +125,8 @@ class RestClientExtKtTest {
         }
 
         // THEN
-        result shouldBe mapOf(originalUri to null)
+        val resolvedUri = server.url(relativeRedirectPath).toUri()
+        result shouldBe mapOf(originalUri to resolvedUri)
     }
 
     @Test
