@@ -26,8 +26,10 @@ import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
+import org.springframework.stereotype.Component
 import java.util.Locale
 
+@Component
 class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
 
     override val newsletter: Newsletter = Newsletter(
