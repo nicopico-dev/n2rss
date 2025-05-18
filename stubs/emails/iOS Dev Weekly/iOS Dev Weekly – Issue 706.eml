@@ -1,0 +1,338 @@
+Return-Path: <0110019601f7e061-1a1c7336-590e-4b9a-a922-c245be21eb30-000000@newsletter.iosdevweekly.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id IHDJI7Me8GedEh8AQTsBvA
+	(envelope-from <0110019601f7e061-1a1c7336-590e-4b9a-a922-c245be21eb30-000000@newsletter.iosdevweekly.com>)
+	for <n2rss@nicopico.fr>; Fri, 04 Apr 2025 20:02:27 +0200
+Return-path: <0110019601f7e061-1a1c7336-590e-4b9a-a922-c245be21eb30-000000@newsletter.iosdevweekly.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Fri, 04 Apr 2025 20:02:27 +0200
+Received: from e240-61.smtp-out.eu-north-1.amazonses.com ([23.251.240.61])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <0110019601f7e061-1a1c7336-590e-4b9a-a922-c245be21eb30-000000@newsletter.iosdevweekly.com>)
+	id 1u0lN3-0001xN-1K
+	for n2rss@nicopico.fr; Fri, 04 Apr 2025 20:02:25 +0200
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=vsfs3puhc744fphaxtdlhcqkhgbkrsop; d=iosdevweekly.com;
+	t=1743789744;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe-Post:List-Unsubscribe:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=21qIuH/uw3ANZSaQjhjG/GusAyrutGGJqKLHrLQM7Rc=;
+	b=yJOngk+xlZc4eH3PfjOPchBYg8hX6KS59N/cTVR2rjBJCCxTTJpApOvZmSwNFLPv
+	9ypKZN61gyQZzlr2McZJkzoK63VCrQP/Gs8sz8UvxDIjkP7IN70SxLsBE/qUVaRfIut
+	hfzD6yA7WuQOtEL1YK541/XO47iZX409LhTFqup3cYl5UK3Dkq9j6+HhDy6NipbxOBV
+	+vTw1frnbH2UFJyZyDmisy/yfxIpHVvADjPuYJ3FU2uzfhFJas1k4dcOHM5Llpvpmdk
+	NDxe8sCqARd+EBQbWrUWrCAS5CnNoTEedfIqWFQw6ElsFsibEwi6yXtemvuF+EPp2V1
+	frVQikHsXg==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=bw45wyq3hkghdoq32obql4uyexcghmc7; d=amazonses.com; t=1743789744;
+	h=Date:To:From:Reply-To:Subject:Message-ID:List-Unsubscribe-Post:List-Unsubscribe:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=21qIuH/uw3ANZSaQjhjG/GusAyrutGGJqKLHrLQM7Rc=;
+	b=Ie3Qg9wjsR79QM9IYaez/8ehbQPMKUNHgLPk2zKYMKpvWb0bXIDADjdSWoIJ8cL7
+	3hjV0CQ531p/fTshyrSsRvklFi721ZLPpKSqa2XTVDK1QQyE4UurRqx8O50U6108nUj
+	WKeUlgwYq3GCK3DCcjlwGsQJn7rvBiY6KbnTjfRw=
+Date: Fri, 4 Apr 2025 18:02:24 +0000
+To: n2rss@nicopico.fr
+From: Dave Verwer <dave@iosdevweekly.com>
+Reply-To: Dave Verwer <dave@iosdevweekly.com>
+Subject: =?UTF-8?Q?iOS_Dev_Weekly_=E2=80=93_Issue_706?=
+Message-ID: <0110019601f7e061-1a1c7336-590e-4b9a-a922-c245be21eb30-000000@eu-north-1.amazonses.com>
+X-Mailer: Sendy (https://sendy.co)
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe: <https://newsletter.iosdevweekly.com/unsubscribe/XESFUtqs3xrb2D51nR39utwzQAi892zYP5tvCcRF3QP28/Fak9B31KGFlxEussWjAwqQ/2hE8923qzv763zbpWJXLfbuV8g>
+Precedence: Bulk
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Feedback-ID: ::1.eu-north-1.LR92fT14cLu1paT8nksjrL2Kh5f25aVoGmiUonOA6II=:AmazonSES
+X-SES-Outgoing: 2025.04.04-23.251.240.61
+X-alwaysdata-Spam-Report: 	2.00 DCC_REJECT [bulk Body=1 Fuz1=22 Fuz2=many rep=71% ] - Rejected by DCC
+	0.20 MIME_HTML_ONLY - Messages that have only HTML part
+	0.10 ONCE_RECEIVED - One received header in a message
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 REPLYTO_EQ_FROM - Reply-To header is identical to From header
+	0.00 RCVD_TLS_ALL - All hops used encrypted transports
+	0.00 RCVD_COUNT_ONE [1] - Message has one Received header
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PRECEDENCE_BULK - Message marked as bulk
+	0.00 MIME_TRACE [0:~]
+	0.00 HAS_REPLYTO [dave@iosdevweekly.com] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [iosdevweekly.com:+, amazonses.com:+] - DKIM trace symbol
+	0.00 ASN [asn:16509, ipnet:23.251.240.0/23, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.20 R_DKIM_ALLOW [iosdevweekly.com:s=vsfs3puhc744fphaxtdlhcqkhgbkrsop,
+ amazonses.com:s=bw45wyq3hkghdoq32obql4uyexcghmc7] - DKIM verification succeed
+	-0.22 IP_REPUTATION_HAM [asn: 16509(-0.22), country: US(-0.00),
+ ip: 23.251.240.61(0.00)]
+	-0.50 DMARC_POLICY_ALLOW [iosdevweekly.com, quarantine] - DMARC permit policy
+	-1.52 URL_REPUTATION [-1.5183126523328]
+X-alwaysdata-Spam-Score: -0.15
+
+
+<!DOCTYPE html><html lang=3Den style=3D"line-height:1.15;-webkit-text-size-=
+adjust:100%;color-scheme:light dark"><head><meta charset=3DUTF-8><meta cont=
+ent=3D"width=3Ddevice-width,initial-scale=3D1" name=3Dviewport><title>iOS D=
+ev Weekly Issue 706</title><meta content=3D"light dark" name=3Dcolor-scheme=
+><meta content=3D"light dark" name=3Dsupported-color-schemes><!--[if (gte m=
+so 9)|(IE)]><!--><link href=3Dhttps://fonts.googleapis.com rel=3Dpreconnect=
+><link href=3Dhttps://fonts.gstatic.com rel=3Dpreconnect crossorigin><link =
+href=3D"https://fonts.googleapis.com/css2?family=3DLato:wght@400;700&amp;fa=
+mily=3DMerriweather:ital,wght@0,400;0,700;1,400;1,700&amp;display=3Dswap" r=
+el=3Dstylesheet><!--<![endif]--><style>[type=3Dbutton]::-moz-focus-inner,[t=
+ype=3Dreset]::-moz-focus-inner,[type=3Dsubmit]::-moz-focus-inner,button::-m=
+oz-focus-inner{border-style:none;padding:0}[type=3Dbutton]:-moz-focusring,[=
+type=3Dreset]:-moz-focusring,[type=3Dsubmit]:-moz-focusring,button:-moz-foc=
+usring{outline:1px dotted ButtonText}@media (prefers-color-scheme:dark){:ro=
+ot{--blue:#2797e7;--brown:#a87647;--forest-green:#2aaf6f;--grape-purple:#b5=
+36cd;--maroon:#b52d81;--orange:#f48433;--pink:#f52aab;--red:#f05050;--royal=
+-purple:#6646f2;--yellow:#f3a91e;--category-comment:var(--dark-grey);--cate=
+gory-article:var(--dark-grey);--page-text:var(--white);--page-background:va=
+r(--black);--navigation-link-text:var(--light-grey);--sponsorship-calendar-=
+available-border:var(--forest-green);--sponsorship-calendar-available-backg=
+round:var(--very-dark-green);--sponsorship-calendar-available-text:var(--fo=
+rest-green);--sponsorship-calendar-booked-border:var(--very-dark-grey);--sp=
+onsorship-calendar-booked-background:var(--very-very-dark-grey);--sponsorsh=
+ip-calendar-booked-text:var(--grey)}}article .link{font-size:18px;font-weig=
+ht:700;text-decoration:none}article .link:hover{text-decoration:underline}<=
+/style></head><body style=3D"margin:0;font-family:Merriweather,Georgia,'Tim=
+es New Roman',serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',=
+'Noto Color Emoji';line-height:1.5;color:#0a001b;background-color:#fafafa">=
+<div class=3Dpre-header style=3Ddisplay:none;opacity:0;overflow:hidden;max-=
+width:0;max-height:0;font-size:1px;line-height:1px>Swift Assist and the sta=
+te of the art in AI coding tools =F0=9F=A4=96<span>&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C</span></div><!--[if =
+(gte mso 9)|(IE)]><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" w=
+idth=3D"700" align=3D"center" role=3D"presentation"><tr><td><![endif]--><di=
+v class=3Dinner style=3D"max-width:700px;margin:0 auto" aria-label=3D"iOS D=
+ev Weekly Issue 706" role=3Darticle><center><p style=3Dmargin-top:20px;font=
+-size:12px;text-align:center;color:#858293 class=3Dview-on-web><a href=3Dht=
+tps://iosdevweekly.com/issues/706 style=3Dbackground-color:transparent;colo=
+r:#858293>Read this issue on the web </a>=E2=80=93 <a href=3Dhttps://iosdev=
+weekly.com/issues style=3Dbackground-color:transparent;color:#858293>Browse=
+ the archives</a></p><a href=3Dhttps://iosdevweekly.com/issues/706 style=3D=
+background-color:transparent;color:#0073c5><img alt=3D"iOS Dev Weekly logo"=
+ src=3Dhttps://dz6vzobpn4e3z.cloudfront.net/header-email.png style=3D"borde=
+r-style:none;display:block;width:300px;margin:0 auto" width=3D300 class=3Dl=
+ogo></a></center><article style=3D"padding:50px 20px;font-size:17px;padding=
+-top:0;padding-bottom:0"><table role=3Dpresentation border=3D0 cellpadding=
+=3D0 cellspacing=3D0 class=3Dissue-header style=3D"padding:20px 0"><tbody><=
+tr><td style=3Dpadding-right:15px><img alt=3D"Picture of Dave Verwer" src=
+=3Dhttps://dz6vzobpn4e3z.cloudfront.net/daveverwer-headshot.png style=3Dbor=
+der-style:none;width:65px;height:auto width=3D65 height=3Dauto></td><td><di=
+v class=3Dissue-metadata><h1 style=3Dmargin:0;margin-bottom:0;font-size:20p=
+x;text-transform:uppercase>Issue 706</h1><p style=3Dmargin-top:5px;margin:0=
+;font-size:13px;color:#858293 class=3Dpublished>4<sup style=3Dfont-size:75%=
+;line-height:0;position:relative;vertical-align:baseline;top:-.5em>th</sup>=
+ April 2025</p><p style=3Dmargin-top:5px;margin:0;font-size:13px;color:#858=
+293 class=3Dbyline>Written by Dave Verwer</p></div></td></tr></tbody></tabl=
+e><br><table role=3Dheading aria-level=3D2><tbody><tr><td style=3D"padding:=
+2px 10px;font-family:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI',Robot=
+o,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','S=
+egoe UI Symbol','Noto Color Emoji';font-size:14px;text-transform:uppercase;=
+color:#fafafa;border-radius:5px;background-color:#0a001b" class=3Dcomment b=
+gcolor=3D#0a001b>Comment</td></tr></tbody></table><br class=3Dcomment><p st=
+yle=3Dmargin-top:5px class=3Dcomment>Recently, there=E2=80=99s been a lot o=
+f talk about Apple and AI. People are wondering where Swift Assist is and s=
+peculating endlessly on what caused the next generation Siri product to be =
+delayed into 2026.</p><p style=3Dmargin-top:5px class=3Dcomment>I won=
+=E2=80=99t discuss Siri since you=E2=80=99ve likely read enough on that top=
+ic already. However, I have thoughts on Predictive Code Completion and Swif=
+t Assist in Xcode.</p><p style=3Dmargin-top:5px class=3Dcomment>When I firs=
+t wrote about Xcode=E2=80=99s Predictive Code Completion, I <a href=3Dhttps=
+://iosdevweekly.com/issues/677/#start style=3Dbackground-color:transparent;=
+color:#0073c5>was complimentary about it</a>. However, I must admit I didn=
+=E2=80=99t stick with it for very long. It wasn=E2=80=99t terrible by any m=
+eans but it got in the way more than it helped. In contrast, I find other A=
+I coding tools help <em>much</em> more than they hinder. Since then I have =
+continued using <a href=3Dhttps://github.com/features/copilot style=3Dbackg=
+round-color:transparent;color:#0073c5>Copilot</a>, tried <a href=3Dhttps://=
+docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview style=3Dba=
+ckground-color:transparent;color:#0073c5>Claude Code</a>, <a href=3Dhttps:/=
+/techcrunch.com/2024/11/14/chatgpt-can-now-read-some-of-your-macs-desktop-a=
+pps/ style=3Dbackground-color:transparent;color:#0073c5>integrated ChatGPT =
+with Xcode</a>, and made extensive use of <a href=3Dhttps://www.cursor.com/=
+ style=3Dbackground-color:transparent;color:#0073c5>Cursor</a>. All these t=
+ools are quite different, but all are far ahead of Predictive Code Completi=
+on. Yes, GPT integration with Xcode is clunky due to how the apps interact =
+with each other, but the results from the AI are good.</p><p style=3Dmargin=
+-top:5px class=3Dcomment>Swift Assist being delayed isn=E2=80=99t a huge de=
+al in itself. But if it arrives and isn=E2=80=99t state of the art, that=
+=E2=80=99s a much bigger problem. I=E2=80=99m not speculating on whether it=
+ will or won=E2=80=99t be, but it=E2=80=99s on my mind that the shipped fea=
+tures of Apple Intelligence aren=E2=80=99t keeping pace with the market lea=
+ders.</p><p style=3Dmargin-top:5px class=3Dcomment>I=E2=80=99ve speculated =
+before that I=E2=80=99d be surprised if Apple allowed employees to access C=
+hatGPT and other online AI tools internally. The company is so focused on s=
+ecrecy that I can=E2=80=99t believe they=E2=80=99d let people type potentia=
+lly secret things into these services, regardless of their data privacy, tr=
+aining, and retention policies.</p><p style=3Dmargin-top:5px class=3Dcommen=
+t>That said, I hope Apple allows and even encourages the teams working on P=
+redictive Code Completion and Swift Assist to use <em>all</em> the AI codin=
+g tools. They need to know precisely what the state of the art is to meet t=
+hat standard when it ships, especially since it has been delayed.</p><p sty=
+le=3Dmargin-top:5px class=3Dcomment>I can=E2=80=99t wait to see what Apple =
+delivers with Swift Assist and how they continue to improve Predictive Code=
+ Completion. With it being challenging to write iOS and Mac apps in other e=
+ditors/IDEs, Xcode needs to keep up with the rest of the industry to contin=
+ue attracting people to the Swift language.</p><p style=3Dmargin-top:5px;fo=
+nt-size:14px;font-style:italic;color:#858293 class=3D"comment attribution">=
+Dave Verwer</p><br class=3Dcomment><table role=3Dheading aria-level=3D2><tb=
+ody><tr><td style=3D"padding:2px 10px;font-family:Lato,-apple-system,BlinkM=
+acSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Col=
+or Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';font-size:1=
+4px;text-transform:uppercase;color:#fafafa;border-radius:5px;background-col=
+or:#f47920" class=3Dsponsored bgcolor=3D#f47920>Sponsored Link</td></tr></t=
+body></table><br class=3Dsponsored><a href=3D"https://geniusscansdk.com/?ut=
+m_source=3Dios_dev_weekly&amp;utm_campaign=3Dios_dev_weekly_2025_04_04&amp;=
+utm_medium=3Dsponsoring" style=3Dbackground-color:transparent;font-size:18p=
+x;font-weight:700;text-decoration:none;color:#f47920 class=3D"link sponsore=
+d" id=3DpHFrjng>Add Document Scanning and OCR with One Line of Code</a><p s=
+tyle=3Dmargin-top:5px class=3Dsponsored>Let users scan documents effortless=
+ly and generate crisp PDFs with the Genius Scan SDK. Enjoy local processing=
+ for performance and privacy: real-time detection, perspective correction, =
+image enhancement, OCR, and data extraction=E2=80=94no more blurry document=
+s! <a href=3D"https://geniusscansdk.com/?utm_source=3Dios_dev_weekly&amp;ut=
+m_campaign=3Dios_dev_weekly_2025_04_04&amp;utm_medium=3Dsponsoring" style=
+=3Dbackground-color:transparent;color:#f47920>Try it today</a></p><br class=
+=3Dsponsored><table role=3Dheading aria-level=3D2><tbody><tr><td style=3D"p=
+adding:2px 10px;font-family:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI=
+',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Em=
+oji','Segoe UI Symbol','Noto Color Emoji';font-size:14px;text-transform:upp=
+ercase;color:#fafafa;border-radius:5px;background-color:#0073c5" class=3Dne=
+ws bgcolor=3D#0073c5>News</td></tr></tbody></table><br class=3Dnews><a href=
+=3Dhttps://www.swift.org/blog/swift-6.1-released/ style=3Dbackground-color:=
+transparent;font-size:18px;font-weight:700;text-decoration:none;color:#0073=
+c5 class=3D"link news" id=3DHbzeycB>Swift 6.1 Released</a><p style=3Dmargin=
+-top:5px class=3Dnews>There are two major Swift news items this week, the f=
+irst being the release of Swift 6.1 and Xcode 16.3. <a href=3Dhttps://hachy=
+derm.io/@holly style=3Dbackground-color:transparent;color:#0073c5>Holly Bor=
+la</a> has written up all you need to know about the Swift release, with im=
+provements to concurrency, Objective-C interop, SwiftPM package traits, cus=
+tom Swift Testing traits, and DocC improvements. =F0=9F=91=8D</p><a href=3D=
+https://www.swift.org/blog/introducing-swiftly_10/ style=3Dbackground-color=
+:transparent;font-size:18px;font-weight:700;text-decoration:none;color:#007=
+3c5 class=3D"link news" id=3DxQRGzJI>Introducing swiftly 1.0</a><p style=3D=
+margin-top:5px class=3Dnews>The next piece of Swift news might turn out to =
+be bigger than the 6.1 release in the long term. <a href=3Dhttps://github.c=
+om/cmcgee1024/ style=3Dbackground-color:transparent;color:#0073c5>Chris McG=
+ee</a> introduces <code style=3Dfont-family:monospace,monospace;font-size:1=
+em>swiftly</code>, originally a community-built tool to install Swift toolc=
+hains on Linux, but now an official Swift project that can install them on =
+macOS, too. There=E2=80=99s never been an easier way to install a nightly t=
+oolchain.</p><br class=3Dnews><table role=3Dheading aria-level=3D2><tbody><=
+tr><td style=3D"padding:2px 10px;font-family:Lato,-apple-system,BlinkMacSys=
+temFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Em=
+oji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';font-size:14px;t=
+ext-transform:uppercase;color:#fafafa;border-radius:5px;background-color:#0=
+0b69d" class=3Dtools bgcolor=3D#00b69d>Tools</td></tr></tbody></table><br c=
+lass=3Dtools><a href=3Dhttps://apps.apple.com/app/id6742570799 style=3Dback=
+ground-color:transparent;font-size:18px;font-weight:700;text-decoration:non=
+e;color:#00b69d class=3D"link tools" id=3DNWbHTnZ>Haptic Pro</a><p style=3D=
+margin-top:5px class=3Dtools>I=E2=80=99ve linked to several apps that helpe=
+d design haptic feedback over the years, but with <a href=3Dhttps://ahap.fa=
+ncypixel.it/ style=3Dbackground-color:transparent;color:#00b69d>one excepti=
+on,</a> they are all now gone. Do we need a new one? Vedprakash Wagh believ=
+es we do, so he built one! It=E2=80=99s free to design basic patterns and a=
+ one-time purchase for advanced mode. It looks great.</p><br class=3Dtools>=
+<table role=3Dheading aria-level=3D2><tbody><tr><td style=3D"padding:2px 10=
+px;font-family:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Hel=
+vetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe U=
+I Symbol','Noto Color Emoji';font-size:14px;text-transform:uppercase;color:=
+#fafafa;border-radius:5px;background-color:#732582" class=3Dcode bgcolor=3D=
+#732582>Code</td></tr></tbody></table><br class=3Dcode><a href=3Dhttps://al=
+exanderweiss.dev/blog/2025-03-09-docc-for-multi-platform-documentation styl=
+e=3Dbackground-color:transparent;font-size:18px;font-weight:700;text-decora=
+tion:none;color:#732582 class=3D"code link" id=3DmUQLUfD>DocC for Multi-Pla=
+tform Documentation</a><p style=3Dmargin-top:5px class=3Dcode>I almost miss=
+ed when <a href=3Dhttps://mastodon.online/@alexanderwe style=3Dbackground-c=
+olor:transparent;color:#732582>Alexander Wei=C3=9F</a>=E2=80=99s published =
+this article about the <em>much</em> requested new (<a href=3Dhttps://githu=
+b.com/swiftlang/swift-docc-plugin/releases/tag/1.4.0 style=3Dbackground-col=
+or:transparent;color:#732582>ish</a>) feature of DocC, multiple target supp=
+ort. This is a really valuable feature to bring documentation all into one =
+place, and I=E2=80=99m happy to see it ship!</p><hr class=3Dcode style=3D"b=
+ox-sizing:content-box;height:0;overflow:visible;width:10%;margin:30px auto;=
+border:0;border-bottom:1px solid #dddae4"><a href=3Dhttps://www.swiftbysund=
+ell.com/articles/modern-url-construction-in-swift/ style=3Dbackground-color=
+:transparent;font-size:18px;font-weight:700;text-decoration:none;color:#732=
+582 class=3D"code link" id=3DtUnbNPj>Modern URL construction in Swift</a><p=
+ style=3Dmargin-top:5px class=3Dcode>It=E2=80=99s nice to see <a href=3Dhtt=
+ps://mastodon.social/@johnsundell style=3Dbackground-color:transparent;colo=
+r:#732582>John Sundell</a> back writing after his <a href=3Dhttps://swiftby=
+sundell.com/special/swift-by-sundell-is-back/ style=3Dbackground-color:tran=
+sparent;color:#732582>hiatus</a>. In his first article, he tackles those pe=
+sky =E2=80=9Cbangs=E2=80=9D that are likely scattered all over your codebas=
+e on static URLs. He also talks about removing optionals from constructing =
+dynamic URLs.</p><hr class=3Dcode style=3D"box-sizing:content-box;height:0;=
+overflow:visible;width:10%;margin:30px auto;border:0;border-bottom:1px soli=
+d #dddae4"><a href=3Dhttps://khanwinter.com/2025-03-29-Cross-Compiling-Swif=
+t/ style=3Dbackground-color:transparent;font-size:18px;font-weight:700;text=
+-decoration:none;color:#732582 class=3D"code link" id=3DVDYmWCE>Cross Compi=
+ling Swift</a><p style=3Dmargin-top:5px class=3Dcode><a href=3Dhttps://bsky=
+.app/profile/khanwinter.com style=3Dbackground-color:transparent;color:#732=
+582>Khan Winter</a> with a story about compiling Swift on Linux and buildin=
+g a Discord bot. Swiftly (from this week=E2=80=99s News section) gets a men=
+tion, too:</p><table border=3D0 cellpadding=3D0 cellspacing=3D0 class=3D"co=
+de blockquote"><tbody><tr><td style=3D"padding:10px 20px"><table border=3D0=
+ cellpadding=3D0 cellspacing=3D0><tbody><tr><td style=3Dwidth:3px;backgroun=
+d:#dddae4 class=3Dborder width=3D3></td><td style=3Dpadding-left:15px class=
+=3Dquote><p style=3Dmargin-top:5px;margin-bottom:5px>Shoutout to the new Sw=
+iftly tool too, I got to try that out while I was writing this up and it=
+=E2=80=99s a huge improvement.</p></td></tr></tbody></table></td></tr></tbo=
+dy></table><p style=3Dmargin-top:5px class=3Dcode>Maybe this will inspire y=
+ou to try Swift on a different platform?</p><br class=3Dcode><table role=3D=
+heading aria-level=3D2><tbody><tr><td style=3D"padding:2px 10px;font-family=
+:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',A=
+rial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Not=
+o Color Emoji';font-size:14px;text-transform:uppercase;color:#fafafa;border=
+-radius:5px;background-color:#3d21be" class=3Dfinally bgcolor=3D#3d21be>And=
+ finally...</td></tr></tbody></table><br class=3Dfinally><p style=3Dmargin-=
+top:5px class=3Dfinally><a href=3Dhttps://bsky.app/profile/genmon.fyi/post/=
+3llqocqbmkk2z style=3Dbackground-color:transparent;color:#3d21be>Intel insi=
+de</a> =F0=9F=A4=96</p></article><hr class=3Dfooter-divider style=3D"box-si=
+zing:content-box;height:0;overflow:visible;margin:30px auto;border:0;border=
+-bottom:1px solid #dddae4;width:80%"><footer style=3D"padding:0 20px;font-s=
+ize:12px;color:#858293"><p>Follow Dave on <a href=3Dhttps://bsky.app/profil=
+e/daveverwer.com style=3Dbackground-color:transparent;color:#0073c5>Bluesky=
+</a> or <a href=3Dhttps://mastodon.social/@daveverwer style=3Dbackground-co=
+lor:transparent;color:#0073c5>Mastodon</a> or iOS Dev Weekly on <a href=3Dh=
+ttps://bsky.app/profile/iosdevweekly.com style=3Dbackground-color:transpare=
+nt;color:#0073c5>Bluesky</a> or <a href=3Dhttps://iosdev.space/@iosdevweekl=
+y style=3Dbackground-color:transparent;color:#0073c5>Mastodon</a>.</p><p>Yo=
+u received this email because you subscribed to this newsletter on <a href=
+=3Dhttps://iosdevweekly.com style=3Dbackground-color:transparent;color:#007=
+3c5>the iOS Dev Weekly website</a>, but you can <a href=3Dhttps://newslette=
+r.iosdevweekly.com/unsubscribe/XESFUtqs3xrb2D51nR39utwzQAi892zYP5tvCcRF3QP2=
+8/Fak9B31KGFlxEussWjAwqQ/2hE8923qzv763zbpWJXLfbuV8g style=3Dbackground-colo=
+r:transparent;color:#0073c5>unsubscribe instantly</a> at any time.</p><p>Co=
+pyright =C2=A9 2011=E2=80=932025 Dave Verwer. All rights reserved.</p><p>iO=
+S Dev Weekly is published by Verwer Services Ltd. The registered office for=
+ Verwer Services Ltd. is 5 Albert Road, Southsea, Hampshire, England, PO5 2=
+SE.</p></footer></div><!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]=
+--></body></html><img src=3D"https://newsletter.iosdevweekly.com/t/2hE8923q=
+zv763zbpWJXLfbuV8g/JfkucQnz5Glb41FVaZ1Zlg" alt=3D"" style=3D"width:1px;heig=
+ht:1px;"/>
