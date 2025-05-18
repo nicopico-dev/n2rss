@@ -175,6 +175,23 @@ class MessageExtKtTest {
     }
 
     @Test
+    fun `should retrieve HTML content if the Message only contains HTML`() {
+        // GIVEN
+        val message = prepareMessage(
+            subject = "Subject",
+            content = "<html>Hello World</html>",
+            from = arrayOf(InternetAddress("email@address.com")),
+            headers = mapOf("Content-Type" to arrayOf("text/html; charset=UTF-8"))
+        )
+
+        // WHEN
+        val email = message.toEmail("INBOX")
+
+        // THEN
+        email.content shouldBe instanceOf<EmailContent.HtmlOnly>()
+    }
+
+    @Test
     fun `should retrieve text-only content if the Message do not have any HTML content part`() {
         // GIVEN
         val message = prepareMessage(
@@ -208,6 +225,7 @@ class MessageExtKtTest {
         subject: String,
         content: Any,
         from: Array<Address>,
+        headers: Map<String, Array<String>> = emptyMap(),
         messageNumber: Int = 0,
         sentDate: Date = Date(),
         receivedDate: Date? = null,
@@ -222,6 +240,7 @@ class MessageExtKtTest {
             every { msg.receivedDate } returns receivedDate
             every { msg.flags } returns Flags()
             every { setFlag(any(), any()) } just Runs
+            every { msg.getHeader(any()) } answers { headers[firstArg()] }
         }
     }
     //endregion

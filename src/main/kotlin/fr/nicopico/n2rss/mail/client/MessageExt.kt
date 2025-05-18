@@ -50,7 +50,11 @@ fun Message.toEmail(messageFolder: String): Email {
                 }
             }
 
-            else -> EmailContent.TextOnly(content.toString())
+            else -> {
+                if (content is String && getHeader("Content-Type").any { it.startsWith("text/html") }) {
+                    EmailContent.HtmlOnly(content)
+                } else EmailContent.TextOnly(content.toString())
+            }
         },
         messageId = MessageId(
             folder = messageFolder,
