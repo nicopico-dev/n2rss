@@ -78,6 +78,32 @@ class BlogDuModerateurNewsletterHandlerTest : BaseNewsletterHandlerTest<BlogDuMo
                 )
             }
 
+            withClue("article descriptions") {
+                articlesPublication.articles.map { it.description } shouldBe listOf(
+                    "OpenAI lance 4o Image Generation, un nouveau modèle de génération d'images. Celui-ci remplace désormais DALL-E dans ChatGPT. Voici ce qu'il vaut !",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "Rendez-vous le 8 avril pour un webinar dédié à cette industrie en pleine croissance et qui offre de belles opportunités de carrière.",
+                )
+            }
+
             // Tools Publication
             val toolsPublication = publications[1]
             assertSoftly(toolsPublication) {

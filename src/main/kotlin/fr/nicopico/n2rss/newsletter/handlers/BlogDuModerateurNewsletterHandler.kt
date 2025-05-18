@@ -26,7 +26,9 @@ import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import org.jsoup.safety.Safelist
+import org.springframework.stereotype.Component
 
+@Component
 class BlogDuModerateurNewsletterHandler : NewsletterHandlerMultipleFeeds {
 
     override val newsletters: List<Newsletter> = listOf(
@@ -74,11 +76,20 @@ class BlogDuModerateurNewsletterHandler : NewsletterHandlerMultipleFeeds {
                 val title = linkElement.text()
                 val link = linkElement.attr("href").toUrlOrNull()
                     ?: throw NewsletterParsingException("Could not retrieve the link for article '$title'")
+                // Some articles have a description as a secondary <a> element
+                val description = linkElement.nextElementSibling()
+                    ?.takeIf {
+                        val elementClass = it.attr("class")
+                        it.tagName() == "a"
+                            && "title" !in elementClass
+                            && "dark-style-color3" in elementClass
+                    }
+                    ?.text()
 
                 Article(
                     title = title,
                     link = link,
-                    description = "TODO",
+                    description = description ?: "",
                 )
             }
     }
@@ -89,14 +100,18 @@ class BlogDuModerateurNewsletterHandler : NewsletterHandlerMultipleFeeds {
 
         private val mainNewsletter = Newsletter(
             code = BDM_MAIN_NEWSLETTER_CODE,
-            name = "Blog du Modérateur - Articles",
+            name = "Blog du Modérateur",
             websiteUrl = "https://www.blogdumoderateur.com",
+            notes = "Articles",
+            feedTitle = "Blog du Modérateur (Articles)",
         )
 
         private val toolsNewsletter = Newsletter(
             code = BDM_TOOLS_NEWSLETTER_CODE,
-            name = "Blog du Modérateur - Outils",
+            name = "Blog du Modérateur",
             websiteUrl = "https://www.blogdumoderateur.com",
+            notes = "Outils",
+            feedTitle = "Blog du Modérateur (Outils)"
         )
     }
 }
