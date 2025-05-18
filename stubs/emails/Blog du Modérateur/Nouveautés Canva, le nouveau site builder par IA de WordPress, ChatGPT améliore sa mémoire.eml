@@ -1,0 +1,1365 @@
+Return-Path: <468069f2.AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-Oob@bnc3.mailjet.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id GDIMOx3q+Gc+PB8AQTsBvA
+	(envelope-from <468069f2.AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-Oob@bnc3.mailjet.com>)
+	for <n2rss@nicopico.fr>; Fri, 11 Apr 2025 12:08:30 +0200
+Return-path: <468069f2.AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-Oob@bnc3.mailjet.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Fri, 11 Apr 2025 12:08:30 +0200
+Received: from o182.p11.mailjet.com ([87.253.236.182])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <468069f2.AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-Oob@bnc3.mailjet.com>)
+	id 1u3BJD-0001P9-Sa
+	for n2rss@nicopico.fr; Fri, 11 Apr 2025 12:08:27 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; q=dns/txt;
+  d=blogdumoderateur.com; i=newsletter@blogdumoderateur.com; s=mailjet; x=1744373307;
+  h=message-id:mime-version:from:from:to:to:subject:subject:date:date:list-id:list-unsubscribe-post:
+  list-unsubscribe:feedback-id:precedence:x-campaignid:x-csa-complaints:
+  x-mj-mid:x-mj-smtpguid:x-report-abuse-to:content-type:content-transfer-encoding;
+  bh=jY+V6DK5erDEyYc2ht6uorECpmzNN++uuS960SQ+RlU=;
+  b=WrIW3VE8cAj6F7rC3/NqoYSpVduoRmzTnMNmmWLONkJMpG2dPxYhpxnY4
+ yaZZx4+cXehYue+dnkSG7QTjNuc/EWXJeY3zHrBlS1GSJ2eQ4EuMQqx0NeIY
+ R4iRkk0m3/s829Lupq4W9YlXpi/GsclJKiJLEpw6VU7OzpxzIlRSLI=
+Message-Id: <468069f2.AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-Oob@mailjet.com>
+MIME-Version: 1.0
+From: BDM <newsletter@blogdumoderateur.com>
+To: n2rss@nicopico.fr
+Subject: =?UTF-8?Q?Nouveaut=C3=A9s_Canva=2C_le_nouveau_?=
+ =?UTF-8?Q?site_builder_par_IA_de_WordPress=2C_?=
+ =?UTF-8?Q?ChatGPT_am=C3=A9liore_sa_m=C3=A9moire=2E=2E=2E?=
+Date: Fri, 11 Apr 2025 10:08:26 +0000 (UTC)
+List-Id: <newsletter.blogdumoderateur.com.m01j-x9q76.mj>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-Unsubscribe:
+	<mailto:unsub-468069f2.m01j.lihv5pq36l3s@bnc3.mailjet.com>,
+	<https://go.blogdumoderateur.com/unsub2?m=AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ&b=468069f2&e=ce9b7b03&x=9VkQrVSGpZcfOEN1jKkOMIBfEbuJmNXC24CexJ58od8>
+Feedback-Id: 42.163941.27252:MJ
+Precedence: bulk
+X-CampaignID: 7684800098
+X-CSA-Complaints: csa-complaints@eco.de
+X-MJ-Mid:
+	AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ
+X-MJ-SMTPGUID: ac679917-ded8-4445-a391-f506c99f2c85
+X-REPORT-ABUSE-TO: Message sent by Mailjet please report to
+	abuse@mailjet.com with a copy of the message
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-alwaysdata-Spam-Report: 	2.00 DCC_REJECT [bulk Body=1 Fuz1=many Fuz2=many rep=85% ] - Rejected by DCC
+	0.50 MX_INVALID [] - Domain has no working MX
+	0.20 MIME_HTML_ONLY - Messages that have only HTML part
+	0.10 HFILTER_URL_ONLY [0.045550289626119] - URL only in body
+	0.10 ZERO_FONT [1] - Zero sized font used
+	0.05 MANY_INVISIBLE_PARTS [1] - Many parts are visually hidden
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 RCVD_TLS_ALL - All hops used encrypted transports
+	0.00 RCVD_COUNT_ONE [1] - Message has one Received header
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PRECEDENCE_BULK - Message marked as bulk
+	0.00 MIME_TRACE [0:~]
+	0.00 FROM_NEQ_ENVFROM [newsletter@blogdumoderateur.com,
+ 468069f2.AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-Oob@bnc3.mailjet.com]
+ - From address is different to the envelope
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DMARC_NA [blogdumoderateur.com] - No DMARC record
+	0.00 DKIM_TRACE [blogdumoderateur.com:+] - DKIM trace symbol
+	0.00 BAYES_HAM [100.00%] - Message probably ham, probability:
+	0.00 ASN [asn:200069, ipnet:87.253.232.0/21, country:FR]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.20 R_SPF_ALLOW [+ip4:87.253.232.0/21:c] - SPF verification allows sending
+	-0.20 R_DKIM_ALLOW [blogdumoderateur.com:s=mailjet] - DKIM verification
+ succeed
+	-0.41 URL_REPUTATION [-0.40906883688588]
+	-0.52 SPF_REPUTATION_HAM [-0.52470177318406]
+	-0.58 IP_REPUTATION_HAM [asn: 200069(-0.20), country: FR(-0.00),
+ ip: 87.253.236.182(-0.37)]
+X-alwaysdata-Spam-Score: 1.03
+
+<!doctype html><html xmlns=3D"http://www.w3.org/1999/xhtml"><head><meta htt=
+p-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"/><meta name=
+=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.0"><meta n=
+ame=3D"format-detection" content=3D"telephone=3Dno"><meta name=3D"format-de=
+tection" content=3D"date=3Dno"><meta name=3D"format-detection" content=3D"a=
+ddress=3Dno"><meta name=3D"format-detection" content=3D"email=3Dno"><meta h=
+ttp-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"><meta name=3D"color-sch=
+eme" content=3D"light dark"><meta name=3D"supported-color-schemes" content=
+=3D"light dark"><title>BDM - Newsletter du 11 avril 2025</title><!--[if mso=
+]><style>body,table tr,table td,a,span,table.MsoNormalTable{font-family:Ari=
+al,Helvetica,sans-serif!important}</style><![endif]--><style type=3D"text/c=
+ss">:root{color-scheme:light dark;supported-color-schemes:light dark}@font-=
+face{font-family:Barlow;font-style:normal;font-weight:400;font-display:swap=
+;src:url(https://fonts.gstatic.com/s/barlow/v5/7cHpv4kjgoGqM7E_DMs5.woff2) =
+format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+=
+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+=
+2215,U+FEFF,U+FFFD}@font-face{font-family:Barlow;font-style:normal;font-wei=
+ght:600;font-display:swap;src:url(https://fonts.gstatic.com/s/barlow/v5/7cH=
+qv4kjgoGqM7E30-8s51os.woff2) format("woff2");unicode-range:U+0000-00FF,U+01=
+31,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U=
++2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}.ReadMsgBody{width:100%;bac=
+kground-color:#fff}.ExternalClass{width:100%;background-color:#fff}body{wid=
+th:100%;background-color:#fff;margin:0;padding:0;-webkit-font-smoothing:ant=
+ialiased;font-family:Barlow,Arial,Helvetica,sans-serif}p{margin:0;padding:0=
+}div{margin:0;padding:0}a.title:hover{text-decoration:underline!important;t=
+ext-decoration-thickness:2px!important}a.link:hover{color:#373939!important=
+;;text-decoration-thickness:2px!important}a.link-blue:hover{color:#0136a9!i=
+mportant;;text-decoration-thickness:2px!important}a.bg-dark-cta:hover{backg=
+round-color:#0136a9!important}.visu-mobile{display:none;border:0}[data-ogsc=
+] .hide-dark-mode{display:none!important;padding:0!important}[data-ogsc] .v=
+isu-dark-mode{display:block!important;max-height:100%!important}[data-ogsc]=
+ .bb-dark{border-bottom:5px solid #363D4B}[data-ogsc] .bg-dark,[data-ogsb] =
+.bg-dark,[data-ogab] .bg-dark{background-color:#101829!important}[data-ogsc=
+] .bg-dark-2,[data-ogsb] .bg-dark-2{background-color:#1C2434!important}[dat=
+a-ogsc] .bg-dark-white,[data-ogsb] .bg-dark-white{background-color:#FFF!imp=
+ortant}[data-ogsc] .bg-dark-content,[data-ogsb] .bg-dark-content{background=
+-color:#2a3141!important}[data-ogsc] .bg-dark-content-2,[data-ogsb] .bg-dar=
+k-content-2{background-color:#272F3E!important}[data-ogsc] .bg-dark-cta,[da=
+ta-ogsb] .bg-dark-cta{background-color:#6A97F9!important;background-image:l=
+inear-gradient(#6A97F9,#6A97F9)!important;box-shadow:5px 5px 0 rgba(113,136=
+,251,.3)!important;color:#101829!important}[data-ogsc] a.bg-dark-cta:hover,=
+[data-ogsb] a.bg-dark-cta:hover{background-color:#83a8fa!important;backgrou=
+nd-image:linear-gradient(#83a8fa,#83a8fa)!important}[data-ogsc] .bg-dark-da=
+te,[data-ogsb] .bg-dark-date{background-color:#353C4A!important}[data-ogsc]=
+ .dark-style-color1{color:#E0E1E3!important}[data-ogsc] .dark-style-color2{=
+color:#6A97F9!important}[data-ogsc] .dark-style-color3{color:#A9ACB2!import=
+ant}[data-ogsc] .dark-border-color{border-color:#363D4B!important}[data-ogs=
+c] .dark-padding-logo{padding:20px 0 30px 0!important}[data-ogsc] .dark-p-v=
+isu-freq{padding-top:8px!important}[data-ogsc] .dark-no-border{border:0!imp=
+ortant}[data-ogsc] .pr-d-30{padding-right:30px!important}[data-ogsc] .pt-fr=
+eq-visu-dark{padding-top:8px!important}[data-ogsc] .pb-25-dark{padding-bott=
+om:25px!important}[data-ogsc] .chevron-dark{vertical-align:middle!important=
+}[data-ogsc] .d-i-b{display:inline-block!important}@media only screen and (=
+max-width:640px){.deviceWidth{width:440px!important}.deviceWidth2{width:400=
+px!important}.deviceWidth3{width:396px!important}.widthLogo{width:67px!impo=
+rtant}.center{text-align:center!important}.img{width:100%!important;height:=
+auto!important}.height{height:auto!important}.hide-mobile{display:none!impo=
+rtant;width:0!important;height:0!important}.visu-mobile{display:block!impor=
+tant;max-width:100%!important;max-height:100%!important}.hide-visuel-mobile=
+{display:none!important;width:0!important;height:0!important}.visu-visuel-m=
+obile{display:table-cell!important;max-height:100%!important;line-height:no=
+rmal!important}.p-0{padding:0!important}.pr-0{padding-right:0!important}.pl=
+-0{padding-left:0!important}.pt-0{padding-top:0!important}.pt-10{padding-to=
+p:10px!important}.pt-20{padding-top:20px!important}.ptb-30{padding-top:30px=
+!important;padding-bottom:30px!important}.plr-20{padding-left:20px!importan=
+t;padding-right:20px!important}.pb-0{padding-bottom:0!important}.pb-20{padd=
+ing-bottom:20px!important}.pb-30{padding-bottom:20px!important}.bb1{border-=
+bottom:1px solid #EDEFF4}}@media only screen and (max-width:479px){.deviceW=
+idth{width:290px!important;padding:0}.deviceWidth2{width:250px!important;pa=
+dding:0}.deviceWidth3{width:246px!important;padding:0}}@media (prefers-colo=
+r-scheme:dark){.hide-dark-mode{display:none!important;padding:0!important}.=
+visu-dark-mode{display:block!important;max-height:100%!important}.bb-dark{b=
+order-bottom:5px solid #363D4B}.bg-dark{background-color:#101829!important}=
+.bg-dark-2{background-color:#1C2434!important}.bg-dark-white{background-col=
+or:#FFF!important}.bg-dark-content{background-color:#2a3141!important}.bg-d=
+ark-content-2{background-color:#272F3E!important}.bg-dark-cta{background-co=
+lor:#6A97F9!important;background-image:linear-gradient(#6A97F9,#6A97F9)!imp=
+ortant;box-shadow:5px 5px 0 rgba(113,136,251,.3)!important;color:#101829!im=
+portant}a.bg-dark-cta:hover{background-color:#83a8fa!important;background-i=
+mage:linear-gradient(#83a8fa,#83a8fa)!important}.bg-dark-date{background-co=
+lor:#353C4A!important}.dark-style-color1{color:#E0E1E3!important}.dark-styl=
+e-color2{color:#6A97F9!important}.dark-style-color3{color:#A9ACB2!important=
+}.dark-border-color{border-color:#363D4B!important}.dark-padding-logo{paddi=
+ng:20px 0 30px 0!important}.dark-p-visu-freq{padding-top:8px!important}.dar=
+k-no-border{border:0!important}.pr-d-30{padding-right:30px!important}.pt-fr=
+eq-visu-dark{padding-top:8px!important}.pb-25-dark{padding-bottom:25px!impo=
+rtant}.chevron-dark{vertical-align:middle!important}.d-i-b{display:inline-b=
+lock!important}}</style></head><body class=3D"bg-dark"><table class=3D"bg-d=
+ark" width=3D"100%" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=
+=3D"center" bgcolor=3D"#ffffff"><tr><td class=3D"bg-dark" width=3D"100%" va=
+lign=3D"top" bgcolor=3D"#ffffff" style=3D"padding-top:15px"><table cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"600" align=3D"center" class=3D"deviceW=
+idth"><tr><td class=3D"p-0" style=3D"padding-bottom:30px;"><table width=3D"=
+100%" class=3D"deviceWidth bg-dark" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" align=3D"center" bgcolor=3D"#ffffff"><tr><td class=3D"dark-style-=
+color2" style=3D"padding-bottom:5px;color:#FFF;font-family:Barlow,Roboto,Ar=
+ial;font-size:0;">L'actualit=C3=A9 num=C3=A9rique de la semaine</td></tr><t=
+r><td class=3D"hide-dark-mode" style=3D"text-align:center;padding:20px 0 30=
+px 0;border-bottom:5px solid #F7F8FA"><a href=3D"https://go.blogdumoderateu=
+r.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjk=
+fUGyZ8shQAAanQ/1/fcA0psrcBsrXWNQrDgazxg/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV=
+1ci5jb20_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2=
+NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PWhlYWRlcg" targe=
+t=3D"_blank"><img src=3D"https://f.hellowork.com/emailing/newsletter/blogdu=
+moderateur/news-v7/logo-bdm-sticker-x2.png" width=3D"220" border=3D"0" alt=
+=3D"BDM newsletter"></a></td></tr><tr><td class=3D"visu-dark-mode dark-padd=
+ing-logo bg-dark bb-dark" style=3D"text-align:center;mso-hide:all;display:n=
+one;max-height:0;overflow:hidden;"><a href=3D"https://go.blogdumoderateur.c=
+om/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUG=
+yZ8shQAAanQ/2/i7JabTfUXxz9f9_GZdfFlQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci=
+5jb20_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2Nhb=
+XBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PWhlYWRlcg" target=
+=3D"_blank"><img src=3D"https://f.hellowork.com/emailing/newsletter/blogdum=
+oderateur/news-v7/logo-bdm-sticker-dm-x2.png" width=3D"220" border=3D"0" al=
+t=3D"BDM newsletter"></a></td></tr></table></td></tr></table><table cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"600" align=3D"center" class=3D"device=
+Width"><tr><td class=3D"bg-dark bb1 bg-dark dark-border-color ptb-30" style=
+=3D"padding-top:20px;padding-bottom:20px"><table cellpadding=3D"0" cellspac=
+ing=3D"0" width=3D"177" align=3D"left" style=3D"float:left" class=3D"device=
+Width bg-dark"><tr><td style=3D"border-radius:4px;overflow:hidden;width:100=
+%;"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZ=
+XLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/3/cb2MpzimOPmC88ehh=
+dGPCQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vY2FudmEtZGV2b2lsZS1zZXJpZ=
+XMtbm91dmVhdXRlcy1jYW52YS1haS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9t=
+ZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb25=
+0ZW50PW1lZGlhLTE" target=3D"_blank"><img class=3D"img" width=3D"177" src=3D=
+"https://f.hellowork.com/blogdumoderateur/2025/04/nouveautes-canva-experien=
+ce-unifiee-510x267.jpg" style=3D"display:block" alt=3D"" border=3D"0"></a><=
+/td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"393" a=
+lign=3D"right" style=3D"float:right" class=3D"deviceWidth bg-dark"><tr><td =
+class=3D"pt-10" style=3D"padding:0;"><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px"><a href=3D"https=
+://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKA=
+ZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/4/3k2DDzIbwKomCc4L7B0yzg/aHR0cHM6Ly93d3=
+cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vY2FudmEtZGV2b2lsZS1zZXJpZXMtbm91dmVhdXRlcy1jY=
+W52YS1haS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRt=
+X2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTE" ta=
+rget=3D"_blank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font=
+-size:16px;line-height:19px;font-weight:normal;text-decoration:none" class=
+=3D"dark-style-color2">Design</a></td></tr><tr><td style=3D"padding-bottom:=
+10px"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAAN=
+bZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/5/QONIYM2gIvUBfjc=
+paj9qdQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vY2FudmEtZGV2b2lsZS1zZXJ=
+pZXMtbm91dmVhdXRlcy1jYW52YS1haS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV=
+9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb=
+250ZW50PW1lZGlhLTE" target=3D"_blank" class=3D"dark-style-color1 title" sty=
+le=3D"color:#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;line-hei=
+ght:24px;font-weight:600;text-decoration:none;">=C2=AB=C2=A0Le plus grand l=
+ancement produit depuis notre cr=C3=A9ation=C2=A0=C2=BB=C2=A0: Canva d=C3=
+=A9voile une s=C3=A9rie de nouveaut=C3=A9s, dont Canva AI</a></td></tr><tr>=
+<td><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZ=
+XLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/6/_JW_96ZR4pP_uPR5o=
+g6TNw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vY2FudmEtZGV2b2lsZS1zZXJpZ=
+XMtbm91dmVhdXRlcy1jYW52YS1haS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9t=
+ZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb25=
+0ZW50PW1lZGlhLTE" target=3D"_blank" class=3D"dark-style-color3" style=3D"co=
+lor:#5D5F60;font-family:Barlow,Roboto,Arial;font-size:16px;line-height:19px=
+;text-decoration:none;">=C3=80 l'occasion du Canva Create, la plateforme a =
+pr=C3=A9sent=C3=A9 plusieurs nouveaut=C3=A9s, dont une interface conversati=
+onnelle permettant de g=C3=A9n=C3=A9rer des visuels et incluant des outils =
+d'=C3=A9dition, ainsi qu'un tableur propuls=C3=A9 par l'IA. Tour d'horizon.=
+ </a></td></tr></table></td></tr></table></td></tr></table><table cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"600" align=3D"center" class=3D"deviceWi=
+dth"><tr><td class=3D"bg-dark bb1 bg-dark dark-border-color ptb-30" style=
+=3D"padding-top:20px;padding-bottom:20px"><table cellpadding=3D"0" cellspac=
+ing=3D"0" width=3D"177" align=3D"left" style=3D"float:left" class=3D"device=
+Width bg-dark"><tr><td style=3D"border-radius:4px;overflow:hidden;width:100=
+%;"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZ=
+XLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/7/NGXQfVedD-AIqVMyz=
+Zl5Ig/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vY2hhdGdwdC1tZW1vcmlzZXItZ=
+GV0YWlsLWRpc2N1c3Npb25zLWltcGFjdC11dGlsaXNhdGV1cnMvP3V0bV9zb3VyY2U9YmxvZ2R1=
+bW9kZXJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmR=
+vbWFkYWlyZSZ1dG1fY29udGVudD1tZWRpYS0y" target=3D"_blank"><img class=3D"img"=
+ width=3D"177" src=3D"https://f.hellowork.com/blogdumoderateur/2025/04/Chat=
+GPT-Memoire-510x267.jpg" style=3D"display:block" alt=3D"" border=3D"0"></a>=
+</td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"393" =
+align=3D"right" style=3D"float:right" class=3D"deviceWidth bg-dark"><tr><td=
+ class=3D"pt-10" style=3D"padding:0"><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px"><a href=3D"https=
+://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKA=
+ZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/8/dYvVKGOlJ1UQ8sXUmSgBEQ/aHR0cHM6Ly93d3=
+cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vY2hhdGdwdC1tZW1vcmlzZXItZGV0YWlsLWRpc2N1c3Npb=
+25zLWltcGFjdC11dGlsaXNhdGV1cnMvP3V0bV9zb3VyY2U9YmxvZ2R1bW9kZXJhdGV1ciZ1dG1f=
+bWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmRvbWFkYWlyZSZ1dG1fY29=
+udGVudD1tZWRpYS0y" target=3D"_blank" style=3D"color:#024EF5;font-family:Bar=
+low,Roboto,Arial;font-size:16px;line-height:19px;font-weight:normal;text-de=
+coration:none" class=3D"dark-style-color2">IA</a></td></tr><tr><td><a href=
+=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0=
+AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/9/9ysWaEeZ7AtxNSI3RJjS4w/aHR0c=
+HM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vY2hhdGdwdC1tZW1vcmlzZXItZGV0YWlsLWRp=
+c2N1c3Npb25zLWltcGFjdC11dGlsaXNhdGV1cnMvP3V0bV9zb3VyY2U9YmxvZ2R1bW9kZXJhdGV=
+1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmRvbWFkYWlyZS=
+Z1dG1fY29udGVudD1tZWRpYS0y" target=3D"_blank" class=3D"dark-style-color1 ti=
+tle" style=3D"color:#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;=
+line-height:24px;font-weight:600;text-decoration:none;">ChatGPT va m=C3=A9m=
+oriser chaque d=C3=A9tail des discussions=C2=A0: quel impact pour les utili=
+sateurs=C2=A0?</a></td></tr></table></td></tr></table></td></tr></table><ta=
+ble cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=3D"center" clas=
+s=3D"deviceWidth"><tr><td class=3D"bg-dark bb1 bg-dark dark-border-color pt=
+b-30" style=3D"padding-top:20px;padding-bottom:20px"><table cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"177" align=3D"left" style=3D"float:left" clas=
+s=3D"deviceWidth bg-dark"><tr><td style=3D"border-radius:4px;overflow:hidde=
+n;width:100%;"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAA=
+coMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/10/elsgT=
+a3W41KTvvP426xNLg/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vd29yZHByZXNzL=
+WxhbmNlLW91dGlsLWNyZWF0aW9uLXNpdGUtaWEtY29tbWVudC10ZXN0ZXItZ3JhdHVpdGVtZW50=
+Lz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGF=
+pZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtMw" target=3D"=
+_blank"><img class=3D"img" width=3D"177" src=3D"https://f.hellowork.com/blo=
+gdumoderateur/2025/04/WordPress-Editor-IA-Test-510x267.jpg" style=3D"displa=
+y:block" alt=3D"" border=3D"0"></a></td></tr></table><table cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"393" align=3D"right" style=3D"float:right" cl=
+ass=3D"deviceWidth bg-dark"><tr><td class=3D"pt-10" style=3D"padding:0"><ta=
+ble cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td style=3D"pad=
+ding-bottom:6px"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKU=
+AAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/11/hr3=
+50GBMK5364ylYD-E7JQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vd29yZHByZXN=
+zLWxhbmNlLW91dGlsLWNyZWF0aW9uLXNpdGUtaWEtY29tbWVudC10ZXN0ZXItZ3JhdHVpdGVtZW=
+50Lz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2Ftc=
+GFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtMw" target=
+=3D"_blank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-siz=
+e:16px;line-height:19px;font-weight:normal;text-decoration:none" class=3D"d=
+ark-style-color2">WordPress</a></td></tr><tr><td><a href=3D"https://go.blog=
+dumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrG=
+eZF97YREWjkfUGyZ8shQAAanQ/12/WjgQwPuiah6JTAyGvgIt6Q/aHR0cHM6Ly93d3cuYmxvZ2R=
+1bW9kZXJhdGV1ci5jb20vd29yZHByZXNzLWxhbmNlLW91dGlsLWNyZWF0aW9uLXNpdGUtaWEtY2=
+9tbWVudC10ZXN0ZXItZ3JhdHVpdGVtZW50Lz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImd=
+XRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRt=
+X2NvbnRlbnQ9bWVkaWEtMw" target=3D"_blank" class=3D"dark-style-color1 title"=
+ style=3D"color:#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;line=
+-height:24px;font-weight:600;text-decoration:none;">WordPress lance un outi=
+l de cr=C3=A9ation de site par IA=C2=A0: comment le tester gratuitement</a>=
+</td></tr></table></td></tr></table></td></tr></table><table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"600" align=3D"center" class=3D"deviceWidth">=
+<tr><td class=3D"bg-dark bb1 bg-dark dark-border-color ptb-30" style=3D"pad=
+ding-top:20px;padding-bottom:20px"><table cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"177" align=3D"left" style=3D"float:left" class=3D"deviceWidth b=
+g-dark"><tr><td style=3D"border-radius:4px;overflow:hidden;width:100%;"><a =
+href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx=
+4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/13/X2fmARG_YVDx8lSrykircw/=
+aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZ29vZ2xlLWRpc2NvdmVyLWFycml2ZS1=
+kZXNrdG9wLz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG=
+1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtNA" t=
+arget=3D"_blank"><img class=3D"img" width=3D"177" src=3D"https://f.hellowor=
+k.com/blogdumoderateur/2025/04/Google-discover-desktop-510x267.jpg" style=
+=3D"display:block" alt=3D"" border=3D"0"></a></td></tr></table><table cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"393" align=3D"right" style=3D"float=
+:right" class=3D"deviceWidth bg-dark"><tr><td class=3D"pt-10" style=3D"padd=
+ing:0"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td st=
+yle=3D"padding-bottom:6px"><a href=3D"https://go.blogdumoderateur.com/lnk/A=
+WYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAA=
+anQ/14/Pkon8_2Jwxcg0M3hpi_L7g/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZ=
+29vZ2xlLWRpc2NvdmVyLWFycml2ZS1kZXNrdG9wLz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRl=
+dXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmU=
+mdXRtX2NvbnRlbnQ9bWVkaWEtNA" target=3D"_blank" style=3D"color:#024EF5;font-=
+family:Barlow,Roboto,Arial;font-size:16px;line-height:19px;font-weight:norm=
+al;text-decoration:none" class=3D"dark-style-color2">Google</a></td></tr><t=
+r><td><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAAN=
+bZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/15/_vveoYqFaGurkN=
+XdX8HaoA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZ29vZ2xlLWRpc2NvdmVyLW=
+Fycml2ZS1kZXNrdG9wLz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lb=
+WFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVk=
+aWEtNA" target=3D"_blank" class=3D"dark-style-color1 title" style=3D"color:=
+#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;line-height:24px;fon=
+t-weight:600;text-decoration:none;">Google Discover arrive sur desktop=C2=
+=A0: quel impact pour votre site=C2=A0?</a></td></tr></table></td></tr></ta=
+ble></td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"6=
+00" align=3D"center" class=3D"deviceWidth"><tr><td class=3D"bg-dark bb1 bg-=
+dark dark-border-color ptb-30" style=3D"padding-top:20px;padding-bottom:20p=
+x"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"177" align=3D"left" =
+style=3D"float:left" class=3D"deviceWidth bg-dark"><tr><td style=3D"border-=
+radius:4px;overflow:hidden;width:100%;"><a href=3D"https://go.blogdumoderat=
+eur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREW=
+jkfUGyZ8shQAAanQ/16/h6t14-l3YWktplkDzpxsOA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJh=
+dGV1ci5jb20vcmVkaWdlci1icmllZi1zZW8tYm9ubmVzLXByYXRpcXVlcy8_dXRtX3NvdXJjZT1=
+ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZX=
+JfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTU" target=3D"_blank"><img class=
+=3D"img" width=3D"177" src=3D"https://f.hellowork.com/blogdumoderateur/2025=
+/04/Brief-SEO-510x267.jpg" style=3D"display:block" alt=3D"" border=3D"0"></=
+a></td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"393=
+" align=3D"right" style=3D"float:right" class=3D"deviceWidth bg-dark"><tr><=
+td class=3D"pt-10" style=3D"padding:0"><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px"><a href=3D"https=
+://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKA=
+ZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/17/aJ-gZ7AEnelrXyqkssS7CA/aHR0cHM6Ly93d=
+3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vcmVkaWdlci1icmllZi1zZW8tYm9ubmVzLXByYXRpcXVl=
+cy8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXB=
+haWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTU" target=3D=
+"_blank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:1=
+6px;line-height:19px;font-weight:normal;text-decoration:none" class=3D"dark=
+-style-color2">SEO</a></td></tr><tr><td><a href=3D"https://go.blogdumoderat=
+eur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREW=
+jkfUGyZ8shQAAanQ/18/GQLOBHM1UC14q3kfPrSZzw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJh=
+dGV1ci5jb20vcmVkaWdlci1icmllZi1zZW8tYm9ubmVzLXByYXRpcXVlcy8_dXRtX3NvdXJjZT1=
+ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZX=
+JfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTU" target=3D"_blank" class=3D"d=
+ark-style-color1 title" style=3D"color:#080B50;font-family:Barlow,Roboto,Ar=
+ial;font-size:18px;line-height:24px;font-weight:600;text-decoration:none;">=
+R=C3=A9diger un brief SEO=C2=A0: 5 bonnes pratiques =C3=A0 adopter</a></td>=
+</tr></table></td></tr></table></td></tr></table><table cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"600" align=3D"center" class=3D"deviceWidth"><tr><=
+td class=3D"bg-dark bb1 bg-dark dark-border-color ptb-30" style=3D"padding-=
+top:20px;padding-bottom:20px"><table cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"177" align=3D"left" style=3D"float:left" class=3D"deviceWidth bg-dar=
+k"><tr><td style=3D"border-radius:4px;overflow:hidden;width:100%;"><a href=
+=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0=
+AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/19/NaNKJZLAeN5efRNzpG38BA/aHR0=
+cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdGVzdC1taWRqb3VybmV5LXY3Lz91dG1fc29=
+1cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2=
+xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtNg" target=3D"_blank"><im=
+g class=3D"img" width=3D"177" src=3D"https://f.hellowork.com/blogdumoderate=
+ur/2025/04/Midjourney-v7-test-510x267.jpg" style=3D"display:block" alt=3D""=
+ border=3D"0"></a></td></tr></table><table cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"393" align=3D"right" style=3D"float:right" class=3D"deviceWidt=
+h bg-dark"><tr><td class=3D"pt-10" style=3D"padding:0"><table cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px=
+"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXL=
+sAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/20/S2IKmWn-lq7I_XUpL-=
+1ZoQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdGVzdC1taWRqb3VybmV5LXY3Lz=
+91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ=
+249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtNg" target=3D"_b=
+lank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16px=
+;line-height:19px;font-weight:normal;text-decoration:none" class=3D"dark-st=
+yle-color2">IA</a></td></tr><tr><td><a href=3D"https://go.blogdumoderateur.=
+com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfU=
+GyZ8shQAAanQ/21/eFsb91-NjlTXld02IwvbDw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1=
+ci5jb20vdGVzdC1taWRqb3VybmV5LXY3Lz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXR=
+tX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2=
+NvbnRlbnQ9bWVkaWEtNg" target=3D"_blank" class=3D"dark-style-color1 title" s=
+tyle=3D"color:#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;line-h=
+eight:24px;font-weight:600;text-decoration:none;">Test de Midjourney v7=C2=
+=A0: un mod=C3=A8le bourr=C3=A9 de qualit=C3=A9s=E2=80=A6 mais aussi de d=
+=C3=A9fauts</a></td></tr></table></td></tr></table></td></tr></table><table=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=3D"center" class=
+=3D"deviceWidth"><tr><td class=3D"bg-dark bb1 bg-dark dark-border-color ptb=
+-30" style=3D"padding-top:20px;padding-bottom:20px"><table cellpadding=3D"0=
+" cellspacing=3D"0" width=3D"177" align=3D"left" style=3D"float:left" class=
+=3D"deviceWidth bg-dark"><tr><td style=3D"border-radius:4px;overflow:hidden=
+;width:100%;"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAc=
+oMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/22/_g1Ixg=
+Tv-CDlQLKC4aiD5w/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vc2VsZWN0aW9uLW=
+Zvcm1hdGlvbi1wcm9kdWN0LW93bmVyLTI0Ny8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJ=
+nV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0=
+bV9jb250ZW50PW1lZGlhLTc" target=3D"_blank"><img class=3D"img" width=3D"177"=
+ src=3D"https://f.hellowork.com/blogdumoderateur/2025/04/selection-formatio=
+n-product-owner-247-510x267.jpg" style=3D"display:block" alt=3D"" border=3D=
+"0"></a></td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"393" align=3D"right" style=3D"float:right" class=3D"deviceWidth bg-dark=
+"><tr><td class=3D"pt-10" style=3D"padding:0"><table cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px"><a href=
+=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0=
+AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/23/XXOSGNhlb2BlabugyYDS_A/aHR0=
+cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vc2VsZWN0aW9uLWZvcm1hdGlvbi1wcm9kdWN=
+0LW93bmVyLTI0Ny8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haW=
+wmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhL=
+Tc" target=3D"_blank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Aria=
+l;font-size:16px;line-height:19px;font-weight:normal;text-decoration:none" =
+class=3D"dark-style-color2">Formation</a></td></tr><tr><td><a href=3D"https=
+://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKA=
+ZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/24/HZ_N6MH74CB8vCMHJdxS3Q/aHR0cHM6Ly93d=
+3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vc2VsZWN0aW9uLWZvcm1hdGlvbi1wcm9kdWN0LW93bmVy=
+LTI0Ny8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2N=
+hbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTc" targe=
+t=3D"_blank" class=3D"dark-style-color1 title" style=3D"color:#080B50;font-=
+family:Barlow,Roboto,Arial;font-size:18px;line-height:24px;font-weight:600;=
+text-decoration:none;">Product owner=C2=A0: 5 formations pour apprendre =C3=
+=A0 piloter un produit digital</a></td></tr></table></td></tr></table></td>=
+</tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=
+=3D"center" class=3D"deviceWidth"><tr><td class=3D"bg-dark bb1 bg-dark dark=
+-border-color ptb-30" style=3D"padding-top:20px;padding-bottom:20px"><table=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"177" align=3D"left" style=3D"=
+float:left" class=3D"deviceWidth bg-dark"><tr><td style=3D"border-radius:4p=
+x;overflow:hidden;width:100%;"><a href=3D"https://go.blogdumoderateur.com/l=
+nk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8s=
+hQAAanQ/25/Nl73hr1-VZuFv7AdETHBnA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb=
+20vY2hhdGdwdC01LWdwdC1wZXJzb25uYWxpc2VzLXJlZGFjdGlvbi8_dXRtX3NvdXJjZT1ibG9n=
+ZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGV=
+iZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTg" target=3D"_blank"><img class=3D"i=
+mg" width=3D"177" src=3D"https://f.hellowork.com/blogdumoderateur/2025/03/G=
+PT-redaction-510x267.png" style=3D"display:block" alt=3D"" border=3D"0"></a=
+></td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"393"=
+ align=3D"right" style=3D"float:right" class=3D"deviceWidth bg-dark"><tr><t=
+d class=3D"pt-10" style=3D"padding:0"><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px"><a href=3D"https=
+://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKA=
+ZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/26/ClHEWvrwlz0j5mHL9c9x_A/aHR0cHM6Ly93d=
+3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vY2hhdGdwdC01LWdwdC1wZXJzb25uYWxpc2VzLXJlZGFj=
+dGlvbi8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2N=
+hbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTg" targe=
+t=3D"_blank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-si=
+ze:16px;line-height:19px;font-weight:normal;text-decoration:none" class=3D"=
+dark-style-color2">IA</a></td></tr><tr><td><a href=3D"https://go.blogdumode=
+rateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97Y=
+REWjkfUGyZ8shQAAanQ/27/5g3Tgo6jHOKk11UJNj2-WA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZ=
+XJhdGV1ci5jb20vY2hhdGdwdC01LWdwdC1wZXJzb25uYWxpc2VzLXJlZGFjdGlvbi8_dXRtX3Nv=
+dXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3N=
+sZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTg" target=3D"_blank" cla=
+ss=3D"dark-style-color1 title" style=3D"color:#080B50;font-family:Barlow,Ro=
+boto,Arial;font-size:18px;line-height:24px;font-weight:600;text-decoration:=
+none;">ChatGPT=C2=A0: 5 GPT personnalis=C3=A9s =C3=A0 utiliser pour la r=C3=
+=A9daction</a></td></tr></table></td></tr></table></td></tr></table><table =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=3D"center" class=3D=
+"deviceWidth"><tr><td class=3D"bg-dark bb1 bg-dark dark-border-color ptb-30=
+" style=3D"padding-top:20px;padding-bottom:20px"><table cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"177" align=3D"left" style=3D"float:left" class=3D=
+"deviceWidth bg-dark"><tr><td style=3D"border-radius:4px;overflow:hidden;wi=
+dth:100%;"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMv=
+mIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/28/aJgG_5pS-=
+uUnpnRay2bs6w/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vaWEtaWRlb2dyYW0tM=
+y0wLWZhY2UtYS1jaGF0Z3B0LW1pZGpvdXJuZXktcmV2ZS8_dXRtX3NvdXJjZT1ibG9nZHVtb2Rl=
+cmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWR=
+haXJlJnV0bV9jb250ZW50PW1lZGlhLTk" target=3D"_blank"><img class=3D"img" widt=
+h=3D"177" src=3D"https://f.hellowork.com/blogdumoderateur/2025/04/Ideogram-=
+generateur-images-510x267.jpg" style=3D"display:block" alt=3D"" border=3D"0=
+"></a></td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"393" align=3D"right" style=3D"float:right" class=3D"deviceWidth bg-dark"><=
+tr><td class=3D"pt-10" style=3D"padding:0"><table cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px"><a href=3D"h=
+ttps://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYm=
+AAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/29/7XwXGkykGq1thOK0t4zJzQ/aHR0cHM6L=
+y93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vaWEtaWRlb2dyYW0tMy0wLWZhY2UtYS1jaGF0Z3B0=
+LW1pZGpvdXJuZXktcmV2ZS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW0=
+9ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW=
+1lZGlhLTk" target=3D"_blank" style=3D"color:#024EF5;font-family:Barlow,Robo=
+to,Arial;font-size:16px;line-height:19px;font-weight:normal;text-decoration=
+:none" class=3D"dark-style-color2">IA</a></td></tr><tr><td><a href=3D"https=
+://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKA=
+ZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/30/hNfQhXBJni9VHXJNSoMNHA/aHR0cHM6Ly93d=
+3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vaWEtaWRlb2dyYW0tMy0wLWZhY2UtYS1jaGF0Z3B0LW1p=
+ZGpvdXJuZXktcmV2ZS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1=
+haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZG=
+lhLTk" target=3D"_blank" class=3D"dark-style-color1 title" style=3D"color:#=
+080B50;font-family:Barlow,Roboto,Arial;font-size:18px;line-height:24px;font=
+-weight:600;text-decoration:none;">IA=C2=A0: que vaut Ideogram 3.0 face =C3=
+=A0 des concurrents comme ChatGPT, Midjourney ou Reve=C2=A0?</a></td></tr><=
+/table></td></tr></table></td></tr></table><table cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"600" align=3D"center" class=3D"deviceWidth"><tr><td cla=
+ss=3D"bg-dark bb1 bg-dark dark-border-color ptb-30" style=3D"padding-top:20=
+px;padding-bottom:20px"><table cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"177" align=3D"left" style=3D"float:left" class=3D"deviceWidth bg-dark"><tr=
+><td style=3D"border-radius:4px;overflow:hidden;width:100%;"><a href=3D"htt=
+ps://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAA=
+KAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/31/E6RPWBjsup5n_nK0GCT96Q/aHR0cHM6Ly9=
+3d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZmFpcmUtZXhpc3Rlci1ldXJvcGUtbnVtZXJpcXVlLX=
+N0cmF0ZWdpZS1mcmFuY2UtZGlnaXRhbGUtc3RhcnR1cHMvP3V0bV9zb3VyY2U9YmxvZ2R1bW9kZ=
+XJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmRvbWFk=
+YWlyZSZ1dG1fY29udGVudD1tZWRpYS0xMA" target=3D"_blank"><img class=3D"img" wi=
+dth=3D"177" src=3D"https://f.hellowork.com/blogdumoderateur/2025/04/Alexand=
+re-Labarriere-France-Digitale-510x267.jpg" style=3D"display:block" alt=3D""=
+ border=3D"0"></a></td></tr></table><table cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"393" align=3D"right" style=3D"float:right" class=3D"deviceWidt=
+h bg-dark"><tr><td class=3D"pt-10" style=3D"padding:0"><table cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px=
+"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXL=
+sAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/32/ISzP6w0wKh6oy6TT8f=
+A2RQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZmFpcmUtZXhpc3Rlci1ldXJvcG=
+UtbnVtZXJpcXVlLXN0cmF0ZWdpZS1mcmFuY2UtZGlnaXRhbGUtc3RhcnR1cHMvP3V0bV9zb3VyY=
+2U9YmxvZ2R1bW9kZXJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0=
+dGVyX2hlYmRvbWFkYWlyZSZ1dG1fY29udGVudD1tZWRpYS0xMA" target=3D"_blank" style=
+=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16px;line-heigh=
+t:19px;font-weight:normal;text-decoration:none" class=3D"dark-style-color2"=
+>Interviews</a></td></tr><tr><td><a href=3D"https://go.blogdumoderateur.com=
+/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ=
+8shQAAanQ/33/pQFQfS8l-zjp4mT2WfLIUw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5=
+jb20vZmFpcmUtZXhpc3Rlci1ldXJvcGUtbnVtZXJpcXVlLXN0cmF0ZWdpZS1mcmFuY2UtZGlnaX=
+RhbGUtc3RhcnR1cHMvP3V0bV9zb3VyY2U9YmxvZ2R1bW9kZXJhdGV1ciZ1dG1fbWVkaXVtPWVtY=
+WlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmRvbWFkYWlyZSZ1dG1fY29udGVudD1tZWRp=
+YS0xMA" target=3D"_blank" class=3D"dark-style-color1 title" style=3D"color:=
+#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;line-height:24px;fon=
+t-weight:600;text-decoration:none;">=C2=AB=C2=A0Faire exister une Europe du=
+ num=C3=A9rique=C2=A0=C2=BB=C2=A0: la strat=C3=A9gie de France Digitale pou=
+r accompagner les startups</a></td></tr></table></td></tr></table></td></tr=
+></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=3D"=
+center" class=3D"deviceWidth"><tr><td class=3D"bg-dark bb1 bg-dark dark-bor=
+der-color ptb-30" style=3D"padding-top:20px;padding-bottom:20px"><table cel=
+lpadding=3D"0" cellspacing=3D"0" width=3D"177" align=3D"left" style=3D"floa=
+t:left" class=3D"deviceWidth bg-dark"><tr><td style=3D"border-radius:4px;ov=
+erflow:hidden;width:100%;"><a href=3D"https://go.blogdumoderateur.com/lnk/A=
+WYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAA=
+anQ/34/6xGI4vkRoZwwfE1yIY7_Dw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZ=
+XR1ZGUtcmVzZWF1eC1zb2NpYXV4LWVuZ2FnZW1lbnQtMjAyNS8_dXRtX3NvdXJjZT1ibG9nZHVt=
+b2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9=
+tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTEx" target=3D"_blank"><img class=3D"img"=
+ width=3D"177" src=3D"https://f.hellowork.com/blogdumoderateur/2025/04/Taux=
+-dengagement-reseaux-sociaux-2025-510x267.jpg" style=3D"display:block" alt=
+=3D"" border=3D"0"></a></td></tr></table><table cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"393" align=3D"right" style=3D"float:right" class=3D"devic=
+eWidth bg-dark"><tr><td class=3D"pt-10" style=3D"padding:0"><table cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:=
+6px"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANb=
+ZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/35/lWJ4dZ0dDwWyGwk=
+IYeUAdw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZXR1ZGUtcmVzZWF1eC1zb2N=
+pYXV4LWVuZ2FnZW1lbnQtMjAyNS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZW=
+RpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250Z=
+W50PW1lZGlhLTEx" target=3D"_blank" style=3D"color:#024EF5;font-family:Barlo=
+w,Roboto,Arial;font-size:16px;line-height:19px;font-weight:normal;text-deco=
+ration:none" class=3D"dark-style-color2">Community management</a></td></tr>=
+<tr><td><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIA=
+ANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/36/sL8H4c1OnteD=
+EJshKr4ENg/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZXR1ZGUtcmVzZWF1eC1z=
+b2NpYXV4LWVuZ2FnZW1lbnQtMjAyNS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9=
+tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb2=
+50ZW50PW1lZGlhLTEx" target=3D"_blank" class=3D"dark-style-color1 title" sty=
+le=3D"color:#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;line-hei=
+ght:24px;font-weight:600;text-decoration:none;">Quels sont les r=C3=A9seaux=
+ sociaux qui g=C3=A9n=C3=A8rent le plus d=E2=80=99engagement en 2025=C2=A0?=
+</a></td></tr></table></td></tr></table></td></tr></table><table cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"600" align=3D"center" class=3D"deviceWid=
+th"><tr><td class=3D"bg-dark bb1 bg-dark dark-border-color ptb-30" style=3D=
+"padding-top:20px;padding-bottom:20px"><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"177" align=3D"left" style=3D"float:left" class=3D"deviceWid=
+th bg-dark"><tr><td style=3D"border-radius:4px;overflow:hidden;width:100%;"=
+><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLs=
+AALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/37/u2QX3P3lRBZcxlfN3l_=
+-1g/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vMjAtbWV0aWVycy10ZWNoLW1hcmt=
+ldGluZy1yZWNoZXJjaGVzLXJlY3J1dGV1cnMtMWVyLXRyaW1lc3RyZS0yMDI1Lz91dG1fc291cm=
+NlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xld=
+HRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtMTI" target=3D"_blank"><img =
+class=3D"img" width=3D"177" src=3D"https://f.hellowork.com/blogdumoderateur=
+/2025/04/Barometre-hellowork-BDM-510x267.jpg" style=3D"display:block" alt=
+=3D"" border=3D"0"></a></td></tr></table><table cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"393" align=3D"right" style=3D"float:right" class=3D"devic=
+eWidth bg-dark"><tr><td class=3D"pt-10" style=3D"padding:0"><table cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:=
+6px"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANb=
+ZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/38/u2HgFlsF5rurTZ2=
+Y46sOSA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vMjAtbWV0aWVycy10ZWNoLW1=
+hcmtldGluZy1yZWNoZXJjaGVzLXJlY3J1dGV1cnMtMWVyLXRyaW1lc3RyZS0yMDI1Lz91dG1fc2=
+91cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c=
+2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtMTI" target=3D"_blank" s=
+tyle=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16px;line-h=
+eight:19px;font-weight:normal;text-decoration:none" class=3D"dark-style-col=
+or2">=C3=89tude</a></td></tr><tr><td><a href=3D"https://go.blogdumoderateur=
+.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkf=
+UGyZ8shQAAanQ/39/ALLDjrBXoPlClA9lXBaw2w/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV=
+1ci5jb20vMjAtbWV0aWVycy10ZWNoLW1hcmtldGluZy1yZWNoZXJjaGVzLXJlY3J1dGV1cnMtMW=
+VyLXRyaW1lc3RyZS0yMDI1Lz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1b=
+T1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9=
+bWVkaWEtMTI" target=3D"_blank" class=3D"dark-style-color1 title" style=3D"c=
+olor:#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;line-height:24p=
+x;font-weight:600;text-decoration:none;">Les 20 m=C3=A9tiers tech et market=
+ing les plus recherch=C3=A9s par les recruteurs au 1er trimestre 2025</a></=
+td></tr></table></td></tr></table></td></tr></table><table cellpadding=3D"0=
+" cellspacing=3D"0" width=3D"600" align=3D"center" class=3D"deviceWidth"><t=
+r><td class=3D"bg-dark bb1 bg-dark dark-border-color ptb-30" style=3D"paddi=
+ng-top:20px;padding-bottom:20px"><table cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"177" align=3D"left" style=3D"float:left" class=3D"deviceWidth bg-=
+dark"><tr><td style=3D"border-radius:4px;overflow:hidden;width:100%;"><a hr=
+ef=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4U=
+a0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/40/5jKh2nk3zil-aS1xlb8tfA/aH=
+R0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vbWV0YS1sbGFtYS00LW5vdXZlbGxlLWZhb=
+WlsbGUtbW9kZWxlcy1pYS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09=
+ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1=
+lZGlhLTEz" target=3D"_blank"><img class=3D"img" width=3D"177" src=3D"https:=
+//f.hellowork.com/blogdumoderateur/2025/04/meta-llama-4-modeles-510x267.jpg=
+" style=3D"display:block" alt=3D"" border=3D"0"></a></td></tr></table><tabl=
+e cellpadding=3D"0" cellspacing=3D"0" width=3D"393" align=3D"right" style=
+=3D"float:right" class=3D"deviceWidth bg-dark"><tr><td class=3D"pt-10" styl=
+e=3D"padding:0"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><=
+tr><td style=3D"padding-bottom:6px"><a href=3D"https://go.blogdumoderateur.=
+com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfU=
+GyZ8shQAAanQ/41/N5whHHJBrne0DM9BKIzs8w/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1=
+ci5jb20vbWV0YS1sbGFtYS00LW5vdXZlbGxlLWZhbWlsbGUtbW9kZWxlcy1pYS8_dXRtX3NvdXJ=
+jZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZX=
+R0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTEz" target=3D"_blank" style=
+=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16px;line-heigh=
+t:19px;font-weight:normal;text-decoration:none" class=3D"dark-style-color2"=
+>Meta</a></td></tr><tr><td><a href=3D"https://go.blogdumoderateur.com/lnk/A=
+WYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAA=
+anQ/42/xuWgASUOpvgw8Uk5Z8FOtw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vb=
+WV0YS1sbGFtYS00LW5vdXZlbGxlLWZhbWlsbGUtbW9kZWxlcy1pYS8_dXRtX3NvdXJjZT1ibG9n=
+ZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGV=
+iZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTEz" target=3D"_blank" class=3D"dark-=
+style-color1 title" style=3D"color:#080B50;font-family:Barlow,Roboto,Arial;=
+font-size:18px;line-height:24px;font-weight:600;text-decoration:none;">Meta=
+ d=C3=A9voile Llama 4=C2=A0: ce qu=E2=80=99il faut savoir sur cette nouvell=
+e famille de mod=C3=A8les d=E2=80=99IA</a></td></tr></table></td></tr></tab=
+le></td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"60=
+0" align=3D"center" class=3D"deviceWidth"><tr><td class=3D"bg-dark bb1 bg-d=
+ark dark-border-color ptb-30" style=3D"padding-top:20px;padding-bottom:20px=
+"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"177" align=3D"left" s=
+tyle=3D"float:left" class=3D"deviceWidth bg-dark"><tr><td style=3D"border-r=
+adius:4px;overflow:hidden;width:100%;"><a href=3D"https://go.blogdumoderate=
+ur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWj=
+kfUGyZ8shQAAanQ/43/b2B3R3tlyeoSN3VVEznY3w/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhd=
+GV1ci5jb20vaW50ZWxsaWdlbmNlLWFydGlmaWNpZWxsZS0yMDI1LXBsdXMtb3B0aW1pc2VlLXBh=
+cnRhZ2VlLXN0cmF0ZWdpcXVlLz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl=
+1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbn=
+Q9bWVkaWEtMTQ" target=3D"_blank"><img class=3D"img" width=3D"177" src=3D"ht=
+tps://f.hellowork.com/blogdumoderateur/2025/04/Etude-IA-Stanford-performanc=
+es-modeles-1-510x267.jpg" style=3D"display:block" alt=3D"" border=3D"0"></a=
+></td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"393"=
+ align=3D"right" style=3D"float:right" class=3D"deviceWidth bg-dark"><tr><t=
+d class=3D"pt-10" style=3D"padding:0"><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px"><a href=3D"https=
+://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKA=
+ZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/44/YVKobkrzhjZ56Xp-LcrZjw/aHR0cHM6Ly93d=
+3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vaW50ZWxsaWdlbmNlLWFydGlmaWNpZWxsZS0yMDI1LXBs=
+dXMtb3B0aW1pc2VlLXBhcnRhZ2VlLXN0cmF0ZWdpcXVlLz91dG1fc291cmNlPWJsb2dkdW1vZGV=
+yYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZG=
+FpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtMTQ" target=3D"_blank" style=3D"color:#024EF5=
+;font-family:Barlow,Roboto,Arial;font-size:16px;line-height:19px;font-weigh=
+t:normal;text-decoration:none" class=3D"dark-style-color2">=C3=89tude</a></=
+td></tr><tr><td><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUA=
+AcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/45/tQAA=
+7Z01Lr8s9KzseHEX7g/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vaW50ZWxsaWdl=
+bmNlLWFydGlmaWNpZWxsZS0yMDI1LXBsdXMtb3B0aW1pc2VlLXBhcnRhZ2VlLXN0cmF0ZWdpcXV=
+lLz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcG=
+FpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtMTQ" target=
+=3D"_blank" class=3D"dark-style-color1 title" style=3D"color:#080B50;font-f=
+amily:Barlow,Roboto,Arial;font-size:18px;line-height:24px;font-weight:600;t=
+ext-decoration:none;">L=E2=80=99intelligence artificielle en 2025=C2=A0: pl=
+us optimis=C3=A9e, plus partag=C3=A9e, plus strat=C3=A9gique</a></td></tr><=
+/table></td></tr></table></td></tr></table><table cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"600" align=3D"center" class=3D"deviceWidth"><tr><td cla=
+ss=3D"bg-dark bb1 bg-dark dark-border-color ptb-30" style=3D"padding-top:20=
+px;padding-bottom:20px"><table cellpadding=3D"0" cellspacing=3D"0" width=3D=
+"177" align=3D"left" style=3D"float:left" class=3D"deviceWidth bg-dark"><tr=
+><td style=3D"border-radius:4px;overflow:hidden;width:100%;"><a href=3D"htt=
+ps://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAA=
+KAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/46/80GxP8UrZkt5Hkh__vKkvw/aHR0cHM6Ly9=
+3d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vd2hhdHNhcHAtbWV0YS1haS1hdm91ZS1wcm9qZXQtZG=
+9taW5hdGlvbi1tb25kaWFsZS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpd=
+W09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50=
+PW1lZGlhLTE1" target=3D"_blank"><img class=3D"img" width=3D"177" src=3D"htt=
+ps://f.hellowork.com/blogdumoderateur/2025/04/Meta-AI-sur-WhatsApp-510x267.=
+jpg" style=3D"display:block" alt=3D"" border=3D"0"></a></td></tr></table><t=
+able cellpadding=3D"0" cellspacing=3D"0" width=3D"393" align=3D"right" styl=
+e=3D"float:right" class=3D"deviceWidth bg-dark"><tr><td class=3D"pt-10" sty=
+le=3D"padding:0"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%">=
+<tr><td style=3D"padding-bottom:6px"><a href=3D"https://go.blogdumoderateur=
+.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkf=
+UGyZ8shQAAanQ/47/9l-OSrzS8gqB0VAaW1cnhw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV=
+1ci5jb20vd2hhdHNhcHAtbWV0YS1haS1hdm91ZS1wcm9qZXQtZG9taW5hdGlvbi1tb25kaWFsZS=
+8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBha=
+WduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTE1" target=3D"=
+_blank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16=
+px;line-height:19px;font-weight:normal;text-decoration:none" class=3D"dark-=
+style-color2">WhatsApp</a></td></tr><tr><td><a href=3D"https://go.blogdumod=
+erateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97=
+YREWjkfUGyZ8shQAAanQ/48/sNw3p20jfH3TykrkdO34dw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9k=
+ZXJhdGV1ci5jb20vd2hhdHNhcHAtbWV0YS1haS1hdm91ZS1wcm9qZXQtZG9taW5hdGlvbi1tb25=
+kaWFsZS8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2=
+NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTE1" tar=
+get=3D"_blank" class=3D"dark-style-color1 title" style=3D"color:#080B50;fon=
+t-family:Barlow,Roboto,Arial;font-size:18px;line-height:24px;font-weight:60=
+0;text-decoration:none;">Sur WhatsApp, Meta AI avoue son projet de =C2=AB=
+=C2=A0domination mondiale=C2=A0=C2=BB</a></td></tr></table></td></tr></tabl=
+e></td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"600=
+" align=3D"center" class=3D"deviceWidth"><tr><td class=3D"bg-dark bb1 bg-da=
+rk dark-border-color ptb-30" style=3D"padding-top:20px;padding-bottom:20px"=
+><table cellpadding=3D"0" cellspacing=3D"0" width=3D"177" align=3D"left" st=
+yle=3D"float:left" class=3D"deviceWidth bg-dark"><tr><td style=3D"border-ra=
+dius:4px;overflow:hidden;width:100%;"><a href=3D"https://go.blogdumoderateu=
+r.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjk=
+fUGyZ8shQAAanQ/49/zqAhoj_bAOUrfhVNpLgzNA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdG=
+V1ci5jb20vZnJhbmNhaXMtdG91am91cnMtbWVmaWFudHMtbnVtZXJpcXVlLTIwMjUvP3V0bV9zb=
+3VyY2U9YmxvZ2R1bW9kZXJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdz=
+bGV0dGVyX2hlYmRvbWFkYWlyZSZ1dG1fY29udGVudD1tZWRpYS0xNg" target=3D"_blank"><=
+img class=3D"img" width=3D"177" src=3D"https://f.hellowork.com/blogdumodera=
+teur/2025/04/Barometre-confiance-numerique-2025-510x267.jpg" style=3D"displ=
+ay:block" alt=3D"" border=3D"0"></a></td></tr></table><table cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"393" align=3D"right" style=3D"float:right" c=
+lass=3D"deviceWidth bg-dark"><tr><td class=3D"pt-10" style=3D"padding:0"><t=
+able cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td style=3D"pa=
+dding-bottom:6px"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdK=
+UAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/50/Hu=
+bgqGKcBnl07K5tZbGbjw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZnJhbmNhaX=
+MtdG91am91cnMtbWVmaWFudHMtbnVtZXJpcXVlLTIwMjUvP3V0bV9zb3VyY2U9YmxvZ2R1bW9kZ=
+XJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmRvbWFk=
+YWlyZSZ1dG1fY29udGVudD1tZWRpYS0xNg" target=3D"_blank" style=3D"color:#024EF=
+5;font-family:Barlow,Roboto,Arial;font-size:16px;line-height:19px;font-weig=
+ht:normal;text-decoration:none" class=3D"dark-style-color2">=C3=89tude</a><=
+/td></tr><tr><td><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKU=
+AAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/51/Uwf=
+2wfoiIIchyrYaa6NUbA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZnJhbmNhaXM=
+tdG91am91cnMtbWVmaWFudHMtbnVtZXJpcXVlLTIwMjUvP3V0bV9zb3VyY2U9YmxvZ2R1bW9kZX=
+JhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmRvbWFkY=
+WlyZSZ1dG1fY29udGVudD1tZWRpYS0xNg" target=3D"_blank" class=3D"dark-style-co=
+lor1 title" style=3D"color:#080B50;font-family:Barlow,Roboto,Arial;font-siz=
+e:18px;line-height:24px;font-weight:600;text-decoration:none;">Escroqueries=
+, r=C3=A9seaux sociaux, IA=C2=A0: les Fran=C3=A7ais toujours m=C3=A9fiants =
+face au num=C3=A9rique en 2025</a></td></tr></table></td></tr></table></td>=
+</tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"600" align=
+=3D"center" class=3D"deviceWidth"><tr><td class=3D"bg-dark bb1 bg-dark dark=
+-border-color ptb-30" style=3D"padding-top:20px;padding-bottom:20px"><table=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"177" align=3D"left" style=3D"=
+float:left" class=3D"deviceWidth bg-dark"><tr><td style=3D"border-radius:4p=
+x;overflow:hidden;width:100%;"><a href=3D"https://go.blogdumoderateur.com/l=
+nk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8s=
+hQAAanQ/52/uXmNkvZ2LZIahWXIG2ExOg/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb=
+20vbGFuZ2FnZXMtaW5mb3JtYXRpcXVlcy1wb3B1bGFpcmVzLWF2cmlsLTIwMjUvP3V0bV9zb3Vy=
+Y2U9YmxvZ2R1bW9kZXJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV=
+0dGVyX2hlYmRvbWFkYWlyZSZ1dG1fY29udGVudD1tZWRpYS0xNw" target=3D"_blank"><img=
+ class=3D"img" width=3D"177" src=3D"https://f.hellowork.com/blogdumoderateu=
+r/2025/04/TIOBE-Classement-langages-programmation-avril-2025-510x267.jpg" s=
+tyle=3D"display:block" alt=3D"" border=3D"0"></a></td></tr></table><table c=
+ellpadding=3D"0" cellspacing=3D"0" width=3D"393" align=3D"right" style=3D"f=
+loat:right" class=3D"deviceWidth bg-dark"><tr><td class=3D"pt-10" style=3D"=
+padding:0"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><t=
+d style=3D"padding-bottom:6px"><a href=3D"https://go.blogdumoderateur.com/l=
+nk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8s=
+hQAAanQ/53/Tj7e-qwwkp5SL1n2jnxcVg/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb=
+20vbGFuZ2FnZXMtaW5mb3JtYXRpcXVlcy1wb3B1bGFpcmVzLWF2cmlsLTIwMjUvP3V0bV9zb3Vy=
+Y2U9YmxvZ2R1bW9kZXJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV=
+0dGVyX2hlYmRvbWFkYWlyZSZ1dG1fY29udGVudD1tZWRpYS0xNw" target=3D"_blank" styl=
+e=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16px;line-heig=
+ht:19px;font-weight:normal;text-decoration:none" class=3D"dark-style-color2=
+">D=C3=A9veloppement</a></td></tr><tr><td><a href=3D"https://go.blogdumoder=
+ateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YR=
+EWjkfUGyZ8shQAAanQ/54/L4UZm1rQkA-mIF5KIdciwQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZX=
+JhdGV1ci5jb20vbGFuZ2FnZXMtaW5mb3JtYXRpcXVlcy1wb3B1bGFpcmVzLWF2cmlsLTIwMjUvP=
+3V0bV9zb3VyY2U9YmxvZ2R1bW9kZXJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWln=
+bj1uZXdzbGV0dGVyX2hlYmRvbWFkYWlyZSZ1dG1fY29udGVudD1tZWRpYS0xNw" target=3D"_=
+blank" class=3D"dark-style-color1 title" style=3D"color:#080B50;font-family=
+:Barlow,Roboto,Arial;font-size:18px;line-height:24px;font-weight:600;text-d=
+ecoration:none;">Les 20 langages informatiques les plus populaires en avril=
+ 2025</a></td></tr></table></td></tr></table></td></tr></table><table cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"600" align=3D"center" class=3D"devi=
+ceWidth"><tr><td class=3D"bg-dark bb1 bg-dark dark-border-color ptb-30" sty=
+le=3D"padding-top:20px;padding-bottom:20px"><table cellpadding=3D"0" cellsp=
+acing=3D"0" width=3D"177" align=3D"left" style=3D"float:left" class=3D"devi=
+ceWidth bg-dark"><tr><td style=3D"border-radius:4px;overflow:hidden;width:1=
+00%;"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAAN=
+bZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/55/Qsca8IL4_m48_F=
+vuthDr0A/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vYWRvYmUtZGV2b2lsZS1mdX=
+R1cnMtYWdlbnRzLWlhLXBob3Rvc2hvcC1wcmVtaWVyZS1wcm8tZXhwcmVzcy8_dXRtX3NvdXJjZ=
+T1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0=
+ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTE4" target=3D"_blank"><img cl=
+ass=3D"img" width=3D"177" src=3D"https://f.hellowork.com/blogdumoderateur/2=
+025/04/Adobe-IA-agentique-Photoshop-1-510x267.jpg" style=3D"display:block" =
+alt=3D"" border=3D"0"></a></td></tr></table><table cellpadding=3D"0" cellsp=
+acing=3D"0" width=3D"393" align=3D"right" style=3D"float:right" class=3D"de=
+viceWidth bg-dark"><tr><td class=3D"pt-10" style=3D"padding:0"><table cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td style=3D"padding-bott=
+om:6px"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIA=
+ANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/56/YFK5b1UVHKBa=
+Umr8BamVhg/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vYWRvYmUtZGV2b2lsZS1m=
+dXR1cnMtYWdlbnRzLWlhLXBob3Rvc2hvcC1wcmVtaWVyZS1wcm8tZXhwcmVzcy8_dXRtX3NvdXJ=
+jZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZX=
+R0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTE4" target=3D"_blank" style=
+=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16px;line-heigh=
+t:19px;font-weight:normal;text-decoration:none" class=3D"dark-style-color2"=
+>Adobe</a></td></tr><tr><td><a href=3D"https://go.blogdumoderateur.com/lnk/=
+AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQA=
+AanQ/57/-c0bhTSSsvRjcbCtwly-Jg/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20v=
+YWRvYmUtZGV2b2lsZS1mdXR1cnMtYWdlbnRzLWlhLXBob3Rvc2hvcC1wcmVtaWVyZS1wcm8tZXh=
+wcmVzcy8_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2=
+NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50PW1lZGlhLTE4" tar=
+get=3D"_blank" class=3D"dark-style-color1 title" style=3D"color:#080B50;fon=
+t-family:Barlow,Roboto,Arial;font-size:18px;line-height:24px;font-weight:60=
+0;text-decoration:none;">Adobe d=C3=A9voile ses futurs agents IA dans Photo=
+shop, Premiere Pro, Express=E2=80=A6</a></td></tr></table></td></tr></table=
+></td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"600"=
+ align=3D"center" class=3D"deviceWidth"><tr><td class=3D"bg-dark bb1 bg-dar=
+k dark-border-color ptb-30" style=3D"padding-top:20px;padding-bottom:20px">=
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"177" align=3D"left" sty=
+le=3D"float:left" class=3D"deviceWidth bg-dark"><tr><td style=3D"border-rad=
+ius:4px;overflow:hidden;width:100%;"><a href=3D"https://go.blogdumoderateur=
+.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkf=
+UGyZ8shQAAanQ/58/8fsjZtnkhStaBpFslmsfNg/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV=
+1ci5jb20vYW5kcm9pZC1nb29nbGUtY29ycmlnZS1kZXV4LWZhaWxsZXMtY3JpdGlxdWVzLWNvbW=
+1lbnQtaW5zdGFsbGVyLW1pc2UtYS1qb3VyLz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImd=
+XRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRt=
+X2NvbnRlbnQ9bWVkaWEtMTk" target=3D"_blank"><img class=3D"img" width=3D"177"=
+ src=3D"https://f.hellowork.com/blogdumoderateur/2025/04/Google-Android-fai=
+lle-securite-avril-2025-510x267.jpg" style=3D"display:block" alt=3D"" borde=
+r=3D"0"></a></td></tr></table><table cellpadding=3D"0" cellspacing=3D"0" wi=
+dth=3D"393" align=3D"right" style=3D"float:right" class=3D"deviceWidth bg-d=
+ark"><tr><td class=3D"pt-10" style=3D"padding:0"><table cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px"><a hre=
+f=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua=
+0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/59/pLC_Aq2WE0ilLJUi0nYsHg/aHR=
+0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vYW5kcm9pZC1nb29nbGUtY29ycmlnZS1kZX=
+V4LWZhaWxsZXMtY3JpdGlxdWVzLWNvbW1lbnQtaW5zdGFsbGVyLW1pc2UtYS1qb3VyLz91dG1fc=
+291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3=
+c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtMTk" target=3D"_blank" =
+style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16px;line-=
+height:19px;font-weight:normal;text-decoration:none" class=3D"dark-style-co=
+lor2">Android</a></td></tr><tr><td><a href=3D"https://go.blogdumoderateur.c=
+om/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUG=
+yZ8shQAAanQ/60/PMCZBwAHMwVOHYlD95mPRw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1c=
+i5jb20vYW5kcm9pZC1nb29nbGUtY29ycmlnZS1kZXV4LWZhaWxsZXMtY3JpdGlxdWVzLWNvbW1l=
+bnQtaW5zdGFsbGVyLW1pc2UtYS1qb3VyLz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXR=
+tX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2=
+NvbnRlbnQ9bWVkaWEtMTk" target=3D"_blank" class=3D"dark-style-color1 title" =
+style=3D"color:#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;line-=
+height:24px;font-weight:600;text-decoration:none;">Android=C2=A0: Google co=
+rrige deux failles critiques, comment installer la mise =C3=A0 jour</a></td=
+></tr></table></td></tr></table></td></tr></table><table cellpadding=3D"0" =
+cellspacing=3D"0" width=3D"600" align=3D"center" class=3D"deviceWidth"><tr>=
+<td class=3D"bg-dark  bg-dark dark-border-color ptb-30" style=3D"padding-to=
+p:20px;padding-bottom:20px"><table cellpadding=3D"0" cellspacing=3D"0" widt=
+h=3D"177" align=3D"left" style=3D"float:left" class=3D"deviceWidth bg-dark"=
+><tr><td style=3D"border-radius:4px;overflow:hidden;width:100%;"><a href=3D=
+"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGK=
+YmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/61/NqsrGbp8Y6yTEeO-FD5F2A/aHR0cHM=
+6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vaW5zdGFncmFtLTUtbm91dmVhdXRlcy1hdnJpbC=
+0yMDI1Lz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY=
+2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtMjA" tar=
+get=3D"_blank"><img class=3D"img" width=3D"177" src=3D"https://f.hellowork.=
+com/blogdumoderateur/2025/04/instagram-publication-verrouillee-510x267.jpg"=
+ style=3D"display:block" alt=3D"" border=3D"0"></a></td></tr></table><table=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"393" align=3D"right" style=3D=
+"float:right" class=3D"deviceWidth bg-dark"><tr><td class=3D"pt-10" style=
+=3D"padding:0"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><t=
+r><td style=3D"padding-bottom:6px"><a href=3D"https://go.blogdumoderateur.c=
+om/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUG=
+yZ8shQAAanQ/62/SvMMPXyhMOJ3FfWpY5l3_A/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1c=
+i5jb20vaW5zdGFncmFtLTUtbm91dmVhdXRlcy1hdnJpbC0yMDI1Lz91dG1fc291cmNlPWJsb2dk=
+dW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJ=
+kb21hZGFpcmUmdXRtX2NvbnRlbnQ9bWVkaWEtMjA" target=3D"_blank" style=3D"color:=
+#024EF5;font-family:Barlow,Roboto,Arial;font-size:16px;line-height:19px;fon=
+t-weight:normal;text-decoration:none" class=3D"dark-style-color2">Instagram=
+</a></td></tr><tr><td><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAG=
+tSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/6=
+3/kWlkSicYjiTL8nThbVm2aQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vaW5zdG=
+FncmFtLTUtbm91dmVhdXRlcy1hdnJpbC0yMDI1Lz91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRld=
+XImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUm=
+dXRtX2NvbnRlbnQ9bWVkaWEtMjA" target=3D"_blank" class=3D"dark-style-color1 t=
+itle" style=3D"color:#080B50;font-family:Barlow,Roboto,Arial;font-size:18px=
+;line-height:24px;font-weight:600;text-decoration:none;">Instagram=C2=A0: 5=
+ nouveaut=C3=A9s =C3=A0 ne pas manquer sur la plateforme</a></td></tr></tab=
+le></td></tr></table></td></tr></table><table width=3D"600" align=3D"center=
+" cellpadding=3D"0" cellspacing=3D"0" class=3D"deviceWidth"><tr><td class=
+=3D"bb1 dark-border-color ptb-30" style=3D"padding-top:20px;padding-bottom:=
+20px"><table width=3D"177" height=3D"93" align=3D"left" style=3D"float:left=
+" cellpadding=3D"0" cellspacing=3D"0" class=3D"deviceWidth"><tr><td width=
+=3D"157" height=3D"73" class=3D"bg-dark-date deviceWidth" background=3D"htt=
+ps://f.hellowork.com/emailing/newsletter/blogdumoderateur/news-v7/fond-date=
+.png" style=3D"text-transform:uppercase;padding:10px;text-align:center;bord=
+er-radius:4px;overflow:hidden;background-color:#7CFFCE;background-image:url=
+(https://f.hellowork.com/emailing/newsletter/blogdumoderateur/news-v7/fond-=
+date.png) no-repeat top center;"><a href=3D"https://go.blogdumoderateur.com=
+/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ=
+8shQAAanQ/64/MxVakFpgTJfCWVB9eEEiYw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5=
+jb20vYWdlbmRhL3dlYmluYXItY29tbWVudC1zZS1mb3JtZXItbWFya2V0aW5nLWRpZ2l0YWwtcm=
+VnaW9ucy1yZXBvbmRyZS1iZXNvaW5zLXJlY3J1dGV1cnMvP3V0bV9jb250ZW50PWFnZW5kYSZ1d=
+G1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249=
+bmV3c2xldHRlcl9oZWJkb21hZGFpcmU" target=3D"_blank" style=3D"color:#080B50;f=
+ont-family:Barlow,Roboto,Arial;font-size:16px;line-height:24px;font-weight:=
+600;text-decoration:none" class=3D"dark-style-color1"><span style=3D"font-s=
+ize:24px">06</span><br/>MAI</a></td></tr></table><table width=3D"393" align=
+=3D"right" style=3D"float:right" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"deviceWidth"><tr><td><table cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"100%"><tr><td class=3D"pt-20" style=3D"padding-bottom:10px"><a href=3D"=
+https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKY=
+mAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/65/rp5slUv7GcHqi0tjJevkWQ/aHR0cHM6=
+Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vYWdlbmRhL3dlYmluYXItY29tbWVudC1zZS1mb3J=
+tZXItbWFya2V0aW5nLWRpZ2l0YWwtcmVnaW9ucy1yZXBvbmRyZS1iZXNvaW5zLXJlY3J1dGV1cn=
+MvP3V0bV9jb250ZW50PWFnZW5kYSZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZ=
+Gl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmU" target=3D"_=
+blank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16p=
+x;text-decoration:none" class=3D"dark-style-color2">Save the date</a></td><=
+/tr><tr><td style=3D"padding-bottom:10px"><a href=3D"https://go.blogdumoder=
+ateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YR=
+EWjkfUGyZ8shQAAanQ/66/miBmc2XGqIATB5-wGFUwFw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZX=
+JhdGV1ci5jb20vYWdlbmRhL3dlYmluYXItY29tbWVudC1zZS1mb3JtZXItbWFya2V0aW5nLWRpZ=
+2l0YWwtcmVnaW9ucy1yZXBvbmRyZS1iZXNvaW5zLXJlY3J1dGV1cnMvP3V0bV9jb250ZW50PWFn=
+ZW5kYSZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2F=
+tcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmU" target=3D"_blank" style=3D"color:=
+#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;text-decoration:none=
+;font-weight:600" class=3D"dark-style-color1 title">Webinar=C2=A0: comment =
+se former au marketing digital en r=C3=A9gions pour r=C3=A9pondre aux besoi=
+ns des recruteurs</a></td></tr><tr><td style=3D"padding-bottom:10px"><a hre=
+f=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua=
+0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/67/HA_jGRLt95n49gJvbGC3xg/aHR=
+0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vYWdlbmRhL3dlYmluYXItY29tbWVudC1zZS=
+1mb3JtZXItbWFya2V0aW5nLWRpZ2l0YWwtcmVnaW9ucy1yZXBvbmRyZS1iZXNvaW5zLXJlY3J1d=
+GV1cnMvP3V0bV9jb250ZW50PWFnZW5kYSZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRt=
+X21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmU" target=
+=3D"_blank" style=3D"color:#5D5F60;font-family:Barlow,Roboto,Arial;font-siz=
+e:16px;line-height:20px;text-decoration:none" class=3D"dark-style-color3">T=
+out savoir sur l=E2=80=99=C3=A9cosyst=C3=A8me digital, les opportunit=C3=A9=
+s de formation et d=E2=80=99emploi =C3=A0 Lille et Lyon.</a></td></tr><tr><=
+td><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZX=
+LsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/68/Y_CuzHDc8eUBMxvYQ=
+ICotQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vYWdlbmRhL3dlYmluYXItY29tb=
+WVudC1zZS1mb3JtZXItbWFya2V0aW5nLWRpZ2l0YWwtcmVnaW9ucy1yZXBvbmRyZS1iZXNvaW5z=
+LXJlY3J1dGV1cnMvP3V0bV9jb250ZW50PWFnZW5kYSZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXR=
+ldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcm=
+U" target=3D"_blank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial=
+;font-size:16px;" class=3D"dark-style-color2 link-blue">En savoir plus</a><=
+/td></tr></table></td></tr></table></td></tr></table><table width=3D"100%" =
+class=3D"bg-dark" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D=
+"center" bgcolor=3D"#ffffff"><tr><td style=3D"padding-top:30px;padding-bott=
+om:50px" class=3D"pb-30"><table width=3D"600" class=3D"deviceWidth bg-dark"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" align=3D"center" bgcolor=
+=3D"#ffffff"><tr><td style=3D"text-align:center;color:#080B50;font-family:B=
+arlow,Roboto,Arial;font-size:24px;font-weight:600;" class=3D"dark-style-col=
+or1">D=C3=A9couvrez les meilleurs outils web</td></tr><tr data-tool-id=3D"3=
+9176"><td style=3D"padding-top:30px;"><table cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%"><tr><td class=3D"bg-dark-content-2 dark-no-border" st=
+yle=3D"padding:20px;background:#FFF;border:2px solid #EDEFF4;border-radius:=
+4px;overflow:hidden"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%"><tr><td><table align=3D"left" style=3D"float:left" width=3D"11%" class=
+=3D"widthLogo" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"padding=
+:5px;background:#FFF;display:block" class=3D"bg-dark-white"><a href=3D"http=
+s://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAK=
+AZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/69/nqDIv_SJe0WwuxNOyg_tVQ/aHR0cHM6Ly93=
+d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcmVkaXJlY3Rpb24vP3Rvb2xfaWQ9MzkxNzY=
+mdG9vbF9uYW1lPWFyY3N5cyZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT=
+1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9d=
+G9vbHMtMSZvcmlnaW5lPURJUkVDVF9lbWFpbA" target=3D"_blank"><img src=3D"https:=
+//f.hellowork.com/bdmtools/2024/04/arcsys-logo-150x150.png" width=3D"57" bo=
+rder=3D"0" alt=3D""></a></td></tr></table><table align=3D"right" style=3D"f=
+loat:right" width=3D"84%" class=3D"deviceWidth3" cellpadding=3D"0" cellspac=
+ing=3D"0"><tr><td style=3D"vertical-align:top" class=3D"pt-10"><table cellp=
+adding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td style=3D"padding-bott=
+om:6px"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIA=
+ANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/70/GcXaxLw_q2fy=
+Vp_KCj1Yow/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcmVkaXJlY3Rp=
+b24vP3Rvb2xfaWQ9MzkxNzYmdG9vbF9uYW1lPWFyY3N5cyZ1dG1fc291cmNlPWJsb2dkdW1vZGV=
+yYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZG=
+FpcmUmdXRtX2NvbnRlbnQ9dG9vbHMtMSZvcmlnaW5lPURJUkVDVF9lbWFpbA" target=3D"_bl=
+ank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16px;=
+line-height:19px;font-weight:normal;text-decoration:none" class=3D"dark-sty=
+le-color2">Archivage</a></td></tr><tr><td style=3D"padding-bottom:6px"><a h=
+ref=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4=
+Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/71/QRxfPmMx4sB6Sf1F9yLyMA/a=
+HR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcmVkaXJlY3Rpb24vP3Rvb2xf=
+aWQ9MzkxNzYmdG9vbF9uYW1lPWFyY3N5cyZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXR=
+tX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2=
+NvbnRlbnQ9dG9vbHMtMSZvcmlnaW5lPURJUkVDVF9lbWFpbA" target=3D"_blank" class=
+=3D"dark-style-color1 title" style=3D"color:#080B50;font-family:Barlow,Robo=
+to,Arial;font-size:18px;line-height:24px;font-weight:600;text-decoration:no=
+ne;">Arcsys : un outil d'archivage confidentiel et s=C3=A9curis=C3=A9</a></=
+td></tr></table></td></tr></table></td></tr></table></td></tr></table></td>=
+</tr><tr data-tool-id=3D"30381"><td style=3D"padding-top:30px;"><table cell=
+padding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td class=3D"bg-dark-con=
+tent-2 dark-no-border" style=3D"padding:20px;background:#FFF;border:2px sol=
+id #EDEFF4;border-radius:4px;overflow:hidden"><table cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%"><tr><td><table align=3D"left" style=3D"float:l=
+eft" width=3D"11%" class=3D"widthLogo" cellpadding=3D"0" cellspacing=3D"0">=
+<tr><td style=3D"padding:5px;background:#FFF;display:block" class=3D"bg-dar=
+k-white"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmI=
+AANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/72/oChXRb0uh-6=
+3sNWIhu82UA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcmVkaXJlY3R=
+pb24vP3Rvb2xfaWQ9MzAzODEmdG9vbF9uYW1lPWhybWFwcyZ1dG1fc291cmNlPWJsb2dkdW1vZG=
+VyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZ=
+GFpcmUmdXRtX2NvbnRlbnQ9dG9vbHMtMiZvcmlnaW5lPURJUkVDVF9lbWFpbA" target=3D"_b=
+lank"><img src=3D"https://f.hellowork.com/bdmtools/2023/09/hrmaps-logo-150x=
+150.png" width=3D"57" border=3D"0" alt=3D""></a></td></tr></table><table al=
+ign=3D"right" style=3D"float:right" width=3D"84%" class=3D"deviceWidth3" ce=
+llpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"vertical-align:top" clas=
+s=3D"pt-10"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><=
+td style=3D"padding-bottom:6px"><a href=3D"https://go.blogdumoderateur.com/=
+lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8=
+shQAAanQ/73/rRwbpp9BO0e7uPcCPXlZEg/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5j=
+b20vdG9vbHMvcmVkaXJlY3Rpb24vP3Rvb2xfaWQ9MzAzODEmdG9vbF9uYW1lPWhybWFwcyZ1dG1=
+fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bm=
+V3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9dG9vbHMtMiZvcmlnaW5lPURJUkVDV=
+F9lbWFpbA" target=3D"_blank" style=3D"color:#024EF5;font-family:Barlow,Robo=
+to,Arial;font-size:16px;line-height:19px;font-weight:normal;text-decoration=
+:none" class=3D"dark-style-color2">SIRH</a></td></tr><tr><td style=3D"paddi=
+ng-bottom:6px"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAA=
+coMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/74/F3CH7=
+qe1NHONuc6KcvI8HA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcmVka=
+XJlY3Rpb24vP3Rvb2xfaWQ9MzAzODEmdG9vbF9uYW1lPWhybWFwcyZ1dG1fc291cmNlPWJsb2dk=
+dW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJ=
+kb21hZGFpcmUmdXRtX2NvbnRlbnQ9dG9vbHMtMiZvcmlnaW5lPURJUkVDVF9lbWFpbA" target=
+=3D"_blank" class=3D"dark-style-color1 title" style=3D"color:#080B50;font-f=
+amily:Barlow,Roboto,Arial;font-size:18px;line-height:24px;font-weight:600;t=
+ext-decoration:none;">HRMAPS : une plateforme compl=C3=A8te pour g=C3=A9rer=
+ les ressources humaines</a></td></tr></table></td></tr></table></td></tr><=
+/table></td></tr></table></td></tr><tr data-tool-id=3D"1845"><td style=3D"p=
+adding-top:30px;"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+><tr><td class=3D"bg-dark-content-2 dark-no-border" style=3D"padding:20px;b=
+ackground:#FFF;border:2px solid #EDEFF4;border-radius:4px;overflow:hidden">=
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td><table al=
+ign=3D"left" style=3D"float:left" width=3D"11%" class=3D"widthLogo" cellpad=
+ding=3D"0" cellspacing=3D"0"><tr><td style=3D"padding:5px;background:#FFF;d=
+isplay:block" class=3D"bg-dark-white"><a href=3D"https://go.blogdumoderateu=
+r.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjk=
+fUGyZ8shQAAanQ/75/dGaB7BZ04g54rZcRRbt8HA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdG=
+V1ci5jb20vdG9vbHMvcmVkaXJlY3Rpb24vP3Rvb2xfaWQ9MTg0NSZ0b29sX25hbWU9c2FsZXNmb=
+3JjZSZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2Ft=
+cGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9dG9vbHMtMyZvcmlnaW5=
+lPURJUkVDVF9lbWFpbA" target=3D"_blank"><img src=3D"https://f.hellowork.com/=
+bdmtools/2020/08/salesforce-logo-150x150.jpg" width=3D"57" border=3D"0" alt=
+=3D""></a></td></tr></table><table align=3D"right" style=3D"float:right" wi=
+dth=3D"84%" class=3D"deviceWidth3" cellpadding=3D"0" cellspacing=3D"0"><tr>=
+<td style=3D"vertical-align:top" class=3D"pt-10"><table cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px"><a hre=
+f=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua=
+0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/76/JJpju9UGVfTZU17pNOOt8g/aHR=
+0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcmVkaXJlY3Rpb24vP3Rvb2xfaW=
+Q9MTg0NSZ0b29sX25hbWU9c2FsZXNmb3JjZSZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImd=
+XRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRt=
+X2NvbnRlbnQ9dG9vbHMtMyZvcmlnaW5lPURJUkVDVF9lbWFpbA" target=3D"_blank" style=
+=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;font-size:16px;line-heigh=
+t:19px;font-weight:normal;text-decoration:none" class=3D"dark-style-color2"=
+>CRM</a></td></tr><tr><td style=3D"padding-bottom:6px"><a href=3D"https://g=
+o.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn=
+-OobrGeZF97YREWjkfUGyZ8shQAAanQ/77/FXfbY-5p7GXZXe0oZNQGgg/aHR0cHM6Ly93d3cuY=
+mxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcmVkaXJlY3Rpb24vP3Rvb2xfaWQ9MTg0NSZ0b29s=
+X25hbWU9c2FsZXNmb3JjZSZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1=
+lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9dG=
+9vbHMtMyZvcmlnaW5lPURJUkVDVF9lbWFpbA" target=3D"_blank" class=3D"dark-style=
+-color1 title" style=3D"color:#080B50;font-family:Barlow,Roboto,Arial;font-=
+size:18px;line-height:24px;font-weight:600;text-decoration:none;">Salesforc=
+e Sales Cloud : obtenir une vision =C3=A0 360=C2=B0 des clients et un suivi=
+ pr=C3=A9cis de votre chiffre d'affaires</a></td></tr></table></td></tr></t=
+able></td></tr></table></td></tr></table></td></tr><tr data-tool-id=3D"5518=
+"><td style=3D"padding-top:30px;"><table cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%"><tr><td class=3D"bg-dark-content-2 dark-no-border" style=
+=3D"padding:20px;background:#FFF;border:2px solid #EDEFF4;border-radius:4px=
+;overflow:hidden"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"=
+><tr><td><table align=3D"left" style=3D"float:left" width=3D"11%" class=3D"=
+widthLogo" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=3D"padding:5px=
+;background:#FFF;display:block" class=3D"bg-dark-white"><a href=3D"https://=
+go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQB=
+n-OobrGeZF97YREWjkfUGyZ8shQAAanQ/78/o3AVECnKwplzXn4P4u4Img/aHR0cHM6Ly93d3cu=
+YmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcmVkaXJlY3Rpb24vP3Rvb2xfaWQ9NTUxOCZ0b29=
+sX25hbWU9cHJlc3Rhc2hvcCZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT=
+1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9d=
+G9vbHMtNCZvcmlnaW5lPURJUkVDVF9lbWFpbA" target=3D"_blank"><img src=3D"https:=
+//f.hellowork.com/bdmtools/2021/08/prestashop-logo-new-150x150.png" width=
+=3D"57" border=3D"0" alt=3D""></a></td></tr></table><table align=3D"right" =
+style=3D"float:right" width=3D"84%" class=3D"deviceWidth3" cellpadding=3D"0=
+" cellspacing=3D"0"><tr><td style=3D"vertical-align:top" class=3D"pt-10"><t=
+able cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td style=3D"pa=
+dding-bottom:6px"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdK=
+UAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/79/Ir=
+aNLp9EI-CceffJYIZcHQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcm=
+VkaXJlY3Rpb24vP3Rvb2xfaWQ9NTUxOCZ0b29sX25hbWU9cHJlc3Rhc2hvcCZ1dG1fc291cmNlP=
+WJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRl=
+cl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9dG9vbHMtNCZvcmlnaW5lPURJUkVDVF9lbWFpbA"=
+ target=3D"_blank" style=3D"color:#024EF5;font-family:Barlow,Roboto,Arial;f=
+ont-size:16px;line-height:19px;font-weight:normal;text-decoration:none" cla=
+ss=3D"dark-style-color2">Plateforme e-commerce</a></td></tr><tr><td style=
+=3D"padding-bottom:6px"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYA=
+AGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ=
+/80/vjxwXg9M1gqO7Rhaf3_fOw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9v=
+bHMvcmVkaXJlY3Rpb24vP3Rvb2xfaWQ9NTUxOCZ0b29sX25hbWU9cHJlc3Rhc2hvcCZ1dG1fc29=
+1cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2=
+xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9dG9vbHMtNCZvcmlnaW5lPURJUkVDVF9lb=
+WFpbA" target=3D"_blank" class=3D"dark-style-color1 title" style=3D"color:#=
+080B50;font-family:Barlow,Roboto,Arial;font-size:18px;line-height:24px;font=
+-weight:600;text-decoration:none;">PrestaShop : une plateforme e-commerce d=
+e r=C3=A9f=C3=A9rence</a></td></tr></table></td></tr></table></td></tr></ta=
+ble></td></tr></table></td></tr><tr data-tool-id=3D"43407"><td style=3D"pad=
+ding-top:30px;"><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><=
+tr><td class=3D"bg-dark-content-2 dark-no-border" style=3D"padding:20px;bac=
+kground:#FFF;border:2px solid #EDEFF4;border-radius:4px;overflow:hidden"><t=
+able cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td><table alig=
+n=3D"left" style=3D"float:left" width=3D"11%" class=3D"widthLogo" cellpaddi=
+ng=3D"0" cellspacing=3D"0"><tr><td style=3D"padding:5px;background:#FFF;dis=
+play:block" class=3D"bg-dark-white"><a href=3D"https://go.blogdumoderateur.=
+com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfU=
+GyZ8shQAAanQ/81/gJ8Wnp--foKg37BeLI2l3Q/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1=
+ci5jb20vdG9vbHMvcmVkaXJlY3Rpb24vP3Rvb2xfaWQ9NDM0MDcmdG9vbF9uYW1lPXdoYWt1cCZ=
+1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ2=
+49bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9dG9vbHMtNSZvcmlnaW5lPURJU=
+kVDVF9lbWFpbA" target=3D"_blank"><img src=3D"https://f.hellowork.com/bdmtoo=
+ls/2024/09/whakup-logo-150x150.png" width=3D"57" border=3D"0" alt=3D""></a>=
+</td></tr></table><table align=3D"right" style=3D"float:right" width=3D"84%=
+" class=3D"deviceWidth3" cellpadding=3D"0" cellspacing=3D"0"><tr><td style=
+=3D"vertical-align:top" class=3D"pt-10"><table cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%"><tr><td style=3D"padding-bottom:6px"><a href=3D"http=
+s://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAK=
+AZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/82/VqJPZO3ToaGJlvps_nn3Cw/aHR0cHM6Ly93=
+d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcmVkaXJlY3Rpb24vP3Rvb2xfaWQ9NDM0MDc=
+mdG9vbF9uYW1lPXdoYWt1cCZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT=
+1lbWFpbCZ1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9d=
+G9vbHMtNSZvcmlnaW5lPURJUkVDVF9lbWFpbA" target=3D"_blank" style=3D"color:#02=
+4EF5;font-family:Barlow,Roboto,Arial;font-size:16px;line-height:19px;font-w=
+eight:normal;text-decoration:none" class=3D"dark-style-color2">SMS marketin=
+g</a></td></tr><tr><td style=3D"padding-bottom:6px"><a href=3D"https://go.b=
+logdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-Oo=
+brGeZF97YREWjkfUGyZ8shQAAanQ/83/V6yFkRzv8OsyNTg8ohxc-w/aHR0cHM6Ly93d3cuYmxv=
+Z2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvcmVkaXJlY3Rpb24vP3Rvb2xfaWQ9NDM0MDcmdG9vbF9=
+uYW1lPXdoYWt1cCZ1dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbC=
+Z1dG1fY2FtcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9dG9vbHMtN=
+SZvcmlnaW5lPURJUkVDVF9lbWFpbA" target=3D"_blank" class=3D"dark-style-color1=
+ title" style=3D"color:#080B50;font-family:Barlow,Roboto,Arial;font-size:18=
+px;line-height:24px;font-weight:600;text-decoration:none;">Whakup : un outi=
+l de gestion des campagnes marketing WhatsApp</a></td></tr></table></td></t=
+r></table></td></tr></table></td></tr></table></td></tr><tr><td style=3D"pa=
+dding-top:30px;"><table width=3D"100%" align=3D"center" cellpadding=3D"0" c=
+ellspacing=3D"0" class=3D"deviceWidth"><tr><td class=3D"bg-dark-content" st=
+yle=3D"padding:20px;border-radius:4px;overflow:hidden;background-color:#EDF=
+7FF;"><table width=3D"337" align=3D"left" style=3D"float:left" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"deviceWidth2"><tr><td><table width=3D"100=
+%" cellpadding=3D"0" cellspacing=3D"0"><tr><td><a href=3D"https://go.blogdu=
+moderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZ=
+F97YREWjkfUGyZ8shQAAanQ/84/tyON9XfxueaOM5D4s0A61w/aHR0cHM6Ly93d3cuYmxvZ2R1b=
+W9kZXJhdGV1ci5jb20vdG9vbHMvZ2VzdGlvbi9jb21wdGFiaWxpdGUvP3V0bV9zb3VyY2U9Ymxv=
+Z2R1bW9kZXJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2h=
+lYmRvbWFkYWlyZSZ1dG1fY29udGVudD10b29sc19jYXRlZ29yeQ" target=3D"_blank" clas=
+s=3D"dark-style-color2" style=3D"color:#024EF5;font-family:Barlow,Roboto,Ar=
+ial;font-size:16px;text-decoration:none;">S=C3=A9lection d'outils</a></td><=
+/tr><tr><td style=3D"padding-top:10px" class=3D"pb-30"><a href=3D"https://g=
+o.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn=
+-OobrGeZF97YREWjkfUGyZ8shQAAanQ/85/8doj0KtkDJM17sJ-8xOx5w/aHR0cHM6Ly93d3cuY=
+mxvZ2R1bW9kZXJhdGV1ci5jb20vdG9vbHMvZ2VzdGlvbi9jb21wdGFiaWxpdGUvP3V0bV9zb3Vy=
+Y2U9YmxvZ2R1bW9kZXJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV=
+0dGVyX2hlYmRvbWFkYWlyZSZ1dG1fY29udGVudD10b29sc19jYXRlZ29yeQ" target=3D"_bla=
+nk" class=3D"dark-style-color1 title" style=3D"color:#080B50;font-family:Ba=
+rlow,Roboto,Arial;font-size:18px;font-weight:600;text-decoration:none;">Les=
+ 21 meilleurs logiciels de comptabilit=C3=A9</a></td></tr></table></td></tr=
+></table><table width=3D"193" align=3D"right" style=3D"float:right" cellpad=
+ding=3D"0" cellspacing=3D"0" class=3D"deviceWidth2"><tr><td class=3D"hide-d=
+ark-mode" style=3D"text-align:center"><a href=3D"https://go.blogdumoderateu=
+r.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjk=
+fUGyZ8shQAAanQ/86/ghsMAJISevNJtLTcTBOOxA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdG=
+V1ci5jb20vdG9vbHMvZ2VzdGlvbi9jb21wdGFiaWxpdGUvP3V0bV9zb3VyY2U9YmxvZ2R1bW9kZ=
+XJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmRvbWFk=
+YWlyZSZ1dG1fY29udGVudD10b29sc19jYXRlZ29yeQ" target=3D"_blank"><img src=3D"h=
+ttps://f.hellowork.com/emailing/newsletter/blogdumoderateur/news-v7/icon-se=
+lec-outils.png" border=3D"0" alt=3D"visuel"></a></td></tr><tr><td class=3D"=
+visu-dark-mode" style=3D"text-align:center;mso-hide:all;display:none;max-he=
+ight:0;overflow:hidden;"><a href=3D"https://go.blogdumoderateur.com/lnk/AWY=
+AAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAan=
+Q/87/FWEJIY0CpPRYzD9RbDvgVA/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vdG9=
+vbHMvZ2VzdGlvbi9jb21wdGFiaWxpdGUvP3V0bV9zb3VyY2U9YmxvZ2R1bW9kZXJhdGV1ciZ1dG=
+1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmRvbWFkYWlyZSZ1dG1fY=
+29udGVudD10b29sc19jYXRlZ29yeQ" target=3D"_blank"><img src=3D"https://f.hell=
+owork.com/emailing/newsletter/blogdumoderateur/news-v7/icon-selec-outils-dm=
+.png" border=3D"0" alt=3D"visuel"></a></td></tr></table></td></tr></table><=
+/td></tr><tr><td style=3D"padding-top:30px;text-align:center"><!--[if mso]>=
+<v:roundrect xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:w=3D"urn:schem=
+as-microsoft-com:office:word" style=3D"height:50px;v-text-anchor:middle;wid=
+th:190px;font-weight:bold;" arcsize=3D"5%" stroke=3D"f" fillcolor=3D"#024EF=
+5"><w:anchorlock/><center><![endif]--><a href=3D"https://go.blogdumoderateu=
+r.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjk=
+fUGyZ8shQAAanQ/88/1WAe9Xzv4e_P-8E1ngBynQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdG=
+V1ci5jb20vdG9vbHMvJnV0bV9zb3VyY2U9YmxvZ2R1bW9kZXJhdGV1ciZ1dG1fbWVkaXVtPWVtY=
+WlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmRvbWFkYWlyZSZ1dG1fY29udGVudD10b29s=
+cy1jdGE" target=3D"_blank" class=3D"bg-dark-cta" style=3D"background-color:=
+#024EF5;border-radius:4px 4px 4px 4px;display:inline-block;color:#FFF;font-=
+family:Barlow,Roboto,Arial;font-size:16px;font-weight:600;text-decoration:n=
+one;height:50px;line-height:50px;width:190px;text-align:center;box-shadow:5=
+px 5px 0 rgba(2,79,245,.3);">Voir tous les outils</a><!--[if mso]></center>=
+</v:roundrect><![endif]--></td></tr></table></td></tr></table><table cellpa=
+dding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><td class=3D"dark-border-c=
+olor" style=3D"padding-top:30px;padding-bottom:30px;border-top:1px solid #E=
+DEFF4;"><table width=3D"600" class=3D"deviceWidth bg-dark" border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" align=3D"center" bgcolor=3D"#FFFFFF"><tr><=
+td><table align=3D"left" style=3D"float:left" width=3D"33%" class=3D"device=
+Width" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"hide-dark-mode =
+center pt-0" style=3D"padding-top:8px;"><img src=3D"https://f.hellowork.com=
+/emailing/newsletter/blogdumoderateur/news-v7/icone-solution.png" border=3D=
+"0" alt=3D"visuel solutions"></td></tr><tr><td class=3D"visu-dark-mode pt-0=
+ pt-freq-visu-dark  bg-dark" style=3D"text-align:center;mso-hide:all;displa=
+y:none;max-height:0;overflow:hidden;"><img src=3D"https://f.hellowork.com/e=
+mailing/newsletter/blogdumoderateur/news-v7/icone-solution-dm.png" border=
+=3D"0" alt=3D"visuel solutions"></td></tr></table><table align=3D"right" st=
+yle=3D"float:right" width=3D"64%" class=3D"deviceWidth" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><td class=3D"pt-20 dark-style-color1 center" style=3D"=
+font-family:Barlow,Roboto,Arial;color:#080B50;font-size:18px;font-weight:60=
+0;line-height:22px;">=C3=89diteurs, recruteurs, =C3=A9coles, acteurs du dig=
+ital : devenez partenaire du BDM</td></tr><tr><td style=3D"vertical-align:t=
+op;padding-top:10px" class=3D"center"><a href=3D"https://go.blogdumoderateu=
+r.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjk=
+fUGyZ8shQAAanQ/89/hDRzKVJooWEC7hDea85qMQ/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdG=
+V1ci5jb20vc2VydmljZS9kZXZlbmlyLXBhcnRlbmFpcmUvP3V0bV9zb3VyY2U9YmxvZ2R1bW9kZ=
+XJhdGV1ciZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1uZXdzbGV0dGVyX2hlYmRvbWFk=
+YWlyZSZ1dG1fY29udGVudD1sYW5kaW5n" target=3D"_blank" style=3D"font-family:Ba=
+rlow,Roboto,Arial;color:#024EF5;font-size:16px;line-height:19px;text-decora=
+tion:none;text-decoration:underline" class=3D"dark-style-color2 link-blue">=
+D=C3=A9couvrez nos solutions</a></td></tr></table></td></tr></table></td></=
+tr></table><table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%"><tr><t=
+d style=3D"background:#EDEFF4;padding:20px 0" class=3D"bg-dark-2"><table al=
+ign=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"60=
+0" class=3D"deviceWidth"><tr><td width=3D"100%" style=3D"text-align:center"=
+><table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" border=3D"0" cla=
+ss=3D"deviceWidth"><tr><td class=3D"dark-style-color1 bg-dark-2" style=3D"c=
+olor:#080B50;font-family:Barlow,Roboto,Arial;font-size:18px;font-weight:600=
+;padding-bottom:20px;text-align:center;">Suivez-nous</td></tr><tr><td class=
+=3D"center" style=3D"text-align:center;"><table border=3D"0" align=3D"cente=
+r" cellspacing=3D"0" cellpadding=3D"0" class=3D"deviceWidth"><tr><td width=
+=3D"54" align=3D"center"><a href=3D"https://go.blogdumoderateur.com/lnk/AWY=
+AAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAan=
+Q/90/Y4NtRFAVgLUHcNLN01YO9A/aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2NvbXBhbnkvYmx=
+vZ2R1bW9kZXJhdGV1cg" target=3D"_blank" style=3D"display:block;"><img src=3D=
+"https://f.hellowork.com/emailing/newsletter/blogdumoderateur/news-v7/linke=
+din.png" alt=3D"linkedin" border=3D"0" style=3D"display:block;"></a></td><t=
+d width=3D"54" align=3D"center"><a href=3D"https://go.blogdumoderateur.com/=
+lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8=
+shQAAanQ/91/W18DTNHfIYqzjOg0ZYkPDA/aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9ibG9n=
+bW9kZXJhdGV1ci8" target=3D"_blank" style=3D"display:block;"><img src=3D"htt=
+ps://f.hellowork.com/emailing/newsletter/blogdumoderateur/news-v7/instagram=
+.png" alt=3D"instagram" border=3D"0" style=3D"display:block;"></a></td><td =
+width=3D"54" align=3D"center"><a href=3D"https://go.blogdumoderateur.com/ln=
+k/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8sh=
+QAAanQ/92/zjUK7BaGahQrKyVfr1pulA/aHR0cHM6Ly93d3cueW91dHViZS5jb20vQGJsb2dtb2=
+RlcmF0ZXVyP3N1Yl9jb25maXJtYXRpb249MQ" target=3D"_blank" style=3D"display:bl=
+ock;"><img src=3D"https://f.hellowork.com/emailing/newsletter/blogdumoderat=
+eur/news-v7/youtube.png" alt=3D"Youtube" border=3D"0" style=3D"display:bloc=
+k;"></a></td><td width=3D"54" align=3D"center"><a href=3D"https://go.blogdu=
+moderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZ=
+F97YREWjkfUGyZ8shQAAanQ/93/fGa3uPHlKGOfQ-9fhSRohQ/aHR0cHM6Ly93d3cudGlrdG9rL=
+mNvbS9AYmRtX21lZGlh" target=3D"_blank" style=3D"display:block;"><img src=3D=
+"https://f.hellowork.com/emailing/newsletter/blogdumoderateur/news-v7/tikto=
+k.png" alt=3D"RSS" border=3D"0" style=3D"display:block;"></a></td><td width=
+=3D"54" align=3D"center"><a href=3D"https://go.blogdumoderateur.com/lnk/AWY=
+AAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAan=
+Q/94/JzyYbYn7s1KAiQQHYBuAjA/aHR0cHM6Ly9mbGlwYm9hcmQuY29tL0BCbG9nTW9kZXJhdGV=
+1cg" target=3D"_blank" style=3D"display:block;"><img src=3D"https://f.hello=
+work.com/emailing/newsletter/blogdumoderateur/news-v7/flipboard.png" alt=3D=
+"flipboard" border=3D"0" style=3D"display:block;"></a></td><td width=3D"54"=
+ align=3D"center"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdK=
+UAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/95/ul=
+iJYTGSDj4vJ4hrzQLCtw/aHR0cHM6Ly9uZXdzLmdvb2dsZS5jb20vcHVibGljYXRpb25zL0NBQX=
+FCd2dLTUpyc2xBc3dqN3lxQXc_aGw9ZnImZ2w9RlImY2VpZD1GUjpmcg" target=3D"_blank"=
+ style=3D"display:block;"><img src=3D"https://f.hellowork.com/emailing/news=
+letter/blogdumoderateur/news-v7/google-actus.png" alt=3D"Google Actus" bord=
+er=3D"0" style=3D"display:block;"></a></td><td width=3D"54" align=3D"center=
+"><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXL=
+sAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/96/POVw0aktXixoC4nGSH=
+aCQw/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20vZmVlZC8" target=3D"_blank"=
+ style=3D"display:block;"><img src=3D"https://f.hellowork.com/emailing/news=
+letter/blogdumoderateur/news-v7/rss.png" alt=3D"RSS" border=3D"0" style=3D"=
+display:block;"></a></td></tr></table></td></tr></table></td></tr></table><=
+/td></tr></table><div style=3D"height:30px">=C2=A0</div><table width=3D"600=
+" class=3D"deviceWidth" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" al=
+ign=3D"center"><tr><td style=3D"text-align:left;padding-bottom:30px"><a hre=
+f=3D"https://go.blogdumoderateur.com/nl3/GH2cRHQN6Bo03Fjb2GtXCw?m=3DAWYAAGt=
+SdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ&b=
+=3D468069f2&e=3Dce9b7b03&x=3D9VkQrVSGpZcfOEN1jKkOMIBfEbuJmNXC24CexJ58od8" s=
+tyle=3D"color:#5D5F60;font-family:Barlow,Roboto,Arial;font-size:12px;" clas=
+s=3D"dark-style-color3 link">Consulter la version en ligne</a></td></tr><tr=
+><td class=3D"dark-style-color3" style=3D"color:#5D5F60;font-family:Barlow,=
+Roboto,Arial;font-size:10px;line-height:12px;padding-bottom:20px;">Vous rec=
+evez cet email car vous =C3=AAtes abonn=C3=A9 =C3=A0 la newsletter BDM.<br/=
+>	Cet email a =C3=A9t=C3=A9 envoy=C3=A9 =C3=A0 <a href=3D"mailto:n2rss@nico=
+pico.fr" style=3D"color:#024EF5;" class=3D"dark-style-color2 link-blue">n2r=
+ss@nicopico.fr</a>, <a href=3D"https://go.blogdumoderateur.com/unsub2?hl=3D=
+fr&amp;m=3DAWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWj=
+kfUGyZ8shQAAanQ&amp;b=3D468069f2&amp;e=3Dce9b7b03&amp;x=3D9VkQrVSGpZcfOEN1j=
+KkOMIBfEbuJmNXC24CexJ58od8" style=3D"color:#024EF5;" class=3D"dark-style-co=
+lor2 link-blue">cliquez ici</a> pour vous d=C3=A9sabonner.<br/><br/><a href=
+=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0=
+AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/97/Vpo064UayvMSRFfec00Chw/aHR0=
+cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXV=
+yJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJn=
+V0bV9jb250ZW50PWZvb3Rlcg" style=3D"color:#024EF5;" class=3D"dark-style-colo=
+r2 link-blue">BDM</a> est un site du groupe <a href=3D"https://go.blogdumod=
+erateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97=
+YREWjkfUGyZ8shQAAanQ/98/QRwLoTTZgmqo-efGKWnIsg/aHR0cHM6Ly93d3cuaGVsbG93b3Jr=
+LmNvbT91dG1fc291cmNlPWJsb2dkdW1vZGVyYXRldXImdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2F=
+tcGFpZ249bmV3c2xldHRlcl9oZWJkb21hZGFpcmUmdXRtX2NvbnRlbnQ9Zm9vdGVy" style=3D=
+"color:#024EF5;" class=3D"dark-style-color2 link-blue">HelloWork</a><br/>	2=
+, rue de la Mabilais =E2=80=A2 35000 RENNES =E2=80=A2 02 23 44 80 44 =E2=80=
+=A2 <a href=3D"mailto:contact@blogdumoderateur.com" style=3D"color:#024EF5;=
+" class=3D"dark-style-color2 link-blue">contact@blogdumoderateur.com</a><br=
+/><br/>	Pour ne manquer aucune de nos alertes, <a href=3D"https://go.blogdu=
+moderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZ=
+F97YREWjkfUGyZ8shQAAanQ/99/gFzQQOOavLNdpafJB7V5Mg/aHR0cHM6Ly93d3cuYmxvZ2R1b=
+W9kZXJhdGV1ci5jb20vcmVjZXZvaXItbWFpbHMtZXhwZWRpdGV1ci8_dXRtX3NvdXJjZT1ibG9n=
+ZHVtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGV=
+iZG9tYWRhaXJlJnV0bV9jb250ZW50PWZvb3Rlcg" style=3D"color:#024EF5;" class=3D"=
+dark-style-color2 link-blue">d=C3=A9couvrez comment ajouter notre adresse =
+=C3=A0 vos contacts</a><br/><br/>	Conform=C3=A9ment =C3=A0 la loi =C2=AB r=
+=C3=A8glement g=C3=A9n=C3=A9ral sur la protection des donn=C3=A9es =C3=A0 c=
+aract=C3=A8re personnel =C2=BB du 25 mai 2018, vous b=C3=A9n=C3=A9ficiez d'=
+un droit d'acc=C3=A8s et de rectification aux informations qui vous concern=
+ent, que vous pouvez exercer en vous adressant =C3=A0 <a href=3D"mailto:con=
+tact@blogdumoderateur.com" style=3D"color:#024EF5;" class=3D"dark-style-col=
+or2 link-blue">contact@blogdumoderateur.com</a></td></tr></table></td></tr>=
+</table><br/><a style=3D"font-family: Arial, sans-serif;" href=3D"https://g=
+o.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAAKAZQBn=
+-OobrGeZF97YREWjkfUGyZ8shQAAanQ/0/mhGFOADy8jwm32LSCPXG6g/aHR0cHM6Ly93d3cuYm=
+xvZ2R1bW9kZXJhdGV1ci5jb20_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9tZWRpd=
+W09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb250ZW50=
+PWhlYWRlcg?b=3D1">&#8203;</a><div style=3D"display: none; height: 0px; widt=
+h: 0px; overflow: hidden; visibility: hidden; mso-hide: all"><a href=3D"htt=
+ps://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAANbZXLsAALx4Ua0AGKYmAA=
+KAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/0/mhGFOADy8jwm32LSCPXG6g/aHR0cHM6Ly93=
+d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20_dXRtX3NvdXJjZT1ibG9nZHVtb2RlcmF0ZXVyJnV0bV9=
+tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZG9tYWRhaXJlJnV0bV9jb2=
+50ZW50PWhlYWRlcg?b=3D2" target=3D"_blank" rel=3D"noreferrer">Click on me</a=
+></div><a href=3D"https://go.blogdumoderateur.com/lnk/AWYAAGtSdKUAAcoMvmIAA=
+NbZXLsAALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/0/mhGFOADy8jwm32=
+LSCPXG6g/aHR0cHM6Ly93d3cuYmxvZ2R1bW9kZXJhdGV1ci5jb20_dXRtX3NvdXJjZT1ibG9nZH=
+Vtb2RlcmF0ZXVyJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPW5ld3NsZXR0ZXJfaGViZ=
+G9tYWRhaXJlJnV0bV9jb250ZW50PWhlYWRlcg?b=3D3">
+<img src=3D"https://go.blogdumoderateur.com/oo/AWYAAGtSdKUAAcoMvmIAANbZXLsA=
+ALx4Ua0AGKYmAAKAZQBn-OobrGeZF97YREWjkfUGyZ8shQAAanQ/b0b88eaf/e.gif" height=
+=3D"1" width=3D"1" alt=3D"" border=3D"0" style=3D"height:1px;width:1px;bord=
+er:0;"/>
+</a></body></html>
+=
