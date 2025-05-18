@@ -54,7 +54,7 @@ class HomeController(
     fun home(
         request: HttpServletRequest,
         model: Model,
-        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @Suppress("UnusedParameter", "unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
     ): String {
         val groupedNewsletterInfos: List<GroupedNewsletterInfo> = newsletterService
@@ -89,7 +89,7 @@ class HomeController(
     fun requestNewsletter(
         @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String,
         @RequestParam("g-recaptcha-response") captchaResponse: String? = null,
-        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @Suppress("UnusedParameter", "unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
     ): ResponseEntity<String> {
         val isCaptchaValid = if (recaptchaProperties.enabled) {
