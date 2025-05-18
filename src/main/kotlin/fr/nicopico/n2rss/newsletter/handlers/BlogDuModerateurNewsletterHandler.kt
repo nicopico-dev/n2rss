@@ -18,8 +18,13 @@
 package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.html
+import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
+import fr.nicopico.n2rss.utils.url.toUrlOrNull
+import org.jsoup.Jsoup
+import org.jsoup.safety.Safelist
 
 class BlogDuModerateurNewsletterHandler : NewsletterHandlerSingleFeed {
     override val newsletter: Newsletter = Newsletter(
@@ -29,10 +34,28 @@ class BlogDuModerateurNewsletterHandler : NewsletterHandlerSingleFeed {
     )
 
     override fun canHandle(email: Email): Boolean {
-        TODO("Not yet implemented")
+        return email.sender.email == "newsletter@blogdumoderateur.com"
     }
 
     override fun extractArticles(email: Email): List<Article> {
-        TODO("Not yet implemented")
+        val cleanedHtml = Jsoup.clean(
+            email.content.html,
+            Safelist.basic()
+                .addAttributes("a", "class"),
+        )
+        val document = Jsoup.parseBodyFragment(cleanedHtml)
+
+        return document.select("a.title")
+            .map { linkElement ->
+                val title = linkElement.text()
+                val link = linkElement.attr("href").toUrlOrNull()
+                    ?: throw NewsletterParsingException("Could not retrieve the link for article '$title'")
+
+                Article(
+                    title = title,
+                    link = link,
+                    description = "TODO",
+                )
+            }
     }
 }
