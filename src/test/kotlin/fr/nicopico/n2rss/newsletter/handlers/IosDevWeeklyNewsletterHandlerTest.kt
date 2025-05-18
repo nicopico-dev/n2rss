@@ -20,7 +20,6 @@ package fr.nicopico.n2rss.newsletter.handlers
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
-import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
@@ -57,14 +56,11 @@ class IosDevWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<IosDevWeekly
                 }
             }
 
-            // We expect articles from different sections: News, Tools, Code, etc.
-            publication.articles shouldHaveSize 6
-
             // Verify articles from different sections
             withClue("Articles should contain expected titles") {
                 publication.articles.map { it.title } shouldBe listOf(
                     "Is mobile the forgotten child of observability?",
-                    "Tim, don't kill my vibe",
+                    "Tim, don’t kill my vibe",
                     "How to automate perfect screenshots for the Mac App Store",
                     "Integrating Rust egui into SwiftUI",
                     "Deploying a Swift Server App",
@@ -75,13 +71,19 @@ class IosDevWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<IosDevWeekly
             // Verify the first article (News section)
             assertSoftly(publication.articles[1]) {
                 withClue("title") {
-                    title shouldBe "Tim, don't kill my vibe"
+                    title shouldBe "Tim, don’t kill my vibe"
                 }
                 withClue("link") {
                     link shouldBe URL("https://irace.me/vibe")
                 }
                 withClue("description") {
-                    description shouldBe "Bryan Irace argues that as the time needed to create apps decreases, the process and time taken with everything after building the app looks more daunting."
+                    description shouldBe """
+                        Bryan Irace:
+
+                        … but this shouldn’t distract us from continuing to criticize one of Apple’s most deserving targets: App Review.
+
+                        He argues that as the time needed to create apps decreases, the process and time taken with everything after building the app looks more daunting.
+                    """.trimIndent()
                 }
             }
 
@@ -94,12 +96,18 @@ class IosDevWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<IosDevWeekly
                     link shouldBe URL("https://www.jessesquires.com/blog/2025/03/24/automate-perfect-mac-screenshots/")
                 }
                 withClue("description") {
-                    description shouldBe "Jesse Squires on automating capturing App Store screenshots for macOS apps, with great tips especially about processing the screenshots in Retrobatch."
+                    description shouldBe """
+                        Jesse Squires on automating capturing App Store screenshots for macOS apps:
+
+                        However, on macOS there is much less support (and, sadly, demand) for automated tooling — so you are kind of on your own to figure it out.
+
+                        There are some great tips in here, especially about processing the screenshots in Retrobatch, which I can confirm is a fantastic piece of software.
+                    """.trimIndent()
                 }
             }
 
             // Verify the third article (Code section)
-            assertSoftly(publication.articles[2]) {
+            assertSoftly(publication.articles[3]) {
                 withClue("title") {
                     title shouldBe "Integrating Rust egui into SwiftUI"
                 }
@@ -107,7 +115,9 @@ class IosDevWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<IosDevWeekly
                     link shouldBe URL("https://medium.com/@djalex566/fast-fluid-integrating-rust-egui-into-swiftui-30a218c502c1")
                 }
                 withClue("description") {
-                    description shouldBe "Oleksii Oliinyk's piece on integrating the egui graphics library with SwiftUI, used in his app Data Scout, which looks great if you need a modern SQLite/SwiftData database viewing tool."
+                    description shouldBe """
+                        I enjoyed reading Oleksii Oliinyk’s piece on integrating the egui graphics library with SwiftUI. It’s not just a theoretical exploration of using the library, either. He’s using it in his app, Data Scout, which looks great if you need a modern SQLite/SwiftData database viewing tool.
+                    """.trimIndent()
                 }
             }
         }

@@ -18,8 +18,13 @@
 package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.html
+import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
+import fr.nicopico.n2rss.utils.url.toUrlOrNull
+import org.jsoup.Jsoup
+import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 
 @Component
@@ -36,6 +41,28 @@ class IosDevWeeklyNewsletterHandler : NewsletterHandlerSingleFeed {
     }
 
     override fun extractArticles(email: Email): List<Article> {
-        TODO("Not yet implemented")
+        val cleanedHtml = Jsoup.clean(
+            email.content.html,
+            Safelist.basic()
+                .addAttributes("a", "class")
+                .addAttributes("span", "style"),
+        )
+        val document = Jsoup.parseBodyFragment(cleanedHtml)
+
+        return document.select("a.link").map { linkElement ->
+            val title = linkElement.text()
+            val link = linkElement.attr("href").toUrlOrNull()
+                ?: throw NewsletterParsingException("Invalid URL for article '$title'")
+            val description = linkElement.nextElementSiblings()
+                .takeWhile { element -> element.tagName() == "p" }
+                .joinToString("\n\n") { it.text() }
+                .trim()
+
+            Article(
+                title = title,
+                link = link,
+                description = description,
+            )
+        }
     }
 }
