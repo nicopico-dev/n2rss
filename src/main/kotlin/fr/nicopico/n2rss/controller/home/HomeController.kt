@@ -54,12 +54,12 @@ class HomeController(
     fun home(
         request: HttpServletRequest,
         model: Model,
-        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @Suppress("UnusedParameter", "unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
     ): String {
         val groupedNewsletterInfos: List<GroupedNewsletterInfo> = newsletterService
             .getNonHiddenEnabledNewslettersInfo()
-            .sortedBy { it.title }
+            .sortedBy { it.title.lowercase() }
             .filter { it.publicationCount > 0 }
             .groupBy { it.title.lowercase() }
             .map { (_, newsletterInfos) ->
@@ -89,7 +89,7 @@ class HomeController(
     fun requestNewsletter(
         @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String,
         @RequestParam("g-recaptcha-response") captchaResponse: String? = null,
-        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @Suppress("UnusedParameter", "unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
     ): ResponseEntity<String> {
         val isCaptchaValid = if (recaptchaProperties.enabled) {
