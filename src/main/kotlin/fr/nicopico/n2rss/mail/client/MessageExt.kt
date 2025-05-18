@@ -51,7 +51,8 @@ fun Message.toEmail(messageFolder: String): Email {
             }
 
             else -> {
-                if (content is String && getHeader("Content-Type").any { it.startsWith("text/html") }) {
+                val contentType = getHeader("Content-Type") ?: arrayOf()
+                if (content is String && contentType.any { it.startsWith("text/html") }) {
                     EmailContent.HtmlOnly(content)
                 } else EmailContent.TextOnly(content.toString())
             }
