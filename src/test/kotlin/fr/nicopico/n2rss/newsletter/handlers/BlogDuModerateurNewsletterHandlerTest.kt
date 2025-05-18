@@ -20,6 +20,7 @@ package fr.nicopico.n2rss.newsletter.handlers
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
+import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.kotlinx.datetime.shouldHaveSameDayAs
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Nested
@@ -38,25 +39,21 @@ class BlogDuModerateurNewsletterHandlerTest : BaseNewsletterHandlerTest<BlogDuMo
                 loadEmail("stubs/emails/Blog du Modérateur/Générateur d'images de ChatGPT, retour aux sources pour Facebook, Meta AI sur WhatsApp, TikTok Shop.eml")
 
             // WHEN
-            val publication = handler.process(email)
+            val publications = handler.process(email)
 
             // THEN
-            assertSoftly(publication) {
-                withClue("publication title") {
-                    title shouldBe "Générateur d'images de ChatGPT, retour aux sources pour Facebook, Meta AI sur WhatsApp, TikTok Shop"
-                }
-                withClue("date") {
-                    date shouldHaveSameDayAs (email.date)
-                }
-                withClue("newsletter") {
-                    newsletter.name shouldBe "Blog du Modérateur"
-                }
+            publications shouldHaveSize 2
+
+            // Articles publication
+            val articlesPublication = publications[0]
+            assertSoftly(articlesPublication) {
+                title shouldBe "Générateur d'images de ChatGPT, retour aux sources pour Facebook, Meta AI sur WhatsApp, TikTok Shop"
+                date shouldHaveSameDayAs (email.date)
+                newsletter.code shouldBe "bdm"
             }
 
-            println(publication.articles.map { it.title }.joinToString("\n"))
-
             withClue("article titles") {
-                publication.articles.map { it.title } shouldBe listOf(
+                articlesPublication.articles.map { it.title } shouldBe listOf(
                     "ChatGPT abandonne DALL-E et se dote enfin d’un bon générateur d’images",
                     "Facebook lance un fil uniquement pour les amis : un retour aux sources ?",
                     "Comment choisir son hébergement web : les conseils de o2switch",
@@ -80,31 +77,25 @@ class BlogDuModerateurNewsletterHandlerTest : BaseNewsletterHandlerTest<BlogDuMo
                     "Webinar : comment maîtriser le marketing digital dans la beauté et les cosmétiques ?",
                 )
             }
-        }
 
-        @Test
-        fun `should extract articles from email about Canva and WordPress`() {
-            // GIVEN
-            val email: Email =
-                loadEmail("stubs/emails/Blog du Modérateur/Nouveautés Canva, le nouveau site builder par IA de WordPress, ChatGPT améliore sa mémoire.eml")
-
-            // WHEN
-            val publication = handler.process(email)
-
-            // THEN
-            assertSoftly(publication) {
-                withClue("publication title") {
-                    title shouldBe "Nouveautés Canva, le nouveau site builder par IA de WordPress, ChatGPT améliore sa mémoire..."
-                }
-                withClue("date") {
-                    date shouldHaveSameDayAs (email.date)
-                }
-                withClue("newsletter") {
-                    newsletter.name shouldBe "Blog du Modérateur"
-                }
+            // Tools Publication
+            val toolsPublication = publications[1]
+            assertSoftly(toolsPublication) {
+                title shouldBe "Générateur d'images de ChatGPT, retour aux sources pour Facebook, Meta AI sur WhatsApp, TikTok Shop"
+                date shouldHaveSameDayAs (email.date)
+                newsletter.code shouldBe "bdm-tools"
             }
 
-            TODO("Implement rest of the test")
+            withClue("tool titles") {
+                toolsPublication.articles.map { it.title } shouldBe listOf(
+                    "Evoliz : un outil pour gérer ses factures, devis et bons de commande",
+                    "Studio Creatio : un outil pour créer des applis et automatiser les workflows",
+                    "Sage 50 : un logiciel comptable avec des options de gestion d'entreprise",
+                    "Gouti : une plateforme de planification des ressources d'entreprise",
+                    "Metricool : une solution pour gérer vos réseaux sociaux et analyser vos performances",
+                    "Gestion de projet : 72 outils pour gérer et planifier ses tâches",
+                )
+            }
         }
     }
 }

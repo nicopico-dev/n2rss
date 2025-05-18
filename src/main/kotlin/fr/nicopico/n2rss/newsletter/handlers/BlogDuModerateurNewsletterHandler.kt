@@ -24,28 +24,52 @@ import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
 import org.jsoup.safety.Safelist
 
-class BlogDuModerateurNewsletterHandler : NewsletterHandlerSingleFeed {
-    override val newsletter: Newsletter = Newsletter(
-        code = "bdm",
-        name = "Blog du Modérateur",
-        websiteUrl = "https://www.blogdumoderateur.com",
+class BlogDuModerateurNewsletterHandler : NewsletterHandlerMultipleFeeds {
+
+    override val newsletters: List<Newsletter> = listOf(
+        mainNewsletter,
+        toolsNewsletter,
     )
 
     override fun canHandle(email: Email): Boolean {
         return email.sender.email == "newsletter@blogdumoderateur.com"
     }
 
-    override fun extractArticles(email: Email): List<Article> {
+    override fun extractArticles(email: Email): Map<Newsletter, List<Article>> {
         val cleanedHtml = Jsoup.clean(
             email.content.html,
             Safelist.basic()
                 .addAttributes("a", "class"),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
+        val documentContent = document.body().toString()
+        val bestToolsIndex = documentContent.indexOf("Découvrez les meilleurs outils web")
 
-        return document.select("a.title")
+        val articles: List<Article>
+        val tools: List<Article>
+        if (bestToolsIndex == -1) {
+            articles = document.extractArticles()
+            tools = emptyList()
+        } else {
+            val articlesDocument = documentContent.substring(0, bestToolsIndex)
+                .let { Jsoup.parseBodyFragment(it) }
+            val toolsDocument = documentContent.substring(bestToolsIndex)
+                .let { Jsoup.parseBodyFragment(it) }
+            articles = articlesDocument.extractArticles()
+            tools = toolsDocument.extractArticles()
+        }
+
+        return mapOf(
+            mainNewsletter to articles,
+            toolsNewsletter to tools,
+        )
+    }
+
+    private fun Document.extractArticles(): List<Article> {
+        return select("a.title")
             .map { linkElement ->
                 val title = linkElement.text()
                 val link = linkElement.attr("href").toUrlOrNull()
@@ -57,5 +81,22 @@ class BlogDuModerateurNewsletterHandler : NewsletterHandlerSingleFeed {
                     description = "TODO",
                 )
             }
+    }
+
+    companion object {
+        const val BDM_MAIN_NEWSLETTER_CODE = "bdm"
+        const val BDM_TOOLS_NEWSLETTER_CODE = "bdm-tools"
+
+        private val mainNewsletter = Newsletter(
+            code = BDM_MAIN_NEWSLETTER_CODE,
+            name = "Blog du Modérateur - Articles",
+            websiteUrl = "https://www.blogdumoderateur.com",
+        )
+
+        private val toolsNewsletter = Newsletter(
+            code = BDM_TOOLS_NEWSLETTER_CODE,
+            name = "Blog du Modérateur - Outils",
+            websiteUrl = "https://www.blogdumoderateur.com",
+        )
     }
 }
