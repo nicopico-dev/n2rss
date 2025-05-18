@@ -59,7 +59,7 @@ class HomeController(
     ): String {
         val groupedNewsletterInfos: List<GroupedNewsletterInfo> = newsletterService
             .getNonHiddenEnabledNewslettersInfo()
-            .sortedBy { it.title }
+            .sortedBy { it.title.lowercase() }
             .filter { it.publicationCount > 0 }
             .groupBy { it.title.lowercase() }
             .map { (_, newsletterInfos) ->
