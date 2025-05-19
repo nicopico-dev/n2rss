@@ -95,5 +95,25 @@ class GDIYNewsletterHandlerTest : BaseNewsletterHandlerTest<GDIYNewsletterHandle
                 }
             }
         }
+
+        @Test
+        fun `should extract all articles from 'GDIY - Et si on faisait des trombones'`() {
+            // GIVEN
+            val email = loadEmail("stubs/emails/GDIY/Et si on faisait des trombones.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            publication.title shouldBe "Et si on faisait des trombones ?"
+            publication.date shouldBe email.date
+
+            publication.articles.map { it.title } shouldBe listOf(
+                "GDIY : #461 Sébastien Bazin - Groupe ACCOR - Diriger un groupe coté en bourse sans ordinateur",
+                "La Martingale : Investir dans des maisons de vacances",
+                "Le Magma de la semaine : Une vie après la mort : émergence d'un secteur numérique",
+                "Recos de la semaine"
+            )
+        }
     }
 }
