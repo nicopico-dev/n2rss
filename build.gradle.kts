@@ -99,6 +99,16 @@ dependencyManagement {
             }
         }
     }
+
+    dependencies {
+        dependency("org.junit.jupiter:junit-jupiter:${libs.versions.junitJupiterEngine.get()}")
+        dependency("org.junit.jupiter:junit-jupiter-api:${libs.versions.junitJupiterEngine.get()}")
+        dependency("org.junit.jupiter:junit-jupiter-engine:${libs.versions.junitJupiterEngine.get()}")
+        dependency("org.junit.jupiter:junit-jupiter-params:${libs.versions.junitJupiterEngine.get()}")
+        dependency("org.junit.platform:junit-platform-commons:1.13.0")
+        dependency("org.junit.platform:junit-platform-engine:1.13.0")
+        dependency("org.junit.platform:junit-platform-launcher:1.13.0")
+    }
 }
 
 repositories {
