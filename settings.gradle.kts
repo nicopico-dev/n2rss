@@ -18,8 +18,6 @@
 
 rootProject.name = "n2rss"
 
-includeBuild("build-conventions")
-
 buildscript {
     repositories {
         mavenCentral()
@@ -29,3 +27,6 @@ buildscript {
         classpath("org.flywaydb:flyway-mysql:11.8.2")
     }
 }
+
+includeBuild("build-conventions")
+include(":server")
