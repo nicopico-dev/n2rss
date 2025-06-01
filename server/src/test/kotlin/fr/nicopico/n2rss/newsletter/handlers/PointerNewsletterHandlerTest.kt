@@ -18,6 +18,7 @@
 
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
@@ -37,7 +38,7 @@ class PointerNewsletterHandlerTest : BaseNewsletterHandlerTest<PointerNewsletter
         @Test
         fun `should extract all articles from email #480`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Pointer/Issue #480.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Pointer/Issue #480.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -71,7 +72,7 @@ class PointerNewsletterHandlerTest : BaseNewsletterHandlerTest<PointerNewsletter
         @Test
         fun `should extract article details from email #480`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Pointer/Issue #480.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Pointer/Issue #480.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -93,7 +94,7 @@ class PointerNewsletterHandlerTest : BaseNewsletterHandlerTest<PointerNewsletter
         @Test
         fun `should extract sponsor details from email #480`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Pointer/Issue #480.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Pointer/Issue #480.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -118,7 +119,7 @@ class PointerNewsletterHandlerTest : BaseNewsletterHandlerTest<PointerNewsletter
         @Test
         fun `should extract all articles from email #520`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Pointer/Issue #520.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Pointer/Issue #520.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -153,7 +154,7 @@ class PointerNewsletterHandlerTest : BaseNewsletterHandlerTest<PointerNewsletter
         @Test
         fun `should process email #541`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Pointer/#541.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Pointer/#541.eml")
 
             // WHEN
             val publication = handler.process(email)

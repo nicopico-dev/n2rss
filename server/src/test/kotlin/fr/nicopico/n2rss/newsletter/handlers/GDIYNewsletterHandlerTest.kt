@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.newsletter.models.Article
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
@@ -34,7 +35,7 @@ class GDIYNewsletterHandlerTest : BaseNewsletterHandlerTest<GDIYNewsletterHandle
         @Test
         fun `should extract all articles from 'GDIY - Ces projets secondaires'`() {
             // GIVEN
-            val email = loadEmail("stubs/emails/GDIY/Ces projets secondaires.eml")
+            val email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/GDIY/Ces projets secondaires.eml")
 
             // WHEN
             val publication = handler.process(email)

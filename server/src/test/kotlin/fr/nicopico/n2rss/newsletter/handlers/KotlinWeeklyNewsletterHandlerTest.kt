@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldNotThrowAny
@@ -39,7 +40,7 @@ class KotlinWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<KotlinWeekly
         @Test
         fun `should extract all articles from email #388`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Kotlin Weekly/Kotlin Weekly #388.eml")
 
             // WHEN
             val publications = handler.process(email)
@@ -74,7 +75,7 @@ class KotlinWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<KotlinWeekly
         @Test
         fun `should extract all articles from email #390`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #390.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Kotlin Weekly/Kotlin Weekly #390.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -110,7 +111,7 @@ class KotlinWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<KotlinWeekly
         @Test
         fun `should extract article details from email #388`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Kotlin Weekly/Kotlin Weekly #388.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -132,7 +133,7 @@ class KotlinWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<KotlinWeekly
         @Test
         fun `should parse Kotlin Weekly #400 without issue`() {
             // GIVEN
-            val email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #400.eml")
+            val email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Kotlin Weekly/Kotlin Weekly #400.eml")
 
             // WHEN - THEN
             val publication = shouldNotThrowAny {
@@ -155,7 +156,7 @@ class KotlinWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<KotlinWeekly
         @Test
         fun `should extract all libraries from email #388`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Kotlin Weekly/Kotlin Weekly #388.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Kotlin Weekly/Kotlin Weekly #388.eml")
 
             // WHEN
             val publications = handler.process(email)

@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
@@ -38,7 +39,7 @@ class IosDevWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<IosDevWeekly
         @Test
         fun `should extract articles from iOS Dev Weekly Issue 705`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/iOS Dev Weekly/iOS Dev Weekly – Issue 705.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/iOS Dev Weekly/iOS Dev Weekly – Issue 705.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -125,7 +126,7 @@ class IosDevWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<IosDevWeekly
         @Test
         fun `should extract articles from iOS Dev Weekly Issue 706`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/iOS Dev Weekly/iOS Dev Weekly – Issue 706.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/iOS Dev Weekly/iOS Dev Weekly – Issue 706.eml")
 
             // WHEN
             val publication = handler.process(email)

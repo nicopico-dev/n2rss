@@ -18,6 +18,7 @@
 
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
@@ -39,7 +40,7 @@ class MITWeekendReadsNewsletterHandlerTest : BaseNewsletterHandlerTest<MITWeeken
         fun `should extract an articles from an email`() {
             // GIVEN
             val email: Email =
-                loadEmail("stubs/emails/MIT/Weekend Reads/Robots + AI = New Frontiers! \uD83C\uDF10.eml")
+                loadEmail("$STUBS_EMAIL_ROOT_FOLDER/MIT/Weekend Reads/Robots + AI = New Frontiers! \uD83C\uDF10.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -75,7 +76,7 @@ class MITWeekendReadsNewsletterHandlerTest : BaseNewsletterHandlerTest<MITWeeken
         fun `should process email without article's descriptions correctly`() {
             // GIVEN
             val email: Email =
-                loadEmail("stubs/emails/MIT/Weekend Reads/NEW Our ambitious stories, narrated by real voice actors.eml")
+                loadEmail("$STUBS_EMAIL_ROOT_FOLDER/MIT/Weekend Reads/NEW Our ambitious stories, narrated by real voice actors.eml")
 
             // WHEN
             val publication = handler.process(email)

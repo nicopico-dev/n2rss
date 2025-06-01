@@ -42,7 +42,7 @@ class N2RssApplicationDevTest {
     useMainMethod = SpringBootTest.UseMainMethod.WHEN_AVAILABLE,
     properties = [
         "spring.profiles.active=local, test",
-        "spring.config.location=file:./deploy/application.properties"
+        "spring.config.location=file:../deploy/application.properties"
     ],
 )
 class N2RssApplicationProdTest {

@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.models.Article
 import io.kotest.assertions.assertSoftly
@@ -40,7 +41,7 @@ class TechReadersNewsletterHandlerTest : BaseNewsletterHandlerTest<TechReadersNe
         @Test
         fun `should not handle Tech Readers communication emails`() {
             // GIVEN
-            val emails = loadEmails("stubs/emails/Tech Readers - Communication")
+            val emails = loadEmails("$STUBS_EMAIL_ROOT_FOLDER/Tech Readers - Communication")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe false
@@ -49,7 +50,7 @@ class TechReadersNewsletterHandlerTest : BaseNewsletterHandlerTest<TechReadersNe
         @Test
         fun `should extract articles from Tech Readers email #116`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Tech Readers/Tech Readers #116 _ Manager par les valeurs.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Tech Readers/Tech Readers #116 _ Manager par les valeurs.eml")
 
             // WHEN
             val articles = handler.extractArticles(email)
@@ -170,7 +171,7 @@ class TechReadersNewsletterHandlerTest : BaseNewsletterHandlerTest<TechReadersNe
         fun `should extract articles from Tech Readers email #120`() {
             // GIVEN
             val email: Email =
-                loadEmail("stubs/emails/Tech Readers/Tech Readers #120 Gestion des désaccords, autonomie des équipes et IA générative.eml")
+                loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Tech Readers/Tech Readers #120 Gestion des désaccords, autonomie des équipes et IA générative.eml")
 
             // WHEN
             val articles = handler.extractArticles(email)
@@ -183,7 +184,7 @@ class TechReadersNewsletterHandlerTest : BaseNewsletterHandlerTest<TechReadersNe
         fun `should extract articles from Tech Readers email #123`() {
             // GIVEN
             val email: Email =
-                loadEmail("stubs/emails/Tech Readers/Tech Readers #123 Quand l’avenir est flou, revenez aux basiques.eml")
+                loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Tech Readers/Tech Readers #123 Quand l’avenir est flou, revenez aux basiques.eml")
 
             // WHEN
             val articles = handler.extractArticles(email)

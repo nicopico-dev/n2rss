@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
@@ -36,7 +37,7 @@ class BlogDuModerateurNewsletterHandlerTest : BaseNewsletterHandlerTest<BlogDuMo
         fun `should extract articles from email about ChatGPT and Meta AI`() {
             // GIVEN
             val email: Email =
-                loadEmail("stubs/emails/Blog du Modérateur/Générateur d'images de ChatGPT, retour aux sources pour Facebook, Meta AI sur WhatsApp, TikTok Shop.eml")
+                loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Blog du Modérateur/Générateur d'images de ChatGPT, retour aux sources pour Facebook, Meta AI sur WhatsApp, TikTok Shop.eml")
 
             // WHEN
             val publications = handler.process(email)

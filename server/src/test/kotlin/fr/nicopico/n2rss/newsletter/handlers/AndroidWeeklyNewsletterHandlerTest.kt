@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
@@ -37,7 +38,7 @@ class AndroidWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<AndroidWeek
         @Test
         fun `should extract all articles from Android Weekly email #605`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Android Weekly/Android Weekly #605.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Android Weekly/Android Weekly #605.eml")
 
             // WHEN
             val publications = handler.process(email)
@@ -93,7 +94,7 @@ class AndroidWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<AndroidWeek
         @Test
         fun `should extract all libraries from Android Weekly email #604`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Android Weekly/If you've missed Android Weekly #604.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Android Weekly/If you've missed Android Weekly #604.eml")
 
             // WHEN
             val publications = handler.process(email)
@@ -144,7 +145,7 @@ class AndroidWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<AndroidWeek
         @Test
         fun `should not publish on library feed if there is no libraries in Android Weekly email #606`() {
             // GIVEN
-            val email: Email = loadEmail("stubs/emails/Android Weekly/Android Weekly #606.eml")
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Android Weekly/Android Weekly #606.eml")
 
             // WHEN
             val publications = handler.process(email)

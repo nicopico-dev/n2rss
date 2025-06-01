@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
@@ -47,7 +48,7 @@ open class BaseNewsletterHandlerTest<T : NewsletterHandler>(
         @Test
         fun `should handle all emails from the newsletter`() {
             // GIVEN
-            val emails = loadEmails("stubs/emails/$stubsFolder")
+            val emails = loadEmails("$STUBS_EMAIL_ROOT_FOLDER/$stubsFolder")
 
             // WHEN - THEN
             emails.all { handler.canHandle(it) } shouldBe true
@@ -56,10 +57,10 @@ open class BaseNewsletterHandlerTest<T : NewsletterHandler>(
         @Test
         fun `should ignore all emails from other newsletters`() {
             // GIVEN
-            val emails = Files.walk(Paths.get("stubs/emails"))
+            val emails = Files.walk(Paths.get(STUBS_EMAIL_ROOT_FOLDER))
                 .filter {
                     it.isRegularFile()
-                        && !it.startsWith(Paths.get("stubs/emails/$stubsFolder"))
+                        && !it.startsWith(Paths.get("$STUBS_EMAIL_ROOT_FOLDER/$stubsFolder"))
                         && it.endsWith(".eml")
                 }
                 .flatMap {
@@ -78,7 +79,7 @@ open class BaseNewsletterHandlerTest<T : NewsletterHandler>(
         @Test
         fun `should process all the newsletter emails without error`() {
             // GIVEN
-            val emails = loadEmails("stubs/emails/$stubsFolder")
+            val emails = loadEmails("$STUBS_EMAIL_ROOT_FOLDER/$stubsFolder")
 
             // WHEN - THEN
             shouldNotThrowAny {

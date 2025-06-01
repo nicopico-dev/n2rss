@@ -18,6 +18,7 @@
 
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
@@ -39,7 +40,7 @@ class QuickBirdNewsletterHandlerTest : BaseNewsletterHandlerTest<QuickBirdNewsle
         fun `should extract an article from an email (1)`() {
             // GIVEN
             val email: Email = loadEmail(
-                "stubs/emails/QuickBird Studios/New blog post - Non-empty Lists in Kotlin.eml"
+                "$STUBS_EMAIL_ROOT_FOLDER/QuickBird Studios/New blog post - Non-empty Lists in Kotlin.eml"
             )
 
             // WHEN
@@ -79,7 +80,7 @@ class QuickBirdNewsletterHandlerTest : BaseNewsletterHandlerTest<QuickBirdNewsle
         fun `should extract an article from an email (2)`() {
             // GIVEN
             val email: Email = loadEmail(
-                "stubs/emails/QuickBird Studios/New blog post Platform Channels are Dead! Objective-C_Swift Interop is Here!.eml"
+                "$STUBS_EMAIL_ROOT_FOLDER/QuickBird Studios/New blog post Platform Channels are Dead! Objective-C_Swift Interop is Here!.eml"
             )
 
             // WHEN

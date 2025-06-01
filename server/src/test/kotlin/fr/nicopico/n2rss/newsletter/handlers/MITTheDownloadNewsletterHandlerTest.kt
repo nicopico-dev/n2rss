@@ -18,6 +18,7 @@
 
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
@@ -40,7 +41,7 @@ class MITTheDownloadNewsletterHandlerTest : BaseNewsletterHandlerTest<MITTheDown
         fun `should extract an articles from an email`() {
             // GIVEN
             val email: Email =
-                loadEmail("stubs/emails/MIT/The Download/The messy quest to replace drugs with electricity.eml")
+                loadEmail("$STUBS_EMAIL_ROOT_FOLDER/MIT/The Download/The messy quest to replace drugs with electricity.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -100,7 +101,7 @@ class MITTheDownloadNewsletterHandlerTest : BaseNewsletterHandlerTest<MITTheDown
         @Test
         fun `should be able to process mail #139 from MIT The Download`() {
             // GIVEN
-            val email = loadEmail("stubs/emails/MIT/The Download/139 Synthesia’s hype.eml")
+            val email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/MIT/The Download/139 Synthesia’s hype.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -112,7 +113,7 @@ class MITTheDownloadNewsletterHandlerTest : BaseNewsletterHandlerTest<MITTheDown
         @Test
         fun `should be able to process mail #144 from MIT The Download`() {
             // GIVEN
-            val email = loadEmail("stubs/emails/MIT/The Download/144 How AI video gam.eml")
+            val email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/MIT/The Download/144 How AI video gam.eml")
 
             // WHEN
             val publication = handler.process(email)

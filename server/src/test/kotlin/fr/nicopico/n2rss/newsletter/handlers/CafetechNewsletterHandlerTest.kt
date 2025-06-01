@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.models.Article
 import io.kotest.assertions.assertSoftly
@@ -39,7 +40,7 @@ class CafetechNewsletterHandlerTest : BaseNewsletterHandlerTest<CafetechNewslett
         fun `should extract articles from Cafetech email - Apple condamne en France`() {
             // GIVEN
             val email: Email =
-                loadEmail("stubs/emails/Cafétech/Apple condamné en France pour abus de position dominante.eml")
+                loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Cafétech/Apple condamné en France pour abus de position dominante.eml")
 
             // WHEN
             val articles = handler.extractArticles(email)

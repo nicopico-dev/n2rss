@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.newsletter.handlers
 
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.models.Article
 import io.kotest.assertions.assertSoftly
@@ -41,7 +42,7 @@ class BuiltForMarsNewsletterHandlerTest : BaseNewsletterHandlerTest<BuiltForMars
         fun `should extract an article from an email #72`() {
             // GIVEN
             val email: Email =
-                loadEmail("stubs/emails/Built for Mars/BFM #72 Why giving away free stocks isn't easy.eml")
+                loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Built for Mars/BFM #72 Why giving away free stocks isn't easy.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -87,7 +88,7 @@ In this study, I’ve tried to break down these subtleties, and explain exactly 
         @Test
         fun `should process email #22`() {
             // GIVEN
-            val email = loadEmail("stubs/emails/Built for Mars/UX Bites #22 — Monzo, Uber & Booking.eml")
+            val email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Built for Mars/UX Bites #22 — Monzo, Uber & Booking.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -111,7 +112,7 @@ In this study, I’ve tried to break down these subtleties, and explain exactly 
         @Test
         fun `should process UX Bites #36 email correctly`() {
             // GIVEN
-            val email = loadEmail("stubs/emails/Built for Mars/UX Bites #36 — NBA, Octopus & Etsy.eml")
+            val email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Built for Mars/UX Bites #36 — NBA, Octopus & Etsy.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -128,7 +129,7 @@ In this study, I’ve tried to break down these subtleties, and explain exactly 
         fun `should process BFM #77 email correctly`() {
             // GIVEN
             val email =
-                loadEmail("stubs/emails/Built for Mars/BFM #77 A masterclass in user activation \uD83D\uDE4C.eml")
+                loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Built for Mars/BFM #77 A masterclass in user activation \uD83D\uDE4C.eml")
 
             // WHEN
             val publication = handler.process(email)
