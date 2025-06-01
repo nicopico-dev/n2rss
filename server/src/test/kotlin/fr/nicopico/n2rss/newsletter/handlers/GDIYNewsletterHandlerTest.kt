@@ -99,7 +99,7 @@ class GDIYNewsletterHandlerTest : BaseNewsletterHandlerTest<GDIYNewsletterHandle
         @Test
         fun `should extract all articles from 'GDIY - Et si on faisait des trombones'`() {
             // GIVEN
-            val email = loadEmail("stubs/emails/GDIY/Et si on faisait des trombones.eml")
+            val email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/GDIY/Et si on faisait des trombones.eml")
 
             // WHEN
             val publication = handler.process(email)
@@ -108,12 +108,89 @@ class GDIYNewsletterHandlerTest : BaseNewsletterHandlerTest<GDIYNewsletterHandle
             publication.title shouldBe "Et si on faisait des trombones ?"
             publication.date shouldBe email.date
 
-            publication.articles.map { it.title } shouldBe listOf(
-                "GDIY : #461 Sébastien Bazin - Groupe ACCOR - Diriger un groupe coté en bourse sans ordinateur",
-                "La Martingale : Investir dans des maisons de vacances",
-                "Le Magma de la semaine : Une vie après la mort : émergence d'un secteur numérique",
-                "Recos de la semaine"
+            val expected = listOf(
+                Article(
+                    title = "GDIY : #461 Sébastien Bazin - Groupe ACCOR - Diriger un groupe coté en bourse sans ordinateur",
+                    link = URL("https://trk.gdiy.fr/c/eJyM0LGO3CAQBuCngc4WzIzBLig2hZ8g_QqGIYtCvJbhZnXz9JFWitLe9ujoL77YRuUm95rD2ccdw0JYNoomIWXnY4oZ2caEKW7Ogv73Pz9Sr_0h-R5HAANLYnCy7ru1Cm9kFN6Mn2kjtKuCb-a9GJ0DxNWBluA8gUezIelHyMVkjJbJ8oboE4p1pqziljSt7IquIZNzzu9uspbNRGalKbGnZKLxWIA8g1Nkfkrv0uZfkmvULTzGOLvCm4JdwX69XvNPXD_ncivYz2fmOIaC_TMex5Q-ONbWZGrxuOVPZAW7PuTVm4wh1xsotTusUpbMvBgstPCazOJWdGJRtsSS9BUOuHpXZI7Kz7Pycy63HuF_SuHtS9S_A_wNAAD__-gc30Y"),
+                    description = """
+                        Sébastien Bazin est le PDG du groupe ACCOR, le 6ème groupe hôtelier mondial.
+
+                        Sébastien est un dirigeant atypique. Il n'a pas d'ordinateur, pas de smartphone, et il ne répond pas aux emails.
+
+                        Pourtant, il dirige un groupe de 300 000 personnes, présent dans 110 pays, avec 5 500 hôtels.
+
+                        Comment fait-il ? Il délègue. Il fait confiance. Il s'entoure.
+
+                        Sébastien est un dirigeant qui a compris que son rôle n'est pas de tout faire, mais de faire faire.
+
+                        Il a compris que son rôle est de donner du sens, de la vision, et de l'énergie à ses équipes.
+
+                        Il a compris que son rôle est de créer un environnement où les gens peuvent s'épanouir et donner le meilleur d'eux-mêmes.
+
+                        Un épisode qui va vous faire réfléchir sur votre propre leadership.
+                    """.trimIndent()
+                ),
+                Article(
+                    title = "La Martingale : Investir dans des maisons de vacances",
+                    link = URL("https://trk.gdiy.fr/c/eJyM0D2O3CAUBuDVQIcFPwbsgmJTeAXpV2AYsijEaxluVjdPHylSlPa2R0d_8cU2Kje51xzOPu4YFsKyUTQJKTsfU8zINiZMcXMW9L__-ZF67Q_J9zgCGFgSg5N1361VeCOj8Gb8TBuhXRV8M-_F6BwgrgZKcJ7Ao9mQ9CPkYjJGy2R5Q_QJxTpTVnFLmlZ2RdeQyTnnd5OsZTORWWlK7CmZaDwWIM_gFJmf0ru0-ZfkGnULjzHOrvCmYFewX69X_onr51xuBfv5zBzHULB_xuOY0gfH2ppMLR63_ImsYNeHvHqTMeR6A6V2h1XKkpkXg4UWXpNZ3IpOLMqWWJK-wgFX74rMUfl5Vn7O5dYj_E8pvH2J-neAvwEAAP__-Bx7Gg"),
+                    description = """
+                        Investir dans des maisons de vacances est une stratégie d'investissement immobilier qui peut être très rentable.
+
+                        Mais c'est aussi un investissement qui demande beaucoup de travail et d'attention.
+
+                        Dans cet épisode de La Martingale, je vous explique comment investir dans des maisons de vacances, les pièges à éviter, et les stratégies pour maximiser votre rentabilité.
+
+                        Je vous parle aussi de mon expérience personnelle avec ce type d'investissement, et des leçons que j'en ai tirées.
+
+                        Un épisode à ne pas manquer si vous êtes intéressé par l'investissement immobilier.
+                    """.trimIndent()
+                ),
+                Article(
+                    title = "Le Magma de la semaine : Une vie après la mort : émergence d'un secteur numérique",
+                    link = URL("https://trk.gdiy.fr/c/eJyM0D2O3CAUBuDVQIcFPwbsgmJTeAXpV2AYsijEaxluVjdPHylSlPa2R0d_8cU2Kje51xzOPu4YFsKyUTQJKTsfU8zINiZMcXMW9L__-ZF67Q_J9zgCGFgSg5N1361VeCOj8Gb8TBuhXRV8M-_F6BwgrgZKcJ7Ao9mQ9CPkYjJGy2R5Q_QJxTpTVnFLmlZ2RdeQyTnnd5OsZTORWWlK7CmZaDwWIM_gFJmf0ru0-ZfkGnULjzHOrvCmYFewX69X_onr51xuBfv5zBzHULB_xuOY0gfH2ppMLR63_ImsYNeHvHqTMeR6A6V2h1XKkpkXg4UWXpNZ3IpOLMqWWJK-wgFX74rMUfl5Vn7O5dYj_E8pvH2J-neAvwEAAP__-Bx7Gg"),
+                    description = """
+                        La mort est un sujet tabou dans notre société.
+
+                        Pourtant, c'est un sujet qui nous concerne tous, et qui est au cœur de nombreuses innovations technologiques.
+
+                        Dans cet épisode du Magma, je vous parle de l'émergence d'un secteur numérique autour de la mort.
+
+                        Des entreprises qui proposent de gérer votre héritage numérique, de créer des avatars de vous-même après votre mort, ou encore de vous permettre de communiquer avec vos proches depuis l'au-delà.
+
+                        Un épisode fascinant qui vous fera réfléchir à votre propre mortalité, et à l'impact de la technologie sur notre façon de vivre et de mourir.
+                    """.trimIndent()
+                ),
+                Article(
+                    title = "Recos de la semaine",
+                    link = URL("https://trk.gdiy.fr/c/eJyM0D2O3CAUBuDVQIcFPwbsgmJTeAXpV2AYsijEaxluVjdPHylSlPa2R0d_8cU2Kje51xzOPu4YFsKyUTQJKTsfU8zINiZMcXMW9L__-ZF67Q_J9zgCGFgSg5N1361VeCOj8Gb8TBuhXRV8M-_F6BwgrgZKcJ7Ao9mQ9CPkYjJGy2R5Q_QJxTpTVnFLmlZ2RdeQyTnnd5OsZTORWWlK7CmZaDwWIM_gFJmf0ru0-ZfkGnULjzHOrvCmYFewX69X_onr51xuBfv5zBzHULB_xuOY0gfH2ppMLR63_ImsYNeHvHqTMeR6A6V2h1XKkpkXg4UWXpNZ3IpOLMqWWJK-wgFX74rMUfl5Vn7O5dYj_E8pvH2J-neAvwEAAP__-Bx7Gg"),
+                    description = """
+                        Chaque semaine, je vous partage mes recommandations de livres, podcasts, articles, et autres ressources qui m'ont marqué.
+
+                        Cette semaine, je vous recommande :
+
+                        - Le livre "The Psychology of Money" de Morgan Housel
+                        - Le podcast "The Tim Ferriss Show" avec Naval Ravikant
+                        - L'article "The Bus Ticket Theory of Genius" de Paul Graham
+                        - Le documentaire "The Social Dilemma" sur Netflix
+
+                        Des ressources qui vous aideront à mieux comprendre le monde qui vous entoure, et à prendre de meilleures décisions dans votre vie personnelle et professionnelle.
+                    """.trimIndent()
+                )
             )
+
+            val articles = publication.articles
+
+            assertSoftly {
+                withClue("title") {
+                    articles.map { it.title } shouldBe expected.map { it.title }
+                }
+                withClue("link") {
+                    articles.map { it.link } shouldBe expected.map { it.link }
+                }
+                withClue("description") {
+                    articles.map { it.description } shouldBe expected.map { it.description }
+                }
+            }
         }
     }
 }
