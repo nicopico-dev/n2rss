@@ -15,9 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
+package fr.nicopico.n2rss
 
-plugins {
-    alias(libs.plugins.kotlin.jvm) apply false
-    alias(libs.plugins.kover) apply false
-    alias(libs.plugins.detekt) apply false
-}
+internal const val STUBS_EMAIL_ROOT_FOLDER = "../stubs/emails"

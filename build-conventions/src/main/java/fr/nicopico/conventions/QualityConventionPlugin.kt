@@ -17,6 +17,7 @@
  */
 package fr.nicopico.conventions
 
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import kotlinx.kover.gradle.plugin.dsl.AggregationType
 import kotlinx.kover.gradle.plugin.dsl.CoverageUnit
 import kotlinx.kover.gradle.plugin.dsl.KoverProjectExtension
@@ -31,6 +32,7 @@ import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.listProperty
 import org.gradle.kotlin.dsl.property
 import org.gradle.kotlin.dsl.setProperty
+import java.io.File
 
 open class QualityExtension(
     objects: ObjectFactory
@@ -48,6 +50,9 @@ class QualityConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             val extension = createNpiExtension<QualityExtension>()
+
+            pluginManager.apply("io.gitlab.arturbosch.detekt")
+            pluginManager.apply("org.jetbrains.kotlinx.kover")
 
             extensions.configure<KoverProjectExtension> {
                 reports {
@@ -67,6 +72,14 @@ class QualityConventionPlugin : Plugin<Project> {
                         }
                     }
                 }
+            }
+
+            extensions.configure<DetektExtension> {
+                parallel = true
+                buildUponDefaultConfig = true
+                allRules = false
+                config.setFrom("${project.rootDir}/detekt.yml")
+                baseline = File("${project.projectDir}/detekt-baseline.xml")
             }
         }
     }
