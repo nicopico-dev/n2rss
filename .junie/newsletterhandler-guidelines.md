@@ -1,23 +1,37 @@
 # Guidelines for Creating a New NewsletterHandler
 
-To extend the N2RSS project with a new newsletter handler, follow these steps:
+This document outlines the step-by-step process for creating a new newsletter handler in the N2RSS project.
 
-## 1. Understand the NewsletterHandler Interface
+## Understanding Newsletter Handlers
 
-The `NewsletterHandler` interface is the foundation for all newsletter handlers in the system. There are two types of
-handlers:
+The N2RSS project supports two types of newsletter handlers:
 
 - **NewsletterHandlerSingleFeed**: For newsletters that produce a single feed
 - **NewsletterHandlerMultipleFeeds**: For newsletters that produce multiple feeds (e.g., different categories)
 
-## 2. Create the Handler Implementation
+## Recipe for Creating a New Newsletter Handler
+
+Follow these steps to create a new newsletter handler:
+
+### 1. Check Email Samples
+
+Before starting implementation, ensure you have email samples to work with:
+
+1. Email samples should be provided as `*.eml` files
+2. Place them in the `stubs/emails/[Newsletter]` directory, where `[Newsletter]` is the name of the newsletter
+3. Include multiple examples to ensure robust testing
+
+### 2. Create Skeleton Implementation
+
+Create an initial implementation that allows you to analyze the email content:
 
 1. Create a new Kotlin class in the `fr.nicopico.n2rss.newsletter.handlers` package
 2. Name it following the pattern: `[NewsletterName]NewsletterHandler`
 3. Implement either `NewsletterHandlerSingleFeed` or `NewsletterHandlerMultipleFeeds` interface
 4. Annotate the class with `@Component` for Spring discovery
+5. In this skeleton, don't attempt to extract articles yet, but print the email content to the console for analysis
 
-### Example for a Single Feed Handler:
+#### Example Skeleton for Single Feed Handler:
 
 ```kotlin
 @Component
@@ -35,34 +49,139 @@ class MyNewsletterHandler : NewsletterHandlerSingleFeed {
     }
 
     override fun extractArticles(email: Email): List<Article> {
-        // Implement logic to extract articles from the email content
-        // This usually involves HTML parsing with JSoup
+        // For initial analysis, print the email content to the console
+        println(Jsoup.parseBodyFragment(email.content.html))
 
-        // Example:
-        val cleanedHtml = Jsoup.clean(
-            email.content.html,
-            Safelist.basic()
-                .addTags("h1", "h2")
-                .addAttributes("div", "class"),
-        )
-        val document = Jsoup.parseBodyFragment(cleanedHtml)
-
-        // Extract articles using JSoup selectors
-        val articleElements = document.select("your-selector")
-
-        return articleElements.mapNotNull { element ->
-            // Extract article details and create Article objects
-            Article(
-                title = "Article Title",
-                link = URL("https://example.com/article"),
-                description = "Article description"
-            )
-        }
+        // Return empty list for now
+        return emptyList()
     }
 }
 ```
 
-### Example for a Multiple Feeds Handler:
+### 3. Create Test Case
+
+Create a test case to verify your handler's functionality:
+
+1. Create a test class in the same package with the suffix `Test`
+2. Extend `BaseNewsletterHandlerTest` with your handler type
+3. Create an `EmailProcessingTest` inner class with a test for each email sample
+4. The test should check that the extracted titles, links, and descriptions are correct
+
+#### Example Test Case:
+
+```kotlin
+class MyNewsletterHandlerTest : BaseNewsletterHandlerTest<MyNewsletterHandler>(
+    handlerProvider = ::MyNewsletterHandler,
+    stubsFolder = "MyNewsletter",
+) {
+    @Nested
+    inner class EmailProcessingTest {
+        @Test
+        fun `should extract all articles from email sample`() {
+            // GIVEN
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/MyNewsletter/Sample.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            assertSoftly {
+                withClue("title") {
+                    publication.articles.map { it.title } shouldBe listOf(
+                        "Expected Article 1 Title",
+                        "Expected Article 2 Title",
+                        // ...
+                    )
+                }
+                withClue("link") {
+                    publication.articles.map { it.link } shouldBe listOf(
+                        URL("https://example.com/article1"),
+                        URL("https://example.com/article2"),
+                        // ...
+                    )
+                }
+                withClue("description") {
+                    publication.articles.map { it.description } shouldBe listOf(
+                        "Expected Article 1 Description",
+                        "Expected Article 2 Description",
+                        // ...
+                    )
+                }
+            }
+        }
+
+        // Add more tests for additional email samples
+    }
+}
+```
+
+### 4. Flesh Out the Handler Implementation
+
+Now implement the full functionality of the handler:
+
+1. Clean up the email HTML content with Jsoup:
+   ```kotlin
+   val cleanedHtml = Jsoup.clean(
+       email.content.html,
+       Safelist.none()  
+           .addTags("a", "span", "p")  
+           .addAttributes("a", "href")  
+           .addAttributes("span", "style")
+   )
+   ```
+
+2. Only keep the tags and attributes useful for retrieving article information. Print the cleaned HTML to the console to
+   help with your implementation
+3. Use `Document.select(cssQuery)` and other Jsoup DOM functions to extract article data
+4. Refine the implementation until all tests pass correctly
+5. **Never** hardcode article titles, links, or descriptions in the handler implementation
+
+#### Example Full Implementation:
+
+```kotlin
+@Component
+class MyNewsletterHandler : NewsletterHandlerSingleFeed {
+    override val newsletter: Newsletter = Newsletter(
+        code = "my_newsletter",
+        name = "My Newsletter",
+        websiteUrl = "https://mynewsletter.com/",
+    )
+
+    override fun canHandle(email: Email): Boolean {
+        return email.sender.email.contains("sender@mynewsletter.com")
+    }
+
+    override fun extractArticles(email: Email): List<Article> {
+        val cleanedHtml = Jsoup.clean(
+            email.content.html,
+            Safelist.none()
+                .addTags("a", "span", "p")
+                .addAttributes("a", "href")
+                .addAttributes("span", "style")
+        )
+        val document = Jsoup.parseBodyFragment(cleanedHtml)
+
+        return document
+            .select("your-selector-for-articles")
+            .map { element ->
+                val title = element.select("your-selector-for-title").text()
+                val link = element.select("your-selector-for-link").attr("href").toUrlOrNull()
+                    ?: throw NewsletterParsingException("No valid link for article")
+                val description = element.select("your-selector-for-description").text()
+
+                Article(
+                    title = title,
+                    link = link,
+                    description = description,
+                )
+            }
+    }
+}
+```
+
+## Multiple Feeds Handler
+
+For newsletters that produce multiple feeds, implement the `NewsletterHandlerMultipleFeeds` interface:
 
 ```kotlin
 @Component
@@ -77,12 +196,42 @@ class MyMultiFeedNewsletterHandler : NewsletterHandlerMultipleFeeds {
     }
 
     override fun extractArticles(email: Email): Map<Newsletter, List<Article>> {
-        // Implement logic to extract articles for each newsletter
-        // Return a map of Newsletter to List<Article>
+        // Implementation similar to single feed handler, but returning a map
+        // of Newsletter to List<Article>
 
-        // Example:
-        val articles1 = listOf(/* articles for first newsletter */)
-        val articles2 = listOf(/* articles for second newsletter */)
+        val cleanedHtml = Jsoup.clean(
+            email.content.html,
+            Safelist.none()
+                .addTags("a", "span", "p")
+                .addAttributes("a", "href")
+                .addAttributes("span", "style")
+        )
+        val document = Jsoup.parseBodyFragment(cleanedHtml)
+
+        // Extract articles for each newsletter
+        val articles1 = document
+            .select("selector-for-first-newsletter-articles")
+            .map { element ->
+                // Create Article objects for first newsletter
+                Article(
+                    title = element.select("title-selector").text(),
+                    link = element.select("link-selector").attr("href").toUrlOrNull()
+                        ?: throw NewsletterParsingException("No valid link for article"),
+                    description = element.select("description-selector").text()
+                )
+            }
+
+        val articles2 = document
+            .select("selector-for-second-newsletter-articles")
+            .map { element ->
+                // Create Article objects for second newsletter
+                Article(
+                    title = element.select("title-selector").text(),
+                    link = element.select("link-selector").attr("href").toUrlOrNull()
+                        ?: throw NewsletterParsingException("No valid link for article"),
+                    description = element.select("description-selector").text()
+                )
+            }
 
         return mapOf(
             mainNewsletter to articles1,
@@ -110,66 +259,7 @@ class MyMultiFeedNewsletterHandler : NewsletterHandlerMultipleFeeds {
 }
 ```
 
-## 3. Create Test Cases
-
-1. Create a test class in the same package with the suffix `Test`
-2. Extend `BaseNewsletterHandlerTest` with your handler type
-3. Provide sample email files in the appropriate test resources directory
-
-```kotlin
-class MyNewsletterHandlerTest : BaseNewsletterHandlerTest<MyNewsletterHandler>(
-    handlerProvider = ::MyNewsletterHandler,
-    stubsFolder = "MyNewsletter",
-) {
-    @Nested
-    inner class EmailProcessingTest {
-        @Test
-        fun `should extract all articles from email`() {
-            // GIVEN
-            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/MyNewsletter/Sample.eml")
-
-            // WHEN
-            val publication = handler.process(email)
-
-            // THEN
-            assertSoftly(publication) {
-                withClue("title") {
-                    title shouldBe "Expected Title"
-                }
-                withClue("date") {
-                    date shouldHaveSameDayAs (email.date)
-                }
-                withClue("newsletter") {
-                    newsletter.name shouldBe "My Newsletter"
-                }
-            }
-
-            publication.articles.map { it.title } shouldBe listOf(
-                "Article 1 Title",
-                "Article 2 Title",
-                // ...
-            )
-        }
-
-        // Add more specific tests for article extraction
-    }
-}
-```
-
-## 4. Add Sample Emails
-
-1. Save sample newsletter emails in the `src/test/resources/emails/[YourNewsletterFolder]` directory
-2. Use `.eml` format for the email files
-3. Include multiple examples to ensure robust testing
-
-## 5. Register the Handler
-
-The handler will be automatically discovered and registered by Spring through component scanning, as long as:
-
-1. The class is annotated with `@Component`
-2. The class is in the correct package (`fr.nicopico.n2rss.newsletter.handlers`)
-
-## 6. Testing Your Handler
+## Testing Your Handler
 
 Run the tests to ensure your handler works correctly:
 
@@ -177,17 +267,11 @@ Run the tests to ensure your handler works correctly:
 ./gradlew test --tests "fr.nicopico.n2rss.newsletter.handlers.MyNewsletterHandlerTest"
 ```
 
-## 7. Common Utilities and Patterns
-
-- Use JSoup for HTML parsing
-- Consider using helper methods from existing handlers for common parsing patterns
-- For complex HTML structures, consider creating helper extension functions
-
-## 8. Code Coverage Requirements
+## Code Coverage Requirements
 
 Ensure your implementation meets the project's 80% code coverage requirement by writing comprehensive tests.
 
-## 9. Documentation
+## Documentation
 
 Add comments to your code explaining any complex parsing logic, especially if the newsletter has a unique structure.
 
