@@ -138,6 +138,10 @@ The project requires a minimum of 80% code coverage. Certain classes are exclude
 - Uses Flyway for database migrations
 - Separate migration paths for MariaDB (production) and H2 (tests)
 
+### Adding or updating support for a newsletter
+
+Follow the directives in [NewsletterHandler Guidelines](./newsletterhandler-guidelines.md)
+
 ### Custom Gradle Plugins
 
 The project uses several custom Gradle plugins:
