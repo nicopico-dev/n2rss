@@ -27,7 +27,6 @@ import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
-import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 
@@ -78,15 +77,26 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
                     ?: return@mapNotNull null
                 val title = markSponsoredTitle(this, tag.text()).trim()
 
-                val description = tag
-                    .nextSibling()
-                    ?.nextSibling() // <br>
-                    ?.nextSibling() // <span> with description
-                    ?.let { it as? Element }
-                    ?.text()
-                    ?: throw NewsletterParsingException(
-                        "Cannot find article description for article \"$title\" in Kotlin Weekly"
-                    )
+                // In JSOUP 1.20.1, the DOM structure or nextSibling() behavior might have changed
+                // The description is typically in a span element that follows the link
+                // First try to find it using the parent's children
+                val parent = tag.parent()
+                val tagIndex = parent?.children()?.indexOf(tag) ?: -1
+
+                val description = if (parent != null && tagIndex >= 0) {
+                    // Look for the next span element after the link
+                    parent.children()
+                        .drop(tagIndex + 1)
+                        .firstOrNull { it.tagName() == "span" && it.hasText() && it.text().isNotBlank() }
+                        ?.text()
+                } else {
+                    // Fallback to looking at siblings
+                    tag.siblingElements()
+                        .firstOrNull { it.tagName() == "span" && it.hasText() && it.text().isNotBlank() }
+                        ?.text()
+                } ?: throw NewsletterParsingException(
+                    "Cannot find article description for article \"$title\" in Kotlin Weekly"
+                )
 
                 Article(
                     title = title,
