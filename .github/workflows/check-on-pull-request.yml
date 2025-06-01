@@ -7,9 +7,8 @@ on:
     paths-ignore:
       - 'act/**'
       - 'deploy/**'
-      - 'medias/**'
       - 'stubs/**'
-      - 'n2rss.http'
+      - 'support/**'
       - '*.md'
 
 permissions:
