@@ -44,7 +44,7 @@ class DeployConventionPlugin : Plugin<Project> {
                 val bootJarOutput = bootJar.map { it.property("archiveFile")!! }
 
                 from(bootJarOutput)
-                into(project.layout.projectDirectory.dir(extension.targetDirectory))
+                into(rootProject.layout.projectDirectory.dir(extension.targetDirectory))
 
                 rename { original ->
                     if (extension.jarName.isPresent) {

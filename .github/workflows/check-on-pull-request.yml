@@ -44,7 +44,7 @@ jobs:
         uses: mikepenz/action-junit-report@v4
         if: always()
         with:
-          report_paths: 'build/test-results/test/**.xml'
+          report_paths: 'server/build/test-results/test/**.xml'
       - name: Check Coverage
         run: ./gradlew --no-daemon koverXmlReport koverVerify
       - name: Add coverage report
@@ -52,6 +52,6 @@ jobs:
         if: always()
         with:
           path: |
-            ${{ github.workspace }}/build/reports/kover/report.xml
+            ${{ github.workspace }}/server/build/reports/kover/report.xml
           title: Code Coverage
           update-comment: true
