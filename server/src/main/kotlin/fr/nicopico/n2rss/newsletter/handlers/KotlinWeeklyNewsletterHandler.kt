@@ -72,7 +72,7 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
     private fun Section.process() = process { sectionDocument ->
         sectionDocument.select("a[href]:has(span)")
             .mapNotNull { tag ->
-                // Ignore entries with invalid link
+                // Ignore entries with an invalid link
                 val link = tag.attr("href").toUrlOrNull()
                     ?: return@mapNotNull null
                 val title = markSponsoredTitle(this, tag.text()).trim()
@@ -94,24 +94,32 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
                     tag.siblingElements()
                         .firstOrNull { it.tagName() == "span" && it.hasText() && it.text().isNotBlank() }
                         ?.text()
-                } ?: throw NewsletterParsingException(
-                    "Cannot find article description for article \"$title\" in Kotlin Weekly"
-                )
+                }
 
-                Article(
-                    title = title,
-                    link = link,
-                    description = description,
-                )
+                when {
+                    description != null -> Article(
+                        title = title,
+                        link = link,
+                        description = description,
+                    )
+
+                    isSponsored -> null
+                    else -> throw NewsletterParsingException(
+                        "Cannot find article description for article \"$title\" in Kotlin Weekly"
+                    )
+                }
             }
     }
 
     private fun markSponsoredTitle(section: Section, articleTitle: String) =
-        if (section.title == "Sponsored") {
+        if (section.isSponsored) {
             "SPONSORED - $articleTitle"
         } else {
             articleTitle
         }
+
+    private val Section.isSponsored: Boolean
+        get() = this.title == "Sponsored"
 
     companion object {
         private const val LIBRARIES_SECTION_TITLE = "Libraries"

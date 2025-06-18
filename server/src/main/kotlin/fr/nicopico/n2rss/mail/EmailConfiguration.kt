@@ -44,7 +44,7 @@ class EmailConfiguration {
 
     @Bean
     @Profile("local")
-    fun fakeEmailClient(): EmailClient = LocalFileEmailClient("../stubs/emails")
+    fun fakeEmailClient(): EmailClient = LocalFileEmailClient("stubs/emails")
 
     @Bean
     @Profile("rss-only")
