@@ -48,6 +48,7 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
             Safelist.basic(),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
+        println(document)
 
         val sections = document.extractSections("p:has(strong)")
 
@@ -70,6 +71,7 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
     }
 
     private fun Section.process() = process { sectionDocument ->
+        val sectionTitle = this.title
         sectionDocument.select("a[href]:has(span)")
             .mapNotNull { tag ->
                 // Ignore entries with an invalid link
@@ -102,8 +104,7 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
                         link = link,
                         description = description,
                     )
-
-                    isSponsored -> null
+                    sectionTitle.uppercase() in OPTIONAL_SECTIONS -> null
                     else -> throw NewsletterParsingException(
                         "Cannot find article description for article \"$title\" in Kotlin Weekly"
                     )
@@ -123,6 +124,9 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
 
     companion object {
         private const val LIBRARIES_SECTION_TITLE = "Libraries"
+
+        // Sections where articles without a description can be safely ignored
+        private val OPTIONAL_SECTIONS = listOf("SPONSORED", "CONFERENCES")
 
         private val excludedSections = listOf("Videos", "Libraries", "Contribute")
 
