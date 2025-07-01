@@ -28,7 +28,7 @@ import org.springframework.stereotype.Repository
 @Repository
 class NewsletterRepository(
     private val allNewsletterHandlers: List<NewsletterHandler>,
-    @Qualifier(NewsletterConfiguration.ENABLED_NEWSLETTER_HANDLERS)
+    @param:Qualifier(NewsletterConfiguration.ENABLED_NEWSLETTER_HANDLERS)
     private val enabledNewsletterHandlers: List<NewsletterHandler>,
     private val feedsProperties: N2RssProperties.FeedsProperties,
 ) {

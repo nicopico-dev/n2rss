@@ -15,21 +15,21 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.conventions
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 class KotlinStrictConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             tasks.withType<KotlinCompile> {
-                kotlinOptions {
-                    freeCompilerArgs += "-Xjsr305=strict"
-                    jvmTarget = "17"
+                compilerOptions {
+                    freeCompilerArgs.add("-Xjsr305=strict")
+                    jvmTarget.set(JvmTarget.JVM_17)
                 }
             }
         }

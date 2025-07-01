@@ -27,6 +27,7 @@ fun <T> List<T>.sortBy(sort: Sort, selector: (T, String) -> Comparable<*>?): Lis
             val aValue = selector(a, propName)
             val bValue = selector(b, propName)
 
+            @Suppress("UNCHECKED_CAST")
             val comparisonResult = when {
                 aValue == null -> if (bValue == null) 0 else -1
                 bValue == null -> 1

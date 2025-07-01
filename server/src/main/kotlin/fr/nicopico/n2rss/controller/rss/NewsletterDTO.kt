@@ -24,14 +24,14 @@ import fr.nicopico.n2rss.utils.toLegacyDate
 import java.util.Date
 
 data class NewsletterDTO(
-    @JsonProperty("code")
+    @param:JsonProperty("code")
     val code: String,
-    @JsonProperty("title")
+    @param:JsonProperty("title")
     val title: String,
-    @JsonProperty("publicationCount")
+    @param:JsonProperty("publicationCount")
     val publicationCount: Long,
-    @JsonProperty("startingDate")
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @param:JsonProperty("startingDate")
+    @param:JsonFormat(pattern = "yyyy-MM-dd")
     val startingDate: Date?,
 )
 
