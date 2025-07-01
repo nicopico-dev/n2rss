@@ -24,17 +24,17 @@ import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.utils.getFingerprint
 
 data class SimpleAnalyticsEvent(
-    @JsonProperty("type")
+    @param:JsonProperty("type")
     val type: String,
-    @JsonProperty("hostname")
+    @param:JsonProperty("hostname")
     val hostname: String,
-    @JsonProperty("event")
+    @param:JsonProperty("event")
     val event: String,
-    @JsonProperty("ua")
+    @param:JsonProperty("ua")
     val ua: String,
-    @JsonProperty("metadata")
+    @param:JsonProperty("metadata")
     val metadata: Map<String, String>? = null,
-    @JsonProperty("path")
+    @param:JsonProperty("path")
     val path: String? = null,
 )
 

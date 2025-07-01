@@ -21,11 +21,11 @@ package fr.nicopico.n2rss.monitoring.github
 import com.fasterxml.jackson.annotation.JsonProperty
 
 class GithubIssueDTO(
-    @JsonProperty("title")
+    @param:JsonProperty("title")
     val title: String,
-    @JsonProperty("body")
+    @param:JsonProperty("body")
     val body: String,
-    @JsonProperty("labels")
+    @param:JsonProperty("labels")
     val labels: List<String> = emptyList(),
 ) {
     override fun toString(): String {
