@@ -47,7 +47,9 @@ import org.springframework.data.domain.PageImpl
 import org.springframework.data.domain.PageRequest
 import java.net.URL
 import kotlin.random.Random
+import kotlin.time.ExperimentalTime
 
+@OptIn(ExperimentalTime::class)
 @ExtendWith(MockKExtension::class)
 class PublicationServiceTest {
 

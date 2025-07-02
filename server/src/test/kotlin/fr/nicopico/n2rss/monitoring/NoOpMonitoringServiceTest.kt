@@ -27,7 +27,9 @@ import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.net.URL
+import kotlin.time.ExperimentalTime
 
+@OptIn(ExperimentalTime::class)
 class NoOpMonitoringServiceTest {
 
     private lateinit var service: NoOpMonitoringService
