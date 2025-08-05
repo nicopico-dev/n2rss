@@ -33,3 +33,7 @@ fun Document.select(cssSelector: String, startingAfterIndex: Int): Element? {
         .select(cssSelector)
         .firstOrNull()
 }
+
+fun Document.findElementAfter(cssSelector: String, after: Element): Element? {
+    return select(cssSelector, indexOf(after))
+}
