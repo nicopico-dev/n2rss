@@ -135,8 +135,6 @@ dependencies {
         exclude(group = "junit")
     }
     testImplementation(libs.greenmail.junit5)
-    testImplementation(libs.mockwebserver) {
-        exclude(group = "junit")
-    }
+    testImplementation(libs.mockwebserver)
     testRuntimeOnly(libs.h2.database)
 }
