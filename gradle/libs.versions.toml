@@ -18,7 +18,7 @@ kover = "0.9.1"
 mockk = "1.14.5"
 mockwebserver = "5.1.0"
 rome = "2.1.0"
-springBoot = "3.5.4"
+springBoot = "3.5.5"
 springMock = "4.0.2"
 
 [libraries]
