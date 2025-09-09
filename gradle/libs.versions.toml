@@ -1,5 +1,5 @@
 [versions]
-annotations = "26.0.2"
+annotations = "26.0.2-1"
 dependencyManagement = "1.1.7"
 detekt = "1.23.8"
 flyway = "11.11.2"
