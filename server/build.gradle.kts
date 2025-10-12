@@ -40,6 +40,12 @@ configurations {
     }
 }
 
+kotlin {
+    compilerOptions {
+        optIn.add("kotlin.time.ExperimentalTime")
+    }
+}
+
 tasks.withType<Test> {
     useJUnitPlatform()
 }

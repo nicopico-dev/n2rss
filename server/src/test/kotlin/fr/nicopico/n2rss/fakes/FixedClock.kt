@@ -17,8 +17,8 @@
  */
 package fr.nicopico.n2rss.fakes
 
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
+import kotlin.time.Clock
+import kotlin.time.Instant
 
 class FixedClock(
     private val now: Instant
