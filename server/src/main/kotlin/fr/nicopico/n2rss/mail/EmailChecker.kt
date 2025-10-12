@@ -41,7 +41,7 @@ class EmailChecker(
     private val newsletterService: NewsletterService,
     private val publicationService: PublicationService,
     private val monitoringService: MonitoringService,
-    @param:Value($$"${n2rss.email.client.move-after-processing-enabled}")
+    @param:Value($$"${n2rss.email.client.move-after-processing-enabled:false}")
     private val moveAfterProcessingEnabled: Boolean,
 ) {
     @PostConstruct
