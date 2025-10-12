@@ -94,6 +94,7 @@ constructor(
         val port: Int = DEFAULT_PORT,
         val protocol: String = DEFAULT_PROTOCOL,
         val inboxFolders: List<String> = DEFAULT_INBOX_FOLDERS,
+        val processedFolder: String = "Trash",
     )
     data class AnalyticsProperties(
         val enabled: Boolean = true,

@@ -24,5 +24,9 @@ class NoOpEmailClient : EmailClient {
         // No-op
     }
 
+    override fun moveToProcessed(email: Email) {
+        // No-op
+    }
+
     override fun checkEmails(): List<Email> = emptyList()
 }

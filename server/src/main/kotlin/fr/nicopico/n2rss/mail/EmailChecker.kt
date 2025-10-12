@@ -86,6 +86,7 @@ class EmailChecker(
             publicationService.savePublications(publications)
 
             emailClient.markAsRead(email)
+            emailClient.moveToProcessed(email)
         } catch (e: Exception) {
             LOG.error("Error processing email {}", email.subject, e)
             monitoringService.notifyEmailProcessingError(email, e)
