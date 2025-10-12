@@ -25,7 +25,6 @@ import fr.nicopico.n2rss.monitoring.github.GithubClient
 import fr.nicopico.n2rss.monitoring.github.GithubException
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.newsletters
-import kotlinx.datetime.Clock
 import kotlinx.datetime.format
 import kotlinx.datetime.format.DateTimeComponents
 import kotlinx.datetime.format.Padding
@@ -35,6 +34,7 @@ import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.net.URL
+import kotlin.time.Clock
 
 @Service
 class GithubMonitoringService(
@@ -129,7 +129,7 @@ class GithubMonitoringService(
                 char('-')
                 monthNumber(Padding.ZERO)
                 char('-')
-                dayOfMonth(Padding.ZERO)
+                day(Padding.ZERO)
             })
             val existing = repository.findNewsletterRequest(uniqueUrl)
             if (existing == null) {

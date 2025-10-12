@@ -41,13 +41,13 @@ import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
 import io.mockk.verifySequence
-import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import java.net.URL
 import kotlin.random.Random
+import kotlin.time.Instant
 
 @ExtendWith(MockKExtension::class)
 class GithubMonitoringServiceTest {
