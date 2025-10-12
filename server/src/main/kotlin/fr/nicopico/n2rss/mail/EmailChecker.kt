@@ -40,6 +40,7 @@ class EmailChecker(
     private val newsletterService: NewsletterService,
     private val publicationService: PublicationService,
     private val monitoringService: MonitoringService,
+    private val emailClientProperties: fr.nicopico.n2rss.config.N2RssProperties.EmailClientProperties,
 ) {
     @PostConstruct
     fun checkEmailsOnStart() {
@@ -86,7 +87,9 @@ class EmailChecker(
             publicationService.savePublications(publications)
 
             emailClient.markAsRead(email)
-            emailClient.moveToProcessed(email)
+            if (emailClientProperties.moveAfterProcessingEnabled) {
+                emailClient.moveToProcessed(email)
+            }
         } catch (e: Exception) {
             LOG.error("Error processing email {}", email.subject, e)
             monitoringService.notifyEmailProcessingError(email, e)
