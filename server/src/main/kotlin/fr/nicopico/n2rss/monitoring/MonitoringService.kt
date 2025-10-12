@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import org.springframework.scheduling.annotation.Async
 import java.net.URL
 
@@ -27,7 +28,7 @@ interface MonitoringService {
     fun notifyGenericError(error: Exception, context: String? = null)
 
     @Async
-    fun notifyEmailProcessingError(email: Email, error: Exception)
+    fun notifyEmailProcessingError(email: Email, error: Exception, newsletterHandler: NewsletterHandler? = null)
 
     /**
      * Saves a given newsletter request by sanitizing the provided URL and notifying the monitoring service.
