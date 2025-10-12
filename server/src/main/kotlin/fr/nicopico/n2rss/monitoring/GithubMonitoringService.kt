@@ -23,6 +23,8 @@ import fr.nicopico.n2rss.monitoring.data.GithubIssueData
 import fr.nicopico.n2rss.monitoring.data.GithubIssueService
 import fr.nicopico.n2rss.monitoring.github.GithubClient
 import fr.nicopico.n2rss.monitoring.github.GithubException
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
+import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import kotlinx.datetime.format
 import kotlinx.datetime.format.DateTimeComponents
 import kotlinx.datetime.format.Padding
@@ -75,14 +77,18 @@ class GithubMonitoringService(
 
     @Async
     @Transactional
-    override fun notifyEmailProcessingError(email: Email, error: Exception) {
+    override fun notifyEmailProcessingError(email: Email, error: Exception, newsletterHandler: NewsletterHandler?) {
         val emailTitle = email.subject
         val errorMessage = error.message ?: error.toString()
         try {
             val existing = repository.findEmailProcessingError(email, errorMessage)
             if (existing == null) {
+                val newsletterName = newsletterHandler
+                    ?.let {
+                        "${it.newsletters.first().name}: "
+                    } ?: ""
                 val id = client.createIssue(
-                    title = "Email processing error on \"$emailTitle\"",
+                    title = "Email processing error on $newsletterName\"$emailTitle\"",
                     body = "Processing of email \"$emailTitle\" sent by \"${email.sender.sender}\" failed "
                         + "with the following error:\n\n"
                         + "```\n"

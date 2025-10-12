@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import org.springframework.stereotype.Service
 import java.net.URL
 
@@ -27,7 +28,7 @@ class NoOpMonitoringService : MonitoringService {
         // No-op
     }
 
-    override fun notifyEmailProcessingError(email: Email, error: Exception) {
+    override fun notifyEmailProcessingError(email: Email, error: Exception, newsletterHandler: NewsletterHandler?) {
         // No-op
     }
 

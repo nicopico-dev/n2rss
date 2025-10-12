@@ -68,6 +68,7 @@ class EmailCheckerTest {
             newsletterService,
             publicationService,
             monitoringService,
+            false,
         )
     }
 
