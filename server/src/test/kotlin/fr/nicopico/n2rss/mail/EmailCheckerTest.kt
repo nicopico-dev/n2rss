@@ -68,16 +68,7 @@ class EmailCheckerTest {
             newsletterService,
             publicationService,
             monitoringService,
-            fr.nicopico.n2rss.config.N2RssProperties.EmailClientProperties(
-                host = "host",
-                username = "user",
-                password = "pass",
-                port = 993,
-                protocol = "imaps",
-                inboxFolders = listOf("INBOX"),
-                processedFolder = "Trash",
-                moveAfterProcessingEnabled = false,
-            ),
+            false,
         )
     }
 

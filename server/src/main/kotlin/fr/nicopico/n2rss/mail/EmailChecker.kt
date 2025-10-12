@@ -26,6 +26,7 @@ import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.PublicationService
 import jakarta.annotation.PostConstruct
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.scheduling.TaskScheduler
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
@@ -40,7 +41,8 @@ class EmailChecker(
     private val newsletterService: NewsletterService,
     private val publicationService: PublicationService,
     private val monitoringService: MonitoringService,
-    private val emailClientProperties: fr.nicopico.n2rss.config.N2RssProperties.EmailClientProperties,
+    @param:Value($$"${n2rss.email.client.move-after-processing-enabled}")
+    private val moveAfterProcessingEnabled: Boolean,
 ) {
     @PostConstruct
     fun checkEmailsOnStart() {
@@ -87,7 +89,7 @@ class EmailChecker(
             publicationService.savePublications(publications)
 
             emailClient.markAsRead(email)
-            if (emailClientProperties.moveAfterProcessingEnabled) {
+            if (moveAfterProcessingEnabled) {
                 emailClient.moveToProcessed(email)
             }
         } catch (e: Exception) {
