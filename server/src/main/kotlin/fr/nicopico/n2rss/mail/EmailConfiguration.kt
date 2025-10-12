@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.mail
 
 import fr.nicopico.n2rss.config.N2RssProperties
 import fr.nicopico.n2rss.mail.client.EmailClient
+import fr.nicopico.n2rss.mail.client.EmailServerConfiguration
 import fr.nicopico.n2rss.mail.client.JavaxEmailClient
 import fr.nicopico.n2rss.mail.client.LocalFileEmailClient
 import fr.nicopico.n2rss.mail.client.NoOpEmailClient
@@ -33,12 +34,15 @@ class EmailConfiguration {
     @Profile("default")
     fun emailClient(config: N2RssProperties.EmailClientProperties): EmailClient {
         return JavaxEmailClient(
-            protocol = config.protocol,
-            host = config.host,
-            port = config.port,
-            user = config.username,
-            password = config.password,
+            config = EmailServerConfiguration(
+                protocol = config.protocol,
+                host = config.host,
+                port = config.port,
+                user = config.username,
+                password = config.password,
+            ),
             folders = config.inboxFolders,
+            processedFolder = config.processedFolder,
         )
     }
 

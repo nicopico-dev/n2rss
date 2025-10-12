@@ -17,10 +17,10 @@
  */
 package fr.nicopico.n2rss.mail.client
 
-import fr.nicopico.n2rss.mail.models.Email
-
-interface EmailClient {
-    fun markAsRead(email: Email)
-    fun moveToProcessed(email: Email)
-    fun checkEmails(): List<Email>
-}
+data class EmailServerConfiguration(
+    val protocol: String,
+    val host: String,
+    val port: Int,
+    val user: String,
+    val password: String,
+)

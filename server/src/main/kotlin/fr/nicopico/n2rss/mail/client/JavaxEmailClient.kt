@@ -21,20 +21,18 @@ import fr.nicopico.n2rss.mail.models.Email
 import jakarta.mail.Flags
 import jakarta.mail.Folder
 import jakarta.mail.Session
+import jakarta.mail.Store
 import jakarta.mail.search.FlagTerm
 import java.util.Properties
 
 class JavaxEmailClient(
-    private val protocol: String,
-    private val host: String,
-    private val port: Int,
-    private val user: String,
-    private val password: String,
+    private val config: EmailServerConfiguration,
     private val folders: List<String>,
+    private val processedFolder: String = "Trash",
 ) : EmailClient {
 
     private val props = Properties().apply {
-        setProperty("mail.store.protocol", protocol)
+        setProperty("mail.store.protocol", config.protocol)
     }
 
     override fun markAsRead(email: Email) {
@@ -58,13 +56,40 @@ class JavaxEmailClient(
             }
     }
 
+    override fun moveToProcessed(email: Email) {
+        with(email.messageId) {
+            doInFolder(folder) {
+                open(Folder.READ_WRITE)
+                val msg = getMessage(msgNum)
+                // Ensure destination folder exists and is open
+                val store = this.store
+                store.getFolder(processedFolder).use { dest ->
+                    if (!dest.exists()) {
+                        dest.create(Folder.HOLDS_MESSAGES)
+                    }
+                    dest.open(Folder.READ_WRITE)
+                    // Copy and delete original
+                    copyMessages(arrayOf(msg), dest)
+                    msg.setFlag(Flags.Flag.DELETED, true)
+                    expunge()
+                }
+            }
+        }
+    }
+
     private fun <T> doInFolder(folder: String, block: Folder.() -> T): T {
         val session = Session.getInstance(props, null)
-        return session.getStore(protocol).use { store ->
-            store.connect(host, port, user, password)
-            store.getFolder(folder).use { folder ->
-                folder.block()
+        return session.getStore(config.protocol).use { store ->
+            store.connectWith(config)
+            store.getFolder(folder).use { f ->
+                f.block()
             }
+        }
+    }
+
+    companion object {
+        private fun Store.connectWith(config: EmailServerConfiguration) {
+            connect(config.host, config.port, config.user, config.password)
         }
     }
 }

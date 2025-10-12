@@ -37,6 +37,10 @@ class LocalFileEmailClient(
         readEmails.add(email)
     }
 
+    override fun moveToProcessed(email: Email) {
+        // No-op for local files
+    }
+
     override fun checkEmails(): List<Email> {
         val filePath = Paths.get(emailFolder)
         require(filePath.toFile().exists()) {

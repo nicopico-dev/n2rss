@@ -45,11 +45,13 @@ class JavaxEmailClientTest : GreenMailTestBase(
     fun setUp() {
         val user = greenMail.userManager.getUserByEmail(USER_EMAIL)
         emailClient = JavaxEmailClient(
-            protocol = "imap",
-            host = greenMail.imap.bindTo,
-            port = greenMail.imap.port,
-            user = user.email,
-            password = user.password,
+            config = EmailServerConfiguration(
+                protocol = "imap",
+                host = greenMail.imap.bindTo,
+                port = greenMail.imap.port,
+                user = user.email,
+                password = user.password,
+            ),
             folders = listOf(INBOX_FOLDER, OTHER_FOLDER),
         )
     }
