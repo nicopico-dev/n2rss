@@ -20,6 +20,7 @@ package fr.nicopico.n2rss.mail
 import fr.nicopico.n2rss.mail.client.EmailClient
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
+import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
 import fr.nicopico.n2rss.newsletter.handlers.process
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
@@ -74,8 +75,9 @@ class EmailChecker(
 
     @Suppress("TooGenericExceptionCaught")
     private fun processEmail(email: Email) {
+        var newsletterHandler: NewsletterHandler? = null
         try {
-            val newsletterHandler = newsletterService.findNewsletterHandlerForEmail(email)
+            newsletterHandler = newsletterService.findNewsletterHandlerForEmail(email)
                 ?: return
 
             LOG.info("\"{}\" is being processed by {}", email.subject, newsletterHandler::class.java)
@@ -94,7 +96,7 @@ class EmailChecker(
             }
         } catch (e: Exception) {
             LOG.error("Error processing email {}", email.subject, e)
-            monitoringService.notifyEmailProcessingError(email, e)
+            monitoringService.notifyEmailProcessingError(email, e, newsletterHandler)
         }
     }
 }
