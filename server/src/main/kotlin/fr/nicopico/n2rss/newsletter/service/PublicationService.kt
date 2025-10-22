@@ -43,27 +43,22 @@ class PublicationService(
     //region getPublications
     @Transactional
     fun getPublications(newsletter: Newsletter, pageable: PageRequest): Page<Publication> {
-        return getPublicationsFromMariaDB(newsletter, pageable)
+        return publicationRepository.findByNewsletterCode(newsletter.code, pageable)
+            .map {
+                Publication(
+                    title = it.title,
+                    date = it.date.toKotlinLocaleDate(),
+                    newsletter = newsletterRepository.findNewsletterByCode(it.newsletterCode)!!,
+                    articles = it.articles.map { article ->
+                        Article(
+                            title = article.title,
+                            link = URL(article.link),
+                            description = article.description,
+                        )
+                    },
+                )
+            }
     }
-
-    private fun getPublicationsFromMariaDB(
-        newsletter: Newsletter,
-        pageable: PageRequest
-    ) = publicationRepository.findByNewsletterCode(newsletter.code, pageable)
-        .map {
-            Publication(
-                title = it.title,
-                date = it.date.toKotlinLocaleDate(),
-                newsletter = newsletterRepository.findNewsletterByCode(it.newsletterCode)!!,
-                articles = it.articles.map { article ->
-                    Article(
-                        title = article.title,
-                        link = URL(article.link),
-                        description = article.description,
-                    )
-                },
-            )
-        }
     //endregion
 
     //region savePublications
@@ -77,11 +72,7 @@ class PublicationService(
         val nonEmptyPublications = publications
             .filter { it.articles.isNotEmpty() }
 
-        savePublicationsToMariaDB(nonEmptyPublications)
-    }
-
-    private fun savePublicationsToMariaDB(publications: List<Publication>) {
-        val entities = publications.map {
+        val entities = nonEmptyPublications.map {
             PublicationEntity(
                 title = it.title,
                 date = it.date.toLegacyDate(),
@@ -97,7 +88,6 @@ class PublicationService(
                 }
             }
         }
-
         publicationRepository.saveAll(entities)
     }
     //endregion
