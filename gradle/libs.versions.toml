@@ -9,8 +9,7 @@ jakartaMail = "2.0.2"
 jsonPath = "2.9.0"
 jsoup = "1.21.2"
 junit = "5.13.4"
-kotestAssertions = "5.9.1"
-kotestKotlinxDatetime = "1.1.0"
+kotest = "6.0.4"
 kotlin = "2.2.20"
 kotlinxCoroutines = "1.10.2"
 kotlinxDatetime = "0.7.1-0.6.x-compat"
@@ -57,8 +56,8 @@ greenmail-junit5 = { module = "com.icegreen:greenmail-junit5", version.ref = "gr
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
-kotest-assertions-core = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotestAssertions" }
-kotest-assertions-kotlinxDatetime = { module = "io.kotest.extensions:kotest-assertions-kotlinx-datetime", version.ref = "kotestKotlinxDatetime" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotest" }
+kotest-assertions-kotlinxDatetime = { module = "io.kotest:kotest-assertions-kotlinx-datetime", version.ref = "kotest" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "mockwebserver" }
 
