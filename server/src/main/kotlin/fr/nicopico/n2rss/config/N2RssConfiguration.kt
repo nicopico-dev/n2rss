@@ -67,7 +67,6 @@ constructor(
     val email: EmailProperties,
     val analytics: AnalyticsProperties,
     val github: GithubProperties,
-    val persistenceMode: PersistenceMode = PersistenceMode.DEFAULT,
     val external: ExternalProperties,
 ) {
     data class MaintenanceProperties(

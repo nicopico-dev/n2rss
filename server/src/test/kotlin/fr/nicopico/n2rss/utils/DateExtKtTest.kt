@@ -68,7 +68,7 @@ class DateExtKtTest {
         assertSoftly {
             localDate.year shouldBe (year)
             localDate.month shouldBe Month.JUNE
-            localDate.dayOfMonth shouldBe (dayOfMonth)
+            localDate.day shouldBe (dayOfMonth)
         }
     }
 }

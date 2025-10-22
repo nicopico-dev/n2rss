@@ -18,7 +18,6 @@
 package fr.nicopico.n2rss.newsletter.service
 
 import fr.nicopico.n2rss.config.CacheConfiguration
-import fr.nicopico.n2rss.config.PersistenceMode
 import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.data.entity.ArticleEntity
@@ -40,34 +39,26 @@ import java.net.URL
 class PublicationService(
     private val publicationRepository: PublicationRepository,
     private val newsletterRepository: NewsletterRepository,
-    private val persistenceMode: PersistenceMode,
 ) {
     //region getPublications
     @Transactional
     fun getPublications(newsletter: Newsletter, pageable: PageRequest): Page<Publication> {
-        return when (persistenceMode) {
-            PersistenceMode.DEFAULT -> getPublicationsFromMariaDB(newsletter, pageable)
-        }
+        return publicationRepository.findByNewsletterCode(newsletter.code, pageable)
+            .map {
+                Publication(
+                    title = it.title,
+                    date = it.date.toKotlinLocaleDate(),
+                    newsletter = newsletterRepository.findNewsletterByCode(it.newsletterCode)!!,
+                    articles = it.articles.map { article ->
+                        Article(
+                            title = article.title,
+                            link = URL(article.link),
+                            description = article.description,
+                        )
+                    },
+                )
+            }
     }
-
-    private fun getPublicationsFromMariaDB(
-        newsletter: Newsletter,
-        pageable: PageRequest
-    ) = publicationRepository.findByNewsletterCode(newsletter.code, pageable)
-        .map {
-            Publication(
-                title = it.title,
-                date = it.date.toKotlinLocaleDate(),
-                newsletter = newsletterRepository.findNewsletterByCode(it.newsletterCode)!!,
-                articles = it.articles.map { article ->
-                    Article(
-                        title = article.title,
-                        link = URL(article.link),
-                        description = article.description,
-                    )
-                },
-            )
-        }
     //endregion
 
     //region savePublications
@@ -81,13 +72,7 @@ class PublicationService(
         val nonEmptyPublications = publications
             .filter { it.articles.isNotEmpty() }
 
-        when (persistenceMode) {
-            PersistenceMode.DEFAULT -> savePublicationsToMariaDB(nonEmptyPublications)
-        }
-    }
-
-    private fun savePublicationsToMariaDB(publications: List<Publication>) {
-        val entities = publications.map {
+        val entities = nonEmptyPublications.map {
             PublicationEntity(
                 title = it.title,
                 date = it.date.toLegacyDate(),
@@ -103,26 +88,17 @@ class PublicationService(
                 }
             }
         }
-
         publicationRepository.saveAll(entities)
     }
     //endregion
 
     fun getPublicationsCount(newsletter: Newsletter): Long {
-        val getDefaultCount: () -> Long = { publicationRepository.countPublicationsByNewsletterCode(newsletter.code) }
-
-        return when (persistenceMode) {
-            PersistenceMode.DEFAULT -> getDefaultCount()
-        }
+        return publicationRepository.countPublicationsByNewsletterCode(newsletter.code)
     }
 
     fun getOldestPublicationDate(newsletter: Newsletter): LocalDate? {
-        val getDefaultOldest: () -> LocalDate? = {
-            publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletter.code)?.date?.toKotlinLocaleDate()
-        }
-
-        return when (persistenceMode) {
-            PersistenceMode.DEFAULT -> getDefaultOldest()
-        }
+        return publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletter.code)
+            ?.date
+            ?.toKotlinLocaleDate()
     }
 }
