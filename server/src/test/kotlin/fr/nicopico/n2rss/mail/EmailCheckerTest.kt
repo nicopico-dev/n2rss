@@ -135,7 +135,7 @@ class EmailCheckerTest {
         every { newsletterHandler.process(errorEmail) } throws errorEmailProcessing
         every { newsletterHandler.process(validEmail) } returns listOf(publication)
         every { publication.articles } returns listOf(mockk())
-        every { monitoringService.notifyEmailProcessingError(any(), any()) } just Runs
+        every { monitoringService.notifyEmailProcessingError(any(), any(), any()) } just Runs
 
         // When we check the emails
         emailChecker.savePublicationsFromEmails()
@@ -148,7 +148,13 @@ class EmailCheckerTest {
         verify { emailClient.markAsRead(validEmail) }
         verify(exactly = 0) { emailClient.markAsRead(errorEmail) }
 
-        verify { monitoringService.notifyEmailProcessingError(errorEmail, errorEmailProcessing) }
+        verify {
+            monitoringService.notifyEmailProcessingError(
+                email = errorEmail,
+                error = errorEmailProcessing,
+                newsletterHandler = newsletterHandler,
+            )
+        }
     }
 
     @Test
@@ -183,7 +189,7 @@ class EmailCheckerTest {
         every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
         every { newsletterHandler.process(email) } returns listOf(publication)
         every { publication.articles } returns emptyList()
-        every { monitoringService.notifyEmailProcessingError(any(), any()) } just Runs
+        every { monitoringService.notifyEmailProcessingError(any(), any(), any()) } just Runs
 
         // When we check the email
         emailChecker.savePublicationsFromEmails()
@@ -194,7 +200,11 @@ class EmailCheckerTest {
             emailClient.markAsRead(email)
         }
         verify {
-            monitoringService.notifyEmailProcessingError(email, any(NoPublicationFoundException::class))
+            monitoringService.notifyEmailProcessingError(
+                email = email,
+                error = any(NoPublicationFoundException::class),
+                newsletterHandler = newsletterHandler,
+            )
         }
     }
 
@@ -217,14 +227,20 @@ class EmailCheckerTest {
         every { publicationService.savePublications(listOf(publication1)) } throws RuntimeException("TEST")
         every { publicationService.savePublications(listOf(publication2)) } just Runs
 
-        every { monitoringService.notifyEmailProcessingError(any(), any()) } just Runs
+        every { monitoringService.notifyEmailProcessingError(any(), any(), any()) } just Runs
 
         // When we check the email
         emailChecker.savePublicationsFromEmails()
 
         verify(exactly = 0) { emailClient.markAsRead(email1) }
         verify { emailClient.markAsRead(email2) }
-        verify { monitoringService.notifyEmailProcessingError(email1, any()) }
+        verify {
+            monitoringService.notifyEmailProcessingError(
+                email = email1,
+                error = any(),
+                newsletterHandler = newsletterHandler,
+            )
+        }
         confirmVerified(monitoringService)
     }
 }
