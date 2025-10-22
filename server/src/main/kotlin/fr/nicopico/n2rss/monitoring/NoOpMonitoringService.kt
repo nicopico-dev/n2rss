@@ -19,20 +19,25 @@ package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.net.URL
 
 @Service
 class NoOpMonitoringService : MonitoringService {
     override fun notifyGenericError(error: Exception, context: String?) {
-        // No-op
+        LOG.warn("Generic error received (context: {})", context, error)
     }
 
     override fun notifyEmailProcessingError(email: Email, error: Exception, newsletterHandler: NewsletterHandler?) {
-        // No-op
+        LOG.warn("Email processing error received: {} on {}", email.subject, newsletterHandler, error)
     }
 
     override fun notifyNewsletterRequest(newsletterUrl: URL) {
-        // No-op
+        LOG.info("Newsletter request received for url {}", newsletterUrl)
+    }
+
+    companion object {
+        private val LOG = LoggerFactory.getLogger(NoOpMonitoringService::class.java)
     }
 }

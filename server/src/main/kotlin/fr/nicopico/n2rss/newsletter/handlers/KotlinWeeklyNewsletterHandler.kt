@@ -48,7 +48,6 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
             Safelist.basic(),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        println(document)
 
         val sections = document.extractSections("p:has(strong)")
 
