@@ -94,6 +94,7 @@ class PublicationServiceTest {
         newsletter: Newsletter,
         title: String = "Title 1",
         publicationDate: LocalDate = LocalDate.now(),
+        articleCount: Int = 1,
     ): PublicationEntity {
         val publicationEntity = PublicationEntity(
             id = Random.nextLong(),
@@ -101,15 +102,18 @@ class PublicationServiceTest {
             date = publicationDate.toLegacyDate(),
             newsletterCode = newsletter.code,
         ).also {
-            it.articles = listOf(
-                ArticleEntity(
-                    id = Random.nextLong(),
-                    title = "Random Title ${Random.nextInt()}",
-                    link = "https://example.com/article-${Random.nextInt()}",
-                    description = "This is a description for a random article.",
-                    publication = it,
-                )
-            )
+            it.articles = buildList {
+                for (i in 1..articleCount) {
+                    val article = ArticleEntity(
+                        id = Random.nextLong(),
+                        title = "Random Title $i",
+                        link = "https://example.com/article-$i",
+                        description = "This is a description for a random article.",
+                        publication = it,
+                    )
+                    add(article)
+                }
+            }
         }
         return publicationEntity
     }
@@ -277,6 +281,47 @@ class PublicationServiceTest {
 
             // THEN
             result should beNull()
+        }
+    }
+
+    @Nested
+    inner class AverageArticlePerPublication {
+        @Test
+        fun `should retrieve the average number of articles per publications of a newsletter`() {
+            // GIVEN
+            val newsletterCode = "code"
+            val newsletter = createStubNewsletter(newsletterCode)
+            every { publicationRepository.findByNewsletterCode(newsletterCode, any()) } returns PageImpl(
+                buildList {
+                    for (i in 0..4) {
+                        val entity = createStubPublicationEntity(
+                            newsletter,
+                            articleCount = if (i % 2 == 0) 4 else 2,
+                        )
+                        add(entity)
+                    }
+                }
+            )
+
+            // WHEN
+            val result = publicationService.determineAverageArticleCountPerPublication(newsletter)
+
+            // THEN
+            result shouldBe 3
+        }
+
+        @Test
+        fun `should return 0 as the average number of articles if there is no publication for the newsletter`() {
+            // GIVEN
+            val newsletterCode = "code"
+            val newsletter = createStubNewsletter(newsletterCode)
+            every { publicationRepository.findByNewsletterCode(newsletterCode, any()) } returns PageImpl(emptyList())
+
+            // WHEN
+            val result = publicationService.determineAverageArticleCountPerPublication(newsletter)
+
+            // THEN
+            result shouldBe 0
         }
     }
 }

@@ -128,6 +128,17 @@ class PublicationService(
         }
     }
 
+    fun determineAverageArticleCountPerPublication(newsletter: Newsletter): Int {
+        val latestPublications = publicationRepository.findByNewsletterCode(
+            newsletterCode = newsletter.code,
+            pageable = Pageable.ofSize(LATEST_PUBLICATIONS_COUNT),
+        )
+
+        return if (!latestPublications.isEmpty) {
+            latestPublications.toList().map { it.articles.size }.average().roundToInt()
+        } else 0
+    }
+
     companion object {
         private const val LATEST_PUBLICATIONS_COUNT = 10
     }
