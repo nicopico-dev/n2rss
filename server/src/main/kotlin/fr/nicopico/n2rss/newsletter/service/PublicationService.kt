@@ -28,12 +28,16 @@ import fr.nicopico.n2rss.newsletter.models.Publication
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import fr.nicopico.n2rss.utils.toLegacyDate
 import jakarta.transaction.Transactional
+import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.minus
 import org.springframework.cache.annotation.CacheEvict
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import java.net.URL
+import kotlin.math.roundToInt
 
 @Service
 class PublicationService(
@@ -100,5 +104,31 @@ class PublicationService(
         return publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletter.code)
             ?.date
             ?.toKotlinLocaleDate()
+    }
+
+    fun determinePublicationPeriod(newsletter: Newsletter): DatePeriod? {
+        val latestPublications = publicationRepository.findByNewsletterCode(
+            newsletterCode = newsletter.code,
+            pageable = Pageable.ofSize(LATEST_PUBLICATIONS_COUNT),
+        )
+        if (latestPublications.size <= 1) {
+            return null
+        } else {
+            val publicationDates: List<LocalDate> = latestPublications.toList()
+                .map {
+                    it.date.toKotlinLocaleDate()
+                }
+                .sorted()
+            val averageDays: Int = publicationDates
+                .zipWithNext { prev, next -> next - prev }
+                .map { it.days }
+                .average()
+                .roundToInt()
+            return DatePeriod(days = averageDays)
+        }
+    }
+
+    companion object {
+        private const val LATEST_PUBLICATIONS_COUNT = 10
     }
 }

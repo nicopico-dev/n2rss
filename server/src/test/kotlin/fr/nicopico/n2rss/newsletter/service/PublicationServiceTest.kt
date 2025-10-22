@@ -29,6 +29,7 @@ import fr.nicopico.n2rss.utils.now
 import fr.nicopico.n2rss.utils.toLegacyDate
 import io.kotest.assertions.assertSoftly
 import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.nulls.beNull
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -36,7 +37,9 @@ import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
 import io.mockk.slot
 import io.mockk.verify
+import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.plus
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -112,113 +115,168 @@ class PublicationServiceTest {
     }
     //endregion
 
+    private lateinit var publicationService: PublicationService
+
+    @BeforeEach
+    fun setUp() {
+        publicationService = createPublicationService()
+    }
+
+    @Test
+    fun `should get publications by newsletter`() {
+        // GIVEN
+        val newsletterCode = "test"
+        val newsletter = createStubNewsletter(newsletterCode)
+        val pageable = PageRequest.of(0, 10)
+        val publications = listOf(createStubPublicationEntity(newsletter))
+        val publicationPage: Page<PublicationEntity> = PageImpl(publications)
+        every { newsletterRepository.findNewsletterByCode(any()) } returns newsletter
+        every { publicationRepository.findByNewsletterCode(any(), any()) } returns publicationPage
+
+        // WHEN
+        val result = publicationService.getPublications(newsletter, pageable)
+
+        // THEN
+        verify { newsletterRepository.findNewsletterByCode(newsletterCode) }
+        verify { publicationRepository.findByNewsletterCode(newsletterCode, pageable) }
+        assertSoftly {
+            result.content.size shouldBe 1
+            result.content[0].title shouldBe "Title 1"
+        }
+    }
+
+    @Test
+    fun `should only save publications containing articles`() {
+        // GIVEN
+        val newsletter = createStubNewsletter()
+        val publications = listOf(
+            createStubPublication(newsletter, "Title 1"),
+            createStubPublication(newsletter, "Title 2", articleCount = 0),
+            createStubPublication(newsletter, "Title 3"),
+        )
+
+        every { publicationRepository.saveAll(any<List<PublicationEntity>>()) } answers { firstArg() }
+
+        // WHEN
+        publicationService.savePublications(publications)
+
+        // THEN
+        val slot = slot<List<PublicationEntity>>()
+        verify { publicationRepository.saveAll(capture(slot)) }
+        slot.captured should {
+            it shouldHaveSize 2
+            it[0].title shouldBe "Title 1"
+            it[1].title shouldBe "Title 3"
+        }
+    }
+
+    @Test
+    fun `should get publications count by newsletter`() {
+        // GIVEN
+        val newsletterCode = "delivering"
+        val newsletter = createStubNewsletter(newsletterCode)
+        every { publicationRepository.countPublicationsByNewsletterCode(any()) } returns 10L
+
+        // WHEN
+        val result = publicationService.getPublicationsCount(newsletter)
+
+        // THEN
+        verify { publicationRepository.countPublicationsByNewsletterCode(newsletterCode) }
+        result shouldBe 10L
+    }
+
+    @Test
+    fun `should get oldest publication date by newsletter`() {
+        // GIVEN
+        val newsletterCode = "primarily"
+        val newsletter = createStubNewsletter(newsletterCode)
+        val latestPublication = createStubPublicationEntity(newsletter)
+        every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns latestPublication
+
+        // WHEN
+        val result = publicationService.getOldestPublicationDate(newsletter)
+
+        // THEN
+        verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
+        @Suppress("DEPRECATION")
+        result shouldBe LocalDate(
+            year = latestPublication.date.year + 1900,
+            monthNumber = latestPublication.date.month + 1,
+            dayOfMonth = latestPublication.date.date,
+        )
+    }
+
+    @Test
+    fun `should return null as oldest publication when there is no publications`() {
+        // GIVEN
+        val newsletterCode = "codes"
+        val newsletter = createStubNewsletter(newsletterCode)
+        every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns null
+
+        // WHEN
+        val result = publicationService.getOldestPublicationDate(newsletter)
+
+        // THEN
+        verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
+        result should beNull()
+    }
+
     @Nested
-    inner class DefaultMode {
-
-        private lateinit var publicationService: PublicationService
-
-        @BeforeEach
-        fun setUp() {
-            publicationService = createPublicationService()
-        }
+    inner class PublicationPeriod {
 
         @Test
-        fun `should get publications by newsletter`() {
+        fun `should retrieve the publication period of a newsletter`() {
             // GIVEN
-            val newsletterCode = "test"
+            val newsletterCode = "code"
             val newsletter = createStubNewsletter(newsletterCode)
-            val pageable = PageRequest.of(0, 10)
-            val publications = listOf(createStubPublicationEntity(newsletter))
-            val publicationPage: Page<PublicationEntity> = PageImpl(publications)
-            every { newsletterRepository.findNewsletterByCode(any()) } returns newsletter
-            every { publicationRepository.findByNewsletterCode(any(), any()) } returns publicationPage
-
-            // WHEN
-            val result = publicationService.getPublications(newsletter, pageable)
-
-            // THEN
-            verify { newsletterRepository.findNewsletterByCode(newsletterCode) }
-            verify { publicationRepository.findByNewsletterCode(newsletterCode, pageable) }
-            assertSoftly {
-                result.content.size shouldBe 1
-                result.content[0].title shouldBe "Title 1"
-            }
-        }
-
-        @Test
-        fun `should only save publications containing articles`() {
-            // GIVEN
-            val newsletter = createStubNewsletter()
-            val publications = listOf(
-                createStubPublication(newsletter, "Title 1"),
-                createStubPublication(newsletter, "Title 2", articleCount = 0),
-                createStubPublication(newsletter, "Title 3"),
+            val firstPublicationDate = LocalDate.fromEpochDays(0)
+            val periodDays = 7
+            every { publicationRepository.findByNewsletterCode(newsletterCode, any()) } returns PageImpl(
+                buildList {
+                    for (i in 0..4) {
+                        val entity = createStubPublicationEntity(
+                            newsletter,
+                            publicationDate = firstPublicationDate + DatePeriod(days = i * periodDays)
+                        )
+                        add(entity)
+                    }
+                }
             )
 
-            every { publicationRepository.saveAll(any<List<PublicationEntity>>()) } answers { firstArg() }
-
             // WHEN
-            publicationService.savePublications(publications)
+            val result = publicationService.determinePublicationPeriod(newsletter)
 
             // THEN
-            val slot = slot<List<PublicationEntity>>()
-            verify { publicationRepository.saveAll(capture(slot)) }
-            slot.captured should {
-                it shouldHaveSize 2
-                it[0].title shouldBe "Title 1"
-                it[1].title shouldBe "Title 3"
-            }
+            result shouldBe DatePeriod(days = 7)
         }
 
         @Test
-        fun `should get publications count by newsletter`() {
+        fun `should return null as publication period when there is no publications`() {
             // GIVEN
-            val newsletterCode = "delivering"
+            val newsletterCode = "code"
             val newsletter = createStubNewsletter(newsletterCode)
-            every { publicationRepository.countPublicationsByNewsletterCode(any()) } returns 10L
+            every { publicationRepository.findByNewsletterCode(newsletterCode, any()) } returns PageImpl(emptyList())
 
             // WHEN
-            val result = publicationService.getPublicationsCount(newsletter)
+            val result = publicationService.determinePublicationPeriod(newsletter)
 
             // THEN
-            verify { publicationRepository.countPublicationsByNewsletterCode(newsletterCode) }
-            result shouldBe 10L
+            result should beNull()
         }
 
         @Test
-        fun `should get latest publication date by newsletter`() {
+        fun `should return null as publication period when there is only one publications`() {
             // GIVEN
-            val newsletterCode = "primarily"
+            val newsletterCode = "code"
             val newsletter = createStubNewsletter(newsletterCode)
-            val latestPublication = createStubPublicationEntity(newsletter)
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns latestPublication
+            every { publicationRepository.findByNewsletterCode(newsletterCode, any()) } returns
+                PageImpl(listOf(createStubPublicationEntity(newsletter)))
 
             // WHEN
-            val result = publicationService.getOldestPublicationDate(newsletter)
+            val result = publicationService.determinePublicationPeriod(newsletter)
 
             // THEN
-            verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
-            @Suppress("DEPRECATION")
-            result shouldBe LocalDate(
-                year = latestPublication.date.year + 1900,
-                monthNumber = latestPublication.date.month + 1,
-                dayOfMonth = latestPublication.date.date,
-            )
-        }
-
-        @Test
-        fun `should return null when no publications are available`() {
-            // GIVEN
-            val newsletterCode = "codes"
-            val newsletter = createStubNewsletter(newsletterCode)
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns null
-
-            // WHEN
-            val result = publicationService.getOldestPublicationDate(newsletter)
-
-            // THEN
-            verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
-            result shouldBe null
+            result should beNull()
         }
     }
 }
