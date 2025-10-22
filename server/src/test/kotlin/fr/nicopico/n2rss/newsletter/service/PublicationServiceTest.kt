@@ -18,7 +18,6 @@
 
 package fr.nicopico.n2rss.newsletter.service
 
-import fr.nicopico.n2rss.config.PersistenceMode
 import fr.nicopico.n2rss.newsletter.data.NewsletterRepository
 import fr.nicopico.n2rss.newsletter.data.PublicationRepository
 import fr.nicopico.n2rss.newsletter.data.entity.ArticleEntity
@@ -61,7 +60,6 @@ class PublicationServiceTest {
         return PublicationService(
             publicationRepository = publicationRepository,
             newsletterRepository = newsletterRepository,
-            persistenceMode = PersistenceMode.DEFAULT,
         )
     }
 
