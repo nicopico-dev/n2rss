@@ -18,8 +18,8 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.controller.dto.GroupedNewslettersDTO
 import fr.nicopico.n2rss.monitoring.MonitoringService
-import fr.nicopico.n2rss.newsletter.models.GroupedNewsletterInfo
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.ReCaptchaService
@@ -73,6 +73,20 @@ class HomeControllerTest {
 
     @Nested
     inner class GetTest {
+
+        private fun createGroupedNewsletterInfo(
+            vararg newsletterInfos: NewsletterInfo
+        ): GroupedNewslettersDTO {
+            require(newsletterInfos.isNotEmpty()) {
+                "At least one newsletterInfo must be provided"
+            }
+            return GroupedNewslettersDTO(
+                title = newsletterInfos[0].title,
+                websiteUrl = newsletterInfos[0].websiteUrl,
+                newsletters = newsletterInfos.toList(),
+            )
+        }
+
         @Test
         fun `home should provide necessary information to the template`() {
             // GIVEN
@@ -129,7 +143,7 @@ class HomeControllerTest {
 
             // THEN
             result shouldBe "index"
-            val newslettersSlot = slot<List<GroupedNewsletterInfo>>()
+            val newslettersSlot = slot<List<GroupedNewslettersDTO>>()
             verify {
                 model.addAttribute("groupedNewsletters", capture(newslettersSlot))
                 model.addAttribute("requestUrl", "http://localhost:8134")
@@ -137,9 +151,9 @@ class HomeControllerTest {
 
             // Newsletters without publication should not be displayed
             newslettersSlot.captured shouldContainExactly listOf(
-                GroupedNewsletterInfo(newsletterA),
-                GroupedNewsletterInfo(newsletterB),
-                GroupedNewsletterInfo(newsletterD),
+                createGroupedNewsletterInfo(newsletterA),
+                createGroupedNewsletterInfo(newsletterB),
+                createGroupedNewsletterInfo(newsletterD),
             )
         }
 
@@ -199,7 +213,7 @@ class HomeControllerTest {
 
             // THEN
             result shouldBe "index"
-            val newslettersSlot = slot<List<GroupedNewsletterInfo>>()
+            val newslettersSlot = slot<List<GroupedNewslettersDTO>>()
             verify {
                 model.addAttribute("groupedNewsletters", capture(newslettersSlot))
                 model.addAttribute("requestUrl", "http://localhost:8134")
@@ -207,8 +221,8 @@ class HomeControllerTest {
 
             // Newsletters without publication should not be displayed
             newslettersSlot.captured shouldContainExactly listOf(
-                GroupedNewsletterInfo(newsletterA1, newsletterA3),
-                GroupedNewsletterInfo(newsletterB),
+                createGroupedNewsletterInfo(newsletterA1, newsletterA3),
+                createGroupedNewsletterInfo(newsletterB),
             )
         }
 

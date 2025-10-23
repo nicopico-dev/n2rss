@@ -17,39 +17,33 @@
  */
 package fr.nicopico.n2rss.newsletter.models
 
-data class GroupedNewsletterInfo(
-    val title: String,
-    val websiteUrl: String,
-    val newsletterInfos: List<NewsletterInfo>,
-) {
-    init {
-        require(newsletterInfos.all { it.title == title }) {
-            "All newsletterInfos must have the same title"
-        }
-        require(newsletterInfos.all { it.websiteUrl == websiteUrl }) {
-            "All newsletterInfos must have the same websiteUrl"
-        }
+import kotlinx.datetime.DatePeriod
+import kotlinx.datetime.LocalDate
+
+sealed class NewsletterStats {
+    abstract val publicationCount: Long
+
+    data object NoPublication : NewsletterStats() {
+        override val publicationCount: Long = 0
     }
+
+    data class SinglePublication(
+        val startingDate: LocalDate,
+    ) : NewsletterStats() {
+        override val publicationCount: Long = 1
+    }
+
+    data class MultiplePublications(
+        val startingDate: LocalDate,
+        override val publicationCount: Long,
+        val publicationPeriodicity: DatePeriod,
+        val articlesPerPublication: Int,
+    ) : NewsletterStats()
 }
 
-// @Suppress
-// - FunctionNaming: this function simulates an "extension constructor"
-@Suppress("FunctionNaming")
-fun GroupedNewsletterInfo(
-    vararg newsletterInfos: NewsletterInfo
-): GroupedNewsletterInfo {
-    require(newsletterInfos.isNotEmpty()) {
-        "At least one newsletterInfo must be provided"
+val NewsletterStats.startingDate: LocalDate?
+    get() = when (this) {
+        is NewsletterStats.NoPublication -> null
+        is NewsletterStats.SinglePublication -> startingDate
+        is NewsletterStats.MultiplePublications -> startingDate
     }
-    return GroupedNewsletterInfo(
-        title = newsletterInfos[0].title,
-        websiteUrl = newsletterInfos[0].websiteUrl,
-        newsletterInfos = newsletterInfos.toList(),
-    )
-}
-
-fun List<NewsletterInfo>.toGroupedNewsletterInfo() = GroupedNewsletterInfo(
-    title = this[0].title,
-    websiteUrl = this[0].websiteUrl,
-    newsletterInfos = this,
-)

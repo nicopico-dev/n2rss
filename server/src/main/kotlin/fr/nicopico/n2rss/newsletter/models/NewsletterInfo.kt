@@ -17,13 +17,10 @@
  */
 package fr.nicopico.n2rss.newsletter.models
 
-import kotlinx.datetime.LocalDate
-
 data class NewsletterInfo(
     val code: String,
     val title: String,
     val websiteUrl: String,
-    val publicationCount: Long,
-    val startingDate: LocalDate?,
     val notes: String?,
+    val stats: NewsletterStats,
 )

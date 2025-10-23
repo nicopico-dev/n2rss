@@ -17,6 +17,8 @@
  */
 package fr.nicopico.n2rss.controller.rss
 
+import fr.nicopico.n2rss.controller.dto.NewsletterDTO
+import fr.nicopico.n2rss.controller.dto.toDTO
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.RssService
 import jakarta.servlet.http.HttpServletResponse

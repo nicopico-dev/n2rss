@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.utils
 
+import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.atStartOfDayIn
@@ -44,4 +45,15 @@ fun LocalDate.Companion.now(clock: Clock = Clock.System): LocalDate {
     return clock.now()
         .toLocalDateTime(TimeZone.currentSystemDefault())
         .date
+}
+
+@Suppress("MagicNumber")
+fun DatePeriod.toHumanReadableString(): String {
+    return when (days) {
+        1 -> "day"
+        in 6..8 -> "week"
+        in 14..16 -> "2 weeks"
+        in 28..32 -> "month"
+        else -> "$days days"
+    }
 }

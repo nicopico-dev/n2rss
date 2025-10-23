@@ -52,7 +52,7 @@
         <tbody>
         <th:block
             th:each="newsletterGroup : ${groupedNewsletters}"
-            th:with="multipleFeeds=${newsletterGroup.newsletterInfos.size() > 1}">
+            th:with="multipleFeeds=${newsletterGroup.newsletters.size() > 1}">
             <tr th:if="${multipleFeeds}">
                 <td>
                     <a th:href="${newsletterGroup.websiteUrl}"
@@ -62,7 +62,7 @@
                 <td></td>
                 <td></td>
             </tr>
-            <tr th:each="newsletter : ${newsletterGroup.newsletterInfos}">
+            <tr th:each="newsletter : ${newsletterGroup.newsletters}">
                 <td>
                     <th:block
                         th:unless="${multipleFeeds}">
@@ -80,12 +80,18 @@
                         RSS Feed
                     </a>
                 </td>
-                <td>
+                <td th:with="stats=${newsletter.publicationStats}">
                     <span class="publication-count">
                         <span th:text="${newsletter.publicationCount}"/> publications<br/>
                     </span>
+                    <span class="publication-stats" th:if="${stats}">
+                        about
+                        <span th:text="${stats.articlesPerPublication}"/>
+                        articles every
+                        <span th:text="${stats.publicationPeriod}"/>
+                    </span>
                     <span class="publication-start">
-                        since <span th:text="${newsletter.startingDate}"/>
+                        since <span th:text="${#temporals.format(newsletter.startingDate, #locale.ENGLISH)}"/>
                     </span>
                 </td>
             </tr>

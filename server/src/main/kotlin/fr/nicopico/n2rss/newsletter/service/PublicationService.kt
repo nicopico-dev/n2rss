@@ -24,6 +24,7 @@ import fr.nicopico.n2rss.newsletter.data.entity.ArticleEntity
 import fr.nicopico.n2rss.newsletter.data.entity.PublicationEntity
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
+import fr.nicopico.n2rss.newsletter.models.NewsletterStats
 import fr.nicopico.n2rss.newsletter.models.Publication
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import fr.nicopico.n2rss.utils.toLegacyDate
@@ -96,47 +97,60 @@ class PublicationService(
     }
     //endregion
 
-    fun getPublicationsCount(newsletter: Newsletter): Long {
-        return publicationRepository.countPublicationsByNewsletterCode(newsletter.code)
-    }
+    @Transactional
+    fun getNewsletterStats(newsletter: Newsletter): NewsletterStats {
+        return when (
+            val publicationCount = publicationRepository.countPublicationsByNewsletterCode(newsletter.code)
+        ) {
+            0L -> NewsletterStats.NoPublication
+            1L -> NewsletterStats.SinglePublication(
+                startingDate = newsletter.getStartingDate()
+            )
 
-    fun getOldestPublicationDate(newsletter: Newsletter): LocalDate? {
-        return publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletter.code)
-            ?.date
-            ?.toKotlinLocaleDate()
-    }
+            else -> {
+                val latestPublications = publicationRepository.findByNewsletterCode(
+                    newsletterCode = newsletter.code,
+                    pageable = Pageable.ofSize(LATEST_PUBLICATIONS_COUNT),
+                ).content
 
-    fun determinePublicationPeriod(newsletter: Newsletter): DatePeriod? {
-        val latestPublications = publicationRepository.findByNewsletterCode(
-            newsletterCode = newsletter.code,
-            pageable = Pageable.ofSize(LATEST_PUBLICATIONS_COUNT),
-        )
-        if (latestPublications.size <= 1) {
-            return null
-        } else {
-            val publicationDates: List<LocalDate> = latestPublications.toList()
-                .map {
-                    it.date.toKotlinLocaleDate()
-                }
-                .sorted()
-            val averageDays: Int = publicationDates
-                .zipWithNext { prev, next -> next - prev }
-                .map { it.days }
-                .average()
-                .roundToInt()
-            return DatePeriod(days = averageDays)
+
+                NewsletterStats.MultiplePublications(
+                    startingDate = newsletter.getStartingDate(),
+                    publicationCount = publicationCount,
+                    publicationPeriodicity = latestPublications.computeAveragePublicationPeriod(),
+                    articlesPerPublication = latestPublications.computeAverageArticlesPerPublication(),
+                )
+            }
         }
     }
 
-    fun determineAverageArticleCountPerPublication(newsletter: Newsletter): Int {
-        val latestPublications = publicationRepository.findByNewsletterCode(
-            newsletterCode = newsletter.code,
-            pageable = Pageable.ofSize(LATEST_PUBLICATIONS_COUNT),
-        )
+    private fun Newsletter.getStartingDate(): LocalDate {
+        val firstPublication = requireNotNull(
+            publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(code)
+        ) { "Newsletter must have at least one publication" }
+        return firstPublication.date.toKotlinLocaleDate()
+    }
 
-        return if (!latestPublications.isEmpty) {
-            latestPublications.toList().map { it.articles.size }.average().roundToInt()
-        } else 0
+    private fun List<PublicationEntity>.computeAveragePublicationPeriod(): DatePeriod {
+        require(size >= 2) {
+            "Computing average publication period requires at least 2 publications"
+        }
+
+        val publicationDates: List<LocalDate> = map { it.date.toKotlinLocaleDate() }.sorted()
+        val averageDays: Int = publicationDates
+            .zipWithNext { prev, next -> next - prev }
+            .map { it.days }
+            .average()
+            .roundToInt()
+        return DatePeriod(days = averageDays)
+    }
+
+    private fun List<PublicationEntity>.computeAverageArticlesPerPublication(): Int {
+        require(size >= 2) {
+            "Computing average articles per publication requires at least 2 publications"
+        }
+
+        return map { it.articles.size }.average().roundToInt()
     }
 
     companion object {

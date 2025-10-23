@@ -16,42 +16,14 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.controller.rss
+package fr.nicopico.n2rss.controller.dto
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import fr.nicopico.n2rss.controller.dto.NewsletterDTO
-import io.kotest.matchers.shouldBe
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import com.fasterxml.jackson.annotation.JsonProperty
 
-class NewsletterDTOTest {
+data class PublicationStatsDTO(
+    @param:JsonProperty("publicationPeriod")
+    val publicationPeriod: String,
 
-    private lateinit var objectMapper: ObjectMapper
-
-    @BeforeEach
-    fun setUp() {
-        objectMapper = ObjectMapper()
-    }
-
-    @Test
-    fun `NewsletterDTO should serialize to JSON`() {
-        // GIVEN
-        val code = "adaptor"
-        val title = "Myanmar expression rom affecting teaching caught smilies"
-        val publicationCount = 2977L
-
-        val original = NewsletterDTO(
-            code = code,
-            title = title,
-            publicationCount = publicationCount,
-            startingDate = null,
-        )
-
-        // WHEN
-        val json = objectMapper.writeValueAsString(original)
-
-        // THEN
-        val dto = objectMapper.readValue(json, NewsletterDTO::class.java)
-        dto shouldBe original
-    }
-}
+    @param:JsonProperty("articlesPerPublication")
+    val articlesPerPublication: Int,
+)

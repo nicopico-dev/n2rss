@@ -15,29 +15,30 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.controller.rss
 
-import com.fasterxml.jackson.annotation.JsonFormat
-import com.fasterxml.jackson.annotation.JsonProperty
+package fr.nicopico.n2rss.controller.dto
+
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
-import fr.nicopico.n2rss.utils.toLegacyDate
-import java.util.Date
 
-data class NewsletterDTO(
-    @param:JsonProperty("code")
-    val code: String,
-    @param:JsonProperty("title")
+data class GroupedNewslettersDTO(
     val title: String,
-    @param:JsonProperty("publicationCount")
-    val publicationCount: Long,
-    @param:JsonProperty("startingDate")
-    @param:JsonFormat(pattern = "yyyy-MM-dd")
-    val startingDate: Date?,
-)
+    val websiteUrl: String,
+    val newsletters: List<NewsletterDTO>,
+) {
+    init {
+        require(newsletters.all { it.title == title }) {
+            "All newsletterInfos must have the same title"
+        }
+        require(newsletters.all { it.websiteUrl == websiteUrl }) {
+            "All newsletterInfos must have the same websiteUrl"
+        }
+    }
+}
 
-fun NewsletterInfo.toDTO() = NewsletterDTO(
-    code = code,
-    title = title,
-    publicationCount = publicationCount,
-    startingDate = startingDate?.toLegacyDate(),
-)
+fun List<NewsletterInfo>.toGroupedNewslettersDTO(): GroupedNewslettersDTO {
+    return GroupedNewslettersDTO(
+        title = this.first().title,
+        websiteUrl = this.first().websiteUrl,
+        newsletters = map { it.toDTO() },
+    )
+}
