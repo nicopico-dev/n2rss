@@ -39,7 +39,7 @@ class RssFeedController(
 ) {
     @GetMapping(produces = [MediaType.APPLICATION_JSON_VALUE])
     fun getRssFeeds(
-        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @Suppress("unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
     ): List<NewsletterDTO> {
         return newsletterService.getNonHiddenEnabledNewslettersInfo()
@@ -59,7 +59,7 @@ class RssFeedController(
         @PathVariable("feed") feed: String,
         @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
-        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @Suppress("unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
         response: HttpServletResponse,
     ) {
@@ -82,7 +82,7 @@ class RssFeedController(
         @PathVariable("feed") feed: String,
         @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
-        @Suppress("UnusedParameter") /* Used by AnalyticsAspect */
+        @Suppress("unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
         response: HttpServletResponse,
     ) {
