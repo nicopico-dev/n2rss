@@ -18,9 +18,11 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.controller.dto.GroupedNewslettersDTO
+import fr.nicopico.n2rss.controller.dto.toDTO
 import fr.nicopico.n2rss.monitoring.MonitoringService
-import fr.nicopico.n2rss.newsletter.models.GroupedNewsletterInfo
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
+import fr.nicopico.n2rss.newsletter.models.NewsletterStats
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.ReCaptchaService
 import io.kotest.matchers.collections.shouldContainExactly
@@ -34,12 +36,14 @@ import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
 import jakarta.servlet.http.HttpServletRequest
+import kotlinx.datetime.DatePeriod
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
 import org.springframework.ui.Model
 import java.net.URL
+import kotlinx.datetime.LocalDate as KtxLocalDate
 
 class HomeControllerTest {
 
@@ -73,6 +77,20 @@ class HomeControllerTest {
 
     @Nested
     inner class GetTest {
+
+        private fun createGroupedNewsletterInfo(
+            vararg newsletterInfos: NewsletterInfo
+        ): GroupedNewslettersDTO {
+            require(newsletterInfos.isNotEmpty()) {
+                "At least one newsletterInfo must be provided"
+            }
+            return GroupedNewslettersDTO(
+                title = newsletterInfos[0].title,
+                websiteUrl = newsletterInfos[0].websiteUrl,
+                newsletters = newsletterInfos.toList().map { it.toDTO() },
+            )
+        }
+
         @Test
         fun `home should provide necessary information to the template`() {
             // GIVEN
@@ -80,33 +98,41 @@ class HomeControllerTest {
                 code = "A",
                 title = "Newsletter A",
                 websiteUrl = "Website A",
-                publicationCount = 12,
-                startingDate = null,
                 notes = null,
+                stats = NewsletterStats.MultiplePublications(
+                    startingDate = KtxLocalDate.fromEpochDays(0),
+                    publicationCount = 12,
+                    publicationPeriodicity = DatePeriod(days = 7),
+                    articlesPerPublication = 1,
+                ),
             )
             val newsletterC = NewsletterInfo(
                 code = "C",
                 title = "Newsletter C",
                 websiteUrl = "Website C",
-                publicationCount = 0,
-                startingDate = null,
-                notes = null
+                notes = null,
+                stats = NewsletterStats.NoPublication,
             )
             val newsletterD = NewsletterInfo(
                 code = "D",
                 title = "Newsletter D",
                 websiteUrl = "Website D",
-                publicationCount = 1,
-                startingDate = null,
                 notes = null,
+                stats = NewsletterStats.SinglePublication(
+                    startingDate = KtxLocalDate.fromEpochDays(0),
+                ),
             )
             val newsletterB = NewsletterInfo(
                 code = "B",
                 title = "Newsletter B",
                 websiteUrl = "Website B",
-                publicationCount = 3,
-                startingDate = null,
                 notes = null,
+                stats = NewsletterStats.MultiplePublications(
+                    startingDate = KtxLocalDate.fromEpochDays(0),
+                    publicationCount = 3,
+                    publicationPeriodicity = DatePeriod(days = 7),
+                    articlesPerPublication = 1,
+                ),
             )
             val newslettersInfo = listOf(
                 newsletterA,
@@ -129,7 +155,7 @@ class HomeControllerTest {
 
             // THEN
             result shouldBe "index"
-            val newslettersSlot = slot<List<GroupedNewsletterInfo>>()
+            val newslettersSlot = slot<List<GroupedNewslettersDTO>>()
             verify {
                 model.addAttribute("groupedNewsletters", capture(newslettersSlot))
                 model.addAttribute("requestUrl", "http://localhost:8134")
@@ -137,9 +163,9 @@ class HomeControllerTest {
 
             // Newsletters without publication should not be displayed
             newslettersSlot.captured shouldContainExactly listOf(
-                GroupedNewsletterInfo(newsletterA),
-                GroupedNewsletterInfo(newsletterB),
-                GroupedNewsletterInfo(newsletterD),
+                createGroupedNewsletterInfo(newsletterA),
+                createGroupedNewsletterInfo(newsletterB),
+                createGroupedNewsletterInfo(newsletterD),
             )
         }
 
@@ -150,33 +176,41 @@ class HomeControllerTest {
                 code = "A1",
                 title = "Newsletter A",
                 websiteUrl = "Website A",
-                publicationCount = 12,
-                startingDate = null,
                 notes = null,
+                stats = NewsletterStats.MultiplePublications(
+                    startingDate = KtxLocalDate.fromEpochDays(0),
+                    publicationCount = 12,
+                    publicationPeriodicity = DatePeriod(days = 7),
+                    articlesPerPublication = 1,
+                ),
             )
             val newsletterA2 = NewsletterInfo(
                 code = "A2",
                 title = "Newsletter A",
                 websiteUrl = "Website A",
-                publicationCount = 0,
-                startingDate = null,
-                notes = null
+                notes = null,
+                stats = NewsletterStats.NoPublication,
             )
             val newsletterA3 = NewsletterInfo(
                 code = "A3",
                 title = "Newsletter A",
                 websiteUrl = "Website A",
-                publicationCount = 1,
-                startingDate = null,
                 notes = null,
+                stats = NewsletterStats.SinglePublication(
+                    startingDate = KtxLocalDate.fromEpochDays(0),
+                ),
             )
             val newsletterB = NewsletterInfo(
                 code = "B",
                 title = "Newsletter B",
                 websiteUrl = "Website B",
-                publicationCount = 3,
-                startingDate = null,
                 notes = null,
+                stats = NewsletterStats.MultiplePublications(
+                    startingDate = KtxLocalDate.fromEpochDays(0),
+                    publicationCount = 3,
+                    publicationPeriodicity = DatePeriod(days = 7),
+                    articlesPerPublication = 1,
+                ),
             )
             val newslettersInfo = listOf(
                 newsletterA1,
@@ -199,7 +233,7 @@ class HomeControllerTest {
 
             // THEN
             result shouldBe "index"
-            val newslettersSlot = slot<List<GroupedNewsletterInfo>>()
+            val newslettersSlot = slot<List<GroupedNewslettersDTO>>()
             verify {
                 model.addAttribute("groupedNewsletters", capture(newslettersSlot))
                 model.addAttribute("requestUrl", "http://localhost:8134")
@@ -207,8 +241,8 @@ class HomeControllerTest {
 
             // Newsletters without publication should not be displayed
             newslettersSlot.captured shouldContainExactly listOf(
-                GroupedNewsletterInfo(newsletterA1, newsletterA3),
-                GroupedNewsletterInfo(newsletterB),
+                createGroupedNewsletterInfo(newsletterA1, newsletterA3),
+                createGroupedNewsletterInfo(newsletterB),
             )
         }
 

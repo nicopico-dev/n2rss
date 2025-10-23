@@ -15,45 +15,15 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.utils
 
-import kotlinx.datetime.DatePeriod
-import kotlinx.datetime.LocalDate
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.atStartOfDayIn
-import kotlinx.datetime.toLocalDateTime
-import java.util.Date
-import kotlin.time.Clock
-import kotlin.time.toJavaInstant
-import kotlin.time.toKotlinInstant
+package fr.nicopico.n2rss.controller.dto
 
-fun Date.toKotlinLocaleDate(): LocalDate {
-    val instant = this.toInstant()
-    val timeZone: TimeZone = TimeZone.currentSystemDefault()
-    return instant
-        .toKotlinInstant()
-        .toLocalDateTime(timeZone)
-        .date
-}
+import com.fasterxml.jackson.annotation.JsonProperty
 
-fun LocalDate.toLegacyDate(): Date {
-    val instant = atStartOfDayIn(TimeZone.UTC)
-    return Date.from(instant.toJavaInstant())
-}
+data class PublicationStatsDTO(
+    @param:JsonProperty("publicationPeriod")
+    val publicationPeriod: String,
 
-fun LocalDate.Companion.now(clock: Clock = Clock.System): LocalDate {
-    return clock.now()
-        .toLocalDateTime(TimeZone.currentSystemDefault())
-        .date
-}
-
-@Suppress("MagicNumber")
-fun DatePeriod.toHumanReadableString(): String {
-    return when (days) {
-        1 -> "day"
-        in 6..8 -> "week"
-        in 14..16 -> "2 weeks"
-        in 28..32 -> "month"
-        else -> "$days days"
-    }
-}
+    @param:JsonProperty("articlesPerPublication")
+    val articlesPerPublication: Int,
+)

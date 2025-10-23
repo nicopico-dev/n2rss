@@ -20,9 +20,9 @@ package fr.nicopico.n2rss.external.temporary
 import fr.nicopico.n2rss.external.ExternalConfig
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointEntity
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
-import jakarta.transaction.Transactional
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import org.springframework.transaction.support.TransactionTemplate
 import java.io.Closeable
 import java.net.URL

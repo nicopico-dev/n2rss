@@ -42,13 +42,13 @@ class NewsletterService(
     }
 
     private fun createNewsletterInfo(newsletter: Newsletter): NewsletterInfo {
+        val stats = publicationService.getNewsletterStats(newsletter)
         return NewsletterInfo(
             code = newsletter.code,
             title = newsletter.name,
             websiteUrl = newsletter.websiteUrl,
-            publicationCount = publicationService.getPublicationsCount(newsletter),
-            startingDate = publicationService.getOldestPublicationDate(newsletter),
             notes = newsletter.notes,
+            stats = stats,
         )
     }
 

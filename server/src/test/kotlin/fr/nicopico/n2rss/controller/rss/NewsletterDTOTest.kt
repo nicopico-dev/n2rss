@@ -19,6 +19,7 @@
 package fr.nicopico.n2rss.controller.rss
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import fr.nicopico.n2rss.controller.dto.NewsletterDTO
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -42,8 +43,11 @@ class NewsletterDTOTest {
         val original = NewsletterDTO(
             code = code,
             title = title,
+            websiteUrl = "https://example.com",
+            notes = null,
             publicationCount = publicationCount,
             startingDate = null,
+            publicationStats = null,
         )
 
         // WHEN

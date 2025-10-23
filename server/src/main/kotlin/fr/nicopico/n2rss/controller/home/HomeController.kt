@@ -18,9 +18,9 @@
 package fr.nicopico.n2rss.controller.home
 
 import fr.nicopico.n2rss.config.N2RssProperties
+import fr.nicopico.n2rss.controller.dto.GroupedNewslettersDTO
+import fr.nicopico.n2rss.controller.dto.toGroupedNewslettersDTO
 import fr.nicopico.n2rss.monitoring.MonitoringService
-import fr.nicopico.n2rss.newsletter.models.GroupedNewsletterInfo
-import fr.nicopico.n2rss.newsletter.models.toGroupedNewsletterInfo
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.ReCaptchaService
 import fr.nicopico.n2rss.utils.url.Url
@@ -54,16 +54,16 @@ class HomeController(
     fun home(
         request: HttpServletRequest,
         model: Model,
-        @Suppress("UnusedParameter", "unused") /* Used by AnalyticsAspect */
+        @Suppress("unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
     ): String {
-        val groupedNewsletterInfos: List<GroupedNewsletterInfo> = newsletterService
+        val groupedNewsletters: List<GroupedNewslettersDTO> = newsletterService
             .getNonHiddenEnabledNewslettersInfo()
             .sortedBy { it.title.lowercase() }
-            .filter { it.publicationCount > 0 }
+            .filter { it.stats.publicationCount > 0 }
             .groupBy { it.title.lowercase() }
             .map { (_, newsletterInfos) ->
-                newsletterInfos.toGroupedNewsletterInfo()
+                newsletterInfos.toGroupedNewslettersDTO()
             }
 
         val requestUrl: String = request.requestURL
@@ -76,7 +76,7 @@ class HomeController(
             }
 
         with(model) {
-            addAttribute("groupedNewsletters", groupedNewsletterInfos)
+            this.addAttribute("groupedNewsletters", groupedNewsletters)
             addAttribute("requestUrl", requestUrl)
             addAttribute("reCaptchaEnabled", recaptchaProperties.enabled)
             addAttribute("reCaptchaSiteKey", recaptchaProperties.siteKey)
@@ -89,7 +89,7 @@ class HomeController(
     fun requestNewsletter(
         @NotEmpty @Url @RequestParam("newsletterUrl") newsletterUrl: String,
         @RequestParam("g-recaptcha-response") captchaResponse: String? = null,
-        @Suppress("UnusedParameter", "unused") /* Used by AnalyticsAspect */
+        @Suppress("unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
     ): ResponseEntity<String> {
         val isCaptchaValid = if (recaptchaProperties.enabled) {

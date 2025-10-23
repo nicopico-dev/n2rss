@@ -62,19 +62,23 @@ class NewsletterServiceTest {
         // GIVEN
         val firstPublicationCode1 = LocalDate(2022, 3, 21)
         val firstPublicationCode2 = LocalDate(2023, 7, 8)
-        every { publicationService.getPublicationsCount(any()) } answers {
+        every { publicationService.getNewsletterStats(any()) } answers {
             when (firstArg<Newsletter>().code) {
-                "code1" -> 32
-                "code2" -> 3
-                else -> 0
-            }
-        }
-        every { publicationService.getOldestPublicationDate(any()) } answers {
-            val newsletter = firstArg<Newsletter>()
-            when (newsletter.code) {
-                "code1" -> firstPublicationCode1
-                "code2" -> firstPublicationCode2
-                else -> null
+                "code1" -> fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
+                    startingDate = firstPublicationCode1,
+                    publicationCount = 32,
+                    publicationPeriodicity = kotlinx.datetime.DatePeriod(days = 7),
+                    articlesPerPublication = 5,
+                )
+
+                "code2" -> fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
+                    startingDate = firstPublicationCode2,
+                    publicationCount = 3,
+                    publicationPeriodicity = kotlinx.datetime.DatePeriod(days = 7),
+                    articlesPerPublication = 5,
+                )
+
+                else -> fr.nicopico.n2rss.newsletter.models.NewsletterStats.NoPublication
             }
         }
         every { newsletterRepository.getNonHiddenEnabledNewsletters() } returns newsletters
@@ -88,25 +92,32 @@ class NewsletterServiceTest {
                 code = "code1",
                 title = "Name 1",
                 websiteUrl = "website1",
-                publicationCount = 32,
-                startingDate = firstPublicationCode1,
                 notes = null,
+                stats = fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
+                    startingDate = firstPublicationCode1,
+                    publicationCount = 32,
+                    publicationPeriodicity = kotlinx.datetime.DatePeriod(days = 7),
+                    articlesPerPublication = 5,
+                ),
             ),
             NewsletterInfo(
                 code = "code2",
                 title = "Name 2",
                 websiteUrl = "website2",
-                publicationCount = 3,
-                startingDate = firstPublicationCode2,
                 notes = null,
+                stats = fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
+                    startingDate = firstPublicationCode2,
+                    publicationCount = 3,
+                    publicationPeriodicity = kotlinx.datetime.DatePeriod(days = 7),
+                    articlesPerPublication = 5,
+                ),
             ),
             NewsletterInfo(
                 code = "code3",
                 title = "Name 3",
                 websiteUrl = "website3",
-                publicationCount = 0,
-                startingDate = null,
                 notes = "some notes",
+                stats = fr.nicopico.n2rss.newsletter.models.NewsletterStats.NoPublication,
             ),
         )
     }
