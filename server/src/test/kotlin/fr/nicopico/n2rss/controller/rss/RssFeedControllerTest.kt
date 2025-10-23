@@ -64,9 +64,13 @@ class RssFeedControllerTest {
                 code = "newsletter_$it",
                 title = "Newsletter$it",
                 websiteUrl = "https://website$it.com",
-                publicationCount = (it + 1) * 2L,
-                startingDate = null,
                 notes = null,
+                stats = fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
+                    startingDate = kotlinx.datetime.LocalDate.fromEpochDays(0),
+                    publicationCount = (it + 1) * 2L,
+                    publicationPeriodicity = kotlinx.datetime.DatePeriod(days = 7),
+                    articlesPerPublication = 1,
+                ),
             )
         }
 
