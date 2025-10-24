@@ -36,6 +36,9 @@ data class GroupedNewslettersDTO(
 }
 
 fun List<NewsletterInfo>.toGroupedNewslettersDTO(): GroupedNewslettersDTO {
+    require(this.isNotEmpty()) {
+        "You must provide at least one newsletterInfo"
+    }
     return GroupedNewslettersDTO(
         title = this.first().title,
         websiteUrl = this.first().websiteUrl,
