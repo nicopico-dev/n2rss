@@ -24,14 +24,18 @@ import fr.nicopico.n2rss.newsletter.data.entity.ArticleEntity
 import fr.nicopico.n2rss.newsletter.data.entity.PublicationEntity
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
+import fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications
+import fr.nicopico.n2rss.newsletter.models.NewsletterStats.NoPublication
+import fr.nicopico.n2rss.newsletter.models.NewsletterStats.SinglePublication
 import fr.nicopico.n2rss.newsletter.models.Publication
 import fr.nicopico.n2rss.utils.now
 import fr.nicopico.n2rss.utils.toLegacyDate
 import io.kotest.assertions.assertSoftly
 import io.kotest.matchers.collections.shouldHaveSize
-import io.kotest.matchers.nulls.beNull
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.beInstanceOf
+import io.kotest.matchers.types.instanceOf
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
@@ -213,15 +217,13 @@ class PublicationServiceTest {
         // THEN
         verify { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(newsletterCode) }
         @Suppress("DEPRECATION")
-        stats.let {
-            it shouldBe fr.nicopico.n2rss.newsletter.models.NewsletterStats.SinglePublication(
-                publicationDate = LocalDate(
-                    year = latestPublication.date.year + 1900,
-                    monthNumber = latestPublication.date.month + 1,
-                    dayOfMonth = latestPublication.date.date,
-                )
+        stats shouldBe SinglePublication(
+            publicationDate = LocalDate(
+                year = latestPublication.date.year + 1900,
+                monthNumber = latestPublication.date.month + 1,
+                dayOfMonth = latestPublication.date.date,
             )
-        }
+        )
     }
 
     @Test
@@ -235,12 +237,7 @@ class PublicationServiceTest {
         val stats = publicationService.getNewsletterStats(newsletter)
 
         // THEN
-        (stats as fr.nicopico.n2rss.newsletter.models.NewsletterStats).let {
-            when (it) {
-                is fr.nicopico.n2rss.newsletter.models.NewsletterStats.NoPublication -> it
-                else -> throw AssertionError("Expected NoPublication stats")
-            }
-        }
+        stats shouldBe instanceOf<NoPublication>()
     }
 
     @Nested
@@ -265,7 +262,7 @@ class PublicationServiceTest {
                 }
             )
 
-            // Additional stubs required by stats computation
+            // Additional stubs required by `stats` computation
             every { publicationRepository.countPublicationsByNewsletterCode(any()) } returns 5L
             every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns createStubPublicationEntity(
                 newsletter
@@ -273,17 +270,14 @@ class PublicationServiceTest {
 
             // WHEN
             val stats = publicationService.getNewsletterStats(newsletter)
-            val period = when (stats) {
-                is fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications -> stats.publicationPeriodicity
-                else -> null
-            }
 
             // THEN
-            period shouldBe DatePeriod(days = 7)
+            stats should beInstanceOf<MultiplePublications>()
+            (stats as MultiplePublications).publicationPeriodicity shouldBe DatePeriod(days = periodDays)
         }
 
         @Test
-        fun `should return null as publication period when there is no publications`() {
+        fun `should return a NoPublication when there is no publications`() {
             // GIVEN
             val newsletterCode = "code"
             val newsletter = createStubNewsletter(newsletterCode)
@@ -294,17 +288,13 @@ class PublicationServiceTest {
 
             // WHEN
             val stats = publicationService.getNewsletterStats(newsletter)
-            val period = when (stats) {
-                is fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications -> stats.publicationPeriodicity
-                else -> null
-            }
 
             // THEN
-            period should beNull()
+            stats shouldBe instanceOf<NoPublication>()
         }
 
         @Test
-        fun `should return null as publication period when there is only one publications`() {
+        fun `should return a SinglePublication when there is only one publications`() {
             // GIVEN
             val newsletterCode = "code"
             val newsletter = createStubNewsletter(newsletterCode)
@@ -319,13 +309,9 @@ class PublicationServiceTest {
 
             // WHEN
             val stats = publicationService.getNewsletterStats(newsletter)
-            val period = when (stats) {
-                is fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications -> stats.publicationPeriodicity
-                else -> null
-            }
 
             // THEN
-            period should beNull()
+            stats should beInstanceOf<SinglePublication>()
         }
     }
 
@@ -356,13 +342,10 @@ class PublicationServiceTest {
 
             // WHEN
             val stats = publicationService.getNewsletterStats(newsletter)
-            val average = when (stats) {
-                is fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications -> stats.articlesPerPublication
-                else -> 0
-            }
 
             // THEN
-            average shouldBe 3
+            stats should beInstanceOf<MultiplePublications>()
+            (stats as MultiplePublications).articlesPerPublication shouldBe 3
         }
     }
 }
