@@ -19,10 +19,16 @@
 package fr.nicopico.n2rss.controller.rss
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import fr.nicopico.n2rss.controller.dto.NewsletterDTO
+import fr.nicopico.n2rss.controller.dto.PublicationStatsDTO
+import fr.nicopico.n2rss.utils.now
 import io.kotest.matchers.shouldBe
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.toJavaLocalDate
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import java.time.Period
 
 class NewsletterDTOTest {
 
@@ -30,7 +36,9 @@ class NewsletterDTOTest {
 
     @BeforeEach
     fun setUp() {
-        objectMapper = ObjectMapper()
+        objectMapper = ObjectMapper().also {
+            it.registerModule(JavaTimeModule())
+        }
     }
 
     @Test
@@ -46,8 +54,12 @@ class NewsletterDTOTest {
             websiteUrl = "https://example.com",
             notes = null,
             publicationCount = publicationCount,
-            startingDate = null,
-            publicationStats = null,
+            publicationStats = PublicationStatsDTO(
+                firstPublicationDate = LocalDate.now().toJavaLocalDate(),
+                lastPublicationDate = LocalDate.now().toJavaLocalDate(),
+                publicationPeriod = Period.ofDays(7),
+                articlesPerPublication = 42,
+            ),
         )
 
         // WHEN

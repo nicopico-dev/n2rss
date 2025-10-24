@@ -104,7 +104,7 @@ class PublicationService(
         ) {
             0L -> NewsletterStats.NoPublication
             1L -> NewsletterStats.SinglePublication(
-                startingDate = newsletter.getStartingDate()
+                publicationDate = newsletter.getFirstPublicationDate()
             )
 
             else -> {
@@ -115,7 +115,8 @@ class PublicationService(
 
 
                 NewsletterStats.MultiplePublications(
-                    startingDate = newsletter.getStartingDate(),
+                    firstPublicationDate = newsletter.getFirstPublicationDate(),
+                    lastPublicationDate = newsletter.getLastPublicationDate(),
                     publicationCount = publicationCount,
                     publicationPeriodicity = latestPublications.computeAveragePublicationPeriod(),
                     articlesPerPublication = latestPublications.computeAverageArticlesPerPublication(),
@@ -124,11 +125,18 @@ class PublicationService(
         }
     }
 
-    private fun Newsletter.getStartingDate(): LocalDate {
+    private fun Newsletter.getFirstPublicationDate(): LocalDate {
         val firstPublication = requireNotNull(
             publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(code)
         ) { "Newsletter must have at least one publication" }
         return firstPublication.date.toKotlinLocaleDate()
+    }
+
+    private fun Newsletter.getLastPublicationDate(): LocalDate {
+        val lastPublication = requireNotNull(
+            publicationRepository.findByNewsletterCode(code, Pageable.ofSize(1)).first()
+        ) { "Newsletter must have at least one publication" }
+        return lastPublication.date.toKotlinLocaleDate()
     }
 
     private fun List<PublicationEntity>.computeAveragePublicationPeriod(): DatePeriod {

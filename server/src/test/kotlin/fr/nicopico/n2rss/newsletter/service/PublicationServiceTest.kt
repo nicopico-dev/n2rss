@@ -215,7 +215,7 @@ class PublicationServiceTest {
         @Suppress("DEPRECATION")
         stats.let {
             it shouldBe fr.nicopico.n2rss.newsletter.models.NewsletterStats.SinglePublication(
-                startingDate = LocalDate(
+                publicationDate = LocalDate(
                     year = latestPublication.date.year + 1900,
                     monthNumber = latestPublication.date.month + 1,
                     dayOfMonth = latestPublication.date.date,

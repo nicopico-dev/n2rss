@@ -91,7 +91,13 @@
                         <span th:text="${stats.publicationPeriod}"/>
                     </span>
                     <span class="publication-start">
-                        since <span th:text="${#temporals.format(newsletter.startingDate, #locale.ENGLISH)}"/>
+                        since <span th:text="${#temporals.format(stats.firstPublicationDate, #locale.ENGLISH)}"/>.
+                        <br/>
+                    </span>
+                    <span class="publication-last">
+                        last publication : <span
+                        th:text="${#temporals.format(stats.lastPublicationDate, #locale.ENGLISH)}"/>
+                        <br/>
                     </span>
                 </td>
             </tr>

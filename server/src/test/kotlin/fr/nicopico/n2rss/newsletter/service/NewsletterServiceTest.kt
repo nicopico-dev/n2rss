@@ -29,7 +29,9 @@ import io.mockk.MockKAnnotations
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
+import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
+import kotlinx.datetime.plus
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -61,22 +63,31 @@ class NewsletterServiceTest {
     fun `should give info about enabled non-hidden newsletters`() {
         // GIVEN
         val firstPublicationCode1 = LocalDate(2022, 3, 21)
+        val lastPublicationCode1 = firstPublicationCode1 + (DatePeriod(days = 7 * 3))
         val firstPublicationCode2 = LocalDate(2023, 7, 8)
+        val lastPublicationCode2 = firstPublicationCode2 + (DatePeriod(days = 7 * 3))
+
         every { publicationService.getNewsletterStats(any()) } answers {
             when (firstArg<Newsletter>().code) {
-                "code1" -> fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
-                    startingDate = firstPublicationCode1,
-                    publicationCount = 32,
-                    publicationPeriodicity = kotlinx.datetime.DatePeriod(days = 7),
-                    articlesPerPublication = 5,
-                )
+                "code1" -> {
+                    fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
+                        firstPublicationDate = firstPublicationCode1,
+                        lastPublicationDate = lastPublicationCode1,
+                        publicationCount = 32,
+                        publicationPeriodicity = DatePeriod(days = 7),
+                        articlesPerPublication = 5,
+                    )
+                }
 
-                "code2" -> fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
-                    startingDate = firstPublicationCode2,
-                    publicationCount = 3,
-                    publicationPeriodicity = kotlinx.datetime.DatePeriod(days = 7),
-                    articlesPerPublication = 5,
-                )
+                "code2" -> {
+                    fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
+                        firstPublicationDate = firstPublicationCode2,
+                        lastPublicationDate = lastPublicationCode2,
+                        publicationCount = 3,
+                        publicationPeriodicity = DatePeriod(days = 7),
+                        articlesPerPublication = 5,
+                    )
+                }
 
                 else -> fr.nicopico.n2rss.newsletter.models.NewsletterStats.NoPublication
             }
@@ -94,9 +105,10 @@ class NewsletterServiceTest {
                 websiteUrl = "website1",
                 notes = null,
                 stats = fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
-                    startingDate = firstPublicationCode1,
+                    firstPublicationDate = firstPublicationCode1,
+                    lastPublicationDate = lastPublicationCode1,
                     publicationCount = 32,
-                    publicationPeriodicity = kotlinx.datetime.DatePeriod(days = 7),
+                    publicationPeriodicity = DatePeriod(days = 7),
                     articlesPerPublication = 5,
                 ),
             ),
@@ -106,9 +118,10 @@ class NewsletterServiceTest {
                 websiteUrl = "website2",
                 notes = null,
                 stats = fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
-                    startingDate = firstPublicationCode2,
+                    firstPublicationDate = firstPublicationCode2,
+                    lastPublicationDate = lastPublicationCode2,
                     publicationCount = 3,
-                    publicationPeriodicity = kotlinx.datetime.DatePeriod(days = 7),
+                    publicationPeriodicity = DatePeriod(days = 7),
                     articlesPerPublication = 5,
                 ),
             ),

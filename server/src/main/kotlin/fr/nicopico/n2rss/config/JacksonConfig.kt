@@ -16,25 +16,20 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.controller.dto
+package fr.nicopico.n2rss.config
 
-import com.fasterxml.jackson.annotation.JsonFormat
-import com.fasterxml.jackson.annotation.JsonProperty
-import java.time.LocalDate
-import java.time.Period
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder
 
-data class PublicationStatsDTO(
-    @param:JsonProperty("firstPublicationDate")
-    @param:JsonFormat(pattern = "yyyy-MM-dd")
-    val firstPublicationDate: LocalDate,
+@Configuration
+class JacksonConfig {
 
-    @param:JsonProperty("lastPublicationDate")
-    @param:JsonFormat(pattern = "yyyy-MM-dd")
-    val lastPublicationDate: LocalDate,
-
-    @param:JsonProperty("publicationPeriod")
-    val publicationPeriod: Period,
-
-    @param:JsonProperty("articlesPerPublication")
-    val articlesPerPublication: Int,
-)
+    @Bean
+    fun jackson2ObjectMapperBuilderCustomizer(): Jackson2ObjectMapperBuilder {
+        return Jackson2ObjectMapperBuilder().apply {
+            modules(JavaTimeModule())
+        }
+    }
+}

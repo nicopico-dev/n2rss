@@ -17,14 +17,11 @@
  */
 package fr.nicopico.n2rss.controller.dto
 
-import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
 import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
 import fr.nicopico.n2rss.newsletter.models.NewsletterStats
-import fr.nicopico.n2rss.newsletter.models.startingDate
-import fr.nicopico.n2rss.utils.toHumanReadableString
 import kotlinx.datetime.toJavaLocalDate
-import java.time.LocalDate
+import kotlinx.datetime.toJavaPeriod
 
 data class NewsletterDTO(
     @param:JsonProperty("code")
@@ -42,10 +39,6 @@ data class NewsletterDTO(
     @param:JsonProperty("publicationCount")
     val publicationCount: Long,
 
-    @param:JsonProperty("startingDate")
-    @param:JsonFormat(pattern = "yyyy-MM-dd")
-    val startingDate: LocalDate?,
-
     @param:JsonProperty("publicationStats")
     val publicationStats: PublicationStatsDTO?,
 )
@@ -56,10 +49,11 @@ fun NewsletterInfo.toDTO() = NewsletterDTO(
     websiteUrl = websiteUrl,
     notes = notes,
     publicationCount = stats.publicationCount,
-    startingDate = stats.startingDate?.toJavaLocalDate(),
     publicationStats = if (stats is NewsletterStats.MultiplePublications) {
         PublicationStatsDTO(
-            publicationPeriod = stats.publicationPeriodicity.toHumanReadableString(),
+            firstPublicationDate = stats.firstPublicationDate.toJavaLocalDate(),
+            lastPublicationDate = stats.lastPublicationDate.toJavaLocalDate(),
+            publicationPeriod = stats.publicationPeriodicity.toJavaPeriod(),
             articlesPerPublication = stats.articlesPerPublication,
         )
     } else null,

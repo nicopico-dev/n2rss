@@ -31,6 +31,8 @@ import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import io.mockk.verifySequence
 import jakarta.servlet.http.HttpServletResponse
+import kotlinx.datetime.DatePeriod
+import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -66,9 +68,10 @@ class RssFeedControllerTest {
                 websiteUrl = "https://website$it.com",
                 notes = null,
                 stats = fr.nicopico.n2rss.newsletter.models.NewsletterStats.MultiplePublications(
-                    startingDate = kotlinx.datetime.LocalDate.fromEpochDays(0),
+                    firstPublicationDate = LocalDate.fromEpochDays(0),
+                    lastPublicationDate = LocalDate.fromEpochDays(21),
                     publicationCount = (it + 1) * 2L,
-                    publicationPeriodicity = kotlinx.datetime.DatePeriod(days = 7),
+                    publicationPeriodicity = DatePeriod(days = 7),
                     articlesPerPublication = 1,
                 ),
             )
