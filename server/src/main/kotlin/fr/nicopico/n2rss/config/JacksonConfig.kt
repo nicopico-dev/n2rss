@@ -16,32 +16,20 @@
  * DEALINGS IN THE SOFTWARE.
  */
 
-package fr.nicopico.n2rss.controller.dto
+package fr.nicopico.n2rss.config
 
-import fr.nicopico.n2rss.newsletter.models.NewsletterInfo
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder
 
-data class GroupedNewslettersDTO(
-    val title: String,
-    val websiteUrl: String,
-    val newsletters: List<NewsletterDTO>,
-) {
-    init {
-        require(newsletters.all { it.title == title }) {
-            "All newsletterInfos must have the same title"
-        }
-        require(newsletters.all { it.websiteUrl == websiteUrl }) {
-            "All newsletterInfos must have the same websiteUrl"
+@Configuration
+class JacksonConfig {
+
+    @Bean
+    fun jackson2ObjectMapperBuilderCustomizer(): Jackson2ObjectMapperBuilder {
+        return Jackson2ObjectMapperBuilder().apply {
+            modules(JavaTimeModule())
         }
     }
-}
-
-fun List<NewsletterInfo>.toGroupedNewslettersDTO(): GroupedNewslettersDTO {
-    require(this.isNotEmpty()) {
-        "You must provide at least one newsletterInfo"
-    }
-    return GroupedNewslettersDTO(
-        title = this.first().title,
-        websiteUrl = this.first().websiteUrl,
-        newsletters = map { it.toDTO() },
-    )
 }

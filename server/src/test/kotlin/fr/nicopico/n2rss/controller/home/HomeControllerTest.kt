@@ -100,7 +100,8 @@ class HomeControllerTest {
                 websiteUrl = "Website A",
                 notes = null,
                 stats = NewsletterStats.MultiplePublications(
-                    startingDate = KtxLocalDate.fromEpochDays(0),
+                    firstPublicationDate = KtxLocalDate.fromEpochDays(0),
+                    lastPublicationDate = KtxLocalDate.fromEpochDays(84),
                     publicationCount = 12,
                     publicationPeriodicity = DatePeriod(days = 7),
                     articlesPerPublication = 1,
@@ -119,7 +120,7 @@ class HomeControllerTest {
                 websiteUrl = "Website D",
                 notes = null,
                 stats = NewsletterStats.SinglePublication(
-                    startingDate = KtxLocalDate.fromEpochDays(0),
+                    publicationDate = KtxLocalDate.fromEpochDays(0),
                 ),
             )
             val newsletterB = NewsletterInfo(
@@ -128,7 +129,8 @@ class HomeControllerTest {
                 websiteUrl = "Website B",
                 notes = null,
                 stats = NewsletterStats.MultiplePublications(
-                    startingDate = KtxLocalDate.fromEpochDays(0),
+                    firstPublicationDate = KtxLocalDate.fromEpochDays(0),
+                    lastPublicationDate = KtxLocalDate.fromEpochDays(21),
                     publicationCount = 3,
                     publicationPeriodicity = DatePeriod(days = 7),
                     articlesPerPublication = 1,
@@ -178,7 +180,8 @@ class HomeControllerTest {
                 websiteUrl = "Website A",
                 notes = null,
                 stats = NewsletterStats.MultiplePublications(
-                    startingDate = KtxLocalDate.fromEpochDays(0),
+                    firstPublicationDate = KtxLocalDate.fromEpochDays(0),
+                    lastPublicationDate = KtxLocalDate.fromEpochDays(84),
                     publicationCount = 12,
                     publicationPeriodicity = DatePeriod(days = 7),
                     articlesPerPublication = 1,
@@ -197,7 +200,7 @@ class HomeControllerTest {
                 websiteUrl = "Website A",
                 notes = null,
                 stats = NewsletterStats.SinglePublication(
-                    startingDate = KtxLocalDate.fromEpochDays(0),
+                    publicationDate = KtxLocalDate.fromEpochDays(0),
                 ),
             )
             val newsletterB = NewsletterInfo(
@@ -206,7 +209,8 @@ class HomeControllerTest {
                 websiteUrl = "Website B",
                 notes = null,
                 stats = NewsletterStats.MultiplePublications(
-                    startingDate = KtxLocalDate.fromEpochDays(0),
+                    firstPublicationDate = KtxLocalDate.fromEpochDays(0),
+                    lastPublicationDate = KtxLocalDate.fromEpochDays(21),
                     publicationCount = 3,
                     publicationPeriodicity = DatePeriod(days = 7),
                     articlesPerPublication = 1,

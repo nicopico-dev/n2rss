@@ -18,12 +18,29 @@
 
 package fr.nicopico.n2rss.controller.dto
 
+import com.fasterxml.jackson.annotation.JsonFormat
+import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
+import fr.nicopico.n2rss.utils.toHumanReadableString
+import kotlinx.datetime.toKotlinDatePeriod
+import java.time.LocalDate
+import java.time.Period
 
 data class PublicationStatsDTO(
+    @param:JsonProperty("firstPublicationDate")
+    @param:JsonFormat(pattern = "yyyy-MM-dd")
+    val firstPublicationDate: LocalDate,
+
+    @param:JsonProperty("lastPublicationDate")
+    @param:JsonFormat(pattern = "yyyy-MM-dd")
+    val lastPublicationDate: LocalDate,
+
     @param:JsonProperty("publicationPeriod")
-    val publicationPeriod: String,
+    val publicationPeriod: Period,
 
     @param:JsonProperty("articlesPerPublication")
     val articlesPerPublication: Int,
-)
+) {
+    @JsonIgnore
+    val humanReadablePublicationPeriod = publicationPeriod.toKotlinDatePeriod().toHumanReadableString()
+}

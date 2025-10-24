@@ -116,7 +116,7 @@ table tbody tr:nth-child(odd) {
     font-size: 1em;
 }
 
-.publication-stats, .publication-start {
+.publication-stats, .publication-start, .publication-last {
     font-style: italic;
     font-size: 0.8em;
 }

@@ -114,7 +114,8 @@ dependencies {
 
     annotationProcessor(libs.springBoot.configurationProcessor)
 
-    implementation(libs.jacksonModuleKotlin)
+    implementation(libs.jackson.datatype.jsr310)
+    implementation(libs.jackson.module.kotlin)
     implementation(libs.kotlin.reflect)
     implementation(libs.kotlinx.datetime)
     implementation(libs.kotlinx.coroutines)

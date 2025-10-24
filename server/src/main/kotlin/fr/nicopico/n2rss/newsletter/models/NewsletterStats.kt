@@ -28,22 +28,16 @@ sealed class NewsletterStats {
     }
 
     data class SinglePublication(
-        val startingDate: LocalDate,
+        val publicationDate: LocalDate,
     ) : NewsletterStats() {
         override val publicationCount: Long = 1
     }
 
     data class MultiplePublications(
-        val startingDate: LocalDate,
+        val firstPublicationDate: LocalDate,
+        val lastPublicationDate: LocalDate,
         override val publicationCount: Long,
         val publicationPeriodicity: DatePeriod,
         val articlesPerPublication: Int,
     ) : NewsletterStats()
 }
-
-val NewsletterStats.startingDate: LocalDate?
-    get() = when (this) {
-        is NewsletterStats.NoPublication -> null
-        is NewsletterStats.SinglePublication -> startingDate
-        is NewsletterStats.MultiplePublications -> startingDate
-    }
