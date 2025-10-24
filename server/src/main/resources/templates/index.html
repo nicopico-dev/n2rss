@@ -88,7 +88,7 @@
                         about
                         <span th:text="${stats.articlesPerPublication}"/>
                         articles every
-                        <span th:text="${stats.publicationPeriod}"/>
+                        <span th:text="${stats.humanReadablePublicationPeriod}"/>
                     </span>
                     <span class="publication-start">
                         since <span th:text="${#temporals.format(stats.firstPublicationDate, #locale.ENGLISH)}"/>.
