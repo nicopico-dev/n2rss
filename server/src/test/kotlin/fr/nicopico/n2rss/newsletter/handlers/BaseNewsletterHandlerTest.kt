@@ -19,7 +19,9 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import io.kotest.assertions.throwables.shouldNotThrowAny
+import io.kotest.matchers.collections.beEmpty
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNot
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Nested
@@ -84,7 +86,7 @@ open class BaseNewsletterHandlerTest<T : NewsletterHandler>(
             // WHEN - THEN
             shouldNotThrowAny {
                 emails.forEach { email ->
-                    handler.process(email)
+                    handler.process(email) shouldNot beEmpty()
                 }
             }
         }

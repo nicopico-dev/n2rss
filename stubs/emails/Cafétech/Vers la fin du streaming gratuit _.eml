@@ -1,0 +1,2014 @@
+Return-Path: <bounce+f63cbd.4d1858-n2rss=nicopico.fr@mg2.substack.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id YBc4ALkx72iBkQYAQTsBvA
+	(envelope-from <bounce+f63cbd.4d1858-n2rss=nicopico.fr@mg2.substack.com>)
+	for <n2rss@nicopico.fr>; Wed, 15 Oct 2025 07:31:37 +0200
+Return-path: <bounce+f63cbd.4d1858-n2rss=nicopico.fr@mg2.substack.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Wed, 15 Oct 2025 07:31:37 +0200
+Received: from m244-28.mailgun.net ([159.112.244.28])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.2:ECDHE_ECDSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <bounce+f63cbd.4d1858-n2rss=nicopico.fr@mg2.substack.com>)
+	id 1v8u6o-0000qQ-J3
+	for n2rss@nicopico.fr; Wed, 15 Oct 2025 07:31:35 +0200
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mg2.substack.com; q=dns/txt; s=mailo; t=1760506293; x=1760513493;
+ h=List-Unsubscribe-Post: List-Unsubscribe: List-Post: List-Id: List-Archive: List-Owner: Reply-To: In-Reply-To: References: sender: sender: Date: Message-Id: To: To: From: From: Subject: Subject: Content-Type: Mime-Version;
+ bh=/jsCVQL1I5Qh0IzKI8YWqJw4zMO40vgZmNJxCKvJYjQ=;
+ b=ePJuzmCu8NZgjjpzYk0y2WCuQ631RXB9zJ7JerBKH3jNxN/g8jAQ7ynF+BBZZ35WnsnHW4G2Ji97SH3s2lhznjJkyojB8ImKhRtQ4EutPYtyGRYoDgUzGe3WDr8cfpNgQpGTlT8SG+MXIBmuLGatz37p7YGMCiUY9GULByuFi9g=
+X-Mailgun-Sid: WyJiMDcwZCIsIm4ycnNzQG5pY29waWNvLmZyIiwiNGQxODU4Il0=
+Received: by 9ecf44fa96d700671820098cea5d3f06494b6c6922f976630fa776d6b879c5e6 with HTTP
+ id 68ef31b4b5882034e500a29d; Wed, 15 Oct 2025 05:31:31 GMT
+X-Mailgun-Sending-Ip: 159.112.244.28
+X-Mailgun-Batch-Id: 68ef31b3428ade1a8676a15e
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="1d76e33629751a2df9f425b772d0842d0ff3f72b235c1b503a7f3733e9d6"
+Subject: Vers la fin du streaming gratuit ?
+From: =?utf-8?b?SsOpcsO0bWUgTWFyaW4gLyBDYWbDqXRlY2g=?=
+ <cafetech+tech-et-pub@substack.com>
+To: n2rss@nicopico.fr
+X-Mailgun-Tag: post
+X-Mailgun-Track-Clicks: false
+Message-Id: <20251015053039.3.f3e85488665f6ccf@mg2.substack.com>
+Date: Wed, 15 Oct 2025 05:30:39 +0000
+Feedback-ID: post-176132909:cat-post:pub-51206:substack
+sender: =?utf-8?b?SsOpcsO0bWUgTWFyaW4gLyBDYWbDqXRlY2g=?=
+ <cafetech+tech-et-pub@substack.com>
+References: <post-176132909@substack.com>
+In-Reply-To: <post-176132909@substack.com>
+Reply-To: =?utf-8?b?SsOpcsO0bWUgTWFyaW4gLyBDYWbDqXRlY2g=?=
+ <reply+2wv50t&5f3rgc&&18df739a3f7be73060306d84cf606280575d6f7d274ad894e4b5dea2bd264b33@mg1.substack.com>
+List-Owner: <mailto:cafetech+tech-et-pub@substack.com>
+List-URL: <https://cafetech.substack.com/>
+List-Archive: <https://cafetech.substack.com/archive>
+List-Id: <cafetech.substack.com>
+List-Post: <https://cafetech.substack.com/p/vers-la-fin-du-streaming-gratuit>
+List-Unsubscribe: <https://cafetech.substack.com/action/disable_email/disable?token=eyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE3NjEzMjkwOSwiaWF0IjoxNzYwNTA2Mjg5LCJleHAiOjE3OTIwNDIyODksImlzcyI6InB1Yi01MTIwNiIsInN1YiI6ImRpc2FibGVfZW1haWwifQ.FMZzs8TbHmMOWn1gDdO-Q7OXnXz2-YIJC_kZUmICPhI&all_sections=true>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Mailgun-Variables: {"category": "post", "email_generated_at": "1760506290943", "is_freemail":
+ "true", "post_audience": "everyone", "post_id": "176132909", "post_type":
+ "newsletter", "pub_community_enabled": "true", "publication_id": "51206",
+ "subdomain": "cafetech", "user_id": "327700668"}
+X-alwaysdata-Spam-Report: 	1.00 SUBJECT_ENDS_QUESTION - Subject ends with a question mark
+	0.92 BAYES_SPAM [98.92%] - Message probably spam, probability:
+	0.50 MANY_INVISIBLE_PARTS [6] - Many parts are visually hidden
+	0.30 ZERO_FONT [4] - Zero sized font used
+	0.10 BAD_REP_POLICIES - Contains valid policies but are also marked by
+ fuzzy/bayes/SURBL/RBL
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 TAGGED_FROM [tech-et-pub] - SMTP from has plus tags
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 REPLYTO_DOM_NEQ_TO_DOM - Reply-To domain does not match the To domain
+	0.00 REPLYTO_DOM_NEQ_FROM_DOM - Reply-To domain does not match the From
+ domain
+	0.00 REPLYTO_DN_EQ_FROM_DN - Reply-To display name matches From
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_TWO [2] - Message has two Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MV_CASE - Mime-Version .vs. MIME-Version
+	0.00 MISSING_XM_UA - Message has neither X-Mailer nor User-Agent header
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 MID_RHS_MATCH_FROMTLD - Message-ID RHS matches From domain tld
+	0.00 HAS_REPLYTO
+ [reply+2wv50t&5f3rgc&&18df739a3f7be73060306d84cf606280575d6f7d274ad894e4b5dea2bd264b33@mg1.substack.com]
+ - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DMARC_POLICY_ALLOW [substack.com, reject] - DMARC permit policy
+	0.00 DKIM_TRACE [mg2.substack.com:+] - DKIM trace symbol
+	0.00 ASN [asn:396479, ipnet:159.112.244.0/24, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.12 MAILLIST [generic] - Message seems to be from maillist
+	-0.57 DKIM_REPUTATION [-0.57236921173464]
+	-0.80 IP_REPUTATION_HAM [asn: 396479(-0.26), country: US(-0.00),
+ ip: 159.112.244.28(-0.54)]
+	-1.03 R_DKIM_ALLOW [mg2.substack.com:s=mailo] - DKIM verification succeed
+X-alwaysdata-Spam-Score: 0.17
+
+--1d76e33629751a2df9f425b772d0842d0ff3f72b235c1b503a7f3733e9d6
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+View this post on the web at https://cafetech.substack.com/p/vers-la-fin-du=
+-streaming-gratuit
+
+Nouveau rendez-vous sur Caf=C3=A9tech: une fois par mois, retrouvez une =C3=
+=A9dition sp=C3=A9ciale tech & pub, r=C3=A9alis=C3=A9e en partenariat avec =
+Minted [ https://substack.com/redirect/b6453ceb-a21c-4bcd-a307-e67dab4f57d1=
+?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ], m=
+=C3=A9dia de r=C3=A9f=C3=A9rence sur la publicit=C3=A9 en ligne et les m=C3=
+=A9dias.
+Au menu: des articles pour d=C3=A9crypter la strat=C3=A9gie des grandes pla=
+teformes, anticiper les =C3=A9volutions du march=C3=A9 et appr=C3=A9hender =
+les enjeux r=C3=A9glementaires.
+Bonne lecture !=20
+Spotify patine dans la publicit=C3=A9: vers la fin programm=C3=A9e du strea=
+ming gratuit ?
+L=E2=80=99aveu est sans d=C3=A9tour. Fin juillet, Daniel Ek n=E2=80=99a pas=
+ cach=C3=A9 son agacement sur les performances publicitaires de Spotify. =
+=E2=80=9CNous avons avanc=C3=A9 trop lentement, et les am=C3=A9liorations q=
+ue nous avons mises en place ont mis plus de temps que pr=C3=A9vu =C3=A0 pr=
+oduire des effets=E2=80=9D, a-t-il regrett=C3=A9, en marge de la publicatio=
+n des r=C3=A9sultats trimestriels.
+Mais le patron de la plateforme su=C3=A9doise de streaming musical veut res=
+ter optimiste. Ces difficult=C3=A9s ne proviennent pas d=E2=80=99un =E2=80=
+=9Cprobl=C3=A8me de strat=C3=A9gie=E2=80=9D, promet-il. Elles sont seulemen=
+t la cons=C3=A9quence d=E2=80=99une mauvaise =E2=80=9Cex=C3=A9cution=E2=80=
+=9D. Une critique =C3=A0 peine voil=C3=A9e visant Lee Brown, l=E2=80=99anci=
+en patron de la publicit=C3=A9 chez Spotify, dont le d=C3=A9part, n=C3=A9go=
+ci=C3=A9 =C3=A0 l=E2=80=99amiable, avait =C3=A9t=C3=A9 officialis=C3=A9 la =
+veille.
+Ce discours rassurant n=E2=80=99est pas uniquement destin=C3=A9 aux investi=
+sseurs de Wall Street: il s=E2=80=99adresse aussi =C3=A0 l=E2=80=99industri=
+e du disque. Depuis des ann=C3=A9es, les responsables du secteur s=E2=80=99=
+interrogent en effet sur la p=C3=A9rennit=C3=A9 financi=C3=A8re des offres =
+gratuites, uniquement financ=C3=A9es par la publicit=C3=A9. Certains vont j=
+usqu=E2=80=99=C3=A0 r=C3=A9clamer leur disparition. Daniel Ek, lui, continu=
+e =C3=A0 y croire. Mais il abat peut-=C3=AAtre sa derniere carte.
+Un euro par trimestre
+Au c=C5=93ur de son mod=C3=A8le depuis son lancement en 2008, les offres gr=
+atuites sont essentielles pour Spotify. Elles rassemblent plus de 430 milli=
+ons d=E2=80=99utilisateurs actifs mensuels, soit environ deux tiers de son =
+audience. Elles permettent de capter des personnes qui iraient =C3=A9couter=
+ de la musique sur d=E2=80=99autres plateformes, voire ill=C3=A9galement. E=
+t elles constituent la principale porte d=E2=80=99entr=C3=A9e vers ses abon=
+nements.
+Le probl=C3=A8me vient de leur mon=C3=A9tisation: la publicit=C3=A9 repr=C3=
+=A9sente =C3=A0 peine plus de 10% du chiffre d=E2=80=99affaires, soit deux =
+fois moins que l=E2=80=99objectif de 20% que s=E2=80=99=C3=A9tait fix=C3=A9=
+ l=E2=80=99entreprise. Au deuxi=C3=A8me trimestre, elle a g=C3=A9n=C3=A9r=
+=C3=A9 des recettes de 453 millions d=E2=80=99euros - un montant qui compre=
+nd, en outre, les recettes issues de la diffusion de podcasts, sur lesquels=
+ des spots sont diffus=C3=A9s pour tous les usagers, gratuits ou payants.
+Autrement dit, chaque utilisateur de l=E2=80=99offre de streaming gratuite =
+rapporte autour d=E2=80=99un euro par trimestre =C3=A0 Spotify. =C3=80 titr=
+e de comparaison, les abonn=C3=A9s payants (en prenant en compte les offres=
+ group=C3=A9es) rapportent 13,50 euros par trimestre. Plus inqui=C3=A9tant =
+encore, la croissance des recettes publicitaires patine. Malgr=C3=A9 la hau=
+sse du nombre d=E2=80=99=C3=A9coutes, elles ont diminu=C3=A9 de 1% au deuxi=
+=C3=A8me trimestre, une baisse que Spotify attribue =C3=A0 une =E2=80=9Cpre=
+ssion sur les prix=E2=80=9D.
+Nouveaux outils de mesure... et d=E2=80=99IA
+Ces difficult=C3=A9s ne sont pas seulement conjoncturelles, li=C3=A9es =C3=
+=A0 la faiblesse du march=C3=A9 publicitaire. Elles sont aussi structurelle=
+s, reconnaissent les dirigeants de Spotify. Pour y r=C3=A9pondre, ils compt=
+ent sur plusieurs initiatives annonc=C3=A9es ces derniers mois. D=E2=80=99a=
+bord, le lancement de sa propre plateforme publicitaire, baptis=C3=A9e Spot=
+ify Ad Exchange, qui permet aux annonceurs d=E2=80=99acc=C3=A9der =C3=A0 se=
+s inventaires audio, vid=C3=A9o et display. Celle-ci est connect=C3=A9e, da=
+ns les principaux march=C3=A9s, =C3=A0 plusieurs DSP: Google DV360, The Tra=
+de Desk et Magnite.
+Spotify mise aussi sur de nouveaux outils de ciblage et de mesure, tentant =
+ainsi de r=C3=A9pondre aux critiques r=C3=A9currentes des annonceurs. De no=
+uveaux objectifs bas=C3=A9s sur les r=C3=A9sultats (installation d=E2=80=99=
+une application, optimisation du reach...) ont aussi =C3=A9t=C3=A9 ajout=C3=
+=A9s. En parall=C3=A8le, la plateforme a d=C3=A9ploy=C3=A9 des outils gratu=
+its d=E2=80=99intelligence artificielle g=C3=A9n=C3=A9rative, destin=C3=A9s=
+ =C3=A0 aider les marques =C3=A0 produire des spots audio, leur permettant =
+de r=C3=A9diger un script ou de g=C3=A9n=C3=A9rer des voix off.
+Enfin, la soci=C3=A9t=C3=A9 vient d=E2=80=99annoncer un changement radical =
+pour ses offres gratuites: sur smartphone, les utilisateurs peuvent d=C3=A9=
+sormais =C3=A9couter =C3=A0 la demande le morceau de leur choix. Jusqu=E2=
+=80=99ici, cette libert=C3=A9 =C3=A9tait r=C3=A9serv=C3=A9e aux abonn=C3=A9=
+s et constituait l=E2=80=99un des principaux arguments mis en avant pour in=
+citer =C3=A0 payer. Avec ce virage, Spotify esp=C3=A8re reconqu=C3=A9rir le=
+s jeunes et les d=C3=A9tourner de YouTube ou TikTok. =C3=80 terme, la soci=
+=C3=A9t=C3=A9 ambitionne ainsi d=E2=80=99attirer de nouveaux adeptes, de re=
+nforcer l=E2=80=99engagement et d=E2=80=99accro=C3=AEtre ses inventaires et=
+ ses recettes publicitaires.
+Vers la fin des offres gratuites ?
+Spotify n=E2=80=99est pas un cas isol=C3=A9. Selon la RIAA, le lobby am=C3=
+=A9ricain de l=E2=80=99industrie musicale, les royalties g=C3=A9n=C3=A9r=C3=
+=A9es par l=E2=80=99ensemble du streaming gratuit (qui correspondent =C3=A0=
+ un pourcentage estim=C3=A9 =C3=A0 70% des recettes publicitaires) ont recu=
+l=C3=A9 de 2% en 2024 aux Etats-Unis. Elles se sont =C3=A9lev=C3=A9es =C3=
+=A0 1,8 milliard de dollars. =C3=80 titre de comparaison, les versements li=
+=C3=A9s aux abonnements payants ont atteint 10,7 milliards de dollars, un n=
+iveau record.
+Si elles ont d=E2=80=99abord accept=C3=A9 le principe d=E2=80=99offres fina=
+nc=C3=A9es par la publicit=C3=A9, notamment pour lutter contre les t=C3=A9l=
+=C3=A9chargements ill=C3=A9gaux, certaines maisons de disques r=C3=A9clamen=
+t d=C3=A9sormais une =C3=A9volution du mod=C3=A8le. Elles estiment que le t=
+aux de conversion vers les abonnements payants n=E2=80=99est plus suffisant=
+ pour compenser une mon=C3=A9tisation jug=C3=A9e beaucoup trop faible pour =
+une audience qu=E2=80=99elles chiffrent =C3=A0 plusieurs milliards de perso=
+nnes.
+Fin 2024, Rob Stringer, le patron de Sony Music, l=E2=80=99une des trois ma=
+jors du secteur, s=E2=80=99est ainsi prononc=C3=A9 pour l=E2=80=99instaurat=
+ion d=E2=80=99une contribution =E2=80=9Cmodeste=E2=80=9D dans les pays d=C3=
+=A9velopp=C3=A9s, prenant l=E2=80=99exemple des abonnements avec publicit=
+=C3=A9 de Netflix, Disney+ ou Amazon Prime. =E2=80=9CNous pensons que tout =
+le monde est pr=C3=AAt =C3=A0 payer quelque chose pour avoir acc=C3=A8s =C3=
+=A0 toute la musique=E2=80=9D, assure-t-il. Apr=C3=A8s avoir obtenu une hau=
+sse du prix des abonnements, longtemps fix=C3=A9 =C3=A0 10 euros ou dollars=
+ par mois, l=E2=80=99industrie du disque aura, cette fois, peut-=C3=AAtre p=
+lus de mal =C3=A0 convaincre Spotify et les autres plateformes.
+Pour aller plus loin:
+=E2=80=93 Spotify am=C3=A9liore son offre gratuite, au risque de perdre des=
+ abonn=C3=A9s payants ? [ https://substack.com/redirect/f23f67c9-4887-4a2f-=
+8ef4-58e1ab246664?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRuk=
+z8PaFv0-2U ]
+=E2=80=93 Seize ans apr=C3=A8s son lancement, Spotify affiche ses premiers =
+profits annuels [ https://substack.com/redirect/f3788104-6703-4152-859a-4cf=
+07bd31f59?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-=
+2U ]
+Google =C3=A9chappe =C3=A0 une vente forc=C3=A9e de DoubleClick et AdX... p=
+our le moment
+Google se voulait confiant. Mais contre tout attente Bruxelles a choisi de =
+frapper fort contre le moteur de recherche, accus=C3=A9 d=E2=80=99abus de p=
+osition dominante dans la publicit=C3=A9 programmatique. Non seulement elle=
+ lui a inflig=C3=A9 une amende de 2,95 milliards d=E2=80=99euros - quand le=
+s derni=C3=A8res indiscr=C3=A9tions =C3=A9voquaient un montant =E2=80=9Cmod=
+este=E2=80=9D. Mais elle laisse aussi grande ouverte l=E2=80=99hypoth=C3=A8=
+se d=E2=80=99un d=C3=A9mant=C3=A8lement de sa machine publicitaire.
+=E2=80=9C=C3=80 ce stade, il semble que la seule fa=C3=A7on pour Google de =
+mettre effectivement fin =C3=A0 son conflit d=E2=80=99int=C3=A9r=C3=AAts so=
+it une mesure structurelle, comme la cession d=E2=80=99une partie de son ac=
+tivit=C3=A9 adtech=E2=80=9D, explique Teresa Ribera, la nouvelle commissair=
+e europ=C3=A9enne =C3=A0 la concurrence. Sont notamment menac=C3=A9s le ser=
+veur publicitaire DoubleClick for Publishers (DFP) et la bourse d=E2=80=99e=
+nch=C3=A8res en temps r=C3=A9el AdX. Avant d=E2=80=99en arriver l=C3=A0, la=
+ Commission va laisser =C3=A0 la soci=C3=A9t=C3=A9 la possibilit=C3=A9 de p=
+roposer des ajustements.
+Le g=C3=A9ant de Mountain View occupe une place centrale dans la publicit=
+=C3=A9 programmatique: il agit simultan=C3=A9ment comme vendeur, acheteur e=
+t plateforme d=E2=80=99=C3=A9changes. Et il contr=C3=B4le les outils les pl=
+us populaires =C3=A0 chaque =C3=A9tape. Selon Bruxelles, il a ainsi a profi=
+t=C3=A9 de la situation pour mettre en place des =E2=80=9Cpratiques d=E2=80=
+=99autopr=C3=A9f=C3=A9rence=E2=80=9D entre ses diff=C3=A9rents outils, qui =
+lui ont permis d=E2=80=99accentuer sa position dominante, au d=C3=A9triment=
+ de ses concurrents. Mais aussi des =C3=A9diteurs et des annonceurs en fact=
+urant =E2=80=9Cdes frais plus =C3=A9lev=C3=A9s=E2=80=9D.
+Pourquoi Netflix s=E2=80=99int=C3=A9resse aux droits de la Ligue des champi=
+ons
+La Ligue des champions de football bient=C3=B4t sur Netflix ? Impensable il=
+ y a encore deux ans, ce sc=C3=A9nario semble d=C3=A9sormais prendre forme:=
+ le g=C3=A9ant am=C3=A9ricain devrait en effet participer =C3=A0 l=E2=80=99=
+appel d=E2=80=99offres pour les droits de diffusion de la plus prestigieuse=
+ comp=C3=A9tition europ=C3=A9enne. Il ciblerait plus particuli=C3=A8rement =
+un lot con=C3=A7u sur mesure pour les grandes plateformes de streaming. Obj=
+ectif: accro=C3=AEtre son inventaire publicitaire.
+Soulagement pour Meta: l=E2=80=99Europe autorise le transfert des donn=C3=
+=A9es publicitaires
+La justice europ=C3=A9enne a valid=C3=A9 le Data Privacy Framework (DPF), a=
+utorisant le transfert de donn=C3=A9es de l=E2=80=99Europe vers les =C3=89t=
+ats-Unis. Une d=C3=A9cision qui offre un r=C3=A9pit =C3=A0 Meta, dont les o=
+utils publicitaires reposent sur ce texte. En 2023, la maison m=C3=A8re de =
+Facebook et Instagram avait re=C3=A7u une amende de 1,2 milliard d=E2=80=99=
+euros, du jamais vu dans le cadre du RGPD.
+Xbox Game Pass: vers une version gratuite avec publicit=C3=A9 ?
+Microsoft s=E2=80=99appr=C3=AAte =C3=A0 franchir une nouvelle =C3=A9tape da=
+ns sa strat=C3=A9gie de d=C3=A9mocratisation du jeu vid=C3=A9o. Selon The V=
+erge, l=E2=80=99entreprise testerait actuellement une version gratuite du X=
+box Cloud Gaming financ=C3=A9e par la publicit=C3=A9. Une initiative qui po=
+urrait transformer l=E2=80=99acc=C3=A8s aux jeux vid=C3=A9o tout en offrant=
+ de nouvelles opportunit=C3=A9s pour les annonceurs.
+Cr=C3=A9dit photos: Spotify =E2=80=93 Unsplash / Shutter Speed
+
+Unsubscribe https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9jYWZldGVjaC5=
+zdWJzdGFjay5jb20vYWN0aW9uL2Rpc2FibGVfZW1haWw_dG9rZW49ZXlKMWMyVnlYMmxrSWpvek=
+1qYzNNREEyTmpnc0luQnZjM1JmYVdRaU9qRTNOakV6TWprd09Td2lhV0YwSWpveE56WXdOVEEyT=
+WpnNUxDSmxlSEFpT2pFM09USXdOREl5T0Rrc0ltbHpjeUk2SW5CMVlpMDFNVEl3TmlJc0luTjFZ=
+aUk2SW1ScGMyRmliR1ZmWlcxaGFXd2lmUS5GTVp6czhUYkhtTU9XbjFnRGRPLVE3T1huWHoyLVl=
+JSkNfa1pVbUlDUGhJIiwicCI6MTc2MTMyOTA5LCJzIjo1MTIwNiwiZiI6dHJ1ZSwidSI6MzI3Nz=
+AwNjY4LCJpYXQiOjE3NjA1MDYyODksImV4cCI6MjA3NjA4MjI4OSwiaXNzIjoicHViLTAiLCJzd=
+WIiOiJsaW5rLXJlZGlyZWN0In0.bBCcvdpHKgKDcoZG2gZkYPqkWa4hv-UB-dKvfLv6-gc?
+--1d76e33629751a2df9f425b772d0842d0ff3f72b235c1b503a7f3733e9d6
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html style=3D"scrollbar-width: thin;scrollbar-color: rgb(219,219,219)rgb(2=
+55,255,255);"><head><meta charset=3D"utf-8"><title>Vers la fin du streaming=
+ gratuit ?</title><style>
+@media (max-width: 1024px) {
+  .typography .pullquote-align-left,
+  .typography.editor .pullquote-align-left,
+  .typography .pullquote-align-right,
+  .typography.editor .pullquote-align-right,
+  .typography .pullquote-align-wide,
+  .typography.editor .pullquote-align-wide,
+  .typography .pullquote-align-center,
+  .typography.editor .pullquote-align-center {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .typography .markup table.image-wrapper img,
+  .typography.editor .markup table.image-wrapper img,
+  .typography .markup table.kindle-wrapper img,
+  .typography.editor .markup table.kindle-wrapper img {
+    max-width: 550px;
+  }
+}
+@media (min-width: 1024px) {
+  .typography:not(:has(#toc)) .captioned-image-container figure:has(> a.ima=
+ge2-offset-left),
+  .typography.editor:not(:has(#toc)) .captioned-image-container figure:has(=
+> a.image2-offset-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  .typography:not(:has(#toc)) .captioned-image-container figure:has(> a.ima=
+ge2-offset-right),
+  .typography.editor:not(:has(#toc)) .captioned-image-container figure:has(=
+> a.image2-offset-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (min-width: 1300px) {
+  .typography .captioned-image-container figure:has(> a.image2-offset-left)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  .typography .captioned-image-container figure:has(> a.image2-offset-right=
+),
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (max-width: 1024px) {
+  .typography,
+  .typography.editor {
+    /* Disable offset on mobile/tablet */
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left),
+  .typography .captioned-image-container figure:has(> a.image2-align-right)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right) {
+    float: none;
+    margin: 1em auto;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left.t=
+hefp),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left.thefp),
+  .typography .captioned-image-container figure:has(> a.image2-align-right.=
+thefp),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right.thefp) {
+    margin: 1em auto;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-offset-left)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-left),
+  .typography .captioned-image-container figure:has(> a.image2-offset-right=
+),
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-right) {
+    margin: 1em auto;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left) =
+=2Eimage2-inset,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left) .image2-inset,
+  .typography .captioned-image-container figure:has(> a.image2-align-right)=
+ .image2-inset,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right) .image2-inset {
+    display: block;
+    justify-content: initial;
+  }
+}
+@media (max-width: 768px) {
+  .typography .markup div.sponsorship-campaign-embed,
+  .typography.editor .markup div.sponsorship-campaign-embed {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .typography .markup div.sponsorship-campaign-embed:first-child,
+  .typography.editor .markup div.sponsorship-campaign-embed:first-child {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.youtube-overlay,
+  .typography.editor .markup div.youtube-overlay,
+  .typography .markup div.vimeo-overlay,
+  .typography.editor .markup div.vimeo-overlay {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  .typography .markup div.tiktok-wrap,
+  .typography.editor .markup div.tiktok-wrap {
+    width: calc(95vw - 32px);
+    height: calc((95vw - 32px - 2px) / 0.485714);
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.embedded-publication-wrap .embedded-publication.s=
+how-subscribe,
+  .typography.editor .markup div.embedded-publication-wrap .embedded-public=
+ation.show-subscribe {
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.subscription-widget-wrap .subscription-widget.sho=
+w-subscribe,
+  .typography.editor .markup div.subscription-widget-wrap .subscription-wid=
+get.show-subscribe,
+  .typography .markup div.subscription-widget-wrap-editor .subscription-wid=
+get.show-subscribe,
+  .typography.editor .markup div.subscription-widget-wrap-editor .subscript=
+ion-widget.show-subscribe,
+  .typography .markup div.captioned-button-wrap .subscription-widget.show-s=
+ubscribe,
+  .typography.editor .markup div.captioned-button-wrap .subscription-widget=
+=2Eshow-subscribe {
+    padding: 0px 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.subscription-widget-wrap .subscription-widget.sho=
+w-subscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.subscription-widget-wrap .subscription-wid=
+get.show-subscribe .subscription-widget-subscribe .button,
+  .typography .markup div.subscription-widget-wrap-editor .subscription-wid=
+get.show-subscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.subscription-widget-wrap-editor .subscript=
+ion-widget.show-subscribe .subscription-widget-subscribe .button,
+  .typography .markup div.captioned-button-wrap .subscription-widget.show-s=
+ubscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.captioned-button-wrap .subscription-widget=
+=2Eshow-subscribe .subscription-widget-subscribe .button {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet,
+  .typography.editor .markup .tweet {
+    padding: 12px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet .tweet-text,
+  .typography.editor .markup .tweet .tweet-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet .tweet-photos-container.two,
+  .typography.editor .markup .tweet .tweet-photos-container.two,
+  .typography .markup .tweet .tweet-photos-container.three,
+  .typography.editor .markup .tweet .tweet-photos-container.three,
+  .typography .markup .tweet .tweet-photos-container.four,
+  .typography.editor .markup .tweet .tweet-photos-container.four {
+    height: 200px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet a.expanded-link .expanded-link-img,
+  .typography.editor .markup .tweet a.expanded-link .expanded-link-img {
+    max-height: 180px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet a.expanded-link .expanded-link-description,
+  .typography.editor .markup .tweet a.expanded-link .expanded-link-descript=
+ion {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup .apple-podcast-container,
+  .typography.editor .markup .apple-podcast-container {
+    width: unset;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed img.install-substack-app-=
+embed-img,
+  .typography.editor .markup .install-substack-app-embed img.install-substa=
+ck-app-embed-img {
+    margin: 0 auto 16px auto;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-text,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-text {
+    margin: 0 0 12px 0;
+    max-width: 100%;
+    width: auto;
+    text-align: center;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-link,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-link {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container {
+    height: 38px;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container a.comment {
+    height: 38px;
+    line-height: 38px;
+    padding-right: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .share-button-container .separator {
+    display: block;
+    margin: 0;
+    height: 8px;
+    border-left: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .share-button-container a.share.first img {
+    padding-left: 0;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container a.mobile {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 541px) {
+  .settings-add-pub-modal-wrapper .container .add-recommending-pub-modal-co=
+ntainer {
+    padding: 36px;
+    height: 680px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .settings-add-pub-modal-wrapper .container .add-recommending-pub-modal-co=
+ntainer .footer {
+    position: absolute;
+    bottom: 36px;
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .header-anchor-parent {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .post {
+    padding: 16px 0 0 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-header .post-label {
+    margin-top: 8px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-header .meta-author-wrap.alternative-meta .meta-right-column =
+=2Epost-meta {
+    margin-top: 6px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .footer-facepile-container {
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-footer.use-separators {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-footer.next-prev {
+    height: 64px;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-contributor-footer .post-contributor-bio-table {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-table-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .post-contributor-footer .post-contributor-bio-userhead-cell,
+  .post-contributor-footer .post-contributor-bio-body-cell {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-body-cell {
+    flex-grow: 1;
+  }
+  .post-contributor-footer .post-contributor-bio-body-table {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-body-table-row {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-copy-cell,
+  .post-contributor-footer .post-contributor-bio-controls-cell {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-copy-cell {
+    margin: 0 0 16px 0;
+  }
+  .post-contributor-footer .post-contributor-bio-controls-cell {
+    width: auto;
+  }
+  .post-contributor-footer .post-contributor-bio-controls {
+    margin: auto;
+  }
+  .post-contributor-footer .post-contributor-bio-controls .button.primary {
+    width: 100%;
+  }
+  .post-contributor-footer .post-contributor-bio-text {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .post-silhouette {
+    padding: 32px 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-title {
+    margin-top: 10.44225025px;
+    height: 120px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-meta {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-meta.with-byline-image {
+    margin: 20px 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item,
+  .post-meta.alternative-meta .post-meta-item {
+    padding-right: 16px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item,
+  .post-meta.alternative-meta .post-meta-item {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item.guest-author-pu=
+blication,
+  .post-meta.alternative-meta .post-meta-item.guest-author-publication {
+    display: none;
+  }
+}
+@media screen and (max-width: 370px) {
+  .post-meta .post-meta-item .post-meta-button {
+    height: 36px !important;
+    /* important to override in-line height style on emails */
+  }
+  .post-meta .post-meta-item .post-meta-button .meta-button-label {
+    display: none;
+  }
+  .post-meta .post-meta-item .post-meta-button > svg {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 370px) {
+  .post-meta .post-meta-item {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .floating-subscribe-button {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  body .pullquote-align-left,
+  body .pullquote-align-right,
+  body .pullquote-align-wide,
+  body .pullquote-align-center {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  body .markup table.image-wrapper img,
+  body .markup table.kindle-wrapper img {
+    max-width: 550px;
+  }
+}
+@media (min-width: 1024px) {
+  body:not(:has(#toc)) .captioned-image-container figure:has(> a.image2-off=
+set-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  body:not(:has(#toc)) .captioned-image-container figure:has(> a.image2-off=
+set-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (min-width: 1300px) {
+  body .captioned-image-container figure:has(> a.image2-offset-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  body .captioned-image-container figure:has(> a.image2-offset-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (max-width: 1024px) {
+  body {
+    /* Disable offset on mobile/tablet */
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left),
+  body .captioned-image-container figure:has(> a.image2-align-right) {
+    float: none;
+    margin: 1em auto;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left.thefp),
+  body .captioned-image-container figure:has(> a.image2-align-right.thefp) =
+{
+    margin: 1em auto;
+  }
+  body .captioned-image-container figure:has(> a.image2-offset-left),
+  body .captioned-image-container figure:has(> a.image2-offset-right) {
+    margin: 1em auto;
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left) .image2=
+-inset,
+  body .captioned-image-container figure:has(> a.image2-align-right) .image=
+2-inset {
+    display: block;
+    justify-content: initial;
+  }
+}
+@media (max-width: 768px) {
+  body .markup div.sponsorship-campaign-embed {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  body .markup div.sponsorship-campaign-embed:first-child {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.youtube-overlay,
+  body .markup div.vimeo-overlay {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  body .markup div.tiktok-wrap {
+    width: calc(95vw - 32px);
+    height: calc((95vw - 32px - 2px) / 0.485714);
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.embedded-publication-wrap .embedded-publication.show-sub=
+scribe {
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.subscription-widget-wrap .subscription-widget.show-subsc=
+ribe,
+  body .markup div.subscription-widget-wrap-editor .subscription-widget.sho=
+w-subscribe,
+  body .markup div.captioned-button-wrap .subscription-widget.show-subscrib=
+e {
+    padding: 0px 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.subscription-widget-wrap .subscription-widget.show-subsc=
+ribe .subscription-widget-subscribe .button,
+  body .markup div.subscription-widget-wrap-editor .subscription-widget.sho=
+w-subscribe .subscription-widget-subscribe .button,
+  body .markup div.captioned-button-wrap .subscription-widget.show-subscrib=
+e .subscription-widget-subscribe .button {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet {
+    padding: 12px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet .tweet-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet .tweet-photos-container.two,
+  body .markup .tweet .tweet-photos-container.three,
+  body .markup .tweet .tweet-photos-container.four {
+    height: 200px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet a.expanded-link .expanded-link-img {
+    max-height: 180px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet a.expanded-link .expanded-link-description {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup .apple-podcast-container {
+    width: unset;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed img.install-substack-app-embed-i=
+mg {
+    margin: 0 auto 16px auto;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-text=
+ {
+    margin: 0 0 12px 0;
+    max-width: 100%;
+    width: auto;
+    text-align: center;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-link=
+ {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 500px) {
+  body .header a.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+}
+@media screen and (max-width: 420px) {
+  body .subscription-receipt table:first-of-type .subscription-amount .subs=
+cription-discount {
+    width: 72px !important;
+  }
+}
+@media screen and (min-width: 481px) {
+  body .share-button-container {
+    height: auto;
+  }
+}
+@media screen and (max-width: 480px) {
+  body .share-button-container .separator {
+    display: block !important;
+    margin: 0 !important;
+    height: 8px !important;
+    border-left: none !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .digest .item .post-meta-item.audience {
+    display: none;
+  }
+}
+@media screen and (min-width: 500px) {
+  .digest-publication .logo img {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .comments-page .container .comment-list .collapsed-reply {
+    margin-left: calc(10 + 32px - 24px);
+  }
+}
+@media screen and (max-width: 650px) {
+  .comment > .comment-list {
+    padding-left: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .finish-magic-login-modal .modal-content .container {
+    padding: 24px 0;
+  }
+}
+@media (max-width: 650px) {
+  .reader2-text-b3 {
+    line-height: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .reader2-text-h4 {
+    line-height: 24px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .user-profile-modal {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .subscribe-widget form.form .sideBySideWrap button.rightButton {
+    padding: 10px 12px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .pub-icon:hover .logo-hover,
+  .feed-item-icon:hover .logo-hover {
+    display: block;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-ufi.single-full-width-button .post-ufi-button-wrapper {
+    width: 100%;
+    padding: 16px;
+  }
+  .post-ufi.single-full-width-button .post-ufi-button-wrapper:empty {
+    display: none;
+  }
+  .post-ufi.single-full-width-button .post-ufi-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper-editor {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper-editor:active {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .file-embed-button.wide,
+  .file-embed-error-button.wide {
+    display: none;
+  }
+}
+@media only screen and (min-width: 630px) {
+  .file-embed-button.narrow,
+  .file-embed-error-button.narrow {
+    display: none;
+  }
+}
+@media screen and (min-width: 541px) {
+  .audio-player-wrapper .audio-player {
+    min-width: 500px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper .audio-player .audio-player-progress {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper .audio-player .audio-player-progress .audio-player-=
+progress-bar .audio-player-progress-bar-popup {
+    top: -54px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-progress {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-progress .audio-p=
+layer-progress-bar .audio-player-progress-bar-popup {
+    top: -54px;
+  }
+}
+@media (min-width: 250px) {
+  .audio-player-wrapper-fancy .audio-player {
+    padding: 32px;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: flex;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:last-of-type=
+ {
+    display: block;
+  }
+}
+@media (min-width: 300px) {
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+}
+@media (min-width: 350px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-substack-logo {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-title {
+    margin-top: 16px;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 15%;
+    width: 15%;
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-substack-logo {
+    display: block;
+  }
+}
+@media (min-width: 350px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 25%;
+    width: 25%;
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: flex;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+}
+@media (min-width: 400px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 40%;
+    width: 40%;
+  }
+}
+@media (max-width: 400px) {
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    margin-top: 12px;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button {
+    font-size: 13px;
+    padding: 6px 12px;
+    height: auto;
+    margin-top: 10px;
+  }
+}
+@media (min-width: 600px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 55%;
+    width: 55%;
+  }
+}
+@media (max-width: 650px) {
+  .poll-editor-modal {
+    min-width: calc(100% - 20px);
+  }
+}
+@media (max-width: 750px) {
+  .poll-embed .poll-anchor-target .poll-anchor-copy-button {
+    left: 8px;
+    top: 45px;
+  }
+}
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    p a:not(.primary.button),
+    .post p:not(.button-wrapper) a:not(.primary.button),
+    .footnote a.footnote-anchor:not(.primary.button),
+    .thread-head .markup p:not(.button-wrapper) a:not(.primary.button) {
+      color: #007a76;
+      text-decoration: none;
+    }
+    p a:not(.primary.button):hover,
+    .post p:not(.button-wrapper) a:not(.primary.button):hover,
+    .footnote a.footnote-anchor:not(.primary.button):hover,
+    .thread-head .markup p:not(.button-wrapper) a:not(.primary.button):hove=
+r {
+      text-decoration: underline;
+    }
+  }
+}</style></head><body class=3D"email-body" style=3D"font-kerning: auto;--im=
+age-offset-margin: -120px;"><img src=3D"https://eotrx.substackcdn.com/open?=
+token=3DeyJtIjoiPDIwMjUxMDE1MDUzMDM5LjMuZjNlODU0ODg2NjVmNmNjZkBtZzIuc3Vic3R=
+hY2suY29tPiIsInUiOjMyNzcwMDY2OCwiciI6Im4ycnNzQG5pY29waWNvLmZyIiwiZCI6Im1nMi=
+5zdWJzdGFjay5jb20iLCJwIjoxNzYxMzI5MDksInQiOiJuZXdzbGV0dGVyIiwiYSI6ImV2ZXJ5b=
+25lIiwicyI6NTEyMDYsImMiOiJwb3N0IiwiZiI6dHJ1ZSwicG9zaXRpb24iOiJ0b3AiLCJpYXQi=
+OjE3NjA1MDYyOTAsImV4cCI6MTc2MzA5ODI5MCwiaXNzIjoicHViLTAiLCJzdWIiOiJlbyJ9.tv=
+S_S3YsGnD5OT2Ii9yFcGtRxKPz78cszcAk3lFLouo" alt=3D"" width=3D"1" height=3D"1=
+" border=3D"0" style=3D"height:1px !important;width:1px !important;border-w=
+idth:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin=
+-right:0 !important;margin-left:0 !important;padding-top:0 !important;paddi=
+ng-bottom:0 !important;padding-right:0 !important;padding-left:0 !important=
+;"/><div class=3D"preview" style=3D"display:none;font-size:1px;color:#33333=
+3;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">=
+Et aussi: Google &#233;vite (temporairement ?) un d&#233;mant&#232;lement &=
+#8211; Du foot sur Netflix ? &#8211; Soulagement pour Meta</div><div class=
+=3D"preview" style=3D"display:none;font-size:1px;color:#333333;line-height:=
+1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nb=
+sp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&=
+#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199=
+; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbs=
+p; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#=
+847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199;=
+ &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp=
+; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#8=
+47; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; =
+&#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp;=
+ &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#84=
+7; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &=
+#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nb=
+sp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&=
+#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199=
+; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbs=
+p; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#=
+847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199;=
+ &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp=
+; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#8=
+47; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; =
+&#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp;=
+ &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#84=
+7; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &=
+#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nb=
+sp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&=
+#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199=
+; &#173;&#847; &nbsp; &#8199; &#173;</div><table class=3D"email-body-contai=
+ner" role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0"><tbody><tr><td></td><td class=3D"content" width=3D"550"></t=
+d><td></td></tr><tr><td></td><td class=3D"content" width=3D"550" align=3D"l=
+eft"><div style=3D"font-size: 16px;line-height: 26px;max-width: 550px;width=
+: 100%;margin: 0 auto;overflow-wrap: break-word;"><table role=3D"presentati=
+on" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody>=
+<tr><td align=3D"right" style=3D"height:20px;"><table role=3D"presentation"=
+ width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr=
+><td style=3D"vertical-align:middle;"><span class=3D"pencraft pc-reset rese=
+t-IxiVJZ tw-font-body tw-text-ssm tw-text-substack-secondary" style=3D"font=
+-family: SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Inter, =
+Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI=
+ Emoji, Segoe UI Symbol;font-size: 13px;color: unset;list-style: none;text-=
+decoration: unset;margin: 0;"><div class=3D"pencraft pc-reset align-right-V=
+JbKw5 size-12-mmZ61m reset-IxiVJZ" style=3D"list-style: none;color: unset;t=
+ext-align: right;font-size: 12px;line-height: 16px;text-decoration: unset;m=
+argin: 0;"><span class=3D"pencraft pc-reset reset-IxiVJZ" translated=3D"" s=
+tyle=3D"list-style: none;color: unset;text-decoration: unset;margin: 0;">Vo=
+us avez re&#231;u cet e-mail car il a &#233;t&#233; transf&#233;r&#233; ? <=
+a class=3D"pencraft pc-reset decoration-underline-ClTkYc reset-IxiVJZ" href=
+=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9jYWZldGVjaC5zdWJzdGF=
+jay5jb20vc3Vic2NyaWJlP3V0bV9zb3VyY2U9ZW1haWwmdXRtX2NhbXBhaWduPWVtYWlsLXN1Yn=
+NjcmliZSZyPTVmM3JnYyZuZXh0PWh0dHBzJTNBJTJGJTJGY2FmZXRlY2guc3Vic3RhY2suY29tJ=
+TJGcCUyRnZlcnMtbGEtZmluLWR1LXN0cmVhbWluZy1ncmF0dWl0IiwicCI6MTc2MTMyOTA5LCJz=
+Ijo1MTIwNiwiZiI6dHJ1ZSwidSI6MzI3NzAwNjY4LCJpYXQiOjE3NjA1MDYyODksImV4cCI6MjA=
+3NjA4MjI4OSwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.xFzltuLtKjVaQ9=
+_Ty79a0yTvBvO-H7r6YJNOhEDVCfs?" style=3D"list-style: none;color: unset;text=
+-decoration: unset;margin: 0;-webkit-text-decoration-line: underline;text-d=
+ecoration-line: underline;">Inscrivez-vous ici</a> pour en d&#233;couvrir p=
+lus</span></div></span></td></tr></tbody></table></td></tr></tbody></table>=
+<table class=3D"header graphic-header" role=3D"presentation" style=3D"borde=
+r-spacing: 0;padding: 16px 0 32px;"><tbody><tr><td align=3D"center" style=
+=3D"text-align: center;padding: 0;"><a href=3D"https://substack.com/redirec=
+t/2/eyJlIjoiaHR0cHM6Ly9jYWZldGVjaC5zdWJzdGFjay5jb20vcC92ZXJzLWxhLWZpbi1kdS1=
+zdHJlYW1pbmctZ3JhdHVpdD91dG1fY2FtcGFpZ249ZW1haWwtaGFsZi1wb3N0JnI9NWYzcmdjJn=
+Rva2VuPWV5SjFjMlZ5WDJsa0lqb3pNamMzTURBMk5qZ3NJbkJ2YzNSZmFXUWlPakUzTmpFek1qa=
+3dPU3dpYVdGMElqb3hOell3TlRBMk1qZzVMQ0psZUhBaU9qRTNOak13T1RneU9Ea3NJbWx6Y3lJ=
+NkluQjFZaTAxTVRJd05pSXNJbk4xWWlJNkluQnZjM1F0Y21WaFkzUnBiMjRpZlEuZWFtSzZaaWh=
+vR25NdEJYbVA4REVTVW5RLXFkT2NtRzNOX3dMZWJLSUpobyIsInAiOjE3NjEzMjkwOSwicyI6NT=
+EyMDYsImYiOnRydWUsInUiOjMyNzcwMDY2OCwiaWF0IjoxNzYwNTA2Mjg5LCJleHAiOjIwNzYwO=
+DIyODksImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.3lXa-nTRlxU71w37DIA=
+FKxBYKljEZ569Nh3CTYJBN_g?"><img class=3D"header-image" role=3D"presentation=
+" width=3D"550" height=3D"110" src=3D"https://substackcdn.com/image/fetch/$=
+s_!LAeQ!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F=
+%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F59fa1b72-2883-4=
+a8e-8e11-98c033de2a03_2400x477.png" style=3D"border: none !important;vertic=
+al-align: middle;max-width: 550px;display: block;margin: 0 auto;height: aut=
+o;width: 100%;"></a></td></tr></tbody></table><div class=3D"post typography=
+" dir=3D"auto" style=3D"--image-offset-margin: -120px;padding: 32px 0 0 0;f=
+ont-size: 16px;line-height: 26px;"><div class=3D"post-header" role=3D"regio=
+n" aria-label=3D"En-t&#234;te du post" style=3D"font-size: 16px;line-height=
+: 26px;"><h1 class=3D"post-title published title-X77sOw" dir=3D"auto" style=
+=3D"direction: auto;text-align: start;unicode-bidi: isolate;color: rgb(54,5=
+5,55);font-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple=
+-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Ap=
+ple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webk=
+it-font-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit=
+-appearance: optimizelegibility;-moz-appearance: optimizelegibility;appeara=
+nce: optimizelegibility;margin: 0;line-height: 36px;font-size: 32px;"><a hr=
+ef=3D"https://substack.com/app-link/post?publication_id=3D51206&post_id=3D1=
+76132909&utm_source=3Dpost-email-title&utm_campaign=3Demail-post-title&isFr=
+eemail=3Dtrue&r=3D5f3rgc&token=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOj=
+E3NjEzMjkwOSwiaWF0IjoxNzYwNTA2Mjg5LCJleHAiOjE3NjMwOTgyODksImlzcyI6InB1Yi01M=
+TIwNiIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.eamK6ZihoGnMtBXmP8DESUnQ-qdOcmG3N_wLe=
+bKIJho" style=3D"color: rgb(54,55,55);text-decoration: none;">Vers la fin d=
+u streaming gratuit ?</a></h1><h3 class=3D"subtitle subtitle-HEEcLo" dir=3D=
+"auto" style=3D"direction: auto;text-align: start;unicode-bidi: isolate;fon=
+t-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-system,B=
+linkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color=
+ Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: normal;-webkit-font=
+-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appear=
+ance: optimizelegibility;-moz-appearance: optimizelegibility;appearance: op=
+timizelegibility;margin: 4px 0 0;color: #777777;line-height: 24px;font-size=
+: 18px;margin-top: 12px;">Et aussi: Google &#233;vite (temporairement ?) un=
+ d&#233;mant&#232;lement &#8211; Du foot sur Netflix ? &#8211; Soulagement =
+pour Meta</h3><table class=3D"post-meta" role=3D"presentation" width=3D"100=
+%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin: 1em 0;=
+height: 20px;align-items: center;"><tbody><tr><td><table role=3D"presentati=
+on" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody>=
+<tr><td><table role=3D"presentation" width=3D"auto" border=3D"0" cellspacin=
+g=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"vertical-align:middle;"><=
+div class=3D"pencraft pc-reset color-primary-zABazT line-height-20-t4M0El f=
+ont-meta-MWBumP size-11-NuY2Zx weight-medium-fw81nC transform-uppercase-yKD=
+gcq reset-IxiVJZ meta-EgzBVA custom-css-email-post-author" style=3D"list-st=
+yle: none;font-size: 11px;line-height: 20px;text-decoration: unset;color: r=
+gb(54,55,55);margin: 0;font-family: 'SF Compact',-apple-system,system-ui,-a=
+pple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif=
+,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: 500;te=
+xt-transform: uppercase;letter-spacing: .2px;"><a class=3D"pencraft pc-rese=
+t color-primary-zABazT line-height-20-t4M0El font-meta-MWBumP size-11-NuY2Z=
+x weight-medium-fw81nC transform-uppercase-yKDgcq reset-IxiVJZ meta-EgzBVA"=
+ style=3D"list-style: none;color: rgb(54,55,55);margin: 0;font-size: 11px;l=
+ine-height: 20px;font-family: 'SF Compact',-apple-system,system-ui,-apple-s=
+ystem,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Appl=
+e Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: 500;text-tra=
+nsform: uppercase;letter-spacing: .2px;text-decoration: none" href=3D"https=
+://substack.com/@jeromemarin">J&#233;r&#244;me Marin</a></div></td></tr></t=
+body></table></td></tr><tr><td><table role=3D"presentation" width=3D"auto" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"ve=
+rtical-align:middle;"><div class=3D"pencraft pc-reset color-secondary-ls1g8=
+s line-height-20-t4M0El font-meta-MWBumP size-11-NuY2Zx weight-medium-fw81n=
+C transform-uppercase-yKDgcq reset-IxiVJZ meta-EgzBVA" style=3D"list-style:=
+ none;font-size: 11px;line-height: 20px;text-decoration: unset;color: rgb(1=
+19,119,119);margin: 0;font-family: 'SF Compact',-apple-system,system-ui,-ap=
+ple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,=
+'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: 500;tex=
+t-transform: uppercase;letter-spacing: .2px;"><time datetime=3D"2025-10-15T=
+05:31:16.347Z">oct. 15</time></div></td></tr></tbody></table></td></tr></tb=
+ody></table></td><td align=3D"right"><table role=3D"presentation" width=3D"=
+auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=
+=3D"vertical-align:middle;"><a href=3D"https://substack.com/@jeromemarin"><=
+img class=3D"custom-css-email-avatar avatar-QIQ5yR" src=3D"https://substack=
+cdn.com/image/fetch/$s_!1Qar!,f_auto,q_auto:good,fl_progressive:steep/https=
+%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8c15e96d-=
+c5bf-467d-be90-e9b53832c6e0_362x434.jpeg" style=3D"box-sizing: border-box;b=
+order-radius: 500000px;max-width: 550px;border: none;vertical-align: middle=
+;width: 40px;height: 40px;min-width: 40px;min-height: 40px;object-fit: cove=
+r;margin: 0px;display: inline" width=3D"40" height=3D"40"></a></td></tr></t=
+body></table></td></tr></tbody></table><table class=3D"email-ufi-2-top" rol=
+e=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-top: 1px solid rgb(0,0,0,.1);border-bottom: 1px sol=
+id rgb(0,0,0,.1);min-width: 100%;"><tbody><tr height=3D"16"><td height=3D"1=
+6" style=3D"font-size:0px;line-height:0;">&nbsp;</td></tr><tr><td><table ro=
+le=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0"><tbody><tr><td><table role=3D"presentation" width=3D"auto" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"vertical=
+-align:middle;"><table role=3D"presentation" width=3D"38" border=3D"0" cell=
+spacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a class=3D=
+"email-icon-button" href=3D"https://substack.com/app-link/post?publication_=
+id=3D51206&post_id=3D176132909&utm_source=3Dsubstack&isFreemail=3Dtrue&subm=
+itLike=3Dtrue&token=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE3NjEzMjkwO=
+SwicmVhY3Rpb24iOiLinaQiLCJpYXQiOjE3NjA1MDYyODksImV4cCI6MTc2MzA5ODI4OSwiaXNz=
+IjoicHViLTUxMjA2Iiwic3ViIjoicmVhY3Rpb24ifQ.e-mjlaED2qq3SqKl6E7dxUTe2cS9t7fB=
+egi2Bzh8LzU&utm_medium=3Demail&utm_campaign=3Demail-reaction&r=3D5f3rgc" st=
+yle=3D"font-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',R=
+oboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Sego=
+e UI Symbol';display: inline-block;font-weight: 500;border: 1px solid rgb(0=
+,0,0,.1);border-radius: 9999px;text-transform: uppercase;font-size: 12px;li=
+ne-height: 1;padding: 9px 0;text-decoration: none;color: rgb(119,119,119);m=
+in-width: 38px;box-sizing: border-box;width: 38px"><img class=3D"icon" src=
+=3D"https://substackcdn.com/image/fetch/$s_!PeVs!,w_36,c_scale,f_png,q_auto=
+:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideHeart%=
+3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D=
+2" width=3D"18" height=3D"18" style=3D"border: none;vertical-align: middle;=
+max-width: 18px" alt=3D""></a></td></tr></tbody></table></td><td width=3D"8=
+" style=3D"min-width: 8px"></td><td style=3D"vertical-align:middle;"><table=
+ role=3D"presentation" width=3D"38" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0"><tbody><tr><td align=3D"center"><a class=3D"email-icon-button" hr=
+ef=3D"https://substack.com/app-link/post?publication_id=3D51206&post_id=3D1=
+76132909&utm_source=3Dsubstack&utm_medium=3Demail&isFreemail=3Dtrue&comment=
+s=3Dtrue&token=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE3NjEzMjkwOSwiaW=
+F0IjoxNzYwNTA2Mjg5LCJleHAiOjE3NjMwOTgyODksImlzcyI6InB1Yi01MTIwNiIsInN1YiI6I=
+nBvc3QtcmVhY3Rpb24ifQ.eamK6ZihoGnMtBXmP8DESUnQ-qdOcmG3N_wLebKIJho&r=3D5f3rg=
+c&utm_campaign=3Demail-half-magic-comments&action=3Dpost-comment&utm_source=
+=3Dsubstack&utm_medium=3Demail" style=3D"font-family: system-ui,-apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple C=
+olor Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;font-w=
+eight: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-trans=
+form: uppercase;font-size: 12px;line-height: 1;padding: 9px 0;text-decorati=
+on: none;color: rgb(119,119,119);min-width: 38px;box-sizing: border-box;wid=
+th: 38px"><img class=3D"icon" src=3D"https://substackcdn.com/image/fetch/$s=
+_!x1tS!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fs=
+ubstack.com%2Ficon%2FLucideComments%3Fv%3D4%26height%3D36%26fill%3Dnone%26s=
+troke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"=
+border: none;vertical-align: middle;max-width: 18px" alt=3D""></a></td></tr=
+></tbody></table></td><td width=3D"8" style=3D"min-width: 8px"></td><td sty=
+le=3D"vertical-align:middle;"><table role=3D"presentation" width=3D"38" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"cente=
+r"><a class=3D"email-icon-button" href=3D"https://substack.com/app-link/pos=
+t?publication_id=3D51206&post_id=3D176132909&utm_source=3Dsubstack&utm_medi=
+um=3Demail&utm_content=3Dshare&utm_campaign=3Demail-share&action=3Dshare&tr=
+iggerShare=3Dtrue&isFreemail=3Dtrue&r=3D5f3rgc&token=3DeyJ1c2VyX2lkIjozMjc3=
+MDA2NjgsInBvc3RfaWQiOjE3NjEzMjkwOSwiaWF0IjoxNzYwNTA2Mjg5LCJleHAiOjE3NjMwOTg=
+yODksImlzcyI6InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.eamK6ZihoGnMtBX=
+mP8DESUnQ-qdOcmG3N_wLebKIJho" style=3D"font-family: system-ui,-apple-system=
+,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Col=
+or Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;font-wei=
+ght: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-transfo=
+rm: uppercase;font-size: 12px;line-height: 1;padding: 9px 0;text-decoration=
+: none;color: rgb(119,119,119);min-width: 38px;box-sizing: border-box;width=
+: 38px"><img class=3D"icon" src=3D"https://substackcdn.com/image/fetch/$s_!=
+_L14!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsub=
+stack.com%2Ficon%2FLucideShare2%3Fv%3D4%26height%3D36%26fill%3Dnone%26strok=
+e%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"bord=
+er: none;vertical-align: middle;max-width: 18px" alt=3D""></a></td></tr></t=
+body></table></td><td width=3D"8" style=3D"min-width: 8px"></td><td style=
+=3D"vertical-align:middle;"><table role=3D"presentation" width=3D"38" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"=
+><a class=3D"email-icon-button" href=3D"https://substack.com/redirect/2/eyJ=
+lIjoiaHR0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS9wdWIvY2FmZXRlY2gvcC92ZXJzLWxhLWZpbi=
+1kdS1zdHJlYW1pbmctZ3JhdHVpdD91dG1fc291cmNlPXN1YnN0YWNrJnV0bV9tZWRpdW09ZW1ha=
+WwmdXRtX2NhbXBhaWduPWVtYWlsLXJlc3RhY2stY29tbWVudCZhY3Rpb249cmVzdGFjay1jb21t=
+ZW50JnI9NWYzcmdjJnRva2VuPWV5SjFjMlZ5WDJsa0lqb3pNamMzTURBMk5qZ3NJbkJ2YzNSZmF=
+XUWlPakUzTmpFek1qa3dPU3dpYVdGMElqb3hOell3TlRBMk1qZzVMQ0psZUhBaU9qRTNOak13T1=
+RneU9Ea3NJbWx6Y3lJNkluQjFZaTAxTVRJd05pSXNJbk4xWWlJNkluQnZjM1F0Y21WaFkzUnBiM=
+jRpZlEuZWFtSzZaaWhvR25NdEJYbVA4REVTVW5RLXFkT2NtRzNOX3dMZWJLSUpobyIsInAiOjE3=
+NjEzMjkwOSwicyI6NTEyMDYsImYiOnRydWUsInUiOjMyNzcwMDY2OCwiaWF0IjoxNzYwNTA2Mjg=
+5LCJleHAiOjIwNzYwODIyODksImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.E=
+jR7ARcSDtSAJebjO0tV_7XGz82bHERHMY29SGfZRpA?&utm_source=3Dsubstack&utm_mediu=
+m=3Demail" style=3D"font-family: system-ui,-apple-system,BlinkMacSystemFont=
+,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI=
+ Emoji','Segoe UI Symbol';display: inline-block;font-weight: 500;border: 1p=
+x solid rgb(0,0,0,.1);border-radius: 9999px;text-transform: uppercase;font-=
+size: 12px;line-height: 1;padding: 9px 0;text-decoration: none;color: rgb(1=
+19,119,119);min-width: 38px;box-sizing: border-box;width: 38px"><img class=
+=3D"icon" src=3D"https://substackcdn.com/image/fetch/$s_!5EGt!,w_36,c_scale=
+,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2=
+FNoteForwardIcon%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080=
+%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"border: none;vertic=
+al-align: middle;max-width: 18px" alt=3D""></a></td></tr></tbody></table></=
+td></tr></tbody></table></td><td align=3D"right"><table role=3D"presentatio=
+n" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><=
+tr><td style=3D"vertical-align:middle;"><table role=3D"presentation" width=
+=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td a=
+lign=3D"center"><a class=3D"email-button-outline" href=3D"https://open.subs=
+tack.com/pub/cafetech/p/vers-la-fin-du-streaming-gratuit?utm_source=3Demail=
+&redirect=3Dapp-store&utm_campaign=3Demail-read-in-app" style=3D"font-famil=
+y: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,A=
+rial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';disp=
+lay: inline-block;font-weight: 500;border: 1px solid rgb(0,0,0,.1);border-r=
+adius: 9999px;text-transform: uppercase;font-size: 12px;line-height: 12px;p=
+adding: 9px 14px;text-decoration: none;color: rgb(119,119,119);"><div class=
+=3D"email-button-spacer" style=3D"font-size: 16px;line-height: 26px;display=
+: inline-block;vertical-align: middle;max-width: 0;min-height: 18px;"></div=
+><span class=3D"email-button-text" style=3D"vertical-align: middle;margin-r=
+ight: 4px">LIRE DANS L'APP</span><img class=3D"icon text-icon" src=3D"https=
+://substackcdn.com/image/fetch/$s_!ET-_!,w_36,c_scale,f_png,q_auto:good,fl_=
+progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideArrowUpRight%3F=
+v%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2"=
+ width=3D"18" height=3D"18" style=3D"min-width: 18px;min-height: 18px;borde=
+r: none;vertical-align: middle;margin-right: 0;margin-left: 0;max-width: 18=
+px" alt=3D""></a></td></tr></tbody></table></td></tr></tbody></table></td><=
+/tr></tbody></table></td></tr><tr height=3D"16"><td height=3D"16" style=3D"=
+font-size:0px;line-height:0;">&nbsp;</td></tr></tbody></table></div></div><=
+div class=3D"post typography" dir=3D"auto" style=3D"--image-offset-margin: =
+-120px;padding: 32px 0 0 0;font-size: 16px;line-height: 26px;"><div class=
+=3D"body markup" dir=3D"auto" style=3D"text-align: initial;font-size: 16px;=
+line-height: 26px;width: 100%;word-break: break-word;margin-bottom: 16px;">=
+<p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-=
+size: 16px;margin-top: 0;"><span>Nouveau rendez-vous sur Caf&#233;tech: une=
+ fois par mois, retrouvez une &#233;dition sp&#233;ciale tech &amp; pub, r&=
+#233;alis&#233;e en partenariat avec </span><a href=3D"https://substack.com=
+/redirect/b6453ceb-a21c-4bcd-a307-e67dab4f57d1?j=3DeyJ1IjoiNWYzcmdjIn0.e7WS=
+RIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D"color: #007a76;t=
+ext-decoration: none;">Minted</a><span>, m&#233;dia de r&#233;f&#233;rence =
+sur la publicit&#233; en ligne et les m&#233;dias.</span><br><br><span>Au m=
+enu: des articles pour d&#233;crypter la strat&#233;gie des grandes platefo=
+rmes, anticiper les &#233;volutions du march&#233; et appr&#233;hender les =
+enjeux r&#233;glementaires.</span><br><br><span>Bonne lecture ! </span></p>=
+<div style=3D"font-size: 16px;line-height: 26px;"><hr style=3D"margin: 32px=
+ 0;padding: 0;height: 1px;background: #e6e6e6;border: none;"></div><h1 clas=
+s=3D"header-anchor-post" style=3D"position: relative;font-family: 'SF Pro D=
+isplay',-apple-system-headline,system-ui,-apple-system,BlinkMacSystemFont,'=
+Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI E=
+moji','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing: antialias=
+ed;-moz-osx-font-smoothing: antialiased;-webkit-appearance: optimizelegibil=
+ity;-moz-appearance: optimizelegibility;appearance: optimizelegibility;marg=
+in: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;font-size: 2em=
+;">Spotify patine dans la publicit&#233;: vers la fin programm&#233;e du st=
+reaming gratuit ?</h1><div class=3D"captioned-image-container-static" style=
+=3D"font-size: 16px;line-height: 26px;margin: 32px auto;"><figure style=3D"=
+width: 100%;margin: 0 auto;"><table class=3D"image-wrapper" width=3D"100%" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0" data-component-name=3D"Ima=
+ge2ToDOMStatic" style=3D"mso-padding-alt: 1em 0 1.6em;"><tbody><tr><td styl=
+e=3D"text-align: center;"></td><td class=3D"content" align=3D"left" width=
+=3D"1456" style=3D"text-align: center;"><a class=3D"image-link" target=3D"_=
+blank" href=3D"https://substack.com/redirect/b3c8bdd1-6c8c-45e1-9c45-9c9a65=
+913bc5?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U"=
+ rel=3D"" style=3D"position: relative;flex-direction: column;align-items: c=
+enter;padding: 0;width: auto;height: auto;border: none;text-decoration: non=
+e;display: block;margin: 0;"><img class=3D"wide-image" data-attrs=3D"{&quot=
+;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images=
+/58e10773-09fb-407c-b7a1-a271fb5392df_1755x900.webp&quot;,&quot;srcNoWaterm=
+ark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot=
+;height&quot;:747,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot=
+;bytes&quot;:168142,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&=
+quot;:&quot;image/webp&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;=
+:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https:/=
+/cafetech.substack.com/i/176132909?img=3Dhttps%3A%2F%2Fsubstack-post-media.=
+s3.amazonaws.com%2Fpublic%2Fimages%2F58e10773-09fb-407c-b7a1-a271fb5392df_1=
+755x900.webp&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&q=
+uot;offset&quot;:false}" alt=3D"" width=3D"550" height=3D"282.1771978021978=
+" src=3D"https://substackcdn.com/image/fetch/$s_!v0JZ!,w_1100,c_limit,f_aut=
+o,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.ama=
+zonaws.com%2Fpublic%2Fimages%2F58e10773-09fb-407c-b7a1-a271fb5392df_1755x90=
+0.webp" style=3D"border: none !important;vertical-align: middle;display: bl=
+ock;-ms-interpolation-mode: bicubic;height: auto;margin-bottom: 0;width: au=
+to !important;max-width: 100% !important;margin: 0 auto;"></a></td><td styl=
+e=3D"text-align: center;"></td></tr></tbody></table></figure></div><p style=
+=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16=
+px;"><span>L&#8217;aveu est sans d&#233;tour. Fin juillet, Daniel Ek n&#821=
+7;a pas cach&#233; son agacement sur les performances publicitaires de Spot=
+ify. </span><em>&#8220;Nous avons avanc&#233; trop lentement, et les am&#23=
+3;liorations que nous avons mises en place ont mis plus de temps que pr&#23=
+3;vu &#224; produire des effets&#8221;</em><span>, a-t-il regrett&#233;, en=
+ marge de la publication des r&#233;sultats trimestriels.</span></p><p styl=
+e=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 1=
+6px;"><span>Mais le patron de la plateforme su&#233;doise de streaming musi=
+cal veut rester optimiste. Ces difficult&#233;s ne proviennent pas d&#8217;=
+un </span><em>&#8220;probl&#232;me de strat&#233;gie&#8221;</em><span>, pro=
+met-il. Elles sont seulement la cons&#233;quence d&#8217;une mauvaise </spa=
+n><em>&#8220;ex&#233;cution&#8221;</em><span>. Une critique &#224; peine vo=
+il&#233;e visant Lee Brown, l&#8217;ancien patron de la publicit&#233; chez=
+ Spotify, dont le d&#233;part, n&#233;goci&#233; &#224; l&#8217;amiable, av=
+ait &#233;t&#233; officialis&#233; la veille.</span></p><p style=3D"margin:=
+ 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">Ce dis=
+cours rassurant n&#8217;est pas uniquement destin&#233; aux investisseurs d=
+e Wall Street: il s&#8217;adresse aussi &#224; l&#8217;industrie du disque.=
+ Depuis des ann&#233;es, les responsables du secteur s&#8217;interrogent en=
+ effet sur la p&#233;rennit&#233; financi&#232;re des offres gratuites, uni=
+quement financ&#233;es par la publicit&#233;. Certains vont jusqu&#8217;&#2=
+24; r&#233;clamer leur disparition. Daniel Ek, lui, continue &#224; y croir=
+e. Mais il abat peut-&#234;tre sa derniere carte.</p><h2 class=3D"header-an=
+chor-post" style=3D"position: relative;font-family: 'SF Pro Display',-apple=
+-system-headline,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Robo=
+to,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe U=
+I Symbol';font-weight: bold;-webkit-font-smoothing: antialiased;-moz-osx-fo=
+nt-smoothing: antialiased;-webkit-appearance: optimizelegibility;-moz-appea=
+rance: optimizelegibility;appearance: optimizelegibility;margin: 1em 0 0.62=
+5em 0;color: rgb(54,55,55);line-height: 1.16em;font-size: 1.625em;">Un euro=
+ par trimestre</h2><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line=
+-height: 26px;font-size: 16px;">Au c&#339;ur de son mod&#232;le depuis son =
+lancement en 2008, les offres gratuites sont essentielles pour Spotify. Ell=
+es rassemblent plus de 430 millions d&#8217;utilisateurs actifs mensuels, s=
+oit environ deux tiers de son audience. Elles permettent de capter des pers=
+onnes qui iraient &#233;couter de la musique sur d&#8217;autres plateformes=
+, voire ill&#233;galement. Et elles constituent la principale porte d&#8217=
+;entr&#233;e vers ses abonnements.</p><p style=3D"margin: 0 0 20px 0;color:=
+ rgb(54,55,55);line-height: 26px;font-size: 16px;">Le probl&#232;me vient d=
+e leur mon&#233;tisation: la publicit&#233; repr&#233;sente &#224; peine pl=
+us de 10% du chiffre d&#8217;affaires, soit deux fois moins que l&#8217;obj=
+ectif de 20% que s&#8217;&#233;tait fix&#233; l&#8217;entreprise. Au deuxi&=
+#232;me trimestre, elle a g&#233;n&#233;r&#233; des recettes de 453 million=
+s d&#8217;euros - un montant qui comprend, en outre, les recettes issues de=
+ la diffusion de podcasts, sur lesquels des spots sont diffus&#233;s pour t=
+ous les usagers, gratuits ou payants.</p><p style=3D"margin: 0 0 20px 0;col=
+or: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>Autrement dit, =
+chaque utilisateur de l&#8217;offre de streaming gratuite rapporte autour d=
+&#8217;un euro par trimestre &#224; Spotify. &#192; titre de comparaison, l=
+es abonn&#233;s payants (en prenant en compte les offres group&#233;es) rap=
+portent 13,50 euros par trimestre. Plus inqui&#233;tant encore, la croissan=
+ce des recettes publicitaires patine. Malgr&#233; la hausse du nombre d&#82=
+17;&#233;coutes, elles ont diminu&#233; de 1% au deuxi&#232;me trimestre, u=
+ne baisse que Spotify attribue &#224; une</span><em> &#8220;pression sur le=
+s prix&#8221;</em><span>.</span></p><h2 class=3D"header-anchor-post" style=
+=3D"position: relative;font-family: 'SF Pro Display',-apple-system-headline=
+,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Ari=
+al,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-w=
+eight: bold;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: an=
+tialiased;-webkit-appearance: optimizelegibility;-moz-appearance: optimizel=
+egibility;appearance: optimizelegibility;margin: 1em 0 0.625em 0;color: rgb=
+(54,55,55);line-height: 1.16em;font-size: 1.625em;">Nouveaux outils de mesu=
+re... et d&#8217;IA</h2><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55)=
+;line-height: 26px;font-size: 16px;">Ces difficult&#233;s ne sont pas seule=
+ment conjoncturelles, li&#233;es &#224; la faiblesse du march&#233; publici=
+taire. Elles sont aussi structurelles, reconnaissent les dirigeants de Spot=
+ify. Pour y r&#233;pondre, ils comptent sur plusieurs initiatives annonc&#2=
+33;es ces derniers mois. D&#8217;abord, le lancement de sa propre plateform=
+e publicitaire, baptis&#233;e Spotify Ad Exchange, qui permet aux annonceur=
+s d&#8217;acc&#233;der &#224; ses inventaires audio, vid&#233;o et display.=
+ Celle-ci est connect&#233;e, dans les principaux march&#233;s, &#224; plus=
+ieurs DSP: Google DV360, The Trade Desk et Magnite.</p><p style=3D"margin: =
+0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">Spotify=
+ mise aussi sur de nouveaux outils de ciblage et de mesure, tentant ainsi d=
+e r&#233;pondre aux critiques r&#233;currentes des annonceurs. De nouveaux =
+objectifs bas&#233;s sur les r&#233;sultats (installation d&#8217;une appli=
+cation, optimisation du reach...) ont aussi &#233;t&#233; ajout&#233;s. En =
+parall&#232;le, la plateforme a d&#233;ploy&#233; des outils gratuits d&#82=
+17;intelligence artificielle g&#233;n&#233;rative, destin&#233;s &#224; aid=
+er les marques &#224; produire des spots audio, leur permettant de r&#233;d=
+iger un script ou de g&#233;n&#233;rer des voix off.</p><p style=3D"margin:=
+ 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">Enfin,=
+ la soci&#233;t&#233; vient d&#8217;annoncer un changement radical pour ses=
+ offres gratuites: sur smartphone, les utilisateurs peuvent d&#233;sormais =
+&#233;couter &#224; la demande le morceau de leur choix. Jusqu&#8217;ici, c=
+ette libert&#233; &#233;tait r&#233;serv&#233;e aux abonn&#233;s et constit=
+uait l&#8217;un des principaux arguments mis en avant pour inciter &#224; p=
+ayer. Avec ce virage, Spotify esp&#232;re reconqu&#233;rir les jeunes et le=
+s d&#233;tourner de YouTube ou TikTok. &#192; terme, la soci&#233;t&#233; a=
+mbitionne ainsi d&#8217;attirer de nouveaux adeptes, de renforcer l&#8217;e=
+ngagement et d&#8217;accro&#238;tre ses inventaires et ses recettes publici=
+taires.</p><h2 class=3D"header-anchor-post" style=3D"position: relative;fon=
+t-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-system,B=
+linkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color=
+ Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font-s=
+moothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appearan=
+ce: optimizelegibility;-moz-appearance: optimizelegibility;appearance: opti=
+mizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.=
+16em;font-size: 1.625em;">Vers la fin des offres gratuites ?</h2><p style=
+=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16=
+px;"><span>Spotify n&#8217;est pas un cas isol&#233;. Selon la RIAA, le lob=
+by am&#233;ricain de l&#8217;industrie musicale, les </span><em>royalties</=
+em><span> g&#233;n&#233;r&#233;es par l&#8217;ensemble du streaming gratuit=
+ (qui correspondent &#224; un pourcentage estim&#233; &#224; 70% des recett=
+es publicitaires) ont recul&#233; de 2% en 2024 aux Etats-Unis. Elles se so=
+nt &#233;lev&#233;es &#224; 1,8 milliard de dollars. &#192; titre de compar=
+aison, les versements li&#233;s aux abonnements payants ont atteint 10,7 mi=
+lliards de dollars, un niveau record.</span></p><p style=3D"margin: 0 0 20p=
+x 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">Si elles ont d=
+&#8217;abord accept&#233; le principe d&#8217;offres financ&#233;es par la =
+publicit&#233;, notamment pour lutter contre les t&#233;l&#233;chargements =
+ill&#233;gaux, certaines maisons de disques r&#233;clament d&#233;sormais u=
+ne &#233;volution du mod&#232;le. Elles estiment que le taux de conversion =
+vers les abonnements payants n&#8217;est plus suffisant pour compenser une =
+mon&#233;tisation jug&#233;e beaucoup trop faible pour une audience qu&#821=
+7;elles chiffrent &#224; plusieurs milliards de personnes.</p><p style=3D"m=
+argin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">=
+<span>Fin 2024, Rob Stringer, le patron de Sony Music, l&#8217;une des troi=
+s majors du secteur, s&#8217;est ainsi prononc&#233; pour l&#8217;instaurat=
+ion d&#8217;une contribution </span><em>&#8220;modeste&#8221;</em><span> da=
+ns les pays d&#233;velopp&#233;s, prenant l&#8217;exemple des abonnements a=
+vec publicit&#233; de Netflix, Disney+ ou Amazon Prime. </span><em>&#8220;N=
+ous pensons que tout le monde est pr&#234;t &#224; payer quelque chose pour=
+ avoir acc&#232;s &#224; toute la musique&#8221;,</em><span> assure-t-il. A=
+pr&#232;s avoir obtenu une hausse du prix des abonnements, longtemps fix&#2=
+33; &#224; 10 euros ou dollars par mois, l&#8217;industrie du disque aura, =
+cette fois, peut-&#234;tre plus de mal &#224; convaincre Spotify et les aut=
+res plateformes.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,=
+55);line-height: 26px;font-size: 16px;"><strong>Pour aller plus loin:</stro=
+ng><br><span>&#8211; </span><a href=3D"https://substack.com/redirect/f23f67=
+c9-4887-4a2f-8ef4-58e1ab246664?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMb=
+w_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D"color: #007a76;text-decoration: =
+none;">Spotify am&#233;liore son offre gratuite, au risque de perdre des ab=
+onn&#233;s payants ?</a><br><span>&#8211; </span><a href=3D"https://substac=
+k.com/redirect/f3788104-6703-4152-859a-4cf07bd31f59?j=3DeyJ1IjoiNWYzcmdjIn0=
+=2Ee7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz=
+8PaFv0-2U" rel=3D"" style=3D"color: #007=
+a76;text-decoration: none;">Seize ans apr&#232;s son lancement, Spotify aff=
+iche ses premiers profits annuels</a></p><div style=3D"font-size: 16px;line=
+-height: 26px;"><hr style=3D"margin: 32px 0;padding: 0;height: 1px;backgrou=
+nd: #e6e6e6;border: none;"></div><h1 class=3D"header-anchor-post" style=3D"=
+position: relative;font-family: 'SF Pro Display',-apple-system-headline,sys=
+tem-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,s=
+ans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weigh=
+t: bold;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: antial=
+iased;-webkit-appearance: optimizelegibility;-moz-appearance: optimizelegib=
+ility;appearance: optimizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,=
+55,55);line-height: 1.16em;font-size: 2em;"><strong>Google &#233;chappe &#2=
+24; une vente forc&#233;e de DoubleClick et AdX... pour le moment</strong><=
+/h1><div class=3D"captioned-image-container-static" style=3D"font-size: 16p=
+x;line-height: 26px;margin: 32px auto;"><figure style=3D"width: 100%;margin=
+: 0 auto;"><table class=3D"image-wrapper" width=3D"100%" border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0" data-component-name=3D"Image2ToDOMStatic" st=
+yle=3D"mso-padding-alt: 1em 0 1.6em;"><tbody><tr><td style=3D"text-align: c=
+enter;"></td><td class=3D"content" align=3D"left" width=3D"800" style=3D"te=
+xt-align: center;"><a class=3D"image-link" target=3D"_blank" href=3D"https:=
+//substack.com/redirect/1a45f48d-af38-490a-b9be-108721433d33?j=3DeyJ1IjoiNW=
+YzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D"po=
+sition: relative;flex-direction: column;align-items: center;padding: 0;widt=
+h: auto;height: auto;border: none;text-decoration: none;display: block;marg=
+in: 0;"><img class=3D"wide-image" data-attrs=3D"{&quot;src&quot;:&quot;http=
+s://substack-post-media.s3.amazonaws.com/public/images/86ad98d8-3e12-43e0-9=
+d5c-6bc78fdbb0b7_800x400.webp&quot;,&quot;srcNoWatermark&quot;:null,&quot;f=
+ullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:400,&quo=
+t;width&quot;:800,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:15150,&quo=
+t;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/webp&q=
+uot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quo=
+t;:false,&quot;internalRedirect&quot;:&quot;https://cafetech.substack.com/i=
+/176132909?img=3Dhttps%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpubli=
+c%2Fimages%2F86ad98d8-3e12-43e0-9d5c-6bc78fdbb0b7_800x400.webp&quot;,&quot;=
+isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" =
+alt=3D"" width=3D"550" height=3D"275" src=3D"https://substackcdn.com/image/=
+fetch/$s_!5nkm!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/http=
+s%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F86ad98d8=
+-3e12-43e0-9d5c-6bc78fdbb0b7_800x400.webp" style=3D"border: none !important=
+;vertical-align: middle;display: block;-ms-interpolation-mode: bicubic;heig=
+ht: auto;margin-bottom: 0;width: auto !important;max-width: 100% !important=
+;margin: 0 auto;"></a></td><td style=3D"text-align: center;"></td></tr></tb=
+ody></table></figure></div><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,=
+55);line-height: 26px;font-size: 16px;"><span>Google se voulait confiant. M=
+ais contre tout attente Bruxelles a choisi de frapper fort contre le moteur=
+ de recherche, accus&#233; d&#8217;abus de position dominante dans la publi=
+cit&#233; programmatique. Non seulement elle lui a inflig&#233; une amende =
+de 2,95 milliards d&#8217;euros - quand les derni&#232;res indiscr&#233;tio=
+ns &#233;voquaient un montant </span><em>&#8220;modeste&#8221;</em><span>. =
+Mais elle laisse aussi grande ouverte l&#8217;hypoth&#232;se d&#8217;un d&#=
+233;mant&#232;lement de sa machine publicitaire.</span></p><p style=3D"marg=
+in: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><em=
+>&#8220;&#192; ce stade, il semble que la seule fa&#231;on pour Google de m=
+ettre effectivement fin &#224; son conflit d&#8217;int&#233;r&#234;ts soit =
+une mesure structurelle, comme la cession d&#8217;une partie de son activit=
+&#233; adtech&#8221;, </em><span>explique Teresa Ribera, la nouvelle commis=
+saire europ&#233;enne &#224; la concurrence. Sont notamment menac&#233;s le=
+ serveur publicitaire DoubleClick for Publishers (DFP) et la bourse d&#8217=
+;ench&#232;res en temps r&#233;el AdX. Avant d&#8217;en arriver l&#224;, la=
+ Commission va laisser &#224; la soci&#233;t&#233; la possibilit&#233; de p=
+roposer des ajustements.</span></p><p style=3D"margin: 0 0 20px 0;color: rg=
+b(54,55,55);line-height: 26px;font-size: 16px;"><span>Le g&#233;ant de Moun=
+tain View occupe une place centrale dans la publicit&#233; programmatique: =
+il agit simultan&#233;ment comme vendeur, acheteur et plateforme d&#8217;&#=
+233;changes. Et il contr&#244;le les outils les plus populaires &#224; chaq=
+ue &#233;tape. Selon Bruxelles, il a ainsi a profit&#233; de la situation p=
+our mettre en place des </span><em>&#8220;pratiques d&#8217;autopr&#233;f&#=
+233;rence&#8221;</em><span> entre ses diff&#233;rents outils, qui lui ont p=
+ermis d&#8217;accentuer sa position dominante, au d&#233;triment de ses con=
+currents. Mais aussi des &#233;diteurs et des annonceurs en facturant </spa=
+n><em>&#8220;des frais plus &#233;lev&#233;s&#8221;.</em></p><p class=3D"bu=
+tton-wrapper" data-attrs=3D"{&quot;url&quot;:&quot;https://www.mntd.fr/goog=
+le-echappe-a-une-vente-forcee-de-doubleclick-et-adx-pour-le-moment/&quot;,&=
+quot;text&quot;:&quot;En savoir plus&quot;,&quot;action&quot;:null,&quot;cl=
+ass&quot;:null}" data-component-name=3D"ButtonCreateButton" style=3D"margin=
+: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;text-al=
+ign: center;cursor: pointer;border-radius: 4px;"><a class=3D"button primary=
+" href=3D"https://substack.com/redirect/25e6f14f-d449-4ed5-a764-805fac46c0f=
+b?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" rel=
+=3D"" style=3D"font-family: system-ui,-apple-system,BlinkMacSystemFont,'Seg=
+oe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoj=
+i','Segoe UI Symbol';display: inline-block;box-sizing: border-box;cursor: p=
+ointer;border: none;border-radius: 8px;font-size: 14px;line-height: 20px;fo=
+nt-weight: 600;text-align: center;margin: 0;opacity: 1;outline: none;white-=
+space: nowrap;color: #ffffff !important;text-decoration: none !important;ba=
+ckground-color: #007a76;padding: 12px 20px;height: auto;"><span style=3D"co=
+lor: #ffffff;text-decoration: none;">En savoir plus</span></a></p><div styl=
+e=3D"font-size: 16px;line-height: 26px;"><hr style=3D"margin: 32px 0;paddin=
+g: 0;height: 1px;background: #e6e6e6;border: none;"></div><h1 class=3D"head=
+er-anchor-post" style=3D"position: relative;font-family: 'SF Pro Display',-=
+apple-system-headline,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI'=
+,Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Se=
+goe UI Symbol';font-weight: bold;-webkit-font-smoothing: antialiased;-moz-o=
+sx-font-smoothing: antialiased;-webkit-appearance: optimizelegibility;-moz-=
+appearance: optimizelegibility;appearance: optimizelegibility;margin: 1em 0=
+ 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;font-size: 2em;">Pourqu=
+oi Netflix s&#8217;int&#233;resse aux droits de la Ligue des champions</h1>=
+<p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-=
+size: 16px;">La Ligue des champions de football bient&#244;t sur Netflix ? =
+Impensable il y a encore deux ans, ce sc&#233;nario semble d&#233;sormais p=
+rendre forme: le g&#233;ant am&#233;ricain devrait en effet participer &#22=
+4; l&#8217;appel d&#8217;offres pour les droits de diffusion de la plus pre=
+stigieuse comp&#233;tition europ&#233;enne. Il ciblerait plus particuli&#23=
+2;rement un lot con&#231;u sur mesure pour les grandes plateformes de strea=
+ming. Objectif: accro&#238;tre son inventaire publicitaire.</p><p class=3D"=
+button-wrapper" data-attrs=3D"{&quot;url&quot;:&quot;https://cafetech.subst=
+ack.com/i/175988557/pourquoi-netflix-sinteresse-aux-droits-de-la-ligue-des-=
+champions&quot;,&quot;text&quot;:&quot;En savoir plus&quot;,&quot;action&qu=
+ot;:null,&quot;class&quot;:null}" data-component-name=3D"ButtonCreateButton=
+" style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-s=
+ize: 16px;text-align: center;cursor: pointer;border-radius: 4px;"><a class=
+=3D"button primary" href=3D"https://substack.com/redirect/29e1f5b2-ad60-43a=
+a-a01b-65d3c97ab87c?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsR=
+ukz8PaFv0-2U" rel=3D"" style=3D"font-family: system-ui,-apple-system,BlinkM=
+acSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoj=
+i','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;box-sizing: bor=
+der-box;cursor: pointer;border: none;border-radius: 8px;font-size: 14px;lin=
+e-height: 20px;font-weight: 600;text-align: center;margin: 0;opacity: 1;out=
+line: none;white-space: nowrap;color: #ffffff !important;text-decoration: n=
+one !important;background-color: #007a76;padding: 12px 20px;height: auto;">=
+<span style=3D"color: #ffffff;text-decoration: none;">En savoir plus</span>=
+</a></p><div style=3D"font-size: 16px;line-height: 26px;"><hr style=3D"marg=
+in: 32px 0;padding: 0;height: 1px;background: #e6e6e6;border: none;"></div>=
+<h1 class=3D"header-anchor-post" style=3D"position: relative;font-family: '=
+SF Pro Display',-apple-system-headline,system-ui,-apple-system,BlinkMacSyst=
+emFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Se=
+goe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing: a=
+ntialiased;-moz-osx-font-smoothing: antialiased;-webkit-appearance: optimiz=
+elegibility;-moz-appearance: optimizelegibility;appearance: optimizelegibil=
+ity;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;font-s=
+ize: 2em;"><strong>Soulagement pour Meta: l&#8217;Europe autorise le transf=
+ert des donn&#233;es publicitaires</strong></h1><p style=3D"margin: 0 0 20p=
+x 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">La justice eur=
+op&#233;enne a valid&#233; le Data Privacy Framework (DPF), autorisant le t=
+ransfert de donn&#233;es de l&#8217;Europe vers les &#201;tats-Unis. Une d&=
+#233;cision qui offre un r&#233;pit &#224; Meta, dont les outils publicitai=
+res reposent sur ce texte. En 2023, la maison m&#232;re de Facebook et Inst=
+agram avait re&#231;u une amende de 1,2 milliard d&#8217;euros, du jamais v=
+u dans le cadre du RGPD.</p><p class=3D"button-wrapper" data-attrs=3D"{&quo=
+t;url&quot;:&quot;https://www.mntd.fr/donnees-publicitaires-la-justice-euro=
+peenne-autorise-le-transfert-de-data-vers-les-etats-unis-soulagement-pour-m=
+eta/&quot;,&quot;text&quot;:&quot;En savoir plus&quot;,&quot;action&quot;:n=
+ull,&quot;class&quot;:null}" data-component-name=3D"ButtonCreateButton" sty=
+le=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: =
+16px;text-align: center;cursor: pointer;border-radius: 4px;"><a class=3D"bu=
+tton primary" href=3D"https://substack.com/redirect/314c26b0-1ff2-426f-9069=
+-aab000c3601c?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8Pa=
+Fv0-2U" rel=3D"" style=3D"font-family: system-ui,-apple-system,BlinkMacSyst=
+emFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Se=
+goe UI Emoji','Segoe UI Symbol';display: inline-block;box-sizing: border-bo=
+x;cursor: pointer;border: none;border-radius: 8px;font-size: 14px;line-heig=
+ht: 20px;font-weight: 600;text-align: center;margin: 0;opacity: 1;outline: =
+none;white-space: nowrap;color: #ffffff !important;text-decoration: none !i=
+mportant;background-color: #007a76;padding: 12px 20px;height: auto;"><span =
+style=3D"color: #ffffff;text-decoration: none;">En savoir plus</span></a></=
+p><div style=3D"font-size: 16px;line-height: 26px;"><hr style=3D"margin: 32=
+px 0;padding: 0;height: 1px;background: #e6e6e6;border: none;"></div><h1 cl=
+ass=3D"header-anchor-post" style=3D"position: relative;font-family: 'SF Pro=
+ Display',-apple-system-headline,system-ui,-apple-system,BlinkMacSystemFont=
+,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI=
+ Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing: antiali=
+ased;-moz-osx-font-smoothing: antialiased;-webkit-appearance: optimizelegib=
+ility;-moz-appearance: optimizelegibility;appearance: optimizelegibility;ma=
+rgin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;font-size: 2=
+em;"><strong>Xbox Game Pass: vers une version gratuite avec publicit&#233; =
+?</strong></h1><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-hei=
+ght: 26px;font-size: 16px;"><span>Microsoft s&#8217;appr&#234;te &#224; fra=
+nchir une nouvelle &#233;tape dans sa strat&#233;gie de d&#233;mocratisatio=
+n du jeu vid&#233;o. Selon </span><em>The Verge</em><span>, l&#8217;entrepr=
+ise testerait actuellement une version gratuite du Xbox Cloud Gaming financ=
+&#233;e par la publicit&#233;. Une initiative qui pourrait transformer l&#8=
+217;acc&#232;s aux jeux vid&#233;o tout en offrant de nouvelles opportunit&=
+#233;s pour les annonceurs.</span></p><p class=3D"button-wrapper" data-attr=
+s=3D"{&quot;url&quot;:&quot;https://www.mntd.fr/xbox-game-pass-vers-une-ver=
+sion-gratuite-avec-publicite/&quot;,&quot;text&quot;:&quot;En savoir plus&q=
+uot;,&quot;action&quot;:null,&quot;class&quot;:null}" data-component-name=
+=3D"ButtonCreateButton" style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);li=
+ne-height: 26px;font-size: 16px;text-align: center;cursor: pointer;border-r=
+adius: 4px;"><a class=3D"button primary" href=3D"https://substack.com/redir=
+ect/8a504242-928a-4b92-bb6c-41725f069a9e?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXH=
+BqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D"font-family: system-ui=
+,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-se=
+rif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-=
+block;box-sizing: border-box;cursor: pointer;border: none;border-radius: 8p=
+x;font-size: 14px;line-height: 20px;font-weight: 600;text-align: center;mar=
+gin: 0;opacity: 1;outline: none;white-space: nowrap;color: #ffffff !importa=
+nt;text-decoration: none !important;background-color: #007a76;padding: 12px=
+ 20px;height: auto;"><span style=3D"color: #ffffff;text-decoration: none;">=
+En savoir plus</span></a></p><div style=3D"font-size: 16px;line-height: 26p=
+x;"><hr style=3D"margin: 32px 0;padding: 0;height: 1px;background: #e6e6e6;=
+border: none;"></div><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);li=
+ne-height: 26px;font-size: 16px;margin-bottom: 0;">Cr&#233;dit photos: Spot=
+ify &#8211; Unsplash / Shutter Speed</p></div></div><div class=3D"postscrip=
+t-placeholder" style=3D"margin: 32px 0 0;width: 100%;box-sizing: border-box=
+;font-size: 16px;line-height: 26px;"></div><table class=3D"email-ufi-2-bott=
+om" role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cel=
+lpadding=3D"0" style=3D"border-top: 1px solid rgb(0,0,0,.1);border-bottom: =
+1px solid rgb(0,0,0,.1);min-width: 100%;"><tbody><tr height=3D"16"><td heig=
+ht=3D"16" style=3D"font-size:0px;line-height:0;">&nbsp;</td></tr><tr><td><t=
+able role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0"><tbody><tr><td><table role=3D"presentation" width=3D"auto" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto;"><=
+tbody><tr><td style=3D"vertical-align:middle;"><table role=3D"presentation"=
+ width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr=
+><td align=3D"center"><a class=3D"email-button-outline" href=3D"https://sub=
+stack.com/app-link/post?publication_id=3D51206&post_id=3D176132909&utm_sour=
+ce=3Dsubstack&isFreemail=3Dtrue&submitLike=3Dtrue&token=3DeyJ1c2VyX2lkIjozM=
+jc3MDA2NjgsInBvc3RfaWQiOjE3NjEzMjkwOSwicmVhY3Rpb24iOiLinaQiLCJpYXQiOjE3NjA1=
+MDYyODksImV4cCI6MTc2MzA5ODI4OSwiaXNzIjoicHViLTUxMjA2Iiwic3ViIjoicmVhY3Rpb24=
+ifQ.e-mjlaED2qq3SqKl6E7dxUTe2cS9t7fBegi2Bzh8LzU&utm_medium=3Demail&utm_camp=
+aign=3Demail-reaction&r=3D5f3rgc" style=3D"font-family: system-ui,-apple-sy=
+stem,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple=
+ Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;font=
+-weight: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-tra=
+nsform: uppercase;font-size: 12px;line-height: 12px;padding: 9px 14px;text-=
+decoration: none;color: rgb(119,119,119);"><img class=3D"icon" src=3D"https=
+://substackcdn.com/image/fetch/$s_!PeVs!,w_36,c_scale,f_png,q_auto:good,fl_=
+progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideHeart%3Fv%3D4%2=
+6height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=
+=3D"18" height=3D"18" style=3D"margin-right: 8px;min-width: 18px;min-height=
+: 18px;border: none;vertical-align: middle;max-width: 18px" alt=3D""><span =
+class=3D"email-button-text" style=3D"vertical-align: middle;">Liker</span><=
+/a></td></tr></tbody></table></td><td width=3D"8" style=3D"min-width: 8px">=
+</td><td style=3D"vertical-align:middle;"><table role=3D"presentation" widt=
+h=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td =
+align=3D"center"><a class=3D"email-button-outline" href=3D"https://substack=
+=2Ecom/app-link/post?publication_id=3D=
+51206&post_id=3D176132909&utm_source=3D=
+substack&utm_medium=3Demail&isFreemail=3Dtrue&comments=3Dtrue&token=3DeyJ1c=
+2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE3NjEzMjkwOSwiaWF0IjoxNzYwNTA2Mjg5LCJl=
+eHAiOjE3NjMwOTgyODksImlzcyI6InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.=
+eamK6ZihoGnMtBXmP8DESUnQ-qdOcmG3N_wLebKIJho&r=3D5f3rgc&utm_campaign=3Demail=
+-half-magic-comments&action=3Dpost-comment&utm_source=3Dsubstack&utm_medium=
+=3Demail" style=3D"font-family: system-ui,-apple-system,BlinkMacSystemFont,=
+'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI =
+Emoji','Segoe UI Symbol';display: inline-block;font-weight: 500;border: 1px=
+ solid rgb(0,0,0,.1);border-radius: 9999px;text-transform: uppercase;font-s=
+ize: 12px;line-height: 12px;padding: 9px 14px;text-decoration: none;color: =
+rgb(119,119,119);"><img class=3D"icon" src=3D"https://substackcdn.com/image=
+/fetch/$s_!x1tS!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%=
+3A%2F%2Fsubstack.com%2Ficon%2FLucideComments%3Fv%3D4%26height%3D36%26fill%3=
+Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" =
+style=3D"margin-right: 8px;min-width: 18px;min-height: 18px;border: none;ve=
+rtical-align: middle;max-width: 18px" alt=3D""><span class=3D"email-button-=
+text" style=3D"vertical-align: middle;">Commenter</span></a></td></tr></tbo=
+dy></table></td><td width=3D"8" style=3D"min-width: 8px"></td><td style=3D"=
+vertical-align:middle;"><table role=3D"presentation" width=3D"auto" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center">=
+<a class=3D"email-button-outline" href=3D"https://substack.com/redirect/2/e=
+yJlIjoiaHR0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS9wdWIvY2FmZXRlY2gvcC92ZXJzLWxhLWZp=
+bi1kdS1zdHJlYW1pbmctZ3JhdHVpdD91dG1fc291cmNlPXN1YnN0YWNrJnV0bV9tZWRpdW09ZW1=
+haWwmdXRtX2NhbXBhaWduPWVtYWlsLXJlc3RhY2stY29tbWVudCZhY3Rpb249cmVzdGFjay1jb2=
+1tZW50JnI9NWYzcmdjJnRva2VuPWV5SjFjMlZ5WDJsa0lqb3pNamMzTURBMk5qZ3NJbkJ2YzNSZ=
+mFXUWlPakUzTmpFek1qa3dPU3dpYVdGMElqb3hOell3TlRBMk1qZzVMQ0psZUhBaU9qRTNOak13=
+T1RneU9Ea3NJbWx6Y3lJNkluQjFZaTAxTVRJd05pSXNJbk4xWWlJNkluQnZjM1F0Y21WaFkzUnB=
+iMjRpZlEuZWFtSzZaaWhvR25NdEJYbVA4REVTVW5RLXFkT2NtRzNOX3dMZWJLSUpobyIsInAiOj=
+E3NjEzMjkwOSwicyI6NTEyMDYsImYiOnRydWUsInUiOjMyNzcwMDY2OCwiaWF0IjoxNzYwNTA2M=
+jg5LCJleHAiOjIwNzYwODIyODksImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9=
+=2EEjR7ARcSDtSAJebjO0tV_7XGz82bHERHMY2=
+9SGfZRpA?&utm_source=3Dsubstack&utm_med=
+ium=3Demail" style=3D"font-family: system-ui,-apple-system,BlinkMacSystemFo=
+nt,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe =
+UI Emoji','Segoe UI Symbol';display: inline-block;font-weight: 500;border: =
+1px solid rgb(0,0,0,.1);border-radius: 9999px;text-transform: uppercase;fon=
+t-size: 12px;line-height: 12px;padding: 9px 14px;text-decoration: none;colo=
+r: rgb(119,119,119);"><img class=3D"icon" src=3D"https://substackcdn.com/im=
+age/fetch/$s_!5EGt!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/htt=
+ps%3A%2F%2Fsubstack.com%2Ficon%2FNoteForwardIcon%3Fv%3D4%26height%3D36%26fi=
+ll%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"=
+18" style=3D"margin-right: 8px;min-width: 18px;min-height: 18px;border: non=
+e;vertical-align: middle;max-width: 18px" alt=3D""><span class=3D"email-but=
+ton-text" style=3D"vertical-align: middle;">Restack</span></a></td></tr></t=
+body></table></td></tr></tbody></table></td><td align=3D"right"><table role=
+=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0"><tbody><tr></tr></tbody></table></td></tr></tbody></table></td></tr>=
+<tr height=3D"16"><td height=3D"16" style=3D"font-size:0px;line-height:0;">=
+&nbsp;</td></tr></tbody></table><div class=3D"footer footer-ZM59BM" style=
+=3D"color: rgb(119,119,119);text-align: center;font-size: 16px;line-height:=
+ 26px;padding: 24px0;"><div style=3D"font-size: 16px;line-height: 26px;padd=
+ing-bottom: 24px"><p class=3D"pencraft pc-reset color-secondary-ls1g8s size=
+-12-mmZ61m reset-IxiVJZ small meta-B2bqa5" style=3D"list-style: none;font-f=
+amily: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helveti=
+ca,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';=
+padding-bottom: 0;font-size: 12px;line-height: 16px;margin: 0;color: rgb(11=
+9,119,119);text-decoration: unset;">&#169; 2025 <span>SAS Caf&#233;tech</sp=
+an> <br><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9jYWZl=
+dGVjaC5zdWJzdGFjay5jb20vYWN0aW9uL2Rpc2FibGVfZW1haWw_dG9rZW49ZXlKMWMyVnlYMmx=
+rSWpvek1qYzNNREEyTmpnc0luQnZjM1JmYVdRaU9qRTNOakV6TWprd09Td2lhV0YwSWpveE56WX=
+dOVEEyTWpnNUxDSmxlSEFpT2pFM09USXdOREl5T0Rrc0ltbHpjeUk2SW5CMVlpMDFNVEl3TmlJc=
+0luTjFZaUk2SW1ScGMyRmliR1ZmWlcxaGFXd2lmUS5GTVp6czhUYkhtTU9XbjFnRGRPLVE3T1hu=
+WHoyLVlJSkNfa1pVbUlDUGhJIiwicCI6MTc2MTMyOTA5LCJzIjo1MTIwNiwiZiI6dHJ1ZSwidSI=
+6MzI3NzAwNjY4LCJpYXQiOjE3NjA1MDYyODksImV4cCI6MjA3NjA4MjI4OSwiaXNzIjoicHViLT=
+AiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.bBCcvdpHKgKDcoZG2gZkYPqkWa4hv-UB-dKvfLv6-=
+gc?" style=3D"color: #007a76;text-decoration: none;"><span style=3D"color: =
+rgb(119,119,119);text-decoration: underline;">Se d&#233;sabonner</span></a>=
+</p></div><p class=3D"footerSection-EHR0jG small powered-by-substack" style=
+=3D"padding: 0 24px;font-size: 12px;line-height: 20px;margin: 0;color: rgb(=
+119,119,119);font-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe=
+ UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji'=
+,'Segoe UI Symbol';padding-bottom: 0;margin-top: 0;"><a href=3D"https://sub=
+stack.com/redirect/2abd081c-c67f-4ba6-b5f6-588fdc8924b1?j=3DeyJ1IjoiNWYzcmd=
+jIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" style=3D"color: #007a76;t=
+ext-decoration: none;display: inline-block;margin: 0 4px;"><img src=3D"http=
+s://substackcdn.com/image/fetch/$s_!zgFk!,w_270,c_limit,f_auto,q_auto:good,=
+fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneric-app=
+-button-fr%402x.png" srcset=3D"https://substackcdn.com/image/fetch/$s_!h-8e=
+!,w_135,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubst=
+ack.com%2Fimg%2Femail%2Fgeneric-app-button-fr.png, https://substackcdn.com/=
+image/fetch/$s_!zgFk!,w_270,c_limit,f_auto,q_auto:good,fl_progressive:steep=
+/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneric-app-button-fr%402x.png =
+2x, https://substackcdn.com/image/fetch/$s_!z142!,w_405,c_limit,f_auto,q_au=
+to:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgen=
+eric-app-button-fr%403x.png 3x" width=3D"135" alt=3D"Obtenir l&#8217;app" h=
+eight=3D"40" style=3D"max-width: 550px;border: none !important;vertical-ali=
+gn: middle;"></a><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM=
+6Ly9zdWJzdGFjay5jb20vc2lnbnVwP3V0bV9zb3VyY2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbW=
+FpbCZ1dG1fY29udGVudD1mb290ZXImdXRtX2NhbXBhaWduPWF1dG9maWxsZWQtZm9vdGVyJmZyZ=
+WVTaWdudXBFbWFpbD1uMnJzc0BuaWNvcGljby5mciZyPTVmM3JnYyIsInAiOjE3NjEzMjkwOSwi=
+cyI6NTEyMDYsImYiOnRydWUsInUiOjMyNzcwMDY2OCwiaWF0IjoxNzYwNTA2Mjg5LCJleHAiOjI=
+wNzYwODIyODksImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9._W6zmuA-z92H8=
+OTEe7QrHe5X5o8QtAzpG2blj87bV80?" style=3D"color: #007a76;text-decoration: n=
+one;display: inline-block;margin: 0 4px;"><img src=3D"https://substackcdn.c=
+om/image/fetch/$s_!whhV!,w_368,c_limit,f_auto,q_auto:good,fl_progressive:st=
+eep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-button-fr%402x.png" =
+srcset=3D"https://substackcdn.com/image/fetch/$s_!nWhE!,w_184,c_limit,f_aut=
+o,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail=
+%2Fpublish-button-fr.png, https://substackcdn.com/image/fetch/$s_!whhV!,w_3=
+68,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.c=
+om%2Fimg%2Femail%2Fpublish-button-fr%402x.png 2x, https://substackcdn.com/i=
+mage/fetch/$s_!GW0f!,w_552,c_limit,f_auto,q_auto:good,fl_progressive:steep/=
+https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-button-fr%403x.png 3x" w=
+idth=3D"184" alt=3D"&#201;crire" height=3D"40" style=3D"max-width: 550px;bo=
+rder: none !important;vertical-align: middle;"></a></p></div></div></td><td=
+></td></tr></tbody></table><img src=3D"https://eotrx.substackcdn.com/open?t=
+oken=3DeyJtIjoiPDIwMjUxMDE1MDUzMDM5LjMuZjNlODU0ODg2NjVmNmNjZkBtZzIuc3Vic3Rh=
+Y2suY29tPiIsInUiOjMyNzcwMDY2OCwiciI6Im4ycnNzQG5pY29waWNvLmZyIiwiZCI6Im1nMi5=
+zdWJzdGFjay5jb20iLCJwIjoxNzYxMzI5MDksInQiOiJuZXdzbGV0dGVyIiwiYSI6ImV2ZXJ5b2=
+5lIiwicyI6NTEyMDYsImMiOiJwb3N0IiwiZiI6dHJ1ZSwicG9zaXRpb24iOiJib3R0b20iLCJpY=
+XQiOjE3NjA1MDYyOTAsImV4cCI6MTc2MzA5ODI5MCwiaXNzIjoicHViLTAiLCJzdWIiOiJlbyJ9=
+=2EuZthMToQIl2M4_Ez1WWA-o2K0kj_jUCFa=
+ckH9yIme8A" alt=3D"" width=3D"1" height=
+=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important;bor=
+der-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;m=
+argin-right:0 !important;margin-left:0 !important;padding-top:0 !important;=
+padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !impo=
+rtant;"/><img width=3D"1" height=3D"1" alt=3D"" src=3D"https://email.mg2.su=
+bstack.com/o/eJxE0NuusyAUBOCnKZeGg6Be8CwGF0NLfgXDoX98-x13m-zbWVmTL0Ou4ZnLZc=
+9cG_N29GLWM4MVk-GaG7kohsPFfX0iobgGv7r2d-XLqNjLCicXD5qCgPIbiQWCb_AiTPPkFSYWr=
+eRSCy4014qrZVBDUJj1OM_G6GCIwmPkx1MOtW-1Ofo3UD5YrGso-AXYVjrYzVxd9xGJYPFGuXL6=
+xtHfLqFu1Sdp1wmb8L_uaA2FnX1bKR9HT7FdK5Lbdvhvcd_2SK7FnO4iLSQ3rNgkS62PkadI-Yy=
+Uh1BY7ZvPh4vJkgtooBdrn_16Rbm_lZwmzo2Z2dvKnwAAAP__olR1kg"></body></html>
+--1d76e33629751a2df9f425b772d0842d0ff3f72b235c1b503a7f3733e9d6--
