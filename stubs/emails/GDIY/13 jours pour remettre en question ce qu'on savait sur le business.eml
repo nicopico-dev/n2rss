@@ -1,0 +1,1630 @@
+Return-Path: <bounce+28a4d4.2a862-n2rss=nicopico.fr@gdiy.fr>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id eGC2FiSf62ibNysAQTsBvA
+	(envelope-from <bounce+28a4d4.2a862-n2rss=nicopico.fr@gdiy.fr>)
+	for <n2rss@nicopico.fr>; Sun, 12 Oct 2025 14:29:24 +0200
+Return-path: <bounce+28a4d4.2a862-n2rss=nicopico.fr@gdiy.fr>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Sun, 12 Oct 2025 14:29:24 +0200
+Received: from mg-160-170.kessel.media ([204.220.160.170])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.2:ECDHE_ECDSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <bounce+28a4d4.2a862-n2rss=nicopico.fr@gdiy.fr>)
+	id 1v7vCT-0001J0-1y
+	for n2rss@nicopico.fr; Sun, 12 Oct 2025 14:29:21 +0200
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=gdiy.fr; q=dns/txt; s=email; t=1760272160; x=1760279360;
+ h=Message-ID: Reply-To: List-Unsubscribe-Post: List-Unsubscribe: List-Owner: List-ID: Subject: Subject: From: From: To: To: Date: Content-Transfer-Encoding: Content-Type: MIME-Version: Sender: Sender;
+ bh=TNnMtRfUnBqRSihbDJMLsCdOoYtbxWJ449lKKZRR/Ac=;
+ b=IQYd+aQYuaeTx8GD/S+a4BF4uOdXgDIXEsbNzQJExDKV3odXgetXvQQsnQBcs3hT1kaJCJhErVJeWHhRI6DoM5EgQW+sq2aKVaTxq/RapXhQ0K3YDwWCsCWxQgimECCXteOYOSgz75XsvQskiYKiVCJ9GV65CwdDDJfj97PXjhs=
+X-Mailgun-Sid: WyI4ZTJmYSIsIm4ycnNzQG5pY29waWNvLmZyIiwiMmE4NjIiXQ==
+Received: from 9b4bea18-35c9-4179-8207-240d61b2e096.prvt.dyno.rt.heroku.com
+ (ec2-18-201-100-223.eu-west-1.compute.amazonaws.com [18.201.100.223]) by
+ 78cdf6e9b5ed8637546d3cd4849fd60e8dcf3c4987408a20c88bb714cecde84c with SMTP id
+ 68eb9f20bdb2001eddc092c4; Sun, 12 Oct 2025 12:29:20 GMT
+X-Mailgun-Sending-Ip: 204.220.160.170
+Sender: contact@gdiy.fr
+MIME-Version: 1.0
+Content-Type: multipart/mixed; charset="utf-8";
+ boundary="===============9161408679731821397=="
+Content-Transfer-Encoding: base64
+Date: Sun, 12 Oct 2025 12:29:20 +0000
+To: n2rss@nicopico.fr
+From: Matt Stefani <contact@gdiy.fr>
+Subject: 13 jours pour remettre en question ce qu'on savait sur le business
+Feedback-ID: 
+ pst_a18555bd22b14e32bf3320fa66ce11fb:pbl_28ef5dcc503f45c8b056836e13e9bceb:newsletter:kessel
+List-ID: <matt.kessel.media>
+List-Owner: <mailto:contact@gdiy.fr>
+List-URL: 
+ <https://matt.kessel.media/posts?source_type=user_referral&source_referral=usr_9c2cd19bb260421a917680d6654defca>
+List-Unsubscribe: 
+ <https://api.kessel.media/reader_dashboard/unsubscribe?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoibjJyc3NAbmljb3BpY28uZnIifSwiZXhwIjoxNzYyODY0MTU1LCJzY29wZSI6InJlYWRlciIsInN1YnNjcmlwdGlvbiI6eyJpZCI6InNic180Njk2OTFmNDY3MWQ0MzgzOTM0NDA2NjIxNTcxYWFiZiJ9fQ.GCQ9qQYA_ERminOTxwtm8ZtxUUbbNiaKBU1blsqYzbE&unsubscription_referral=pst_a18555bd22b14e32bf3320fa66ce11fb>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Reply-To: Matt Stefani <contact@gdiy.fr>
+X-Mailgun-Variables: {"newsletter_id": "pbl_28ef5dcc503f45c8b056836e13e9bceb",
+ "article_id": "pst_a18555bd22b14e32bf3320fa66ce11fb",
+ "article_published_at": "2025-10-12T12:28:30.208679+00:00"}
+Message-ID: <d3920d97-1c30-4708-9a20-13d0edb5fc19@kessel.media>
+X-Mailin-Tag: newsletter:pst_a18555bd22b14e32bf3320fa66ce11fb
+X-Mailgun-Tag: newsletter:pst_a18555bd22b14e32bf3320fa66ce11fb
+X-alwaysdata-Spam-Report: 	0.20 MIME_HTML_ONLY - Message has only an HTML part
+	0.20 CTYPE_MIXED_BOGUS - multipart/mixed without non-textual part
+	0.05 MANY_INVISIBLE_PARTS [1] - Many parts are visually hidden
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 REPLYTO_EQ_FROM - Reply-To header is identical to From header
+	0.00 REDIRECTOR_URL [bit.ly] - The presence of a redirector in the mail
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_TWO [2] - Message has two Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MISSING_XM_UA - Message has neither X-Mailer nor User-Agent header
+	0.00 MIME_TRACE [0:+, 1:~]
+	0.00 HAS_REPLYTO [contact@gdiy.fr] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [gdiy.fr:+] - DKIM trace symbol
+	0.00 DKIM_REPUTATION [0]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/mixed] - Known content-type
+	-0.10 MAILLIST [generic] - Message seems to be from maillist
+	-0.20 R_DKIM_ALLOW [gdiy.fr:s=email] - DKIM verification succeed
+	-0.50 DMARC_POLICY_ALLOW [gdiy.fr, quarantine] - DMARC permit policy
+	-0.62 IP_REPUTATION_HAM [ip: 204.220.160.170(-0.62)]
+X-alwaysdata-Spam-Score: -1.08
+
+--===============9161408679731821397==
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html><html lang=3D"und" dir=3D"auto" xmlns=3D"http://www.w3.org/1=
+999/xhtml" xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas=
+-microsoft-com:office:office"><head><title>13 jours pour remettre en questi=
+on ce qu'on savait sur le business</title><!--[if !mso]><!--><meta http-equ=
+iv=3D"X-UA-Compatible" content=3D"IE=3Dedge"><!--<![endif]--><meta http-equ=
+iv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8"><meta name=3D"vi=
+ewport" content=3D"width=3Ddevice-width,initial-scale=3D1"><style type=3D"t=
+ext/css">#outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size=
+-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-r=
+space:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decora=
+tion:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }</style><!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]--><!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]--><!--[if !mso]><!--><link href=3D"https://fonts.googleapis.c=
+om/css?family=3DDroid+Sans:300,400,500,700" rel=3D"stylesheet" type=3D"text=
+/css"><link href=3D"https://fonts.googleapis.com/css?family=3DRoboto:300,40=
+0,500,700" rel=3D"stylesheet" type=3D"text/css"><link href=3D"https://fonts=
+=2Egoogleapis.com/css?family=3DUbuntu:3=
+00,400,500,700" rel=3D"stylesheet" typ=
+e=3D"text/css"><style type=3D"text/css">@import url(https://fonts.googleapi=
+s.com/css?family=3DDroid+Sans:300,400,500,700);
+@import url(https://fonts.googleapis.com/css?family=3DRoboto:300,400,500,70=
+0);
+@import url(https://fonts.googleapis.com/css?family=3DUbuntu:300,400,500,70=
+0);</style><!--<![endif]--><style type=3D"text/css">@media only screen and =
+(min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+=2Emj-column-per-10 { width:10% !important; max-width: 10%; }
+=2Emj-column-per-90 { width:90% !important; max-width: 90%; }
+=2Emj-column-per-33-333333333333336 { w=
+idth:33.333333333333336% !important; m=
+ax-width: 33.333333333333336%; }
+      }</style><style media=3D"screen and (min-width:480px)">.moz-text-html=
+ .mj-column-per-100 { width:100% !important; max-width: 100%; }
+=2Emoz-text-html .mj-column-per-10 { wid=
+th:10% !important; max-width: 10%; }
+=2Emoz-text-html .mj-column-per-90 { wid=
+th:90% !important; max-width: 90%; }
+=2Emoz-text-html .mj-column-per-33-3333=
+33333333336 { width:33.333333333333336=
+% !important; max-width: 33.333333333333336%; }</style><style type=3D"text/=
+css">@media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }</style><style type=3D"text/css">/* WARNING: Using global css selector=
+s is totally unreliable with Outlook */
+      p, h1, h2, h3, h4 { margin: 0; padding: 0; }
+      .preview { opacity: 0.6; background: #e6e9f2; border-radius: 8px; pad=
+ding-bottom: 0; }
+      /* Needed to add horizontal padding between the table cells (mj-colum=
+n) in desktop only (to have a space between cells) */
+      /* Media queries are not supported in Outlook, so this spacing trick =
+will not work on them. Cannot do anything else about it. */
+      /* If we set it on the mj-column, on mobile it will shift the content=
+ of the table cells to the right when the right cell is displayed verticall=
+y. */
+      @media only screen and (min-width:600px) {
+        .desktop-padding-left > table > tbody > tr > td {
+          padding-left: 8px !important;
+        }
+        .desktop-padding-right > table > tbody > tr > td {
+          padding-right: 8px !important;
+        }
+      }
+      .headliner-desktop-only { display: none !important; }
+      @media only screen and (min-width: 600px) { .headliner-desktop-only {=
+ display: block !important; } }
+      .headliner-mobile-only { display: block !important; }
+      @media only screen and (min-width: 600px) { .headliner-mobile-only { =
+display: none !important; } }
+      /* because of https://github.com/mjmlio/mjml/issues/1104 */
+      .magic-poll_br_8{
+        border: 1px solid #e5e7eb !important;
+        border-radius: 8px !important;
+      }
+      .magic-poll_br_8-outlook{
+        border: 1px solid #e5e7eb !important;
+      }</style>
+<meta name=3D"appReleaseVersion" content=3D"v606">
+      <meta name=3D"appBuildCommit" content=3D"50d8e6019797c76ed96042403b4b=
+a023b0c1e086">
+      <style>
+       /*
+        * Workaround for Outlook 2007 to 2013 bullet point and number point=
+ display issues.
+        * Without this, the point are not entirely displayed.
+        */
+        <!--[if gte mso 9]>
+          <style>
+            li {
+              text-indent:-1em;
+            }
+          </style>
+        <![endif]-->
+      </style>
+</head><body style=3D"word-spacing:normal;"><div style=3D"display:none;font=
+-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacit=
+y:0;overflow:hidden;">Notre film au Br=C3=A9sil est dispo =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C</div><div lang=3D"und" dir=3D"auto"><div data-app-release-version=3D"v6=
+06" data-app-build-commit=3D"50d8e6019797c76ed96042403b4ba023b0c1e086" styl=
+e=3D"display: none;"></div><!--[if mso | IE]><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation"=
+ style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D=
+"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><=
+div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;ma=
+x-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;background-=
+color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:=
+0px;padding:10px 20px 10px;text-align:center;"><!--[if mso | IE]><table rol=
+e=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td=
+ class=3D"" style=3D"vertical-align:top;width:560px;" ><![endif]--><div cla=
+ss=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0px;text-a=
+lign:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;padding:0px;=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" width=3D"100%"><tbody><tr><td align=3D"center" style=3D"font-size:0px;=
+padding:0px;word-break:break-word;"><div style=3D"font-family:Whyte,Helveti=
+ca Neue,Helvetica,Arial,BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Ox=
+ygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,sans-serif;font-size:12px;font-w=
+eight:400;line-height:18px;text-align:center;color:#212b35;"><a href=3D"htt=
+ps://trk.gdiy.fr/c/eJyMkcmqGzEQRb9G2rWpoTUttHAI_oLsGw0l3KSf3UhyQv4-vJBp-VYF=
+dQ8XLif1uZdDtr3Gc8wtoTfG5EqUcRWm3JgJWrK2CGLL-g9_vvKxj7vULc1IQGZBWJC-ICm-kld=
+8ZbgQeOuCok8Aiq8AukZK3pKWiM4COUIL-h4rV0AMOYGTlJqrzCt763NLvrTi9B4rB4Ia3IKFYV=
+kd-CUkggW5gtRsWsGgVvgqY8hxeZO6J33E-5znUHxVdFN0e0tzXv4nFN3O55jj_X5gvOLbeL56k=
+W3-OEXx59eQvnVp0ns6FNnf6d_PO9G3UKhUDDmThZUwBXTWQ7XWrFVaSfoh38chc0r_pSEfG3lp=
+ppZigNtqis9grGcryBJykax7fFAfQ63w2Mvz3Mvz0rqe8V-V4uuHhH6L9DMAAP__DXqdvA">Ouv=
+rir dans le navigateur</a></div></td></tr></tbody></table></td></tr></tbody=
+></table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></=
+tbody></table></div><!--[if mso | IE]></td></tr></table><![endif]--> <!--[i=
+f mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"=
+600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;ms=
+o-line-height-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;b=
+ackground-color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"c=
+enter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody=
+><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:=
+center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:to=
+p;width:560px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-gro=
+up-fix" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline=
+-block;vertical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td sty=
+le=3D"vertical-align:top;padding:0px;"><table border=3D"0" cellpadding=3D"0=
+" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td ali=
+gn=3D"center" style=3D"font-size:0px;padding:0px;word-break:break-word;"><t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+ style=3D"border-collapse:collapse;border-spacing:0px;"><tbody><tr><td styl=
+e=3D"width:560px;"><a href=3D"https://trk.gdiy.fr/c/eJyMkbuq3DAYhJ9G6rz8F0u=
+WChUOYZ8gvdHlF2viszaSNiFvH07IrTztzMcMzMQ29nzItpdw9bFFdMaYVIgSzsKUKjNBjdZmQa=
+xJ_-GvVzr2_pCyxREIyEwIE9IXJMUrOcUrw43A2cUr-gSgeAXQJVB0lrQEXCzQQmhBP4KkxWZfZ=
+3HyXpREyJJHtAiRTPV6D4U9QfHLhJlhmhdwk48EE3IBKcnUjF7N8FV6l-P2JmWP-giPMa6ueFV0=
+V3R_i2Pc_icU3a-zj6743s9Xy7KNH5co_vzq0rYmVVqLhyL72_2rvBNt85lyQZ8SWZgJo8fFOij=
+WmrlIzVE_5Xs_ZAxpv_ZNx0ZOqik5G-A6m-wSGOvYCrL4lCXpFp7UelczPPd8Xns-b7XpEf5FKV=
+4_9NS3QD8DAAD__93gkkA" target=3D"_blank"><img alt=3D"" src=3D"https://img.k=
+essel.media/cdn-cgi/image/w=3D600,trim.top=3D598,trim.left=3D160,trim.width=
+=3D1280,trim.height=3D402,fit=3Dcover,dpr=3D2/2025/05/12/d6856a49-38d0-472b=
+-9d27-0e9fe77e2bb6?source_type=3Dshared_by_newsletter&source_referral=3Dpbl=
+_28ef5dcc503f45c8b056836e13e9bceb" style=3D"border:0;display:block;outline:=
+none;text-decoration:none;height:auto;width:100%;font-size:13px;" width=3D"=
+560" height=3D"auto"></a></td></tr></tbody></table></td></tr></tbody></tabl=
+e></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><![en=
+dif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table>=
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=
+=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heigh=
+t-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-co=
+lor:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"=
+background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td sty=
+le=3D"direction:ltr;font-size:0px;padding:10px 20px 10px;text-align:center;=
+"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;wid=
+th:560px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fi=
+x" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-bloc=
+k;vertical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D=
+"vertical-align:top;padding:0px;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D=
+"left" style=3D"font-size:0px;padding:0px;word-break:break-word;"><div styl=
+e=3D"font-family:Whyte, Helvetica, Arial, sans-serif;font-size:18px;font-we=
+ight:bold;line-height:130%;text-align:left;color:#212b35;">Notre film au Br=
+=C3=A9sil est dispo</div></td></tr></tbody></table></td></tr></tbody></tabl=
+e></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tbody><=
+/table></div><!--[if mso | IE]></td></tr></table><table align=3D"center" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentat=
+ion" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td styl=
+e=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]=
+--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px aut=
+o;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;backgro=
+und-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-s=
+ize:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><table role=
+=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![e=
+ndif]--><p style=3D"text-indent:0;line-height:26px;color:#212b35;text-align=
+:left;font-weight:400;font-size:17px;font-family:Whyte, Helvetica, Arial, s=
+ans-serif">J=E2=80=99ai grandi dans un monde o=C3=B9 =E2=80=9Cfaire du busi=
+ness=E2=80=9D, c=E2=80=99=C3=A9tait faire du profit.<mj-section><mj-column>=
+<mj-text><br></mj-text></mj-column></mj-section>Point.</p><!--[if mso | IE]=
+></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]=
+></td></tr></table><table align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" wi=
+dth=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size=
+:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"background:#F=
+FFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><table ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"=
+><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px;text=
+-align:center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-inden=
+t:0;line-height:26px;color:#212b35;text-align:left;font-weight:400;font-siz=
+e:17px;font-family:Whyte, Helvetica, Arial, sans-serif">Un monde d=E2=80=99=
+hommes en costume, de tableaux Excel et Powerpoint, d=E2=80=99extraction, d=
+=E2=80=99exploitation.<mj-section><mj-column><mj-text><br></mj-text></mj-co=
+lumn></mj-section>On y parlait croissance, jamais limites.<mj-section><mj-c=
+olumn><mj-text><br></mj-text></mj-column></mj-section>Tout s=E2=80=99acc=C3=
+=A9l=C3=A9rait =E2=80=94 ann=C3=A9es 80, 90, 2000 =E2=80=94 et l=E2=80=99ar=
+gent devenait la seule mesure de r=C3=A9ussite.</p><!--[if mso | IE]></tr><=
+/table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td><=
+/tr></table><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"=
+600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;ms=
+o-line-height-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;b=
+ackground-color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"c=
+enter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentatio=
+n" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody=
+><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:=
+center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent:0;lin=
+e-height:26px;color:#212b35;text-align:left;font-weight:400;font-size:17px;=
+font-family:Whyte, Helvetica, Arial, sans-serif">Puis sont arriv=C3=A9es le=
+s startups.<mj-section><mj-column><mj-text><br></mj-text></mj-column></mj-s=
+ection>Jeunes, rapides, brillantes.<mj-section><mj-column><mj-text><br></mj=
+-text></mj-column></mj-section>Elles ont remplac=C3=A9 la cravate par le ho=
+odie, le bureau d=E2=80=99angle par le coworking, le cigare par le smoothie=
+=2E<mj-section><mj-column><mj-text><br>=
+</mj-text></mj-column></mj-section>Mai=
+s au fond, elles poursuivaient la m=C3=AAme course : plus de productivit=C3=
+=A9, plus de lev=C3=A9es, plus de tout.</p><!--[if mso | IE]></tr></table><=
+![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></ta=
+ble><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgc=
+olor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-h=
+eight-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;backgroun=
+d-color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td=
+ style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center;"=
+><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-height=
+:26px;color:#212b35;text-align:left;font-weight:400;font-size:17px;font-fam=
+ily:Whyte, Helvetica, Arial, sans-serif">En face, il y a toujours eu les =
+=E2=80=9Calter=E2=80=9D.<mj-section><mj-column><mj-text><br></mj-text></mj-=
+column></mj-section>Ceux qui refusaient le jeu.<mj-section><mj-column><mj-t=
+ext><br></mj-text></mj-column></mj-section>Ils parlaient nature, conscience=
+, sobri=C3=A9t=C3=A9.<mj-section><mj-column><mj-text><br></mj-text></mj-col=
+umn></mj-section>Mais souvent depuis la marge, sans impact r=C3=A9el.</p><!=
+--[if mso | IE]></tr></table><![endif]--></td></tr></tbody></table></div><!=
+--[if mso | IE]></td></tr></table><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"w=
+idth:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-heigh=
+t:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:6=
+00px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;background-color:#=
+FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;pad=
+ding:10px 20px;text-align:center;"><!--[if mso | IE]><table role=3D"present=
+ation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p =
+style=3D"text-indent:0;line-height:26px;color:#212b35;text-align:left;font-=
+weight:400;font-size:17px;font-family:Whyte, Helvetica, Arial, sans-serif">=
+R=C3=A9sultat : deux plan=C3=A8tes.<mj-section><mj-column><mj-text><br></mj=
+-text></mj-column></mj-section>L=E2=80=99une qui exploite.<mj-section><mj-c=
+olumn><mj-text><br></mj-text></mj-column></mj-section>L=E2=80=99autre qui p=
+roteste.<mj-section><mj-column><mj-text><br></mj-text></mj-column></mj-sect=
+ion>Et entre les deux, un vide.</p><!--[if mso | IE]></tr></table><![endif]=
+--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><tab=
+le align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D=
+"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+ule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-color=
+:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+ackground:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td styl=
+e=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--=
+[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-height:26px=
+;color:#212b35;text-align:left;font-weight:400;font-size:17px;font-family:W=
+hyte, Helvetica, Arial, sans-serif"><mj-section><mj-column><mj-text><br></m=
+j-text></mj-column></mj-section>Ceux qui tentent d=E2=80=99allier sens et p=
+erformance sont catalogu=C3=A9s comme =E2=80=9Cgreenwashers=E2=80=9D ou =E2=
+=80=9Chypocrites=E2=80=9D.</p><!--[if mso | IE]></tr></table><![endif]--></=
+td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><table al=
+ign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" =
+role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFF=
+FF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:ex=
+actly;"><![endif]--><div style=3D"background:#FFFFFF;background-color:#FFFF=
+FF;margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"backgroun=
+d:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"dir=
+ection:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso =
+| IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-height:26px;color:#=
+212b35;text-align:left;font-weight:400;font-size:17px;font-family:Whyte, He=
+lvetica, Arial, sans-serif">C=E2=80=99est ce monde fractur=C3=A9 qu=E2=80=
+=99on a vu aux =C3=89tats-Unis : un pays qui pousse tout =C3=A0 l=E2=80=99e=
+xtr=C3=AAme. Des personnes souvent obs=C3=A9d=C3=A9es par l=E2=80=99argent =
+pour l=E2=80=99argent, dans un pays o=C3=B9 il n=E2=80=99y a pas le choix, =
+l=E2=80=99erreur menant directement =C3=A0 la rue.</p><!--[if mso | IE]></t=
+r></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></t=
+d></tr></table><table align=3D"center" border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=
+=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0p=
+x;mso-line-height-rule:exactly;"><![endif]--><div style=3D"background:#FFFF=
+FF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><=
+tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-a=
+lign:center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent:=
+0;line-height:26px;color:#212b35;text-align:left;font-weight:400;font-size:=
+17px;font-family:Whyte, Helvetica, Arial, sans-serif"><mj-section><mj-colum=
+n><mj-text><br></mj-text></mj-column></mj-section>De retour, je me suis dem=
+and=C3=A9 si un mod=C3=A8le qui r=C3=A9concilierait l=E2=80=99=C3=A9conomie=
+ et le vivant =C3=A9tait possible, ou tout simplement une utopie.</p><!--[i=
+f mso | IE]></tr></table><![endif]--></td></tr></tbody></table></div><!--[i=
+f mso | IE]></td></tr></table><table align=3D"center" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width=
+:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0p=
+x;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"ba=
+ckground:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"=
+><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF;w=
+idth:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10p=
+x 20px;text-align:center;"><!--[if mso | IE]><table role=3D"presentation" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D=
+"text-indent:0;line-height:26px;color:#212b35;text-align:left;font-weight:4=
+00;font-size:17px;font-family:Whyte, Helvetica, Arial, sans-serif">Et un no=
+m s=E2=80=99est impos=C3=A9 : <strong>VEJA</strong>.</p><!--[if mso | IE]><=
+/tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]><=
+/td></tr></table><table align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" widt=
+h=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0=
+px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"background:#FFF=
+FFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><=
+tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-a=
+lign:center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent:=
+0;line-height:26px;color:#212b35;text-align:left;font-weight:400;font-size:=
+17px;font-family:Whyte, Helvetica, Arial, sans-serif">J=E2=80=99avais re=C3=
+=A7u <a target=3D"_blank" rel=3D"noopener noreferrer nofollow" href=3D"http=
+s://trk.gdiy.fr/c/eJyM0D2u3SAQQOHVQIc1zBgMBYVTeAXpr_gZcslzbMuQZ2X3kSJFadMfn=
+eKL92h551cr4erjFbUzxqSCmPTMhKkSIdRobWata5J_--tn2lt_c3nFERDQKA1K41eNglZ0glaC=
+CcHZxQv8AiBoBZAlYHQWJQe9WMAFtQX5Dtax9VQjaYM62bJERh9picRcY8myhUIeofhF6Uyg5gW=
+c8hFBaSrAJZmatRczfHDvvE8_uLQo9_Ae4-qCVoGbwO15nulbab-megvcrrPk2IfArXOKfTQ-1M=
+d5XeqTv0eBmzz46TuPwfcfnbS_0HE1JWcDVGeTXQJjHVnWxD5lTvIOB969ixmOls-r5XOqtxzh3=
+0rQ-l_OnwF_BwAA__96TXxo">S=C3=A9bastien Kopp sur GDIY</a> en 2017.<mj-secti=
+on><mj-column><mj-text><br></mj-text></mj-column></mj-section>=C3=80 l=E2=
+=80=99=C3=A9poque, la marque faisait 30 millions d=E2=80=99euros de chiffre=
+ d=E2=80=99affaires. Une belle r=C3=A9ussite, certes, mais une broutille da=
+ns l=E2=80=99univers ultra concurrentiel des sneakers.</p><!--[if mso | IE]=
+></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]=
+></td></tr></table><table align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" wi=
+dth=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size=
+:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"background:#F=
+FFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><table ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"=
+><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px;text=
+-align:center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-inden=
+t:0;line-height:26px;color:#212b35;text-align:left;font-weight:400;font-siz=
+e:17px;font-family:Whyte, Helvetica, Arial, sans-serif">Il avait un beau di=
+scours, une vraie vision, mais je voulais voir ce qu=E2=80=99il y avait vra=
+iment derri=C3=A8re les mots</p><!--[if mso | IE]></tr></table><![endif]-->=
+</td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><table =
+align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"=
+" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FF=
+FFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:=
+exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-color:#FF=
+FFFF;margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"backgro=
+und:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"d=
+irection:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--[if ms=
+o | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-height:26px;color=
+:#212b35;text-align:left;font-weight:400;font-size:17px;font-family:Whyte, =
+Helvetica, Arial, sans-serif">Alors je l=E2=80=99ai appel=C3=A9.<mj-section=
+><mj-column><mj-text><br></mj-text></mj-column></mj-section>Et je lui ai di=
+t : =E2=80=9C<i>ouvre-moi les portes de VEJA</i>. Je veux tout voir, aucune=
+ restriction=E2=80=9D.</p><!--[if mso | IE]></tr></table><![endif]--></td><=
+/tr></tbody></table></div><!--[if mso | IE]></td></tr></table><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" rol=
+e=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF"=
+ ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exact=
+ly;"><![endif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;=
+margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#=
+FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direct=
+ion:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | I=
+E]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-height:26px;color:#21=
+2b35;text-align:left;font-weight:400;font-size:17px;font-family:Whyte, Helv=
+etica, Arial, sans-serif">Seb n=E2=80=99a pas h=C3=A9sit=C3=A9 une seconde.=
+<mj-section><mj-column><mj-text><br></mj-text></mj-column></mj-section><str=
+ong>=E2=80=9CBanco.=E2=80=9D</strong></p><!--[if mso | IE]></tr></table><![=
+endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></tabl=
+e><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcol=
+or=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-hei=
+ght-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-=
+color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td=
+ style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center;"=
+><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-height=
+:26px;color:#212b35;text-align:left;font-weight:400;font-size:17px;font-fam=
+ily:Whyte, Helvetica, Arial, sans-serif">Deux mois plus tard, on s=E2=80=99=
+envolait pour le Br=C3=A9sil.<mj-section><mj-column><mj-text><br></mj-text>=
+</mj-column></mj-section>Objectif : aller voir =C3=A0 la source.<mj-section=
+><mj-column><mj-text><br></mj-text></mj-column></mj-section>Pas les discour=
+s, pas les slides. Les faits.</p><!--[if mso | IE]></tr></table><![endif]--=
+></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><table=
+ align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D=
+"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#F=
+FFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule=
+:exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-color:#F=
+FFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"backgr=
+ound:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"=
+direction:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--[if m=
+so | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-height:26px;colo=
+r:#212b35;text-align:left;font-weight:400;font-size:17px;font-family:Whyte,=
+ Helvetica, Arial, sans-serif">Les usines.<mj-section><mj-column><mj-text><=
+br></mj-text></mj-column></mj-section>Les extracteurs de caoutchouc.<mj-sec=
+tion><mj-column><mj-text><br></mj-text></mj-column></mj-section><span style=
+=3D"color: oklch(0.278078 0.029596 256.848)">Les bureaux.</span></p><!--[if=
+ mso | IE]></tr></table><![endif]--></td></tr></tbody></table></div><!--[if=
+ mso | IE]></td></tr></table><table align=3D"center" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:=
+600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px=
+;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"bac=
+kground:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;">=
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" ro=
+le=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF;wi=
+dth:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px=
+ 20px;text-align:center;"><!--[if mso | IE]><table role=3D"presentation" bo=
+rder=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"=
+text-indent:0;line-height:26px;color:#212b35;text-align:left;font-weight:40=
+0;font-size:17px;font-family:Whyte, Helvetica, Arial, sans-serif">Les gens.=
+</p><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbody></table></=
+div><!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" styl=
+e=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line=
+-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div s=
+tyle=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-wid=
+th:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;background-color=
+:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;p=
+adding:10px 20px;text-align:center;"><!--[if mso | IE]><table role=3D"prese=
+ntation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><=
+p style=3D"text-indent:0;line-height:26px;color:#212b35;text-align:left;fon=
+t-weight:400;font-size:17px;font-family:Whyte, Helvetica, Arial, sans-serif=
+">Treize jours =C3=A0 traverser le pays, =C3=A0 poser des questions sans fi=
+ltre.<mj-section><mj-column><mj-text><br></mj-text></mj-column></mj-section=
+>Treize jours =C3=A0 observer une entreprise qui ne ressemble =C3=A0 aucune=
+ autre.<mj-section><mj-column><mj-text><br></mj-text></mj-column></mj-secti=
+on>Une bo=C3=AEte qui refuse la pub, les lev=C3=A9es, les =C3=A9g=C3=A9ries=
+=2E<mj-section><mj-column><mj-text><br>=
+</mj-text></mj-column></mj-section>Qui=
+ grandit sans grossir.</p><!--[if mso | IE]></tr></table><![endif]--></td><=
+/tr></tbody></table></div><!--[if mso | IE]></td></tr></table><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" rol=
+e=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF"=
+ ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exact=
+ly;"><![endif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;=
+margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#=
+FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direct=
+ion:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | I=
+E]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-height:26px;color:#21=
+2b35;text-align:left;font-weight:400;font-size:17px;font-family:Whyte, Helv=
+etica, Arial, sans-serif">Aujourd=E2=80=99hui, <strong>VEJA</strong>, c=E2=
+=80=99est 250 millions d=E2=80=99euros de chiffre d=E2=80=99affaires, 600 s=
+alari=C3=A9s, 2500 familles productrices de caoutchouc bio. D=C3=A9tenue =
+=C3=A0 50/50 par ses deux co-fondateurs.<mj-section><mj-column><mj-text><br=
+></mj-text></mj-column></mj-section>Et surtout, une radicalit=C3=A9 rare : =
+prouver qu=E2=80=99on peut construire un business mondial sans d=C3=A9truir=
+e la plan=C3=A8te.</p><!--[if mso | IE]></tr></table><![endif]--></td></tr>=
+</tbody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"c=
+enter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"=
+presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr=
+><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;">=
+<![endif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margi=
+n:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFF=
+F;background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:l=
+tr;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><t=
+able role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+><tr><![endif]--><p style=3D"text-indent:0;line-height:26px;color:#212b35;t=
+ext-align:left;font-weight:400;font-size:17px;font-family:Whyte, Helvetica,=
+ Arial, sans-serif">Ce voyage m=E2=80=99a bouscul=C3=A9.<mj-section><mj-col=
+umn><mj-text><br></mj-text></mj-column></mj-section>Parce qu=E2=80=99il ne =
+raconte pas une utopie, mais une r=C3=A9alit=C3=A9.<mj-section><mj-column><=
+mj-text><br></mj-text></mj-column></mj-section>Parce qu=E2=80=99il remet to=
+ut =C3=A0 plat : la performance, la valeur, la r=C3=A9ussite.</p><!--[if ms=
+o | IE]></tr></table><![endif]--></td></tr></tbody></table></div><!--[if ms=
+o | IE]></td></tr></table><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:60=
+0px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;f=
+ont-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"backg=
+round:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><t=
+able align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF;widt=
+h:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 2=
+0px;text-align:center;"><!--[if mso | IE]><table role=3D"presentation" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"te=
+xt-indent:0;line-height:26px;color:#212b35;text-align:left;font-weight:400;=
+font-size:17px;font-family:Whyte, Helvetica, Arial, sans-serif">On en a fai=
+t un film.<mj-section><mj-column><mj-text><br></mj-text></mj-column></mj-se=
+ction><strong>=E2=80=9CFaire du business autrement.=E2=80=9D</strong><mj-se=
+ction><mj-column><mj-text><br></mj-text></mj-column></mj-section>Treize jou=
+rs pour remettre en question tout ce qu=E2=80=99on croyait savoir sur l=E2=
+=80=99entrepreneuriat.<mj-section><mj-column><mj-text><br></mj-text></mj-co=
+lumn></mj-section><u>Il est disponible ici sur ma cha=C3=AEne YouTube @matt=
+stefani</u><mj-section><mj-column><mj-text><br></mj-text></mj-column></mj-s=
+ection><mj-section><mj-column><mj-text><br></mj-text></mj-column></mj-secti=
+on>On a tout fait pour retranscrire le mieux cette aventure que nous avons =
+ador=C3=A9e, n=E2=80=99h=C3=A9sitez pas =C3=A0 le partager au maximum, et l=
+aisser des commentaires constructifs.</p><!--[if mso | IE]></tr></table><![=
+endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></tabl=
+e><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" =
+class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcol=
+or=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-hei=
+ght-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-=
+color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td=
+ style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center;"=
+><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-height=
+:26px;color:#212b35;text-align:left;font-weight:400;font-size:17px;font-fam=
+ily:Whyte, Helvetica, Arial, sans-serif"></p><!--[if mso | IE]></tr></table=
+><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></=
+table><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" b=
+gcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line=
+-height-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;backgro=
+und-color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" sty=
+le=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><=
+td style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center=
+;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;wid=
+th:560px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fi=
+x" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-bloc=
+k;vertical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D=
+"vertical-align:top;padding:0px;"><table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D=
+"center" style=3D"font-size:0px;padding:0px;word-break:break-word;"><p styl=
+e=3D"border-top:solid 1px #A9A9A9;font-size:1px;margin:0px auto;width:100%;=
+"></p><!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" style=3D"border-top:solid 1px #A9A9A9;font-size:1px;m=
+argin:0px auto;width:560px;" role=3D"presentation" width=3D"560px" ><tr><td=
+ style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]--></td></tr></tbody></table></td></tr></tbody><=
+/table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tb=
+ody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td=
+ style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![e=
+ndif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0p=
+x auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;=
+background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr=
+;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><tab=
+le role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><=
+tr><![endif]--><div style=3D"text-indent:0;line-height:25px;color:#212b35;t=
+ext-align:left;font-weight:400;font-family:Whyte, Helvetica, Arial, sans-se=
+rif"><h3 style=3D"font-size: 20px; text-align: left"><span style=3D"color: =
+rgb(37, 121, 83)"><strong>&gt; </strong></span><span style=3D"color: rgb(38=
+, 121, 83)"><strong>GDIY</strong></span><span style=3D"color: rgb(37, 121, =
+83)"><strong>&nbsp;: </strong></span><span style=3D"color: #267953">#496 - =
+S=C3=A9bastien Kopp - VEJA - <strong>Faire du business autrement</strong></=
+span></h3></div><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbod=
+y></table></div><!--[if mso | IE]></td></tr></table><table align=3D"center"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presen=
+tation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td s=
+tyle=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![end=
+if]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px =
+auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;back=
+ground-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;fon=
+t-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><table r=
+ole=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><=
+![endif]--><p style=3D"text-indent:0;line-height:26px;color:#212b35;text-al=
+ign:left;font-weight:400;font-size:17px;font-family:Whyte, Helvetica, Arial=
+, sans-serif">Tourn=C3=A9 au milieu de notre p=C3=A9riple br=C3=A9silien, c=
+et =C3=A9pisode est probablement le plus insolite de l=E2=80=99histoire de =
+GDIY.<mj-section><mj-column><mj-text><br></mj-text></mj-column></mj-section=
+>Deux heures enregistr=C3=A9es <strong>au c=C5=93ur de la for=C3=AAt amazon=
+ienne</strong>, avec l=E2=80=99un des entrepreneurs les plus inspirants et =
+lucides que j=E2=80=99aie rencontr=C3=A9s : <a target=3D"_blank" rel=3D"noo=
+pener noreferrer nofollow" href=3D"https://trk.gdiy.fr/c/eJyM0DGunDAQgOHT2B=
+1oPIMHU7ggBSdIv_LYg9ZaHouwk71-pEhR2tf_-osv3b3mQx-1xKv1R3LBey8FUdykhLITIeyJO=
+atzu9h__fVLjtqeWh6pRwT0g4PB4U-HhlYMhlaCESHwvBj8AWBoBbAlYgqMVqObGXBGx2CfsQAx=
+EEviJc9SCDgrB4Epz5KE2NZYaEEoyzy4TDBMM4RhSQiDowJaxO_ZLWaCl7amx_ilpSZ7xGfvVzO=
+0GtwMbp_PZzzq-dJSzzG_vwxu9TS4NZXUetVzeL2va-CZvCCTwc2e-mmH9q73XyE5Hhh09yVnD7=
+RPPgcBz4FYHekiWcXe8cS7NTPBWfP7qvk97rft8f_K0Pot698R_wQAAP__Zfd8Fw"><span sty=
+le=3D"color: #267953"><strong>S=C3=A9bastien Kopp</strong></span></a>, cofo=
+ndateur de<a target=3D"_blank" rel=3D"noopener noreferrer nofollow" href=3D=
+"https://trk.gdiy.fr/c/eJyM0DnO2zAQQOHTkJ2EWcStYKEUPkF6gcsQVqLfNkjGvn6AAEHa=
+9A-v-FKfZ7nkOGt8jXkk9MaYXIkybsKUGzNBS9YWQWxZ_-1fv_J1jrvUI81IQGZBWJC-IyneySv=
+eGVYCb11Q9A1A8Q6ga6TkLWmJ6CyQI7Sg75EdgAucvUuh4GbFBwguIYlNCRj1GSsHghrcgoVh2R=
+z4JSSCBbmC1GxawaA2-CljyLV-ST2TvuJ9ztdQvCu6Kbp9Pp_1LT_SMuazy1qeX4purR-tK7rph=
+3zGJXNK_4ORr4O8NFNLMcBtM8VnMNazFWQJuUjWPT6oj6E2eJzl-TrLc21dz_hvpXj_L9Z3pN8B=
+AAD__8wGdNw"><span style=3D"color: #267953"> <strong>VEJA</strong>.</span><=
+/a></p><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbody></table=
+></div><!--[if mso | IE]></td></tr></table><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation"=
+ style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D=
+"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><=
+div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;ma=
+x-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;background-=
+color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:=
+0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><table role=3D"=
+presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif=
+]--><p style=3D"text-indent:0;line-height:26px;color:#212b35;text-align:lef=
+t;font-weight:400;font-size:17px;font-family:Whyte, Helvetica, Arial, sans-=
+serif">En 2024, VEJA, c=E2=80=99est <strong>250 M=E2=82=AC de chiffre d=E2=
+=80=99affaires</strong>, 600 employ=C3=A9s et 2500 familles productrices de=
+ caoutchouc bio.<mj-section><mj-column><mj-text><br></mj-text></mj-column><=
+/mj-section>Le tout, <strong>sans pub, sans =C3=A9g=C3=A9rie, sans lev=C3=
+=A9e de fonds</strong>, mais avec une vision radicale : prouver qu=E2=80=99=
+on peut construire un business mondial sans d=C3=A9truire la plan=C3=A8te.<=
+/p><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbody></table></d=
+iv><!--[if mso | IE]></td></tr></table><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=
+=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-=
+height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div st=
+yle=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-widt=
+h:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;background-color:=
+#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;pa=
+dding:10px 20px;text-align:center;"><!--[if mso | IE]><table role=3D"presen=
+tation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p=
+ style=3D"text-indent:0;line-height:26px;color:#212b35;text-align:left;font=
+-weight:400;font-size:17px;font-family:Whyte, Helvetica, Arial, sans-serif"=
+>=C3=89coutez l=E2=80=99=C3=A9pisode, regardez le film, et venez comprendre=
+ comment on peut =E2=80=9Cfaire grandir sans grossir=E2=80=9D.</p><!--[if m=
+so | IE]></tr></table><![endif]--></td></tr></tbody></table></div><!--[if m=
+so | IE]></td></tr></table><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:60=
+0px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;f=
+ont-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"backg=
+round:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><t=
+able align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=
+=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF;widt=
+h:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 2=
+0px;text-align:center;"><!--[if mso | IE]><table role=3D"presentation" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"ve=
+rtical-align:top;width:560px;" ><![endif]--><div class=3D"mj-column-per-100=
+ mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;direction:ltr=
+;display:inline-block;vertical-align:top;width:100%;"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tb=
+ody><tr><td style=3D"vertical-align:top;padding:0px;"><table border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tb=
+ody><tr><td align=3D"center" style=3D"font-size:0px;padding:0px;word-break:=
+break-word;"><p style=3D"border-top:solid 1px #A9A9A9;font-size:1px;margin:=
+0px auto;width:100%;"></p><!--[if mso | IE]><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-top:solid 1px #A=
+9A9A9;font-size:1px;margin:0px auto;width:560px;" role=3D"presentation" wid=
+th=3D"560px" ><tr><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]--></td></tr></tbody></table></td></tr></tbody><=
+/table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tb=
+ody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td=
+ style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![e=
+ndif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0p=
+x auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;=
+background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr=
+;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><tab=
+le role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><=
+tr><![endif]--><div style=3D"text-indent:0;line-height:25px;color:#212b35;t=
+ext-align:left;font-weight:400;font-family:Whyte, Helvetica, Arial, sans-se=
+rif"><h3 style=3D"font-size: 20px; text-align: left"><span style=3D"font-fa=
+mily: Whyte, Helvetica, Arial, sans-serif; color: rgb(37, 121, 83)"><strong=
+>&gt; </strong></span><span style=3D"font-family: Whyte, Helvetica, Arial, =
+sans-serif; color: #000000"><strong>La Martingale : </strong></span><a targ=
+et=3D"_blank" rel=3D"noopener noreferrer nofollow" href=3D"https://trk.gdiy=
+=2Efr/c/eJyMkbGOHCEQRL8GMlZNMzBMQDAO9gu=
+cr6BpbpG5mRGw69-37iTLqeMqlarqxT4rNX7UH=
+K4xH1F7a23KiEkvbDAVYxBKdI5Y65LkX__1Sq2OJ-dHnAEBrdKgNP7UKMyOXpjdwA3Bu3UT-ANA=
+mB1A5oDRO5Qc9OoAV9QO5DOs0TsLGhbe1uI0WdCWMhmXad0Ssawhmw0hb6vSZEAtK3i1RQSlTQb=
+OyRbSm1jgF4_B7fbJuUbZwnPOawizC7wLvLf4-VX_-IiNb_UUeJ_na3wLqvR4EKvMHz1mZnXFrk=
+qd9FQlvqaqTb35yJ3V-VL1ePOYtQu8y4N_j8Zzcv--MLUHei42E1kwZbHkE1jnjWNt-GtLkj0c2=
+McQCxyVzqvSeStdzvAvSpj9v2C8A_4JAAD__84siaM"><span style=3D"font-family: Why=
+te, Helvetica, Arial, sans-serif; color: #267953"><strong>La France d=C3=A9=
+grad=C3=A9e par Fitch : faut-il vendre ou investir ?</strong></span></a></h=
+3></div><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbody></tabl=
+e></div><!--[if mso | IE]></td></tr></table><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation"=
+ style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D=
+"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><=
+div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;ma=
+x-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;background-=
+color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:=
+0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><table role=3D"=
+presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif=
+]--><p style=3D"text-indent: 0; line-height: 26px; color: #212b35; text-ali=
+gn: left; font-weight: 400; font-size: 17px; font-family: Whyte, Helvetica,=
+ Arial, sans-serif; padding: 5px 10px; background-color: #ffffff">Le d=C3=
+=A9classement de la France par Fitch, des taux qui ne baissent plus, des se=
+cteurs =C3=A0 la peine : faut-il tout vendre ou, au contraire, saisir les o=
+pportunit=C3=A9s ?</p><!--[if mso | IE]></tr></table><![endif]--></td></tr>=
+</tbody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"c=
+enter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"=
+presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr=
+><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;">=
+<![endif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margi=
+n:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFF=
+F;background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:l=
+tr;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><t=
+able role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+><tr><![endif]--><p style=3D"text-indent: 0; line-height: 26px; color: #212=
+b35; text-align: left; font-weight: 400; font-size: 17px; font-family: Whyt=
+e, Helvetica, Arial, sans-serif; padding: 5px 10px; background-color: #ffff=
+ff"><a target=3D"_blank" rel=3D"noreferrer noopener" href=3D"https://trk.gd=
+iy.fr/c/eJyM0Luq3DAQgOGnkTqb0Yx1K1Q4AT9B-kWXUVYcrXexdLJ5_EAgpD39z1988Zotd76=
+1El5j3qJyWutUEJPamDBVIoQajcmsVE3yX__6TL2NO5dbnAEB9aJgUfhDoaAdnaCdYEVwxnqB3w=
+AE7QCyBIzOoOSgrAG0qAzIezBJZa-t5S1rp42t3prqiivMUUevZAuFPELxdlGZYNksuMVHhEVRA=
+S5J16y82OCDx-C-Pri0KHu4z_kagnaBh8Dj_X6vvZ0fXNq55udD4NFOgcdPgfo7CdS7v2Iv7eTl=
+wbNV_vy9bBABCVHgIU9-j85z8vWXK_UbOq665KyB6qazS6CNI8OK2KfMSV7hxGsMscHZ8vPV8nO=
+tl5zh_0rQ_iX4XwH_BAAA__8tCX9D"><span style=3D"color: #267953"><strong><u>G=
+=C3=A9raldine M=C3=A9tifeux</u></strong></span></a>&nbsp;est une habitu=C3=
+=A9e de&nbsp;<i>La Martingale</i>. Associ=C3=A9e et g=C3=A9rante du cabinet=
+&nbsp;<a target=3D"_blank" rel=3D"noreferrer noopener" href=3D"https://trk.=
+gdiy.fr/c/eJyM0Ltu5CAUgOGngc7WuRgMBYW3mCfY3uJy2LGWmbEMSV4_UqQobfpff_HFaxy5y=
+X6UcPaxR3TGmFSIEi7ClCozQY3WZkGsSX_351tqR79L2eMIBGQmhAnpL5LijZzijWEmcHb1iv4A=
+KN4AdAkUnSUtAVcLtBJa0Pfg3ZqQ2aRa0LMU8Ctma2qxBKbYoo9Q2BMUv06YGaZlBTf5SDAhF5C=
+STM3o1QL_pXdp80PKEXUL9zHOrnhTdFN0i23IJf9ikzm_Hopu-ikfvckYcn0BpLaTk2pKzga4Li=
+a7BMY6toIsPmVJ-gpPunpXCzyP_DqP_JrrpUf4WSnefkX5HugzAAD__85FcU4"><span style=
+=3D"color: #267953"><strong><u>Alter Egale</u></strong></span></a>, elle ac=
+compagne au quotidien des particuliers pour optimiser leur gestion de patri=
+moine.</p><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbody></ta=
+ble></div><!--[if mso | IE]></td></tr></table><table align=3D"center" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation=
+" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=
+=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-=
+-><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px auto=
+;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;backgrou=
+nd-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-si=
+ze:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><table role=
+=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![e=
+ndif]--><p style=3D"text-indent: 0; line-height: 26px; color: #212b35; text=
+-align: left; font-weight: 400; font-size: 17px; font-family: Whyte, Helvet=
+ica, Arial, sans-serif; padding: 5px 10px; background-color: #ffffff">=C3=
+=80 mon micro, G=C3=A9raldine explique comment adapter sa strat=C3=A9gie d=
+=E2=80=99investissement =C3=A0 la fin de l=E2=80=99ann=C3=A9e 2025.</p><!--=
+[if mso | IE]></tr></table><![endif]--></td></tr></tbody></table></div><!--=
+[if mso | IE]></td></tr></table><table align=3D"center" border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"wid=
+th:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:=
+0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"=
+background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px=
+;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF=
+;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:1=
+0px 20px;text-align:center;"><!--[if mso | IE]><table role=3D"presentation"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=
+=3D"vertical-align:top;width:560px;" ><![endif]--><div class=3D"mj-column-p=
+er-100 mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;directi=
+on:ltr;display:inline-block;vertical-align:top;width:100%;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%"><tbody><tr><td style=3D"vertical-align:top;padding:0px;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%"><tbody><tr><td align=3D"center" style=3D"font-size:0px;padding:0px;wor=
+d-break:break-word;"><p style=3D"border-top:solid 1px #A9A9A9;font-size:1px=
+;margin:0px auto;width:100%;"></p><!--[if mso | IE]><table align=3D"center"=
+ border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-top:solid=
+ 1px #A9A9A9;font-size:1px;margin:0px auto;width:560px;" role=3D"presentati=
+on" width=3D"560px" ><tr><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]--></td></tr></tbody></table></td></tr></tbody><=
+/table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tb=
+ody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td=
+ style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![e=
+ndif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0p=
+x auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;=
+background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr=
+;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><tab=
+le role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><=
+tr><![endif]--><p style=3D"text-indent:0;line-height:26px;color:#212b35;tex=
+t-align:left;font-weight:400;font-size:17px;font-family:Whyte, Helvetica, A=
+rial, sans-serif"><i>Si vous g=C3=A9rez une bo=C3=AEte, vous savez =C3=A0 q=
+uel point la paie peut vite tourner au cauchemar.<mj-section><mj-column><mj=
+-text><br></mj-text></mj-column></mj-section>Entre les bulletins, les cong=
+=C3=A9s, les primes, les changements de contrat=E2=80=A6 c=E2=80=99est un t=
+errain min=C3=A9.</i></p><!--[if mso | IE]></tr></table><![endif]--></td></=
+tr></tbody></table></div><!--[if mso | IE]></td></tr></table><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" rol=
+e=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF"=
+ ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exact=
+ly;"><![endif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;=
+margin:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#=
+FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direct=
+ion:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | I=
+E]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-height:26px;color:#21=
+2b35;text-align:left;font-weight:400;font-size:17px;font-family:Whyte, Helv=
+etica, Arial, sans-serif"><i>Et c=E2=80=99est exactement pour =C3=A7a que j=
+=E2=80=99aime </i><strong><i>PayFit</i></strong><i>.<mj-section><mj-column>=
+<mj-text><br></mj-text></mj-column></mj-section>Ils ont tout repens=C3=A9 p=
+our simplifier la vie des entrepreneurs et des RH : la paie, la gestion du =
+personnel, les notes de frais, les absences, tout se fait depuis une seule =
+plateforme.</i></p><!--[if mso | IE]></tr></table><![endif]--></td></tr></t=
+body></table></div><!--[if mso | IE]></td></tr></table><table align=3D"cent=
+er" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pre=
+sentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><t=
+d style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![=
+endif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0=
+px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;=
+background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr=
+;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><tab=
+le role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><=
+tr><![endif]--><p style=3D"text-indent:0;line-height:26px;color:#212b35;tex=
+t-align:left;font-weight:400;font-size:17px;font-family:Whyte, Helvetica, A=
+rial, sans-serif"><i>Et leur derni=C3=A8re nouveaut=C3=A9 est vraiment top =
+: les </i><strong><i>fiches de paie sont d=C3=A9sormais encore plus claires=
+ et d=C3=A9taill=C3=A9es</i></strong><i>, pour que chaque collaborateur com=
+prenne enfin ce qu=E2=80=99il touche et pourquoi.<mj-section><mj-column><mj=
+-text><br></mj-text></mj-column></mj-section>Simple, lisible, et fini les =
+=E2=80=9Ceuh=E2=80=A6 c=E2=80=99est quoi cette ligne ?=E2=80=9D =C3=A0 chaq=
+ue fin de mois.</i></p><!--[if mso | IE]></tr></table><![endif]--></td></tr=
+></tbody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"=
+center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D=
+"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><t=
+r><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"=
+><![endif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;marg=
+in:0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFF=
+FF;background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:=
+ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><=
+table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+"><tr><![endif]--><p style=3D"text-indent:0;line-height:26px;color:#212b35;=
+text-align:left;font-weight:400;font-size:17px;font-family:Whyte, Helvetica=
+, Arial, sans-serif"><i>Bref, un outil qui vous fait gagner du temps, de la=
+ s=C3=A9r=C3=A9nit=C3=A9 et quelques cheveux : </i><a target=3D"_blank" rel=
+=3D"noopener noreferrer nofollow" href=3D"https://trk.gdiy.fr/c/eJyM0LGO3CA=
+QgOGngc7WMAMYFxRO4SdIbzEwaFG8u5YhifL2kU46XXv9r7_40j1aPuVoJV59HMkE5xwXRDZWCL=
+kSIdTkfRZjKuvP_vrNZ-sPKUcaEQHdZGAy-NOgog2Doo1gRgh-WRX-AFC0AegSMQWPWqJZPOCCx=
+oN-xGzFJhMWLoldDiBMKWGyxAsHcVa3WGhFKOsymUww2QXCtCaEyVABKexqNquy8Et6l3N-SmlJ=
+n_ExxtUVbQp3hfuV_tU25vx-KtzrrXDXL_nbTxlD7g8BPg8MUl3J2QFV63JgcD6QF0OychbWd3z=
+h3buy8Gr5fbX8nuutR_xaKdq-Zfkn4v8AAAD__9Gscg8"><span style=3D"color: #267953=
+"><i>payfit.com</i></span></a></p><!--[if mso | IE]></tr></table><![endif]-=
+-></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><tabl=
+e align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D=
+"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+ule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-color=
+:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+ackground:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td styl=
+e=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--=
+[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;width:560px=
+;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fix" style=
+=3D"font-size:0px;text-align:left;direction:ltr;display:inline-block;vertic=
+al-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=3D"vertica=
+l-align:top;padding:0px;"><table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=3D"center"=
+ style=3D"font-size:0px;padding:0px;word-break:break-word;"><p style=3D"bor=
+der-top:solid 1px #A9A9A9;font-size:1px;margin:0px auto;width:100%;"></p><!=
+--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" style=3D"border-top:solid 1px #A9A9A9;font-size:1px;margin:0p=
+x auto;width:560px;" role=3D"presentation" width=3D"560px" ><tr><td style=
+=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]--></td></tr></tbody></table></td></tr></tbody><=
+/table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tb=
+ody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td=
+ style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![e=
+ndif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0p=
+x auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;=
+background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr=
+;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><tab=
+le role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><=
+tr><![endif]--><div style=3D"text-indent:0;line-height:25px;color:#212b35;t=
+ext-align:left;font-weight:400;font-family:Whyte, Helvetica, Arial, sans-se=
+rif"><h3 style=3D"font-size: 20px; text-align: start"><span style=3D"font-f=
+amily: Whyte, Helvetica, Arial, sans-serif; color: rgb(37, 121, 83)"><stron=
+g>&gt;&nbsp;</strong></span><span style=3D"font-family: Whyte, Helvetica, A=
+rial, sans-serif; color: rgb(0, 0, 0)"><strong>Le&nbsp;</strong></span><a t=
+arget=3D"_blank" rel=3D"noopener noreferrer nofollow" class=3D"break-all" s=
+tyle=3D"text-align: left" href=3D"https://trk.gdiy.fr/c/eJyM0L2OnTAQxfGnsTu=
+j8Qw2duGCFDxBeuSPcUDhAsJO9vVXutJq222Pjv7FLz59zwevewl362vUzhiTCmLSIxOmSoRQo7=
+WZta5Jfv3vf-nY28ZljT0goFEalMbfGgXN6ATNBAOCs5MX-AtA0AwgS8DoLEoOerKAE2oLcgvTW=
+DwSaVOp-gLVZTBQowMHXHOqcg-FPELxk9KZQI0TOOUjgtJUgEsyNWsvRvjLrfExvLjsUR5h6_1u=
+gmaBi8Clb_yKf15xyJfApcV0nSc_Kqr3KnCRJ3-0g3vn5w2SjhUdV1NyNkB1NNklMNaRZU3sU-Y=
+kn3Di05oY4dzzde_5Guoje_hOCZp_RPs_4GcAAAD__4fYdxs"><span style=3D"font-famil=
+y: Whyte, Helvetica, Arial, sans-serif; color: rgb(37, 121, 83)"><strong><u=
+>Magma</u></strong></span></a><span style=3D"font-family: Whyte, Helvetica,=
+ Arial, sans-serif; color: rgb(0, 0, 0)"><strong>&nbsp;de la semaine :&nbsp=
+;UBER pour quoi ?</strong></span></h3></div><!--[if mso | IE]></tr></table>=
+<![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></t=
+able><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bg=
+color=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-=
+height-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;backgrou=
+nd-color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" styl=
+e=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><t=
+d style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center;=
+"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent:0;line-hei=
+ght:26px;color:#212b35;text-align:left;font-weight:400;font-size:17px;font-=
+family:Whyte, Helvetica, Arial, sans-serif">On se moque parfois de la formu=
+le =E2=80=9Cl=E2=80=99Uber pour XYZ=E2=80=9D. Et pourtant, c=E2=80=99est l=
+=E2=80=99un des hacks d=E2=80=99innovation les plus efficaces : prendre un =
+mod=C3=A8le qui marche (mise en relation instantan=C3=A9e, marketplace, abo=
+nnement) et le transposer dans un secteur encore mal servi.</p><!--[if mso =
+| IE]></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso =
+| IE]></td></tr></table><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font=
+-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"backgrou=
+nd:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><tabl=
+e align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:1=
+00%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px=
+;text-align:center;"><!--[if mso | IE]><table role=3D"presentation" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text=
+-indent:0;line-height:26px;color:#212b35;text-align:left;font-weight:400;fo=
+nt-size:17px;font-family:Whyte, Helvetica, Arial, sans-serif">Cette semaine=
+ dans&nbsp;Magma, on prend exemple sur une nouvelle startup am=C3=A9ricaine=
+, qui aide les adultes =C3=A0 se lancer dans un nouveau sport en quelques c=
+lics.</p><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbody></tab=
+le></div><!--[if mso | IE]></td></tr></table><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation"=
+ style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D=
+"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><=
+div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;ma=
+x-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;background-=
+color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:=
+0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><table role=3D"=
+presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif=
+]--><p style=3D"text-indent:0;line-height:26px;color:#212b35;text-align:lef=
+t;font-weight:400;font-size:17px;font-family:Whyte, Helvetica, Arial, sans-=
+serif">Le probl=C3=A8me ? Difficile et intimidant de trouver un coach quand=
+ on d=C3=A9bute.</p><!--[if mso | IE]></tr></table><![endif]--></td></tr></=
+tbody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pr=
+esentation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><=
+td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><!=
+[endif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:=
+0px auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;=
+background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr=
+;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><tab=
+le role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><=
+tr><![endif]--><p style=3D"text-indent:0;line-height:26px;color:#212b35;tex=
+t-align:left;font-weight:400;font-size:17px;font-family:Whyte, Helvetica, A=
+rial, sans-serif">La solution ? Une plateforme qui connecte directement ave=
+c des instructeurs de paddle, yoga, golf=E2=80=A6 avec la premi=C3=A8re le=
+=C3=A7on gratuite pour briser la glace.<mj-section><mj-column><mj-text><br>=
+</mj-text></mj-column></mj-section>Au-del=C3=A0 du sport, le vrai enjeu est=
+ de cartographier les secteurs o=C3=B9 ce principe n=E2=80=99a pas encore f=
+rapp=C3=A9 : sant=C3=A9, B2B, =C3=A9ducation. Ce n=E2=80=99est pas un clich=
+=C3=A9, c=E2=80=99est une grille de lecture pour rep=C3=A9rer les prochains=
+ business.</p><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbody>=
+</table></div><!--[if mso | IE]></td></tr></table><table align=3D"center" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presenta=
+tion" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td sty=
+le=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif=
+]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0px au=
+to;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;backgr=
+ound-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-=
+size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><table rol=
+e=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![=
+endif]--><p style=3D"text-indent:0;line-height:26px;color:#212b35;text-alig=
+n:left;font-weight:400;font-size:17px;font-family:Whyte, Helvetica, Arial, =
+sans-serif">Pour d=C3=A9couvrir de quel business on parle :&nbsp;<a target=
+=3D"_blank" rel=3D"noopener noreferrer nofollow" href=3D"https://trk.gdiy.f=
+r/c/eJyMkLvKFDEYQJ8m6Wb5LrkWKcZiOyvtl1y-YcMfd4dJVHx7QRBb-8OBc_K1eh3y6C2dcz0=
+yBmttaUQFjTCVg5ngyM5VQTyK_suf38vo8yntkVciILshbEhfkRTvFBTvDDeC4HxU9AlA8Q6gW6=
+IcHGlJ6B2QJ3Sgn8miYGFf2ZCJaF10IXsXchaPbJzRPTWOBC36DSvDZjyELWaCDbmBtGKPilEZ-=
+JA5Zdy-SetZj_Rc65yKd0V3RffS1238UnT__GUbH02_5OccspZcf_LLeFCQw7ZaLfBhbA0FrAvs=
+BFliqVL0lV50zakMvHp9n72-b8elV_qnUrz_18gfiX4HAAD___WVb2M"><span style=3D"col=
+or: #267953">https://bit.ly/MS-lkd</span></a></p><!--[if mso | IE]></tr></t=
+able><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></t=
+r></table><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"60=
+0" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-=
+line-height-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;bac=
+kground-color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"cen=
+ter" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation"=
+ style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><=
+tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:ce=
+nter;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-align:top;=
+width:560px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group=
+-fix" style=3D"font-size:0px;text-align:left;direction:ltr;display:inline-b=
+lock;vertical-align:top;width:100%;"><table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td style=
+=3D"vertical-align:top;padding:0px;"><table border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><td align=
+=3D"center" style=3D"font-size:0px;padding:0px;word-break:break-word;"><p s=
+tyle=3D"border-top:solid 1px #A9A9A9;font-size:1px;margin:0px auto;width:10=
+0%;"></p><!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" style=3D"border-top:solid 1px #A9A9A9;font-size:1p=
+x;margin:0px auto;width:560px;" role=3D"presentation" width=3D"560px" ><tr>=
+<td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]--></td></tr></tbody></table></td></tr></tbody><=
+/table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tb=
+ody></table></div><!--[if mso | IE]></td></tr></table><table align=3D"cente=
+r" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"pres=
+entation" style=3D"width:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td=
+ style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![e=
+ndif]--><div style=3D"background:#FFFFFF;background-color:#FFFFFF;margin:0p=
+x auto;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"background:#FFFFFF;=
+background-color:#FFFFFF;width:100%;"><tbody><tr><td style=3D"direction:ltr=
+;font-size:0px;padding:10px 20px;text-align:center;"><!--[if mso | IE]><tab=
+le role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><=
+tr><![endif]--><div style=3D"text-indent:0;line-height:25px;color:#212b35;t=
+ext-align:left;font-weight:400;font-family:Whyte, Helvetica, Arial, sans-se=
+rif"><h3 style=3D"font-size: 20px; text-align: left"><span style=3D"font-fa=
+mily: Whyte, Helvetica, Arial, sans-serif; color: #257953">&gt; </span><spa=
+n style=3D"font-family: Whyte, Helvetica, Arial, sans-serif; color: #000000=
+">Recos de la semaine</span></h3></div><!--[if mso | IE]></tr></table><![en=
+dif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table>=
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=
+=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heigh=
+t-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-co=
+lor:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"=
+background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td sty=
+le=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!-=
+-[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent: 0; line-height: =
+26px; color: #212b35; text-align: start; font-weight: 400; font-size: 17px;=
+ font-family: Whyte, Helvetica, Arial, sans-serif"><span style=3D"color: rg=
+b(0, 0, 0)"><strong>#Rasoir d=E2=80=99Ockham</strong></span><span style=3D"=
+color: oklch(0.278078 0.029596 256.848)"> : Quand on b=C3=A2tit un projet, =
+on a tendance =C3=A0 complexifier : ajouter des features, des couches, des =
+options, des d=C3=A9tails=E2=80=A6 jusqu=E2=80=99=C3=A0 ce que =C3=A7a devi=
+enne ing=C3=A9rable. Le rasoir d=E2=80=99Ockham nous rappelle le contraire =
+: </span><strong>=C2=AB Les entit=C3=A9s ne doivent pas =C3=AAtre multipli=
+=C3=A9es sans n=C3=A9cessit=C3=A9 =C2=BB.</strong><span style=3D"color: okl=
+ch(0.278078 0.029596 256.848)"> En clair : la solution la plus simple (avec=
+ le moins d=E2=80=99hypoth=C3=A8ses) est souvent la meilleure. Dans vos d=
+=C3=A9cisions strat=C3=A9giques, vos MVPs, vos analyses de produit : souven=
+ez-vous-en. Et si vous avez envie de creuser : </span><a target=3D"_blank" =
+rel=3D"noopener noreferrer nofollow" href=3D"https://trk.gdiy.fr/c/eJyM0Luq=
+3DAYBOCnkTqb_2LJcqHCKbYNhPRGl19ZsT67RlJyXj9sIKRNOcwwxRfaqOmUo2Z_9XEEdMaYmIk=
+iLsIUCzNBCdYmQSxR_91fP-NZ-13yEYYnIDMhTEjfkRTv5BTvDDOBs-um6AuA4h1AZ0_BWdLicb=
+VAK6EFffcxSQ4IMYCEbUHEAMxcgoUVI1HQ1WfeCPK2TpgYpmUFN22BYELOIDmaknBTCzykdznnD=
+8k16NPfx7i64l3RTdGttPmzPur1LudX-6Ho9s6Kbt9Cf9V2ZEWG1q_pcQ8f-imf_ZQxpP3BiedB=
+TorJKRngspjkIhjr2AqybDFJ1M0_qfWuFnjW9Lpqes2l6eH_XSne_4v5l6ffAQAA__9YH3sd"><=
+span style=3D"color: rgb(38, 121, 83)"><strong>la page Wikipedia</strong></=
+span></a><span style=3D"color: oklch(0.278078 0.029596 256.848)"> fera un b=
+on point de d=C3=A9part.</span></p><!--[if mso | IE]></tr></table><![endif]=
+--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><tab=
+le align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D=
+"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+ule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-color=
+:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+ackground:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td styl=
+e=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--=
+[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent: 0; line-height: 2=
+6px; color: #212b35; text-align: start; font-weight: 400; font-size: 17px; =
+font-family: Whyte, Helvetica, Arial, sans-serif"><span style=3D"color: rgb=
+(0, 0, 0)"><strong>#OnetoOneBiarritz : </strong></span>La semaine derni=C3=
+=A8re, j=E2=80=99ai eu la chance d=E2=80=99=C3=A9changer avec <strong>Matth=
+ieu Lehanneur</strong> au <strong>One to One Biarritz</strong> sur un sujet=
+ qui me passionne : <i>=E2=80=9CDesigner l=E2=80=99invisible, faire dialogu=
+er raison et =C3=A9motion.=E2=80=9D </i>Un moment fort, entre philosophie, =
+business et cr=C3=A9ation. On y parle d=E2=80=99intuition, de beaut=C3=A9, =
+et de cette part invisible qui fait toute la diff=C3=A9rence dans un projet=
+=2E Le replay est dispo sur YouTube :=
+ <a target=3D"_new" rel=3D"noopener" cla=
+ss=3D"decorated-link" href=3D"https://trk.gdiy.fr/c/eJyM0L2u3CAQxfGngc7WMAM=
+YCgpH0VYpk3rFx6B1rte2DLtW3j5KpCjtbY-O_sUvnn3JK9-XEo7W71E5Y0wqiElpJkyVCKFGaz=
+MrVZP89z9eaV3ag8s99oCAZlAwKPyuUNCMTtBMMCI4O3mBXwAEzQCyBIzOouSgJgs4obIgHwFBE=
+2Sd0Wjj4wTI0YOFiok9Uy1yCYU8QvHToDLBoCdwg48Ig6ICXJKpWXmh4YNb43V8clmiXMOj96MJ=
+mgXeBN6u6xp_7a_-Sjzm_flniT0_BN3egr7--Km2sn18O9-z3PhqK_fO51-YtN7RcTUlZwNUtck=
+ugbGOLCtinzIneYYNz9aEhm3J-7Hkfayn7OF_StD8KeJ3wN8BAAD__wzKeZg"><span style=
+=3D"color: #267953"><strong>ici</strong></span></a></p><!--[if mso | IE]></=
+tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></=
+td></tr></table><table align=3D"center" border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=
+=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0p=
+x;mso-line-height-rule:exactly;"><![endif]--><div style=3D"background:#FFFF=
+FF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"><=
+tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px;text-a=
+lign:center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0" c=
+ellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent:=
+0;line-height:26px;color:#212b35;text-align:left;font-weight:400;font-size:=
+17px;font-family:Whyte, Helvetica, Arial, sans-serif"><strong>#CasquePremiu=
+m :</strong> quand <a target=3D"_blank" rel=3D"noopener noreferrer nofollow=
+" href=3D"https://trk.gdiy.fr/c/eJyM0DmO2zAUgOHTkJ2Et4iLChZKoROkN7g8xkw0siF=
+yYvj2AQIEaaf_8RdfvEbLh9xaCc8-bhG9MSYVooSLMKXKTFCjtVkQa9L_-udnOlq_S7nFEQjITA=
+gT0nckxRt5xRvDTOCtWxV9A1C8AegSKHpLWgI6C-QILeh7AI8pVbegr5i9jQUqOYrW2LhUt7Buo=
+fBKUFY3YWaYFgd-WiPBhFxASjI146oW-CW9yzF_SGlRH-E-xrMr3hTtivbX6zX_KO0910vRnj57=
+O6V3RfvP-CF9Ku_-OCc5Fe36lFc_ZAy5_sqk40Zeqik5G-C6mOwTGOvZCrKsKUvSVzjp6l0tcLb=
+8eLb8mOulR_i_Urx9yfh3oD8BAAD__66pehU">James Dyson est pass=C3=A9 sur GDIY</=
+a>, son =C3=A9quipe nous a offert deux <a target=3D"_blank" rel=3D"noopener=
+ noreferrer nofollow" href=3D"https://trk.gdiy.fr/c/eJyM0D8L1DAYgPFPk2w93j9=
+NmgwZ6nCbgiA4HnmTN1yx1ytNVPDTC4K4uj88wy9fYyu7Praazj4eGYNzTiqR4KxM0pgJWva-KG=
+IT-7c_v8u-9afWRx6JgNyEMCF9QTK8UjC8MtwIgl-ioQ8AhlcAWxPl4MlqwsUDLYQe7DM1LBQba=
+WkO4-KyQCS_zCIiszT0dkuVI0GNy4SFYZoXCFPMBBNyBa3iWsFoZvimvet-e2ndst3Tc4yzG14N=
+3Q3d8-vXcRtvQ3f-ivnTx8_20J991zH0-gMg-4OCNldLccBtdiUIOB_YK7JGKSr2SgddvZsZjq2=
+8z628b-2yI_1bGV7_i_JHot8BAAD__-dGcR4">casques Audio OnTrac</a>. Et depuis, =
+tout le monde se les arrache au bureau. C=E2=80=99est un bel objet, qu=E2=
+=80=99on trouve g=C3=A9n=C3=A9ralement aux alentours de 400=E2=82=AC, mais =
+si vous aimez les casques et que vous cherchez =C3=A0 vous isoler efficacem=
+ent dans des endroits bruyants avec une autonomie battant tous les records,=
+ vous ne serez pas d=C3=A9=C3=A7us.</p><!--[if mso | IE]></tr></table><![en=
+dif]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table>=
+<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cl=
+ass=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=
+=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heigh=
+t-rule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-co=
+lor:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"=
+background:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td sty=
+le=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!-=
+-[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" =
+cellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent: 0; line-height: =
+26px; color: #212b35; text-align: start; font-weight: 400; font-size: 17px;=
+ font-family: Whyte, Helvetica, Arial, sans-serif">Matt/</p><!--[if mso | I=
+E]></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso | I=
+E]></td></tr></table><table align=3D"center" border=3D"0" cellpadding=3D"0"=
+ cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" =
+width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-si=
+ze:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"background:=
+#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><table a=
+lign=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%=
+;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px;te=
+xt-align:center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]--><p style=3D"text-ind=
+ent: 0; line-height: 26px; color: #212b35; text-align: start; font-weight: =
+400; font-size: 17px; font-family: Whyte, Helvetica, Arial, sans-serif">PS =
+: cette initiative Br=C3=A9silienne n=E2=80=99est pas moralisatrice. Notre =
+projet avait pour but de voir s=E2=80=99il =C3=A9tait possible de faire aut=
+rement. Nous avons obtenu beaucoup de r=C3=A9ponses. Mais je compte bien al=
+ler d=C3=A9couvrir encore bien d=E2=80=99autres univers tr=C3=A8s diff=C3=
+=A9rents. Notre prochain voyage sera book=C3=A9 cette semaine, j=E2=80=99ai=
+ h=C3=A2te de vous en dire plus.</p><!--[if mso | IE]></tr></table><![endif=
+]--></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><ta=
+ble align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=
+=3D"" role=3D"presentation" style=3D"width:600px;" width=3D"600" bgcolor=3D=
+"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height-r=
+ule:exactly;"><![endif]--><div style=3D"background:#FFFFFF;background-color=
+:#FFFFFF;margin:0px auto;max-width:600px;"><table align=3D"center" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D"b=
+ackground:#FFFFFF;background-color:#FFFFFF;width:100%;"><tbody><tr><td styl=
+e=3D"direction:ltr;font-size:0px;padding:10px 20px;text-align:center;"><!--=
+[if mso | IE]><table role=3D"presentation" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0"><tr><![endif]--><p style=3D"text-indent: 0; line-height: 2=
+6px; color: #212b35; text-align: left; font-weight: 400; font-size: 17px; f=
+ont-family: Whyte, Helvetica, Arial, sans-serif"><span style=3D"font-family=
+: Whyte, Helvetica, Arial, sans-serif">&gt; Si vous cherchez les anciennes =
+newsletters ou si vous voulez vous y inscrire, </span><a target=3D"_blank" =
+rel=3D"noopener noreferrer nofollow" style=3D"text-align: left" href=3D"htt=
+ps://trk.gdiy.fr/c/eJyM0U2O3CAQBeDTwM6tospgWLBwNOoTZG_xU8goHrcFdKK5fZQo0cyy=
+91-Vnt4LbdR08Fazv_rYgrJa65gRo5qZMBYihBKMSaxUifK_v57xqH3nvIXhEVBPCiaF3xUKWtE=
+KWgluCNYsTuA3AEErgMwegzUo2avFAC6oDMjdJ8OLU0XZZByRCzlSYh2XWadSCmtZfSaHkN0yqU=
+QwzQvYyQWESVEGzlGXpJyY4Qf3zsftnXMN8vD7GFcXtAq8C7y_hzH2ys8-uISz3r7iP4Lu_fFsi=
+bfxcbGgt76HxnmLH9vJv_rBY3ATaP6hxoVbC4egtyseG1ouOqekgcqsk42gjSXDitjFxFF-_vhb=
+9isnzZ_YehcznDU9rpoet9Lk8F_i0PrSbD89_g4AAP__9RmYPQ"><span style=3D"font-fam=
+ily: Whyte, Helvetica, Arial, sans-serif; color: #257953"><strong>c=E2=80=
+=99est par ici.</strong></span></a><mj-section><mj-column><mj-text><br></mj=
+-text></mj-column></mj-section><span style=3D"font-family: Whyte, Helvetica=
+, Arial, sans-serif">&gt; </span><span style=3D"color: var(--tw-prose-body)=
+">Prenez 20 secondes pour laisser un commentaire et un petit 5 =C3=A9toiles=
+ =C3=A0 G=C3=A9n=C3=A9ration Do It Yourself sur </span><a target=3D"_blank"=
+ rel=3D"noopener noreferrer nofollow" style=3D"text-align: left" href=3D"ht=
+tps://trk.gdiy.fr/c/eJyM0D-r1jAUgPFPk2wtJ-c0aTJkqGI3EeUibi_5c0KjvW1p4n3x2wu=
+CuLo_PMMv3L2mnR81-6v1R1BWax0zYlQTE8ZChFCCMYmVKlH-7a-fca9t4_wI3SOgHhQMCl8UCl=
+rQCloIRgRrZifwHYCgBUBmj8EalOzVbABnVAbk5iMZrQKrQg5CUFM0UJxJZc7ZZqONrD6TQ8huH=
+lQiGKYZ7OACwqAoA-eoS1JOTPCDW-N9fOVcg9z91vvVBC0CV4HrefExtuvstfwa0_kqcG3b-RS4=
+mu_vP8WVP78U-Lp8-ZY_vrn6YZIHP9vOvfP9xyfuD7RcdE5JA5VJJxtBG0uGFbGLiaO8_YF3a2K=
+Co6bzqukcyy27_7cStPyX9JvH3wEAAP__paJ72A"><span style=3D"color: rgb(38, 121,=
+ 83)"><strong>Spotify</strong></span></a><span style=3D"color: var(--tw-pro=
+se-body)"> et </span><a target=3D"_blank" rel=3D"noopener noreferrer nofoll=
+ow" style=3D"text-align: left" href=3D"https://trk.gdiy.fr/c/eJyMkb0K3DAQhJ=
+9G6mRWu5YtFSqcgJ8g_aGfVU5EZxtLl5C3DwTCtekGZpji-8I9amr8qNlffTyCtsaYmBGjnpkwF=
+iKEEpYlsdYlyn_76x1b7U_OjzA8AhqlQWn8plHQhlbQRjAh2GV1Ar8ACNoAZPYY7IKSvV4XwBX1=
+AvLpLfGaGC0UQF3IRFuMSYWLYzMzOFl9JoeQ3ap0IlDzCla5gKA0ZeAcTUnaiRl-cO_cphfnGmT=
+zzzGuLmgTuAvcrzOn0EefwnU1ntL5Eri_-6cRuH8XaL6SQLO54xPvMOp5qHyqOtTv8313bkXgXr=
+NGcHpG52Z58K_eeAy-_9KM7YGWi8kpGaAym2QjmMXSwprYxcRR3v7Au3cxw1HTedV0TuWWw3-uB=
+G3_5eWnxz8BAAD__ywMiOU"><span style=3D"color: rgb(38, 121, 83)"><strong>App=
+le Podcast</strong></span></a><span style=3D"color: var(--tw-prose-body)">,=
+ merci !</span><mj-section><mj-column><mj-text><br></mj-text></mj-column></=
+mj-section><span style=3D"font-family: Whyte, Helvetica, Arial, sans-serif"=
+>&gt; </span><a target=3D"_blank" rel=3D"noopener noreferrer nofollow" styl=
+e=3D"text-align: left" href=3D"https://trk.gdiy.fr/c/eJyM0Duu3iAQQOHVQGdrmD=
+EYCgqn-FeQ3uIxxCh-yXDj7UeKFKVNf3SKLzy9pp3Xmv3d-hqU1VrHjBjVxISxECGUYExipUqUf=
+_v7K-61bZzX0D0C6kHBoPC7QkELWkELwYhgzewEfgMQtADI7DFYg5K9mg3gjMqA3LyzTk2OrGPr=
+4pRIFQ65EBvAnK2ZZfWZHEJ286ASwTDNYAcXEAZFGThHXZJyYoKf3Brv48G5Brn7rfe7CVoEfgR=
+-3vcd69l6-PGEY0zXIfBzhN7r2a-vtAn8yJPftnPv_PwRifuKlovOKWmgMulkI2hjybAidjFxlI=
+8_8WlNTHDWdN01XWN5ZPf_VoKW_7L95fF3AAAA__8z1Hf0"><span style=3D"font-family:=
+ Whyte, Helvetica, Arial, sans-serif; color: #257953"><strong>Suivez-moi</s=
+trong></span></a><span style=3D"font-family: Whyte, Helvetica, Arial, sans-=
+serif">, ainsi que le podcast sur les r=C3=A9seaux sociaux : </span><a targ=
+et=3D"_blank" rel=3D"noopener noreferrer nofollow" style=3D"text-align: lef=
+t" href=3D"https://trk.gdiy.fr/c/eJyM0DHO3CAQQOHTQGdrmAGMCwqn2BOkXwEz3kXx2p=
+YhsXL7SJGitH__9IovXb2WTZ6V49n6M5ngnMuMmI0VwrwSIazJ-yLGrFn_68-feavtLfxMPSKgG=
+wwMBr8bVLRgULQQjAjBT7PCbwCKFgDNEVPwqCWayQNOaDzod3STF8c25dmAt6VYj17IcrKTIyLW=
+NTLNCDxPgykEg50gDHNCGAwxCGe3FjMrCz-kNdnGj3BNeovv3s-maFH4UPi473use-vpdaXPWI6=
+PwseL6-_z4JJa17vcbZPe5frLkbcnBlkdl-KAVutKyOB8IC-GZM5Fsr7ijldrysJey3HWcozrpX=
+v8v1K0fAn2V8Q_AQAA__-oQnbx"><span style=3D"font-family: Whyte, Helvetica, A=
+rial, sans-serif; color: #257953"><strong><u>Instagram</u></strong></span><=
+/a><span style=3D"font-family: Whyte, Helvetica, Arial, sans-serif; color: =
+rgb(37, 121, 83)"><strong><u>, </u></strong></span><a target=3D"_blank" rel=
+=3D"noopener noreferrer nofollow" style=3D"text-align: left" href=3D"https:=
+//trk.gdiy.fr/c/eJyM0LuO1DAUgOGnsbuMzsW3FC6C0DwB_ciX4x2L7CSKDSveHoGEaLf_9Rd=
+fumYvuzx6jeeYj4TBWpsrUUYjTLkxE7TkXBHElvW__vyR9z6eUh9pRgKyC8KC9A1J8UZB8cZwIw=
+jOr4q-ACjeAHSNlIIjLRG9A_KEDvQzcqlggjHikdCnxIJckl-bCSH4kHSPlVeCuvoFC8NiPIRlT=
+QQLcgWp2baCqzLwXcaQ_fYutSe9x-ec51C8Kborus-PPqdct3K8K7q_1f7rPGpJYyq-7-n1pvhr=
+u_RLPsYuf8K_KHl_UJBmaykWuBlbQgbrAjtBljUXyfqKL7rGUAZevRxnL8etXXrG_yvF26d4f0b=
+6HQAA__83mnhn"><span style=3D"font-family: Whyte, Helvetica, Arial, sans-se=
+rif; color: #257953"><strong><u>X</u></strong></span></a><span style=3D"fon=
+t-family: Whyte, Helvetica, Arial, sans-serif; color: rgb(37, 121, 83)"><st=
+rong><u>.</u></strong></span><mj-section><mj-column><mj-text><br></mj-text>=
+</mj-column></mj-section><span style=3D"font-family: Whyte, Helvetica, Aria=
+l, sans-serif">&gt; Et le site </span><a target=3D"_blank" rel=3D"noopener =
+noreferrer nofollow" style=3D"text-align: left" href=3D"https://trk.gdiy.fr=
+/c/eJyMkLFu7CAQAL8GOlvLrsG4oPAr7gtebwG75FCcO8uQWPn7SJGitOlHI83Es9e8y1Y5HK1v=
+0XhrbWLEZCYhTIUIoUTnshhTkv7hj_e013YX3mIPCGgHA4PB_wYVregVrQQjgnfzovAfgKIVQHP=
+A6B1qCWZ2gDMaB_oegFOZbMrMS8YUjRdHfpIcSbwtuegamBYEXubBZIJhmsEPS0QYDDEIJ1uyWd=
+QEr9Ka7OObcI16D_fej6ZoVXhTeLuua3zh-jmWU-FNP-Rqu_Qu53d92jf0UiznbIHKZLNPYJ0nJ=
+4ZkSVmSPsMDz9bUBI-an0fNz7GcuodflaL1Tx8_An4FAAD__39GcVg"><span style=3D"font=
+-family: Whyte, Helvetica, Arial, sans-serif; color: #257953"><strong><u>G=
+=C3=A9n=C3=A9ration Do It Yourself.</u></strong></span></a></p><!--[if mso =
+| IE]></tr></table><![endif]--></td></tr></tbody></table></div><!--[if mso =
+| IE]></td></tr></table><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px=
+;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font=
+-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"backgrou=
+nd:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><tabl=
+e align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D=
+"presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:1=
+00%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px=
+;text-align:center;"><!--[if mso | IE]><table role=3D"presentation" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vert=
+ical-align:top;width:560px;" ><![endif]--><div class=3D"mj-column-per-100 m=
+j-outlook-group-fix" style=3D"font-size:0px;text-align:left;direction:ltr;d=
+isplay:inline-block;vertical-align:top;width:100%;"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbod=
+y><tr><td style=3D"vertical-align:top;padding:0px;"><table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbod=
+y><tr><td align=3D"center" style=3D"font-size:0px;padding:0px;word-break:br=
+eak-word;"><p style=3D"border-top:solid 1px #A9A9A9;font-size:1px;margin:0p=
+x auto;width:100%;"></p><!--[if mso | IE]><table align=3D"center" border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-top:solid 1px #A9A9=
+A9;font-size:1px;margin:0px auto;width:560px;" role=3D"presentation" width=
+=3D"560px" ><tr><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]--></td></tr></tbody></table></td></tr></tbody><=
+/table></div><!--[if mso | IE]></td><![endif]--><!-- FOOTER TITLE --><!--[i=
+f mso | IE]></tr></table><![endif]--></td></tr></tbody></table></div><!--[i=
+f mso | IE]></td></tr></table><table align=3D"center" border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width=
+:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0p=
+x;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"ba=
+ckground:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"=
+><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" r=
+ole=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF;w=
+idth:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10p=
+x 20px;text-align:center;"><!--[if mso | IE]><table role=3D"presentation" b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D=
+"vertical-align:top;width:560px;" ><![endif]--><div class=3D"mj-column-per-=
+100 mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;direction:=
+ltr;display:inline-block;vertical-align:top;width:100%;"><table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%">=
+<tbody><tr><td style=3D"vertical-align:top;padding:0px;"><table border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%">=
+<tbody><tr><td align=3D"center" style=3D"font-size:0px;padding:0px;word-bre=
+ak:break-word;"><div style=3D"font-family:Whyte,Helvetica Neue,Helvetica,Ar=
+ial,BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarel=
+l,Fira Sans,Droid Sans,sans-serif;font-size:15px;font-weight:bold;line-heig=
+ht:20px;text-align:center;color:#212b35;">Vous avez aim=C3=A9 cette newslet=
+ter ?</div></td></tr></tbody></table></td></tr></tbody></table></div><!--[i=
+f mso | IE]></td></tr></table><![endif]--></td></tr></tbody></table></div><=
+!--[if mso | IE]></td></tr></table><![endif]--><!-- REFERRAL DESCRIPTION --=
+><!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" wi=
+dth=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height:0px;font-size=
+:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D"background:#F=
+FFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;"><table ali=
+gn=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pres=
+entation" style=3D"background:#FFFFFF;background-color:#FFFFFF;width:100%;"=
+><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:10px 20px;text=
+-align:center;"><!--[if mso | IE]><table role=3D"presentation" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertical-a=
+lign:top;width:560px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outl=
+ook-group-fix" style=3D"font-size:0px;text-align:left;direction:ltr;display=
+:inline-block;vertical-align:top;width:100%;"><table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr>=
+<td style=3D"vertical-align:top;padding:0px;"><table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr>=
+<td align=3D"center" style=3D"font-size:0px;padding:10px 0px;word-break:bre=
+ak-word;"><p style=3D"border-top:solid 1px #A9A9A9;font-size:1px;margin:0px=
+ auto;width:100%;"></p><!--[if mso | IE]><table align=3D"center" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-top:solid 1px #A9A9A=
+9;font-size:1px;margin:0px auto;width:560px;" role=3D"presentation" width=
+=3D"560px" ><tr><td style=3D"height:0;line-height:0;"> &nbsp;
+</td></tr></table><![endif]--></td></tr></tbody></table></td></tr></tbody><=
+/table></div><!--[if mso | IE]></td></tr></table><![endif]--></td></tr></tb=
+ody></table></div><!--[if mso | IE]></td></tr></table><![endif]--><!-- CTA =
+AND SHARING --><!--[if mso | IE]><table align=3D"center" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentation" style=3D"wi=
+dth:600px;" width=3D"600" bgcolor=3D"#FFFFFF" ><tr><td style=3D"line-height=
+:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]--><div style=3D=
+"background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600p=
+x;"><table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" role=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFF=
+F;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:=
+10px 20px 20px 20px;text-align:center;"><!--[if mso | IE]><table role=3D"pr=
+esentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><![endif]-=
+-> <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ role=3D"presentation" style=3D"background:#FFFFFF;background-color:#FFFFFF=
+;width:100%;">
+    <tbody><tr><td>
+    <a href=3D"https://trk.gdiy.fr/c/eJyMkcuq2zAQQL9G2jnMw5KlhRYuJV_QvdFjRM=
+z1TYyktPTvS0ofd3lXAzOHA8OJbez5kG0v4exji-iMMakQJZyFKVVmghqtzYJYk_7Ln8907P0mZ=
+YsjEJCZECakb0iKV3KKV4YLgbOLV_QFQPEKoEug6CxpCbhYoIXQgr4FHw0snIVnKVy9Je9jZqgm=
+LmgMeL2Hwp6g-GXCzDDNC7jJR4IJuYCUZGpGr2Z4k97luLxL2aM-wm2MsyteFV0VXd_jGJePhKL=
+r-eijv-Ynnld87Y9ny7KNn6co_vrs0rYmVVqLhyL75_pv8yLa5jPlgj4lsjATRo-LdVCsNXORmq=
+Mie-xvL99oT9F3-dEPGUPa7yjp2MhJNSVnA1xnk10CYx1bQRafsiTdwp1a72qG-54f554fl9r0C=
+P9VitdP5f0e6FcAAAD__4S_oWY" alt=3D"like-button"><img height=3D"40px" width=
+=3D"40px" src=3D"https://img.kessel.media/static/like.png?source_type=3Dsha=
+red_by_newsletter&source_referral=3Dpbl_28ef5dcc503f45c8b056836e13e9bceb" /=
+></a>
+    <a href=3D"https://trk.gdiy.fr/c/eJyMksuunDAMQL_G7ECOTQJZZEF1xRd0j_JwNK=
+jMgJJMb_v31VR97u7Kkn18JD98aXs8ZNuTu2rbvJq11iERBTUKU8jMhNkbE0WpHLrf_PUMx15vk=
+jbfHCHpXmGv6LMi4IVm4IVxIJzNZIE-IQIviF1y5GdDnTg1GaSJlMHu5lBbzRETIk-ZMAvlMY0a=
+jZ-I0Uq3u8SWMNmpV5GxHyece-sJe8UJJQWdo7Iw4hepVY7hLmn33eFurV0VeAFagdb2vrcmZYj=
+nHWitN18EeG3yrQG_AZlnOYDf_u-5-9aGf61A63XWVl_xAwsDXuv5LFG29v0S4LdnlbIVyVKKP4=
+DMr-qfzIsom40Uk7IhkMGRlLdqMjMmY_SYJEffPeS9HvIa5-fpwrHRLFmnGDVyHnWcA2ozsxHFY=
+kOU0BX3oFIrjPjY43nt8Rxy6Zr7qwJePvQEXx39CAAA__-6ja1C" alt=3D"twitter-button"=
+><img height=3D"40px" width=3D"40px" src=3D"https://img.kessel.media/static=
+/tw.png?source_type=3Dshared_by_newsletter&source_referral=3Dpbl_28ef5dcc50=
+3f45c8b056836e13e9bceb" /></a>
+    <a href=3D"https://trk.gdiy.fr/c/eJyMkjuO4zAMhk9DdzYo0pLlQkUGgU-wvaEHhR=
+jjxIakbLC3X8xiX9NNRYD8-BXk70vb4i7rltxZ2-qV1VqHRBTUKEwhMxNmb0wUpXLo_vDnM-xbv=
+UlafXOEpHuFvaJvioAvZIEvjAOhNdMM9IYIfEHskiNvDXXi1GSQJlIGu5sTDDpOOMZpSmmUyVpm=
+pUMmRZFzxG5ziWfCNE-9ioz9OKHtZ0_YK04oKegc1Qwjvkutsg93SZvvdndr7azAF6AFaHm9XkP=
+2UcJxvA_xuAMt9eaLlOG8ncDLE_j6eePuWxv-dwIt51Fb_ahfOBfwUo9nibK2H6cAX59VylokSy=
+l-BzK_p387H0RZ50gxqTkEMjiS8rOajMVkjB6T5OiBzAn6rW1tF9BX4Gv3kFfdpTUpv14Z9pWsZ=
+J1i1Mh51NEG1MayEcUyhyihK-5BpVYY8bHF49ziMeTSNfdPBXz5Uii-O_oZAAD__-VssqQ" alt=
+=3D"facebook-button"><img height=3D"40px" width=3D"40px" src=3D"https://img=
+=2Ekessel.media/static/fb.png?source_t=
+ype=3Dshared_by_newsletter&source_refer=
+ral=3Dpbl_28ef5dcc503f45c8b056836e13e9bceb" /></a>
+    <a href=3D"https://trk.gdiy.fr/c/eJyMksuq3DAMQL_G2SXI8iP2wouUS76g--CH3D=
+E3kwTb06F_X6bcvnZ3JSEdjkCSr73EnbaS3NX65rlRSoWEGLgkgSELgZC91pE4z2H4zV-PsJd2o=
+7T57hBQjRxGjl85MrGgYWIRMCEYPVuGXwCYWACG5NAbjQM5PmvAGbmG4eYSyWyClBbmpIz0Yc5W=
+QZpJm5yyoqG4JCxCsvPIo4BRzmBG6xFGLhJQCipHbpmEd2qN9ulOqfhhd7fer8bEwnBluD6fz2k=
+vxzulckzxvDNc283Xcnz7yGg8c26l04sX66PuTLz977j73qd_pzBcr7P19oqfWCATazsfNdLWf1=
+zExNujUd0qZarV7wz1R_dP5UXUzUaMidsQUINE7i2ftYGktZKJcvTDQc-2U-9Uf50y7BsayirFq=
+EBkqaIJoLQRmrggGyKFoboDa2tMwlHieZV4TrkO3f1VMbF86im-O_wZAAD__9D1tIE" alt=3D"=
+linkedin-button"><img height=3D"40px" width=3D"40px" src=3D"https://img.kes=
+sel.media/static/linkedin.png?source_type=3Dshared_by_newsletter&source_ref=
+erral=3Dpbl_28ef5dcc503f45c8b056836e13e9bceb" /></a>
+    <a href=3D"https://trk.gdiy.fr/c/eJyMkcmqGzEQRb9G2rWpoTUttHAI_oLsGw0l3K=
+Sf3UhyQv4-vJBp-VYFdQ8XLif1uZdDtr3Gc8wtoTfG5EqUcRWm3JgJWrK2CGLL-g9_vvKxj7vUL=
+c1IQGZBWJC-ICm-kld8ZbgQeOuCok8Aiq8AukZK3pKWiM4COUIL-h4rV0AMOYGTlJqrzCt763NL=
+vrTi9B4rB4Ia3IKFYVkd-CUkggW5gtRsWsGgVvgqY8hxeZO6J33E-5znUHxVdFN0e0tzXv4nFN3=
+O55jj_X5gvOLbeL56kW3-OEXx59eQvnVp0ns6FNnf6d_PO9G3UKhUDDmThZUwBXTWQ7XWrFVaSf=
+oh38chc0r_pSEfG3lpppZigNtqis9grGcryBJykax7fFAfQ63w2Mvz3Mvz0rqe8V-V4uuHhH6L9=
+DMAAP__DXqdvA" alt=3D"link-button"><img height=3D"40px" width=3D"40px" src=
+=3D"https://img.kessel.media/static/link.png?source_type=3Dshared_by_newsle=
+tter&source_referral=3Dpbl_28ef5dcc503f45c8b056836e13e9bceb" /></a>
+    </td></tr></tbody>
+    </table><!--[if mso | IE]></tr></table><![endif]--></td></tr></tbody></=
+table></div><!--[if mso | IE]></td></tr></table><table align=3D"center" bor=
+der=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"" role=3D"presentati=
+on" style=3D"width:600px;" width=3D"600" bgcolor=3D"#F6F6F6" ><tr><td style=
+=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-=
+-><div style=3D"background:#F6F6F6;background-color:#F6F6F6;margin:0px auto=
+;max-width:600px;"><table align=3D"center" border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" role=3D"presentation" style=3D"background:#F6F6F6;backgrou=
+nd-color:#F6F6F6;width:100%;"><tbody><tr><td style=3D"direction:ltr;font-si=
+ze:0px;padding:10px 20px 0px 20px;text-align:center;"><!--[if mso | IE]><ta=
+ble role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D"0">=
+<tr><td class=3D"" style=3D"vertical-align:top;width:560px;" ><![endif]--><=
+div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font-size:0px=
+;text-align:left;direction:ltr;display:inline-block;vertical-align:top;widt=
+h:100%;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;paddi=
+ng:0px;"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pr=
+esentation" width=3D"100%"><tbody><tr><td align=3D"left" style=3D"font-size=
+:0px;padding:0px;word-break:break-word;"><div style=3D"font-family:Whyte,He=
+lvetica Neue,Helvetica,Arial,BlinkMacSystemFont,-apple-system,Segoe UI,Robo=
+to,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,sans-serif;font-size:12px;f=
+ont-weight:400;line-height:24px;text-align:left;color:gray;">On vous a tran=
+sf=C3=A9r=C3=A9 G=C3=A9n=C3=A9ration Do It Yourself : la newsletter ? <a hr=
+ef=3D"https://trk.gdiy.fr/c/eJyMkbmu2zAURL-G6mTchWvBwkHgL0gvcLmEhejZAkknyN8=
+HL8hWvvbMwRQzqc-9HLLtNZ5jbgm9MSZXooxamHJjJmjJ2iKILS9__POVj33cpW5pRgIyK8KK9A=
+VJ8ZW84ivDhcBbFxR9AlB8BVhqpOQtLRLRWSBHaGG5R0OI4NA2x8jONXShFgvaGZt1DbzssXIgq=
+MGtWBhW7cCvIRGsyBWkZtMKBqXhq4whx-VN6p6WI97nPIfiq6KbottbmvPyv_GO-Taer15kmz9O=
+Ufz5NaRvXZr0ng5F9nf6l7wbfQuFSsWQM1nQhCmgsx6qtUZXaSUtD_k-DplT-q9p87GRl2ZqKQa=
+4aVN8BmM9W0GWkIvkpccH9TGUhsdenudenpfWlxn_VSm-fuikb5F-BgAA___LZI6x">Abonnez-=
+vous !</a></div></td></tr><tr><td align=3D"left" style=3D"font-size:0px;pad=
+ding:0px;word-break:break-word;"><div style=3D"font-family:Whyte,Helvetica =
+Neue,Helvetica,Arial,BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxyge=
+n,Ubuntu,Cantarell,Fira Sans,Droid Sans,sans-serif;font-size:12px;font-weig=
+ht:400;line-height:24px;text-align:left;color:gray;">Vous =C3=AAtes annonce=
+ur et vous voulez =C3=AAtre visible dans G=C3=A9n=C3=A9ration Do It Yoursel=
+f : la newsletter et des centaines de newsletters ? <a href=3D"mailto:annon=
+ceurs@kesselmedia.fr">Contactez-nous.</a></div></td></tr><tr><td align=3D"l=
+eft" style=3D"font-size:0px;padding:0px;word-break:break-word;"><div style=
+=3D"font-family:Whyte,Helvetica Neue,Helvetica,Arial,BlinkMacSystemFont,-ap=
+ple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,san=
+s-serif;font-size:12px;font-weight:400;line-height:24px;text-align:left;col=
+or:gray;">Vous recevez ce mail car vous =C3=AAtes abonn=C3=A9.e =C3=A0 G=C3=
+=A9n=C3=A9ration Do It Yourself : la newsletter sur Kessel.</div></td></tr>=
+</tbody></table></td></tr></tbody></table></div><!--[if mso | IE]></td></tr=
+></table><![endif]--></td></tr></tbody></table></div><!--[if mso | IE]></td=
+></tr></table><table align=3D"center" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" class=3D"" role=3D"presentation" style=3D"width:600px;" width=
+=3D"600" bgcolor=3D"#F6F6F6" ><tr><td style=3D"line-height:0px;font-size:0p=
+x;mso-line-height-rule:exactly;"><![endif]--><div style=3D"background:#F6F6=
+F6;background-color:#F6F6F6;margin:0px auto;max-width:600px;"><table align=
+=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presen=
+tation" style=3D"background:#F6F6F6;background-color:#F6F6F6;width:100%;"><=
+tbody><tr><td style=3D"direction:ltr;font-size:0px;padding:0px 20px 10px 20=
+px;text-align:center;"><!--[if mso | IE]><table role=3D"presentation" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"wid=
+th:560px;" ><![endif]--><div class=3D"mj-column-per-100 mj-outlook-group-fi=
+x" style=3D"font-size:0;line-height:0;text-align:left;display:inline-block;=
+width:100%;direction:ltr;"><!--[if mso | IE]><table border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" role=3D"presentation" ><tr><td style=3D"vertical-=
+align:top;width:186px;" ><![endif]--><div class=3D"mj-column-per-33-3333333=
+33333336 mj-outlook-group-fix" style=3D"font-size:0px;text-align:left;direc=
+tion:ltr;display:inline-block;vertical-align:top;width:33%;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%"><tbody><tr><td style=3D"vertical-align:top;padding:0px;"><table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"1=
+00%"><tbody><tr><td align=3D"left" style=3D"font-size:0px;padding:0px;word-=
+break:break-word;"><div style=3D"font-family:Whyte,Helvetica Neue,Helvetica=
+,Arial,BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Canta=
+rell,Fira Sans,Droid Sans,sans-serif;font-size:12px;font-weight:400;line-he=
+ight:24px;text-align:left;color:gray;">=C2=A9 2025 Kessel</div></td></tr></=
+tbody></table></td></tr></tbody></table></div><!--[if mso | IE]></td><td st=
+yle=3D"vertical-align:top;width:186px;" ><![endif]--><div class=3D"mj-colum=
+n-per-33-333333333333336 mj-outlook-group-fix" style=3D"font-size:0px;text-=
+align:left;direction:ltr;display:inline-block;vertical-align:top;width:33%;=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" width=3D"100%"><tbody><tr><td style=3D"vertical-align:top;padding:0px;=
+"><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentat=
+ion" width=3D"100%"><tbody><tr><td align=3D"center" style=3D"font-size:0px;=
+padding:0px;word-break:break-word;"><div style=3D"font-family:Whyte,Helveti=
+ca Neue,Helvetica,Arial,BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Ox=
+ygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,sans-serif;font-size:12px;font-w=
+eight:400;line-height:24px;text-align:center;color:gray;"> <a style=3D"text=
+-decoration: none" href=3D"https://trk.gdiy.fr/c/eJyMkstuqzwURp_GzBLZ22BgwI=
+AmpTL_H6K0uZRMImzMiYkhFDvN5emPTqVzGXa-tNfWp1WNTkujDrpOBusOFYmCIBA1gCC-oiAaS=
+gE3FWNSEdII7zc_XITR9qjqQ-USwBBMCJ4QWBNANIUI0ZTiKeCIhTGCJ4wRTTH26gSqiIGnEhIy=
+DCEQhr1jQiiRAD7zhaI1jZuIMAW4CioFkWAh9nRS0xhwHYcTIime-CGOJnEFeEJojVUtgkaSGPn=
+4pKxVZtqpWleeSY7ODRbRFEGGIOsq56b_EgiyWlndWznqwelzjyBTXaUNopk7n1SP6Fzd86N4kX=
+qpc755cFJobnn_GsgZZ_w0vG9neTxV95xI2N55O4S827pyZyxvz1q0-V3SIhWdaQV9GkqILvue6=
+-btqvfvxytvz7fiUd6X8xIv1hvy_yx_lBBf92-c8T435e7VyC9hQcq-aGVnrvWL-RSaM3XPh_2v=
+J_pCSxLhoj3Bcp11xbyki90KLx4_Hsv1AhfzFIqW34q1vJW7TO91Hjer6ctsFX-syvTw_Nrpfrm=
+-XV0X7d1tsxGi0NV_TxsijP0oH-IZAbv09iL-zHQYVaPGsTKIzr9VTa-u1ijn1PgVmjAHiFQT1F=
+IGmDZ-ICOBAxZRpghVsZBKeGPSw2gt8nGv5XnQ8jxtRs8lf08hmn5L_pnAzwAAAP__URXsaw">S=
+e d=C3=A9sabonner</a> </div></td></tr></tbody></table></td></tr></tbody></t=
+able></div><!--[if mso | IE]></td><td style=3D"vertical-align:top;width:186=
+px;" ><![endif]--><div class=3D"mj-column-per-33-333333333333336 mj-outlook=
+-group-fix" style=3D"font-size:0px;text-align:left;direction:ltr;display:in=
+line-block;vertical-align:top;width:33%;"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><t=
+d style=3D"vertical-align:top;padding:0px;"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" role=3D"presentation" width=3D"100%"><tbody><tr><t=
+d align=3D"right" style=3D"font-size:0px;padding:0px;word-break:break-word;=
+"><div style=3D"font-family:Whyte,Helvetica Neue,Helvetica,Arial,BlinkMacSy=
+stemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Dr=
+oid Sans,sans-serif;font-size:12px;font-weight:400;line-height:24px;text-al=
+ign:right;color:gray;"><a style=3D"text-decoration: none" href=3D"mailto:re=
+port@kesselmedia.fr">Signaler un contenu inapropri=C3=A9</a></div></td></tr=
+></tbody></table></td></tr></tbody></table></div><!--[if mso | IE]></td></t=
+r></table><![endif]--></div><!--[if mso | IE]></td></tr></table><![endif]--=
+></td></tr></tbody></table></div><!--[if mso | IE]></td></tr></table><![end=
+if]--></div><img width=3D"1" height=3D"1" alt=3D"" src=3D"https://trk.gdiy.=
+fr/o/eJyMkDtqxDAUAE8jdV7eR99ChXOG9EafJ1bE2TWWk1w_EAhp0w8DM_m8Rt1lGy0d89oyBm=
+ttaUQFjTCVzkzQs3NVEHvRv_zxUfYx79K2fCUCsgvCgvSKpHiloHhluBEE56OiFwDFK4BuiXJwp=
+CWhd0Ce0IG-J0slMgMY38kbMJwxt-6l1UxByOiRGkeCFv2ClWExHsISM8GC3EBasb1iVAbeZE7Z=
+b-_SRtYP-Zq7XJecP3ll3yhIt61WC9yNraGAdYGdIEssVYo-04POOZWBx6jPY9TnrZ_6Sn8qxeu=
+_Rn0m-g4AAP__YQhmQA"></body></html>
+
+--===============9161408679731821397==--
