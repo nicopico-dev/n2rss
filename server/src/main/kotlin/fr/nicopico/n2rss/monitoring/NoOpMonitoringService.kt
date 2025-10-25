@@ -37,6 +37,10 @@ class NoOpMonitoringService : MonitoringService {
         LOG.info("Newsletter request received for url {}", newsletterUrl)
     }
 
+    override fun notifyMissingPublications(newsletterCodes: List<String>) {
+        LOG.info("Missing publications received for {}", newsletterCodes)
+    }
+
     companion object {
         private val LOG = LoggerFactory.getLogger(NoOpMonitoringService::class.java)
     }

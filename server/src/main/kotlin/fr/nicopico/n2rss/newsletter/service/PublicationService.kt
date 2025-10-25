@@ -113,7 +113,6 @@ class PublicationService(
                     pageable = Pageable.ofSize(LATEST_PUBLICATIONS_COUNT),
                 ).content
 
-
                 NewsletterStats.MultiplePublications(
                     firstPublicationDate = newsletter.getFirstPublicationDate(),
                     lastPublicationDate = newsletter.getLastPublicationDate(),
