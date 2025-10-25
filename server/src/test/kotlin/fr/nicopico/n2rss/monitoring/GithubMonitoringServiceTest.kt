@@ -28,7 +28,10 @@ import fr.nicopico.n2rss.monitoring.github.GithubClient
 import fr.nicopico.n2rss.monitoring.github.GithubException
 import fr.nicopico.n2rss.monitoring.github.IssueId
 import io.kotest.assertions.throwables.shouldNotThrowAny
+import io.kotest.assertions.withClue
+import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.string.shouldEndWith
 import io.kotest.matchers.string.shouldStartWith
 import io.mockk.Runs
@@ -437,6 +440,39 @@ class GithubMonitoringServiceTest {
                         && it.newsletterUrl.toURI() == uniqueUrl.toURI()
                 }
             )
+        }
+    }
+    //endregion
+
+    //region notifyMissingPublications
+    @Test
+    fun `notifyMissingPublications should create a GitHub issue`() {
+        // GIVEN
+        val missingNewsletterCodes = List(3) { "NL_$it" }
+
+        // SETUP
+        every { client.createIssue(any(), any(), any()) } returns IssueId(Random.nextInt())
+
+        // WHEN
+        monitoringService.notifyMissingPublications(missingNewsletterCodes)
+
+        // THEN
+        val bodySlot = slot<String>()
+        verify {
+            client.createIssue(
+                title = "Missing publications detected",
+                body = capture(bodySlot),
+                labels = listOf("n2rss-bot", "missing-publications"),
+            )
+        }
+        confirmVerified(repository, client)
+
+        bodySlot.captured should { body ->
+            withClue("the issue body should references missing newsletter code") {
+                missingNewsletterCodes.forEach { code ->
+                    body shouldContain Regex("""\b$code\b""")
+                }
+            }
         }
     }
     //endregion

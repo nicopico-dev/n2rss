@@ -37,4 +37,7 @@ interface MonitoringService {
      */
     @Async
     fun notifyNewsletterRequest(newsletterUrl: URL)
+
+    @Async
+    fun notifyMissingPublications(newsletterCodes: List<String>)
 }

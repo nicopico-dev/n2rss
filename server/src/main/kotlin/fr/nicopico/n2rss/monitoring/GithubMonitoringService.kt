@@ -151,6 +151,22 @@ class GithubMonitoringService(
         }
     }
 
+    override fun notifyMissingPublications(newsletterCodes: List<String>) {
+        client.createIssue(
+            title = "Missing publications detected",
+            body = newsletterCodes.joinToString(
+                prefix = "The following newsletters should have received a new publication by now :\n",
+                transform = { " - $it" },
+                separator = "\n",
+                postfix = "\n",
+            ),
+            labels = listOf(
+                "n2rss-bot",
+                "missing-publications"
+            )
+        )
+    }
+
     companion object {
         private val LOG = LoggerFactory.getLogger(GithubMonitoringService::class.java)
     }

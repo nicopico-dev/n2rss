@@ -62,9 +62,17 @@ class NoOpMonitoringServiceTest {
 
     @Test
     fun testNotifyNewsletterRequest() {
-        val url = URL("http://example.com")
+        val url = URL("https://example.com")
         shouldNotThrowAny {
             service.notifyNewsletterRequest(url)
+        }
+    }
+
+    @Test
+    fun testNotifyMissingPublications() {
+        val missingNewsletters = List(3) { "NL_$it" }
+        shouldNotThrowAny {
+            service.notifyMissingPublications(missingNewsletters)
         }
     }
 }
