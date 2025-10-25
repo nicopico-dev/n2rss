@@ -40,7 +40,7 @@ class CafetechNewsletterHandler : NewsletterHandlerSingleFeed {
     )
 
     override fun canHandle(email: Email): Boolean {
-        return email.sender.email.contains("cafetech@substack.com")
+        return email.sender.email.matches(Regex("cafetech.*@substack.com"))
     }
 
     override fun extractArticles(email: Email): List<Article> {
