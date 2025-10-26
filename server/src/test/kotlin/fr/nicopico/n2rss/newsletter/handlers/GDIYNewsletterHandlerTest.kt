@@ -95,5 +95,51 @@ class GDIYNewsletterHandlerTest : BaseNewsletterHandlerTest<GDIYNewsletterHandle
                 }
             }
         }
+
+        @Suppress("SpellCheckingInspection")
+        @Test
+        fun `should extract all articles from 'GDIY - Cet episode fait des intincelles'`() {
+            // GIVEN
+            val email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/GDIY/Cet épisode fait des intincelles.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            publication.title shouldBe "Cet épisode fait des intincelles"
+            publication.date shouldBe email.date
+
+            val expected = listOf(
+                Article(
+                    title = "#480 - Carlos Ghosn - Out of the Box - Masterclass business de l’évadé du siècle",
+                    link = URL("https://trk.gdiy.fr/c/eJyM0LHO3CAQBOCngc7WencxXEFxKfwE6U-wLP-hOGfLkJzy9tEfKUqbZqrRjPSlazTZ9dFKPPt4ZKZAJVTOWrkSZxH1jnUFxAWF7N_--SPvrT-1PNKICOgm8BOGr3AzdHefgesMDOhuBr8AGLoD2BIxhRWtxsU7Wm9rWNg-I7O4BUuiHKomjx7UJSiVAsKyuGJb9MAMnHQiIZpYBKYgQlPwQRyQd6pkGL5p77rP37W0ZPf4HOPshu4GN4Pb-_2eP0r7NdfL4HYeRVIfBjdJ13706eN59JfBzb703XcdQ68_LHl_YNDqinw-VXYSMrg10KoL6S2LZnvFF169G4ZXk-Nscsz1siP-mzJ0_y_gnxF_BwAA__-uuHlp"),
+                    description = """
+                        Il a monté un empire.
+
+                        Hissé Renault-Nissan-Mitsubishi au rang de numéro 1 des constructeurs mondiaux.
+
+                        Et il s’est fait arrêter à la sortie de son avion au Japon.
+
+                        Prison, assignation à résidence, isolement, évasion.
+
+                        On parle de tout ça et plus encore, dans cet épisode tourné à Beyrouth il y a 10 jours.
+                    """.trimIndent(),
+                ),
+            )
+
+            val articles = publication.articles
+
+            assertSoftly {
+                withClue("title") {
+                    articles.map { it.title } shouldBe expected.map { it.title }
+                }
+                withClue("link") {
+                    articles.map { it.link } shouldBe expected.map { it.link }
+                }
+                withClue("description") {
+                    articles.map { it.description } shouldBe expected.map { it.description }
+                }
+            }
+        }
     }
 }

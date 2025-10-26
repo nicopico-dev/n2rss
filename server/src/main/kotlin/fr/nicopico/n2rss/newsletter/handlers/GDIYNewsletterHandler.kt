@@ -50,9 +50,10 @@ class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
                 .addAttributes("a", "href")
                 .addAttributes("span", "style")
         )
-        // TODO println(Jsoup.parseBodyFragment(email.content.html))
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        // TODO println(document)
+        // FIXME DEBUG
+        println("=== ${email.subject} ===")
+        println(document)
 
         return document
             .select("a[href] > span[style*=color]")
@@ -68,7 +69,7 @@ class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
                     .trim()
 
                 Article(
-                    title = link.text(),
+                    title = ARTICLE_TITLE_REGEX.matchEntire(link.text())!!.groupValues[1],
                     link = link.attr("href").toUrlOrNull()
                         ?: throw NewsletterParsingException("No valid link for article"),
                     description = description,
@@ -94,6 +95,7 @@ class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
     }
 
     companion object {
-        private val ARTICLE_TITLE_REGEX = Regex("#\\d+ - .*")
+        // TODO Capture "La Martingale"
+        private val ARTICLE_TITLE_REGEX = Regex(".*(#\\d+ - .*)")
     }
 }
