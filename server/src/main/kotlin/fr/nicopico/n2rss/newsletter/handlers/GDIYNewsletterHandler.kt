@@ -51,9 +51,6 @@ class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
                 .addAttributes("span", "style")
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        // FIXME DEBUG
-        //println("=== ${email.subject} ===")
-        //println(document)
 
         return document
             .select("a[href] > span[style*=color]")
@@ -84,7 +81,6 @@ class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
 
     companion object {
         private val ARTICLE_TITLE_COLOR = HtmlColor.of("#257953")
-        // TODO Capture "La Martingale" ?
         private val ARTICLE_TITLE_REGEX = Regex(".*(#\\d+ - .*)")
     }
 }
