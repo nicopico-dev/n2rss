@@ -31,12 +31,13 @@ fun Element.textWithLineFeeds(): String {
         .replace(Regex("^ (\\w)?", RegexOption.MULTILINE), "$1")
         // Keep line-feeds but remove empty lines
         .replace(Regex("\\n{3,}"), "\n\n")
+        .replace(Regex("<br\\s*/?>", RegexOption.IGNORE_CASE), "\n")
         .trim()
 }
 
-private val grayscaleColorRegex = Regex("color\\s*:\\s*#(\\d{1,2})\\1\\1\\b")
-
-fun Element.hasGrayscaleColor(): Boolean {
-    val style = attr("style")
-    return style.contains(grayscaleColorRegex)
-}
+private val backgroundColorRegex = Regex("background-color\\s*:\\s*(#\\w+)\\b")
+val Element.backgroundColor: String?
+    get() {
+        val style = attr("style")
+        return backgroundColorRegex.find(style)?.groupValues?.get(1)
+    }
