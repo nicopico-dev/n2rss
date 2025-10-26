@@ -184,9 +184,10 @@ class PublicationServiceTest {
         val newsletterCode = "delivering"
         val newsletter = createStubNewsletter(newsletterCode)
         every { publicationRepository.countPublicationsByNewsletterCode(any()) } returns 10L
-        every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns createStubPublicationEntity(
-            newsletter
-        )
+        every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns
+            createStubPublicationEntity(newsletter)
+        every { publicationRepository.findFirstByNewsletterCodeOrderByDateDesc(any()) } returns
+            createStubPublicationEntity(newsletter)
         every { publicationRepository.findByNewsletterCode(newsletterCode, any()) } returns PageImpl(
             listOf(
                 createStubPublicationEntity(newsletter),
@@ -264,9 +265,10 @@ class PublicationServiceTest {
 
             // Additional stubs required by `stats` computation
             every { publicationRepository.countPublicationsByNewsletterCode(any()) } returns 5L
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns createStubPublicationEntity(
-                newsletter
-            )
+            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns
+                createStubPublicationEntity(newsletter)
+            every { publicationRepository.findFirstByNewsletterCodeOrderByDateDesc(any()) } returns
+                createStubPublicationEntity(newsletter)
 
             // WHEN
             val stats = publicationService.getNewsletterStats(newsletter)
@@ -336,9 +338,10 @@ class PublicationServiceTest {
 
             // Additional stubs
             every { publicationRepository.countPublicationsByNewsletterCode(any()) } returns 5L
-            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns createStubPublicationEntity(
-                newsletter
-            )
+            every { publicationRepository.findFirstByNewsletterCodeOrderByDateAsc(any()) } returns
+                createStubPublicationEntity(newsletter)
+            every { publicationRepository.findFirstByNewsletterCodeOrderByDateDesc(any()) } returns
+                createStubPublicationEntity(newsletter)
 
             // WHEN
             val stats = publicationService.getNewsletterStats(newsletter)

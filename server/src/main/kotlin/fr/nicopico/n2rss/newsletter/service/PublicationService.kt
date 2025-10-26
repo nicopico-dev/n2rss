@@ -133,7 +133,7 @@ class PublicationService(
 
     private fun Newsletter.getLastPublicationDate(): LocalDate {
         val lastPublication = requireNotNull(
-            publicationRepository.findByNewsletterCode(code, Pageable.ofSize(1)).first()
+            publicationRepository.findFirstByNewsletterCodeOrderByDateDesc(code)
         ) { "Newsletter must have at least one publication" }
         return lastPublication.date.toKotlinLocaleDate()
     }
