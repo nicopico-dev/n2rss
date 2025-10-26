@@ -15,7 +15,6 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.newsletter.data
 
 import fr.nicopico.n2rss.newsletter.data.entity.PublicationEntity
@@ -28,4 +27,5 @@ interface PublicationRepository : JpaRepository<PublicationEntity, UUID> {
     fun findByNewsletterCode(newsletterCode: String, pageable: Pageable): Page<PublicationEntity>
     fun countPublicationsByNewsletterCode(newsletterCode: String): Long
     fun findFirstByNewsletterCodeOrderByDateAsc(newsletterCode: String): PublicationEntity?
+    fun findFirstByNewsletterCodeOrderByDateDesc(newsletterCode: String): PublicationEntity?
 }
