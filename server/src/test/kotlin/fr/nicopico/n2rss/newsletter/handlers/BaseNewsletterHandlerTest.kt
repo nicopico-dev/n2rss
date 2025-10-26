@@ -18,7 +18,8 @@
 package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
-import io.kotest.assertions.throwables.shouldNotThrowAny
+import io.kotest.assertions.assertSoftly
+import io.kotest.assertions.withClue
 import io.kotest.matchers.collections.beEmpty
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
@@ -83,10 +84,17 @@ open class BaseNewsletterHandlerTest<T : NewsletterHandler>(
             // GIVEN
             val emails = loadEmails("$STUBS_EMAIL_ROOT_FOLDER/$stubsFolder")
 
-            // WHEN - THEN
-            shouldNotThrowAny {
-                emails.forEach { email ->
-                    handler.process(email) shouldNot beEmpty()
+            // WHEN
+            val articlesPerEmail = emails.associateWith { email ->
+                handler.process(email).flatMap { it.articles }
+            }
+
+            // THEN
+            assertSoftly {
+                articlesPerEmail.forEach { (email, articles) ->
+                    withClue("\"${email.subject}\" articles") {
+                        articles shouldNot beEmpty()
+                    }
                 }
             }
         }
