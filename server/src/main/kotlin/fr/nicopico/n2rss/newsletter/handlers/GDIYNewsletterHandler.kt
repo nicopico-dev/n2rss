@@ -58,7 +58,7 @@ class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
         return document
             .select("a[href] > span[style*=color]")
             .filter { element ->
-                element.getTextColor()?.matches(ARTICLE_TITLE_COLOR) == true
+                element.getTextColor()?.matches(ARTICLE_TITLE_COLOR, tolerance = 5) == true
                     && element.text().matches(ARTICLE_TITLE_REGEX)
             }
             .map { linkSpan ->

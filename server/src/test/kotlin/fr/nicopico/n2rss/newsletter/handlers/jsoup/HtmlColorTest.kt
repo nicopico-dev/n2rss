@@ -186,5 +186,24 @@ class HtmlColorTest {
             match1 shouldBe true
             match2 shouldBe false
         }
+
+        @Test
+        fun `should match within tolerance color`() {
+            // GIVEN
+            val reference = HtmlColor(red = 255, green = 40, blue = 8)
+            val candidate1 = HtmlColor(red = 255, green = 40, blue = 8)
+            val candidate2 = HtmlColor(red = 254, green = 42, blue = 10)
+            val candidate3 = HtmlColor(red = 123, green = 23, blue = 10)
+
+            // WHEN
+            val match1 = reference.matches(candidate1, tolerance = 5)
+            val match2 = reference.matches(candidate2, tolerance = 5)
+            val match3 = reference.matches(candidate3, tolerance = 5)
+
+            // THEN
+            match1 shouldBe true
+            match2 shouldBe true
+            match3 shouldBe false
+        }
     }
 }

@@ -34,13 +34,12 @@ data class HtmlColor(
         }
     }
 
-    fun matches(color: HtmlColor): Boolean {
+    fun matches(color: HtmlColor, tolerance: Int = 0): Boolean {
         val delta =
             (red - color.red) +
                 (green - color.green) +
                 (blue - color.blue)
-        // TODO Add a tolerance
-        return delta == 0
+        return delta <= tolerance
     }
 
     companion object {
