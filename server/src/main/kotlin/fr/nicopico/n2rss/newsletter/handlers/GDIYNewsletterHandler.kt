@@ -20,6 +20,7 @@ package fr.nicopico.n2rss.newsletter.handlers
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.html
 import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
+import fr.nicopico.n2rss.newsletter.handlers.jsoup.HtmlColor
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.utils.url.toUrlOrNull
@@ -27,7 +28,6 @@ import org.jsoup.Jsoup
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
-import java.util.Locale
 
 @Component
 class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
@@ -52,13 +52,13 @@ class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
         // FIXME DEBUG
-        println("=== ${email.subject} ===")
-        println(document)
+        //println("=== ${email.subject} ===")
+        //println(document)
 
         return document
             .select("a[href] > span[style*=color]")
             .filter { element ->
-                element.matchColor("#257953")
+                element.getTextColor()?.matches(ARTICLE_TITLE_COLOR) == true
                     && element.text().matches(ARTICLE_TITLE_REGEX)
             }
             .map { linkSpan ->
@@ -77,25 +77,14 @@ class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
             }
     }
 
-    private fun Element.matchColor(hexColor: String): Boolean {
-        val extractedColor = extractCssColor() ?: return false
-        return extractedColor.equals(hexColor, ignoreCase = true)
-    }
-
-    private fun Element.extractCssColor(): String? {
+    private fun Element.getTextColor(): HtmlColor? {
         val style = attr("style")
-        val hexColorRegex = Regex("color\\s*:\\s*(#[A-Fa-f0-9]{6}|#[A-Fa-f0-9]{3})\\b")
-        val rgbColorRegex = Regex("color\\s*:\\s*rgb\\((\\d+),\\s*(\\d+),\\s*(\\d+)\\)")
-
-        return hexColorRegex.find(style)?.groupValues?.get(1)
-            ?: rgbColorRegex.find(style)?.let {
-                val (r, g, b) = it.destructured
-                String.format(Locale.ROOT, "#%02X%02X%02X", r.toInt(), g.toInt(), b.toInt())
-            }
+        return HtmlColor.extractFromStyle(style)
     }
 
     companion object {
-        // TODO Capture "La Martingale"
+        private val ARTICLE_TITLE_COLOR = HtmlColor.of("#257953")
+        // TODO Capture "La Martingale" ?
         private val ARTICLE_TITLE_REGEX = Regex(".*(#\\d+ - .*)")
     }
 }
