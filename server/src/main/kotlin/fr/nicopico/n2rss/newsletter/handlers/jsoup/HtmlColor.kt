@@ -54,6 +54,7 @@ data class HtmlColor(
         fun of(value: String): HtmlColor {
             return when {
                 hexColorRegex.matches(value) -> {
+                    @Suppress("MagicNumber")
                     when (value.length) {
                         // 2 digits per color
                         7 -> HtmlColor(
