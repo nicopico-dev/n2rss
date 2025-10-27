@@ -48,6 +48,18 @@ open class GreenMailTestBase(
         mailSession = greenMail.imap.createSession()
     }
 
+    protected fun prepareFolders(vararg folderNames: String) {
+        mailSession.getStore(serverSetup.protocol).use { store ->
+            store.connect(userEmail, userPassword)
+            for (folderName in folderNames) {
+                val folder = store.getFolder(folderName)
+                if (!folder.exists()) {
+                    folder.create(Folder.HOLDS_FOLDERS or Folder.HOLDS_MESSAGES)
+                }
+            }
+        }
+    }
+
     protected fun deliverTextMessage(folderName: String, from: String, subject: String, content: String) {
         val message = GreenMailUtil.createTextEmail(
             userEmail,

@@ -60,8 +60,9 @@ class JavaxEmailClient(
         with(email.messageId) {
             doInFolder(folder) {
                 open(Folder.READ_WRITE)
+                // FIXME Ensure msgNum is updated if other emails have been moved before
                 val msg = getMessage(msgNum)
-                // Ensure destination folder exists and is open
+                // Ensure the destination folder exists and is open
                 val store = this.store
                 store.getFolder(processedFolder).use { dest ->
                     if (!dest.exists()) {
