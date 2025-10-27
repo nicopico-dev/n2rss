@@ -35,16 +35,6 @@ class JavaxEmailClient(
         setProperty("mail.store.protocol", config.protocol)
     }
 
-    override fun markAsRead(email: Email) {
-        with(email.messageId) {
-            doInFolder(folder) {
-                open(Folder.READ_WRITE)
-                val msg = getMessage(msgNum)
-                msg.setFlag(Flags.Flag.SEEN, true)
-            }
-        }
-    }
-
     override fun checkEmails(): List<Email> {
         return folders
             .flatMap { folder ->
@@ -54,6 +44,16 @@ class JavaxEmailClient(
                         .map { it.toEmail(folder) }
                 }
             }
+    }
+
+    override fun markAsRead(email: Email) {
+        with(email.messageId) {
+            doInFolder(folder) {
+                open(Folder.READ_WRITE)
+                val msg = getMessage(msgNum)
+                msg.setFlag(Flags.Flag.SEEN, true)
+            }
+        }
     }
 
     override fun moveToProcessed(email: Email) {

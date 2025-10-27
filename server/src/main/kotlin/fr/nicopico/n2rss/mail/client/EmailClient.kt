@@ -20,7 +20,7 @@ package fr.nicopico.n2rss.mail.client
 import fr.nicopico.n2rss.mail.models.Email
 
 interface EmailClient {
+    fun checkEmails(): List<Email>
     fun markAsRead(email: Email)
     fun moveToProcessed(email: Email)
-    fun checkEmails(): List<Email>
 }
