@@ -24,7 +24,6 @@ import fr.nicopico.n2rss.controller.home.HomeController
 import fr.nicopico.n2rss.controller.rss.RssFeedController
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.EmailContent.TextOnly
-import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandlerMultipleFeeds
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandlerSingleFeed
@@ -421,7 +420,7 @@ class AnalyticsAspectTest {
                 content = TextOnly(
                     "Mark pennsylvania link granted viewing snap ellen, spell burst sales."
                 ),
-                messageId = MessageId("INBOX", 0),
+                messageId = mockk(),
             )
 
             // SETUP
@@ -452,7 +451,7 @@ class AnalyticsAspectTest {
                 content = TextOnly(
                     "Replacement islam traditional bruce connectivity boost theft, maritime dust south."
                 ),
-                messageId = MessageId("INBOX", 0),
+                messageId = mockk(),
             )
 
             // SETUP

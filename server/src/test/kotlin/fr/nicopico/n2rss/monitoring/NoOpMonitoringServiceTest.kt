@@ -19,10 +19,10 @@ package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.EmailContent
-import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.now
 import io.kotest.assertions.throwables.shouldNotThrowAny
+import io.mockk.mockk
 import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -52,7 +52,7 @@ class NoOpMonitoringServiceTest {
             date = LocalDate.now(),
             subject = "test",
             content = EmailContent.TextOnly("test"),
-            messageId = MessageId("INBOX", 1),
+            messageId = mockk(),
         )
         val exception = Exception("Test exception")
         shouldNotThrowAny {

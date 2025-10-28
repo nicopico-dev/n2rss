@@ -18,10 +18,10 @@
 package fr.nicopico.n2rss.mail.client
 
 import fr.nicopico.n2rss.mail.models.EmailContent
-import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import io.kotest.assertions.assertSoftly
+import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.instanceOf
 import io.mockk.Runs
@@ -60,14 +60,16 @@ class MessageExtKtTest {
         )
 
         // WHEN
-        val email = message.toEmail("INBOX")
+        val email = message.toEmail()
 
         // THEN
         assertSoftly(email) {
             it.subject shouldBe subject
             it.content shouldBe EmailContent.TextOnly(content)
             it.sender shouldBe Sender(sender)
-            it.messageId shouldBe MessageId("INBOX", messageNumber)
+            it.messageId should { messageId ->
+                messageId.message shouldBe message
+            }
             it.date shouldBe sentDate.toKotlinLocaleDate()
         }
     }
@@ -85,7 +87,7 @@ class MessageExtKtTest {
         )
 
         // WHEN
-        val email = message.toEmail("INBOX")
+        val email = message.toEmail()
 
         // THEN
         email.sender.sender shouldBe senders[0]
@@ -116,7 +118,7 @@ class MessageExtKtTest {
         )
 
         // WHEN
-        val email = message.toEmail("INBOX")
+        val email = message.toEmail()
 
         // THEN
         email.content shouldBe EmailContent.TextAndHtml(
@@ -165,7 +167,7 @@ class MessageExtKtTest {
         )
 
         // WHEN
-        val email = message.toEmail("INBOX")
+        val email = message.toEmail()
 
         // THEN
         email.content shouldBe EmailContent.TextAndHtml(
@@ -185,7 +187,7 @@ class MessageExtKtTest {
         )
 
         // WHEN
-        val email = message.toEmail("INBOX")
+        val email = message.toEmail()
 
         // THEN
         email.content shouldBe instanceOf<EmailContent.HtmlOnly>()
@@ -214,7 +216,7 @@ class MessageExtKtTest {
         )
 
         // WHEN
-        val email = message.toEmail("INBOX")
+        val email = message.toEmail()
 
         // THEN
         email.content shouldBe instanceOf<EmailContent.TextOnly>()
