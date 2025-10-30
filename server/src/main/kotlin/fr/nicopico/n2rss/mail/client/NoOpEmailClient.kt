@@ -20,6 +20,9 @@ package fr.nicopico.n2rss.mail.client
 import fr.nicopico.n2rss.mail.models.Email
 
 class NoOpEmailClient : EmailClient {
+
+    override fun checkEmails(): List<Email> = emptyList()
+
     override fun markAsRead(email: Email) {
         // No-op
     }
@@ -27,6 +30,4 @@ class NoOpEmailClient : EmailClient {
     override fun moveToProcessed(email: Email) {
         // No-op
     }
-
-    override fun checkEmails(): List<Email> = emptyList()
 }

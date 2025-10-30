@@ -20,7 +20,6 @@ package fr.nicopico.n2rss.monitoring
 import fr.nicopico.n2rss.fakes.FixedClock
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.EmailContent.TextOnly
-import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.monitoring.data.GithubIssueData
 import fr.nicopico.n2rss.monitoring.data.GithubIssueService
@@ -226,7 +225,7 @@ class GithubMonitoringServiceTest {
             subject = "Any title",
             sender = Sender("test <test@example.com>"),
             date = LocalDate.fromEpochDays(2000),
-            messageId = MessageId("INBOX", 0),
+            messageId = mockk(),
             content = TextOnly(
                 "Guatemala georgia duplicate dealer popular spectrum surface, block databases attempt aids phrase"
             )

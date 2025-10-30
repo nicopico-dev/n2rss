@@ -33,14 +33,6 @@ class LocalFileEmailClient(
     private val mailSession = Session.getDefaultInstance(System.getProperties())
     private val readEmails = mutableSetOf<Email>()
 
-    override fun markAsRead(email: Email) {
-        readEmails.add(email)
-    }
-
-    override fun moveToProcessed(email: Email) {
-        // No-op for local files
-    }
-
     override fun checkEmails(): List<Email> {
         val filePath = Paths.get(emailFolder)
         require(filePath.toFile().exists()) {
@@ -52,10 +44,18 @@ class LocalFileEmailClient(
             .map { emlFilePath ->
                 val message = parseEmlFileToMimeMessage(emlFilePath.toString())
 
-                message.toEmail(emailFolder)
+                message.toEmail()
             }
             .filter { it !in readEmails }
             .collect(Collectors.toList())
+    }
+
+    override fun markAsRead(email: Email) {
+        readEmails.add(email)
+    }
+
+    override fun moveToProcessed(email: Email) {
+        // No-op for local files
     }
 
     private fun parseEmlFileToMimeMessage(filePath: String): MimeMessage {

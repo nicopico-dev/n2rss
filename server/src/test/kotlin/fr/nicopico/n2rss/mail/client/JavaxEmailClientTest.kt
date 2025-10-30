@@ -34,7 +34,8 @@ class JavaxEmailClientTest : GreenMailTestBase(
 
     companion object {
         private const val INBOX_FOLDER = "INBOX"
-        private const val OTHER_FOLDER = "OTHER"
+        private const val SECONDARY_FOLDER = "SECONDARY"
+        private const val TRASH_FOLDER = "TRASH"
         private const val USER_EMAIL = "user@example.com"
         private const val USER_PASSWORD = "secret"
     }
@@ -52,7 +53,8 @@ class JavaxEmailClientTest : GreenMailTestBase(
                 user = user.email,
                 password = user.password,
             ),
-            folders = listOf(INBOX_FOLDER, OTHER_FOLDER),
+            folders = listOf(INBOX_FOLDER, SECONDARY_FOLDER),
+            processedFolder = TRASH_FOLDER,
         )
     }
 
@@ -72,7 +74,7 @@ class JavaxEmailClientTest : GreenMailTestBase(
             content = "Hello World! 2",
         )
         deliverTextMessage(
-            folderName = OTHER_FOLDER,
+            folderName = SECONDARY_FOLDER,
             from = "from@another-email.com",
             subject = "Subject 3",
             content = "Hello World! 3",
@@ -105,7 +107,7 @@ class JavaxEmailClientTest : GreenMailTestBase(
         checkMailFolder(INBOX_FOLDER) { folder ->
             folder.search(FlagTerm(Flags(Flags.Flag.SEEN), false)) shouldHaveSize 2
         }
-        checkMailFolder(OTHER_FOLDER) { folder ->
+        checkMailFolder(SECONDARY_FOLDER) { folder ->
             folder.search(FlagTerm(Flags(Flags.Flag.SEEN), false)) shouldHaveSize 1
         }
     }
@@ -132,21 +134,65 @@ class JavaxEmailClientTest : GreenMailTestBase(
             content = "Hello World! 3",
         )
         deliverTextMessage(
-            folderName = OTHER_FOLDER,
+            folderName = SECONDARY_FOLDER,
             from = "from@another-email.com",
             subject = "Subject 4",
             content = "Hello World! 4",
         )
 
-        // WHEN - THEN
+        // WHEN
         val emails = emailClient.checkEmails()
-
-        // THEN
         shouldNotThrowAny {
             emailClient.markAsRead(emails[1])
             emailClient.markAsRead(emails[3])
         }
+
+        // THEN
         val unreadEmails = emailClient.checkEmails()
         unreadEmails.map { it.subject } shouldBe listOf("Subject 1", "Subject 3")
+    }
+
+    @Test
+    fun `emailClient should move processed messages to another folder`() {
+        // GIVEN
+        prepareFolders(SECONDARY_FOLDER, TRASH_FOLDER)
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@email.com",
+            subject = "Subject 1",
+            content = "Hello World! 1",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 2",
+            content = "Hello World! 2",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 3",
+            content = "Hello World! 3",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 4",
+            content = "Hello World! 4",
+        )
+
+        // WHEN
+        val emails = emailClient.checkEmails()
+        emails[0].subject shouldBe "Subject 1"
+        emails[3].subject shouldBe "Subject 4"
+
+        emailClient.moveToProcessed(emails[0])
+        emailClient.moveToProcessed(emails[3])
+
+        // THEN
+        val retainedEmails = emailClient.checkEmails()
+        retainedEmails.none {
+            it.subject == "Subject 1" || it.subject == "Subject 4"
+        }
     }
 }

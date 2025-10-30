@@ -26,7 +26,7 @@ import jakarta.mail.Flags
 import jakarta.mail.Message
 import jakarta.mail.internet.MimeMultipart
 
-fun Message.toEmail(messageFolder: String): Email {
+fun Message.toEmail(): Email {
     val originalFlags = flags
     val content = content
     val email = Email(
@@ -57,10 +57,7 @@ fun Message.toEmail(messageFolder: String): Email {
                 } else EmailContent.TextOnly(content.toString())
             }
         },
-        messageId = MessageId(
-            folder = messageFolder,
-            msgNum = this.messageNumber,
-        ),
+        messageId = MessageId(message = this),
     )
 
     // Remove flag SEEN if necessary

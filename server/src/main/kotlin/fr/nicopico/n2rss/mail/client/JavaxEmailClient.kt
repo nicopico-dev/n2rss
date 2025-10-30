@@ -31,59 +31,62 @@ class JavaxEmailClient(
     private val processedFolder: String = "Trash",
 ) : EmailClient {
 
-    private val props = Properties().apply {
+    private val storeProps = Properties().apply {
         setProperty("mail.store.protocol", config.protocol)
-    }
-
-    override fun markAsRead(email: Email) {
-        with(email.messageId) {
-            doInFolder(folder) {
-                open(Folder.READ_WRITE)
-                val msg = getMessage(msgNum)
-                msg.setFlag(Flags.Flag.SEEN, true)
-            }
-        }
     }
 
     override fun checkEmails(): List<Email> {
         return folders
-            .flatMap { folder ->
-                doInFolder(folder) {
-                    open(Folder.READ_ONLY)
-                    search(FlagTerm(Flags(Flags.Flag.SEEN), false))
-                        .map { it.toEmail(folder) }
+            .flatMap { folderName ->
+                doInStore {
+                    getFolder(folderName).use { folder ->
+                        folder.open(Folder.READ_ONLY)
+                        folder
+                            .search(FlagTerm(Flags(Flags.Flag.SEEN), false))
+                            .map { it.toEmail() }
+                    }
                 }
             }
     }
 
+    override fun markAsRead(email: Email) {
+        val message = email.messageId.message
+        doInStore {
+            message.folder.open(Folder.READ_ONLY)
+            message.setFlag(Flags.Flag.SEEN, true)
+        }
+    }
+
     override fun moveToProcessed(email: Email) {
-        with(email.messageId) {
-            doInFolder(folder) {
-                open(Folder.READ_WRITE)
-                val msg = getMessage(msgNum)
-                // Ensure destination folder exists and is open
-                val store = this.store
-                store.getFolder(processedFolder).use { dest ->
-                    if (!dest.exists()) {
-                        dest.create(Folder.HOLDS_MESSAGES)
-                    }
-                    dest.open(Folder.READ_WRITE)
-                    // Copy and delete original
-                    copyMessages(arrayOf(msg), dest)
-                    msg.setFlag(Flags.Flag.DELETED, true)
-                    expunge()
+        val message = email.messageId.message
+
+        doInStore {
+            getFolder(processedFolder).use { destination ->
+                // Ensure the destination folder is present and open
+                if (!destination.exists()) {
+                    destination.create(Folder.HOLDS_FOLDERS or Folder.HOLDS_MESSAGES)
+                }
+                destination.open(Folder.READ_ONLY)
+
+                message.folder.use { source ->
+                    source.open(Folder.READ_WRITE)
+
+                    // Copy from `source` to `destination`
+                    source.copyMessages(arrayOf(message), destination)
+
+                    // Delete the original
+                    message.setFlag(Flags.Flag.DELETED, true)
+                    source.expunge()
                 }
             }
         }
     }
 
-    private fun <T> doInFolder(folder: String, block: Folder.() -> T): T {
-        val session = Session.getInstance(props, null)
+    private fun <T> doInStore(block: Store.() -> T): T {
+        val session = Session.getInstance(storeProps, null)
         return session.getStore(config.protocol).use { store ->
             store.connectWith(config)
-            store.getFolder(folder).use { f ->
-                f.block()
-            }
+            store.block()
         }
     }
 

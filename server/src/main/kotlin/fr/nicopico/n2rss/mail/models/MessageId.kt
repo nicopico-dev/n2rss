@@ -15,10 +15,10 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-
 package fr.nicopico.n2rss.mail.models
 
-data class MessageId(
-    val folder: String,
-    val msgNum: Int,
+import jakarta.mail.Message
+
+class MessageId(
+    val message: Message,
 )
