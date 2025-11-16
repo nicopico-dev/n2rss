@@ -15,51 +15,30 @@
   ~ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
   ~ DEALINGS IN THE SOFTWARE.
   -->
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <title>N2RSS - Simple RSS Viewer</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <style>
-        body {
-            font-family: system-ui, sans-serif;
-            max-width: 780px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        header {
-            display: flex;
-            gap: .5rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        input, button {
-            font: inherit;
-            padding: .5rem .75rem;
-        }
-
-        article {
-            border-bottom: 1px solid #ddd;
-            padding: 1rem 0;
-        }
-
-        time {
-            color: #666;
-            font-size: .9rem;
-        }
-    </style>
+    <title>N2RSS - RSS Viewer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/n2rss.css}"/>
+    <link rel="icon" th:href="@{/images/n2rss.ico}" type="image/x-icon">
 </head>
-<body>
-<!-- TODO Add the raw RSS url in the page -->
+<body id="rss-viewer">
+
 <header>
     <span id="status"></span>
+    <img th:src="@{/images/logo.png}" alt="N2RSS Logo" class="logo">
+    <h1 id="title"></h1>
 </header>
 
-<h1 id="title"></h1>
+<p>
+    <a th:href="${feedUrl}" th:text="${feedUrl}" target="_blank"/>
+</p>
 <p id="desc"></p>
+
 <section id="items"></section>
 
 <template id="tplItem">
@@ -69,8 +48,9 @@
         <p class="summary"></p>
     </article>
 </template>
-<input type="hidden" id="feedUrl" th:value="${feedUrl}"/>
 
+<!-- RSS Viewer -->
+<input type="hidden" id="feedUrl" th:value="${feedUrl}"/>
 <script th:src="@{/js/n2rss-viewer.js}" async defer></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -78,8 +58,9 @@
         load(feedUrl);
     });
 </script>
+<!-- /RSS Viewer -->
 
-<!-- 100% privacy-first analytics -->
+<!-- SimpleAnalytics  -->
 <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 <noscript>
     <img
@@ -87,6 +68,7 @@
         alt=""
         referrerpolicy="no-referrer-when-downgrade"/>
 </noscript>
+<!-- /SimpleAnalytics  -->
 
 </body>
 </html>

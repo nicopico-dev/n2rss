@@ -174,3 +174,40 @@ div.legalese a {
 .message.message-error {
     color: #c60101;
 }
+
+body#rss-viewer {
+    font-family: system-ui, sans-serif;
+    max-width: 780px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+
+    h1#title {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    img.logo {
+        display: inline-block;
+        vertical-align: middle;
+        width: 50px;
+    }
+
+    header {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    article {
+        border-bottom: 1px solid #ddd;
+        padding: 1rem 0;
+    }
+
+    time {
+        color: #666;
+        font-size: .9rem;
+    }
+}
