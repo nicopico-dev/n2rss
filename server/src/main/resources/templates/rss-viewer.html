@@ -53,6 +53,7 @@
     </style>
 </head>
 <body>
+<!-- TODO Add the raw RSS url in the page -->
 <header>
     <span id="status"></span>
 </header>
@@ -68,89 +69,24 @@
         <p class="summary"></p>
     </article>
 </template>
+<input type="hidden" id="feedUrl" th:value="${feedUrl}"/>
 
+<script th:src="@{/js/n2rss-viewer.js}" async defer></script>
 <script>
-    const $ = (s) => document.querySelector(s);
-    const statusEl = $('#status');
-    const itemsEl = $('#items');
-    const titleEl = $('#title');
-    const descEl = $('#desc');
-    const tpl = $('#tplItem');
-
-    async function load(url) {
-        if (!url) return;
-        statusEl.textContent = 'Loading…';
-        try {
-            const res = await fetch(url, {headers: {'Accept': 'application/xml,text/xml'}});
-            if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
-            const xmlText = await res.text();
-            const doc = new DOMParser().parseFromString(xmlText, 'application/xml');
-
-            const parseErr = doc.querySelector('parsererror');
-            if (parseErr) throw new Error('Invalid XML');
-
-            renderRSS(doc)
-
-            statusEl.textContent = '';
-        } catch (e) {
-            statusEl.textContent = 'Error: ' + e.message;
-        }
-    }
-
-    function text(el) {
-        return el?.textContent?.trim() ?? '';
-    }
-
-    function first(el, sel) {
-        return el.querySelector(sel);
-    }
-
-    function renderRSS(doc) {
-        const channel = doc.querySelector('channel');
-        titleEl.textContent = text(first(channel, 'title'));
-        descEl.textContent = text(first(channel, 'description'));
-        const items = [...doc.querySelectorAll('channel > item')].slice(0, 50);
-        renderItems(items.map(item => ({
-            title: text(first(item, 'title')),
-            link: text(first(item, 'link')),
-            date: text(first(item, 'pubDate')) || text(first(item, 'dc\\:date')),
-            summary: text(first(item, 'description')) || text(first(item, 'content\\:encoded')),
-        })));
-    }
-
-    function renderItems(items) {
-        const frag = document.createDocumentFragment();
-        for (const it of items) {
-            const node = tpl.content.cloneNode(true);
-            const a = node.querySelector('a');
-            a.textContent = it.title || it.link || '(sans titre)';
-            if (it.link) a.href = it.link;
-            node.querySelector('time').textContent = it.date;
-            node.querySelector('.summary').innerHTML = sanitizeHTML(it.summary);
-            frag.appendChild(node);
-        }
-        itemsEl.appendChild(frag);
-    }
-
-    function sanitizeHTML(html) {
-        const tmp = document.createElement('div');
-        tmp.innerHTML = html || '';
-        tmp.querySelectorAll('script, iframe').forEach(n => n.remove());
-        tmp.querySelectorAll('*').forEach(n => {
-            [...n.attributes].forEach(a => {
-                if (a.name.startsWith('on')) n.removeAttribute(a.name);
-            });
-        });
-        return tmp.innerHTML;
-    }
-
-    // The url can be passed by query (..?url=https://...)
-    const q = new URLSearchParams(location.search).get('url');
-    if (q) {
-        load(q);
-    } else {
-        statusEl.textContent = 'No feed to display';
-    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const feedUrl = document.querySelector('#feedUrl').value;
+        load(feedUrl);
+    });
 </script>
+
+<!-- 100% privacy-first analytics -->
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript>
+    <img
+        src="https://queue.simpleanalyticscdn.com/noscript.gif"
+        alt=""
+        referrerpolicy="no-referrer-when-downgrade"/>
+</noscript>
+
 </body>
 </html>

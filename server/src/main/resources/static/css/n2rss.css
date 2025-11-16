@@ -121,6 +121,16 @@ table tbody tr:nth-child(odd) {
     font-size: 0.8em;
 }
 
+a.rss-viewer {
+    display: block;
+    padding-bottom: 0.1em;
+}
+
+a.rss-feed {
+    font-size: 0.7em;
+    font-style: italic;
+}
+
 form {
     margin: 34px auto;
     max-width: var(--max-width);

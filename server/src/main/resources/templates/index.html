@@ -75,10 +75,14 @@
                         th:text="${newsletter.notes}"/>
                 </td>
                 <td>
-                    <a th:href="${requestUrl + 'rss/' + newsletter.code}"
-                       target="_blank">
-                        RSS Feed
+                    <a th:href="${requestUrl + 'rss/viewer?code=' + newsletter.code}"
+                       class="rss-viewer">
+                        View RSS Feed
                     </a>
+                    <a target="_blank"
+                       th:href="${requestUrl + 'rss/' + newsletter.code}"
+                       th:text="${requestUrl + 'rss/' + newsletter.code}"
+                       class="rss-feed"/>
                 </td>
                 <td th:with="stats=${newsletter.publicationStats}">
                     <span class="publication-count">
