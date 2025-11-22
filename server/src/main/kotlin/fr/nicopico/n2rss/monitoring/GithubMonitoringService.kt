@@ -25,6 +25,7 @@ import fr.nicopico.n2rss.monitoring.github.GithubClient
 import fr.nicopico.n2rss.monitoring.github.GithubException
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.newsletters
+import fr.nicopico.n2rss.newsletter.models.Newsletter
 import kotlinx.datetime.format
 import kotlinx.datetime.format.DateTimeComponents
 import kotlinx.datetime.format.Padding
@@ -38,7 +39,7 @@ import kotlin.time.Clock
 
 @Service
 class GithubMonitoringService(
-    private val repository: GithubIssueService,
+    private val service: GithubIssueService,
     private val client: GithubClient,
     private val clock: Clock,
 ) : MonitoringService {
@@ -48,7 +49,7 @@ class GithubMonitoringService(
     override fun notifyGenericError(error: Exception, context: String?) {
         val errorMessage = error.message ?: error.toString()
         try {
-            val existing = repository.findGenericError(errorMessage)
+            val existing = service.findGenericError(errorMessage)
             if (existing == null) {
                 val id = client.createIssue(
                     title = "An error occurred: `$errorMessage`",
@@ -63,7 +64,7 @@ class GithubMonitoringService(
                         "bug",
                     )
                 )
-                repository.save(
+                service.save(
                     GithubIssueData.GenericError(
                         issueId = id,
                         errorMessage = errorMessage,
@@ -81,32 +82,38 @@ class GithubMonitoringService(
         val emailTitle = email.subject
         val errorMessage = error.message ?: error.toString()
         try {
-            val existing = repository.findEmailProcessingError(email, errorMessage)
+            val existing = service.findEmailProcessingError(email, errorMessage)
             if (existing == null) {
-                val newsletterName = newsletterHandler
-                    ?.let {
-                        "${it.newsletters.first().name}: "
-                    } ?: ""
+                val newsletter = newsletterHandler?.newsletters?.first()
+                val prefix = newsletter?.name?.let { "$it - " }
+                    ?: ""
+
                 val id = client.createIssue(
-                    title = "Email processing error on $newsletterName\"$emailTitle\"",
+                    title = "${prefix}Email processing error on \"$emailTitle\"",
                     body = "Processing of email \"$emailTitle\" sent by \"${email.sender.sender}\" failed "
                         + "with the following error:\n\n"
                         + "```\n"
                         + error.stackTraceToString()
                         + "```\n",
-                    labels = listOf(
-                        "n2rss-bot",
-                        "email-processing-error",
-                        "bug",
-                    )
+                    labels = buildList {
+                        add("n2rss-bot")
+                        add("email-processing-error")
+                        add("bug")
+
+                        if (newsletter != null) {
+                            add(newsletter.code)
+                        }
+                    }
                 )
-                repository.save(
+                service.save(
                     GithubIssueData.EmailProcessingError(
                         issueId = id,
                         emailTitle = emailTitle,
                         errorMessage = errorMessage,
                     )
                 )
+            } else {
+                client.ensureIssueIsOpen(existing.issueId)
             }
         } catch (e: GithubException) {
             LOG.error("Unable to notify email processing error on email $emailTitle", e)
@@ -124,14 +131,8 @@ class GithubMonitoringService(
             /* file = */ "",
         )
         try {
-            val today = clock.now().format(DateTimeComponents.Format {
-                year(Padding.ZERO)
-                char('-')
-                monthNumber(Padding.ZERO)
-                char('-')
-                day(Padding.ZERO)
-            })
-            val existing = repository.findNewsletterRequest(uniqueUrl)
+            val today = getTodayString()
+            val existing = service.findNewsletterRequest(uniqueUrl)
             if (existing == null) {
                 val id = client.createIssue(
                     title = "Add support for newsletter \"$uniqueUrl\"",
@@ -141,7 +142,7 @@ class GithubMonitoringService(
                         "newsletter-request"
                     )
                 )
-                repository.save(GithubIssueData.NewsletterRequest(id, uniqueUrl))
+                service.save(GithubIssueData.NewsletterRequest(id, uniqueUrl))
             } else {
                 val id = existing.issueId
                 client.addCommentToIssue(issueId = id, body = "New request received on $today")
@@ -151,19 +152,40 @@ class GithubMonitoringService(
         }
     }
 
-    override fun notifyMissingPublications(newsletterCodes: List<String>) {
-        client.createIssue(
-            title = "Missing publications detected",
-            body = newsletterCodes.joinToString(
-                prefix = "The following newsletters should have received a new publication by now :\n",
-                transform = { " - $it" },
-                separator = "\n",
-                postfix = "\n",
-            ),
-            labels = listOf(
-                "n2rss-bot",
-                "missing-publications"
+    @Async
+    @Transactional
+    override fun notifyMissingPublication(newsletter: Newsletter) {
+        val existing = service.findMissingPublications(newsletter)
+        if (existing == null) {
+            val id = client.createIssue(
+                title = "${newsletter.name} - Missing publications detected",
+                body = "A new publication from ${newsletter.name} should have been received by now",
+                labels = listOf(
+                    "n2rss-bot",
+                    "missing-publications",
+                    newsletter.code,
+                )
             )
+            service.save(
+                GithubIssueData.MissingPublications(
+                    issueId = id,
+                    newsletterCode = newsletter.code,
+                )
+            )
+        } else {
+            client.ensureIssueIsOpen(existing.issueId)
+        }
+    }
+
+    private fun getTodayString(): String {
+        return clock.now().format(
+            DateTimeComponents.Format {
+                year(Padding.ZERO)
+                char('-')
+                monthNumber(Padding.ZERO)
+                char('-')
+                day(Padding.ZERO)
+            }
         )
     }
 

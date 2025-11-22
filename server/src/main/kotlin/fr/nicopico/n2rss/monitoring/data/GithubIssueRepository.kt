@@ -62,4 +62,16 @@ interface GithubIssueRepository : JpaRepository<GithubIssueData, IssueId> {
     fun findNewsletterRequest(
         @Param("newsletterUrl") newsletterUrl: URL,
     ): GithubIssueData.NewsletterRequest?
+
+    @Query(
+        """
+        SELECT e
+        FROM GITHUB_ISSUES e
+        WHERE TYPE(e) = fr.nicopico.n2rss.monitoring.data.GithubIssueData${"$"}MissingPublications 
+        AND TREAT(e AS fr.nicopico.n2rss.monitoring.data.GithubIssueData${"$"}MissingPublications).newsletterCode = :newsletterCode
+    """
+    )
+    fun findMissingPublications(
+        @Param("newsletterCode") newsletterCode: String,
+    ): GithubIssueData.MissingPublications?
 }

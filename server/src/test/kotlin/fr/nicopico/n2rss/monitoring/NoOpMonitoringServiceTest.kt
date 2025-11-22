@@ -20,6 +20,7 @@ package fr.nicopico.n2rss.monitoring
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.EmailContent
 import fr.nicopico.n2rss.mail.models.Sender
+import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.utils.now
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.mockk.mockk
@@ -69,10 +70,10 @@ class NoOpMonitoringServiceTest {
     }
 
     @Test
-    fun testNotifyMissingPublications() {
-        val missingNewsletters = List(3) { "NL_$it" }
+    fun testNotifyMissingPublication() {
+        val missingNewsletter = mockk<Newsletter>()
         shouldNotThrowAny {
-            service.notifyMissingPublications(missingNewsletters)
+            service.notifyMissingPublication(missingNewsletter)
         }
     }
 }

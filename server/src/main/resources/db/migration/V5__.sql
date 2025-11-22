@@ -15,30 +15,9 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.monitoring
 
-import fr.nicopico.n2rss.mail.models.Email
-import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
-import fr.nicopico.n2rss.newsletter.models.Newsletter
-import org.springframework.scheduling.annotation.Async
-import java.net.URL
+ALTER TABLE github_issues
+    ADD newsletter_code VARCHAR(255) NULL;
 
-interface MonitoringService {
-
-    @Async
-    fun notifyGenericError(error: Exception, context: String? = null)
-
-    @Async
-    fun notifyEmailProcessingError(email: Email, error: Exception, newsletterHandler: NewsletterHandler? = null)
-
-    /**
-     * Saves a given newsletter request by sanitizing the provided URL and notifying the monitoring service.
-     *
-     * @param newsletterUrl The URL of the newsletter request to be saved.
-     */
-    @Async
-    fun notifyNewsletterRequest(newsletterUrl: URL)
-
-    @Async
-    fun notifyMissingPublication(newsletter: Newsletter)
-}
+CREATE INDEX idx_github_issue_missing_publications
+    on github_issues (newsletter_code);

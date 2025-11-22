@@ -119,6 +119,30 @@ class GithubClient(
         }
     }
 
+    /**
+     * Ensure the issue with the given [issueId] is open
+     *
+     * [API documentation](https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-28#update-an-issue)
+     */
+    fun ensureIssueIsOpen(
+        issueId: IssueId
+    ) {
+        try {
+            restClient
+                .patch()
+                .uri("/issues/${issueId.value}")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(
+                    mapOf("state" to "open")
+                )
+                .retrieve()
+                .toBodilessEntity()
+
+        } catch (e: RestClientResponseException) {
+            throw GithubException("Failed to re-open GitHub issue $issueId", e)
+        }
+    }
+
     companion object {
         private val LOG = LoggerFactory.getLogger(GithubClient::class.java)
     }
