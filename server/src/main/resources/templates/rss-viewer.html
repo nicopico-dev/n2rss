@@ -51,6 +51,12 @@
     </article>
 </template>
 
+<!-- Pin DOM Purify 3.3.0 for HTML sanitization -->
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.3.0/dist/purify.min.js"
+        integrity="sha256-58sds9O7fxu83qHKg3dpDUACqVL3gbpuiDHIBn7eyOA="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+
 <!-- RSS Viewer -->
 <input type="hidden" id="feedUrl" th:value="${feedUrl}"/>
 <script th:src="@{/js/n2rss-viewer.js}" async defer></script>

@@ -35,7 +35,7 @@ async function load(url) {
         const parseErr = doc.querySelector('parsererror');
         if (parseErr) throw new Error('Invalid XML');
 
-        renderRSS(doc)
+        renderRSS(doc);
 
         statusEl.textContent = '';
     } catch (e) {
@@ -69,7 +69,7 @@ function renderItems(items) {
     for (const it of items) {
         const node = tpl.content.cloneNode(true);
         const a = node.querySelector('a');
-        a.textContent = it.title || it.link || '(sans titre)';
+        a.textContent = it.title || it.link || '(no title)';
         if (it.link) a.href = it.link;
         node.querySelector('time').textContent = it.date;
         node.querySelector('.summary').innerHTML = sanitizeHTML(it.summary);
@@ -79,6 +79,17 @@ function renderItems(items) {
 }
 
 function sanitizeHTML(html) {
+    // Use DOM Purify for HTML sanitization if available
+    if (window.DOMPurify && typeof DOMPurify.sanitize === 'function') {
+        const cfg = {
+            ALLOWED_TAGS: ['a', 'b', 'i', 'em', 'strong', 'p', 'br', 'ul', 'ol', 'li', 'img', 'figure', 'figcaption', 'blockquote', 'code', 'pre', 'span', 'div'],
+            ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'rel', 'target', 'loading', 'decoding', 'width', 'height', 'style'],
+            ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|ftp):|data:image\/)/i // allow http(s), mailto, ftp and data images
+        };
+        return DOMPurify.sanitize(html || '', cfg);
+    }
+
+    // Fallback sanitization
     const tmp = document.createElement('div');
     tmp.innerHTML = html || '';
     tmp.querySelectorAll('script, iframe').forEach(n => n.remove());
