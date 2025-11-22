@@ -135,7 +135,7 @@ class GithubClientTest {
     }
 
     @Test
-    fun `GitHubClient can re-open aan existing issue through the API`() {
+    fun `GitHubClient can re-open an existing issue through the API`() {
         // GIVEN
         val owner = "piconico"
         val repository = "ssr2n"

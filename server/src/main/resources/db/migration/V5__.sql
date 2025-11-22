@@ -19,5 +19,5 @@
 ALTER TABLE github_issues
     ADD newsletter_code VARCHAR(255) NULL;
 
-create index idx_github_issue_missing_publications
+CREATE INDEX idx_github_issue_missing_publications
     on github_issues (newsletter_code);
