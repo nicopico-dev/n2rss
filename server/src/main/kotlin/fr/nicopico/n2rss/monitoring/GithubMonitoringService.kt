@@ -83,10 +83,8 @@ class GithubMonitoringService(
         try {
             val existing = repository.findEmailProcessingError(email, errorMessage)
             if (existing == null) {
-                val newsletterName = newsletterHandler
-                    ?.let {
-                        "${it.newsletters.first().name}: "
-                    } ?: ""
+                val newsletter = newsletterHandler?.newsletters?.first()
+                val newsletterName = newsletter?.name ?: ""
                 val id = client.createIssue(
                     title = "Email processing error on $newsletterName\"$emailTitle\"",
                     body = "Processing of email \"$emailTitle\" sent by \"${email.sender.sender}\" failed "
@@ -94,11 +92,15 @@ class GithubMonitoringService(
                         + "```\n"
                         + error.stackTraceToString()
                         + "```\n",
-                    labels = listOf(
-                        "n2rss-bot",
-                        "email-processing-error",
-                        "bug",
-                    )
+                    labels = buildList {
+                        add("n2rss-bot")
+                        add("email-processing-error")
+                        add("bug")
+
+                        if (newsletter != null) {
+                            add(newsletter.code)
+                        }
+                    }
                 )
                 repository.save(
                     GithubIssueData.EmailProcessingError(

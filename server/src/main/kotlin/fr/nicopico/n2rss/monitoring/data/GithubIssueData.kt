@@ -41,7 +41,7 @@ open class GithubIssueData(
 ) {
 
     @Entity
-    @DiscriminatorValue("email-client-error")
+    @DiscriminatorValue("generic-error")
     class GenericError(
         issueId: IssueId,
 
