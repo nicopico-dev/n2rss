@@ -1,0 +1,82 @@
+<!--
+  ~ Copyright (c) 2025 Nicolas PICON
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+  ~ documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+  ~ the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+  ~ and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all copies or substantial portions
+  ~ of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+  ~ TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  ~ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+  ~ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  ~ DEALINGS IN THE SOFTWARE.
+  -->
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    lang="en">
+<head>
+    <title>N2RSS - RSS Viewer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/n2rss.css}"/>
+    <link rel="icon" th:href="@{/images/n2rss.ico}" type="image/x-icon">
+</head>
+<body id="rss-viewer">
+
+<header>
+    <a th:href="${homeUrl}">
+        <img th:src="@{/images/logo.png}" alt="N2RSS Logo" class="logo">
+    </a>
+    <h1 id="title"></h1>
+    <span id="status"></span>
+</header>
+
+<p>
+    <a th:href="${feedUrl}" th:text="${feedUrl}" target="_blank"/>
+</p>
+<p id="desc"></p>
+
+<section id="items" class="container"></section>
+
+<template id="tplItem">
+    <article>
+        <h3><a target="_blank" rel="noopener noreferrer"></a></h3>
+        <time></time>
+        <p class="summary"></p>
+    </article>
+</template>
+
+<!-- Pin DOM Purify 3.3.0 for HTML sanitization -->
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.3.0/dist/purify.min.js"
+        integrity="sha256-58sds9O7fxu83qHKg3dpDUACqVL3gbpuiDHIBn7eyOA="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+
+<!-- RSS Viewer -->
+<input type="hidden" id="feedUrl" th:value="${feedUrl}"/>
+<script th:src="@{/js/n2rss-viewer.js}" async defer></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const feedUrl = document.querySelector('#feedUrl').value;
+        load(feedUrl);
+    });
+</script>
+<!-- /RSS Viewer -->
+
+<!-- SimpleAnalytics  -->
+<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript>
+    <img
+        src="https://queue.simpleanalyticscdn.com/noscript.gif"
+        alt=""
+        referrerpolicy="no-referrer-when-downgrade"/>
+</noscript>
+<!-- /SimpleAnalytics  -->
+
+</body>
+</html>
