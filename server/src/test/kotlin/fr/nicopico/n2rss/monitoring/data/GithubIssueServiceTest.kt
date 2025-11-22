@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.monitoring.data
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.github.IssueId
+import fr.nicopico.n2rss.newsletter.models.Newsletter
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
@@ -165,6 +166,53 @@ class GithubIssueServiceTest {
         val data = GithubIssueData.NewsletterRequest(
             issueId = IssueId(Random.nextInt()),
             newsletterUrl = URL("https://www.google.com"),
+        )
+
+        // SETUP
+        every { githubRepository.save(any()) } returns data
+
+        // WHEN
+        githubService.save(data)
+
+        // THEN
+        verify { githubRepository.save(data) }
+    }
+
+    @Test
+    fun `findMissingPublication should defer to the proper repository`() {
+        // GIVEN
+        val newsletterCode = "NL"
+        val newsletter = Newsletter(
+            code = newsletterCode,
+            name = "SomeNewsletter",
+            websiteUrl = "www.missing.nl",
+        )
+        val expected = GithubIssueData.MissingPublications(
+            issueId = IssueId(Random.nextInt()),
+            newsletterCode = newsletterCode,
+        )
+
+        // SETUP
+        every {
+            githubRepository.findMissingPublications(any())
+        } returns expected
+
+        // WHEN
+        val result = githubService.findMissingPublications(newsletter)
+
+        // THEN
+        result shouldBe expected
+        verify {
+            githubRepository.findMissingPublications(newsletterCode)
+        }
+    }
+
+    @Test
+    fun `save MissingPublications should defer to the proper repository`() {
+        // GIVEN
+        val data = GithubIssueData.MissingPublications(
+            issueId = IssueId(Random.nextInt()),
+            newsletterCode = "NL",
         )
 
         // SETUP

@@ -69,4 +69,13 @@ open class GithubIssueData(
         @Column(nullable = false)
         val newsletterUrl: URL,
     ) : GithubIssueData(issueId)
+
+    @Entity
+    @DiscriminatorValue("missing-publications")
+    class MissingPublications(
+        issueId: IssueId,
+
+        @Column(nullable = false)
+        val newsletterCode: String,
+    ) : GithubIssueData(issueId)
 }

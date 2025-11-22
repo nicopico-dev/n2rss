@@ -133,4 +133,40 @@ class GithubClientTest {
             }
         }
     }
+
+    @Test
+    fun `GitHubClient can re-open aan existing issue through the API`() {
+        // GIVEN
+        val owner = "piconico"
+        val repository = "ssr2n"
+        val accessToken = "Some-other-access-token"
+        val issueId = IssueId(1347)
+
+        // SETUP
+        val client = createGithubClient(
+            owner = owner,
+            repository = repository,
+            accessToken = accessToken,
+        )
+        server.enqueue(
+            MockResponse()
+                .setBody(GithubIssueSuccessResponse)
+                .addHeader("Content-Type", "application/json")
+        )
+
+        // WHEN
+        client.ensureIssueIsOpen(
+            issueId = issueId,
+        )
+
+        // THEN
+        server.takeRequest() should {
+            it.requestLine shouldBe "PATCH /repos/piconico/ssr2n/issues/1347 HTTP/1.1"
+            it.headers shouldContain ("Authorization" to "Bearer Some-other-access-token")
+
+            it.body.readUtf8() should { body ->
+                body shouldContain Regex("\"state\"\\s*:\\s*\"open\"")
+            }
+        }
+    }
 }

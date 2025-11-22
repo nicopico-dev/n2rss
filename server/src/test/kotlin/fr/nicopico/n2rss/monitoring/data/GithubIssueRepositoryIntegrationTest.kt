@@ -52,6 +52,10 @@ class GithubIssueRepositoryIntegrationTest {
         issueId = IssueId(3),
         newsletterUrl = URL("https://sample-newsletter-url.com"),
     )
+    val missingPublications = GithubIssueData.MissingPublications(
+        issueId = IssueId(4),
+        newsletterCode = "NL",
+    )
 
     @Test
     fun `test findGenericError`() {
@@ -95,6 +99,20 @@ class GithubIssueRepositoryIntegrationTest {
         result?.should {
             it.issueId shouldBe IssueId(3)
             it.newsletterUrl shouldBe newsletterUrl
+        }
+    }
+
+    @Test
+    fun `test findMissingPublication`() {
+        // Save test data in the repository
+        githubIssueRepository.save(missingPublications)
+
+        val result = githubIssueRepository.findMissingPublications("NL")
+
+        result shouldNotBe null
+        result?.should {
+            it.issueId shouldBe IssueId(4)
+            it.newsletterCode shouldBe "NL"
         }
     }
 }

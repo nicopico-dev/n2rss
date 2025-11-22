@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.monitoring.data
 
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.models.Newsletter
 import org.springframework.stereotype.Service
 import java.net.URL
 
@@ -86,6 +87,27 @@ class GithubIssueService(
      */
     fun save(newsletterRequest: GithubIssueData.NewsletterRequest) {
         githubIssueRepository.save(newsletterRequest)
+    }
+    //endregion
+
+    //region MissingPublications
+    /**
+     * Finds the MissingPublications from the repository based on the provided newsletter.
+     *
+     * @param newsletter the newsletter to search for in the repository.
+     * @return The MissingPublications corresponding to the provided newsletter, or null if not found.
+     */
+    fun findMissingPublications(newsletter: Newsletter): GithubIssueData.MissingPublications? {
+        return githubIssueRepository.findMissingPublications(newsletter.code)
+    }
+
+    /**
+     * Saves the provided MissingPublications to the repository.
+     *
+     * @param missingPublications The MissingPublications instance to be saved.
+     */
+    fun save(missingPublications: GithubIssueData.MissingPublications) {
+        githubIssueRepository.save(missingPublications)
     }
     //endregion
 }

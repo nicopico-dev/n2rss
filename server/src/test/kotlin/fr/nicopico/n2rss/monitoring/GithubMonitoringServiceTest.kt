@@ -40,6 +40,7 @@ import io.mockk.just
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
+import io.mockk.verifyOrder
 import io.mockk.verifySequence
 import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.BeforeEach
@@ -53,7 +54,7 @@ import kotlin.time.Instant
 class GithubMonitoringServiceTest {
 
     @MockK
-    private lateinit var repository: GithubIssueService
+    private lateinit var service: GithubIssueService
     @MockK
     private lateinit var client: GithubClient
 
@@ -64,7 +65,7 @@ class GithubMonitoringServiceTest {
     @BeforeEach
     fun setUp() {
         monitoringService = GithubMonitoringService(
-            repository = repository,
+            service = service,
             client = client,
             clock = FixedClock(now),
         )
@@ -80,9 +81,9 @@ class GithubMonitoringServiceTest {
         val issueId = IssueId(Random.nextInt())
 
         // SETUP
-        every { repository.findGenericError(any()) } returns null
+        every { service.findGenericError(any()) } returns null
         every { client.createIssue(any(), any(), any()) } returns issueId
-        every { repository.save(any<GithubIssueData.GenericError>()) } answers {
+        every { service.save(any<GithubIssueData.GenericError>()) } answers {
             firstArg<GithubIssueData.GenericError>()
         }
 
@@ -92,7 +93,7 @@ class GithubMonitoringServiceTest {
         // THEN
         val bodySlot = slot<String>()
         verifySequence {
-            repository.findGenericError(errorMessage)
+            service.findGenericError(errorMessage)
             client.createIssue(
                 title = "An error occurred: `Some error`",
                 body = capture(bodySlot),
@@ -102,13 +103,13 @@ class GithubMonitoringServiceTest {
                     "bug" in labels
                 }
             )
-            repository.save(
+            service.save(
                 match<GithubIssueData.GenericError> {
                     it.issueId == issueId && it.errorMessage == errorMessage
                 }
             )
         }
-        confirmVerified(repository, client)
+        confirmVerified(service, client)
 
         bodySlot.captured shouldStartWith """
             |Context: CONTEXT
@@ -133,9 +134,9 @@ class GithubMonitoringServiceTest {
         val issueId = IssueId(Random.nextInt())
 
         // SETUP
-        every { repository.findGenericError(any()) } returns null
+        every { service.findGenericError(any()) } returns null
         every { client.createIssue(any(), any(), any()) } returns issueId
-        every { repository.save(any<GithubIssueData.GenericError>()) } answers {
+        every { service.save(any<GithubIssueData.GenericError>()) } answers {
             firstArg<GithubIssueData.GenericError>()
         }
 
@@ -145,7 +146,7 @@ class GithubMonitoringServiceTest {
         // THEN
         val bodySlot = slot<String>()
         verifySequence {
-            repository.findGenericError(errorMessage)
+            service.findGenericError(errorMessage)
             client.createIssue(
                 title = "An error occurred: `Some error`",
                 body = capture(bodySlot),
@@ -155,13 +156,13 @@ class GithubMonitoringServiceTest {
                     "bug" in labels
                 }
             )
-            repository.save(
+            service.save(
                 match<GithubIssueData.GenericError> {
                     it.issueId == issueId && it.errorMessage == errorMessage
                 }
             )
         }
-        confirmVerified(repository, client)
+        confirmVerified(service, client)
 
         bodySlot.captured shouldStartWith """
             |Context: UNSPECIFIED
@@ -186,7 +187,7 @@ class GithubMonitoringServiceTest {
         val issueId = IssueId(Random.nextInt())
 
         // SETUP
-        every { repository.findGenericError(any()) } returns GithubIssueData.GenericError(
+        every { service.findGenericError(any()) } returns GithubIssueData.GenericError(
             issueId = issueId,
             errorMessage = errorMessage,
         )
@@ -195,14 +196,14 @@ class GithubMonitoringServiceTest {
         monitoringService.notifyGenericError(error)
 
         // THEN
-        verify { repository.findGenericError(errorMessage) }
-        confirmVerified(repository, client)
+        verify { service.findGenericError(errorMessage) }
+        confirmVerified(service, client)
     }
 
     @Test
     fun `notifyGenericError should not throw if a GithubException occurs`() {
         // SETUP
-        every { repository.findGenericError(any()) } returns null
+        every { service.findGenericError(any()) } returns null
         every { client.createIssue(any(), any(), any()) } throws GithubException("Some GitHub error !")
 
         // WHEN
@@ -211,7 +212,7 @@ class GithubMonitoringServiceTest {
         }
 
         // THEN
-        verify(exactly = 0) { repository.save(any<GithubIssueData.GenericError>()) }
+        verify(exactly = 0) { service.save(any<GithubIssueData.GenericError>()) }
     }
     //endregion
 
@@ -232,9 +233,9 @@ class GithubMonitoringServiceTest {
         val issueId = IssueId(Random.nextInt())
 
         // SETUP
-        every { repository.findEmailProcessingError(any(), any()) } returns null
+        every { service.findEmailProcessingError(any(), any()) } returns null
         every { client.createIssue(any(), any(), any()) } returns issueId
-        every { repository.save(any<GithubIssueData.EmailProcessingError>()) } answers {
+        every { service.save(any<GithubIssueData.EmailProcessingError>()) } answers {
             firstArg<GithubIssueData.EmailProcessingError>()
         }
 
@@ -244,7 +245,7 @@ class GithubMonitoringServiceTest {
         // THEN
         val bodySlot = slot<String>()
         verifySequence {
-            repository.findEmailProcessingError(email, "Some error")
+            service.findEmailProcessingError(email, "Some error")
             client.createIssue(
                 title = "Email processing error on \"Any title\"",
                 body = capture(bodySlot),
@@ -254,7 +255,7 @@ class GithubMonitoringServiceTest {
                     "bug" in labels
                 }
             )
-            repository.save(
+            service.save(
                 match<GithubIssueData.EmailProcessingError> {
                     it.issueId == issueId
                         && it.emailTitle == email.subject
@@ -262,7 +263,7 @@ class GithubMonitoringServiceTest {
                 }
             )
         }
-        confirmVerified(repository, client)
+        confirmVerified(service, client)
 
         // 2007-12-03T10:15:30.00Z
         bodySlot.captured shouldStartWith """
@@ -280,7 +281,7 @@ class GithubMonitoringServiceTest {
     }
 
     @Test
-    fun `notifyEmailProcessingError should not do anything if a GitHub issue already exists`() {
+    fun `notifyEmailProcessingError should ensure an existing GitHub issue is still open`() {
         // GIVEN
         val email = mockk<Email> {
             every { subject } returns "Any title"
@@ -295,16 +296,18 @@ class GithubMonitoringServiceTest {
         )
 
         // SETUP
-        every { repository.findEmailProcessingError(any(), any()) } returns emailProcessingError
+        every { service.findEmailProcessingError(any(), any()) } returns emailProcessingError
+        every { client.ensureIssueIsOpen(any()) } just Runs
 
         // WHEN
         monitoringService.notifyEmailProcessingError(email, error)
 
         // THEN
         verify {
-            repository.findEmailProcessingError(email, "Some error")
+            service.findEmailProcessingError(email, "Some error")
+            client.ensureIssueIsOpen(issueId)
         }
-        confirmVerified(repository, client)
+        confirmVerified(service, client)
     }
 
     @Test
@@ -316,7 +319,7 @@ class GithubMonitoringServiceTest {
         }
 
         // SETUP
-        every { repository.findEmailProcessingError(any(), any()) } returns null
+        every { service.findEmailProcessingError(any(), any()) } returns null
         every { client.createIssue(any(), any(), any()) } throws GithubException("Some GitHub error !")
 
         // WHEN
@@ -325,7 +328,7 @@ class GithubMonitoringServiceTest {
         }
 
         // THEN
-        verify(exactly = 0) { repository.save(any<GithubIssueData.EmailProcessingError>()) }
+        verify(exactly = 0) { service.save(any<GithubIssueData.EmailProcessingError>()) }
     }
     //endregion
 
@@ -337,9 +340,9 @@ class GithubMonitoringServiceTest {
         val issueId = IssueId(Random.nextInt())
 
         // SETUP
-        every { repository.findNewsletterRequest(any()) } returns null
+        every { service.findNewsletterRequest(any()) } returns null
         every { client.createIssue(any(), any(), any()) } returns issueId
-        every { repository.save(any<GithubIssueData.NewsletterRequest>()) } answers {
+        every { service.save(any<GithubIssueData.NewsletterRequest>()) } answers {
             firstArg<GithubIssueData.NewsletterRequest>()
         }
 
@@ -349,7 +352,7 @@ class GithubMonitoringServiceTest {
         // THEN
         val bodySlot = slot<String>()
         verifySequence {
-            repository.findNewsletterRequest(newsletterUrl)
+            service.findNewsletterRequest(newsletterUrl)
             client.createIssue(
                 title = "Add support for newsletter \"https://www.androidweekly.net\"",
                 body = capture(bodySlot),
@@ -358,14 +361,14 @@ class GithubMonitoringServiceTest {
                     "newsletter-request" in labels
                 }
             )
-            repository.save(
+            service.save(
                 match<GithubIssueData.NewsletterRequest> {
                     it.issueId == issueId
                         && it.newsletterUrl.toURI() == newsletterUrl.toURI()
                 }
             )
         }
-        confirmVerified(repository, client)
+        confirmVerified(service, client)
 
         bodySlot.captured shouldBe "Initial request to support \"https://www.androidweekly.net\"" +
             " received on 2007-12-03"
@@ -382,7 +385,7 @@ class GithubMonitoringServiceTest {
         )
 
         // SETUP
-        every { repository.findNewsletterRequest(any()) } returns newsletterRequest
+        every { service.findNewsletterRequest(any()) } returns newsletterRequest
         every { client.addCommentToIssue(any(), any()) } just Runs
 
         // WHEN
@@ -390,16 +393,16 @@ class GithubMonitoringServiceTest {
 
         // THEN
         verifySequence {
-            repository.findNewsletterRequest(newsletterUrl)
+            service.findNewsletterRequest(newsletterUrl)
             client.addCommentToIssue(issueId, "New request received on 2007-12-03")
         }
-        confirmVerified(repository, client)
+        confirmVerified(service, client)
     }
 
     @Test
     fun `notifyNewsletterRequest should not throw if a GithubException occurs`() {
         // SETUP
-        every { repository.findNewsletterRequest(any()) } returns null
+        every { service.findNewsletterRequest(any()) } returns null
         every { client.createIssue(any(), any(), any()) } throws GithubException("Some GitHub error !")
 
         // WHEN
@@ -408,7 +411,7 @@ class GithubMonitoringServiceTest {
         }
 
         // THEN
-        verify(exactly = 0) { repository.save(any<GithubIssueData.NewsletterRequest>()) }
+        verify(exactly = 0) { service.save(any<GithubIssueData.NewsletterRequest>()) }
     }
 
     @Test
@@ -420,9 +423,9 @@ class GithubMonitoringServiceTest {
         val issueId = IssueId(Random.nextInt())
 
         // SETUP
-        every { repository.findNewsletterRequest(any()) } returns null
+        every { service.findNewsletterRequest(any()) } returns null
         every { client.createIssue(any(), any(), any()) } returns issueId
-        every { repository.save(any<GithubIssueData.NewsletterRequest>()) } answers {
+        every { service.save(any<GithubIssueData.NewsletterRequest>()) } answers {
             firstArg<GithubIssueData.NewsletterRequest>()
         }
 
@@ -431,7 +434,7 @@ class GithubMonitoringServiceTest {
 
         // THEN
         verify {
-            repository.save(
+            service.save(
                 match<GithubIssueData.NewsletterRequest> {
                     it.issueId == issueId
                         && it.newsletterUrl.toURI() == uniqueUrl.toURI()
@@ -452,21 +455,33 @@ class GithubMonitoringServiceTest {
         )
 
         // SETUP
-        every { client.createIssue(any(), any(), any()) } returns IssueId(Random.nextInt())
+        val issueId = IssueId(Random.nextInt())
+        every { service.findMissingPublications(any()) } returns null
+        every { service.save(any<GithubIssueData.MissingPublications>()) } just Runs
+        every { client.createIssue(any(), any(), any()) } returns issueId
 
         // WHEN
         monitoringService.notifyMissingPublication(missingNewsletter)
 
         // THEN
         val bodySlot = slot<String>()
-        verify {
+        verifyOrder {
+            service.findMissingPublications(missingNewsletter)
+
             client.createIssue(
                 title = "SomeNewsletter - Missing publications detected",
                 body = capture(bodySlot),
                 labels = listOf("n2rss-bot", "missing-publications", missingNewsletter.code),
             )
+
+            service.save(
+                match<GithubIssueData.MissingPublications> {
+                    it.issueId == issueId
+                        && it.newsletterCode == missingNewsletter.code
+                }
+            )
         }
-        confirmVerified(repository, client)
+        confirmVerified(service, client)
 
         bodySlot.captured shouldBe "A new publication from SomeNewsletter should have been received by now"
     }
