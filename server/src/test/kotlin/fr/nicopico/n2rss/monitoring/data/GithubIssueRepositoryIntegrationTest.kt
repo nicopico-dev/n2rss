@@ -23,7 +23,6 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.boot.test.context.SpringBootTest
 import java.net.URL
 
@@ -34,7 +33,6 @@ import java.net.URL
         "spring.profiles.active=local, test",
     ],
 )
-@AutoConfigureTestDatabase
 class GithubIssueRepositoryIntegrationTest {
 
     @Autowired
