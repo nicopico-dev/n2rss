@@ -67,7 +67,7 @@ class N2RssApplicationProdTest {
 
             registry.add("N2RSS_DATABASE_PASSWORD") { "" }
             registry.add("N2RSS_DATABASE_SCHEMA") { "PUBLIC" }
-            registry.add("N2RSS_DATABASE_URL") { "jdbc:h2:mem:test-db" }
+            registry.add("N2RSS_DATABASE_URL") { "jdbc:h2:mem:test-db;MODE=MariaDB" }
             registry.add("N2RSS_DATABASE_USERNAME") { "SA" }
 
             registry.add("N2RSS_DISABLED_NEWSLETTERS") { "" }
