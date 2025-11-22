@@ -25,6 +25,7 @@ import fr.nicopico.n2rss.monitoring.github.GithubClient
 import fr.nicopico.n2rss.monitoring.github.GithubException
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.newsletters
+import fr.nicopico.n2rss.newsletter.models.Newsletter
 import kotlinx.datetime.format
 import kotlinx.datetime.format.DateTimeComponents
 import kotlinx.datetime.format.Padding
@@ -84,9 +85,11 @@ class GithubMonitoringService(
             val existing = repository.findEmailProcessingError(email, errorMessage)
             if (existing == null) {
                 val newsletter = newsletterHandler?.newsletters?.first()
-                val newsletterName = newsletter?.name ?: ""
+                val prefix = newsletter?.name?.let { "$it - " }
+                    ?: ""
+
                 val id = client.createIssue(
-                    title = "Email processing error on $newsletterName\"$emailTitle\"",
+                    title = "${prefix}Email processing error on \"$emailTitle\"",
                     body = "Processing of email \"$emailTitle\" sent by \"${email.sender.sender}\" failed "
                         + "with the following error:\n\n"
                         + "```\n"
@@ -153,18 +156,17 @@ class GithubMonitoringService(
         }
     }
 
-    override fun notifyMissingPublications(newsletterCodes: List<String>) {
+    @Async
+    @Transactional
+    override fun notifyMissingPublication(newsletter: Newsletter) {
+        // TODO Update existing issue if it already exists
         client.createIssue(
-            title = "Missing publications detected",
-            body = newsletterCodes.joinToString(
-                prefix = "The following newsletters should have received a new publication by now :\n",
-                transform = { " - $it" },
-                separator = "\n",
-                postfix = "\n",
-            ),
+            title = "${newsletter.name} - Missing publications detected",
+            body = "A new publication from ${newsletter.name} should have been received by now",
             labels = listOf(
                 "n2rss-bot",
-                "missing-publications"
+                "missing-publications",
+                newsletter.code,
             )
         )
     }

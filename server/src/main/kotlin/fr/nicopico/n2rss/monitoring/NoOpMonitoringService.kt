@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
+import fr.nicopico.n2rss.newsletter.models.Newsletter
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.net.URL
@@ -37,8 +38,8 @@ class NoOpMonitoringService : MonitoringService {
         LOG.info("Newsletter request received for url {}", newsletterUrl)
     }
 
-    override fun notifyMissingPublications(newsletterCodes: List<String>) {
-        LOG.info("Missing publications received for {}", newsletterCodes)
+    override fun notifyMissingPublication(newsletter: Newsletter) {
+        LOG.info("Missing publication received for {}", newsletter)
     }
 
     companion object {

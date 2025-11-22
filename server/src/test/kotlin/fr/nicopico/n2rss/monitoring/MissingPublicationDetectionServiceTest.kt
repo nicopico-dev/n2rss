@@ -26,12 +26,12 @@ import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.NewsletterStats
 import fr.nicopico.n2rss.newsletter.service.PublicationService
 import fr.nicopico.n2rss.utils.now
-import io.kotest.matchers.collections.shouldContainExactly
+import io.kotest.matchers.collections.shouldMatchEach
+import io.kotest.matchers.shouldBe
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
-import io.mockk.slot
 import io.mockk.verify
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
@@ -98,13 +98,15 @@ class MissingPublicationDetectionServiceTest {
         val nlA = newsletter("A")
         val nlB = newsletter("B")
         val nlC = newsletter("C")
+        val nlD = newsletter("D")
 
         val handlerA = singleHandler(nlA)
         val handlerB = singleHandler(nlB)
         val handlerC = singleHandler(nlC)
+        val handlerD = singleHandler(nlD)
 
         every { newsletterRepository.getEnabledNewsletterHandlers() } returns
-            listOf(handlerA, handlerB, handlerC)
+            listOf(handlerA, handlerB, handlerC, handlerD)
 
         // A is late: next expected publication is 3 days late
         every { publicationService.getNewsletterStats(nlA) } returns NewsletterStats.MultiplePublications(
@@ -130,14 +132,25 @@ class MissingPublicationDetectionServiceTest {
             publicationPeriodicity = DatePeriod(days = 7),
             articlesPerPublication = 5,
         )
+        // C is late: next expected publication is 5 days late
+        every { publicationService.getNewsletterStats(nlD) } returns NewsletterStats.MultiplePublications(
+            firstPublicationDate = today - DatePeriod(days = 100),
+            lastPublicationDate = today - DatePeriod(days = 12),
+            publicationCount = 10,
+            publicationPeriodicity = DatePeriod(days = 7),
+            articlesPerPublication = 5,
+        )
 
         // WHEN
         service.detectMissingPublications()
 
         // THEN
-        val codesSlot = slot<List<String>>()
-        verify { monitoringService.notifyMissingPublications(capture(codesSlot)) }
-        codesSlot.captured.shouldContainExactly(listOf("A"))
+        val missingNewsletters = mutableListOf<Newsletter>()
+        verify { monitoringService.notifyMissingPublication(capture(missingNewsletters)) }
+        missingNewsletters shouldMatchEach listOf(
+            { it.code shouldBe "A" },
+            { it.code shouldBe "D" },
+        )
         confirmVerified(monitoringService)
     }
 
@@ -171,7 +184,7 @@ class MissingPublicationDetectionServiceTest {
         service.detectMissingPublications()
 
         // THEN
-        verify(exactly = 0) { monitoringService.notifyMissingPublications(any()) }
+        verify(exactly = 0) { monitoringService.notifyMissingPublication(any()) }
         confirmVerified(monitoringService)
     }
 
@@ -214,9 +227,11 @@ class MissingPublicationDetectionServiceTest {
         service.detectMissingPublications()
 
         // THEN
-        val codesSlot = slot<List<String>>()
-        verify { monitoringService.notifyMissingPublications(capture(codesSlot)) }
-        codesSlot.captured.shouldContainExactly(listOf("FIRST"))
+        val missingNewsletters = mutableListOf<Newsletter>()
+        verify { monitoringService.notifyMissingPublication(capture(missingNewsletters)) }
+        missingNewsletters shouldMatchEach listOf(
+            { it.code shouldBe "FIRST" },
+        )
         confirmVerified(monitoringService)
     }
 }

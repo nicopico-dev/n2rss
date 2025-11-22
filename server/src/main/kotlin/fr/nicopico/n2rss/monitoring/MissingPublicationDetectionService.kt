@@ -54,10 +54,9 @@ class MissingPublicationDetectionService(
                     // Get all newsletters whose last publication should already have happened
                     && stats.lastPublicationDate + stats.publicationPeriodicity < threshold
             }
-            .map { it.code }
 
-        if (missingPublications.isNotEmpty()) {
-            monitoringService.notifyMissingPublications(missingPublications)
+        missingPublications.forEach { newsletter ->
+            monitoringService.notifyMissingPublication(newsletter)
         }
     }
 }

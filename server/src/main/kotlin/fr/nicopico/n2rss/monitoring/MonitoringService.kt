@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
+import fr.nicopico.n2rss.newsletter.models.Newsletter
 import org.springframework.scheduling.annotation.Async
 import java.net.URL
 
@@ -39,5 +40,5 @@ interface MonitoringService {
     fun notifyNewsletterRequest(newsletterUrl: URL)
 
     @Async
-    fun notifyMissingPublications(newsletterCodes: List<String>)
+    fun notifyMissingPublication(newsletter: Newsletter)
 }
