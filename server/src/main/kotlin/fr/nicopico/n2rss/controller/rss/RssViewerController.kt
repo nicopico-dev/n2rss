@@ -43,11 +43,13 @@ class RssViewerController(
     ): String {
         val hostname = request.getHeader("Host") ?: request.serverName
         val scheme = if (feedProperties.forceHttps) "https" else request.scheme
+        val homeUrl = "$scheme://$hostname"
         val feedUrl = "$scheme://$hostname/rss/$code"
 
         LOG.debug("Opening RSS viewer for url: {}", feedUrl)
 
         with(model) {
+            addAttribute("homeUrl", homeUrl)
             addAttribute("feedUrl", feedUrl)
         }
 

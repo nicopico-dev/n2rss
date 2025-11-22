@@ -29,9 +29,11 @@
 <body id="rss-viewer">
 
 <header>
-    <span id="status"></span>
-    <img th:src="@{/images/logo.png}" alt="N2RSS Logo" class="logo">
+    <a th:href="${homeUrl}">
+        <img th:src="@{/images/logo.png}" alt="N2RSS Logo" class="logo">
+    </a>
     <h1 id="title"></h1>
+    <span id="status"></span>
 </header>
 
 <p>
@@ -39,7 +41,7 @@
 </p>
 <p id="desc"></p>
 
-<section id="items"></section>
+<section id="items" class="container"></section>
 
 <template id="tplItem">
     <article>
