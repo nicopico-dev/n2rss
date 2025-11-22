@@ -41,29 +41,29 @@ body {
     background-color: var(--background-color);
     padding: 20px;
     text-align: center;
-}
 
-.header img {
-    margin-bottom: 10px;
-}
+    img {
+        margin-bottom: 10px;
+    }
 
-.header h1 {
-    margin: 0;
-    color: #000;
-}
+    h1 {
+        margin: 0;
+        color: #000;
+    }
 
-.header p {
-    color: #555;
-}
+    p {
+        color: #555;
+    }
 
-.header p.sub-title {
-    font-style: italic;
-    margin-top: 8px;
-}
+    p.sub-title {
+        font-style: italic;
+        margin-top: 8px;
+    }
 
-.header p.project-description {
-    max-width: var(--max-width);
-    margin: 24px auto;
+    p.project-description {
+        max-width: var(--max-width);
+        margin: 24px auto;
+    }
 }
 
 .container {
@@ -78,57 +78,96 @@ body {
 table {
     width: 100%;
     border-collapse: collapse;
+
+    thead {
+        background-color: #f2f2f2;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody {
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+    }
+
+    .newsletter-notes {
+        display: block;
+        margin-top: 0.2em;
+        font-size: 0.8em;
+        font-style: italic;
+    }
+
+    .newsletter-notes-multiple-feeds {
+        color: #555;
+        padding-left: 32px;
+        font-style: italic;
+    }
+
+    .publication-count span {
+        font-weight: bold;
+        font-size: 1em;
+    }
+
+    .publication-stats, .publication-start, .publication-last {
+        font-style: italic;
+        font-size: 0.8em;
+    }
+
+    a.rss-viewer {
+        display: block;
+        padding-bottom: 0.1em;
+    }
+
+    a.rss-feed {
+        font-size: 0.7em;
+        font-style: italic;
+    }
 }
 
-table thead {
-    background-color: #f2f2f2;
-}
+body#rss-viewer {
+    font-family: system-ui, sans-serif;
+    max-width: 780px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 
-table th, table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
+    h1#title {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        font-size: 1.5rem;
+    }
 
-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
+    img.logo {
+        display: inline-block;
+        vertical-align: middle;
+        width: 50px;
+    }
 
-table tbody tr:nth-child(odd) {
-    background-color: #ffffff;
-}
+    header {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
 
-.newsletter-notes {
-    display: block;
-    margin-top: 0.2em;
-    font-size: 0.8em;
-    font-style: italic;
-}
+    article {
+        border-bottom: 1px solid #ddd;
+        padding: 1rem 0;
+    }
 
-.newsletter-notes-multiple-feeds {
-    color: #555;
-    padding-left: 32px;
-    font-style: italic;
-}
-
-.publication-count span {
-    font-weight: bold;
-    font-size: 1em;
-}
-
-.publication-stats, .publication-start, .publication-last {
-    font-style: italic;
-    font-size: 0.8em;
-}
-
-a.rss-viewer {
-    display: block;
-    padding-bottom: 0.1em;
-}
-
-a.rss-feed {
-    font-size: 0.7em;
-    font-style: italic;
+    time {
+        color: #666;
+        font-size: .9rem;
+    }
 }
 
 form {
@@ -173,41 +212,4 @@ div.legalese a {
 
 .message.message-error {
     color: #c60101;
-}
-
-body#rss-viewer {
-    font-family: system-ui, sans-serif;
-    max-width: 780px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-
-    h1#title {
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0;
-        font-size: 1.5rem;
-    }
-
-    img.logo {
-        display: inline-block;
-        vertical-align: middle;
-        width: 50px;
-    }
-
-    header {
-        display: flex;
-        gap: .5rem;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    article {
-        border-bottom: 1px solid #ddd;
-        padding: 1rem 0;
-    }
-
-    time {
-        color: #666;
-        font-size: .9rem;
-    }
 }
