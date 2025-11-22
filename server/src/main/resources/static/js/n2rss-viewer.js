@@ -83,7 +83,7 @@ function sanitizeHTML(html) {
     if (window.DOMPurify && typeof DOMPurify.sanitize === 'function') {
         const cfg = {
             ALLOWED_TAGS: ['a', 'b', 'i', 'em', 'strong', 'p', 'br', 'ul', 'ol', 'li', 'img', 'figure', 'figcaption', 'blockquote', 'code', 'pre', 'span', 'div'],
-            ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'class', 'rel', 'target', 'loading', 'decoding', 'width', 'height', 'style'],
+            ALLOWED_ATTR: ['href', 'src', 'alt', 'title', 'rel', 'target', 'loading', 'decoding', 'width', 'height'],
             ALLOWED_URI_REGEXP: /^(?:(?:https?|mailto|ftp):|data:image\/)/i // allow http(s), mailto, ftp and data images
         };
         return DOMPurify.sanitize(html || '', cfg);
