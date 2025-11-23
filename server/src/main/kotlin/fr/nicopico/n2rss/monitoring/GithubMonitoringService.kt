@@ -101,7 +101,7 @@ class GithubMonitoringService(
                         add("bug")
 
                         if (newsletter != null) {
-                            add(newsletter.code)
+                            add(newsletter.githubLabel)
                         }
                     }
                 )
@@ -163,7 +163,7 @@ class GithubMonitoringService(
                 labels = listOf(
                     "n2rss-bot",
                     "missing-publications",
-                    newsletter.code,
+                    newsletter.githubLabel,
                 )
             )
             service.save(
@@ -191,5 +191,8 @@ class GithubMonitoringService(
 
     companion object {
         private val LOG = LoggerFactory.getLogger(GithubMonitoringService::class.java)
+
+        private val Newsletter.githubLabel: String
+            get() = "newsletter/$code"
     }
 }
