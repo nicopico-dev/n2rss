@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.monitoring
 
 import fr.nicopico.n2rss.fakes.FixedClock
+import fr.nicopico.n2rss.fakes.NewsletterHandlerFake
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.EmailContent.TextOnly
 import fr.nicopico.n2rss.mail.models.Sender
@@ -28,6 +29,7 @@ import fr.nicopico.n2rss.monitoring.github.GithubException
 import fr.nicopico.n2rss.monitoring.github.IssueId
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import io.kotest.assertions.throwables.shouldNotThrowAny
+import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldEndWith
 import io.kotest.matchers.string.shouldStartWith
@@ -231,6 +233,18 @@ class GithubMonitoringServiceTest {
         )
         val error = Exception("Some error")
         val issueId = IssueId(Random.nextInt())
+        val newsletterHandler = NewsletterHandlerFake(
+            Newsletter(
+                code = "some-newsletter",
+                name = "Some Newsletter",
+                websiteUrl = "https://example.com",
+            ),
+            Newsletter(
+                code = "another-newsletter",
+                name = "Another Newsletter",
+                websiteUrl = "https://another.example.com",
+            ),
+        )
 
         // SETUP
         every { service.findEmailProcessingError(any(), any()) } returns null
@@ -240,20 +254,17 @@ class GithubMonitoringServiceTest {
         }
 
         // WHEN
-        monitoringService.notifyEmailProcessingError(email, error)
+        monitoringService.notifyEmailProcessingError(email, error, newsletterHandler)
 
         // THEN
         val bodySlot = slot<String>()
+        val labelsSlot = slot<List<String>>()
         verifySequence {
             service.findEmailProcessingError(email, "Some error")
             client.createIssue(
-                title = "Email processing error on \"Any title\"",
+                title = "Some Newsletter - Email processing error on \"Any title\"",
                 body = capture(bodySlot),
-                match { labels ->
-                    "n2rss-bot" in labels
-                    "email-processing-error" in labels
-                    "bug" in labels
-                }
+                labels = capture(labelsSlot),
             )
             service.save(
                 match<GithubIssueData.EmailProcessingError> {
@@ -278,6 +289,13 @@ class GithubMonitoringServiceTest {
             |```
             |
         """.trimMargin()
+
+        labelsSlot.captured shouldContainExactlyInAnyOrder listOf(
+            "n2rss-bot",
+            "email-processing-error",
+            "bug",
+            "newsletter/some-newsletter",
+        )
     }
 
     @Test
@@ -449,7 +467,7 @@ class GithubMonitoringServiceTest {
     fun `notifyMissingPublications should create a GitHub issue`() {
         // GIVEN
         val missingNewsletter = Newsletter(
-            code = "MNL",
+            code = "some-newsletter",
             name = "SomeNewsletter",
             websiteUrl = "www.missing.nl",
         )
@@ -471,7 +489,11 @@ class GithubMonitoringServiceTest {
             client.createIssue(
                 title = "SomeNewsletter - Missing publications detected",
                 body = capture(bodySlot),
-                labels = listOf("n2rss-bot", "missing-publications", missingNewsletter.code),
+                labels = listOf(
+                    "n2rss-bot",
+                    "missing-publications",
+                    "newsletter/some-newsletter",
+                ),
             )
 
             service.save(
