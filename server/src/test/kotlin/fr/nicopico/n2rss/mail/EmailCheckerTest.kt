@@ -239,4 +239,62 @@ class EmailCheckerTest {
         }
         confirmVerified(monitoringService)
     }
+
+    @Test
+    fun `emailChecker report markAsRead error as generic error`(
+        @MockK(relaxed = true) email: Email,
+        @MockK newsletterHandler: NewsletterHandler,
+        @MockK publication: Publication,
+    ) {
+        // Given an email that should be handled by a newsletterHandler
+        every { emailClient.checkEmails() } returns listOf(email)
+        every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
+        every { newsletterHandler.process(email) } returns listOf(publication)
+        every { publication.articles } returns listOf(mockk())
+
+        val markAsReadError = RuntimeException("TEST")
+        every { emailClient.markAsRead(any()) } throws markAsReadError
+        every { monitoringService.notifyGenericError(any(), any()) } just Runs
+
+        // When we check the email
+        emailChecker.savePublicationsFromEmails()
+
+        // Then the email should be handled by newsletterHandlerA and not by newsletterHandlerB
+        verify { newsletterHandler.process(email) }
+        verify { publicationService.savePublications(eq(listOf(publication))) }
+        verify { emailClient.markAsRead(email) }
+        verify(exactly = 0) { emailClient.moveToProcessed(email) }
+
+        verify { monitoringService.notifyGenericError(markAsReadError, any()) }
+        confirmVerified(monitoringService)
+    }
+
+    @Test
+    fun `emailChecker report moveToProcessed error as generic error`(
+        @MockK(relaxed = true) email: Email,
+        @MockK newsletterHandler: NewsletterHandler,
+        @MockK publication: Publication,
+    ) {
+        // Given an email that should be handled by a newsletterHandler
+        every { emailClient.checkEmails() } returns listOf(email)
+        every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
+        every { newsletterHandler.process(email) } returns listOf(publication)
+        every { publication.articles } returns listOf(mockk())
+
+        val moveToProcessedError = RuntimeException("TEST")
+        every { emailClient.moveToProcessed(any()) } throws moveToProcessedError
+        every { monitoringService.notifyGenericError(any(), any()) } just Runs
+
+        // When we check the email
+        emailChecker.savePublicationsFromEmails()
+
+        // Then the email should be handled by newsletterHandlerA and not by newsletterHandlerB
+        verify { newsletterHandler.process(email) }
+        verify { publicationService.savePublications(eq(listOf(publication))) }
+        verify { emailClient.markAsRead(email) }
+        verify { emailClient.moveToProcessed(email) }
+
+        verify { monitoringService.notifyGenericError(moveToProcessedError, any()) }
+        confirmVerified(monitoringService)
+    }
 }
