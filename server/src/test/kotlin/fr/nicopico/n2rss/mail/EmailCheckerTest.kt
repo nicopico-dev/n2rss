@@ -39,8 +39,6 @@ import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
-import org.springframework.scheduling.TaskScheduler
-import java.time.Instant
 
 @ExtendWith(MockKExtension::class)
 class EmailCheckerTest {
@@ -51,8 +49,6 @@ class EmailCheckerTest {
     private lateinit var newsletterService: NewsletterService
     @MockK(relaxed = true)
     private lateinit var publicationService: PublicationService
-    @MockK(relaxed = true)
-    private lateinit var taskScheduler: TaskScheduler
     @MockK
     private lateinit var monitoringService: MonitoringService
 
@@ -63,22 +59,12 @@ class EmailCheckerTest {
         MockKAnnotations.init(this)
 
         emailChecker = EmailChecker(
-            emailClient,
-            taskScheduler,
-            newsletterService,
-            publicationService,
-            monitoringService,
-            false,
+            emailClient = emailClient,
+            newsletterService = newsletterService,
+            publicationService = publicationService,
+            monitoringService = monitoringService,
+            moveAfterProcessingEnabled = true,
         )
-    }
-
-    @Test
-    fun `emailChecker should schedule a check on launch`() {
-        // WHEN
-        emailChecker.checkEmailsOnStart()
-
-        // THEN (matcher does not work on method reference)
-        verify { taskScheduler.schedule(any(), any<Instant>()) }
     }
 
     @Test
@@ -100,6 +86,7 @@ class EmailCheckerTest {
         verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
         verify { emailClient.markAsRead(email) }
+        verify { emailClient.moveToProcessed(email) }
     }
 
     @Test
@@ -116,6 +103,7 @@ class EmailCheckerTest {
         // Then no handler should try to handle the email and no publication should be saved
         verify(exactly = 0) { publicationService.savePublications(any()) }
         verify(exactly = 0) { emailClient.markAsRead(any()) }
+        verify(exactly = 0) { emailClient.moveToProcessed(any()) }
     }
 
     @Test
@@ -147,6 +135,7 @@ class EmailCheckerTest {
 
         verify { emailClient.markAsRead(validEmail) }
         verify(exactly = 0) { emailClient.markAsRead(errorEmail) }
+        verify(exactly = 0) { emailClient.moveToProcessed(errorEmail) }
 
         verify {
             monitoringService.notifyEmailProcessingError(
@@ -198,6 +187,7 @@ class EmailCheckerTest {
         verify(exactly = 0) {
             publicationService.savePublications(eq(listOf(publication)))
             emailClient.markAsRead(email)
+            emailClient.moveToProcessed(email)
         }
         verify {
             monitoringService.notifyEmailProcessingError(
@@ -232,8 +222,15 @@ class EmailCheckerTest {
         // When we check the email
         emailChecker.savePublicationsFromEmails()
 
-        verify(exactly = 0) { emailClient.markAsRead(email1) }
-        verify { emailClient.markAsRead(email2) }
+        // THEN
+        verify(exactly = 0) {
+            emailClient.markAsRead(email1)
+            emailClient.moveToProcessed(email1)
+        }
+        verify {
+            emailClient.markAsRead(email2)
+            emailClient.moveToProcessed(email2)
+        }
         verify {
             monitoringService.notifyEmailProcessingError(
                 email = email1,
@@ -241,6 +238,64 @@ class EmailCheckerTest {
                 newsletterHandler = newsletterHandler,
             )
         }
+        confirmVerified(monitoringService)
+    }
+
+    @Test
+    fun `emailChecker should report markAsRead error as generic error`(
+        @MockK(relaxed = true) email: Email,
+        @MockK newsletterHandler: NewsletterHandler,
+        @MockK publication: Publication,
+    ) {
+        // GIVEN
+        every { emailClient.checkEmails() } returns listOf(email)
+        every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
+        every { newsletterHandler.process(email) } returns listOf(publication)
+        every { publication.articles } returns listOf(mockk())
+
+        val markAsReadError = RuntimeException("TEST")
+        every { emailClient.markAsRead(any()) } throws markAsReadError
+        every { monitoringService.notifyGenericError(any(), any()) } just Runs
+
+        // WHEN
+        emailChecker.savePublicationsFromEmails()
+
+        // THEN
+        verify { newsletterHandler.process(email) }
+        verify { publicationService.savePublications(eq(listOf(publication))) }
+        verify { emailClient.markAsRead(email) }
+        verify(exactly = 0) { emailClient.moveToProcessed(email) }
+
+        verify { monitoringService.notifyGenericError(markAsReadError, any()) }
+        confirmVerified(monitoringService)
+    }
+
+    @Test
+    fun `emailChecker should report moveToProcessed error as generic error`(
+        @MockK(relaxed = true) email: Email,
+        @MockK newsletterHandler: NewsletterHandler,
+        @MockK publication: Publication,
+    ) {
+        // GIVEN
+        every { emailClient.checkEmails() } returns listOf(email)
+        every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
+        every { newsletterHandler.process(email) } returns listOf(publication)
+        every { publication.articles } returns listOf(mockk())
+
+        val moveToProcessedError = RuntimeException("TEST")
+        every { emailClient.moveToProcessed(any()) } throws moveToProcessedError
+        every { monitoringService.notifyGenericError(any(), any()) } just Runs
+
+        // WHEN
+        emailChecker.savePublicationsFromEmails()
+
+        // THEN
+        verify { newsletterHandler.process(email) }
+        verify { publicationService.savePublications(eq(listOf(publication))) }
+        verify { emailClient.markAsRead(email) }
+        verify { emailClient.moveToProcessed(email) }
+
+        verify { monitoringService.notifyGenericError(moveToProcessedError, any()) }
         confirmVerified(monitoringService)
     }
 }

@@ -39,12 +39,12 @@ class JavaxEmailClient(
         return folders
             .flatMap { folderName ->
                 doInStore {
-                    getFolder(folderName).use { folder ->
-                        folder.open(Folder.READ_ONLY)
-                        folder
-                            .search(FlagTerm(Flags(Flags.Flag.SEEN), false))
-                            .map { it.toEmail() }
-                    }
+                    getFolder(folderName)
+                        .use(Folder.READ_ONLY) { folder ->
+                            folder
+                                .search(FlagTerm(Flags(Flags.Flag.SEEN), false))
+                                .map { it.toEmail() }
+                        }
                 }
             }
     }
@@ -52,8 +52,9 @@ class JavaxEmailClient(
     override fun markAsRead(email: Email) {
         val message = email.messageId.message
         doInStore {
-            message.folder.open(Folder.READ_ONLY)
-            message.setFlag(Flags.Flag.SEEN, true)
+            message.folder.use(Folder.READ_ONLY) {
+                message.setFlag(Flags.Flag.SEEN, true)
+            }
         }
     }
 
@@ -61,22 +62,17 @@ class JavaxEmailClient(
         val message = email.messageId.message
 
         doInStore {
-            getFolder(processedFolder).use { destination ->
-                // Ensure the destination folder is present and open
-                if (!destination.exists()) {
-                    destination.create(Folder.HOLDS_FOLDERS or Folder.HOLDS_MESSAGES)
-                }
-                destination.open(Folder.READ_ONLY)
-
-                message.folder.use { source ->
-                    source.open(Folder.READ_WRITE)
-
+            getFolder(processedFolder).use(
+                Folder.READ_ONLY,
+                // Ensure the destination folder is present
+                createAutomatically = true
+            ) { destination ->
+                message.folder.use(Folder.READ_WRITE, expungeOnClose = true) { source ->
                     // Copy from `source` to `destination`
                     source.copyMessages(arrayOf(message), destination)
 
                     // Delete the original
                     message.setFlag(Flags.Flag.DELETED, true)
-                    source.expunge()
                 }
             }
         }
@@ -87,6 +83,26 @@ class JavaxEmailClient(
         return session.getStore(config.protocol).use { store ->
             store.connectWith(config)
             store.block()
+        }
+    }
+
+    private fun <T> Folder.use(
+        mode: Int,
+        expungeOnClose: Boolean = false,
+        createAutomatically: Boolean = false,
+        block: (Folder) -> T,
+    ): T {
+        if (isOpen) error("Folder $this is already open")
+
+        if (createAutomatically && !exists()) {
+            // This folder can hold folders and messages
+            create(Folder.HOLDS_FOLDERS or Folder.HOLDS_MESSAGES)
+        }
+        open(mode)
+        try {
+            return block(this)
+        } finally {
+            close(expungeOnClose)
         }
     }
 

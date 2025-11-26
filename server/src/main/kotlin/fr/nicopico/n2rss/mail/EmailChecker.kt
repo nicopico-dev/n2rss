@@ -25,34 +25,22 @@ import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundExcepti
 import fr.nicopico.n2rss.newsletter.handlers.process
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.PublicationService
-import jakarta.annotation.PostConstruct
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.scheduling.TaskScheduler
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
-import java.time.Instant
 
 private val LOG = LoggerFactory.getLogger(EmailChecker::class.java)
 
 @Component
 class EmailChecker(
     private val emailClient: EmailClient,
-    private val taskScheduler: TaskScheduler,
     private val newsletterService: NewsletterService,
     private val publicationService: PublicationService,
     private val monitoringService: MonitoringService,
     @param:Value($$"${n2rss.email.client.move-after-processing-enabled:false}")
     private val moveAfterProcessingEnabled: Boolean,
 ) {
-    @PostConstruct
-    fun checkEmailsOnStart() {
-        taskScheduler.schedule(
-            /* task = */ this::savePublicationsFromEmails,
-            /* startTime = */ Instant.now().plusSeconds(2)
-        )
-    }
-
     // We want to catch all exceptions here
     @Suppress("TooGenericExceptionCaught")
     @Scheduled(cron = "\${n2rss.email.cron}")
@@ -90,9 +78,14 @@ class EmailChecker(
 
             publicationService.savePublications(publications)
 
-            emailClient.markAsRead(email)
-            if (moveAfterProcessingEnabled) {
-                emailClient.moveToProcessed(email)
+            try {
+                emailClient.markAsRead(email)
+                if (moveAfterProcessingEnabled) {
+                    emailClient.moveToProcessed(email)
+                }
+            } catch (e: Exception) {
+                LOG.error("Error while marking email {} as processed", email.subject, e)
+                monitoringService.notifyGenericError(e, context = "Marking an email as processed")
             }
         } catch (e: Exception) {
             LOG.error("Error processing email {}", email.subject, e)
