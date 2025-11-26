@@ -85,7 +85,7 @@ class EmailChecker(
                 }
             } catch (e: Exception) {
                 LOG.error("Error while marking email {} as processed", email.subject, e)
-                monitoringService.notifyGenericError(e, context = "Marking an email as process")
+                monitoringService.notifyGenericError(e, context = "Marking an email as processed")
             }
         } catch (e: Exception) {
             LOG.error("Error processing email {}", email.subject, e)

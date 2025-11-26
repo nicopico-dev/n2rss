@@ -222,6 +222,7 @@ class EmailCheckerTest {
         // When we check the email
         emailChecker.savePublicationsFromEmails()
 
+        // THEN
         verify(exactly = 0) {
             emailClient.markAsRead(email1)
             emailClient.moveToProcessed(email1)
@@ -241,12 +242,12 @@ class EmailCheckerTest {
     }
 
     @Test
-    fun `emailChecker report markAsRead error as generic error`(
+    fun `emailChecker should report markAsRead error as generic error`(
         @MockK(relaxed = true) email: Email,
         @MockK newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
     ) {
-        // Given an email that should be handled by a newsletterHandler
+        // GIVEN
         every { emailClient.checkEmails() } returns listOf(email)
         every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
         every { newsletterHandler.process(email) } returns listOf(publication)
@@ -256,10 +257,10 @@ class EmailCheckerTest {
         every { emailClient.markAsRead(any()) } throws markAsReadError
         every { monitoringService.notifyGenericError(any(), any()) } just Runs
 
-        // When we check the email
+        // WHEN
         emailChecker.savePublicationsFromEmails()
 
-        // Then the email should be handled by newsletterHandlerA and not by newsletterHandlerB
+        // THEN
         verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
         verify { emailClient.markAsRead(email) }
@@ -270,12 +271,12 @@ class EmailCheckerTest {
     }
 
     @Test
-    fun `emailChecker report moveToProcessed error as generic error`(
+    fun `emailChecker should report moveToProcessed error as generic error`(
         @MockK(relaxed = true) email: Email,
         @MockK newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
     ) {
-        // Given an email that should be handled by a newsletterHandler
+        // GIVEN
         every { emailClient.checkEmails() } returns listOf(email)
         every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
         every { newsletterHandler.process(email) } returns listOf(publication)
@@ -285,10 +286,10 @@ class EmailCheckerTest {
         every { emailClient.moveToProcessed(any()) } throws moveToProcessedError
         every { monitoringService.notifyGenericError(any(), any()) } just Runs
 
-        // When we check the email
+        // WHEN
         emailChecker.savePublicationsFromEmails()
 
-        // Then the email should be handled by newsletterHandlerA and not by newsletterHandlerB
+        // THEN
         verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
         verify { emailClient.markAsRead(email) }
