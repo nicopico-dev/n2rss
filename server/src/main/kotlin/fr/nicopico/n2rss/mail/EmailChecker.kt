@@ -77,17 +77,19 @@ class EmailChecker(
             }
 
             publicationService.savePublications(publications)
+
+            try {
+                emailClient.markAsRead(email)
+                if (moveAfterProcessingEnabled) {
+                    emailClient.moveToProcessed(email)
+                }
+            } catch (e: Exception) {
+                LOG.error("Error while marking email {} as processed", email.subject, e)
+                monitoringService.notifyGenericError(e, context = "Marking an email as process")
+            }
         } catch (e: Exception) {
             LOG.error("Error processing email {}", email.subject, e)
             monitoringService.notifyEmailProcessingError(email, e, newsletterHandler)
-
-            // Exit the function without marking the email as processed
-            return
-        }
-
-        emailClient.markAsRead(email)
-        if (moveAfterProcessingEnabled) {
-            emailClient.moveToProcessed(email)
         }
     }
 }

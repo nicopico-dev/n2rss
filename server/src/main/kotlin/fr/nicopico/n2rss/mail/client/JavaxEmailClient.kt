@@ -62,13 +62,11 @@ class JavaxEmailClient(
         val message = email.messageId.message
 
         doInStore {
-            getFolder(processedFolder).use { destination ->
-                // Ensure the destination folder is present and open
-                if (!destination.exists()) {
-                    destination.create(Folder.HOLDS_FOLDERS or Folder.HOLDS_MESSAGES)
-                }
-                destination.open(Folder.READ_ONLY)
-
+            getFolder(processedFolder).use(
+                Folder.READ_ONLY,
+                // Ensure the destination folder is present
+                createAutomatically = true
+            ) { destination ->
                 message.folder.use(Folder.READ_WRITE, expungeOnClose = true) { source ->
                     // Copy from `source` to `destination`
                     source.copyMessages(arrayOf(message), destination)
@@ -91,14 +89,20 @@ class JavaxEmailClient(
     private fun <T> Folder.use(
         mode: Int,
         expungeOnClose: Boolean = false,
+        createAutomatically: Boolean = false,
         block: (Folder) -> T,
     ): T {
-        if (this.isOpen) error("Folder $this is already open")
-        this.open(mode)
+        if (isOpen) error("Folder $this is already open")
+
+        if (createAutomatically && !exists()) {
+            // This folder can hold folders and messages
+            create(Folder.HOLDS_FOLDERS or Folder.HOLDS_MESSAGES)
+        }
+        open(mode)
         try {
             return block(this)
         } finally {
-            this.close(expungeOnClose)
+            close(expungeOnClose)
         }
     }
 
