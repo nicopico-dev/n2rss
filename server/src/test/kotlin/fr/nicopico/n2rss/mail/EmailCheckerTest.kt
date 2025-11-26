@@ -59,11 +59,11 @@ class EmailCheckerTest {
         MockKAnnotations.init(this)
 
         emailChecker = EmailChecker(
-            emailClient,
-            newsletterService,
-            publicationService,
-            monitoringService,
-            false,
+            emailClient = emailClient,
+            newsletterService = newsletterService,
+            publicationService = publicationService,
+            monitoringService = monitoringService,
+            moveAfterProcessingEnabled = true,
         )
     }
 
@@ -86,6 +86,7 @@ class EmailCheckerTest {
         verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
         verify { emailClient.markAsRead(email) }
+        verify { emailClient.moveToProcessed(email) }
     }
 
     @Test
@@ -102,6 +103,7 @@ class EmailCheckerTest {
         // Then no handler should try to handle the email and no publication should be saved
         verify(exactly = 0) { publicationService.savePublications(any()) }
         verify(exactly = 0) { emailClient.markAsRead(any()) }
+        verify(exactly = 0) { emailClient.moveToProcessed(any()) }
     }
 
     @Test
@@ -133,6 +135,7 @@ class EmailCheckerTest {
 
         verify { emailClient.markAsRead(validEmail) }
         verify(exactly = 0) { emailClient.markAsRead(errorEmail) }
+        verify(exactly = 0) { emailClient.moveToProcessed(errorEmail) }
 
         verify {
             monitoringService.notifyEmailProcessingError(
@@ -184,6 +187,7 @@ class EmailCheckerTest {
         verify(exactly = 0) {
             publicationService.savePublications(eq(listOf(publication)))
             emailClient.markAsRead(email)
+            emailClient.moveToProcessed(email)
         }
         verify {
             monitoringService.notifyEmailProcessingError(
@@ -218,8 +222,14 @@ class EmailCheckerTest {
         // When we check the email
         emailChecker.savePublicationsFromEmails()
 
-        verify(exactly = 0) { emailClient.markAsRead(email1) }
-        verify { emailClient.markAsRead(email2) }
+        verify(exactly = 0) {
+            emailClient.markAsRead(email1)
+            emailClient.moveToProcessed(email1)
+        }
+        verify {
+            emailClient.markAsRead(email2)
+            emailClient.moveToProcessed(email2)
+        }
         verify {
             monitoringService.notifyEmailProcessingError(
                 email = email1,
