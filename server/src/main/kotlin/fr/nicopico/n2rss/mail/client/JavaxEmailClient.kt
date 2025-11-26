@@ -39,12 +39,12 @@ class JavaxEmailClient(
         return folders
             .flatMap { folderName ->
                 doInStore {
-                    getFolder(folderName).use { folder ->
-                        folder.open(Folder.READ_ONLY)
-                        folder
-                            .search(FlagTerm(Flags(Flags.Flag.SEEN), false))
-                            .map { it.toEmail() }
-                    }
+                    getFolder(folderName)
+                        .use(Folder.READ_ONLY) { folder ->
+                            folder
+                                .search(FlagTerm(Flags(Flags.Flag.SEEN), false))
+                                .map { it.toEmail() }
+                        }
                 }
             }
     }
@@ -52,8 +52,9 @@ class JavaxEmailClient(
     override fun markAsRead(email: Email) {
         val message = email.messageId.message
         doInStore {
-            message.folder.open(Folder.READ_ONLY)
-            message.setFlag(Flags.Flag.SEEN, true)
+            message.folder.use(Folder.READ_ONLY) {
+                message.setFlag(Flags.Flag.SEEN, true)
+            }
         }
     }
 
@@ -68,15 +69,12 @@ class JavaxEmailClient(
                 }
                 destination.open(Folder.READ_ONLY)
 
-                message.folder.use { source ->
-                    source.open(Folder.READ_WRITE)
-
+                message.folder.use(Folder.READ_WRITE, expungeOnClose = true) { source ->
                     // Copy from `source` to `destination`
                     source.copyMessages(arrayOf(message), destination)
 
                     // Delete the original
                     message.setFlag(Flags.Flag.DELETED, true)
-                    source.expunge()
                 }
             }
         }
@@ -87,6 +85,20 @@ class JavaxEmailClient(
         return session.getStore(config.protocol).use { store ->
             store.connectWith(config)
             store.block()
+        }
+    }
+
+    private fun <T> Folder.use(
+        mode: Int,
+        expungeOnClose: Boolean = false,
+        block: (Folder) -> T,
+    ): T {
+        if (this.isOpen) error("Folder $this is already open")
+        this.open(mode)
+        try {
+            return block(this)
+        } finally {
+            this.close(expungeOnClose)
         }
     }
 
