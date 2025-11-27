@@ -6,6 +6,11 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### PROJECT-SPECIFIC ###
+deploy/*.jar
+act/artifacts/
+support/backups/
+
 ### STS ###
 .apt_generated
 .classpath
@@ -36,10 +41,3 @@ out/
 
 ### VS Code ###
 .vscode/
-
-### Deploy ###
-deploy/*.jar
-
-### ACT ###
-act/artifacts/
-support/backups/

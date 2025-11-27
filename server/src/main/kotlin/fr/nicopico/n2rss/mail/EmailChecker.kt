@@ -79,8 +79,10 @@ class EmailChecker(
             publicationService.savePublications(publications)
 
             try {
+                LOG.info("\"{}\" processing done, marking email as read", email.subject)
                 emailClient.markAsRead(email)
                 if (moveAfterProcessingEnabled) {
+                    LOG.debug("Move \"{}\" to processed folder", email.subject)
                     emailClient.moveToProcessed(email)
                 }
             } catch (e: Exception) {

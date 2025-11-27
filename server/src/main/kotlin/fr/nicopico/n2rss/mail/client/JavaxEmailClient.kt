@@ -52,7 +52,7 @@ class JavaxEmailClient(
     override fun markAsRead(email: Email) {
         val message = email.messageId.message
         doInStore {
-            message.folder.use(Folder.READ_ONLY) {
+            message.folder.use(Folder.READ_WRITE) {
                 message.setFlag(Flags.Flag.SEEN, true)
             }
         }
