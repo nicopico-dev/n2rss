@@ -27,6 +27,8 @@ import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Publication
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.PublicationService
+import io.kotest.matchers.collections.beEmpty
+import io.kotest.matchers.should
 import io.mockk.MockKAnnotations
 import io.mockk.Runs
 import io.mockk.confirmVerified
@@ -57,6 +59,7 @@ class EmailCheckerIntegrationTest : GreenMailTestBase(
 
     private lateinit var emailClient: EmailClient
     private lateinit var emailChecker: EmailChecker
+    private lateinit var emailCheckerWithMoveAfterProcessing: EmailChecker
 
     @BeforeEach
     fun setUp() {
@@ -80,7 +83,15 @@ class EmailCheckerIntegrationTest : GreenMailTestBase(
             newsletterService,
             publicationService,
             monitoringService,
-            true,
+            moveAfterProcessingEnabled = false,
+        )
+
+        emailCheckerWithMoveAfterProcessing = EmailChecker(
+            emailClient,
+            newsletterService,
+            publicationService,
+            monitoringService,
+            moveAfterProcessingEnabled = true,
         )
     }
 
@@ -119,5 +130,48 @@ class EmailCheckerIntegrationTest : GreenMailTestBase(
 
         // THEN
         confirmVerified(monitoringService)
+
+        val unreadEmails = emailClient.checkEmails()
+        unreadEmails should beEmpty()
+    }
+
+    @Test
+    fun `should check emails for publications - with moveAfterProcessing`() {
+        // GIVEN
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@email.com",
+            subject = "Subject 1",
+            content = "Hello World! 1",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 2",
+            content = "Hello World! 2",
+        )
+
+        every {
+            newsletterService.findNewsletterHandlerForEmail(any())
+        } returns mockk("NewsletterHandler") {
+            // Each newsletter returns a non-empty publication
+            every { process(any()) } returns listOf(
+                mockk<Publication> {
+                    every { articles } returns listOf(mockk<Article>())
+                }
+            )
+        }
+        every {
+            publicationService.savePublications(any())
+        } just Runs
+
+        // WHEN
+        emailCheckerWithMoveAfterProcessing.savePublicationsFromEmails()
+
+        // THEN
+        confirmVerified(monitoringService)
+
+        val unreadEmails = emailClient.checkEmails()
+        unreadEmails should beEmpty()
     }
 }
