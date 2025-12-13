@@ -17,7 +17,7 @@ kover = "0.9.3"
 mockk = "1.14.7"
 mockwebserver = "5.3.2"
 rome = "2.1.0"
-springBoot = "3.5.8"
+springBoot = "4.0.0"
 springMock = "5.0.1"
 
 [libraries]
@@ -27,21 +27,26 @@ kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core-j
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
 
 # Spring Boot Starters
-springBoot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "springBoot" }
 springBoot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "springBoot" }
+springBoot-starter-aspectj = { module = "org.springframework.boot:spring-boot-starter-aspectj", version.ref = "springBoot" }
 springBoot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "springBoot" }
+springBoot-starter-flyway = { module = "org.springframework.boot:spring-boot-starter-flyway", version.ref = "springBoot" }
+springBoot-starter-jackson = { module = "org.springframework.boot:spring-boot-starter-jackson", version.ref = "springBoot" }
+springBoot-starter-restclient = { module = "org.springframework.boot:spring-boot-starter-restclient", version.ref = "springBoot" }
 springBoot-starter-thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf", version.ref = "springBoot" }
 springBoot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springBoot" }
-springBoot-starter-aop = { module = "org.springframework.boot:spring-boot-starter-aop", version.ref = "springBoot" }
+springBoot-starter-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc", version.ref = "springBoot" }
 springBoot-devtools = { module = "org.springframework.boot:spring-boot-devtools", version.ref = "springBoot" }
 springBoot-dockerCompose = { module = "org.springframework.boot:spring-boot-docker-compose", version.ref = "springBoot" }
 springBoot-configurationProcessor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "springBoot" }
+
+# Spring Boot Starters (tests)
 springBoot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
+springBoot-starter-webmvc-test = { module = "org.springframework.boot:spring-boot-starter-webmvc-test", version.ref = "springBoot" }
 springMock = { module = "com.ninja-squad:springmockk", version.ref = "springMock" }
 
 # Other Libraries
 annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
-flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 flyway-mysql = { module = "org.flywaydb:flyway-mysql", version.ref = "flyway" }
 h2-database = { module = "com.h2database:h2", version.ref = "h2" }
 jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" }
@@ -64,12 +69,19 @@ mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "
 
 [bundles]
 springBoot-starters = [
-    "springBoot-starter-web",
     "springBoot-starter-actuator",
+    "springBoot-starter-aspectj",
     "springBoot-starter-data-jpa",
+    "springBoot-starter-flyway",
+    "springBoot-starter-jackson",
+    "springBoot-starter-restclient",
     "springBoot-starter-thymeleaf",
     "springBoot-starter-validation",
-    "springBoot-starter-aop",
+    "springBoot-starter-webmvc",
+]
+springBoot-test-starters = [
+    "springBoot-starter-test",
+    "springBoot-starter-webmvc-test",
 ]
 springBoot-dev = [
     "springBoot-devtools",
