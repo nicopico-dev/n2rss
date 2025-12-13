@@ -40,6 +40,7 @@ class GDIYNewsletterHandler : NewsletterHandlerSingleFeed {
 
     override fun canHandle(email: Email): Boolean {
         return email.sender.email == "contact@gdiy.fr"
+            && email.replyTo == email.sender
     }
 
     override fun extractArticles(email: Email): List<Article> {

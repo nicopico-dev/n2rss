@@ -54,7 +54,13 @@ open class BaseNewsletterHandlerTest<T : NewsletterHandler>(
             val emails = loadEmails("$STUBS_EMAIL_ROOT_FOLDER/$stubsFolder")
 
             // WHEN - THEN
-            emails.all { handler.canHandle(it) } shouldBe true
+            assertSoftly {
+                emails.forEach { email ->
+                    withClue("\"${email.subject}\" should be supported") {
+                        handler.canHandle(email) shouldBe true
+                    }
+                }
+            }
         }
 
         @Test
