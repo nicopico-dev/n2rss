@@ -1,0 +1,1974 @@
+Return-Path: <bounce+9497f9.39b08c6-n2rss=nicopico.fr@mg-d1.substack.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id ONt3OF3NFmnj2CkAQTsBvA
+	(envelope-from <bounce+9497f9.39b08c6-n2rss=nicopico.fr@mg-d1.substack.com>)
+	for <n2rss@nicopico.fr>; Fri, 14 Nov 2025 07:34:05 +0100
+Return-path: <bounce+9497f9.39b08c6-n2rss=nicopico.fr@mg-d1.substack.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Fri, 14 Nov 2025 07:34:05 +0100
+Received: from m244-40.mailgun.net ([159.112.244.40])
+	by smtpin1.paris1.alwaysdata.com with utf8esmtps  (TLS1.2) tls TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <bounce+9497f9.39b08c6-n2rss=nicopico.fr@mg-d1.substack.com>)
+	id 1vJnNj-003zeD-04
+	for n2rss@nicopico.fr;
+	Fri, 14 Nov 2025 07:34:03 +0100
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mg-d1.substack.com; q=dns/txt; s=k1; t=1763102041; x=1763109241;
+ h=List-Unsubscribe-Post: List-Unsubscribe: List-Post: List-Id: List-Archive: List-Owner: Reply-To: In-Reply-To: References: Sender: Sender: Date: Message-Id: To: To: From: From: Subject: Subject: Content-Type: Mime-Version;
+ bh=OZQt02tAjSbW96RL///D/+idhrkPOlB29WiNXSJm7oU=;
+ b=L99t+eEDJNdRboMo+5astSFc9hR6fbF05+lPeGlKd/6HV02HTu0U/qjsgEo10RsaG4j+yhSOooVGCWr8vkmn41VdU0n4L/tezcrOmuwaOixrXQUKJduvJSmrx7g6J4t2/6u3Tluyn0CnJKAzeu5IHaZoMMC4Y4Ti2xgu8vVuWHg=
+X-Mailgun-Sid: WyI5YTVjNyIsIm4ycnNzQG5pY29waWNvLmZyIiwiMzliMDhjNiJd
+Received: by d716844f909e9c054298037a9dc3a88a143ac99ffaec7dccc2795f3b7054434d with HTTP
+ id 6916cd59bccac57ba8255382; Fri, 14 Nov 2025 06:34:00 GMT
+X-Mailgun-Sending-Ip: 159.112.244.40
+X-Mailgun-Batch-Id: 6916cd587dd2d19192cef834
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="bf8c506de7c36b38f9578f8eeba2d4b92d20cd852cb91c288a687307a521"
+Subject: =?UTF-8?q?Doctolib,_ce_monopole_qui_ne_d=C3=A9rangeait_(presque)_personne?=
+From: =?utf-8?b?SsOpcsO0bWUgTWFyaW4gLyBDYWbDqXRlY2g=?=
+ <cafetech+french-tech@substack.com>
+To: n2rss@nicopico.fr
+X-Mailgun-Tag: post
+X-Mailgun-Track-Clicks: false
+Message-Id: <20251114063111.3.24d7c774114eb96e@mg-d1.substack.com>
+Date: Fri, 14 Nov 2025 06:31:11 +0000
+Feedback-Id: post-178771146:cat-post:pub-51206:substack
+Sender: =?utf-8?b?SsOpcsO0bWUgTWFyaW4gLyBDYWbDqXRlY2g=?=
+ <cafetech+french-tech@substack.com>
+References: <post-178771146@substack.com>
+In-Reply-To: <post-178771146@substack.com>
+Reply-To: =?utf-8?b?SsOpcsO0bWUgTWFyaW4gLyBDYWbDqXRlY2g=?=
+ <reply+2yfop6&5f3rgc&&afc65fb5cd84cda1d2bdf5ce90cb4f34e95bd673b49fca59f1c9023eb7f81145@mg1.substack.com>
+List-Owner: <mailto:cafetech+french-tech@substack.com>
+List-Url: <https://cafetech.substack.com/>
+List-Archive: <https://cafetech.substack.com/archive>
+List-Id: <cafetech.substack.com>
+List-Post: <https://cafetech.substack.com/p/doctolib-ce-monopole-qui-ne-derangeait>
+List-Unsubscribe: <https://cafetech.substack.com/action/disable_email/disable?token=eyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE3ODc3MTE0NiwiaWF0IjoxNzYzMTAyMDM4LCJleHAiOjE3OTQ2MzgwMzgsImlzcyI6InB1Yi01MTIwNiIsInN1YiI6ImRpc2FibGVfZW1haWwifQ.Z50BC9_TP6lulVRs5Gq0ac6SBV7MSLaa-uXAWEKKO44&all_sections=true>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Mailgun-Variables: {"category": "post", "email_generated_at": "1763102039616", "is_freemail":
+ "true", "post_audience": "everyone", "post_id": "178771146", "post_type":
+ "newsletter", "pub_community_enabled": "true", "publication_id": "51206",
+ "subdomain": "cafetech", "user_id": "327700668"}
+X-alwaysdata-Spam-Report: 	0.50 URI_COUNT_ODD [19] - Odd number of URIs in multipart/alternative message
+	0.50 MANY_INVISIBLE_PARTS [6] - Many parts are visually hidden
+	0.30 ZERO_FONT [4] - Zero sized font used
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 TAGGED_FROM [french-tech] - SMTP from has plus tags
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 RWL_MAILSPIKE_POSSIBLE [159.112.244.40:from] - From address is listed in
+ Mailspike RWL - possibly legit
+	0.00 REPLYTO_DOM_NEQ_TO_DOM - Reply-To domain does not match the To domain
+	0.00 REPLYTO_DOM_NEQ_FROM_DOM - Reply-To domain does not match the From
+ domain
+	0.00 REPLYTO_DN_EQ_FROM_DN - Reply-To display name matches From
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_TWO [2] - Message has two Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MV_CASE - Mime-Version .vs. MIME-Version
+	0.00 MISSING_XM_UA - Message has neither X-Mailer nor User-Agent header
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 MID_RHS_MATCH_FROMTLD - Message-ID RHS matches From domain tld
+	0.00 HAS_REPLYTO
+ [reply+2yfop6&5f3rgc&&afc65fb5cd84cda1d2bdf5ce90cb4f34e95bd673b49fca59f1c9023eb7f81145@mg1.substack.com]
+ - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [mg-d1.substack.com:+] - DKIM trace symbol
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.12 MAILLIST [generic] - Message seems to be from maillist
+	-0.50 DMARC_POLICY_ALLOW [substack.com, reject] - DMARC permit policy
+	-0.57 DKIM_REPUTATION [-0.57286172647046]
+	-0.59 IP_REPUTATION_HAM [ip: 159.112.244.40(-0.59)]
+	-1.23 R_DKIM_ALLOW [mg-d1.substack.com:s=k1] - DKIM verification succeed
+X-alwaysdata-Spam-Score: -1.83
+
+--bf8c506de7c36b38f9578f8eeba2d4b92d20cd852cb91c288a687307a521
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+View this post on the web at https://cafetech.substack.com/p/doctolib-ce-mo=
+nopole-qui-ne-derangeait
+
+Tous les vendredis, Caf=C3=A9tech vous propose d=C3=A9sormais une =C3=A9dit=
+ion enti=C3=A8rement d=C3=A9di=C3=A9e =C3=A0 la French Tech. Les pr=C3=A9c=
+=C3=A9dents num=C3=A9ros sont =C3=A0 retrouver ici [ https://substack.com/r=
+edirect/9e03f682-d348-401c-b0ad-6c14f95ad4cd?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRI=
+pWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ].
+Cette semaine, vous pouvez aussi me retrouver dans le podcast Tech 45=E2=80=
+=99 [ https://substack.com/redirect/5cdda4d4-284e-4429-ac30-8f52f5e78ce5?j=
+=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ] de S=
+=C3=A9bastien Couasnon. L=E2=80=99occasion de revenir sur les lourdes perte=
+s d=E2=80=99OpenAI, le projet de data center dans l=E2=80=99espace de Googl=
+e, le retour d=E2=80=99Octave Klaba chez OVH et=E2=80=A6 l=E2=80=99amende c=
+ontre Doctolib. L=E2=80=99=C3=A9pisode est =C3=A0 =C3=A9couter ici [ https:=
+//substack.com/redirect/5cdda4d4-284e-4429-ac30-8f52f5e78ce5?j=3DeyJ1IjoiNW=
+YzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ].
+Bonne lecture, bonne =C3=A9coute et bon week-end.
+Le ton est donn=C3=A9 d=E2=80=99embl=C3=A9e. En avril 2019, pour son premie=
+r d=C3=A9placement officiel en tant que secr=C3=A9taire d=E2=80=99=C3=89tat=
+ au num=C3=A9rique, C=C3=A9dric O rend visite =C3=A0 =E2=80=9CStan=E2=80=9D=
+ =E2=80=93 Stanislas Niox-Chateau, le fondateur et patron de Doctolib. Dix-=
+huit mois tard, la pand=C3=A9mie du coronavirus propulse la start-up fran=
+=C3=A7aise, charg=C3=A9e de la campagne de vaccination, dans une nouvelle d=
+imension. Et consolide son quasi-monopole sur la prise de rendez-vous m=C3=
+=A9dicaux. C=C3=A9dric O ne s=E2=80=99en =C3=A9meut gu=C3=A8re: =E2=80=9CPo=
+ur une fois que nous avons une entreprise leader en France, soyons fiers=E2=
+=80=9D.
+=C3=80 vrai dire, cette position dominante n=E2=80=99a jamais sembl=C3=A9 d=
+=C3=A9ranger grand monde. Ni au plus haut sommet de l=E2=80=99=C3=89tat, o=
+=C3=B9 l=E2=80=99on se f=C3=A9licite du succ=C3=A8s =C3=A9clatant d=E2=80=
+=99un fleuron de la =E2=80=9Cstart-up nation=E2=80=9D. Ni au sein de la pop=
+ulation, qui pl=C3=A9biscite la simplicit=C3=A9 d=E2=80=99acc=C3=A8s aux re=
+ndez-vous m=C3=A9dicaux. Quelques voix discordantes se font bien entendre a=
+u minist=C3=A8re de la Sant=C3=A9 ou dans le milieu m=C3=A9dical, sans susc=
+iter un grand =C3=A9cho m=C3=A9diatique. =E2=80=9CRemettre Doctolib en caus=
+e, c=E2=80=99est comme se battre contre des moulins =C3=A0 vent=E2=80=9D, r=
+=C3=A9sume, fataliste, Patricia Lef=C3=A9bure, pr=C3=A9sidente de la F=C3=
+=A9d=C3=A9ration des m=C3=A9decins de France.
+En coulisses, pourtant, l=E2=80=99Autorit=C3=A9 de la concurrence est saisi=
+e en 2019 par Cegedim, acteur historique des logiciels de sant=C3=A9. Deux =
+ans plus tard, une =E2=80=9Cop=C3=A9ration de visite et de saisie=E2=80=9D =
+a lieu dans les locaux de la start-up. Puis, silence radio=E2=80=A6 jusqu=
+=E2=80=99=C3=A0 la semaine derni=C3=A8re. Apr=C3=A8s six ans de proc=C3=A9d=
+ure, Doctolib re=C3=A7oit une amende de 4,665 millions d=E2=80=99euros pour=
+ abus de position dominante. En cause: des clauses d=E2=80=99exclusivit=C3=
+=A9 et des pratiques de vente li=C3=A9e, avec sa plateforme de t=C3=A9l=C3=
+=A9consultation. Des m=C3=A9thodes qui auraient renforc=C3=A9 sa mainmise s=
+ur le march=C3=A9.
+=E2=80=9CUn scandale=E2=80=9D
+L=E2=80=99entreprise a =C3=A9galement =C3=A9t=C3=A9 =C3=A9pingl=C3=A9e pour=
+ l=E2=80=99acquisition, jug=C3=A9e =E2=80=9Cpr=C3=A9datrice=E2=80=9D, de Mo=
+nDocteur en 2018. Selon l=E2=80=99Autorit=C3=A9, cette op=C3=A9ration visai=
+t =C3=A0 =C3=A9liminer son principal rival, afin notamment d=E2=80=99augmen=
+ter les prix. =E2=80=9CAu moment du rachat, ils d=C3=A9tenaient pr=C3=A8s d=
+e deux tiers du march=C3=A9 de la prise de rendez-vous. Nous =C3=A9tions =
+=C3=A0 un peu plus de 30%, se souvient Thibault Lanthier, l=E2=80=99ancien =
+patron de MonDocteur. Une dizaine de soci=C3=A9t=C3=A9s se partageaient ent=
+re 3% et 5% de part de march=C3=A9=E2=80=9D. D=C3=A8s 2019, Doctolib en pro=
+fite pour relever ses tarifs de 20%. Le service est alors deux =C3=A0 trois=
+ fois plus cher que les autres.
+Selon nos informations, deux facteurs expliquent la longueur de la proc=C3=
+=A9dure. D=E2=80=99abord, un recours d=C3=A9pos=C3=A9 par Doctolib devant l=
+a justice suite =C3=A0 la perquisition men=C3=A9e en 2021, qui a temporaire=
+ment gel=C3=A9 le dossier. Ensuite, le caract=C3=A8re in=C3=A9dit de l=E2=
+=80=99un des griefs. Si l=E2=80=99acquisition de MonDocteur, pour environ 4=
+5 millions d=E2=80=99euros, n=E2=80=99avait pas n=C3=A9cessit=C3=A9 de feu =
+vert pr=C3=A9alable du r=C3=A9gulateur, elle a pu =C3=AAtre sanctionn=C3=A9=
+e a posteriori en s=E2=80=99appuyant sur un r=C3=A9cent arr=C3=AAt de la Co=
+ur de Justice de l=E2=80=99Union europ=C3=A9enne, qui n=E2=80=99avait encor=
+e jamais =C3=A9t=C3=A9 appliqu=C3=A9.
+Cette sanction apr=C3=A8s-coup a suscit=C3=A9 une salve de r=C3=A9actions i=
+ndign=C3=A9es. Pour certains, un =E2=80=9Cscandale=E2=80=9D qui met en p=C3=
+=A9ril les strat=C3=A9gies de consolidation des start-up. Pour d=E2=80=99au=
+tres, un =E2=80=9Cparadoxe=E2=80=9D, alors que la France cherche =C3=A0 fai=
+re =C3=A9merger des champions technologiques. Les faits semblent pourtant a=
+ccablants. Et ceux qui volent au secours de Doctolib auraient probablement =
+applaudi si la condamnation avait vis=C3=A9 un g=C3=A9ant am=C3=A9ricain. P=
+our Beno=C3=AEt C=C5=93ur=C3=A9, le patron de l=E2=80=99Autorit=C3=A9, il s=
+=E2=80=99agit donc d=E2=80=99une piq=C3=BBre de rappel: =E2=80=9Cquelle que=
+ soit leur nationalit=C3=A9, les entreprises doivent respecter la loi=E2=80=
+=9D.=20
+Effet de r=C3=A9seau
+Contrairement =C3=A0 une id=C3=A9e re=C3=A7ue, Doctolib n=E2=80=99a pas inv=
+ent=C3=A9 la prise de rendez-vous m=C3=A9dicaux en ligne. Mais elle a =C3=
+=A9t=C3=A9 l=E2=80=99une des premi=C3=A8res =C3=A0 proposer un service d=C3=
+=A9di=C3=A9. Et surtout la premi=C3=A8re =C3=A0 atteindre une taille critiq=
+ue la rendant incontournable. D=C3=A8s son lancement en 2013, la start-up c=
+herche d=E2=80=99abord =C3=A0 s=C3=A9duire les m=C3=A9decins, pas les patie=
+nts. Tr=C3=A8s vite, elle d=C3=A9ploie des dizaines, puis des centaines de =
+commerciaux dans les grandes villes, mettant en avant des =C3=A9conomies su=
+r les frais de secr=C3=A9tariat et une baisse des rendez-vous non honor=C3=
+=A9s, gr=C3=A2ce aux rappels par SMS.
+Doctolib =C3=A9tend ensuite son offre de services accessibles via son abonn=
+ement. =E2=80=9CNous avons bouscul=C3=A9 un march=C3=A9 scl=C3=A9ros=C3=A9 =
+qui n=E2=80=99avait jamais innov=C3=A9=E2=80=9D, revendique-t-on en interne=
+=2E La plateforme b=C3=A9n=C3=A9ficie aussi=
+ de deux coups de pouce. En 2016,=20=
+elle remporte l=E2=80=99appel d=E2=80=99offres de l=E2=80=99AP-HP, l=E2=80=
+=99=C3=A9tablissement public qui g=C3=A8re les h=C3=B4pitaux franciliens =
+=E2=80=93 un contrat contest=C3=A9 par ses concurrents. Puis en 2020, la cr=
+ise sanitaire la fait d=C3=A9finitivement entrer dans le quotidien des Fran=
+=C3=A7ais, notamment pour r=C3=A9server des cr=C3=A9neaux dans les centres =
+de vaccination.
+Avec 50 millions d=E2=80=99utilisateurs en France, la plateforme n=E2=80=99=
+est pas =E2=80=9Cindispensable pour les m=C3=A9decins qui disposent d=C3=A9=
+j=C3=A0 d=E2=80=99une patient=C3=A8le=E2=80=9D, souligne Patricia Lef=C3=A9=
+bure, aussi m=C3=A9decin g=C3=A9n=C3=A9raliste en =C3=8Ele-de-France. Elle =
+l=E2=80=99est en revanche pour ceux qui ont besoin de visibilit=C3=A9 pour =
+lancer ou accro=C3=AEtre leur activit=C3=A9. =E2=80=9CPour les patients, pa=
+sser par Doctolib est parfois devenu obligatoire pour obtenir un rendez-vou=
+s, notamment dans un nombre croissant d=E2=80=99h=C3=B4pitaux=E2=80=9D, pou=
+rsuit la responsable syndicale. Un puissant effet de r=C3=A9seau, qui renfo=
+rce encore davantage sa position de leader.
+Plus de 90% du march=C3=A9
+Ces succ=C3=A8s se traduisent par d=E2=80=99importantes lev=C3=A9es de fond=
+s. En 2019, Doctolib r=C3=A9cup=C3=A8re 150 millions d=E2=80=99euros, passa=
+nt la barre symbolique du milliard de valorisation. Trois ans plus tard, el=
+le l=C3=A8ve 500 millions [ https://substack.com/redirect/345781a5-9fb5-4e1=
+e-863b-213103b13bf7?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsR=
+ukz8PaFv0-2U ]. Elle creuse ainsi un =C3=A9cart r=C3=A9dhibitoire avec ses =
+rivaux, condamn=C3=A9s =C3=A0 se partager des miettes ou =C3=A0 dispara=C3=
+=AEtre. Selon l=E2=80=99Autorit=C3=A9 de la concurrence, la soci=C3=A9t=C3=
+=A9 captait ainsi, en 2022, entre 70% et plus de 90% du march=C3=A9 de la p=
+rise de rendez-vous m=C3=A9dicaux en ligne, selon le p=C3=A9rim=C3=A8tre co=
+nsid=C3=A9r=C3=A9. =E2=80=9CIls sont probablement d=C3=A9sormais tr=C3=A8s =
+proches des 100%=E2=80=9D, confie un professionnel du secteur.
+Doctolib ne pr=C3=A9cise le nombre de m=C3=A9decins, dentistes ou kin=C3=A9=
+s lib=C3=A9raux utilisant sa plateforme de rendez-vous. En 2022, 36% des g=
+=C3=A9n=C3=A9ralistes d=C3=A9claraient recourir =C3=A0 ce type de solution,=
+ contre 23% un an plus t=C3=B4t, selon une =C3=A9tude de la Direction de la=
+ recherche, des =C3=A9tudes, de l=E2=80=99=C3=A9valuation et des statistiqu=
+es. Fin 2023, la start-up revendiquait la moiti=C3=A9 des m=C3=A9decins lib=
+=C3=A9raux. =E2=80=9CJe ne serais pas surpris que ce chiffre d=C3=A9passe a=
+ujourd=E2=80=99hui les 80%=E2=80=9D, poursuit notre interlocuteur. Doctolib=
+ pr=C3=A9f=C3=A8re d=C3=A9sormais mettre en avant un chiffre volontairement=
+ vague: 30% des =E2=80=9Csoignants fran=C3=A7ais=E2=80=9D.
+De fait, toute sa communication s=E2=80=99apparente =C3=A0 un v=C3=A9ritabl=
+e num=C3=A9ro d=E2=80=99=C3=A9quilibriste. D=E2=80=99un c=C3=B4t=C3=A9, la =
+volont=C3=A9 de mettre en avant sa r=C3=A9ussite: 420.000 soignants, un rev=
+enu annuel r=C3=A9current de 348 millions d=E2=80=99euros fin 2024 et la re=
+ntabilit=C3=A9 atteinte =C3=A0 la rentr=C3=A9e. De l=E2=80=99autre, celle d=
+e ne pas appara=C3=AEtre comme un monopole. Autre exemple: Doctolib affirme=
+ =C3=AAtre trois fois plus petit que ses rivaux europ=C3=A9ens en consid=C3=
+=A9rant l=E2=80=99ensemble du march=C3=A9 des logiciels pour les profession=
+nels de sant=C3=A9 sur l=E2=80=99ensemble du continent, alors que son activ=
+it=C3=A9 est peu d=C3=A9velopp=C3=A9e hors de France. Son image de monopole=
+ ne serait ainsi due qu=E2=80=99au =E2=80=9Cfort usage par le grand public=
+=E2=80=9D.
+=E2=80=9CUn cheval de Troie=E2=80=9D
+Car Doctolib affirme ne pas =C3=AAtre en position dominante. L=E2=80=99entr=
+eprise refuse d=E2=80=99=C3=AAtre r=C3=A9duite =C3=A0 une simple plateforme=
+ de prise de rendez-vous. Elle se pr=C3=A9sente comme un =C3=A9diteur de lo=
+giciels m=C3=A9dicaux =E2=80=93 un march=C3=A9 beaucoup plus concurrentiel.=
+ Les rendez-vous n=E2=80=99=C3=A9taient que la =E2=80=9Cpremi=C3=A8re briqu=
+e pos=C3=A9e au d=C3=A9marrage=E2=80=9D, explique-t-elle. Depuis, de nombre=
+uses fonctionnalit=C3=A9s ont =C3=A9t=C3=A9 ajout=C3=A9es, et d=E2=80=99aut=
+res sont en d=C3=A9veloppement, notamment pour int=C3=A9grer l=E2=80=99inte=
+lligence artificielle. Doctolib rejette ainsi la condamnation de l=E2=80=99=
+Autorit=C3=A9 de la concurrence, assurant que sa d=C3=A9finition du march=
+=C3=A9 est erron=C3=A9e.
+La vision d=C3=A9fendue par Doctolib se heurte cependant =C3=A0 un constat:=
+ la prise de rendez-vous m=C3=A9dicaux ne peut pas =C3=AAtre consid=C3=A9r=
+=C3=A9e comme une simple fonctionnalit=C3=A9. Elle est au c=C5=93ur de sa p=
+roposition de valeur, =C3=A0 la fois comme produit phare et comme porte d=
+=E2=80=99entr=C3=A9e vers l=E2=80=99ensemble de ses nouveaux services. =E2=
+=80=9CC=E2=80=99est un cheval de Troie qui permet de doubler ou de tripler =
+le panier moyen=E2=80=9D, r=C3=A9sume le professionnel interrog=C3=A9. Pour=
+ b=C3=A9n=C3=A9ficier de l=E2=80=99ensemble des outils de Doctolib, la fact=
+ure mensuelle d=E2=80=99un m=C3=A9decin g=C3=A9n=C3=A9raliste ou sp=C3=A9ci=
+aliste d=C3=A9passe d=C3=A9sormais les 500 euros, contre 100 euros au lance=
+ment.
+=E2=80=9CC=E2=80=99est une porte d=E2=80=99entr=C3=A9e pour Doctolib, mais =
+une porte ferm=C3=A9e pour ses concurrents=E2=80=9D, ajoute Thibault Lanthi=
+er, aujourd=E2=80=99hui =C3=A0 la t=C3=AAte du r=C3=A9seau de cabinets m=C3=
+=A9dicaux Primary. Concr=C3=A8tement, ses clients sont enferm=C3=A9s dans s=
+on =C3=A9cosyst=C3=A8me, hormis quelques logiciels partenaires qui ne sembl=
+ent pas entrer en comp=C3=A9tition direct avec les services maison. Impossi=
+ble, par exemple, d=E2=80=99utiliser une autre solution de t=C3=A9l=C3=A9co=
+nsultation. Ou un autre service de retranscription par IA. =E2=80=9CC=E2=80=
+=99est pourtant le type de comportement que Doctolib d=C3=A9non=C3=A7ait ch=
+ez les =C3=A9diteurs historiques =C3=A0 ses d=C3=A9buts=E2=80=9D, regrette =
+l=E2=80=99entrepreneur.
+Pour aller plus loin:
+- Doctolib condamn=C3=A9 pour abus de position dominante [ https://substack=
+=2Ecom/redirect/80999ed4-16e7-4b78-907=
+2-6ef68d5016c6?j=3DeyJ1IjoiNWYzcmdjIn0.=
+e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ]
+- Doctolib devient la start-up fran=C3=A7aise la mieux valoris=C3=A9e [ htt=
+ps://substack.com/redirect/345781a5-9fb5-4e1e-863b-213103b13bf7?j=3DeyJ1Ijo=
+iNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ]
+Cr=C3=A9dit photos:  Doctolib
+
+Unsubscribe https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9jYWZldGVjaC5=
+zdWJzdGFjay5jb20vYWN0aW9uL2Rpc2FibGVfZW1haWw_dG9rZW49ZXlKMWMyVnlYMmxrSWpvek=
+1qYzNNREEyTmpnc0luQnZjM1JmYVdRaU9qRTNPRGMzTVRFME5pd2lhV0YwSWpveE56WXpNVEF5T=
+URNNExDSmxlSEFpT2pFM09UUTJNemd3TXpnc0ltbHpjeUk2SW5CMVlpMDFNVEl3TmlJc0luTjFZ=
+aUk2SW1ScGMyRmliR1ZmWlcxaGFXd2lmUS5aNTBCQzlfVFA2bHVsVlJzNUdxMGFjNlNCVjdNU0x=
+hYS11WEFXRUtLTzQ0IiwicCI6MTc4NzcxMTQ2LCJzIjo1MTIwNiwiZiI6dHJ1ZSwidSI6MzI3Nz=
+AwNjY4LCJpYXQiOjE3NjMxMDIwMzgsImV4cCI6MjA3ODY3ODAzOCwiaXNzIjoicHViLTAiLCJzd=
+WIiOiJsaW5rLXJlZGlyZWN0In0.TJzx1TgJjlhyl2lbgsF9rXjGS1tXTCLj2ncIsI6cDjw?
+--bf8c506de7c36b38f9578f8eeba2d4b92d20cd852cb91c288a687307a521
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html style=3D"scrollbar-width: thin;scrollbar-color: rgb(219,219,219)rgb(2=
+55,255,255);"><head><meta charset=3D"utf-8"><title>Doctolib, ce monopole qu=
+i ne d&#233;rangeait (presque) personne</title><style>
+@media (max-width: 1024px) {
+  .typography .pullquote-align-left,
+  .typography.editor .pullquote-align-left,
+  .typography .pullquote-align-right,
+  .typography.editor .pullquote-align-right,
+  .typography .pullquote-align-wide,
+  .typography.editor .pullquote-align-wide,
+  .typography .pullquote-align-center,
+  .typography.editor .pullquote-align-center {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .typography .markup table.image-wrapper img,
+  .typography.editor .markup table.image-wrapper img,
+  .typography .markup table.kindle-wrapper img,
+  .typography.editor .markup table.kindle-wrapper img {
+    max-width: 550px;
+  }
+}
+@media (min-width: 1024px) {
+  .typography:not(:has(#toc)) .captioned-image-container figure:has(> a.ima=
+ge2-offset-left),
+  .typography.editor:not(:has(#toc)) .captioned-image-container figure:has(=
+> a.image2-offset-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  .typography:not(:has(#toc)) .captioned-image-container figure:has(> a.ima=
+ge2-offset-right),
+  .typography.editor:not(:has(#toc)) .captioned-image-container figure:has(=
+> a.image2-offset-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (min-width: 1300px) {
+  .typography .captioned-image-container figure:has(> a.image2-offset-left)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  .typography .captioned-image-container figure:has(> a.image2-offset-right=
+),
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (max-width: 1024px) {
+  .typography,
+  .typography.editor {
+    /* Disable offset on mobile/tablet */
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left),
+  .typography .captioned-image-container figure:has(> a.image2-align-right)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right) {
+    float: none;
+    margin: 1em auto;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left.t=
+hefp),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left.thefp),
+  .typography .captioned-image-container figure:has(> a.image2-align-right.=
+thefp),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right.thefp) {
+    margin: 1em auto;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-offset-left)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-left),
+  .typography .captioned-image-container figure:has(> a.image2-offset-right=
+),
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-right) {
+    margin: 1em auto;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left) =
+=2Eimage2-inset,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left) .image2-inset,
+  .typography .captioned-image-container figure:has(> a.image2-align-right)=
+ .image2-inset,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right) .image2-inset {
+    display: block;
+    justify-content: initial;
+  }
+}
+@media (max-width: 768px) {
+  .typography .markup div.sponsorship-campaign-embed,
+  .typography.editor .markup div.sponsorship-campaign-embed {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .typography .markup div.sponsorship-campaign-embed:first-child,
+  .typography.editor .markup div.sponsorship-campaign-embed:first-child {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.youtube-overlay,
+  .typography.editor .markup div.youtube-overlay,
+  .typography .markup div.vimeo-overlay,
+  .typography.editor .markup div.vimeo-overlay {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  .typography .markup div.tiktok-wrap,
+  .typography.editor .markup div.tiktok-wrap {
+    width: calc(95vw - 32px);
+    height: calc((95vw - 32px - 2px) / 0.485714);
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.embedded-publication-wrap .embedded-publication.s=
+how-subscribe,
+  .typography.editor .markup div.embedded-publication-wrap .embedded-public=
+ation.show-subscribe {
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.subscription-widget-wrap .subscription-widget.sho=
+w-subscribe,
+  .typography.editor .markup div.subscription-widget-wrap .subscription-wid=
+get.show-subscribe,
+  .typography .markup div.subscription-widget-wrap-editor .subscription-wid=
+get.show-subscribe,
+  .typography.editor .markup div.subscription-widget-wrap-editor .subscript=
+ion-widget.show-subscribe,
+  .typography .markup div.captioned-button-wrap .subscription-widget.show-s=
+ubscribe,
+  .typography.editor .markup div.captioned-button-wrap .subscription-widget=
+=2Eshow-subscribe {
+    padding: 0px 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.subscription-widget-wrap .subscription-widget.sho=
+w-subscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.subscription-widget-wrap .subscription-wid=
+get.show-subscribe .subscription-widget-subscribe .button,
+  .typography .markup div.subscription-widget-wrap-editor .subscription-wid=
+get.show-subscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.subscription-widget-wrap-editor .subscript=
+ion-widget.show-subscribe .subscription-widget-subscribe .button,
+  .typography .markup div.captioned-button-wrap .subscription-widget.show-s=
+ubscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.captioned-button-wrap .subscription-widget=
+=2Eshow-subscribe .subscription-widget-subscribe .button {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet,
+  .typography.editor .markup .tweet {
+    padding: 12px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet .tweet-text,
+  .typography.editor .markup .tweet .tweet-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet .tweet-photos-container.two,
+  .typography.editor .markup .tweet .tweet-photos-container.two,
+  .typography .markup .tweet .tweet-photos-container.three,
+  .typography.editor .markup .tweet .tweet-photos-container.three,
+  .typography .markup .tweet .tweet-photos-container.four,
+  .typography.editor .markup .tweet .tweet-photos-container.four {
+    height: 200px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet a.expanded-link .expanded-link-img,
+  .typography.editor .markup .tweet a.expanded-link .expanded-link-img {
+    max-height: 180px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet a.expanded-link .expanded-link-description,
+  .typography.editor .markup .tweet a.expanded-link .expanded-link-descript=
+ion {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup .apple-podcast-container,
+  .typography.editor .markup .apple-podcast-container {
+    width: unset;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed img.install-substack-app-=
+embed-img,
+  .typography.editor .markup .install-substack-app-embed img.install-substa=
+ck-app-embed-img {
+    margin: 0 auto 16px auto;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-text,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-text {
+    margin: 0 0 12px 0;
+    max-width: 100%;
+    width: auto;
+    text-align: center;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-link,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-link {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container {
+    height: 38px;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container a.comment {
+    height: 38px;
+    line-height: 38px;
+    padding-right: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .share-button-container .separator {
+    display: block;
+    margin: 0;
+    height: 8px;
+    border-left: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .share-button-container a.share.first img {
+    padding-left: 0;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container a.mobile {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 541px) {
+  .settings-add-pub-modal-wrapper .container .add-recommending-pub-modal-co=
+ntainer {
+    padding: 36px;
+    height: 680px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .settings-add-pub-modal-wrapper .container .add-recommending-pub-modal-co=
+ntainer .footer {
+    position: absolute;
+    bottom: 36px;
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .header-anchor-parent {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .post {
+    padding: 16px 0 0 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-header .post-label {
+    margin-top: 8px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-header .meta-author-wrap.alternative-meta .meta-right-column =
+=2Epost-meta {
+    margin-top: 6px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .footer-facepile-container {
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-footer.use-separators {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-footer.next-prev {
+    height: 64px;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-contributor-footer .post-contributor-bio-table {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-table-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .post-contributor-footer .post-contributor-bio-userhead-cell,
+  .post-contributor-footer .post-contributor-bio-body-cell {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-body-cell {
+    flex-grow: 1;
+  }
+  .post-contributor-footer .post-contributor-bio-body-table {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-body-table-row {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-copy-cell,
+  .post-contributor-footer .post-contributor-bio-controls-cell {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-copy-cell {
+    margin: 0 0 16px 0;
+  }
+  .post-contributor-footer .post-contributor-bio-controls-cell {
+    width: auto;
+  }
+  .post-contributor-footer .post-contributor-bio-controls {
+    margin: auto;
+  }
+  .post-contributor-footer .post-contributor-bio-controls .button.primary {
+    width: 100%;
+  }
+  .post-contributor-footer .post-contributor-bio-text {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .post-silhouette {
+    padding: 32px 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-title {
+    margin-top: 10.44225025px;
+    height: 120px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-meta {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-meta.with-byline-image {
+    margin: 20px 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item,
+  .post-meta.alternative-meta .post-meta-item {
+    padding-right: 16px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item,
+  .post-meta.alternative-meta .post-meta-item {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item.guest-author-pu=
+blication,
+  .post-meta.alternative-meta .post-meta-item.guest-author-publication {
+    display: none;
+  }
+}
+@media screen and (max-width: 370px) {
+  .post-meta .post-meta-item .post-meta-button {
+    height: 36px !important;
+    /* important to override in-line height style on emails */
+  }
+  .post-meta .post-meta-item .post-meta-button .meta-button-label {
+    display: none;
+  }
+  .post-meta .post-meta-item .post-meta-button > svg {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 370px) {
+  .post-meta .post-meta-item {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .floating-subscribe-button {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  body .pullquote-align-left,
+  body .pullquote-align-right,
+  body .pullquote-align-wide,
+  body .pullquote-align-center {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  body .markup table.image-wrapper img,
+  body .markup table.kindle-wrapper img {
+    max-width: 550px;
+  }
+}
+@media (min-width: 1024px) {
+  body:not(:has(#toc)) .captioned-image-container figure:has(> a.image2-off=
+set-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  body:not(:has(#toc)) .captioned-image-container figure:has(> a.image2-off=
+set-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (min-width: 1300px) {
+  body .captioned-image-container figure:has(> a.image2-offset-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  body .captioned-image-container figure:has(> a.image2-offset-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (max-width: 1024px) {
+  body {
+    /* Disable offset on mobile/tablet */
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left),
+  body .captioned-image-container figure:has(> a.image2-align-right) {
+    float: none;
+    margin: 1em auto;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left.thefp),
+  body .captioned-image-container figure:has(> a.image2-align-right.thefp) =
+{
+    margin: 1em auto;
+  }
+  body .captioned-image-container figure:has(> a.image2-offset-left),
+  body .captioned-image-container figure:has(> a.image2-offset-right) {
+    margin: 1em auto;
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left) .image2=
+-inset,
+  body .captioned-image-container figure:has(> a.image2-align-right) .image=
+2-inset {
+    display: block;
+    justify-content: initial;
+  }
+}
+@media (max-width: 768px) {
+  body .markup div.sponsorship-campaign-embed {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  body .markup div.sponsorship-campaign-embed:first-child {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.youtube-overlay,
+  body .markup div.vimeo-overlay {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  body .markup div.tiktok-wrap {
+    width: calc(95vw - 32px);
+    height: calc((95vw - 32px - 2px) / 0.485714);
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.embedded-publication-wrap .embedded-publication.show-sub=
+scribe {
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.subscription-widget-wrap .subscription-widget.show-subsc=
+ribe,
+  body .markup div.subscription-widget-wrap-editor .subscription-widget.sho=
+w-subscribe,
+  body .markup div.captioned-button-wrap .subscription-widget.show-subscrib=
+e {
+    padding: 0px 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.subscription-widget-wrap .subscription-widget.show-subsc=
+ribe .subscription-widget-subscribe .button,
+  body .markup div.subscription-widget-wrap-editor .subscription-widget.sho=
+w-subscribe .subscription-widget-subscribe .button,
+  body .markup div.captioned-button-wrap .subscription-widget.show-subscrib=
+e .subscription-widget-subscribe .button {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet {
+    padding: 12px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet .tweet-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet .tweet-photos-container.two,
+  body .markup .tweet .tweet-photos-container.three,
+  body .markup .tweet .tweet-photos-container.four {
+    height: 200px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet a.expanded-link .expanded-link-img {
+    max-height: 180px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet a.expanded-link .expanded-link-description {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup .apple-podcast-container {
+    width: unset;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed img.install-substack-app-embed-i=
+mg {
+    margin: 0 auto 16px auto;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-text=
+ {
+    margin: 0 0 12px 0;
+    max-width: 100%;
+    width: auto;
+    text-align: center;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-link=
+ {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 500px) {
+  body .header a.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+}
+@media screen and (max-width: 420px) {
+  body .subscription-receipt table:first-of-type .subscription-amount .subs=
+cription-discount {
+    width: 72px !important;
+  }
+}
+@media screen and (min-width: 481px) {
+  body .share-button-container {
+    height: auto;
+  }
+}
+@media screen and (max-width: 480px) {
+  body .share-button-container .separator {
+    display: block !important;
+    margin: 0 !important;
+    height: 8px !important;
+    border-left: none !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .digest .item .post-meta-item.audience {
+    display: none;
+  }
+}
+@media screen and (min-width: 500px) {
+  .digest-publication .logo img {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .comments-page .container .comment-list .collapsed-reply {
+    margin-left: calc(10 + 32px - 24px);
+  }
+}
+@media screen and (max-width: 650px) {
+  .comment > .comment-list {
+    padding-left: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .finish-magic-login-modal .modal-content .container {
+    padding: 24px 0;
+  }
+}
+@media (max-width: 650px) {
+  .reader2-text-b3 {
+    line-height: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .reader2-text-h4 {
+    line-height: 24px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .user-profile-modal {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .subscribe-widget form.form .sideBySideWrap button.rightButton {
+    padding: 10px 12px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .pub-icon:hover .logo-hover,
+  .feed-item-icon:hover .logo-hover {
+    display: block;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-ufi.single-full-width-button .post-ufi-button-wrapper {
+    width: 100%;
+    padding: 16px;
+  }
+  .post-ufi.single-full-width-button .post-ufi-button-wrapper:empty {
+    display: none;
+  }
+  .post-ufi.single-full-width-button .post-ufi-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper-editor {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper-editor:active {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .file-embed-button.wide,
+  .file-embed-error-button.wide {
+    display: none;
+  }
+}
+@media only screen and (min-width: 630px) {
+  .file-embed-button.narrow,
+  .file-embed-error-button.narrow {
+    display: none;
+  }
+}
+@media screen and (min-width: 541px) {
+  .audio-player-wrapper .audio-player {
+    min-width: 500px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper .audio-player .audio-player-progress {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper .audio-player .audio-player-progress .audio-player-=
+progress-bar .audio-player-progress-bar-popup {
+    top: -54px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-progress {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-progress .audio-p=
+layer-progress-bar .audio-player-progress-bar-popup {
+    top: -54px;
+  }
+}
+@media (min-width: 250px) {
+  .audio-player-wrapper-fancy .audio-player {
+    padding: 32px;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: flex;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:last-of-type=
+ {
+    display: block;
+  }
+}
+@media (min-width: 300px) {
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+}
+@media (min-width: 350px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-substack-logo {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-title {
+    margin-top: 16px;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 15%;
+    width: 15%;
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-substack-logo {
+    display: block;
+  }
+}
+@media (min-width: 350px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 25%;
+    width: 25%;
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: flex;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+}
+@media (min-width: 400px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 40%;
+    width: 40%;
+  }
+}
+@media (max-width: 400px) {
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    margin-top: 12px;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button {
+    font-size: 13px;
+    padding: 6px 12px;
+    height: auto;
+    margin-top: 10px;
+  }
+}
+@media (min-width: 600px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 55%;
+    width: 55%;
+  }
+}
+@media (max-width: 650px) {
+  .poll-editor-modal {
+    min-width: calc(100% - 20px);
+  }
+}
+@media (max-width: 750px) {
+  .poll-embed .poll-anchor-target .poll-anchor-copy-button {
+    left: 8px;
+    top: 45px;
+  }
+}
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    p a:not(.primary.button),
+    .post p:not(.button-wrapper) a:not(.primary.button),
+    .footnote a.footnote-anchor:not(.primary.button),
+    .thread-head .markup p:not(.button-wrapper) a:not(.primary.button) {
+      color: #007a76;
+      text-decoration: none;
+    }
+    p a:not(.primary.button):hover,
+    .post p:not(.button-wrapper) a:not(.primary.button):hover,
+    .footnote a.footnote-anchor:not(.primary.button):hover,
+    .thread-head .markup p:not(.button-wrapper) a:not(.primary.button):hove=
+r {
+      text-decoration: underline;
+    }
+  }
+}</style></head><body class=3D"email-body" style=3D"font-kerning: auto;--im=
+age-offset-margin: -120px;"><img src=3D"https://eotrx.substackcdn.com/open?=
+token=3DeyJtIjoiPDIwMjUxMTE0MDYzMTExLjMuMjRkN2M3NzQxMTRlYjk2ZUBtZy1kMS5zdWJ=
+zdGFjay5jb20-IiwidSI6MzI3NzAwNjY4LCJyIjoibjJyc3NAbmljb3BpY28uZnIiLCJkIjoibW=
+ctZDEuc3Vic3RhY2suY29tIiwicCI6MTc4NzcxMTQ2LCJ0IjoibmV3c2xldHRlciIsImEiOiJld=
+mVyeW9uZSIsInMiOjUxMjA2LCJjIjoicG9zdCIsImYiOnRydWUsInBvc2l0aW9uIjoidG9wIiwi=
+aWF0IjoxNzYzMTAyMDM5LCJleHAiOjE3NjU2OTQwMzksImlzcyI6InB1Yi0wIiwic3ViIjoiZW8=
+ifQ.G96i4sgYnMXU7LFmWL8Ryk0dkI6bIF4TTiVxMD1xERI" alt=3D"" width=3D"1" heigh=
+t=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important;bo=
+rder-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;=
+margin-right:0 !important;margin-left:0 !important;padding-top:0 !important=
+;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !imp=
+ortant;"/><div class=3D"preview" style=3D"display:none;font-size:1px;color:=
+#333333;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hid=
+den;">"Remettre Doctolib en cause, c'est comme se battre contre des moulins=
+ &#224; vent"</div><div class=3D"preview" style=3D"display:none;font-size:1=
+px;color:#333333;line-height:1px;max-height:0px;max-width:0px;opacity:0;ove=
+rflow:hidden;">&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#84=
+7; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &=
+#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nb=
+sp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&=
+#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199=
+; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbs=
+p; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#=
+847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199;=
+ &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp=
+; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#8=
+47; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; =
+&#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp;=
+ &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#84=
+7; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &=
+#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nb=
+sp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&=
+#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199=
+; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbs=
+p; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#=
+847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199;=
+ &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp=
+; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#8=
+47; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; =
+&#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp;=
+ &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#84=
+7; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &=
+#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;</div><tab=
+le class=3D"email-body-container" role=3D"presentation" width=3D"100%" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td></td><td class=
+=3D"content" width=3D"550"></td><td></td></tr><tr><td></td><td class=3D"con=
+tent" width=3D"550" align=3D"left"><div style=3D"font-size: 16px;line-heigh=
+t: 26px;max-width: 550px;width: 100%;margin: 0 auto;overflow-wrap: break-wo=
+rd;"><table role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"right" style=3D"height:20p=
+x;"><table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0"><tbody><tr><td style=3D"vertical-align:middle;"><span=
+ class=3D"pencraft pc-reset reset-IxiVJZ tw-font-body tw-text-ssm tw-text-s=
+ubstack-secondary" style=3D"font-family: SF Pro Text, -apple-system, system=
+-ui, BlinkMacSystemFont, Inter, Segoe UI, Roboto, Helvetica, Arial, sans-se=
+rif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;font-size: 13px;col=
+or: unset;list-style: none;text-decoration: unset;margin: 0;"><div class=3D=
+"pencraft pc-reset align-right-VJbKw5 size-12-mmZ61m reset-IxiVJZ" style=3D=
+"list-style: none;color: unset;text-align: right;font-size: 12px;line-heigh=
+t: 16px;text-decoration: unset;margin: 0;"><span class=3D"pencraft pc-reset=
+ reset-IxiVJZ" translated=3D"" style=3D"list-style: none;color: unset;text-=
+decoration: unset;margin: 0;">Vous avez re&#231;u cet e-mail car il a &#233=
+;t&#233; transf&#233;r&#233; ? <a class=3D"pencraft pc-reset decoration-und=
+erline-ClTkYc reset-IxiVJZ" href=3D"https://substack.com/redirect/2/eyJlIjo=
+iaHR0cHM6Ly9jYWZldGVjaC5zdWJzdGFjay5jb20vc3Vic2NyaWJlP3V0bV9zb3VyY2U9ZW1haW=
+wmdXRtX2NhbXBhaWduPWVtYWlsLXN1YnNjcmliZSZyPTVmM3JnYyZuZXh0PWh0dHBzJTNBJTJGJ=
+TJGY2FmZXRlY2guc3Vic3RhY2suY29tJTJGcCUyRmRvY3RvbGliLWNlLW1vbm9wb2xlLXF1aS1u=
+ZS1kZXJhbmdlYWl0IiwicCI6MTc4NzcxMTQ2LCJzIjo1MTIwNiwiZiI6dHJ1ZSwidSI6MzI3NzA=
+wNjY4LCJpYXQiOjE3NjMxMDIwMzgsImV4cCI6MjA3ODY3ODAzOCwiaXNzIjoicHViLTAiLCJzdW=
+IiOiJsaW5rLXJlZGlyZWN0In0.N4JlZnsKpZCxHfiQr48HRILFurj-HYuk3fD2cniLab0?" sty=
+le=3D"list-style: none;color: unset;text-decoration: unset;margin: 0;-webki=
+t-text-decoration-line: underline;text-decoration-line: underline;">Inscriv=
+ez-vous ici</a> pour en d&#233;couvrir plus</span></div></span></td></tr></=
+tbody></table></td></tr></tbody></table><table class=3D"header graphic-head=
+er" role=3D"presentation" style=3D"border-spacing: 0;padding: 16px 0 32px;"=
+><tbody><tr><td align=3D"center" style=3D"text-align: center;padding: 0;"><=
+a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9jYWZldGVjaC5zd=
+WJzdGFjay5jb20vcC9kb2N0b2xpYi1jZS1tb25vcG9sZS1xdWktbmUtZGVyYW5nZWFpdD91dG1f=
+Y2FtcGFpZ249ZW1haWwtaGFsZi1wb3N0JnI9NWYzcmdjJnRva2VuPWV5SjFjMlZ5WDJsa0lqb3p=
+NamMzTURBMk5qZ3NJbkJ2YzNSZmFXUWlPakUzT0RjM01URTBOaXdpYVdGMElqb3hOell6TVRBeU=
+1ETTRMQ0psZUhBaU9qRTNOalUyT1RRd016Z3NJbWx6Y3lJNkluQjFZaTAxTVRJd05pSXNJbk4xW=
+WlJNkluQnZjM1F0Y21WaFkzUnBiMjRpZlEuNDZYQjJsUmh2Ymt1T0ZxLU5MbUx6ekVYUUI5ZTlS=
+cmdWNW9hMjJhb2hSTSIsInAiOjE3ODc3MTE0NiwicyI6NTEyMDYsImYiOnRydWUsInUiOjMyNzc=
+wMDY2OCwiaWF0IjoxNzYzMTAyMDM4LCJleHAiOjIwNzg2NzgwMzgsImlzcyI6InB1Yi0wIiwic3=
+ViIjoibGluay1yZWRpcmVjdCJ9.LPFrBkqhcYSdetSPSWifnXngvWUVzywHpK5KHnw8o1Y?"><i=
+mg class=3D"header-image" role=3D"presentation" width=3D"550" height=3D"109=
+" src=3D"https://substackcdn.com/image/fetch/$s_!5ds4!,w_1100,c_limit,f_aut=
+o,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.ama=
+zonaws.com%2Fpublic%2Fimages%2F1e24de9f-98c5-47c2-8ba8-abe278bdbe95_2400x47=
+4.png" style=3D"border: none !important;vertical-align: middle;max-width: 5=
+50px;display: block;margin: 0 auto;height: auto;width: 100%;"></a></td></tr=
+></tbody></table><div class=3D"post typography" dir=3D"auto" style=3D"--ima=
+ge-offset-margin: -120px;padding: 32px 0 0 0;font-size: 16px;line-height: 2=
+6px;"><div class=3D"post-header" role=3D"region" aria-label=3D"En-t&#234;te=
+ du post" style=3D"font-size: 16px;line-height: 26px;"><h1 class=3D"post-ti=
+tle published title-X77sOw" dir=3D"auto" style=3D"direction: auto;text-alig=
+n: start;unicode-bidi: isolate;color: rgb(54,55,55);font-family: 'SF Pro Di=
+splay',-apple-system-headline,system-ui,-apple-system,BlinkMacSystemFont,'S=
+egoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Em=
+oji','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing: antialiase=
+d;-moz-osx-font-smoothing: antialiased;-webkit-appearance: optimizelegibili=
+ty;-moz-appearance: optimizelegibility;appearance: optimizelegibility;margi=
+n: 0;line-height: 36px;font-size: 32px;"><a href=3D"https://substack.com/ap=
+p-link/post?publication_id=3D51206&post_id=3D178771146&utm_source=3Dpost-em=
+ail-title&utm_campaign=3Demail-post-title&isFreemail=3Dtrue&r=3D5f3rgc&toke=
+n=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE3ODc3MTE0NiwiaWF0IjoxNzYzMTA=
+yMDM4LCJleHAiOjE3NjU2OTQwMzgsImlzcyI6InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmVhY3=
+Rpb24ifQ.46XB2lRhvbkuOFq-NLmLzzEXQB9e9RrgV5oa22aohRM" style=3D"color: rgb(5=
+4,55,55);text-decoration: none;">Doctolib, ce monopole qui ne d&#233;rangea=
+it (presque) personne</a></h1><h3 class=3D"subtitle subtitle-HEEcLo" dir=3D=
+"auto" style=3D"direction: auto;text-align: start;unicode-bidi: isolate;fon=
+t-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-system,B=
+linkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color=
+ Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: normal;-webkit-font=
+-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appear=
+ance: optimizelegibility;-moz-appearance: optimizelegibility;appearance: op=
+timizelegibility;margin: 4px 0 0;color: #777777;line-height: 24px;font-size=
+: 18px;margin-top: 12px;">"Remettre Doctolib en cause, c'est comme se battr=
+e contre des moulins &#224; vent"</h3><table class=3D"post-meta" role=3D"pr=
+esentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+ style=3D"margin: 1em 0;height: 20px;align-items: center;"><tbody><tr><td><=
+table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0"><tbody><tr><td><table role=3D"presentation" width=3D"auto"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"v=
+ertical-align:middle;"><div class=3D"pencraft pc-reset color-primary-zABazT=
+ line-height-20-t4M0El font-meta-MWBumP size-11-NuY2Zx weight-medium-fw81nC=
+ transform-uppercase-yKDgcq reset-IxiVJZ meta-EgzBVA custom-css-email-post-=
+author" style=3D"list-style: none;font-size: 11px;line-height: 20px;text-de=
+coration: unset;color: rgb(54,55,55);margin: 0;font-family: 'SF Compact',-a=
+pple-system,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,He=
+lvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Sym=
+bol';font-weight: 500;text-transform: uppercase;letter-spacing: .2px;"><a c=
+lass=3D"pencraft pc-reset color-primary-zABazT line-height-20-t4M0El font-m=
+eta-MWBumP size-11-NuY2Zx weight-medium-fw81nC transform-uppercase-yKDgcq r=
+eset-IxiVJZ meta-EgzBVA" style=3D"list-style: none;color: rgb(54,55,55);mar=
+gin: 0;font-size: 11px;line-height: 20px;font-family: 'SF Compact',-apple-s=
+ystem,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetic=
+a,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';f=
+ont-weight: 500;text-transform: uppercase;letter-spacing: .2px;text-decorat=
+ion: none" href=3D"https://substack.com/@jeromemarin">J&#233;r&#244;me Mari=
+n</a></div></td></tr></tbody></table></td></tr><tr><td><table role=3D"prese=
+ntation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><t=
+body><tr><td style=3D"vertical-align:middle;"><div class=3D"pencraft pc-res=
+et color-secondary-ls1g8s line-height-20-t4M0El font-meta-MWBumP size-11-Nu=
+Y2Zx weight-medium-fw81nC transform-uppercase-yKDgcq reset-IxiVJZ meta-EgzB=
+VA" style=3D"list-style: none;font-size: 11px;line-height: 20px;text-decora=
+tion: unset;color: rgb(119,119,119);margin: 0;font-family: 'SF Compact',-ap=
+ple-system,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Hel=
+vetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symb=
+ol';font-weight: 500;text-transform: uppercase;letter-spacing: .2px;"><time=
+ datetime=3D"2025-11-14T06:33:07.727Z">nov. 14</time></div></td></tr></tbod=
+y></table></td></tr></tbody></table></td><td align=3D"right"><table role=3D=
+"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0"><tbody><tr><td style=3D"vertical-align:middle;"><a href=3D"https://subs=
+tack.com/@jeromemarin"><img class=3D"custom-css-email-avatar avatar-QIQ5yR"=
+ src=3D"https://substackcdn.com/image/fetch/$s_!1Qar!,f_auto,q_auto:good,fl=
+_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpub=
+lic%2Fimages%2F8c15e96d-c5bf-467d-be90-e9b53832c6e0_362x434.jpeg" style=3D"=
+box-sizing: border-box;border-radius: 500000px;max-width: 550px;border: non=
+e;vertical-align: middle;width: 40px;height: 40px;min-width: 40px;min-heigh=
+t: 40px;object-fit: cover;margin: 0px;display: inline" width=3D"40" height=
+=3D"40"></a></td></tr></tbody></table></td></tr></tbody></table><table clas=
+s=3D"email-ufi-2-top" role=3D"presentation" width=3D"100%" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0" style=3D"border-top: 1px solid rgb(0,0,0,.=
+1);border-bottom: 1px solid rgb(0,0,0,.1);min-width: 100%;"><tbody><tr heig=
+ht=3D"16"><td height=3D"16" style=3D"font-size:0px;line-height:0;">&nbsp;</=
+td></tr><tr><td><table role=3D"presentation" width=3D"100%" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0"><tbody><tr><td><table role=3D"presentatio=
+n" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><=
+tr><td style=3D"vertical-align:middle;"><table role=3D"presentation" width=
+=3D"38" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td ali=
+gn=3D"center"><a class=3D"email-icon-button" href=3D"https://substack.com/a=
+pp-link/post?publication_id=3D51206&post_id=3D178771146&utm_source=3Dsubsta=
+ck&isFreemail=3Dtrue&submitLike=3Dtrue&token=3DeyJ1c2VyX2lkIjozMjc3MDA2Njgs=
+InBvc3RfaWQiOjE3ODc3MTE0NiwicmVhY3Rpb24iOiLinaQiLCJpYXQiOjE3NjMxMDIwMzgsImV=
+4cCI6MTc2NTY5NDAzOCwiaXNzIjoicHViLTUxMjA2Iiwic3ViIjoicmVhY3Rpb24ifQ.YIc7TI7=
+q4L3qj0l9wJzZ0FRJpO3FyW34CpuBWKNq_ws&utm_medium=3Demail&utm_campaign=3Demai=
+l-reaction&r=3D5f3rgc" style=3D"font-family: system-ui,-apple-system,BlinkM=
+acSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoj=
+i','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;font-weight: 50=
+0;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-transform: upp=
+ercase;font-size: 12px;line-height: 1;padding: 9px 0;text-decoration: none;=
+color: rgb(119,119,119);min-width: 38px;box-sizing: border-box;width: 38px"=
+><img class=3D"icon" src=3D"https://substackcdn.com/image/fetch/$s_!PeVs!,w=
+_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.c=
+om%2Ficon%2FLucideHeart%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%252=
+3808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"border: none=
+;vertical-align: middle;max-width: 18px" alt=3D""></a></td></tr></tbody></t=
+able></td><td width=3D"8" style=3D"min-width: 8px"></td><td style=3D"vertic=
+al-align:middle;"><table role=3D"presentation" width=3D"38" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a class=
+=3D"email-icon-button" href=3D"https://substack.com/app-link/post?publicati=
+on_id=3D51206&post_id=3D178771146&utm_source=3Dsubstack&utm_medium=3Demail&=
+isFreemail=3Dtrue&comments=3Dtrue&token=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc=
+3RfaWQiOjE3ODc3MTE0NiwiaWF0IjoxNzYzMTAyMDM4LCJleHAiOjE3NjU2OTQwMzgsImlzcyI6=
+InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.46XB2lRhvbkuOFq-NLmLzzEXQB9e=
+9RrgV5oa22aohRM&r=3D5f3rgc&utm_campaign=3Demail-half-magic-comments&action=
+=3Dpost-comment&utm_source=3Dsubstack&utm_medium=3Demail" style=3D"font-fam=
+ily: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica=
+,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';di=
+splay: inline-block;font-weight: 500;border: 1px solid rgb(0,0,0,.1);border=
+-radius: 9999px;text-transform: uppercase;font-size: 12px;line-height: 1;pa=
+dding: 9px 0;text-decoration: none;color: rgb(119,119,119);min-width: 38px;=
+box-sizing: border-box;width: 38px"><img class=3D"icon" src=3D"https://subs=
+tackcdn.com/image/fetch/$s_!x1tS!,w_36,c_scale,f_png,q_auto:good,fl_progres=
+sive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideComments%3Fv%3D4%26hei=
+ght%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"1=
+8" height=3D"18" style=3D"border: none;vertical-align: middle;max-width: 18=
+px" alt=3D""></a></td></tr></tbody></table></td><td width=3D"8" style=3D"mi=
+n-width: 8px"></td><td style=3D"vertical-align:middle;"><table role=3D"pres=
+entation" width=3D"38" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tb=
+ody><tr><td align=3D"center"><a class=3D"email-icon-button" href=3D"https:/=
+/substack.com/app-link/post?publication_id=3D51206&post_id=3D178771146&utm_=
+source=3Dsubstack&utm_medium=3Demail&utm_content=3Dshare&utm_campaign=3Dema=
+il-share&action=3Dshare&triggerShare=3Dtrue&isFreemail=3Dtrue&r=3D5f3rgc&to=
+ken=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE3ODc3MTE0NiwiaWF0IjoxNzYzM=
+TAyMDM4LCJleHAiOjE3NjU2OTQwMzgsImlzcyI6InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmVh=
+Y3Rpb24ifQ.46XB2lRhvbkuOFq-NLmLzzEXQB9e9RrgV5oa22aohRM" style=3D"font-famil=
+y: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,A=
+rial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';disp=
+lay: inline-block;font-weight: 500;border: 1px solid rgb(0,0,0,.1);border-r=
+adius: 9999px;text-transform: uppercase;font-size: 12px;line-height: 1;padd=
+ing: 9px 0;text-decoration: none;color: rgb(119,119,119);min-width: 38px;bo=
+x-sizing: border-box;width: 38px"><img class=3D"icon" src=3D"https://substa=
+ckcdn.com/image/fetch/$s_!_L14!,w_36,c_scale,f_png,q_auto:good,fl_progressi=
+ve:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideShare2%3Fv%3D4%26height%=
+3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" h=
+eight=3D"18" style=3D"border: none;vertical-align: middle;max-width: 18px" =
+alt=3D""></a></td></tr></tbody></table></td><td width=3D"8" style=3D"min-wi=
+dth: 8px"></td><td style=3D"vertical-align:middle;"><table role=3D"presenta=
+tion" width=3D"38" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody>=
+<tr><td align=3D"center"><a class=3D"email-icon-button" href=3D"https://sub=
+stack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS9wdWIvY2FmZX=
+RlY2gvcC9kb2N0b2xpYi1jZS1tb25vcG9sZS1xdWktbmUtZGVyYW5nZWFpdD91dG1fc291cmNlP=
+XN1YnN0YWNrJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPWVtYWlsLXJlc3RhY2stY29t=
+bWVudCZhY3Rpb249cmVzdGFjay1jb21tZW50JnI9NWYzcmdjJnRva2VuPWV5SjFjMlZ5WDJsa0l=
+qb3pNamMzTURBMk5qZ3NJbkJ2YzNSZmFXUWlPakUzT0RjM01URTBOaXdpYVdGMElqb3hOell6TV=
+RBeU1ETTRMQ0psZUhBaU9qRTNOalUyT1RRd016Z3NJbWx6Y3lJNkluQjFZaTAxTVRJd05pSXNJb=
+k4xWWlJNkluQnZjM1F0Y21WaFkzUnBiMjRpZlEuNDZYQjJsUmh2Ymt1T0ZxLU5MbUx6ekVYUUI5=
+ZTlScmdWNW9hMjJhb2hSTSIsInAiOjE3ODc3MTE0NiwicyI6NTEyMDYsImYiOnRydWUsInUiOjM=
+yNzcwMDY2OCwiaWF0IjoxNzYzMTAyMDM4LCJleHAiOjIwNzg2NzgwMzgsImlzcyI6InB1Yi0wIi=
+wic3ViIjoibGluay1yZWRpcmVjdCJ9.iMoBfbgyHtXLEVr5BtXD-AnjGppm5qoZwe4sQHI7uzs?=
+&utm_source=3Dsubstack&utm_medium=3Demail" style=3D"font-family: system-ui,=
+-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-ser=
+if,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-b=
+lock;font-weight: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px=
+;text-transform: uppercase;font-size: 12px;line-height: 1;padding: 9px 0;te=
+xt-decoration: none;color: rgb(119,119,119);min-width: 38px;box-sizing: bor=
+der-box;width: 38px"><img class=3D"icon" src=3D"https://substackcdn.com/ima=
+ge/fetch/$s_!5EGt!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/http=
+s%3A%2F%2Fsubstack.com%2Ficon%2FNoteForwardIcon%3Fv%3D4%26height%3D36%26fil=
+l%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"1=
+8" style=3D"border: none;vertical-align: middle;max-width: 18px" alt=3D""><=
+/a></td></tr></tbody></table></td></tr></tbody></table></td><td align=3D"ri=
+ght"><table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"vertical-align:middle;"><t=
+able role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0"><tbody><tr><td align=3D"center"><a class=3D"email-button-ou=
+tline" href=3D"https://open.substack.com/pub/cafetech/p/doctolib-ce-monopol=
+e-qui-ne-derangeait?utm_source=3Demail&redirect=3Dapp-store&utm_campaign=3D=
+email-read-in-app" style=3D"font-family: system-ui,-apple-system,BlinkMacSy=
+stemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','=
+Segoe UI Emoji','Segoe UI Symbol';display: inline-block;font-weight: 500;bo=
+rder: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-transform: upperca=
+se;font-size: 12px;line-height: 12px;padding: 9px 14px;text-decoration: non=
+e;color: rgb(119,119,119);"><div class=3D"email-button-spacer" style=3D"fon=
+t-size: 16px;line-height: 26px;display: inline-block;vertical-align: middle=
+;max-width: 0;min-height: 18px;"></div><span class=3D"email-button-text" st=
+yle=3D"vertical-align: middle;margin-right: 4px">LIRE DANS L'APP</span><img=
+ class=3D"icon text-icon" src=3D"https://substackcdn.com/image/fetch/$s_!ET=
+-_!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubst=
+ack.com%2Ficon%2FLucideArrowUpRight%3Fv%3D4%26height%3D36%26fill%3Dnone%26s=
+troke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"=
+min-width: 18px;min-height: 18px;border: none;vertical-align: middle;margin=
+-right: 0;margin-left: 0;max-width: 18px" alt=3D""></a></td></tr></tbody></=
+table></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr hei=
+ght=3D"16"><td height=3D"16" style=3D"font-size:0px;line-height:0;">&nbsp;<=
+/td></tr></tbody></table></div></div><div class=3D"post typography" dir=3D"=
+auto" style=3D"--image-offset-margin: -120px;padding: 32px 0 0 0;font-size:=
+ 16px;line-height: 26px;"><div class=3D"body markup" dir=3D"auto" style=3D"=
+text-align: initial;font-size: 16px;line-height: 26px;width: 100%;word-brea=
+k: break-word;margin-bottom: 16px;"><p style=3D"margin: 0 0 20px 0;color: r=
+gb(54,55,55);line-height: 26px;font-size: 16px;margin-top: 0;"><span>Tous l=
+es vendredis, Caf&#233;tech vous propose d&#233;sormais une &#233;dition en=
+ti&#232;rement d&#233;di&#233;e &#224; la French Tech. Les pr&#233;c&#233;d=
+ents num&#233;ros </span><a href=3D"https://substack.com/redirect/9e03f682-=
+d348-401c-b0ad-6c14f95ad4cd?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y=
+1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D"color: #007a76;text-decoration: non=
+e;">sont &#224; retrouver ici</a><span>.</span></p><p style=3D"margin: 0 0 =
+20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>Cette=
+ semaine, vous pouvez aussi me retrouver dans </span><a href=3D"https://sub=
+stack.com/redirect/5cdda4d4-284e-4429-ac30-8f52f5e78ce5?j=3DeyJ1IjoiNWYzcmd=
+jIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D"color: =
+#007a76;text-decoration: none;">le podcast Tech 45&#8217;</a><span> de S&#2=
+33;bastien Couasnon. L&#8217;occasion de revenir sur les lourdes pertes d&#=
+8217;OpenAI, le projet de data center dans l&#8217;espace de Google, le ret=
+our d&#8217;Octave Klaba chez OVH et&#8230; l&#8217;amende contre Doctolib.=
+ L&#8217;&#233;pisode </span><a href=3D"https://substack.com/redirect/5cdda=
+4d4-284e-4429-ac30-8f52f5e78ce5?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfM=
+bw_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D"color: #007a76;text-decoration:=
+ none;">est &#224; &#233;couter ici</a><span>.</span></p><p style=3D"margin=
+: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">Bonne=
+ lecture, bonne &#233;coute et bon week-end.</p><div style=3D"font-size: 16=
+px;line-height: 26px;"><hr style=3D"margin: 32px 0;padding: 0;height: 1px;b=
+ackground: #e6e6e6;border: none;"></div><div class=3D"captioned-image-conta=
+iner-static" style=3D"font-size: 16px;line-height: 26px;margin: 32px auto;"=
+><figure style=3D"width: 100%;margin: 0 auto;"><table class=3D"image-wrappe=
+r" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" data-com=
+ponent-name=3D"Image2ToDOMStatic" style=3D"mso-padding-alt: 1em 0 1.6em;"><=
+tbody><tr><td style=3D"text-align: center;"></td><td class=3D"content" alig=
+n=3D"left" width=3D"1400" style=3D"text-align: center;"><a class=3D"image-l=
+ink" target=3D"_blank" href=3D"https://substack.com/redirect/926eb326-108d-=
+4afb-b188-6ab1bc14ad3e?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUo=
+HsRukz8PaFv0-2U" rel=3D"" style=3D"position: relative;flex-direction: colum=
+n;align-items: center;padding: 0;width: auto;height: auto;border: none;text=
+-decoration: none;display: block;margin: 0;"><img class=3D"wide-image" data=
+-attrs=3D"{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.c=
+om/public/images/759fc9b7-a511-4fdb-81e2-5bf5372ff183_1400x933.webp&quot;,&=
+quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&=
+quot;:null,&quot;height&quot;:933,&quot;width&quot;:1400,&quot;resizeWidth&=
+quot;:null,&quot;bytes&quot;:60566,&quot;alt&quot;:null,&quot;title&quot;:n=
+ull,&quot;type&quot;:&quot;image/webp&quot;,&quot;href&quot;:null,&quot;bel=
+owTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot=
+;:&quot;https://cafetech.substack.com/i/178771146?img=3Dhttps%3A%2F%2Fsubst=
+ack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F759fc9b7-a511-4fdb-81e2=
+-5bf5372ff183_1400x933.webp&quot;,&quot;isProcessing&quot;:false,&quot;alig=
+n&quot;:null,&quot;offset&quot;:false}" alt=3D"" width=3D"550" height=3D"36=
+6.5357142857143" src=3D"https://substackcdn.com/image/fetch/$s_!hmr9!,w_110=
+0,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-po=
+st-media.s3.amazonaws.com%2Fpublic%2Fimages%2F759fc9b7-a511-4fdb-81e2-5bf53=
+72ff183_1400x933.webp" style=3D"border: none !important;vertical-align: mid=
+dle;display: block;-ms-interpolation-mode: bicubic;height: auto;margin-bott=
+om: 0;width: auto !important;max-width: 100% !important;margin: 0 auto;"></=
+a></td><td style=3D"text-align: center;"></td></tr></tbody></table></figure=
+></div><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26p=
+x;font-size: 16px;"><span>Le ton est donn&#233; d&#8217;embl&#233;e. En avr=
+il 2019, pour son premier d&#233;placement officiel en tant que secr&#233;t=
+aire d&#8217;&#201;tat au num&#233;rique, C&#233;dric O rend visite &#224; =
+</span><em>&#8220;Stan&#8221;</em><span> &#8211; Stanislas Niox-Chateau, le=
+ fondateur et patron de Doctolib. Dix-huit mois tard, la pand&#233;mie du c=
+oronavirus propulse la start-up fran&#231;aise, charg&#233;e de la campagne=
+ de vaccination, dans une nouvelle dimension. Et consolide son quasi-monopo=
+le sur la prise de rendez-vous m&#233;dicaux. C&#233;dric O ne s&#8217;en &=
+#233;meut gu&#232;re:</span><em> &#8220;Pour une fois que nous avons une en=
+treprise leader en France, soyons fiers&#8221;.</em></p><p style=3D"margin:=
+ 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>=
+&#192; vrai dire, cette position dominante n&#8217;a jamais sembl&#233; d&#=
+233;ranger grand monde. Ni au plus haut sommet de l&#8217;&#201;tat, o&#249=
+; l&#8217;on se f&#233;licite du succ&#232;s &#233;clatant d&#8217;un fleur=
+on de la &#8220;start-up nation&#8221;. Ni au sein de la population, qui pl=
+&#233;biscite la simplicit&#233; d&#8217;acc&#232;s aux rendez-vous m&#233;=
+dicaux. Quelques voix discordantes se font bien entendre au minist&#232;re =
+de la Sant&#233; ou dans le milieu m&#233;dical, sans susciter un grand &#2=
+33;cho m&#233;diatique.</span><em> &#8220;Remettre Doctolib en cause, c&#82=
+17;est comme se battre contre des moulins &#224; vent&#8221;,</em><span> r&=
+#233;sume, fataliste, Patricia Lef&#233;bure, pr&#233;sidente de la F&#233;=
+d&#233;ration des m&#233;decins de France.</span></p><p style=3D"margin: 0 =
+0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">En coulis=
+ses, pourtant, l&#8217;Autorit&#233; de la concurrence est saisie en 2019 p=
+ar Cegedim, acteur historique des logiciels de sant&#233;. Deux ans plus ta=
+rd, une &#8220;op&#233;ration de visite et de saisie&#8221; a lieu dans les=
+ locaux de la start-up. Puis, silence radio&#8230; jusqu&#8217;&#224; la se=
+maine derni&#232;re. Apr&#232;s six ans de proc&#233;dure, Doctolib re&#231=
+;oit une amende de 4,665 millions d&#8217;euros pour abus de position domin=
+ante. En cause: des clauses d&#8217;exclusivit&#233; et des pratiques de ve=
+nte li&#233;e, avec sa plateforme de t&#233;l&#233;consultation. Des m&#233=
+;thodes qui auraient renforc&#233; sa mainmise sur le march&#233;.</p><h3 c=
+lass=3D"header-anchor-post" style=3D"position: relative;font-family: 'SF Pr=
+o Display',-apple-system-headline,system-ui,-apple-system,BlinkMacSystemFon=
+t,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe U=
+I Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing: antial=
+iased;-moz-osx-font-smoothing: antialiased;-webkit-appearance: optimizelegi=
+bility;-moz-appearance: optimizelegibility;appearance: optimizelegibility;m=
+argin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;font-size: =
+1.375em;"><strong>&#8220;Un scandale&#8221;</strong></h3><p style=3D"margin=
+: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span=
+>L&#8217;entreprise a &#233;galement &#233;t&#233; &#233;pingl&#233;e pour =
+l&#8217;acquisition, jug&#233;e </span><em>&#8220;pr&#233;datrice&#8221;</e=
+m><span>, de MonDocteur en 2018. Selon l&#8217;Autorit&#233;, cette op&#233=
+;ration visait &#224; &#233;liminer son principal rival, afin notamment d&#=
+8217;augmenter les prix. </span><em>&#8220;Au moment du rachat, ils d&#233;=
+tenaient pr&#232;s de deux tiers du march&#233; de la prise de rendez-vous.=
+ Nous &#233;tions &#224; un peu plus de 30%,</em><span> se souvient Thibaul=
+t Lanthier, l&#8217;ancien patron de MonDocteur. </span><em>Une dizaine de =
+soci&#233;t&#233;s se partageaient entre 3% et 5% de part de march&#233;&#8=
+221;.</em><span> D&#232;s 2019, Doctolib en profite pour relever ses tarifs=
+ de 20%. Le service est alors deux &#224; trois fois plus cher que les autr=
+es.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-heig=
+ht: 26px;font-size: 16px;">Selon nos informations, deux facteurs expliquent=
+ la longueur de la proc&#233;dure. D&#8217;abord, un recours d&#233;pos&#23=
+3; par Doctolib devant la justice suite &#224; la perquisition men&#233;e e=
+n 2021, qui a temporairement gel&#233; le dossier. Ensuite, le caract&#232;=
+re in&#233;dit de l&#8217;un des griefs. Si l&#8217;acquisition de MonDocte=
+ur, pour environ 45 millions d&#8217;euros, n&#8217;avait pas n&#233;cessit=
+&#233; de feu vert pr&#233;alable du r&#233;gulateur, elle a pu &#234;tre s=
+anctionn&#233;e a posteriori en s&#8217;appuyant sur un r&#233;cent arr&#23=
+4;t de la Cour de Justice de l&#8217;Union europ&#233;enne, qui n&#8217;ava=
+it encore jamais &#233;t&#233; appliqu&#233;.</p><p style=3D"margin: 0 0 20=
+px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>Cette s=
+anction apr&#232;s-coup a suscit&#233; une salve de r&#233;actions indign&#=
+233;es. Pour certains, un </span><em>&#8220;scandale&#8221;</em><span> qui =
+met en p&#233;ril les strat&#233;gies de consolidation des start-up. Pour d=
+&#8217;autres, un </span><em>&#8220;paradoxe&#8221;</em><span>, alors que l=
+a France cherche &#224; faire &#233;merger des champions technologiques. Le=
+s faits semblent pourtant accablants. Et ceux qui volent au secours de Doct=
+olib auraient probablement applaudi si la condamnation avait vis&#233; un g=
+&#233;ant am&#233;ricain. Pour Beno&#238;t C&#339;ur&#233;, le patron de l&=
+#8217;Autorit&#233;, il s&#8217;agit donc d&#8217;une piq&#251;re de rappel=
+: </span><em>&#8220;quelle que soit leur nationalit&#233;, les entreprises =
+doivent respecter la loi&#8221;</em><span>. </span></p><h3 class=3D"header-=
+anchor-post" style=3D"position: relative;font-family: 'SF Pro Display',-app=
+le-system-headline,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Ro=
+boto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe=
+ UI Symbol';font-weight: bold;-webkit-font-smoothing: antialiased;-moz-osx-=
+font-smoothing: antialiased;-webkit-appearance: optimizelegibility;-moz-app=
+earance: optimizelegibility;appearance: optimizelegibility;margin: 1em 0 0.=
+625em 0;color: rgb(54,55,55);line-height: 1.16em;font-size: 1.375em;"><stro=
+ng>Effet de r&#233;seau</strong></h3><div class=3D"captioned-image-containe=
+r-static" style=3D"font-size: 16px;line-height: 26px;margin: 32px auto;"><f=
+igure style=3D"width: 100%;margin: 0 auto;"><table class=3D"image-wrapper" =
+width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" data-compon=
+ent-name=3D"Image2ToDOMStatic" style=3D"mso-padding-alt: 1em 0 1.6em;"><tbo=
+dy><tr><td style=3D"text-align: center;"></td><td class=3D"content" align=
+=3D"left" width=3D"1296" style=3D"text-align: center;"><a class=3D"image-li=
+nk" target=3D"_blank" href=3D"https://substack.com/redirect/e9c9844a-a37c-4=
+b3b-917c-3b295cebe17a?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoH=
+sRukz8PaFv0-2U" rel=3D"" style=3D"position: relative;flex-direction: column=
+;align-items: center;padding: 0;width: auto;height: auto;border: none;text-=
+decoration: none;display: block;margin: 0;"><img class=3D"wide-image" data-=
+attrs=3D"{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.co=
+m/public/images/1838c56b-e9c5-400b-b987-1ecb5d379340_1296x648.png&quot;,&qu=
+ot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&qu=
+ot;:null,&quot;height&quot;:648,&quot;width&quot;:1296,&quot;resizeWidth&qu=
+ot;:null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;&quot;,&quot;title&qu=
+ot;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quo=
+t;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;=
+isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" =
+alt=3D"" title=3D"" width=3D"550" height=3D"275" src=3D"https://substackcdn=
+=2Ecom/image/fetch/$s_!CVq1!,w_1100,c_l=
+imit,f_auto,q_auto:good,fl_progressive=
+:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages=
+%2F1838c56b-e9c5-400b-b987-1ecb5d379340_1296x648.png" style=3D"border: none=
+ !important;vertical-align: middle;display: block;-ms-interpolation-mode: b=
+icubic;height: auto;margin-bottom: 0;width: auto !important;max-width: 100%=
+ !important;margin: 0 auto;"></a></td><td style=3D"text-align: center;"></t=
+d></tr></tbody></table></figure></div><p style=3D"margin: 0 0 20px 0;color:=
+ rgb(54,55,55);line-height: 26px;font-size: 16px;">Contrairement &#224; une=
+ id&#233;e re&#231;ue, Doctolib n&#8217;a pas invent&#233; la prise de rend=
+ez-vous m&#233;dicaux en ligne. Mais elle a &#233;t&#233; l&#8217;une des p=
+remi&#232;res &#224; proposer un service d&#233;di&#233;. Et surtout la pre=
+mi&#232;re &#224; atteindre une taille critique la rendant incontournable. =
+D&#232;s son lancement en 2013, la start-up cherche d&#8217;abord &#224; s&=
+#233;duire les m&#233;decins, pas les patients. Tr&#232;s vite, elle d&#233=
+;ploie des dizaines, puis des centaines de commerciaux dans les grandes vil=
+les, mettant en avant des &#233;conomies sur les frais de secr&#233;tariat =
+et une baisse des rendez-vous non honor&#233;s, gr&#226;ce aux rappels par =
+SMS.</p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26=
+px;font-size: 16px;"><span>Doctolib &#233;tend ensuite son offre de service=
+s accessibles via son abonnement. </span><em>&#8220;Nous avons bouscul&#233=
+; un march&#233; scl&#233;ros&#233; qui n&#8217;avait jamais innov&#233;&#8=
+221;,</em><span> revendique-t-on en interne. La plateforme b&#233;n&#233;fi=
+cie aussi de deux coups de pouce. En 2016, elle remporte l&#8217;appel d&#8=
+217;offres de l&#8217;AP-HP, l&#8217;&#233;tablissement public qui g&#232;r=
+e les h&#244;pitaux franciliens &#8211; un contrat contest&#233; par ses co=
+ncurrents. Puis en 2020, la crise sanitaire la fait d&#233;finitivement ent=
+rer dans le quotidien des Fran&#231;ais, notamment pour r&#233;server des c=
+r&#233;neaux dans les centres de vaccination.</span></p><p style=3D"margin:=
+ 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>=
+Avec 50 millions d&#8217;utilisateurs en France, la plateforme n&#8217;est =
+pas</span><em> &#8220;indispensable pour les m&#233;decins qui disposent d&=
+#233;j&#224; d&#8217;une patient&#232;le&#8221;,</em><span> souligne Patric=
+ia Lef&#233;bure, aussi m&#233;decin g&#233;n&#233;raliste en &#206;le-de-F=
+rance. Elle l&#8217;est en revanche pour ceux qui ont besoin de visibilit&#=
+233; pour lancer ou accro&#238;tre leur activit&#233;. </span><em>&#8220;Po=
+ur les patients, passer par Doctolib est parfois devenu obligatoire pour ob=
+tenir un rendez-vous, notamment dans un nombre croissant d&#8217;h&#244;pit=
+aux&#8221;,</em><span> poursuit la responsable syndicale. Un puissant effet=
+ de r&#233;seau, qui renforce encore davantage sa position de leader.</span=
+></p><h3 class=3D"header-anchor-post" style=3D"position: relative;font-fami=
+ly: 'SF Pro Display',-apple-system-headline,system-ui,-apple-system,BlinkMa=
+cSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji=
+','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothi=
+ng: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appearance: op=
+timizelegibility;-moz-appearance: optimizelegibility;appearance: optimizele=
+gibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;f=
+ont-size: 1.375em;"><strong>Plus de 90% du march&#233;</strong></h3><p styl=
+e=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 1=
+6px;"><span>Ces succ&#232;s se traduisent par d&#8217;importantes lev&#233;=
+es de fonds. En 2019, Doctolib r&#233;cup&#232;re 150 millions d&#8217;euro=
+s, passant la barre symbolique du milliard de valorisation. Trois ans plus =
+tard, </span><a href=3D"https://substack.com/redirect/345781a5-9fb5-4e1e-86=
+3b-213103b13bf7?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8=
+PaFv0-2U" rel=3D"" style=3D"color: #007a76;text-decoration: none;">elle l&#=
+232;ve 500 millions</a><span>. Elle creuse ainsi un &#233;cart r&#233;dhibi=
+toire avec ses rivaux, condamn&#233;s &#224; se partager des miettes ou &#2=
+24; dispara&#238;tre. Selon l&#8217;Autorit&#233; de la concurrence, la soc=
+i&#233;t&#233; captait ainsi, en 2022, entre 70% et plus de 90% du march&#2=
+33; de la prise de rendez-vous m&#233;dicaux en ligne, selon le p&#233;rim&=
+#232;tre consid&#233;r&#233;. </span><em>&#8220;Ils sont probablement d&#23=
+3;sormais tr&#232;s proches des 100%&#8221;,</em><span> confie un professio=
+nnel du secteur.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,=
+55);line-height: 26px;font-size: 16px;"><span>Doctolib ne pr&#233;cise le n=
+ombre de m&#233;decins, dentistes ou kin&#233;s lib&#233;raux utilisant sa =
+plateforme de rendez-vous. En 2022, 36% des g&#233;n&#233;ralistes d&#233;c=
+laraient recourir &#224; ce type de solution, contre 23% un an plus t&#244;=
+t, selon une &#233;tude de la Direction de la recherche, des &#233;tudes, d=
+e l&#8217;&#233;valuation et des statistiques. Fin 2023, la start-up revend=
+iquait la moiti&#233; des m&#233;decins lib&#233;raux. </span><em>&#8220;Je=
+ ne serais pas surpris que ce chiffre d&#233;passe aujourd&#8217;hui les 80=
+%&#8221;,</em><span> poursuit notre interlocuteur. Doctolib pr&#233;f&#232;=
+re d&#233;sormais mettre en avant un chiffre volontairement vague: 30% des =
+</span><em>&#8220;soignants fran&#231;ais&#8221;</em><span>.</span></p><p s=
+tyle=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size=
+: 16px;"><span>De fait, toute sa communication s&#8217;apparente &#224; un =
+v&#233;ritable num&#233;ro d&#8217;&#233;quilibriste. D&#8217;un c&#244;t&#=
+233;, la volont&#233; de mettre en avant sa r&#233;ussite: 420.000 soignant=
+s, un revenu annuel r&#233;current de 348 millions d&#8217;euros fin 2024 e=
+t la rentabilit&#233; atteinte &#224; la rentr&#233;e. De l&#8217;autre, ce=
+lle de ne pas appara&#238;tre comme un monopole. Autre exemple: Doctolib af=
+firme &#234;tre trois fois plus petit que ses rivaux europ&#233;ens en cons=
+id&#233;rant l&#8217;ensemble du march&#233; des logiciels pour les profess=
+ionnels de sant&#233; sur l&#8217;ensemble du continent, alors que son acti=
+vit&#233; est peu d&#233;velopp&#233;e hors de France. Son image de monopol=
+e ne serait ainsi due qu&#8217;au </span><em>&#8220;fort usage par le grand=
+ public&#8221;</em><span>.</span></p><h3 class=3D"header-anchor-post" style=
+=3D"position: relative;font-family: 'SF Pro Display',-apple-system-headline=
+,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Ari=
+al,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-w=
+eight: bold;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: an=
+tialiased;-webkit-appearance: optimizelegibility;-moz-appearance: optimizel=
+egibility;appearance: optimizelegibility;margin: 1em 0 0.625em 0;color: rgb=
+(54,55,55);line-height: 1.16em;font-size: 1.375em;"><strong>&#8220;Un cheva=
+l de Troie&#8221;</strong></h3><div class=3D"captioned-image-container-stat=
+ic" style=3D"font-size: 16px;line-height: 26px;margin: 32px auto;"><figure =
+style=3D"width: 100%;margin: 0 auto;"><table class=3D"image-wrapper" width=
+=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" data-component-n=
+ame=3D"Image2ToDOMStatic" style=3D"mso-padding-alt: 1em 0 1.6em;"><tbody><t=
+r><td style=3D"text-align: center;"></td><td class=3D"content" align=3D"lef=
+t" width=3D"1456" style=3D"text-align: center;"><a class=3D"image-link" tar=
+get=3D"_blank" href=3D"https://substack.com/redirect/9b512265-0474-4d31-b70=
+0-fb37fe6c2e81?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8P=
+aFv0-2U" rel=3D"" style=3D"position: relative;flex-direction: column;align-=
+items: center;padding: 0;width: auto;height: auto;border: none;text-decorat=
+ion: none;display: block;margin: 0;"><img class=3D"wide-image" data-attrs=
+=3D"{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/pub=
+lic/images/680cb8b5-f8f3-4ac6-9db6-51c6e1980ad7_2702x1351.png&quot;,&quot;s=
+rcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:=
+null,&quot;height&quot;:728,&quot;width&quot;:1456,&quot;resizeWidth&quot;:=
+null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;&quot;,&quot;title&quot;:=
+null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:t=
+rue,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isPr=
+ocessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" alt=
+=3D"" title=3D"" width=3D"550" height=3D"275" src=3D"https://substackcdn.co=
+m/image/fetch/$s_!8S6g!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:st=
+eep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F=
+680cb8b5-f8f3-4ac6-9db6-51c6e1980ad7_2702x1351.png" style=3D"border: none !=
+important;vertical-align: middle;display: block;-ms-interpolation-mode: bic=
+ubic;height: auto;margin-bottom: 0;width: auto !important;max-width: 100% !=
+important;margin: 0 auto;"></a></td><td style=3D"text-align: center;"></td>=
+</tr></tbody></table></figure></div><p style=3D"margin: 0 0 20px 0;color: r=
+gb(54,55,55);line-height: 26px;font-size: 16px;"><span>Car Doctolib affirme=
+ ne pas &#234;tre en position dominante. L&#8217;entreprise refuse d&#8217;=
+&#234;tre r&#233;duite &#224; une simple plateforme de prise de rendez-vous=
+=2E Elle se pr&#233;sente comme un &#23=
+3;diteur de logiciels m&#233;dicaux &#=
+8211; un march&#233; beaucoup plus concurrentiel. Les rendez-vous n&#8217;&=
+#233;taient que la </span><em>&#8220;premi&#232;re brique pos&#233;e au d&#=
+233;marrage&#8221;,</em><span> explique-t-elle. Depuis, de nombreuses fonct=
+ionnalit&#233;s ont &#233;t&#233; ajout&#233;es, et d&#8217;autres sont en =
+d&#233;veloppement, notamment pour int&#233;grer l&#8217;intelligence artif=
+icielle. Doctolib rejette ainsi la condamnation de l&#8217;Autorit&#233; de=
+ la concurrence, assurant que sa d&#233;finition du march&#233; est erron&#=
+233;e.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-h=
+eight: 26px;font-size: 16px;"><span>La vision d&#233;fendue par Doctolib se=
+ heurte cependant &#224; un constat: la prise de rendez-vous m&#233;dicaux =
+ne peut pas &#234;tre consid&#233;r&#233;e comme une simple fonctionnalit&#=
+233;. Elle est au c&#339;ur de sa proposition de valeur, &#224; la fois com=
+me produit phare et comme porte d&#8217;entr&#233;e vers l&#8217;ensemble d=
+e ses nouveaux services. </span><em>&#8220;C&#8217;est un cheval de Troie q=
+ui permet de doubler ou de tripler le panier moyen&#8221;,</em><span> r&#23=
+3;sume le professionnel interrog&#233;. Pour b&#233;n&#233;ficier de l&#821=
+7;ensemble des outils de Doctolib, la facture mensuelle d&#8217;un m&#233;d=
+ecin g&#233;n&#233;raliste ou sp&#233;cialiste d&#233;passe d&#233;sormais =
+les 500 euros, contre 100 euros au lancement.</span></p><p style=3D"margin:=
+ 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><em>&#=
+8220;C&#8217;est une porte d&#8217;entr&#233;e pour Doctolib, mais une port=
+e ferm&#233;e pour ses concurrents&#8221;,</em><span> ajoute Thibault Lanth=
+ier, aujourd&#8217;hui &#224; la t&#234;te du r&#233;seau de cabinets m&#23=
+3;dicaux Primary. Concr&#232;tement, ses clients sont enferm&#233;s dans so=
+n &#233;cosyst&#232;me, hormis quelques logiciels partenaires qui ne semble=
+nt pas entrer en comp&#233;tition direct avec les services maison. Impossib=
+le, par exemple, d&#8217;utiliser une autre solution de t&#233;l&#233;consu=
+ltation. Ou un autre service de retranscription par IA. </span><em>&#8220;C=
+&#8217;est pourtant le type de comportement que Doctolib d&#233;non&#231;ai=
+t chez les &#233;diteurs historiques &#224; ses d&#233;buts&#8221;,</em><sp=
+an> regrette l&#8217;entrepreneur.</span></p><p style=3D"margin: 0 0 20px 0=
+;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><strong>Pour alle=
+r plus loin:</strong><br><span>- </span><a href=3D"https://substack.com/red=
+irect/80999ed4-16e7-4b78-9072-6ef68d5016c6?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpW=
+XHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D"color: #007a76;text-=
+decoration: none;">Doctolib condamn&#233; pour abus de position dominante</=
+a><br><span>- </span><a href=3D"https://substack.com/redirect/345781a5-9fb5=
+-4e1e-863b-213103b13bf7?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuU=
+oHsRukz8PaFv0-2U" rel=3D"" style=3D"color: #007a76;text-decoration: none;">=
+Doctolib devient la start-up fran&#231;aise la mieux valoris&#233;e</a></p>=
+<div style=3D"font-size: 16px;line-height: 26px;"><hr style=3D"margin: 32px=
+ 0;padding: 0;height: 1px;background: #e6e6e6;border: none;"></div><p style=
+=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16=
+px;margin-bottom: 0;">Cr&#233;dit photos:  Doctolib </p></div></div><div cl=
+ass=3D"postscript-placeholder" style=3D"margin: 32px 0 0;width: 100%;box-si=
+zing: border-box;font-size: 16px;line-height: 26px;"></div><table class=3D"=
+email-ufi-2-bottom" role=3D"presentation" width=3D"100%" border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0" style=3D"border-top: 1px solid rgb(0,0,0,.1)=
+;border-bottom: 1px solid rgb(0,0,0,.1);min-width: 100%;"><tbody><tr height=
+=3D"16"><td height=3D"16" style=3D"font-size:0px;line-height:0;">&nbsp;</td=
+></tr><tr><td><table role=3D"presentation" width=3D"100%" border=3D"0" cell=
+spacing=3D"0" cellpadding=3D"0"><tbody><tr><td><table role=3D"presentation"=
+ width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"m=
+argin:0 auto;"><tbody><tr><td style=3D"vertical-align:middle;"><table role=
+=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0"><tbody><tr><td align=3D"center"><a class=3D"email-button-outline" hr=
+ef=3D"https://substack.com/app-link/post?publication_id=3D51206&post_id=3D1=
+78771146&utm_source=3Dsubstack&isFreemail=3Dtrue&submitLike=3Dtrue&token=3D=
+eyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE3ODc3MTE0NiwicmVhY3Rpb24iOiLinaQ=
+iLCJpYXQiOjE3NjMxMDIwMzgsImV4cCI6MTc2NTY5NDAzOCwiaXNzIjoicHViLTUxMjA2Iiwic3=
+ViIjoicmVhY3Rpb24ifQ.YIc7TI7q4L3qj0l9wJzZ0FRJpO3FyW34CpuBWKNq_ws&utm_medium=
+=3Demail&utm_campaign=3Demail-reaction&r=3D5f3rgc" style=3D"font-family: sy=
+stem-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,=
+sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: =
+inline-block;font-weight: 500;border: 1px solid rgb(0,0,0,.1);border-radius=
+: 9999px;text-transform: uppercase;font-size: 12px;line-height: 12px;paddin=
+g: 9px 14px;text-decoration: none;color: rgb(119,119,119);"><img class=3D"i=
+con" src=3D"https://substackcdn.com/image/fetch/$s_!PeVs!,w_36,c_scale,f_pn=
+g,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLuci=
+deHeart%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26stroke=
+Width%3D2" width=3D"18" height=3D"18" style=3D"margin-right: 8px;min-width:=
+ 18px;min-height: 18px;border: none;vertical-align: middle;max-width: 18px"=
+ alt=3D""><span class=3D"email-button-text" style=3D"vertical-align: middle=
+;">Liker</span></a></td></tr></tbody></table></td><td width=3D"8" style=3D"=
+min-width: 8px"></td><td style=3D"vertical-align:middle;"><table role=3D"pr=
+esentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+><tbody><tr><td align=3D"center"><a class=3D"email-button-outline" href=3D"=
+https://substack.com/app-link/post?publication_id=3D51206&post_id=3D1787711=
+46&utm_source=3Dsubstack&utm_medium=3Demail&isFreemail=3Dtrue&comments=3Dtr=
+ue&token=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE3ODc3MTE0NiwiaWF0Ijox=
+NzYzMTAyMDM4LCJleHAiOjE3NjU2OTQwMzgsImlzcyI6InB1Yi01MTIwNiIsInN1YiI6InBvc3Q=
+tcmVhY3Rpb24ifQ.46XB2lRhvbkuOFq-NLmLzzEXQB9e9RrgV5oa22aohRM&r=3D5f3rgc&utm_=
+campaign=3Demail-half-magic-comments&action=3Dpost-comment&utm_source=3Dsub=
+stack&utm_medium=3Demail" style=3D"font-family: system-ui,-apple-system,Bli=
+nkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color E=
+moji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;font-weight:=
+ 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-transform: =
+uppercase;font-size: 12px;line-height: 12px;padding: 9px 14px;text-decorati=
+on: none;color: rgb(119,119,119);"><img class=3D"icon" src=3D"https://subst=
+ackcdn.com/image/fetch/$s_!x1tS!,w_36,c_scale,f_png,q_auto:good,fl_progress=
+ive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideComments%3Fv%3D4%26heig=
+ht%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18=
+" height=3D"18" style=3D"margin-right: 8px;min-width: 18px;min-height: 18px=
+;border: none;vertical-align: middle;max-width: 18px" alt=3D""><span class=
+=3D"email-button-text" style=3D"vertical-align: middle;">Commenter</span></=
+a></td></tr></tbody></table></td><td width=3D"8" style=3D"min-width: 8px"><=
+/td><td style=3D"vertical-align:middle;"><table role=3D"presentation" width=
+=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td a=
+lign=3D"center"><a class=3D"email-button-outline" href=3D"https://substack.=
+com/redirect/2/eyJlIjoiaHR0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS9wdWIvY2FmZXRlY2gv=
+cC9kb2N0b2xpYi1jZS1tb25vcG9sZS1xdWktbmUtZGVyYW5nZWFpdD91dG1fc291cmNlPXN1YnN=
+0YWNrJnV0bV9tZWRpdW09ZW1haWwmdXRtX2NhbXBhaWduPWVtYWlsLXJlc3RhY2stY29tbWVudC=
+ZhY3Rpb249cmVzdGFjay1jb21tZW50JnI9NWYzcmdjJnRva2VuPWV5SjFjMlZ5WDJsa0lqb3pNa=
+mMzTURBMk5qZ3NJbkJ2YzNSZmFXUWlPakUzT0RjM01URTBOaXdpYVdGMElqb3hOell6TVRBeU1E=
+TTRMQ0psZUhBaU9qRTNOalUyT1RRd016Z3NJbWx6Y3lJNkluQjFZaTAxTVRJd05pSXNJbk4xWWl=
+JNkluQnZjM1F0Y21WaFkzUnBiMjRpZlEuNDZYQjJsUmh2Ymt1T0ZxLU5MbUx6ekVYUUI5ZTlScm=
+dWNW9hMjJhb2hSTSIsInAiOjE3ODc3MTE0NiwicyI6NTEyMDYsImYiOnRydWUsInUiOjMyNzcwM=
+DY2OCwiaWF0IjoxNzYzMTAyMDM4LCJleHAiOjIwNzg2NzgwMzgsImlzcyI6InB1Yi0wIiwic3Vi=
+IjoibGluay1yZWRpcmVjdCJ9.iMoBfbgyHtXLEVr5BtXD-AnjGppm5qoZwe4sQHI7uzs?&utm_s=
+ource=3Dsubstack&utm_medium=3Demail" style=3D"font-family: system-ui,-apple=
+-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Ap=
+ple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;f=
+ont-weight: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-=
+transform: uppercase;font-size: 12px;line-height: 12px;padding: 9px 14px;te=
+xt-decoration: none;color: rgb(119,119,119);"><img class=3D"icon" src=3D"ht=
+tps://substackcdn.com/image/fetch/$s_!5EGt!,w_36,c_scale,f_png,q_auto:good,=
+fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FNoteForwardIcon%3F=
+v%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2"=
+ width=3D"18" height=3D"18" style=3D"margin-right: 8px;min-width: 18px;min-=
+height: 18px;border: none;vertical-align: middle;max-width: 18px" alt=3D"">=
+<span class=3D"email-button-text" style=3D"vertical-align: middle;">Restack=
+</span></a></td></tr></tbody></table></td></tr></tbody></table></td><td ali=
+gn=3D"right"><table role=3D"presentation" width=3D"auto" border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0"><tbody><tr></tr></tbody></table></td></tr></=
+tbody></table></td></tr><tr height=3D"16"><td height=3D"16" style=3D"font-s=
+ize:0px;line-height:0;">&nbsp;</td></tr></tbody></table><div class=3D"foote=
+r footer-ZM59BM" style=3D"color: rgb(119,119,119);text-align: center;font-s=
+ize: 16px;line-height: 26px;padding: 24px0;"><div style=3D"font-size: 16px;=
+line-height: 26px;padding-bottom: 24px"><p class=3D"pencraft pc-reset color=
+-secondary-ls1g8s size-12-mmZ61m reset-IxiVJZ small meta-B2bqa5" style=3D"l=
+ist-style: none;font-family: system-ui,-apple-system,BlinkMacSystemFont,'Se=
+goe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emo=
+ji','Segoe UI Symbol';padding-bottom: 0;font-size: 12px;line-height: 16px;m=
+argin: 0;color: rgb(119,119,119);text-decoration: unset;">&#169; 2025 <span=
+>SAS Caf&#233;tech</span> <br><a href=3D"https://substack.com/redirect/2/ey=
+JlIjoiaHR0cHM6Ly9jYWZldGVjaC5zdWJzdGFjay5jb20vYWN0aW9uL2Rpc2FibGVfZW1haWw_d=
+G9rZW49ZXlKMWMyVnlYMmxrSWpvek1qYzNNREEyTmpnc0luQnZjM1JmYVdRaU9qRTNPRGMzTVRF=
+ME5pd2lhV0YwSWpveE56WXpNVEF5TURNNExDSmxlSEFpT2pFM09UUTJNemd3TXpnc0ltbHpjeUk=
+2SW5CMVlpMDFNVEl3TmlJc0luTjFZaUk2SW1ScGMyRmliR1ZmWlcxaGFXd2lmUS5aNTBCQzlfVF=
+A2bHVsVlJzNUdxMGFjNlNCVjdNU0xhYS11WEFXRUtLTzQ0IiwicCI6MTc4NzcxMTQ2LCJzIjo1M=
+TIwNiwiZiI6dHJ1ZSwidSI6MzI3NzAwNjY4LCJpYXQiOjE3NjMxMDIwMzgsImV4cCI6MjA3ODY3=
+ODAzOCwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.TJzx1TgJjlhyl2lbgsF=
+9rXjGS1tXTCLj2ncIsI6cDjw?" style=3D"color: #007a76;text-decoration: none;">=
+<span style=3D"color: rgb(119,119,119);text-decoration: underline;">Se d&#2=
+33;sabonner</span></a></p></div><p class=3D"footerSection-EHR0jG small powe=
+red-by-substack" style=3D"padding: 0 24px;font-size: 12px;line-height: 20px=
+;margin: 0;color: rgb(119,119,119);font-family: system-ui,-apple-system,Bli=
+nkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color E=
+moji','Segoe UI Emoji','Segoe UI Symbol';padding-bottom: 0;margin-top: 0;">=
+<a href=3D"https://substack.com/redirect/57838060-de03-4a7b-afc3-e478ecbd98=
+ac?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" sty=
+le=3D"color: #007a76;text-decoration: none;display: inline-block;margin: 0 =
+4px;"><img src=3D"https://substackcdn.com/image/fetch/$s_!zgFk!,w_270,c_lim=
+it,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg=
+%2Femail%2Fgeneric-app-button-fr%402x.png" srcset=3D"https://substackcdn.co=
+m/image/fetch/$s_!h-8e!,w_135,c_limit,f_auto,q_auto:good,fl_progressive:ste=
+ep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneric-app-button-fr.png, ht=
+tps://substackcdn.com/image/fetch/$s_!zgFk!,w_270,c_limit,f_auto,q_auto:goo=
+d,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneric-a=
+pp-button-fr%402x.png 2x, https://substackcdn.com/image/fetch/$s_!z142!,w_4=
+05,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.c=
+om%2Fimg%2Femail%2Fgeneric-app-button-fr%403x.png 3x" width=3D"135" alt=3D"=
+Obtenir l&#8217;app" height=3D"40" style=3D"max-width: 550px;border: none !=
+important;vertical-align: middle;"></a><a href=3D"https://substack.com/redi=
+rect/2/eyJlIjoiaHR0cHM6Ly9zdWJzdGFjay5jb20vc2lnbnVwP3V0bV9zb3VyY2U9c3Vic3Rh=
+Y2smdXRtX21lZGl1bT1lbWFpbCZ1dG1fY29udGVudD1mb290ZXImdXRtX2NhbXBhaWduPWF1dG9=
+maWxsZWQtZm9vdGVyJmZyZWVTaWdudXBFbWFpbD1uMnJzc0BuaWNvcGljby5mciZyPTVmM3JnYy=
+IsInAiOjE3ODc3MTE0NiwicyI6NTEyMDYsImYiOnRydWUsInUiOjMyNzcwMDY2OCwiaWF0IjoxN=
+zYzMTAyMDM4LCJleHAiOjIwNzg2NzgwMzgsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRp=
+cmVjdCJ9.GZ-OaGGyiwRVM0sv655I3S8bo0gckUPRsb52KQo-KGM?" style=3D"color: #007=
+a76;text-decoration: none;display: inline-block;margin: 0 4px;"><img src=3D=
+"https://substackcdn.com/image/fetch/$s_!whhV!,w_368,c_limit,f_auto,q_auto:=
+good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublis=
+h-button-fr%402x.png" srcset=3D"https://substackcdn.com/image/fetch/$s_!nWh=
+E!,w_184,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubs=
+tack.com%2Fimg%2Femail%2Fpublish-button-fr.png, https://substackcdn.com/ima=
+ge/fetch/$s_!whhV!,w_368,c_limit,f_auto,q_auto:good,fl_progressive:steep/ht=
+tps%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-button-fr%402x.png 2x, htt=
+ps://substackcdn.com/image/fetch/$s_!GW0f!,w_552,c_limit,f_auto,q_auto:good=
+,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-bu=
+tton-fr%403x.png 3x" width=3D"184" alt=3D"&#201;crire" height=3D"40" style=
+=3D"max-width: 550px;border: none !important;vertical-align: middle;"></a><=
+/p></div></div></td><td></td></tr></tbody></table><img src=3D"https://eotrx=
+=2Esubstackcdn.com/open?token=3DeyJtIjoi=
+PDIwMjUxMTE0MDYzMTExLjMuMjRkN2M3NzQxM=
+TRlYjk2ZUBtZy1kMS5zdWJzdGFjay5jb20-IiwidSI6MzI3NzAwNjY4LCJyIjoibjJyc3NAbmlj=
+b3BpY28uZnIiLCJkIjoibWctZDEuc3Vic3RhY2suY29tIiwicCI6MTc4NzcxMTQ2LCJ0IjoibmV=
+3c2xldHRlciIsImEiOiJldmVyeW9uZSIsInMiOjUxMjA2LCJjIjoicG9zdCIsImYiOnRydWUsIn=
+Bvc2l0aW9uIjoiYm90dG9tIiwiaWF0IjoxNzYzMTAyMDM5LCJleHAiOjE3NjU2OTQwMzksImlzc=
+yI6InB1Yi0wIiwic3ViIjoiZW8ifQ.9fQb11DQohiMKZaj7d9J98sx5T6pVQuReCpqPgCKq9U" =
+alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !importa=
+nt;width:1px !important;border-width:0 !important;margin-top:0 !important;m=
+argin-bottom:0 !important;margin-right:0 !important;margin-left:0 !importan=
+t;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !imp=
+ortant;padding-left:0 !important;"/><img width=3D"1" height=3D"1" alt=3D"" =
+src=3D"https://email.mg-d1.substack.com/o/eJw8kEHO4yAMRk9TdhNhIJAsOEsExm3RJ=
+BCB6Si3H_Vv9W-f5aenDwPTo7bLn7WzSF6vUS5oBXlwVoNU0oCgI-R9e1ChFpjSFvj3qlcLVjz9=
+vErQi0zB4KpQmjksKamoMeDiLJDIXkk1A4CRVgPApCdlkkPnDIChuFq6GXk8_iSY-oidA_6dsB4=
+i9-3e6CfBcxsk3qVbGClTQfL0onbV8sU5eXCLcwDGfghfJ_lC__pOzNTEOeKG9ThGyXxtVELcKX=
+3FI-4ZA-da3qIZlLSi-aJa7zcjS8Z6ZqzTvYk-YqpHyMVjuBMTPgV_Jhyd2vtbK-ektHYRL6_-B=
+wAA__-6ZHVd"></body></html>
+--bf8c506de7c36b38f9578f8eeba2d4b92d20cd852cb91c288a687307a521--
