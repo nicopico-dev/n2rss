@@ -1,0 +1,2409 @@
+Return-Path: <bounces-g08dc-contact=gdiy.fr@bs.d.mailin.fr>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id wF8FDYDaKWleGTUAQTsBvA
+	(envelope-from <bounces-g08dc-contact=gdiy.fr@bs.d.mailin.fr>)
+	for <n2rss@nicopico.fr>; Fri, 28 Nov 2025 18:23:12 +0100
+Return-path: <bounces-g08dc-contact=gdiy.fr@bs.d.mailin.fr>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Fri, 28 Nov 2025 18:23:12 +0100
+Received: from bs.d.mailin.fr ([185.41.28.119])
+	by smtpin1.paris1.alwaysdata.com with esmtps  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <bounces-g08dc-contact=gdiy.fr@bs.d.mailin.fr>)
+	id 1vP2Ba-0082zk-0S
+	for n2rss@nicopico.fr;
+	Fri, 28 Nov 2025 18:23:10 +0100
+DKIM-Signature: a=rsa-sha256; bh=P8tngugM/6CCk+wG4GRzvmrc9IjP75Sjkh45ShNBOjI=;
+ c=relaxed/relaxed; d=gdiy.fr;
+ h=to:cc:from:reply-to:subject:date:mime-version:content-type:list-id:list-unsubscribe:x-csa-complaints:list-unsubscribe-post:message-id:sender:x-sib-id:x-mailin-client:x-mailin-campaign:feedback-id:bimi-selector;
+ q=dns/txt; s=brevo1; t=1764346550; v=1;
+ b=LsxqYn5Eof+2Sj4Pwdeqb6a/RNKM6HjQcih+XpJwDDz8asTOxu7ghHhQ9uQ0hapH2aDgrlqo
+ UDegwVdT0s6p7xY3vcSfuYXX4xn5/c2ZPZ68B2IXzTbVHUU1z532OqsA2Gh79WqBhLTMJpM6Fiy
+ Id8kuDzxMIyNGNgKU7VIgV0SVCr34A5ye06DSvRFVk/Y6wO6jqz4Qmw5Cnc5eUYj5HND16dtXKr
+ zjGUbMdjWwU2e0AiPCl/lRg0PKqEzR83+DGC8ftfYufmNrCiMsxAJLUg0GLuDv1kygJIPzeG3rc
+ HKj3w+1X8Q7F/6yhoTmGn/kkJ5gW1MFxfBn73mJlT7ukg==
+To: <n2rss@nicopico.fr>
+Subject: =?utf-8?q?Fwd:_Un_chef_priv=C3=A9_pour_vos_prochaines_vacances_=3F_Ton_ra?= =?utf-8?q?pport_Magma?=
+Content-Type: multipart/alternative; boundary="-------?=_92010-1255401159244"
+Date: Fri, 28 Nov 2025 16:15:50 +0000
+Feedback-ID: 185.41.28.119:9006340_83:9006340:Sendinblue
+From: Matthieu Stefani <contact@gdiy.fr>
+List-Id: OTAwNjM0MC0yMTYyNy0xNg== <OTAwNjM0MC0yMTYyNy0xNg==.list-id.mailin.fr>
+List-Unsubscribe: <mailto:unsubscribe@bs.d.mailin.fr?subject=unsub-3w93x579cxhfj&body=3w93x579cxhfj>,<https://g08dc.r.a.d.sendibm1.com/mk/un/li/sh/1t6AVsdYhqSR1rLFGLqJ8inBQURcq1/U3bx7q1hAnYA>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+MIME-Version: 1.0
+Message-Id: <202528111615.3w93x579cxhfj@bs.d.mailin.fr>
+Reply-To: <hi@getplanet.eu>
+X-Csa-Complaints: csa-complaints@eco.de
+X-Mailer: Sendinblue
+X-Mailin-Campaign: 83
+X-Mailin-Client: 9006340
+X-sib-id: 2FGoE8deSZJ5NQnO5TVs1TxzhAzkIgmWprCQFobkhJsLIJHv0ajBcKhzArCfMtZW1cT9TzytTZuhPWjvWPXRLrp_iRsPeUT1Cs9JuD0HYxzFOCeGAdKRDftn7AknMHvqg34UT0zLqr0VlMY7pPMWjm2MO2Wn0Y0unzL0RW228YlOqAW-milgjv6QZCF2qi8KIeBBEqfrBXStKunGbVc0dF5jtAA
+X-alwaysdata-Spam-Report: 	1.00 ZERO_FONT [16] - Zero sized font used
+	1.00 MANY_INVISIBLE_PARTS [10] - Many parts are visually hidden
+	0.50 URI_COUNT_ODD [19] - Odd number of URIs in multipart/alternative message
+	0.01 XM_UA_NO_VERSION - X-Mailer/User-Agent header has no version number
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 SUBJECT_HAS_QUESTION - Subject contains a question mark
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 RWL_MAILSPIKE_POSSIBLE [185.41.28.119:from] - From address is listed in
+ Mailspike RWL - possibly legit
+	0.00 REPLYTO_DOM_NEQ_TO_DOM - Reply-To domain does not match the To domain
+	0.00 REPLYTO_DOM_NEQ_FROM_DOM - Reply-To domain does not match the From
+ domain
+	0.00 REDIRECTOR_URL [sendibm1.com] - The presence of a redirector in the mail
+	0.00 REDIRECTOR_FALSE [ovni.capital->sendibm1.com:sendibm1.com,
+ muchbetter.ai->sendibm1.com:sendibm1.com,
+ wevest.fr->sendibm1.com:sendibm1.com,
+ alvo.market->sendibm1.com:sendibm1.com] - Phishing exclusion symbol for known
+ redirectors
+	0.00 RCVD_TLS_ALL - All hops used encrypted transports
+	0.00 RCVD_COUNT_ONE [1] - Message has one Received header
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [hi@getplanet.eu] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [gdiy.fr:+] - DKIM trace symbol
+	0.00 DKIM_REPUTATION [0]
+	0.00 BLOCKLISTDE_FAIL [185.41.28.119:server fail]
+	0.00 ASN [asn:200484, ipnet:185.41.28.0/22, country:FR]
+	0.00 ARC_NA - ARC signature absent
+	-0.00 BAYES_HAM [14.96%] - Message probably ham, probability:
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.20 R_DKIM_ALLOW [gdiy.fr:s=brevo1] - DKIM verification succeed
+	-0.50 DMARC_POLICY_ALLOW [gdiy.fr, quarantine] - DMARC permit policy
+	-0.76 IP_REPUTATION_HAM [asn: 200484(-0.23), country: FR(-0.01),
+ ip: 185.41.28.119(-0.53)]
+X-alwaysdata-Spam-Score: 0.94
+
+---------?=_92010-1255401159244
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+Hey !
+
+
+Je vous partage r=C3=A9guli=C3=A8rement les sujets Magma dans ma newsletter=
+, et je sais que vous en =C3=AAtes tr=C3=A8s friands.
+
+
+Une fois n'est pas coutume, je me permets de vous partager le Magma du jour=
+ pour que vous puissiez le lire dans son int=C3=A9gralit=C3=A9, je suis cer=
+tain que =C3=A7a vous plaira encore plus !
+
+
+J'ai n=C3=A9goci=C3=A9 un code sp=C3=A9cial Black Friday avec Esther : BFDO=
+IT
+
+Juste pour vous : 100=E2=82=AC de r=C3=A9duction sur la premi=C3=A8re ann=
+=C3=A9e, le meilleur deal pour avoir les meilleures infos sur les business =
+=C3=A0 lancer.
+
+
+C'est valable ce week end uniquement, DO IT ;)
+
+
+Matt//
+
+
+> [G=C3=A9n=C3=A9ration Do It Yourself](https://g08dc.r.a.d.sendibm1.com/mk=
+/cl/f/sh/1t6Af4OiGsDg0kUyn5EFxDNbiwiJ5t/7SRKyHQ7amFd)
+
+> [Youtube](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsE8LShPBRK=
+B7TRR6lh2nx/CDNOPnN0wGab)
+
+> [La Martingale](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsEag=
+AtpZnQ6HjVGUafmW1/eB3eyOM2OukK)
+
+> [Alvo.market](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsF30t6=
+Fy9W1RzZ5sPeWE5/v6Q1Eqt7db_E)
+
+> [Ovni.capital](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsFVLb=
+IgMVbwcFcvGEdFw9/HZwTFydw4W5J)
+
+> [Wevest.fr](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsFxgJV6k=
+rhrmVgke3bzeD/B5_oNjIdI2cM)
+
+> [Orso Media](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsGQ11hX=
+9Dnmwlka1sajMH/cwiDzhVku838)
+
+> [Newsletter](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsGsLjtx=
+XZti71oPPhZT4L/rgnN7Awnkrks)
+
+
+[>> Linkedin](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsHKgS6Nv=
+vzdHHsEnWYCmP/fzehnaidTkDd) /=C2=A0[Insta](https://g08dc.r.a.d.sendibm1.com=
+/mk/cl/f/sh/1t6Af4OiGsHn1AIoKI5YRXw4BLWwUT/aWMvSKd1WOrB)
+
+---------- Forwarded message ---------
+De : Magma <hi@getplanet.eu>
+Date: ven. 28 nov. 2025 =C3=A0=C2=A014:35
+Subject: =C2=A0Un chef priv=C3=A9 pour vos prochaines vacances ? Ton rappor=
+t Magma
+
+To: <contact@gdiy.fr>
+
+[Lire dans le navigateur](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1=
+aA2nfsZpYrvigKtrdMOMoUUB3Z/j0F1SA2h1HL2)
+
+####274
+
+####CETTE SEMAINE...
+
+=E2=96=A8
+=3D
+
+**L=E2=80=99AIRBNB DU CATERING : VERS UNE RESTAURATION =C3=80 LA DEMANDE PO=
+UR L=E2=80=99HOSPITALITY** =E2=9C=B1
+=3D
+
+**ET SI LA PROCHAINE R=C3=89VOLUTION DU TRAVEL VENAIT=E2=80=A6 DE VOTRE VAL=
+ISE ?** =E2=98=89
+=3D
+
+**RECRUTER DES EXPERTS POUR ENTRA=C3=8ENER L=E2=80=99IA**
+
+****=20
+
+
+####LES GRANDS ESPRITS SE RENCONTRENT
+
+
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0On me =
+demande souvent quelle est la =E2=80=9Cm=C3=A9thode Magma=E2=80=9D pour d=
+=C3=A9tecter les signaux faibles. Bien s=C3=BBr, la veille =E2=80=94 newsle=
+tters, r=C3=A9seaux sociaux, annonces de lev=C3=A9es de fonds =E2=80=94 est=
+ primordiale. Beaucoup d=E2=80=99id=C3=A9es trouvent cependant leur gen=C3=
+=A8se de fa=C3=A7on plus organique. L=E2=80=99=C3=A9dition d=E2=80=99aujour=
+d=E2=80=99hui en est un bon exemple.
+
+
+Si plusieurs =C3=A9changes convergent vers le constat d=E2=80=99un m=C3=AAm=
+e *white space* : l=E2=80=99opportunit=C3=A9 est tr=C3=A8s certainement =C3=
+=A0 creuser.
+
+
+Depuis plusieurs ann=C3=A9es, le tourisme s=E2=80=99est r=C3=A9invent=C3=A9=
+ : [Airbnb](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfuSp5NEhFZ=
+LtzgCXAzGv05/vMzEOW8avmUL) a chang=C3=A9 le march=C3=A9 sans retour en vue.=
+ D=E2=80=99autres acteurs comme [Gens de Confiance](https://g08dc.r.a.d.sen=
+dibm1.com/mk/cl/f/sh/7nVU1aA2nfwLobsXfonnwM00hXU3ewb/b1F8uv_HunbJ) ou [Harm=
+ony Homes](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfyEo8NqeO2F=
+yiJortyqOt7/piJzEELkKy-u) poussent l=E2=80=99h=C3=B4tellerie vers un haut d=
+e gamme plus flexible. La partie logement a =C3=A9t=C3=A9 r=C3=A9solue.
+
+
+Seulement, le plaisir du tourisme c=E2=80=99est aussi de ne pas s=E2=80=99i=
+mposer les contraintes du quotidien, comme les courses ou la cuisine. Un d=
+=C3=A9tail qui prend son importance quand on part en groupe ou dans une zon=
+e isol=C3=A9e.
+
+Le sujet a =C3=A9t=C3=A9 abord=C3=A9 dans un =C3=A9change avec la fondatric=
+e de Harmony Homes, tandis que notre experte F&B en r=C3=A9sidence me parla=
+it d=E2=80=99exp=C3=A9riences culinaires en voyage : deux angles diff=C3=A9=
+rents, un th=C3=A8me en commun.
+
+
+Pas de formule magique ni de m=C3=A9thode garantie semaine apr=C3=A8s semai=
+ne. C=E2=80=99est souvent comme =C3=A7a que naissent nos sujets : pas seule=
+ment d=E2=80=99une intuition, mais d=E2=80=99un alignement. Un march=C3=A9 =
+en expansion, des conversations qui pointent dans la m=C3=AAme direction. U=
+n angle appara=C3=AEt.
+
+=C2=A0
+
+=C3=80 vous de jouer.
+
+**Esther, Head of Content**
+
+
+[ **WHATSAPP**](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng07net=
+9cxGi14dd2GTd8pd/wZlpcgQZNUoh "Whatsapp")
+
+[ **SLACK**](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng20nBOSbW=
+VA3QxRCcyPsm9/k13yJiHWQOC0 "SLACK")
+
+###=E0=B9=8F TECH & HOSPITALITY
+
+
+**L=E2=80=99AIRBNB DU CATERING : VERS UNE RESTAURATION =C3=80 LA DEMANDE PO=
+UR L=E2=80=99HOSPITALITY**
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+
+
+Source : [Market Reports World](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh=
+/7nVU1aA2ng3tmhtla5jc5nHFMzTCcif/XXMDOeRC_NzJ)
+
+**Le march=C3=A9 mondial du catering devrait passer de**[**$124 Mds en 2025=
+ =C3=A0 $214 Mds estim=C3=A9s d=E2=80=99ici 2034**](https://g08dc.r.a.d.sen=
+dibm1.com/mk/cl/f/sh/7nVU1aA2ng5mmEP4Yey489b3XLxzMfB/YL9sPw5xmiAo)**. Pourt=
+ant, le secteur reste dimensionn=C3=A9 pour le grand volume (corporate, =C3=
+=A9v=C3=A9nementiel) et peine =C3=A0 se moderniser sur le digital, la flexi=
+bilit=C3=A9 et la logistique.**
+
+
+En parall=C3=A8le, un segment rest=C3=A9 invisible explose : les petits h=
+=C3=A9bergements comme les maisons d=E2=80=99h=C3=B4tes ou retraites de yog=
+a par exemple, qui repr=C3=A9sentent 55k h=C3=A9bergements selon [G=C3=AEte=
+s de France](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng7flkuNXE=
+CWAVurhiSm6bh/E_lx0YuCzojy) en 2024.
+
+
+**=E2=80=9C**
+=3D=3D=3D=3D=3D
+
+**=C2=A0**
+=3D=3D=3D=3D=3D
+
+**=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=C2=
+=A0**
+------------------------
+
+**TROP STRUCTUR=C3=89S POUR DES SOLUTIONS GRAND PUBLIC, TROP PETITS POUR DE=
+S TRAITEURS TRADITIONNELS, ILS CHERCHENT DES OFFRES AGILES, LOCALES ET FACI=
+LES =C3=80 D=C3=89PLOYER.**
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+Ce vide ouvre une nouvelle voie: un catering, capable de connecter les beso=
+ins alimentaires des lieux =C3=A0 taille humaine avec des offres locales, m=
+odulables et tech-driven.
+
+
+####LES OPPORTUNIT=C3=89S :
+####=C2=A0
+
+**1**
+=3D=3D=3D=3D=3D
+
+
+**LA MARKETPLACE =E2=80=9C=C3=80 LA DEMANDE=E2=80=9D POUR PETITS H=C3=89BER=
+GEMENTS**
+
+
+Une plateforme type Airbnb o=C3=B9 les maisons d=E2=80=99h=C3=B4tes et peti=
+ts h=C3=B4tels r=C3=A9servent un chef, un bistrot local ou une boulangerie =
+pour un service ponctuel, un week-end complet ou un contrat r=C3=A9current.
+
+Chaque =C3=A9tablissement propose ses formules : petit-d=C3=A9jeuner livr=
+=C3=A9, menu terroir, paniers =C3=A0 partager.
+
+
+**Business model :**
+
+=E2=80=A2 Commission 10=E2=80=9315 %
+
+=E2=80=A2 Abonnement Pro pour visibilit=C3=A9 + labels qualit=C3=A9
+
+
+**Pour aller plus loin :** ajouter un module de gestion logistique (livrais=
+ons, marges) pour transformer la plateforme en outil de back-office complet=
+.
+
+
+**Autre piste :** connecter cette marketplace =C3=A0 des OTAs (Booking, Air=
+bnb) pour proposer l=E2=80=99option =E2=80=9Crepas inclus=E2=80=9D =C3=A0 l=
+a r=C3=A9servation.
+
+=C2=A0
+
+Niveau d=E2=80=99expertise=C2=A0**=E2=96=B2=E2=96=B2**
+
+Budget=C2=A0**$**
+
+
+**2**
+=3D=3D=3D=3D=3D
+
+
+**DES BOX =E2=80=9CREADY-TO-SERVE=E2=80=9D POUR H=C3=89BERGEMENTS IND=C3=89=
+PENDANTS**
+
+
+Un [HelloFresh](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng9YlHP=
+gVnQyCsEfs4xYqYD/nnKMLFTZTqBa) (5,4 M de box vendues en 2024) adapt=C3=A9 a=
+ux petits =C3=A9tablissements : des box pr=C3=AAtes =C3=A0 cuisiner pour 10=
+ =C3=A0 20 personnes, avec ingr=C3=A9dients dos=C3=A9s, menus et fiches tec=
+hniques pens=C3=A9es pour des cuisines non professionnelles.
+
+
+**Business model :**
+
+=E2=80=A2 Abonnement hebdomadaire : 200=E2=80=93500 =E2=82=AC
+
+=E2=80=A2 Marges sur les produits locaux
+
+=E2=80=A2 Hubs logistiques r=C3=A9gionaux pour mutualiser les volumes
+
+
+**Pour aller plus loin :** inclure une offre nutritionnelle en partenariat =
+avec des naturopathes pour les s=C3=A9jours bien-=C3=AAtre type retraites d=
+e yoga.
+
+=C2=A0
+
+Niveau d=E2=80=99expertise=C2=A0**=E2=96=B2=E2=96=B2**
+
+Budget=C2=A0**$**$****
+
+
+**3**
+=3D=3D=3D=3D=3D
+
+
+**LE =E2=80=9CPERSONAL CATERING=E2=80=9D CL=C3=89 EN MAIN POUR S=C3=89JOURS=
+ & RETRAITES**
+
+
+Un service o=C3=B9 l=E2=80=99on r=C3=A9serve un chef + des menus + du mat=
+=C3=A9riel comme on r=C3=A9serverait un photographe. Inspir=C3=A9 de mod=C3=
+=A8les type [Take a Chef](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1=
+aA2nfsaHta894gzmncSCCJSuld/t3neUJ-fKIGg), chaque prestation inclut un menu =
+valid=C3=A9 =C3=A0 l=E2=80=99avance, une logistique simplifi=C3=A9e et des =
+options de personnalisation.
+
+
+**Business model :**
+
+=E2=80=A2 Commission 15=E2=80=9320 %
+
+=E2=80=A2 *Upsells* : *set design*, vaisselle, sourcing local, ateliers
+
+
+**Int=C3=A9r=C3=AAt :** transformer les s=C3=A9jours collectifs en exp=C3=
+=A9riences signatures, avec matching entre le type de s=C3=A9jour et le sty=
+le culinaire du chef (v=C3=A9g=C3=A9tal, terroir, brain-food).
+
+
+**Pour aller plus loin :** d=C3=A9velopper une dimension exp=C3=A9rientiell=
+e, o=C3=B9 le chef devient cr=C3=A9ateur d=E2=80=99exp=C3=A9rience : cours =
+de cuisine, ateliers sensoriels=E2=80=A6
+
+=C2=A0
+
+Niveau d=E2=80=99expertise=C2=A0**=E2=96=B2=E2=96=B2**
+
+Budget=C2=A0**$**$****
+
+###=E2=9C=B8=C2=A0OBJETS CONNECT=C3=89S
+
+
+**ET SI LA PROCHAINE R=C3=89VOLUTION DU TRAVEL VENAIT=E2=80=A6 DE VOTRE VAL=
+ISE ?**
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+Source :=C2=A0[Grand View Research](https://g08dc.r.a.d.sendibm1.com/mk/cl/=
+f/sh/7nVU1aA2nfuTHQ5R7dvRp9wGMYoFei9/af-_LLpdy1LM)
+
+**Objet banal, la valise a pourtant =C3=A9t=C3=A9 l=E2=80=99un des premiers=
+ terrains d=E2=80=99exp=C3=A9rimentation du *smart travel*. En 2014, Bluesm=
+art l=C3=A8ve plus de [$2 M sur Indiegogo](https://g08dc.r.a.d.sendibm1.com=
+/mk/cl/f/sh/7nVU1aA2nfwMGwak6D9trWG4WvJ2Oef/_LLo9-v4weSY) avec sa valise co=
+nnect=C3=A9e, preuve qu=E2=80=99un simple bagage pouvait devenir un objet t=
+ech.**
+
+
+Mais c=E2=80=99est [Away](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1=
+aA2nfyFGT634mOLtsZshHnp8bB/o3Sc_PzQg6uT) (USA, $81M lev=C3=A9s), lanc=C3=A9=
+e en 2015, qui popularise vraiment le concept : design minimaliste, batteri=
+e amovible, marketing redoutable=E2=80=A6 la marque s=E2=80=99impose en que=
+lques mois comme le symbole du bagage premium accessible. L=E2=80=99envol=
+=C3=A9e est stopp=C3=A9e net fin 2019, quand un scandale de management toxi=
+que entra=C3=AEne la semi-cancelation de la CEO, juste avant que la pand=C3=
+=A9mie ne paralyse le voyage.
+
+
+Apr=C3=A8s cette premi=C3=A8re vague avort=C3=A9e, le march=C3=A9 repart su=
+r des bases plus matures : [$](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/=
+7nVU1aA2ng08FzbM3LcnwEtgreIbsXh/vrPUBjxx6T8r)[2,42 Mds en 2025, et une proj=
+ection =C3=A0 $4,14 Mds d=E2=80=99ici 2030.](https://g08dc.r.a.d.sendibm1.c=
+om/mk/cl/f/sh/7nVU1aA2ng21FW6f1urFybDV20nOcUD/ju-S58M56bdV)
+
+
+####LES OPPORTUNIT=C3=89S :
+####=C2=A0
+
+**1**
+=3D=3D=3D=3D=3D
+
+
+**LA VALISE COMME ESPACE DE VIE MOBILE**=C2=A0
+
+Les nouveaux voyageurs =E2=80=94 ind=C3=A9pendants, t=C3=A9l=C3=A9travaille=
+urs, *digital nomads* =E2=80=94 n=E2=80=99ont plus la m=C3=AAme relation =
+=C3=A0 leur bagage. Ils cherchent de la fonctionnalit=C3=A9 avant tout.
+
+
+Certaines marques l=E2=80=99ont bien compris : [Kabuto](https://g08dc.r.a.d=
+.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng3uF2by0U5i0xXJCNIBMQj/JlrcC98cL9QG) (FR,=
+ investi par des c=C3=A9l=C3=A9brit=C3=A9s du foot) ou [Samsara](https://g0=
+8dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng5nEZ7Gz3KA3Jr7Mjmy6NF/hL5ipisH5=
+TMp)=C2=A0 (USA, $915M lev=C3=A9s) int=C3=A8grent d=C3=A9j=C3=A0 des tablet=
+tes ou batteries amovibles pour transformer la valise en bureau d=E2=80=99a=
+ppoint. Les mod=C3=A8les plus techniques, comme ceux de [Heys Smart Luggage=
+,](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng7gE5cZxcYc5gAvX6Hk=
+qJl/vBC5b2hwibnh) vont jusqu=E2=80=99=C3=A0 proposer une poign=C3=A9e intel=
+ligente capable d=E2=80=99afficher instantan=C3=A9ment le poids. =C2=A0
+
+
+**Pour aller plus loin=C2=A0**: L=E2=80=99innovation n=E2=80=99a pas besoin=
+ d=E2=80=99=C3=AAtre spectaculaire. Elle peut aussi passer par des *quick w=
+ins* bien pens=C3=A9s : un porte-gobelet int=C3=A9gr=C3=A9 pour poser son c=
+af=C3=A9 quand on travaille, ou une ouverture plus pratique pour optimiser =
+l=E2=80=99espace. C=E2=80=99est l=E2=80=99approche de [NOBL Travel](https:/=
+/g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng9ZDc7swBn482UjhSmXaGH/D66757=
+EjKvPn) (USA) , marque montante qui mise sur des fonctionnalit=C3=A9s simpl=
+es mais terriblement pratiques (acc=C3=A8s facile, poches pens=C3=A9es pour=
+ le travail nomade, et m=C3=AAme un porte-gobelet int=C3=A9gr=C3=A9, etc) a=
+utant d=E2=80=99attentions qui transforment la valise en v=C3=A9ritable esp=
+ace de vie mobile.
+
+=C2=A0
+
+Niveau d=E2=80=99expertise=C2=A0=E2=96=B2
+
+Budget=C2=A0**$$**
+
+
+**2**
+=3D=3D=3D=3D=3D
+
+
+**NE PLUS JAMAIS PERDRE SA VALISE**
+
+=C2=A0
+
+La perte de bagages reste l=E2=80=99un des plus gros irritants du voyage. L=
+es AirTags ont apport=C3=A9 une premi=C3=A8re r=C3=A9ponse, mais ils resten=
+t accessoires et souvent mal int=C3=A9gr=C3=A9s. Une approche plus efficace=
+ consiste =C3=A0 pr=C3=A9voir d=C3=A8s la conception un espace d=C3=A9di=C3=
+=A9 ou un syst=C3=A8me de suivi int=C3=A9gr=C3=A9. C=E2=80=99est ce que fai=
+t la marque [July (AU) avec sa nouvelle CaseSafe](https://g08dc.r.a.d.sendi=
+bm1.com/mk/cl/f/sh/7nVU1aA2nfsakEIKZT35hxsW1a8ReTh/jvQwhV1jEzam), premi=C3=
+=A8re valise enti=C3=A8rement tra=C3=A7able. Elle int=C3=A8gre un verrou TS=
+A connect=C3=A9 permettant de suivre la valise depuis son smartphone, sans =
+rien ajouter.
+
+
+**Pour aller plus loin** : l=E2=80=99opportunit=C3=A9 n=E2=80=99est pas for=
+c=C3=A9ment de cr=C3=A9er une valise compl=C3=A8te. On peut aussi imaginer =
+un widget universel, un module de suivi compact, design, pens=C3=A9 pour s=
+=E2=80=99int=C3=A9grer sur n=E2=80=99importe quel bagage (dans la coque, la=
+ poign=C3=A9e ou la doublure). Une sorte de *pocket tracker* nouvelle g=C3=
+=A9n=C3=A9ration : discret, autonome et compatible avec toutes les marques.=
+ Demain, la tra=C3=A7abilit=C3=A9 pourrait devenir un standard : valises ca=
+pables de signaler automatiquement leur position ou modules intelligents qu=
+=E2=80=99on clipse simplement sur son bagage existant.
+
+=C2=A0
+
+Niveau d=E2=80=99expertise=C2=A0=E2=96=B2=E2=96=B2
+
+Budget=C2=A0**$**
+
+**=E2=89=88 =C3=87A MARCHE AILLEURS**
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+Chaque semaine, nous vous pr=C3=A9sentons une nouvelle start-up venue d'ail=
+leurs dans le monde, qui pourrait =C3=AAtre recr=C3=A9=C3=A9e en France.
+
+=C2=A0
+
+**RECRUTER DES EXPERTS POUR ENTRA=C3=8ENER L=E2=80=99IA (=C3=89TATS-UNIS)**
+
+
+TL;DR : [Fixpoint](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfuT=
+jkndY2HXkKCKBwdEOQD/CsO-tV_AIKQn) automatise le recrutement et la v=C3=A9ri=
+fication des experts pour entra=C3=AEner les IA.
+
+
+**Probl=C3=A8mes :**
+
+
+- Pour entra=C3=AEner des IA performantes, il ne suffit plus de simples "cl=
+ics", il faut de vrais experts (m=C3=A9decins, avocats).=20
+- Trouver et v=C3=A9rifier les dipl=C3=B4mes de ces profils prend =C3=A9nor=
+m=C3=A9ment de temps.=20
+
+**Solution :**
+
+
+- Une API de v=C3=A9rification qui automatise le contr=C3=B4le des dipl=C3=
+=B4mes et des ant=C3=A9c=C3=A9dents.=20
+- Un service de *staffing* capable de monter une =C3=A9quipe de 100 experts=
+ en seulement quelques semaines, avec gestion de la paie incluse.=20
+
+Un projet qui vise plut=C3=B4t les entreprises avec une grosse part d=E2=80=
+=99IA (soit des projets dans de grandes entreprises, soit des startups en I=
+A) qui veulent avoir des mod=C3=A8les plus puissants et plus sp=C3=A9cifiqu=
+es.
+
+
+Niveau d=E2=80=99expertise=C2=A0=E2=96=B2
+
+Budget=C2=A0**$**
+
+
+***Vous avez une id=C3=A9e que vous aimeriez transformer en produit ?**
+L=E2=80=99auteur de cette=C2=A0section d=C3=A9veloppe =C3=A9galement des pl=
+ateformes et outils SaaS pour des clients en freelance.
+Si les id=C3=A9es pr=C3=A9sent=C3=A9es ici aujourd'hui, dans cette section =
+ou plus haut, vous tentent et que vous cherchez un d=C3=A9veloppeur pour la=
+ncer un MVP, vous pouvez le contacter via=C2=A0*[*ce formulaire*](https://g=
+08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfwMjHIwWbVzmgW8MJ818Mj/WzzXI9gT=
+PYMU)*.=C2=A0**Comptez quelques milliers d=E2=80=99euros pour une premi=C3=
+=A8re version 100% fonctionnelle.*
+
+**=E2=97=88 TENDANCES E-COMMERCE**
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=20
+
+Des opportunit=C3=A9s de niche pour se lancer en e-commerce : des produits =
+vendus 15-100=E2=82=AC, recherch=C3=A9s >1000x/mois. Ils sont class=C3=A9s =
+par tendance de recherches sur 30 jours, et le chiffre correspond au volume=
+ de ventes du top produit.
+
+####[PILE CIGARETTE =C3=89LECTRONIQUE](https://g08dc.r.a.d.sendibm1.com/mk/=
+cl/f/sh/7nVU1aA2nfyFinoFVAkRp2pwWfcnsJF/nvU_nUqZ1jxF)
+
+
+=E2=82=AC59K=C2=A0
+=3D=3D=3D=3D=3D
++50%
+
+####[PSG ENFANT](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng08iK=
+JYTjytrP9kh27acFl/R5SCf3rizVHg)
+
+
+=E2=82=AC191K=C2=A0
+=3D=3D=3D=3D=3D=3D
++50%
+
+####[**TRACTEUR ENFANT 2 ANS**](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh=
+/7nVU1aA2ng21hqorSJDLtlTYrOcNMCH/AB3biM-sSF-O)
+
+
+=E2=82=AC201K=C2=A0
+=3D=3D=3D=3D=3D=3D
++50%
+
+####[MONTRE CONNECT=C3=89E HOMME](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/=
+sh/7nVU1aA2ng3uhNKAQsRnw7nN1l7A68n/PPJLQBDqe92c)
+
+
+=E2=82=AC727K=C2=A0
+=3D=3D=3D=3D=3D=3D
++50%
+
+####**=E2=9C=BA RESSOURCES**
+####OUTILS
+
+
+**=C2=A0**
+
+**Besoin de sortir de la tyrannie d=E2=80=99Helvetica ?** [Best Free Fonts]=
+(https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng5ngtpTPRgFyU7BC7bwq5=
+J/VVpcgRJFLk7t).
+
+
+[Slop Evader](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng7ggQKmO=
+0ui0qQzMU6ja1p/6ONeLFrLqTu3) : Un nouvel outil de navigateur qui filtre vos=
+ recherches web pour n'inclure que les r=C3=A9sultats d'avant le 30 novembr=
+e 2022, aka le jour o=C3=B9 ChatGPT a =C3=A9t=C3=A9 rendu public. Disponibl=
+e sur Chrome et Firefox.
+
+
+####CHIFFRES
+
+
+=C2=A0
+
+[10%](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng9Zfwq5Ma9A3CknW=
+qbWJyL/xmmAUcoGdb8F) : C=E2=80=99est la part des revenus de 2024 de Meta qu=
+i proviendraient des publicit=C3=A9s pour des scams et des biens interdits.=
+ Et le g=C3=A9ant des m=C3=A9dias sociaux estime en interne que ses platefo=
+rmes pr=C3=A9sentent 15 Mds de publicit=C3=A9s d'escroquerie par jour =C3=
+=A0 ses utilisateurs. Parmi ses r=C3=A9ponses aux sp=C3=A9cialistes du mark=
+eting suspects : leur facturer un suppl=C3=A9ment pour les publicit=C3=A9s,=
+ et publier des rapports sur les *Scammiest Scammers* (escrocs les plus fra=
+uduleux).
+
+
+[=E2=82=AC4M](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfsbCZ0Wz=
+rPBd88ZqxxQOBl/VzYR_Tjc5me3) : La startup fran=C3=A7aise [MuchBetter.ai](ht=
+tps://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfuUC5VpyQddfUSO1KSD88H/V=
+hrzOcdYr0U3) vient de closer une lev=C3=A9e pour sa plateforme de coaching =
+d=E2=80=99=C3=A9quipes commerciales et autres fonctions customer-facing. Il=
+s ont d=C3=A9j=C3=A0 de gros comptes comme Bouygues Telecom, Boulanger, La =
+Poste et Philips. On d=C3=A9cryptait justement ce levier [en septembre](htt=
+ps://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfwNBc18wzs5hqmCBgwzs4n/Vv=
+CHKA7seMx7).
+
+
+####COUP D'=C5=92IL
+
+[L=E2=80=99IA d=C3=A9vore le monde](https://g08dc.r.a.d.sendibm1.com/mk/cl/=
+f/sh/7nVU1aA2nfyGB8WRvZ6XkD60M3Rmc1J/r0ZQnYnLXvnP) : La pr=C3=A9diction de =
+Ben Evans reste la m=C3=AAme pour la 3e fois depuis 2024.
+
+
+[*Extremely offline*](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2n=
+g09Af1ku8KzmZPoWPwZLxp/nekUI_4_bBvP)**, ce qui se passe lorsqu'une =C3=AEle=
+ est coup=C3=A9e d'Internet** : En 2022, une puissante =C3=A9ruption volcan=
+ique a sectionn=C3=A9 le c=C3=A2ble Internet sous-marin des Tonga dans le P=
+acifique. La panne a montr=C3=A9 =C3=A0 quel point la vie moderne d=C3=A9pe=
+nd de quelques c=C3=A2bles fragiles et =C3=A9loign=C3=A9s. La r=C3=A9parati=
+on des dommages a pris des semaines et a laiss=C3=A9 les Tongiens trouver d=
+es moyens d'organiser leur vie quotidienne hors ligne.
+
+
+[Stickerbox](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng22ABX3sh=
+ZRovjcgmRM5uL/NYUIZ53WOhLJ) : un cube boost=C3=A9 =C3=A0 l=E2=80=99IA qui t=
+ransforme une description orale et en sort un sticker =C3=A0 colorier, le t=
+out pour $99. Bienvenue dans le futur !
+
+=E2=96=B7
+=3D
+
+**NOW PLAYING**
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+
+####[La Martingale - Esther Moisy-Kirschbaum, comment gagner de l'argent av=
+ec l'IA et le vibe coding ?](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7n=
+VU1aA2ng3v9i2MrGntrI3Qr8w8pqr/opJeaGxUP7f7)
+
+**TU AS AIM=C3=89 CETTE NEWSLETTER ?**
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D
+
+**DONNE-NOUS TON AVIS :=C2=A0**
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+Cet email t'a =C3=A9t=C3=A9 forward=C3=A9 ?
+
+[Rejoins la communaut=C3=A9 Magma aujourd'hui !](https://g08dc.r.a.d.sendib=
+m1.com/mk/cl/f/sh/7nVU1aA2ng9a8HYHmyVFyN0rMEQV3gP/-JN-IGP6QnVP)
+
+[**INSCRIPTION**](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfsbe=
+tijQFlHYIOdgLmP7tp/LaF2kp503MOc)
+
+**ARCHIVES**
+
+[**COMMUNAUT=C3=89**](https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2n=
+fuUeQE2OozjaeiRqiHBrqL/OsyJQNR-HjSR)
+
+Copyright **=C2=A9 2025 PLANET, All rights reserved.**
+Modifier ses pr=C3=A9f=C3=A9rences email ou se d=C3=A9sinscrire de la liste
+
+
+---------?=_92010-1255401159244
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office"><head><meta=
+ http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><meta h=
+ttp-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"><meta name=3D"format-de=
+tection" content=3D"telephone=3Dno"><meta name=3D"viewport" content=3D"widt=
+h=3Ddevice-width, initial-scale=3D1.0"><title>Fwd: =F0=9F=91=A8=F0=9F=8F=BC=
+=E2=80=8D=F0=9F=8D=B3 Un chef priv=C3=A9 pour vos prochaines vacances ? Ton=
+ rapport Magma</title><style type=3D"text/css" emogrify=3D"no">#outlook a {=
+ padding:0; } .ExternalClass { width:100%; } .ExternalClass, .ExternalClass=
+ p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalC=
+lass div { line-height: 100%; } table td { border-collapse: collapse; mso-l=
+ine-height-rule: exactly; } .editable.image { font-size: 0 !important; line=
+-height: 0 !important; } .nl2go_preheader { display: none !important; mso-h=
+ide:all !important; mso-line-height-rule: exactly; visibility: hidden !impo=
+rtant; line-height: 0px !important; font-size: 0px !important; } body { wid=
+th:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100=
+%; margin:0; padding:0; } img { outline:none; text-decoration:none; -ms-int=
+erpolation-mode: bicubic; } a img { border:none; } table { border-collapse:=
+collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; } th { font-weight: n=
+ormal; text-align: left; } *[class=3D"gmail-fix"] { display: none !importan=
+t; } </style><style type=3D"text/css" emogrify=3D"no"> @media (max-width: 6=
+00px) { .gmx-killpill { content: ' \03D1';} } </style><style type=3D"text/c=
+ss" emogrify=3D"no">@media (max-width: 600px) { .gmx-killpill { content: ' =
+\03D1';} .r0-o { border-style: solid !important; margin: 0 auto 0 auto !imp=
+ortant; width: 320px !important } .r1-i { background-color: #ffffff !import=
+ant } .r2-c { box-sizing: border-box !important; text-align: center !import=
+ant; valign: top !important; width: 100% !important } .r3-o { border-style:=
+ solid !important; margin: 0 auto 0 auto !important; width: 100% !important=
+ } .r4-i { padding-bottom: 0px !important; padding-left: 0px !important; pa=
+dding-right: 0px !important; padding-top: 0px !important } .r5-c { box-sizi=
+ng: border-box !important; display: block !important; valign: top !importan=
+t; width: 100% !important } .r6-o { border-style: solid !important; width: =
+100% !important } .r7-i { padding-left: 0px !important; padding-right: 0px =
+!important } .r8-c { box-sizing: border-box !important; padding-top: 10px !=
+important; text-align: left !important; valign: top !important; width: 100%=
+ !important } .r9-i { background-color: #000000 !important } .r10-c { box-s=
+izing: border-box !important; text-align: center !important; valign: top !i=
+mportant; width: 320px !important } .r11-i { padding-bottom: 0px !important=
+; padding-left: 15px !important; padding-right: 15px !important; padding-to=
+p: 0px !important } .r12-c { box-sizing: border-box !important; text-align:=
+ left !important; valign: top !important; width: 100% !important } .r13-o {=
+ border-style: solid !important; margin: 0 auto 0 0 !important; width: 100%=
+ !important } .r14-i { padding-bottom: 5px !important; padding-left: 0px !i=
+mportant; padding-right: 0px !important; padding-top: 5px !important; text-=
+align: center !important } .r15-o { background-image: url('https://img.mail=
+inblue.com/9006340/images/content_library/original/68079d204c38a5abb9e51b5e=
+.jpg') !important; background-size: cover !important; border-style: solid !=
+important; margin: 0 auto 0 auto !important; margin-bottom: 0px !important;=
+ margin-top: 0px !important; width: 100% !important } .r16-c { box-sizing: =
+border-box !important; text-align: center !important; valign: middle !impor=
+tant; width: 320px !important } .r17-i { padding-bottom: 10px !important; p=
+adding-top: 10px !important } .r18-c { box-sizing: border-box !important; d=
+isplay: block !important; valign: middle !important; width: 100% !important=
+ } .r19-c { display: none !important } .r20-c { border: 0 !important; box-s=
+izing: border-box !important; height: auto !important; text-align: left !im=
+portant; valign: top !important; visibility: visible !important; width: 100=
+% !important } .r21-o { border: 0 !important; border-style: solid !importan=
+t; display: table !important; height: auto !important; margin: 0 auto 0 0 !=
+important; visibility: visible !important; width: 31% !important } .r22-i {=
+ padding-bottom: 15px !important; padding-top: 15px !important; width: 31% =
+!important } .r23-c { border: 0 !important; box-sizing: border-box !importa=
+nt; height: auto !important; text-align: right !important; valign: top !imp=
+ortant; visibility: visible !important; width: 100% !important } .r24-o { b=
+order: 0 !important; border-style: solid !important; display: table !import=
+ant; height: auto !important; margin: 0 0 0 auto !important; visibility: vi=
+sible !important; width: 50% !important } .r25-i { padding-bottom: 0px !imp=
+ortant; padding-left: 0px !important; padding-right: 0px !important; paddin=
+g-top: 0px !important; width: 50% !important } .r26-c { box-sizing: border-=
+box !important; padding-bottom: 0px !important; padding-left: 0px !importan=
+t; padding-right: 0px !important; padding-top: 0px !important; text-align: =
+left !important; valign: top !important; width: 100% !important } .r27-c { =
+box-sizing: border-box !important; padding-bottom: 0px !important; padding-=
+top: 10px !important; text-align: left !important; valign: top !important; =
+width: 100% !important } .r28-c { box-sizing: border-box !important; paddin=
+g-bottom: 0px !important; padding-top: 0px !important; text-align: left !im=
+portant; valign: top !important; width: 100% !important } .r29-i { padding-=
+bottom: 5px !important; padding-left: 15px !important; padding-right: 15px =
+!important; padding-top: 5px !important } .r30-c { box-sizing: border-box !=
+important; padding-bottom: 10px !important; padding-top: 10px !important; t=
+ext-align: center !important; width: 100% !important } .r31-c { box-sizing:=
+ border-box !important; padding-bottom: 0px !important; padding-top: 15px !=
+important; text-align: left !important; valign: top !important; width: 100%=
+ !important } .r32-i { padding-bottom: 10px !important; padding-left: 15px =
+!important; padding-right: 15px !important; padding-top: 0px !important } .=
+r33-c { box-sizing: border-box !important; padding: 0 !important; text-alig=
+n: center !important; valign: top !important; width: 100% !important } .r34=
+-o { border-style: solid !important; margin: 0 auto 0 auto !important; marg=
+in-bottom: 15px !important; margin-top: 15px !important; width: 100% !impor=
+tant } .r35-i { padding: 0 !important; text-align: center !important } .r36=
+-r { background-color: #ffffff !important; border-color: #e73d2a !important=
+; border-radius: 0px !important; border-width: 1px !important; box-sizing: =
+border-box; height: initial !important; padding: 0 !important; padding-bott=
+om: 10px !important; padding-left: 5px !important; padding-right: 5px !impo=
+rtant; padding-top: 10px !important; text-align: center !important; width: =
+100% !important } .r37-o { background-image: url('https://img.mailinblue.co=
+m/9006340/images/content_library/original/6811fb2c5f6f98c5afb943eb.jpg') !i=
+mportant; background-size: cover !important; border-style: solid !important=
+; margin: 0 auto 0 auto !important; width: 100% !important } .r38-c { box-s=
+izing: border-box !important; padding-bottom: 10px !important; padding-top:=
+ 10px !important; text-align: left !important; valign: top !important; widt=
+h: 100% !important } .r39-c { box-sizing: border-box !important; padding-bo=
+ttom: 15px !important; padding-top: 10px !important; text-align: center !im=
+portant; valign: top !important; width: 100% !important } .r40-i { padding-=
+bottom: 20px !important; padding-left: 15px !important; padding-right: 15px=
+ !important; padding-top: 20px !important } .r41-c { box-sizing: border-box=
+ !important; padding-bottom: 15px !important; padding-top: 15px !important;=
+ text-align: left !important; valign: top !important; width: 100% !importan=
+t } .r42-c { box-sizing: border-box !important; padding-bottom: 15px !impor=
+tant; padding-top: 15px !important; text-align: center !important; valign: =
+top !important; width: 100% !important } .r43-o { background-size: cover !i=
+mportant; border-style: solid !important; margin: 0 auto 0 auto !important;=
+ width: 100% !important } .r44-i { background-color: #f6f6f6 !important } .=
+r45-c { box-sizing: border-box !important; padding-top: 15px !important; te=
+xt-align: left !important; valign: top !important; width: 100% !important }=
+ .r46-c { box-sizing: border-box !important; padding-bottom: 10px !importan=
+t; padding-top: 15px !important; text-align: left !important; valign: top !=
+important; width: 100% !important } .r47-c { box-sizing: border-box !import=
+ant; padding-bottom: 5px !important; padding-top: 10px !important; text-ali=
+gn: left !important; valign: top !important; width: 100% !important } .r48-=
+c { box-sizing: border-box !important; padding-bottom: 10px !important; pad=
+ding-top: 5px !important; text-align: center !important; width: 100% !impor=
+tant } .r49-c { box-sizing: border-box !important; padding-top: 5px !import=
+ant; text-align: left !important; valign: top !important; width: 100% !impo=
+rtant } .r50-o { background-image: url('https://img.mailinblue.com/9006340/=
+images/content_library/original/6814db6611f1d8b7b740652c.jpg') !important; =
+background-size: cover !important; border-style: solid !important; margin: =
+0 auto 0 auto !important; width: 100% !important } .r51-i { padding-bottom:=
+ 15px !important; padding-top: 15px !important } .r52-o { background-image:=
+ url('https://img.mailinblue.com/9006340/images/content_library/original/68=
+14dd85de4382a10d1433e5.jpeg') !important; background-size: cover !important=
+; border-style: solid !important; margin: 0 auto 0 auto !important; width: =
+100% !important } .r53-o { background-image: url('https://img.mailinblue.co=
+m/9006340/images/content_library/original/6814dd7211f1d8b7b74065c7.jpeg') !=
+important; background-size: cover !important; border-style: solid !importan=
+t; margin: 0 auto 0 auto !important; width: 100% !important } .r54-c { box-=
+sizing: border-box !important; text-align: center !important; valign: middl=
+e !important; width: 100% !important } .r55-i { padding-bottom: 10px !impor=
+tant; padding-left: 0px !important; padding-right: 0px !important; padding-=
+top: 10px !important } .r56-i { text-align: left !important } .r57-i { text=
+-align: center !important } .r58-i { text-align: right !important } .r59-c =
+{ box-sizing: border-box !important; padding-bottom: 5px !important; paddin=
+g-top: 5px !important; text-align: left !important; valign: top !important;=
+ width: 100% !important } body { -webkit-text-size-adjust: none } .nl2go-re=
+sponsive-hide { display: none } .nl2go-body-table { min-width: unset !impor=
+tant } .mobshow { height: auto !important; overflow: visible !important; ma=
+x-height: unset !important; visibility: visible !important } .resp-table { =
+display: inline-table !important } .magic-resp { display: table-cell !impor=
+tant } } </style><style type=3D"text/css">p, h1, h2, h3, h4, ol, ul, li { m=
+argin: 0; } .nl2go-default-textstyle { color: #000000; font-family: Arial; =
+font-size: 14px; line-height: 1.3; word-break: break-word } .default-button=
+ { color: #000000; font-family: Arial; font-size: 14px; font-style: normal;=
+ font-weight: normal; line-height: 1.15; text-decoration: none; word-break:=
+ break-word } a, a:link { color: #e73d2a; font-weight: bold; text-decoratio=
+n: none } .default-heading1 { color: #000000; font-family: Arial; font-size=
+: 36px; word-break: break-word } .default-heading2 { color: #000000; font-f=
+amily: Arial; font-size: 32px; word-break: break-word } .default-heading3 {=
+ color: #000000; font-family: Arial; font-size: 24px; word-break: break-wor=
+d } .default-heading4 { color: #000000; font-family: Arial; font-size: 18px=
+; word-break: break-word } a[x-apple-data-detectors] { color: inherit !impo=
+rtant; text-decoration: inherit !important; font-size: inherit !important; =
+font-family: inherit !important; font-weight: inherit !important; line-heig=
+ht: inherit !important; } .no-show-for-you { border: none; display: none; f=
+loat: none; font-size: 0; height: 0; line-height: 0; max-height: 0; mso-hid=
+e: all; overflow: hidden; table-layout: fixed; visibility: hidden; width: 0=
+; } </style><!--[if mso]><xml> <o:OfficeDocumentSettings> <o:AllowPNG/> <o:=
+PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml><![end=
+if]--><style type=3D"text/css">a:link{color: #e73d2a; font-weight: bold; te=
+xt-decoration: none;}</style></head><body bgcolor=3D"#ffffff" text=3D"#0000=
+00" link=3D"#e73d2a" yahoo=3D"fix" style=3D"background-color: #ffffff; padd=
+ing-bottom: 0px; padding-top: 0px;"> <table cellpadding=3D"0" border=3D"0" =
+cellspacing=3D"0" style=3D"mso-hide:all; display:none;">
+<tr><td>La valise en pleine r=C3=A9invention ; L=E2=80=99IA entra=C3=AEn=C3=
+=A9e par des experts&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &sh=
+y;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &s=
+hy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &=
+shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; =
+&shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp;=
+ &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp=
+; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbs=
+p; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nb=
+sp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &n=
+bsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &=
+nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; =
+&nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj;=
+ &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj=
+; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwn=
+j; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zw=
+nj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&z=
+wnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&=
+zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;=
+&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy=
+;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &sh=
+y;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &s=
+hy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &=
+shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; =
+&shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp;=
+ &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp=
+; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbs=
+p; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nb=
+sp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &n=
+bsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &=
+nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; =
+&nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj;=
+ &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj=
+; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwn=
+j; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zw=
+nj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&z=
+wnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&=
+zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;=
+&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy=
+;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &sh=
+y;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &s=
+hy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &=
+shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; =
+&shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp;=
+ &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp=
+; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbs=
+p; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nb=
+sp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &n=
+bsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &=
+nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; =
+&nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj;=
+ &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;&zwnj; &nbsp; &shy;</td>=
+</tr></table> <!--[if mso]> <img width=3D"1" height=3D"1" src=3D"https://g0=
+8dc.r.a.d.sendibm1.com/mk/op/sh/1t6AVse4sR7ZnOXrmoytZd530RHiH3/8lhAqi3U_G3C=
+" /> <![endif]-->
+	<!--[if !mso]> <!----> <img style=3D"display:none" src=3D"https://g08dc.r.=
+a.d.sendibm1.com/mk/op/sh/1t6AVse4sR7ZnOXrmoytZd530RHiH3/8lhAqi3U_G3C" /> <=
+!-- <![endif]-->  <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" r=
+ole=3D"presentation" class=3D"nl2go-body-table" width=3D"100%" style=3D"bac=
+kground-color: #ffffff; width: 100%;"><tr><td> <table cellspacing=3D"0" cel=
+lpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"700" align=3D"ce=
+nter" class=3D"r0-o" style=3D"table-layout: fixed; width: 700px;"><tr><td v=
+align=3D"top" class=3D"r1-i" style=3D"background-color: #ffffff;"> <table c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=
+=3D"100%" align=3D"center" class=3D"r3-o" style=3D"table-layout: fixed; wid=
+th: 100%;"><tr><td class=3D"r4-i" style=3D"padding-bottom: 10px; padding-to=
+p: 10px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation"><tr><th width=3D"100%" valign=3D"top" class=3D=
+"r5-c" style=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" class=3D"r6-o" sty=
+le=3D"table-layout: fixed; width: 100%;"><tr><td valign=3D"top" class=3D"r7=
+-i" style=3D"padding-left: 15px; padding-right: 15px;"> <table width=3D"100=
+%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><=
+tr><td class=3D"r8-c nl2go-default-textstyle" align=3D"left" style=3D"color=
+: #000; font-family: Arial; font-size: 14px; line-height: 1.3; word-break: =
+break-word; padding-top: 10px; text-align: left; valign: top;"> <div><p id=
+=3D"isPasted" style=3D"margin: 0;">Hey !</p><p style=3D"margin: 0;"><br></p=
+><p style=3D"margin: 0;">Je vous partage r=C3=A9guli=C3=A8rement les sujets=
+ Magma dans ma newsletter, et je sais que vous en =C3=AAtes tr=C3=A8s frian=
+ds.</p><p style=3D"margin: 0;"><br></p><p style=3D"margin: 0;">Une fois n'e=
+st pas coutume, je me permets de vous partager le Magma du jour pour que vo=
+us puissiez le lire dans son int=C3=A9gralit=C3=A9, je suis certain que =C3=
+=A7a vous plaira encore plus !</p><p style=3D"margin: 0;"><br></p><p style=
+=3D"margin: 0;">J'ai n=C3=A9goci=C3=A9 un code sp=C3=A9cial Black Friday av=
+ec Esther : BFDOIT</p><p style=3D"margin: 0;">Juste pour vous : 100=E2=82=
+=AC de r=C3=A9duction sur la premi=C3=A8re ann=C3=A9e, le meilleur deal pou=
+r avoir les meilleures infos sur les business =C3=A0 lancer.</p><p style=3D=
+"margin: 0;"><br></p><p style=3D"margin: 0;">C'est valable ce week end uniq=
+uement, DO IT ;)</p><p style=3D"margin: 0;"><br></p><p style=3D"margin: 0;"=
+>Matt//</p><p style=3D"margin: 0;"><span style=3D"font-size: 10px;"><br></s=
+pan></p><div id=3D"isPasted"><p style=3D"margin: 0;"><span style=3D"color: =
+rgb(0, 0, 0); font-size: 10px;">> <a href=3D"https://g08dc.r.a.d.sendibm1.c=
+om/mk/cl/f/sh/1t6Af4OiGsDg0kUyn5EFxDNbiwiJ5t/7SRKyHQ7amFd" target=3D"_blank=
+" data-saferedirecturl=3D"https://www.google.com/url?q=3Dhttp://www.gdiy.fr=
+/&source=3Dgmail&ust=3D1764423944920000&usg=3DAOvVaw3CNNmArJ1ozmqJ6BjHGU0T"=
+ style=3D"font-weight: bold; text-decoration: none; color: rgb(0, 0, 0);" s=
+ib_link_id=3D"0" templating=3D"n">G=C3=A9n=C3=A9ration Do It Yourself</a></=
+span></p><p style=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0); font-s=
+ize: 10px;">> <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4=
+OiGsE8LShPBRKB7TRR6lh2nx/CDNOPnN0wGab" target=3D"_blank" data-saferedirectu=
+rl=3D"https://www.google.com/url?q=3Dhttp://youtube.com/@mattstefani&source=
+=3Dgmail&ust=3D1764423944920000&usg=3DAOvVaw3znRBzyK-Wx0f0CtakiVv-" style=
+=3D"font-weight: bold; text-decoration: none; color: rgb(0, 0, 0);" sib_lin=
+k_id=3D"1" templating=3D"n">Youtube</a></span></p><p style=3D"margin: 0;"><=
+span style=3D"color: rgb(0, 0, 0); font-size: 10px;">> <a href=3D"https://g=
+08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsEagAtpZnQ6HjVGUafmW1/eB3eyOM2O=
+ukK" target=3D"_blank" data-saferedirecturl=3D"https://www.google.com/url?q=
+=3Dhttp://www.lamartingale.io/&source=3Dgmail&ust=3D1764423944920000&usg=3D=
+AOvVaw0AT5wu5_BJhtzJJa_mUHMa" style=3D"font-weight: bold; text-decoration: =
+none; color: rgb(0, 0, 0);" sib_link_id=3D"2" templating=3D"n">La Martingal=
+e</a></span></p><p style=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0);=
+ font-size: 10px;">> <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh=
+/1t6Af4OiGsF30t6Fy9W1RzZ5sPeWE5/v6Q1Eqt7db_E" target=3D"_blank" data-safere=
+directurl=3D"https://www.google.com/url?q=3Dhttp://alvo.market/&source=3Dgm=
+ail&ust=3D1764423944920000&usg=3DAOvVaw0UwhshoGshg7LbU7tW4P45" style=3D"fon=
+t-weight: bold; text-decoration: none; color: rgb(0, 0, 0);" sib_link_id=3D=
+"3" templating=3D"n">Alvo.market</a></span></p><p style=3D"margin: 0;"><spa=
+n style=3D"color: rgb(0, 0, 0); font-size: 10px;">> <a href=3D"https://g08d=
+c.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsFVLbIgMVbwcFcvGEdFw9/HZwTFydw4W5J=
+" target=3D"_blank" data-saferedirecturl=3D"https://www.google.com/url?q=3D=
+http://ovni.capital/&source=3Dgmail&ust=3D1764423944920000&usg=3DAOvVaw2nqr=
+I4jVGI-u4rbOBaL4Vo" style=3D"font-weight: bold; text-decoration: none; colo=
+r: rgb(0, 0, 0);" sib_link_id=3D"4" templating=3D"n">Ovni.capital</a></span=
+></p><p style=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0); font-size:=
+ 10px;">> <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGs=
+FxgJV6krhrmVgke3bzeD/B5_oNjIdI2cM" target=3D"_blank" data-saferedirecturl=
+=3D"https://www.google.com/url?q=3Dhttp://wevest.fr/&source=3Dgmail&ust=3D1=
+764423944920000&usg=3DAOvVaw0f6o7Mg3hmdNxtadW8c-R0" style=3D"font-weight: b=
+old; text-decoration: none; color: rgb(0, 0, 0);" sib_link_id=3D"5" templat=
+ing=3D"n">Wevest.fr</a></span></p><p style=3D"margin: 0;"><span style=3D"co=
+lor: rgb(0, 0, 0); font-size: 10px;">> <a href=3D"https://g08dc.r.a.d.sendi=
+bm1.com/mk/cl/f/sh/1t6Af4OiGsGQ11hX9Dnmwlka1sajMH/cwiDzhVku838" target=3D"_=
+blank" data-saferedirecturl=3D"https://www.google.com/url?q=3Dhttp://orsome=
+dia.io/&source=3Dgmail&ust=3D1764423944920000&usg=3DAOvVaw3Xczpj9SEyMHOxrlz=
+6DjQQ" style=3D"font-weight: bold; text-decoration: none; color: rgb(0, 0, =
+0);" sib_link_id=3D"6" templating=3D"n">Orso Media</a></span></p><p style=
+=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0); font-size: 10px;">> <a =
+href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsGsLjtxXZti71o=
+PPhZT4L/rgnN7Awnkrks" target=3D"_blank" data-saferedirecturl=3D"https://www=
+.google.com/url?q=3Dhttp://www.gdiy.fr/mail&source=3Dgmail&ust=3D1764423944=
+920000&usg=3DAOvVaw2cakp22ksXEcVcsM3dFfRO" style=3D"font-weight: bold; text=
+-decoration: none; color: rgb(0, 0, 0);" sib_link_id=3D"7" templating=3D"n"=
+>Newsletter</a></span></p><p style=3D"margin: 0;"><span style=3D"color: rgb=
+(0, 0, 0); font-size: 10px;"><br></span></p><p style=3D"margin: 0;"><span s=
+tyle=3D"color: rgb(0, 0, 0); font-size: 10px;"><a href=3D"https://g08dc.r.a=
+.d.sendibm1.com/mk/cl/f/sh/1t6Af4OiGsHKgS6NvvzdHHsEnWYCmP/fzehnaidTkDd" tar=
+get=3D"_blank" data-saferedirecturl=3D"https://www.google.com/url?q=3Dhttp:=
+//www.linkedin.com/in/stefani&source=3Dgmail&ust=3D1764423944920000&usg=3DA=
+OvVaw2I-tJ9cBlIbnYx-ZlP7xyi" style=3D"font-weight: bold; text-decoration: n=
+one; color: rgb(0, 0, 0);" sib_link_id=3D"8" templating=3D"n">>> Linkedin</=
+a> /=C2=A0</span><a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/1t6=
+Af4OiGsHn1AIoKI5YRXw4BLWwUT/aWMvSKd1WOrB" target=3D"_blank" data-saferedire=
+cturl=3D"https://www.google.com/url?q=3Dhttps://www.instagram.com/mattintou=
+ch/&source=3Dgmail&ust=3D1764423944920000&usg=3DAOvVaw1kHg4AvDV2AIcAdqCfVaI=
+c" style=3D"font-weight: bold; text-decoration: none; color: rgb(0, 0, 0);"=
+ sib_link_id=3D"9" templating=3D"n"><span style=3D"color: rgb(0, 0, 0); fon=
+t-size: 10px;">Insta</span></a></p></div><p style=3D"margin: 0;"><span styl=
+e=3D"color: rgb(0, 0, 0);"><br class=3D"Apple-interchange-newline" id=3D"is=
+Pasted">---------- Forwarded message ---------<br>De : Magma <hi@getplanet.=
+eu><br>Date: ven. 28 nov. 2025 =C3=A0=C2=A014:35<br>Subject: =C2=A0Un chef =
+priv=C3=A9 pour vos prochaines vacances ? Ton rapport Magma</span></p><p st=
+yle=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0);">To: <contact@gdiy.f=
+r></span></p></div> </td> </tr></table></td> </tr></table></th> </tr></tabl=
+e></td> </tr></table></td> </tr></table><table cellspacing=3D"0" cellpaddin=
+g=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" =
+class=3D"r3-o" style=3D"table-layout: fixed; width: 100%;"><tr><td valign=
+=3D"top" class=3D"r9-i" style=3D"background-color: #000000;"> <table cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"7=
+00" align=3D"center" class=3D"r0-o" style=3D"table-layout: fixed; width: 70=
+0px;"><tr><td class=3D"r11-i"> <table width=3D"100%" cellspacing=3D"0" cell=
+padding=3D"0" border=3D"0" role=3D"presentation"><tr><th width=3D"100%" val=
+ign=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <table cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%=
+" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><td valign=
+=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; padding-right: 15px;">=
+ <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" rol=
+e=3D"presentation"><tr><td class=3D"r12-c" align=3D"left"> <table cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%=
+" class=3D"r13-o" style=3D"table-layout: fixed; width: 100%;"><tr><td align=
+=3D"center" valign=3D"top" class=3D"r14-i nl2go-default-textstyle" style=3D=
+"color: #000; font-family: Arial; font-size: 14px; line-height: 1.3; word-b=
+reak: break-word; padding-bottom: 5px; padding-top: 5px; text-align: center=
+;"> <div><p style=3D"margin: 0;"><a href=3D"https://g08dc.r.a.d.sendibm1.co=
+m/mk/cl/f/sh/7nVU1aA2nfsZpYrvigKtrdMOMoUUB3Z/j0F1SA2h1HL2" target=3D"_blank=
+" rel=3D"noopener noreferrer" style=3D"color: #e73d2a; font-weight: bold; t=
+ext-decoration: none;" sib_link_id=3D"10" templating=3D"n">Lire dans le nav=
+igateur</a></p></div> </td> </tr></table></td> </tr></table></td> </tr></ta=
+ble></th> </tr></table></td> </tr></table></td> </tr></table><table cellspa=
+cing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"10=
+0%" align=3D"center" class=3D"r15-o" style=3D"background-image: url('https:=
+//img.mailinblue.com/9006340/images/content_library/original/68079d204c38a5=
+abb9e51b5e.jpg'); background-position: center; background-repeat: no-repeat=
+; background-size: cover; font-size: 0; table-layout: fixed; width: 100%;">=
+<tr><td valign=3D"top"> <table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation" width=3D"700" align=3D"center" class=3D"r0-o" =
+style=3D"table-layout: fixed; width: 700px;"><tr><td class=3D"r17-i" style=
+=3D"padding-bottom: 10px; padding-top: 10px;"> <table width=3D"100%" cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th wi=
+dth=3D"20%" valign=3D"middle" class=3D"r18-c" style=3D"font-weight: normal;=
+"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presenta=
+tion" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 10=
+0%;"><tr><td valign=3D"top" class=3D"r7-i"> <table width=3D"100%" cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><td class=
+=3D"r19-c" align=3D"center"> <table cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" role=3D"presentation" width=3D"98" style=3D"table-layout: fixed; =
+width: 98px;"><tr><td style=3D"font-size: 0px; line-height: 0px; padding-bo=
+ttom: 15px; padding-top: 15px;"> <img src=3D"https://g08dc.img.a.d.sendibm1=
+.com/im/sh/fZdVy3Un0leI.png?u=3DWtVElij8PJZGcrwF5JLUmjTUHM4ENh3h" width=3D"=
+98" border=3D"0" style=3D"display: block; width: 100%;" sib_img_id=3D"1"></=
+td> </tr></table></td> </tr><!--[if !mso]><!-- --><tr><td class=3D"r20-c" a=
+lign=3D"center"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" ro=
+le=3D"presentation" width=3D"70" class=3D"r21-o mobshow" style=3D"border: n=
+one; display: none; float: none; font-size: 0; height: 0; line-height: 0; m=
+ax-height: 0; mso-hide: all; overflow: hidden; table-layout: fixed; visibil=
+ity: hidden; width: 0;"><tr><td class=3D"r22-i mobshow resp-table magic-res=
+p" style=3D"font-size: 0px; line-height: 0px; padding-bottom: 15px; padding=
+-top: 15px;"> <img src=3D"https://g08dc.img.a.d.sendibm1.com/im/sh/fZdVy3Un=
+0leI.png?u=3DWtVElij8PJZGcrwF5JLUmjTUHM4ENh3h" width=3D"70" border=3D"0" cl=
+ass=3D"mobshow resp-table no-show-for-you" style=3D"border: none; float: no=
+ne; font-size: 0; height: 0; line-height: 0; max-height: 0; mso-hide: all; =
+overflow: hidden; table-layout: fixed; visibility: hidden; display: block; =
+width: 100%;" sib_img_id=3D"1"></td> </tr></table></td> </tr><!--<![endif]-=
+-></table></td> </tr></table></th> <th width=3D"20%" valign=3D"middle" clas=
+s=3D"r18-c" style=3D"font-weight: normal;"> </th> <th width=3D"20%" valign=
+=3D"middle" class=3D"r18-c" style=3D"font-weight: normal;"> </th> <th width=
+=3D"20%" valign=3D"middle" class=3D"r18-c" style=3D"font-weight: normal;"> =
+</th> <th width=3D"20%" valign=3D"middle" class=3D"r18-c" style=3D"font-wei=
+ght: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=
+=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixe=
+d; width: 100%;"><tr><td valign=3D"top" class=3D"r7-i"> <table width=3D"100=
+%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><=
+tr><td class=3D"r19-c" align=3D"right"> <table cellspacing=3D"0" cellpaddin=
+g=3D"0" border=3D"0" role=3D"presentation" width=3D"105" style=3D"table-lay=
+out: fixed; width: 105px;"><tr><td style=3D"font-size: 0px; line-height: 0p=
+x;"> <img src=3D"https://g08dc.img.a.d.sendibm1.com/im/sh/alox0JK2Imd0.png?=
+u=3DWtVElij8PJZGdKGxHjjqsedkLBS3MQll" width=3D"105" border=3D"0" style=3D"d=
+isplay: block; width: 100%;" sib_img_id=3D"2"></td> </tr></table></td> </tr=
+><!--[if !mso]><!-- --><tr><td class=3D"r23-c" align=3D"right"> <table cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D=
+"70" class=3D"r24-o mobshow" style=3D"border: none; display: none; float: n=
+one; font-size: 0; height: 0; line-height: 0; max-height: 0; mso-hide: all;=
+ overflow: hidden; table-layout: fixed; visibility: hidden; width: 0;"><tr>=
+<td class=3D"r25-i mobshow resp-table magic-resp" style=3D"font-size: 0px; =
+line-height: 0px;"> <img src=3D"https://g08dc.img.a.d.sendibm1.com/im/sh/al=
+ox0JK2Imd0.png?u=3DWtVElij8PJZGdKGxHjjqsedkLBS3MQll" width=3D"70" border=3D=
+"0" class=3D"mobshow resp-table no-show-for-you" style=3D"border: none; flo=
+at: none; font-size: 0; height: 0; line-height: 0; max-height: 0; mso-hide:=
+ all; overflow: hidden; table-layout: fixed; visibility: hidden; display: b=
+lock; width: 100%;" sib_img_id=3D"2"></td> </tr></table></td> </tr><!--<![e=
+ndif]--><tr><td class=3D"r26-c nl2go-default-textstyle" align=3D"left" styl=
+e=3D"color: #000; font-family: Arial; font-size: 14px; word-break: break-wo=
+rd; line-height: 1; text-align: left; valign: top;"> <div><h3 class=3D"defa=
+ult-heading3" style=3D"margin: 0; color: #000; font-family: Arial; font-siz=
+e: 24px; word-break: break-word; text-align: right;"><span style=3D"color: =
+#ffffff; font-family: Arial; font-size: 24px;">#274</span></h3></div> </td>=
+ </tr></table></td> </tr></table></th> </tr></table></td> </tr></table></td=
+> </tr></table><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=
+=3D"presentation" width=3D"700" align=3D"center" class=3D"r0-o" style=3D"ta=
+ble-layout: fixed; width: 700px;"><tr><td valign=3D"top" class=3D"r1-i" sty=
+le=3D"background-color: #ffffff;"> <table cellspacing=3D"0" cellpadding=3D"=
+0" border=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" class=
+=3D"r3-o" style=3D"table-layout: fixed; width: 100%;"><tr><td class=3D"r4-i=
+" style=3D"padding-bottom: 10px; padding-top: 10px;"> <table width=3D"100%"=
+ cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr=
+><th width=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: nor=
+mal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"pres=
+entation" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width=
+: 100%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px;=
+ padding-right: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r8-c nl2go-defau=
+lt-textstyle" align=3D"left" style=3D"color: #000; font-family: Arial; font=
+-size: 14px; line-height: 1.3; word-break: break-word; padding-top: 10px; t=
+ext-align: left; valign: top;"> <div><h4 class=3D"default-heading4" style=
+=3D"margin: 0; color: #000; font-family: Arial; font-size: 18px; word-break=
+: break-word;"><span style=3D"color: #e73d2a; font-size: 18px;">CETTE SEMAI=
+NE...</span></h4></div> </td> </tr></table></td> </tr></table></th> </tr></=
+table></td> </tr></table><table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" class=3D"r3-o"=
+ style=3D"table-layout: fixed; width: 100%;"><tr><td class=3D"r4-i" style=
+=3D"padding-bottom: 5px; padding-top: 5px;"> <table width=3D"100%" cellspac=
+ing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th widt=
+h=3D"16.67%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> =
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentatio=
+n" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;=
+"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; paddin=
+g-right: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+border=3D"0" role=3D"presentation"><tr><td class=3D"r19-c" align=3D"left"> =
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentatio=
+n" width=3D"100%" style=3D"table-layout: fixed; width: 100%;"><tr><td align=
+=3D"center" valign=3D"top" class=3D" nl2go-default-textstyle" style=3D"colo=
+r: #000; font-family: Arial; font-size: 14px; line-height: 1.3; word-break:=
+ break-word; padding-top: 10px; text-align: center;"> <div><p style=3D"marg=
+in: 0;"><span style=3D"color: #e73d2a; font-size: 20px;">=E2=96=A8</span></=
+p></div> </td> </tr></table></td> </tr></table></td> </tr></table></th> <th=
+ width=3D"83.33%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: norma=
+l;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presen=
+tation" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: =
+100%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; p=
+adding-right: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r27-c nl2go-defa=
+ult-textstyle" align=3D"left" style=3D"color: #000; font-family: Arial; fon=
+t-size: 14px; line-height: 1.3; word-break: break-word; padding-top: 10px; =
+text-align: left; valign: top;"> <div><p style=3D"margin: 0;"><span style=
+=3D"color: #000000;"><strong><span data-token-index=3D"0" class=3D"notion-e=
+nable-hover" id=3D"isPasted" style=3D"font-weight: 600;">L=E2=80=99AIRBNB D=
+U CATERING : VERS UNE RESTAURATION =C3=80 LA DEMANDE POUR L=E2=80=99HOSPITA=
+LITY</span></strong></span></p></div> </td> </tr></table></td> </tr></table=
+></th> </tr></table></td> </tr></table><table cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" c=
+lass=3D"r3-o" style=3D"table-layout: fixed; width: 100%;"><tr><td class=3D"=
+r4-i" style=3D"padding-bottom: 5px; padding-top: 5px;"> <table width=3D"100=
+%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><=
+tr><th width=3D"16.67%" valign=3D"top" class=3D"r5-c" style=3D"font-weight:=
+ normal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"=
+presentation" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; w=
+idth: 100%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding-left: 1=
+5px; padding-right: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpad=
+ding=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r19-c" align=
+=3D"left"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"=
+presentation" width=3D"100%" style=3D"table-layout: fixed; width: 100%;"><t=
+r><td align=3D"center" valign=3D"top" class=3D" nl2go-default-textstyle" st=
+yle=3D"color: #000; font-family: Arial; font-size: 14px; line-height: 1.3; =
+word-break: break-word; text-align: center;"> <div><p style=3D"margin: 0;">=
+<span style=3D"color: #e73d2a; font-size: 20px;">=E2=9C=B1</span></p></div>=
+ </td> </tr></table></td> </tr></table></td> </tr></table></th> <th width=
+=3D"83.33%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <=
+table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation=
+" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"=
+><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; padding=
+-right: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" b=
+order=3D"0" role=3D"presentation"><tr><td class=3D"r28-c nl2go-default-text=
+style" align=3D"left" style=3D"color: #000; font-family: Arial; font-size: =
+14px; line-height: 1.3; word-break: break-word; text-align: left; valign: t=
+op;"> <div><p style=3D"margin: 0;"><strong><span data-token-index=3D"0" cla=
+ss=3D"notion-enable-hover" id=3D"isPasted" style=3D"font-weight: 600;">ET S=
+I LA PROCHAINE R=C3=89VOLUTION DU TRAVEL VENAIT=E2=80=A6 DE VOTRE VALISE ?<=
+/span></strong></p></div> </td> </tr></table></td> </tr></table></th> </tr>=
+</table></td> </tr></table><table cellspacing=3D"0" cellpadding=3D"0" borde=
+r=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" class=3D"r3-o=
+" style=3D"table-layout: fixed; width: 100%;"><tr><td class=3D"r4-i" style=
+=3D"padding-bottom: 5px; padding-top: 5px;"> <table width=3D"100%" cellspac=
+ing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th widt=
+h=3D"16.67%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> =
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentatio=
+n" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;=
+"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; paddin=
+g-right: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+border=3D"0" role=3D"presentation"><tr><td class=3D"r19-c" align=3D"left"> =
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentatio=
+n" width=3D"100%" style=3D"table-layout: fixed; width: 100%;"><tr><td align=
+=3D"center" valign=3D"top" class=3D" nl2go-default-textstyle" style=3D"colo=
+r: #000; font-family: Arial; font-size: 14px; line-height: 1.3; word-break:=
+ break-word; text-align: center;"> <div><p style=3D"margin: 0;"><span style=
+=3D"color: #e73d2a; font-size: 20px;">=E2=98=89</span></p></div> </td> </tr=
+></table></td> </tr></table></td> </tr></table></th> <th width=3D"83.33%" v=
+align=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <table cellspa=
+cing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"10=
+0%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><td vali=
+gn=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; padding-right: 15px;=
+"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" r=
+ole=3D"presentation"><tr><td class=3D"r28-c nl2go-default-textstyle" align=
+=3D"left" style=3D"color: #000; font-family: Arial; font-size: 14px; line-h=
+eight: 1.3; word-break: break-word; text-align: left; valign: top;"> <div><=
+p class=3D"default" style=3D"margin: 0;"><span style=3D"font-size: 14px;"><=
+strong>RECRUTER DES EXPERTS POUR ENTRA=C3=8ENER L=E2=80=99IA<br></strong></=
+span></p><p style=3D"margin: 0;"><strong><br></strong></p></div> </td> </tr=
+></table></td> </tr></table></th> </tr></table></td> </tr></table><table ce=
+llspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=
+=3D"100%" align=3D"center" class=3D"r3-o" style=3D"table-layout: fixed; wid=
+th: 100%;"><tr><td class=3D"r29-i" style=3D"padding-bottom: 5px; padding-to=
+p: 5px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation"><tr><th width=3D"100%" valign=3D"top" class=3D=
+"r5-c" style=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" class=3D"r6-o" sty=
+le=3D"table-layout: fixed; width: 100%;"><tr><td valign=3D"top" class=3D"r7=
+-i" style=3D"padding-left: 15px; padding-right: 15px;"> <table width=3D"100=
+%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><=
+tr><td class=3D"r30-c" align=3D"center" style=3D"padding-bottom: 10px; padd=
+ing-top: 10px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+border=3D"0" role=3D"presentation" height=3D"1" style=3D"border-top-style: =
+solid; background-clip: border-box; border-top-color: #e5e5e5; border-top-w=
+idth: 1px; font-size: 1px; line-height: 1px;"><tr><td height=3D"0" style=3D=
+"font-size: 0px; line-height: 0px;">=C2=AD</td> </tr></table></td> </tr></t=
+able></td> </tr></table></th> </tr></table></td> </tr></table><table cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"1=
+00%" align=3D"center" class=3D"r3-o" style=3D"table-layout: fixed; width: 1=
+00%;"><tr><td class=3D"r4-i" style=3D"padding-bottom: 20px; padding-top: 20=
+px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+" role=3D"presentation"><tr><th width=3D"100%" valign=3D"top" class=3D"r5-c=
+" style=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0=
+" border=3D"0" role=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D=
+"table-layout: fixed; width: 100%;"><tr><td valign=3D"top" class=3D"r7-i" s=
+tyle=3D"padding-left: 15px; padding-right: 15px;"> <table width=3D"100%" ce=
+llspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><t=
+d class=3D"r8-c nl2go-default-textstyle" align=3D"left" style=3D"color: #00=
+0; font-family: Arial; font-size: 14px; word-break: break-word; line-height=
+: 1.2; padding-top: 10px; text-align: left; valign: top;"> <div><h4 class=
+=3D"default-heading4" style=3D"margin: 0; color: #000; font-family: Arial; =
+font-size: 18px; word-break: break-word;"><span style=3D"color: #e73d2a; fo=
+nt-size: 18px;">LES GRANDS ESPRITS SE RENCONTRENT</span></h4></div> </td> <=
+/tr></table></td> </tr></table></th> </tr></table></td> </tr></table><table=
+ cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" wid=
+th=3D"100%" align=3D"center" class=3D"r3-o" style=3D"table-layout: fixed; w=
+idth: 100%;"><tr><td class=3D"r4-i" style=3D"padding-bottom: 15px;"> <table=
+ width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"pr=
+esentation"><tr><th width=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"f=
+ont-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"=
+0" role=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D"table-layou=
+t: fixed; width: 100%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padd=
+ing-left: 12px; padding-right: 12px;"> <table width=3D"100%" cellspacing=3D=
+"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r=
+31-c nl2go-default-textstyle" align=3D"left" style=3D"color: #000; font-fam=
+ily: Arial; font-size: 14px; word-break: break-word; line-height: 1.3; padd=
+ing-top: 15px; text-align: left; valign: top;"> <div><p style=3D"margin: 0;=
+">=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0On m=
+e demande souvent quelle est la =E2=80=9Cm=C3=A9thode Magma=E2=80=9D pour d=
+=C3=A9tecter les signaux faibles. Bien s=C3=BBr, la veille =E2=80=94 newsle=
+tters, r=C3=A9seaux sociaux, annonces de lev=C3=A9es de fonds =E2=80=94 est=
+ primordiale. Beaucoup d=E2=80=99id=C3=A9es trouvent cependant leur gen=C3=
+=A8se de fa=C3=A7on plus organique. L=E2=80=99=C3=A9dition d=E2=80=99aujour=
+d=E2=80=99hui en est un bon exemple.</p><p style=3D"margin: 0;"><br></p><p =
+class=3D"default" style=3D"margin: 0;">Si plusieurs =C3=A9changes convergen=
+t vers le constat d=E2=80=99un m=C3=AAme <em>white space</em> : l=E2=80=99o=
+pportunit=C3=A9 est tr=C3=A8s certainement =C3=A0 creuser.</p><p class=3D"d=
+efault" style=3D"margin: 0;"><br></p><p class=3D"default" style=3D"margin: =
+0;">Depuis plusieurs ann=C3=A9es, le tourisme s=E2=80=99est r=C3=A9invent=
+=C3=A9 : <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfu=
+Sp5NEhFZLtzgCXAzGv05/vMzEOW8avmUL" style=3D"color: #e73d2a; font-weight: bo=
+ld; text-decoration: none;" sib_link_id=3D"11" templating=3D"n">Airbnb</a> =
+a chang=C3=A9 le march=C3=A9 sans retour en vue. D=E2=80=99autres acteurs c=
+omme <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfwLobs=
+XfonnwM00hXU3ewb/b1F8uv_HunbJ" style=3D"color: #e73d2a; font-weight: bold; =
+text-decoration: none;" sib_link_id=3D"12" templating=3D"n">Gens de Confian=
+ce</a> ou <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nf=
+yEo8NqeO2FyiJortyqOt7/piJzEELkKy-u" style=3D"color: #e73d2a; font-weight: b=
+old; text-decoration: none;" sib_link_id=3D"13" templating=3D"n">Harmony Ho=
+mes</a> poussent l=E2=80=99h=C3=B4tellerie vers un haut de gamme plus flexi=
+ble. La partie logement a =C3=A9t=C3=A9 r=C3=A9solue.</p><p class=3D"defaul=
+t" style=3D"margin: 0;"><br></p><p class=3D"default" style=3D"margin: 0;">S=
+eulement, le plaisir du tourisme c=E2=80=99est aussi de ne pas s=E2=80=99im=
+poser les contraintes du quotidien, comme les courses ou la cuisine. Un d=
+=C3=A9tail qui prend son importance quand on part en groupe ou dans une zon=
+e isol=C3=A9e.</p><p class=3D"default" style=3D"margin: 0;">Le sujet a =C3=
+=A9t=C3=A9 abord=C3=A9 dans un =C3=A9change avec la fondatrice de Harmony H=
+omes, tandis que notre experte F&B en r=C3=A9sidence me parlait d=E2=80=99e=
+xp=C3=A9riences culinaires en voyage : deux angles diff=C3=A9rents, un th=
+=C3=A8me en commun.</p><p class=3D"default" style=3D"margin: 0;"><br></p><p=
+ class=3D"default" style=3D"margin: 0;">Pas de formule magique ni de m=C3=
+=A9thode garantie semaine apr=C3=A8s semaine. C=E2=80=99est souvent comme =
+=C3=A7a que naissent nos sujets : pas seulement d=E2=80=99une intuition, ma=
+is d=E2=80=99un alignement. Un march=C3=A9 en expansion, des conversations =
+qui pointent dans la m=C3=AAme direction. Un angle appara=C3=AEt.</p><p sty=
+le=3D"margin: 0;">=C2=A0</p><p style=3D"margin: 0;">=C3=80 vous de jouer.</=
+p><p style=3D"margin: 0;"><strong>Esther, Head of Content</strong></p></div=
+> </td> </tr></table></td> </tr></table></th> </tr></table></td> </tr></tab=
+le><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presenta=
+tion" width=3D"100%" align=3D"center" class=3D"r3-o" style=3D"table-layout:=
+ fixed; width: 100%;"><tr><td class=3D"r32-i" style=3D"padding-bottom: 10px=
+;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" =
+role=3D"presentation"><tr><th width=3D"50%" valign=3D"top" class=3D"r5-c" s=
+tyle=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" b=
+order=3D"0" role=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D"ta=
+ble-layout: fixed; width: 100%;"><tr><td valign=3D"top" class=3D"r4-i"> <ta=
+ble width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D=
+"presentation"><tr><td class=3D"r33-c" align=3D"center" style=3D"align: cen=
+ter; padding-bottom: 15px; padding-top: 15px; valign: top;"> <table cellspa=
+cing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"31=
+5" class=3D"r34-o" style=3D"background-color: #ffffff; border-collapse: sep=
+arate; border-color: #e73d2a; border-radius: 0px; border-style: solid; bord=
+er-width: 1px; table-layout: fixed; width: 315px;"><tr><td height=3D"16" al=
+ign=3D"center" valign=3D"top" class=3D"r35-i nl2go-default-textstyle" style=
+=3D"word-break: break-word; background-color: #ffffff; border-radius: 0px; =
+color: #000000; font-family: Arial; font-size: 14px; font-style: normal; li=
+ne-height: 1.15; padding-bottom: 10px; padding-left: 5px; padding-right: 5p=
+x; padding-top: 10px; text-align: center;"> <a href=3D"https://g08dc.r.a.d.=
+sendibm1.com/mk/cl/f/sh/7nVU1aA2ng07net9cxGi14dd2GTd8pd/wZlpcgQZNUoh" class=
+=3D"r36-r default-button" target=3D"_blank" title=3D"Whatsapp" data-btn=3D"=
+1" style=3D"font-style: normal; font-weight: normal; line-height: 1.15; tex=
+t-decoration: none; word-break: break-word; word-wrap: break-word; display:=
+ block; -webkit-text-size-adjust: none; color: #000000; font-family: Arial;=
+ font-size: 14px;" sib_link_id=3D"14" templating=3D"n"> <span><span style=
+=3D"color: #000000;"><strong>WHATSAPP</strong></span></span></a> </td> </tr=
+></table></td> </tr></table></td> </tr></table></th> <th width=3D"50%" vali=
+gn=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <table cellspacin=
+g=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%"=
+ class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><td valign=
+=3D"top" class=3D"r7-i"> <table width=3D"100%" cellspacing=3D"0" cellpaddin=
+g=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r33-c" align=3D=
+"center" style=3D"align: center; padding-bottom: 15px; padding-top: 15px; v=
+align: top;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=
+=3D"presentation" width=3D"315" class=3D"r34-o" style=3D"background-color: =
+#ffffff; border-collapse: separate; border-color: #e73d2a; border-radius: 0=
+px; border-style: solid; border-width: 1px; table-layout: fixed; width: 315=
+px;"><tr><td height=3D"16" align=3D"center" valign=3D"top" class=3D"r35-i n=
+l2go-default-textstyle" style=3D"word-break: break-word; background-color: =
+#ffffff; border-radius: 0px; color: #000000; font-family: Arial; font-size:=
+ 14px; font-style: normal; line-height: 1.15; padding-bottom: 10px; padding=
+-left: 5px; padding-right: 5px; padding-top: 10px; text-align: center;"> <a=
+ href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng20nBOSbWVA3Q=
+xRCcyPsm9/k13yJiHWQOC0" class=3D"r36-r default-button" target=3D"_blank" ti=
+tle=3D"SLACK" data-btn=3D"2" style=3D"font-style: normal; font-weight: norm=
+al; line-height: 1.15; text-decoration: none; word-break: break-word; word-=
+wrap: break-word; display: block; -webkit-text-size-adjust: none; color: #0=
+00000; font-family: Arial; font-size: 14px;" sib_link_id=3D"15" templating=
+=3D"n"> <span><span style=3D"color: #000000;"><strong>SLACK</strong></span>=
+</span></a> </td> </tr></table></td> </tr></table></td> </tr></table></th> =
+</tr></table></td> </tr></table></td> </tr></table><table cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" align=
+=3D"center" class=3D"r37-o" style=3D"background-color: #000000; background-=
+image: url('https://img.mailinblue.com/9006340/images/content_library/origi=
+nal/6811fb2c5f6f98c5afb943eb.jpg'); background-position: bottom; background=
+-repeat: no-repeat; background-size: cover; font-size: 0; table-layout: fix=
+ed; width: 100%;"><tr><td valign=3D"top"> <table cellspacing=3D"0" cellpadd=
+ing=3D"0" border=3D"0" role=3D"presentation" width=3D"700" align=3D"center"=
+ class=3D"r0-o" style=3D"table-layout: fixed; width: 700px;"><tr><td class=
+=3D"r4-i" style=3D"padding-bottom: 20px; padding-top: 20px;"> <table width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presenta=
+tion"><tr><th width=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"font-we=
+ight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" rol=
+e=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fix=
+ed; width: 100%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding-le=
+ft: 15px; padding-right: 15px;"> <table width=3D"100%" cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r8-c nl=
+2go-default-textstyle" align=3D"left" style=3D"color: #000; font-family: Ar=
+ial; font-size: 14px; line-height: 1.3; word-break: break-word; padding-top=
+: 10px; text-align: left; valign: top;"> <div><h3 class=3D"default-heading3=
+" style=3D"margin: 0; color: #000; font-family: Arial; font-size: 24px; wor=
+d-break: break-word;"><span style=3D"color: #e73d2a; font-family: Arial; fo=
+nt-size: 16px;">=E0=B9=8F TECH & HOSPITALITY</span></h3></div> </td> </tr><=
+tr><td class=3D"r30-c" align=3D"center" style=3D"padding-bottom: 10px; padd=
+ing-top: 10px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" =
+border=3D"0" role=3D"presentation" height=3D"1" style=3D"border-top-style: =
+solid; background-clip: border-box; border-top-color: #e5e5e5; border-top-w=
+idth: 1px; font-size: 1px; line-height: 1px;"><tr><td height=3D"0" style=3D=
+"font-size: 0px; line-height: 0px;">=C2=AD</td> </tr></table></td> </tr><tr=
+><td class=3D"r38-c nl2go-default-textstyle" align=3D"left" style=3D"color:=
+ #000; font-family: Arial; font-size: 14px; line-height: 1.3; word-break: b=
+reak-word; padding-bottom: 10px; padding-top: 10px; text-align: left; valig=
+n: top;"> <div><p style=3D"margin: 0;"><span style=3D"color: #ffffff; font-=
+size: 22px;"><strong>L=E2=80=99AIRBNB DU CATERING : VERS UNE RESTAURATION =
+=C3=80 LA DEMANDE POUR L=E2=80=99HOSPITALITY</strong></span></p></div> </td=
+> </tr><tr><td class=3D"r39-c" align=3D"center" style=3D"font-size: 0px; li=
+ne-height: 0px; padding-bottom: 15px; padding-top: 10px; valign: top;"> <im=
+g src=3D"https://g08dc.img.a.d.sendibm1.com/im/sh/go5EemSgo6EG.png?u=3DWtVE=
+lij8PJZGeEwNgaWZ4UyGSqDhJuBt" width=3D"670" border=3D"0" style=3D"display: =
+block; width: 100%;" sib_img_id=3D"4"></td> </tr><tr><td class=3D"r28-c nl2=
+go-default-textstyle" align=3D"left" style=3D"color: #000; font-family: Ari=
+al; font-size: 14px; word-break: break-word; line-height: 1.26; text-align:=
+ left; valign: top;"> <div><p class=3D"default" id=3D"isPasted" style=3D"ma=
+rgin: 0;"><span style=3D"color: rgb(231, 61, 42);">Source : </span><span st=
+yle=3D"color: rgb(231, 61, 42);"><a href=3D"https://g08dc.r.a.d.sendibm1.co=
+m/mk/cl/f/sh/7nVU1aA2ng3tmhtla5jc5nHFMzTCcif/XXMDOeRC_NzJ" target=3D"_blank=
+" rel=3D"noopener noreferrer" style=3D"color: #e73d2a; font-weight: bold; t=
+ext-decoration: none;" sib_link_id=3D"16" templating=3D"n">Market Reports W=
+orld</a></span></p></div> </td> </tr></table></td> </tr></table></th> </tr>=
+</table></td> </tr></table></td> </tr></table><table cellspacing=3D"0" cell=
+padding=3D"0" border=3D"0" role=3D"presentation" width=3D"700" align=3D"cen=
+ter" class=3D"r0-o" style=3D"table-layout: fixed; width: 700px;"><tr><td va=
+lign=3D"top" class=3D"r1-i" style=3D"background-color: #ffffff;"> <table ce=
+llspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=
+=3D"100%" align=3D"center" class=3D"r3-o" style=3D"table-layout: fixed; wid=
+th: 100%;"><tr><td class=3D"r40-i" style=3D"padding-bottom: 20px; padding-t=
+op: 20px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" borde=
+r=3D"0" role=3D"presentation"><tr><th width=3D"100%" valign=3D"top" class=
+=3D"r5-c" style=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpadd=
+ing=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" class=3D"r6-o" =
+style=3D"table-layout: fixed; width: 100%;"><tr><td valign=3D"top" class=3D=
+"r7-i" style=3D"padding-left: 15px; padding-right: 15px;"> <table width=3D"=
+100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation=
+"><tr><td class=3D"r41-c nl2go-default-textstyle" align=3D"left" style=3D"c=
+olor: #000; font-family: Arial; font-size: 14px; word-break: break-word; li=
+ne-height: 1.26; padding-bottom: 15px; padding-top: 15px; text-align: left;=
+ valign: top;"> <div><p class=3D"default" id=3D"isPasted" style=3D"margin: =
+0;"><strong>Le march=C3=A9 mondial du catering devrait passer de </strong><=
+a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng5mmEP4Yey48=
+9b3XLxzMfB/YL9sPw5xmiAo" target=3D"_blank" rel=3D"noopener noreferrer" styl=
+e=3D"color: #e73d2a; font-weight: bold; text-decoration: none;" sib_link_id=
+=3D"17" templating=3D"n"><strong>$124 Mds en 2025 =C3=A0 $214 Mds estim=C3=
+=A9s d=E2=80=99ici 2034</strong></a><strong>. Pourtant, le secteur reste di=
+mensionn=C3=A9 pour le grand volume (corporate, =C3=A9v=C3=A9nementiel) et =
+peine =C3=A0 se moderniser sur le digital, la flexibilit=C3=A9 et la logist=
+ique.</strong></p><p class=3D"default" style=3D"margin: 0;"><br></p><p clas=
+s=3D"default" style=3D"margin: 0;">En parall=C3=A8le, un segment rest=C3=A9=
+ invisible explose : les petits h=C3=A9bergements comme les maisons d=E2=80=
+=99h=C3=B4tes ou retraites de yoga par exemple, qui repr=C3=A9sentent 55k h=
+=C3=A9bergements selon <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/=
+sh/7nVU1aA2ng7flkuNXECWAVurhiSm6bh/E_lx0YuCzojy" style=3D"color: #e73d2a; f=
+ont-weight: bold; text-decoration: none;" sib_link_id=3D"18" templating=3D"=
+n">G=C3=AEtes de France</a> en 2024.</p></div> </td> </tr><tr><td class=3D"=
+r41-c nl2go-default-textstyle" align=3D"left" style=3D"color: #000; font-fa=
+mily: Arial; font-size: 14px; word-break: break-word; line-height: 1.26; pa=
+dding-bottom: 15px; padding-top: 15px; text-align: left; valign: top;"> <di=
+v><p style=3D"margin: 0;"><span style=3D"color: #e73d2a; font-size: 22px;">=
+<strong>=E2=80=9C</strong></span><span style=3D"color: #000000; font-size: =
+22px;"><strong>=C2=A0</strong></span><span style=3D"color: #000000; font-si=
+ze: 18px;"><strong>=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0=C2=A0</strong></span><span style=3D"color: #000000; font-size=
+: 22px;"><strong>TROP STRUCTUR=C3=89S POUR DES SOLUTIONS GRAND PUBLIC, TROP=
+ PETITS POUR DES TRAITEURS TRADITIONNELS, ILS CHERCHENT DES OFFRES AGILES, =
+LOCALES ET FACILES =C3=80 D=C3=89PLOYER.</strong></span></p></div> </td> </=
+tr><tr><td class=3D"r41-c nl2go-default-textstyle" align=3D"left" style=3D"=
+color: #000; font-family: Arial; font-size: 14px; word-break: break-word; l=
+ine-height: 1.26; padding-bottom: 15px; padding-top: 15px; text-align: left=
+; valign: top;"> <div><p class=3D"default" id=3D"isPasted" style=3D"margin:=
+ 0;">Ce vide ouvre une nouvelle voie: un catering, capable de connecter les=
+ besoins alimentaires des lieux =C3=A0 taille humaine avec des offres local=
+es, modulables et tech-driven.</p></div> </td> </tr></table></td> </tr></ta=
+ble></th> </tr></table></td> </tr></table><table cellspacing=3D"0" cellpadd=
+ing=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" align=3D"center=
+" class=3D"r3-o" style=3D"table-layout: fixed; width: 100%;"><tr><td class=
+=3D"r4-i" style=3D"padding-bottom: 15px;"> <table width=3D"100%" cellspacin=
+g=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th width=
+=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <ta=
+ble cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" =
+width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><=
+tr><td valign=3D"top" class=3D"r4-i" style=3D"padding-left: 15px; padding-r=
+ight: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" role=3D"presentation"><tr><td class=3D"r8-c nl2go-default-textsty=
+le" align=3D"left" style=3D"color: #000; font-family: Arial; font-size: 14p=
+x; line-height: 1.3; word-break: break-word; padding-top: 10px; text-align:=
+ left; valign: top;"> <div><h4 class=3D"default-heading4" style=3D"margin: =
+0; color: #000; font-family: Arial; font-size: 18px; word-break: break-word=
+;"><span style=3D"color: #000000; font-size: 18px;">LES OPPORTUNIT=C3=89S :=
+</span><br>=C2=A0</h4></div> </td> </tr><tr><td class=3D"r28-c nl2go-defaul=
+t-textstyle" align=3D"left" style=3D"color: #000; font-family: Arial; font-=
+size: 14px; word-break: break-word; line-height: 1.26; text-align: left; va=
+lign: top;"> <div><h1 class=3D"default-heading1" style=3D"margin: 0; color:=
+ #000; font-family: Arial; font-size: 36px; word-break: break-word;"><span =
+style=3D"color: #e73d2a; font-family: Arial; font-size: 32px;"><strong>1</s=
+trong></span></h1><p style=3D"margin: 0;"><strong><span style=3D"font-size:=
+ 16px;"><span data-token-index=3D"0" class=3D"notion-enable-hover" id=3D"is=
+Pasted" style=3D"font-weight: 600;">LA MARKETPLACE =E2=80=9C=C3=80 LA DEMAN=
+DE=E2=80=9D POUR PETITS H=C3=89BERGEMENTS</span><br></span></strong></p><p =
+class=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default" id=3D"i=
+sPasted" style=3D"margin: 0;">Une plateforme type Airbnb o=C3=B9 les maison=
+s d=E2=80=99h=C3=B4tes et petits h=C3=B4tels r=C3=A9servent un chef, un bis=
+trot local ou une boulangerie pour un service ponctuel, un week-end complet=
+ ou un contrat r=C3=A9current.</p><p class=3D"default" style=3D"margin: 0;"=
+>Chaque =C3=A9tablissement propose ses formules : petit-d=C3=A9jeuner livr=
+=C3=A9, menu terroir, paniers =C3=A0 partager.</p><p class=3D"default" styl=
+e=3D"margin: 0;"><br></p><p class=3D"default" style=3D"margin: 0;"><strong>=
+Business model :</strong></p><p class=3D"default" style=3D"margin: 0;">=E2=
+=80=A2 Commission 10=E2=80=9315 %</p><p class=3D"default" style=3D"margin: =
+0;">=E2=80=A2 Abonnement Pro pour visibilit=C3=A9 + labels qualit=C3=A9</p>=
+<p class=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default" styl=
+e=3D"margin: 0;"><strong>Pour aller plus loin :</strong> ajouter un module =
+de gestion logistique (livraisons, marges) pour transformer la plateforme e=
+n outil de back-office complet.</p><p class=3D"default" style=3D"margin: 0;=
+"><br></p><p class=3D"default" style=3D"margin: 0;"><strong>Autre piste :</=
+strong> connecter cette marketplace =C3=A0 des OTAs (Booking, Airbnb) pour =
+proposer l=E2=80=99option =E2=80=9Crepas inclus=E2=80=9D =C3=A0 la r=C3=A9s=
+ervation.</p><p style=3D"margin: 0;">=C2=A0</p><p style=3D"margin: 0;"><spa=
+n style=3D"color: rgb(0, 0, 0);">Niveau d=E2=80=99expertise=C2=A0</span><sp=
+an style=3D"color: rgb(231, 61, 42);"><strong>=E2=96=B2=E2=96=B2</strong></=
+span></p><p style=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0);">Budge=
+t=C2=A0</span><span style=3D"color: rgb(231, 61, 42);"><strong>$</strong></=
+span></p></div> </td> </tr><tr><td class=3D"r30-c" align=3D"center" style=
+=3D"padding-bottom: 10px; padding-top: 10px;"> <table width=3D"100%" cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" height=3D"=
+1" style=3D"border-top-style: solid; background-clip: border-box; border-to=
+p-color: #e5e5e5; border-top-width: 1px; font-size: 1px; line-height: 1px;"=
+><tr><td height=3D"0" style=3D"font-size: 0px; line-height: 0px;">=C2=AD</t=
+d> </tr></table></td> </tr><tr><td class=3D"r27-c nl2go-default-textstyle" =
+align=3D"left" style=3D"color: #000; font-family: Arial; font-size: 14px; w=
+ord-break: break-word; line-height: 1.26; padding-top: 10px; text-align: le=
+ft; valign: top;"> <div><h1 class=3D"default-heading1" style=3D"margin: 0; =
+color: #000; font-family: Arial; font-size: 36px; word-break: break-word;">=
+<span style=3D"color: #e73d2a; font-family: Arial; font-size: 32px;"><stron=
+g>2</strong></span></h1><p style=3D"margin: 0;"><strong><span style=3D"font=
+-size: 16px;"><span data-token-index=3D"0" class=3D"notion-enable-hover" id=
+=3D"isPasted" style=3D"font-weight: 600;">DES BOX =E2=80=9CREADY-TO-SERVE=
+=E2=80=9D POUR H=C3=89BERGEMENTS IND=C3=89PENDANTS</span></span></strong></=
+p><p class=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default" id=
+=3D"isPasted" style=3D"margin: 0;">Un <a href=3D"https://g08dc.r.a.d.sendib=
+m1.com/mk/cl/f/sh/7nVU1aA2ng9YlHPgVnQyCsEfs4xYqYD/nnKMLFTZTqBa" style=3D"co=
+lor: #e73d2a; font-weight: bold; text-decoration: none;" sib_link_id=3D"19"=
+ templating=3D"n">HelloFresh</a> (5,4 M de box vendues en 2024) adapt=C3=A9=
+ aux petits =C3=A9tablissements : des box pr=C3=AAtes =C3=A0 cuisiner pour =
+10 =C3=A0 20 personnes, avec ingr=C3=A9dients dos=C3=A9s, menus et fiches t=
+echniques pens=C3=A9es pour des cuisines non professionnelles.</p><p class=
+=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default" style=3D"mar=
+gin: 0;"><strong>Business model :</strong></p><p class=3D"default" style=3D=
+"margin: 0;">=E2=80=A2 Abonnement hebdomadaire : 200=E2=80=93500 =E2=82=AC<=
+/p><p class=3D"default" style=3D"margin: 0;">=E2=80=A2 Marges sur les produ=
+its locaux</p><p class=3D"default" style=3D"margin: 0;">=E2=80=A2 Hubs logi=
+stiques r=C3=A9gionaux pour mutualiser les volumes</p><p class=3D"default" =
+style=3D"margin: 0;"><br></p><p class=3D"default" style=3D"margin: 0;"><str=
+ong>Pour aller plus loin :</strong> inclure une offre nutritionnelle en par=
+tenariat avec des naturopathes pour les s=C3=A9jours bien-=C3=AAtre type re=
+traites de yoga.</p><p style=3D"margin: 0;">=C2=A0</p><p style=3D"margin: 0=
+;"><span style=3D"color: rgb(0, 0, 0);">Niveau d=E2=80=99expertise</span><s=
+pan style=3D"color: rgb(231, 61, 42);">=C2=A0<strong>=E2=96=B2=E2=96=B2</st=
+rong></span></p><p style=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0);=
+">Budget=C2=A0</span><span style=3D"color: rgb(231, 61, 42);"><strong>$<spa=
+n id=3D"isPasted" style=3D"color: rgb(231, 61, 42);"><strong>$</strong></sp=
+an></strong></span></p></div> </td> </tr><tr><td class=3D"r30-c" align=3D"c=
+enter" style=3D"padding-bottom: 10px; padding-top: 10px;"> <table width=3D"=
+100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation=
+" height=3D"1" style=3D"border-top-style: solid; background-clip: border-bo=
+x; border-top-color: #e5e5e5; border-top-width: 1px; font-size: 1px; line-h=
+eight: 1px;"><tr><td height=3D"0" style=3D"font-size: 0px; line-height: 0px=
+;">=C2=AD</td> </tr></table></td> </tr><tr><td class=3D"r27-c nl2go-default=
+-textstyle" align=3D"left" style=3D"color: #000; font-family: Arial; font-s=
+ize: 14px; word-break: break-word; line-height: 1.26; padding-top: 10px; te=
+xt-align: left; valign: top;"> <div><h1 class=3D"default-heading1" style=3D=
+"margin: 0; color: #000; font-family: Arial; font-size: 36px; word-break: b=
+reak-word;"><span style=3D"color: #e73d2a; font-family: Arial; font-size: 3=
+2px;"><strong>3</strong></span></h1><p style=3D"margin: 0;"><strong><span s=
+tyle=3D"font-size: 16px;"><span data-token-index=3D"0" class=3D"notion-enab=
+le-hover" id=3D"isPasted" style=3D"font-weight: 600;"><span data-token-inde=
+x=3D"0" class=3D"notion-enable-hover" id=3D"isPasted" style=3D"font-weight:=
+ 600;">LE =E2=80=9CPERSONAL CATERING=E2=80=9D CL=C3=89 EN MAIN POUR S=C3=89=
+JOURS & RETRAITES</span></span></span></strong></p><p class=3D"default" id=
+=3D"isPasted" style=3D"margin: 0;"><br></p><p class=3D"default" id=3D"isPas=
+ted" style=3D"margin: 0;">Un service o=C3=B9 l=E2=80=99on r=C3=A9serve un c=
+hef + des menus + du mat=C3=A9riel comme on r=C3=A9serverait un photographe=
+. Inspir=C3=A9 de mod=C3=A8les type <a href=3D"https://g08dc.r.a.d.sendibm1=
+.com/mk/cl/f/sh/7nVU1aA2nfsaHta894gzmncSCCJSuld/t3neUJ-fKIGg" style=3D"colo=
+r: #e73d2a; font-weight: bold; text-decoration: none;" sib_link_id=3D"20" t=
+emplating=3D"n">Take a Chef</a>, chaque prestation inclut un menu valid=C3=
+=A9 =C3=A0 l=E2=80=99avance, une logistique simplifi=C3=A9e et des options =
+de personnalisation.</p><p class=3D"default" style=3D"margin: 0;"><br></p><=
+p class=3D"default" style=3D"margin: 0;"><strong>Business model :</strong><=
+/p><p class=3D"default" style=3D"margin: 0;">=E2=80=A2 Commission 15=E2=80=
+=9320 %</p><p class=3D"default" style=3D"margin: 0;">=E2=80=A2 <em>Upsells<=
+/em> : <em>set design</em>, vaisselle, sourcing local, ateliers</p><p class=
+=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default" style=3D"mar=
+gin: 0;"><strong>Int=C3=A9r=C3=AAt :</strong> transformer les s=C3=A9jours =
+collectifs en exp=C3=A9riences signatures, avec matching entre le type de s=
+=C3=A9jour et le style culinaire du chef (v=C3=A9g=C3=A9tal, terroir, brain=
+-food).</p><p class=3D"default" style=3D"margin: 0;"><br></p><p class=3D"de=
+fault" style=3D"margin: 0;"><strong>Pour aller plus loin :</strong> d=C3=A9=
+velopper une dimension exp=C3=A9rientielle, o=C3=B9 le chef devient cr=C3=
+=A9ateur d=E2=80=99exp=C3=A9rience : cours de cuisine, ateliers sensoriels=
+=E2=80=A6</p><p style=3D"margin: 0;">=C2=A0</p><p style=3D"margin: 0;"><spa=
+n style=3D"color: rgb(0, 0, 0);">Niveau d=E2=80=99expertise</span><span sty=
+le=3D"color: rgb(231, 61, 42);">=C2=A0<strong>=E2=96=B2=E2=96=B2</strong></=
+span></p><p style=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0);">Budge=
+t=C2=A0</span><span style=3D"color: rgb(231, 61, 42);"><strong>$<span id=3D=
+"isPasted" style=3D"color: rgb(231, 61, 42);"><strong>$</strong></span></st=
+rong></span></p></div> </td> </tr></table></td> </tr></table></th> </tr></t=
+able></td> </tr></table></td> </tr></table><table cellspacing=3D"0" cellpad=
+ding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" align=3D"cente=
+r" class=3D"r37-o" style=3D"background-color: #000000; background-image: ur=
+l('https://img.mailinblue.com/9006340/images/content_library/original/6811f=
+b2c5f6f98c5afb943eb.jpg'); background-position: center; background-repeat: =
+no-repeat; background-size: cover; font-size: 0; table-layout: fixed; width=
+: 100%;"><tr><td valign=3D"top"> <table cellspacing=3D"0" cellpadding=3D"0"=
+ border=3D"0" role=3D"presentation" width=3D"700" align=3D"center" class=3D=
+"r0-o" style=3D"table-layout: fixed; width: 700px;"><tr><td class=3D"r4-i" =
+style=3D"padding-bottom: 20px; padding-top: 20px;"> <table width=3D"100%" c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><=
+th width=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: norma=
+l;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presen=
+tation" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: =
+100%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; p=
+adding-right: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r8-c nl2go-defau=
+lt-textstyle" align=3D"left" style=3D"color: #000; font-family: Arial; font=
+-size: 14px; line-height: 1.3; word-break: break-word; padding-top: 10px; t=
+ext-align: left; valign: top;"> <div><h3 class=3D"default-heading3" style=
+=3D"margin: 0; color: #000; font-family: Arial; font-size: 24px; word-break=
+: break-word;"><span style=3D"color: #e73d2a; font-family: Arial; font-size=
+: 20px;">=E2=9C=B8</span><span style=3D"color: #e73d2a; font-family: Arial;=
+ font-size: 18px;">=C2=A0OBJETS CONNECT=C3=89S</span></h3></div> </td> </tr=
+><tr><td class=3D"r30-c" align=3D"center" style=3D"padding-bottom: 10px; pa=
+dding-top: 10px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0=
+" border=3D"0" role=3D"presentation" height=3D"1" style=3D"border-top-style=
+: solid; background-clip: border-box; border-top-color: #e5e5e5; border-top=
+-width: 1px; font-size: 1px; line-height: 1px;"><tr><td height=3D"0" style=
+=3D"font-size: 0px; line-height: 0px;">=C2=AD</td> </tr></table></td> </tr>=
+<tr><td class=3D"r41-c nl2go-default-textstyle" align=3D"left" style=3D"col=
+or: #000; font-family: Arial; font-size: 14px; word-break: break-word; line=
+-height: 1; padding-bottom: 15px; padding-top: 15px; text-align: left; vali=
+gn: top;"> <div><p style=3D"margin: 0;"><span style=3D"color: #ffffff; font=
+-family: Arial, helvetica, sans-serif; font-size: 24px;"><strong><span data=
+-token-index=3D"0" class=3D"notion-enable-hover" id=3D"isPasted" style=3D"f=
+ont-weight: 600;"><span data-token-index=3D"0" class=3D"notion-enable-hover=
+" id=3D"isPasted" style=3D"font-weight: 600;">ET SI LA PROCHAINE R=C3=89VOL=
+UTION DU TRAVEL VENAIT=E2=80=A6 DE VOTRE VALISE ?</span></span></strong></s=
+pan></p></div> </td> </tr><tr><td class=3D"r42-c" align=3D"center" style=3D=
+"font-size: 0px; line-height: 0px; padding-bottom: 15px; padding-top: 15px;=
+ valign: top;"> <img src=3D"https://g08dc.img.a.d.sendibm1.com/im/sh/_r5HHi=
+Sd_MrR.png?u=3DWtVElij8PJZGehH5t0uvAQ8WWfbWIdtx" width=3D"670" border=3D"0"=
+ style=3D"display: block; width: 100%;" sib_img_id=3D"5"></td> </tr><tr><td=
+ class=3D"r28-c nl2go-default-textstyle" align=3D"left" style=3D"color: #00=
+0; font-family: Arial; font-size: 14px; word-break: break-word; line-height=
+: 1; text-align: left; valign: top;"> <div><p class=3D"default" style=3D"ma=
+rgin: 0;"><span style=3D"color: rgb(231, 61, 42);">Source :=C2=A0</span><a =
+href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfuTHQ5R7dvRp9w=
+GMYoFei9/af-_LLpdy1LM" target=3D"_blank" rel=3D"noopener noreferrer" style=
+=3D"color: #e73d2a; font-weight: bold; text-decoration: none;" sib_link_id=
+=3D"21" templating=3D"n">Grand View Research</a></p></div> </td> </tr></tab=
+le></td> </tr></table></th> </tr></table></td> </tr></table></td> </tr></ta=
+ble><table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation" width=3D"700" align=3D"center" class=3D"r0-o" style=3D"table-layout:=
+ fixed; width: 700px;"><tr><td valign=3D"top" class=3D"r1-i" style=3D"backg=
+round-color: #ffffff;"> <table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" class=3D"r3-o"=
+ style=3D"table-layout: fixed; width: 100%;"><tr><td class=3D"r4-i" style=
+=3D"padding-bottom: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpad=
+ding=3D"0" border=3D"0" role=3D"presentation"><tr><th width=3D"100%" valign=
+=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <table cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" =
+class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><td valign=
+=3D"top" class=3D"r4-i" style=3D"padding-left: 15px; padding-right: 15px;">=
+ <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" rol=
+e=3D"presentation"><tr><td class=3D"r41-c nl2go-default-textstyle" align=3D=
+"left" style=3D"color: #000; font-family: Arial; font-size: 14px; word-brea=
+k: break-word; line-height: 1.26; padding-bottom: 15px; padding-top: 15px; =
+text-align: left; valign: top;"> <div><p class=3D"default" id=3D"isPasted" =
+style=3D"margin: 0;"><strong>Objet banal, la valise a pourtant =C3=A9t=C3=
+=A9 l=E2=80=99un des premiers terrains d=E2=80=99exp=C3=A9rimentation du <e=
+m>smart travel</em>. En 2014, Bluesmart l=C3=A8ve plus de <a href=3D"https:=
+//g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfwMGwak6D9trWG4WvJ2Oef/_LLo9=
+-v4weSY" style=3D"color: #e73d2a; font-weight: bold; text-decoration: none;=
+" sib_link_id=3D"22" templating=3D"n">$2 M sur Indiegogo</a> avec sa valise=
+ connect=C3=A9e, preuve qu=E2=80=99un simple bagage pouvait devenir un obje=
+t tech.</strong></p><p class=3D"default" style=3D"margin: 0;"><br></p><p cl=
+ass=3D"default" style=3D"margin: 0;">Mais c=E2=80=99est <a href=3D"https://=
+g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfyFGT634mOLtsZshHnp8bB/o3Sc_Pz=
+Qg6uT" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"color: #e73d2=
+a; font-weight: bold; text-decoration: none;" sib_link_id=3D"23" templating=
+=3D"n">Away</a> (USA, $81M lev=C3=A9s), lanc=C3=A9e en 2015, qui popularise=
+ vraiment le concept : design minimaliste, batterie amovible, marketing red=
+outable=E2=80=A6 la marque s=E2=80=99impose en quelques mois comme le symbo=
+le du bagage premium accessible. L=E2=80=99envol=C3=A9e est stopp=C3=A9e ne=
+t fin 2019, quand un scandale de management toxique entra=C3=AEne la semi-c=
+ancelation de la CEO, juste avant que la pand=C3=A9mie ne paralyse le voyag=
+e.</p><p class=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default=
+" style=3D"margin: 0;">Apr=C3=A8s cette premi=C3=A8re vague avort=C3=A9e, l=
+e march=C3=A9 repart sur des bases plus matures : <a href=3D"https://g08dc.=
+r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng08FzbM3LcnwEtgreIbsXh/vrPUBjxx6T8r"=
+ target=3D"_blank" rel=3D"noopener noreferrer" style=3D"color: #e73d2a; fon=
+t-weight: bold; text-decoration: none;" sib_link_id=3D"24" templating=3D"n"=
+>$</a><a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng21FW=
+6f1urFybDV20nOcUD/ju-S58M56bdV" style=3D"color: #e73d2a; font-weight: bold;=
+ text-decoration: none;" sib_link_id=3D"25" templating=3D"n">2,42 Mds en 20=
+25, et une projection =C3=A0 $4,14 Mds d=E2=80=99ici 2030.</a></p></div> </=
+td> </tr><tr><td class=3D"r8-c nl2go-default-textstyle" align=3D"left" styl=
+e=3D"color: #000; font-family: Arial; font-size: 14px; line-height: 1.3; wo=
+rd-break: break-word; padding-top: 10px; text-align: left; valign: top;"> <=
+div><h4 class=3D"default-heading4" style=3D"margin: 0; color: #000; font-fa=
+mily: Arial; font-size: 18px; word-break: break-word;"><span style=3D"color=
+: #000000; font-size: 18px;">LES OPPORTUNIT=C3=89S :</span><br>=C2=A0</h4><=
+/div> </td> </tr><tr><td class=3D"r28-c nl2go-default-textstyle" align=3D"l=
+eft" style=3D"color: #000; font-family: Arial; font-size: 14px; word-break:=
+ break-word; line-height: 1.26; text-align: left; valign: top;"> <div><h1 c=
+lass=3D"default-heading1" style=3D"margin: 0; color: #000; font-family: Ari=
+al; font-size: 36px; word-break: break-word;"><span style=3D"color: #e73d2a=
+; font-family: Arial; font-size: 32px;"><strong>1</strong></span></h1><p st=
+yle=3D"margin: 0;"><strong><span style=3D"font-size: 16px;"><span data-toke=
+n-index=3D"0" class=3D"notion-enable-hover" id=3D"isPasted" style=3D"font-w=
+eight: 600;">LA VALISE COMME ESPACE DE VIE MOBILE</span><br></span></strong=
+>=C2=A0</p><p class=3D"default" id=3D"isPasted" style=3D"margin: 0;">Les no=
+uveaux voyageurs =E2=80=94 ind=C3=A9pendants, t=C3=A9l=C3=A9travailleurs, <=
+em>digital nomads</em> =E2=80=94 n=E2=80=99ont plus la m=C3=AAme relation =
+=C3=A0 leur bagage. Ils cherchent de la fonctionnalit=C3=A9 avant tout.</p>=
+<p class=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default" styl=
+e=3D"margin: 0;">Certaines marques l=E2=80=99ont bien compris : <a href=3D"=
+https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng3uF2by0U5i0xXJCNIBMQj=
+/JlrcC98cL9QG" style=3D"color: #e73d2a; font-weight: bold; text-decoration:=
+ none;" sib_link_id=3D"26" templating=3D"n">Kabuto</a> (FR, investi par des=
+ c=C3=A9l=C3=A9brit=C3=A9s du foot) ou <a href=3D"https://g08dc.r.a.d.sendi=
+bm1.com/mk/cl/f/sh/7nVU1aA2ng5nEZ7Gz3KA3Jr7Mjmy6NF/hL5ipisH5TMp" style=3D"c=
+olor: #e73d2a; font-weight: bold; text-decoration: none;" sib_link_id=3D"27=
+" templating=3D"n">Samsara</a>=C2=A0 (USA, $915M lev=C3=A9s) int=C3=A8grent=
+ d=C3=A9j=C3=A0 des tablettes ou batteries amovibles pour transformer la va=
+lise en bureau d=E2=80=99appoint. Les mod=C3=A8les plus techniques, comme c=
+eux de <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng7gE=
+5cZxcYc5gAvX6HkqJl/vBC5b2hwibnh" style=3D"color: #e73d2a; font-weight: bold=
+; text-decoration: none;" sib_link_id=3D"28" templating=3D"n">Heys Smart Lu=
+ggage,</a> vont jusqu=E2=80=99=C3=A0 proposer une poign=C3=A9e intelligente=
+ capable d=E2=80=99afficher instantan=C3=A9ment le poids. =C2=A0</p><p clas=
+s=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default" style=3D"ma=
+rgin: 0;"><strong>Pour aller plus loin=C2=A0</strong>: L=E2=80=99innovation=
+ n=E2=80=99a pas besoin d=E2=80=99=C3=AAtre spectaculaire. Elle peut aussi =
+passer par des <em>quick wins</em> bien pens=C3=A9s : un porte-gobelet int=
+=C3=A9gr=C3=A9 pour poser son caf=C3=A9 quand on travaille, ou une ouvertur=
+e plus pratique pour optimiser l=E2=80=99espace. C=E2=80=99est l=E2=80=99ap=
+proche de <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng=
+9ZDc7swBn482UjhSmXaGH/D66757EjKvPn" style=3D"color: #e73d2a; font-weight: b=
+old; text-decoration: none;" sib_link_id=3D"29" templating=3D"n">NOBL Trave=
+l</a> (USA) , marque montante qui mise sur des fonctionnalit=C3=A9s simples=
+ mais terriblement pratiques (acc=C3=A8s facile, poches pens=C3=A9es pour l=
+e travail nomade, et m=C3=AAme un porte-gobelet int=C3=A9gr=C3=A9, etc) aut=
+ant d=E2=80=99attentions qui transforment la valise en v=C3=A9ritable espac=
+e de vie mobile.</p><p style=3D"margin: 0;">=C2=A0</p><p style=3D"margin: 0=
+;"><span style=3D"color: rgb(0, 0, 0);">Niveau d=E2=80=99expertise=C2=A0</s=
+pan><span style=3D"color: rgb(231, 61, 42);">=E2=96=B2</span></p><p style=
+=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0);">Budget=C2=A0</span><sp=
+an style=3D"color: rgb(231, 61, 42);"><strong>$$</strong></span></p></div> =
+</td> </tr><tr><td class=3D"r30-c" align=3D"center" style=3D"padding-bottom=
+: 10px; padding-top: 10px;"> <table width=3D"100%" cellspacing=3D"0" cellpa=
+dding=3D"0" border=3D"0" role=3D"presentation" height=3D"1" style=3D"border=
+-top-style: solid; background-clip: border-box; border-top-color: #e5e5e5; =
+border-top-width: 1px; font-size: 1px; line-height: 1px;"><tr><td height=3D=
+"0" style=3D"font-size: 0px; line-height: 0px;">=C2=AD</td> </tr></table></=
+td> </tr><tr><td class=3D"r27-c nl2go-default-textstyle" align=3D"left" sty=
+le=3D"color: #000; font-family: Arial; font-size: 14px; word-break: break-w=
+ord; line-height: 1.26; padding-top: 10px; text-align: left; valign: top;">=
+ <div><h1 class=3D"default-heading1" style=3D"margin: 0; color: #000; font-=
+family: Arial; font-size: 36px; word-break: break-word;"><span style=3D"col=
+or: #e73d2a; font-family: Arial; font-size: 32px;"><strong>2</strong></span=
+></h1><p style=3D"margin: 0;"><strong><span style=3D"font-size: 16px;"><spa=
+n data-token-index=3D"0" class=3D"notion-enable-hover" id=3D"isPasted" styl=
+e=3D"font-weight: 600;">NE PLUS JAMAIS PERDRE SA VALISE</span></span></stro=
+ng></p><p style=3D"margin: 0;">=C2=A0</p><p class=3D"default" id=3D"isPaste=
+d" style=3D"margin: 0;">La perte de bagages reste l=E2=80=99un des plus gro=
+s irritants du voyage. Les AirTags ont apport=C3=A9 une premi=C3=A8re r=C3=
+=A9ponse, mais ils restent accessoires et souvent mal int=C3=A9gr=C3=A9s. U=
+ne approche plus efficace consiste =C3=A0 pr=C3=A9voir d=C3=A8s la concepti=
+on un espace d=C3=A9di=C3=A9 ou un syst=C3=A8me de suivi int=C3=A9gr=C3=A9.=
+ C=E2=80=99est ce que fait la marque <a href=3D"https://g08dc.r.a.d.sendibm=
+1.com/mk/cl/f/sh/7nVU1aA2nfsakEIKZT35hxsW1a8ReTh/jvQwhV1jEzam" style=3D"col=
+or: #e73d2a; font-weight: bold; text-decoration: none;" sib_link_id=3D"30" =
+templating=3D"n">July (AU) avec sa nouvelle CaseSafe</a>, premi=C3=A8re val=
+ise enti=C3=A8rement tra=C3=A7able. Elle int=C3=A8gre un verrou TSA connect=
+=C3=A9 permettant de suivre la valise depuis son smartphone, sans rien ajou=
+ter.</p><p class=3D"default" style=3D"margin: 0;"><br></p><p class=3D"defau=
+lt" style=3D"margin: 0;"><strong>Pour aller plus loin</strong> : l=E2=80=99=
+opportunit=C3=A9 n=E2=80=99est pas forc=C3=A9ment de cr=C3=A9er une valise =
+compl=C3=A8te. On peut aussi imaginer un widget universel, un module de sui=
+vi compact, design, pens=C3=A9 pour s=E2=80=99int=C3=A9grer sur n=E2=80=99i=
+mporte quel bagage (dans la coque, la poign=C3=A9e ou la doublure). Une sor=
+te de <em>pocket tracker</em> nouvelle g=C3=A9n=C3=A9ration : discret, auto=
+nome et compatible avec toutes les marques. Demain, la tra=C3=A7abilit=C3=
+=A9 pourrait devenir un standard : valises capables de signaler automatique=
+ment leur position ou modules intelligents qu=E2=80=99on clipse simplement =
+sur son bagage existant.</p><p style=3D"margin: 0;">=C2=A0</p><p style=3D"m=
+argin: 0;"><span style=3D"color: rgb(0, 0, 0);">Niveau d=E2=80=99expertise=
+=C2=A0</span><span style=3D"color: rgb(231, 61, 42);">=E2=96=B2<span id=3D"=
+isPasted" style=3D"color: rgb(231, 61, 42);">=E2=96=B2</span></span></p><p =
+style=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0);">Budget=C2=A0</spa=
+n><span style=3D"color: rgb(231, 61, 42);"><strong>$</strong></span></p></d=
+iv> </td> </tr></table></td> </tr></table></th> </tr></table></td> </tr></t=
+able></td> </tr></table><table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" class=3D"r43-o=
+" style=3D"table-layout: fixed; width: 100%;"><tr><td valign=3D"top" class=
+=3D"r44-i" style=3D"background-color: #f6f6f6;"> <table cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"700" align=3D"=
+center" class=3D"r0-o" style=3D"table-layout: fixed; width: 700px;"><tr><td=
+ class=3D"r4-i" style=3D"padding-bottom: 5px; padding-top: 20px;"> <table w=
+idth=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"pres=
+entation"><tr><th width=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"fon=
+t-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+ role=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D"table-layout:=
+ fixed; width: 100%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"paddin=
+g-left: 15px; padding-right: 15px;"> <table width=3D"100%" cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r45=
+-c nl2go-default-textstyle" align=3D"left" style=3D"color: #000; font-famil=
+y: Arial; font-size: 14px; line-height: 1.3; word-break: break-word; paddin=
+g-top: 15px; text-align: left; valign: top;"> <div><p style=3D"margin: 0;">=
+<span style=3D"color: #e73d2a; font-family: Arial; font-size: 22px;"><stron=
+g>=E2=89=88 =C3=87A MARCHE AILLEURS</strong></span></p></div> </td> </tr><t=
+r><td class=3D"r30-c" align=3D"center" style=3D"padding-bottom: 10px; paddi=
+ng-top: 10px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" b=
+order=3D"0" role=3D"presentation" height=3D"1" style=3D"border-top-style: s=
+olid; background-clip: border-box; border-top-color: #e5e5e5; border-top-wi=
+dth: 1px; font-size: 1px; line-height: 1px;"><tr><td height=3D"0" style=3D"=
+font-size: 0px; line-height: 0px;">=C2=AD</td> </tr></table></td> </tr><tr>=
+<td class=3D"r46-c nl2go-default-textstyle" align=3D"left" style=3D"color: =
+#000; font-family: Arial; font-size: 14px; line-height: 1.3; word-break: br=
+eak-word; padding-bottom: 10px; padding-top: 15px; text-align: left; valign=
+: top;"> <div><p style=3D"margin: 0;"><span style=3D"color: #000000; font-s=
+ize: 14px;">Chaque semaine, nous vous pr=C3=A9sentons une nouvelle start-up=
+ venue d'ailleurs dans le monde, qui pourrait =C3=AAtre recr=C3=A9=C3=A9e e=
+n France.</span></p><p style=3D"margin: 0;"><span style=3D"font-size: 14px;=
+ color: rgb(0, 0, 0);">=C2=A0</span></p><p class=3D"default" id=3D"isPasted=
+" style=3D"margin: 0;"><span style=3D"font-size: 16px;"><strong>RECRUTER DE=
+S EXPERTS POUR ENTRA=C3=8ENER L=E2=80=99IA (=C3=89TATS-UNIS)</strong></span=
+></p><p class=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default"=
+ style=3D"margin: 0;">TL;DR : <a href=3D"https://g08dc.r.a.d.sendibm1.com/m=
+k/cl/f/sh/7nVU1aA2nfuTjkndY2HXkKCKBwdEOQD/CsO-tV_AIKQn" style=3D"color: #e7=
+3d2a; font-weight: bold; text-decoration: none;" sib_link_id=3D"31" templat=
+ing=3D"n">Fixpoint</a> automatise le recrutement et la v=C3=A9rification de=
+s experts pour entra=C3=AEner les IA.</p><p class=3D"default" style=3D"marg=
+in: 0;"><br></p><p class=3D"default" style=3D"margin: 0;"><strong>Probl=C3=
+=A8mes :</strong></p><ul style=3D"margin: 0;"><li style=3D"margin: 0;">Pour=
+ entra=C3=AEner des IA performantes, il ne suffit plus de simples "clics", =
+il faut de vrais experts (m=C3=A9decins, avocats).</li><li style=3D"margin:=
+ 0;">Trouver et v=C3=A9rifier les dipl=C3=B4mes de ces profils prend =C3=A9=
+norm=C3=A9ment de temps.</li></ul><p class=3D"default" style=3D"margin: 0;"=
+><br></p><p class=3D"default" style=3D"margin: 0;"><strong>Solution :</stro=
+ng></p><ul style=3D"margin: 0;"><li style=3D"margin: 0;">Une API de v=C3=A9=
+rification qui automatise le contr=C3=B4le des dipl=C3=B4mes et des ant=C3=
+=A9c=C3=A9dents.</li><li style=3D"margin: 0;">Un service de <em>staffing</e=
+m> capable de monter une =C3=A9quipe de 100 experts en seulement quelques s=
+emaines, avec gestion de la paie incluse.</li></ul><p class=3D"default" sty=
+le=3D"margin: 0;"><br></p><p class=3D"default" style=3D"margin: 0;">Un proj=
+et qui vise plut=C3=B4t les entreprises avec une grosse part d=E2=80=99IA (=
+soit des projets dans de grandes entreprises, soit des startups en IA) qui =
+veulent avoir des mod=C3=A8les plus puissants et plus sp=C3=A9cifiques.</p>=
+<p class=3D"default" style=3D"margin: 0;"><br></p><p id=3D"isPasted" style=
+=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0);">Niveau d=E2=80=99exper=
+tise=C2=A0</span><span style=3D"color: rgb(231, 61, 42);">=E2=96=B2</span><=
+/p><p style=3D"margin: 0;"><span style=3D"color: rgb(0, 0, 0);">Budget=C2=
+=A0</span><span style=3D"color: rgb(231, 61, 42);"><strong>$</strong></span=
+></p></div> </td> </tr><tr><td class=3D"r30-c" align=3D"center" style=3D"pa=
+dding-bottom: 10px; padding-top: 10px;"> <table width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" height=3D"1" st=
+yle=3D"border-top-style: solid; background-clip: border-box; border-top-col=
+or: #e5e5e5; border-top-width: 1px; font-size: 1px; line-height: 1px;"><tr>=
+<td height=3D"0" style=3D"font-size: 0px; line-height: 0px;">=C2=AD</td> </=
+tr></table></td> </tr><tr><td class=3D"r46-c nl2go-default-textstyle" align=
+=3D"left" style=3D"color: #000; font-family: Arial; font-size: 14px; line-h=
+eight: 1.3; word-break: break-word; padding-bottom: 10px; padding-top: 15px=
+; text-align: left; valign: top;"> <div><p style=3D"margin: 0;"><em><strong=
+>Vous avez une id=C3=A9e que vous aimeriez transformer en produit ?</strong=
+><br style=3D"font-style: normal; font-weight: 400; text-decoration-thickne=
+ss: initial; text-decoration-style: initial;">L=E2=80=99auteur de cette=C2=
+=A0section d=C3=A9veloppe =C3=A9galement des plateformes et outils SaaS pou=
+r des clients en freelance.<br style=3D"font-style: normal; font-weight: 40=
+0; text-decoration-thickness: initial; text-decoration-style: initial;">Si =
+les id=C3=A9es pr=C3=A9sent=C3=A9es ici aujourd'hui, dans cette section ou =
+plus haut, vous tentent et que vous cherchez un d=C3=A9veloppeur pour lance=
+r un MVP, vous pouvez le contacter via=C2=A0</em><a href=3D"https://g08dc.r=
+.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfwMjHIwWbVzmgW8MJ818Mj/WzzXI9gTPYMU" =
+target=3D"_blank" rel=3D"noopener noreferrer" style=3D"color: #e73d2a; font=
+-weight: bold; text-decoration: none;" sib_link_id=3D"32" templating=3D"n">=
+<em>ce formulaire</em></a><em>.=C2=A0</em><em>Comptez quelques milliers d=
+=E2=80=99euros pour une premi=C3=A8re version 100% fonctionnelle.</em></p><=
+/div> </td> </tr></table></td> </tr></table></th> </tr></table></td> </tr><=
+/table></td> </tr></table><table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" class=3D"r3-o"=
+ style=3D"table-layout: fixed; width: 100%;"><tr><td valign=3D"top" class=
+=3D"r1-i" style=3D"background-color: #ffffff;"> <table cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"700" align=3D"c=
+enter" class=3D"r0-o" style=3D"table-layout: fixed; width: 700px;"><tr><td =
+class=3D"r4-i" style=3D"padding-bottom: 5px; padding-top: 20px;"> <table wi=
+dth=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"prese=
+ntation"><tr><th width=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"font=
+-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" =
+role=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D"table-layout: =
+fixed; width: 100%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding=
+-left: 15px; padding-right: 15px;"> <table width=3D"100%" cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r47-=
+c nl2go-default-textstyle" align=3D"left" style=3D"color: #000; font-family=
+: Arial; font-size: 14px; line-height: 1.3; word-break: break-word; padding=
+-bottom: 5px; padding-top: 10px; text-align: left; valign: top;"> <div><p s=
+tyle=3D"margin: 0;"><span style=3D"color: #e73d2a; font-size: 22px;"><stron=
+g>=E2=97=88 TENDANCES E-COMMERCE</strong></span></p></div> </td> </tr><tr><=
+td class=3D"r30-c" align=3D"center" style=3D"padding-bottom: 10px; padding-=
+top: 10px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bord=
+er=3D"0" role=3D"presentation" height=3D"1" style=3D"border-top-style: soli=
+d; background-clip: border-box; border-top-color: #e5e5e5; border-top-width=
+: 1px; font-size: 1px; line-height: 1px;"><tr><td height=3D"0" style=3D"fon=
+t-size: 0px; line-height: 0px;">=C2=AD</td> </tr></table></td> </tr><tr><td=
+ class=3D"r41-c nl2go-default-textstyle" align=3D"left" style=3D"color: #00=
+0; font-family: Arial; font-size: 14px; line-height: 1.3; word-break: break=
+-word; padding-bottom: 15px; padding-top: 15px; text-align: left; valign: t=
+op;"> <div><p style=3D"margin: 0;"><span style=3D"color: #000000; font-size=
+: 14px;">Des opportunit=C3=A9s de niche pour se lancer en e-commerce : des =
+produits vendus 15-100=E2=82=AC, recherch=C3=A9s >1000x/mois. Ils sont clas=
+s=C3=A9s par tendance de recherches sur 30 jours, et le chiffre correspond =
+au volume de ventes du top produit.</span></p></div> </td> </tr></table></t=
+d> </tr></table></th> </tr></table></td> </tr></table></td> </tr></table><t=
+able cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"=
+ width=3D"100%" align=3D"center" class=3D"r3-o" style=3D"table-layout: fixe=
+d; width: 100%;"><tr><td valign=3D"top" class=3D"r9-i" style=3D"background-=
+color: #000000;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" r=
+ole=3D"presentation" width=3D"700" align=3D"center" class=3D"r0-o" style=3D=
+"table-layout: fixed; width: 700px;"><tr><td class=3D"r4-i" style=3D"paddin=
+g-bottom: 5px; padding-top: 5px;"> <table width=3D"100%" cellspacing=3D"0" =
+cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th width=3D"50%" =
+valign=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <table cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"1=
+00%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><td val=
+ign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; padding-right: 15px=
+;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" =
+role=3D"presentation"><tr><td class=3D"r8-c nl2go-default-textstyle" align=
+=3D"left" style=3D"color: #000; font-family: Arial; font-size: 14px; line-h=
+eight: 1.3; word-break: break-word; padding-top: 10px; text-align: left; va=
+lign: top;"> <div><h4 class=3D"default-heading4" style=3D"margin: 0; color:=
+ #000; font-family: Arial; font-size: 18px; word-break: break-word;"><a hre=
+f=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfyFinoFVAkRp2pwWf=
+cnsJF/nvU_nUqZ1jxF" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"=
+color: #e73d2a; font-weight: bold; text-decoration: none; font-size: 16px;"=
+ sib_link_id=3D"33" templating=3D"n"><span style=3D"font-size: 14px;">PILE =
+CIGARETTE =C3=89LECTRONIQUE</span></a></h4></div> </td> </tr><tr><td class=
+=3D"r8-c nl2go-default-textstyle" align=3D"left" style=3D"color: #000; font=
+-family: Arial; font-size: 14px; line-height: 1.3; word-break: break-word; =
+padding-top: 10px; text-align: left; valign: top;"> <div><p style=3D"margin=
+: 0;"><span style=3D"color: #ffffff; font-family: Arial; font-size: 36px;">=
+=E2=82=AC59K=C2=A0</span><span style=3D"color: #ffffff; font-family: Arial;=
+ font-size: 16px;">+50%</span></p></div> </td> </tr><tr><td class=3D"r48-c"=
+ align=3D"center" style=3D"padding-bottom: 10px; padding-top: 5px;"> <table=
+ width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"pr=
+esentation" height=3D"1" style=3D"border-top-style: solid; background-clip:=
+ border-box; border-top-color: #858588; border-top-width: 1px; font-size: 1=
+px; line-height: 1px;"><tr><td height=3D"0" style=3D"font-size: 0px; line-h=
+eight: 0px;">=C2=AD</td> </tr></table></td> </tr></table></td> </tr></table=
+></th> <th width=3D"50%" valign=3D"top" class=3D"r5-c" style=3D"font-weight=
+: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D=
+"presentation" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; =
+width: 100%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding-left: =
+15px; padding-right: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpa=
+dding=3D"0" border=3D"0" role=3D"presentation"><tr><td class=3D"r8-c nl2go-=
+default-textstyle" align=3D"left" style=3D"color: #000; font-family: Arial;=
+ font-size: 14px; line-height: 1.3; word-break: break-word; padding-top: 10=
+px; text-align: left; valign: top;"> <div><h4 class=3D"default-heading4" st=
+yle=3D"margin: 0; color: #000; font-family: Arial; font-size: 18px; word-br=
+eak: break-word;"><a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7n=
+VU1aA2ng08iKJYTjytrP9kh27acFl/R5SCf3rizVHg" target=3D"_blank" rel=3D"noopen=
+er noreferrer" style=3D"color: #e73d2a; font-weight: bold; text-decoration:=
+ none;" sib_link_id=3D"34" templating=3D"n"><span style=3D"background-color=
+: #000000; color: #e73d2a; font-family: Arial; font-size: 14px;">PSG ENFANT=
+</span></a></h4></div> </td> </tr><tr><td class=3D"r8-c nl2go-default-texts=
+tyle" align=3D"left" style=3D"color: #000; font-family: Arial; font-size: 1=
+4px; line-height: 1.3; word-break: break-word; padding-top: 10px; text-alig=
+n: left; valign: top;"> <div><p style=3D"margin: 0;"><span style=3D"color: =
+#ffffff; font-family: Arial; font-size: 36px;">=E2=82=AC191K=C2=A0</span><s=
+pan style=3D"color: #ffffff; font-family: Arial; font-size: 16px;">+50%</sp=
+an></p></div> </td> </tr><tr><td class=3D"r48-c" align=3D"center" style=3D"=
+padding-bottom: 10px; padding-top: 5px;"> <table width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" height=3D"1" st=
+yle=3D"border-top-style: solid; background-clip: border-box; border-top-col=
+or: #858588; border-top-width: 1px; font-size: 1px; line-height: 1px;"><tr>=
+<td height=3D"0" style=3D"font-size: 0px; line-height: 0px;">=C2=AD</td> </=
+tr></table></td> </tr></table></td> </tr></table></th> </tr></table></td> <=
+/tr></table></td> </tr></table><table cellspacing=3D"0" cellpadding=3D"0" b=
+order=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" class=3D"=
+r3-o" style=3D"table-layout: fixed; width: 100%;"><tr><td valign=3D"top" cl=
+ass=3D"r9-i" style=3D"background-color: #000000;"> <table cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"700" align=
+=3D"center" class=3D"r0-o" style=3D"table-layout: fixed; width: 700px;"><tr=
+><td class=3D"r4-i" style=3D"padding-bottom: 15px; padding-top: 10px;"> <ta=
+ble width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D=
+"presentation"><tr><th width=3D"50%" valign=3D"top" class=3D"r5-c" style=3D=
+"font-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D"table-l=
+ayout: fixed; width: 100%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"=
+padding-left: 15px; padding-right: 15px;"> <table width=3D"100%" cellspacin=
+g=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><td class=
+=3D"r8-c nl2go-default-textstyle" align=3D"left" style=3D"color: #000; font=
+-family: Arial; font-size: 14px; line-height: 1.3; word-break: break-word; =
+padding-top: 10px; text-align: left; valign: top;"> <div><h4 class=3D"defau=
+lt-heading4" style=3D"margin: 0; color: #000; font-family: Arial; font-size=
+: 18px; word-break: break-word;"><a href=3D"https://g08dc.r.a.d.sendibm1.co=
+m/mk/cl/f/sh/7nVU1aA2ng21hqorSJDLtlTYrOcNMCH/AB3biM-sSF-O" target=3D"_blank=
+" rel=3D"noopener noreferrer" style=3D"color: #e73d2a; font-weight: bold; t=
+ext-decoration: none;" sib_link_id=3D"35" templating=3D"n"><span style=3D"b=
+ackground-color: #000000; color: #e73d2a; font-family: Arial; font-size: 14=
+px;"><strong>TRACTEUR ENFANT 2 ANS</strong></span></a></h4></div> </td> </t=
+r><tr><td class=3D"r8-c nl2go-default-textstyle" align=3D"left" style=3D"co=
+lor: #000; font-family: Arial; font-size: 14px; line-height: 1.3; word-brea=
+k: break-word; padding-top: 10px; text-align: left; valign: top;"> <div><p =
+style=3D"margin: 0;"><span style=3D"color: #ffffff; font-family: Arial; fon=
+t-size: 36px;">=E2=82=AC201K=C2=A0</span><span style=3D"color: #ffffff; fon=
+t-family: Arial; font-size: 16px;">+50%</span></p></div> </td> </tr><tr><td=
+ class=3D"r48-c" align=3D"center" style=3D"padding-bottom: 10px; padding-to=
+p: 5px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation" height=3D"1" style=3D"border-top-style: solid;=
+ background-clip: border-box; border-top-color: #858588; border-top-width: =
+1px; font-size: 1px; line-height: 1px;"><tr><td height=3D"0" style=3D"font-=
+size: 0px; line-height: 0px;">=C2=AD</td> </tr></table></td> </tr></table><=
+/td> </tr></table></th> <th width=3D"50%" valign=3D"top" class=3D"r5-c" sty=
+le=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" bor=
+der=3D"0" role=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D"tabl=
+e-layout: fixed; width: 100%;"><tr><td valign=3D"top" class=3D"r7-i" style=
+=3D"padding-left: 15px; padding-right: 15px;"> <table width=3D"100%" cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><td cl=
+ass=3D"r8-c nl2go-default-textstyle" align=3D"left" style=3D"color: #000; f=
+ont-family: Arial; font-size: 14px; line-height: 1.3; word-break: break-wor=
+d; padding-top: 10px; text-align: left; valign: top;"> <div><h4 class=3D"de=
+fault-heading4" style=3D"margin: 0; color: #000; font-family: Arial; font-s=
+ize: 18px; word-break: break-word;"><a href=3D"https://g08dc.r.a.d.sendibm1=
+.com/mk/cl/f/sh/7nVU1aA2ng3uhNKAQsRnw7nN1l7A68n/PPJLQBDqe92c" target=3D"_bl=
+ank" rel=3D"noopener noreferrer" style=3D"color: #e73d2a; font-weight: bold=
+; text-decoration: none;" sib_link_id=3D"36" templating=3D"n"><span style=
+=3D"background-color: #000000; color: #e73d2a; font-family: Arial; font-siz=
+e: 14px;">MONTRE CONNECT=C3=89E HOMME</span></a></h4></div> </td> </tr><tr>=
+<td class=3D"r8-c nl2go-default-textstyle" align=3D"left" style=3D"color: #=
+000; font-family: Arial; font-size: 14px; line-height: 1.3; word-break: bre=
+ak-word; padding-top: 10px; text-align: left; valign: top;"> <div><p style=
+=3D"margin: 0;"><span style=3D"color: #ffffff; font-family: Arial; font-siz=
+e: 36px;">=E2=82=AC727K=C2=A0</span><span style=3D"color: #ffffff; font-fam=
+ily: Arial; font-size: 16px;">+50%</span></p></div> </td> </tr><tr><td clas=
+s=3D"r48-c" align=3D"center" style=3D"padding-bottom: 10px; padding-top: 5p=
+x;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+ role=3D"presentation" height=3D"1" style=3D"border-top-style: solid; backg=
+round-clip: border-box; border-top-color: #858588; border-top-width: 1px; f=
+ont-size: 1px; line-height: 1px;"><tr><td height=3D"0" style=3D"font-size: =
+0px; line-height: 0px;">=C2=AD</td> </tr></table></td> </tr></table></td> <=
+/tr></table></th> </tr></table></td> </tr></table></td> </tr></table><table=
+ cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" wid=
+th=3D"700" align=3D"center" class=3D"r0-o" style=3D"table-layout: fixed; wi=
+dth: 700px;"><tr><td valign=3D"top" class=3D"r1-i" style=3D"background-colo=
+r: #ffffff;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=
+=3D"presentation" width=3D"100%" align=3D"center" class=3D"r3-o" style=3D"t=
+able-layout: fixed; width: 100%;"><tr><td class=3D"r4-i" style=3D"padding-b=
+ottom: 20px; padding-top: 20px;"> <table width=3D"100%" cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th width=3D"100%" =
+valign=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <table cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"1=
+00%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><td val=
+ign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; padding-right: 15px=
+;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" =
+role=3D"presentation"><tr><td class=3D"r49-c nl2go-default-textstyle" align=
+=3D"left" style=3D"color: #000; font-family: Arial; font-size: 14px; line-h=
+eight: 1.3; word-break: break-word; padding-top: 5px; text-align: left; val=
+ign: top;"> <div><h4 class=3D"default-heading4" style=3D"margin: 0; color: =
+#000; font-family: Arial; font-size: 18px; word-break: break-word;"><span s=
+tyle=3D"color: #e73d2a; font-size: 22px;"><strong>=E2=9C=BA RESSOURCES</str=
+ong></span></h4></div> </td> </tr><tr><td class=3D"r30-c" align=3D"center" =
+style=3D"padding-bottom: 10px; padding-top: 10px;"> <table width=3D"100%" c=
+ellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" heigh=
+t=3D"1" style=3D"border-top-style: solid; background-clip: border-box; bord=
+er-top-color: #e5e5e5; border-top-width: 1px; font-size: 1px; line-height: =
+1px;"><tr><td height=3D"0" style=3D"font-size: 0px; line-height: 0px;">=C2=
+=AD</td> </tr></table></td> </tr><tr><td class=3D"r49-c nl2go-default-texts=
+tyle" align=3D"left" style=3D"color: #000; font-family: Arial; font-size: 1=
+4px; line-height: 1.3; word-break: break-word; padding-top: 5px; text-align=
+: left; valign: top;"> <div><h4 class=3D"default-heading4" style=3D"margin:=
+ 0; color: #000; font-family: Arial; font-size: 18px; word-break: break-wor=
+d;">OUTILS</h4><p style=3D"margin: 0;"><strong>=C2=A0</strong></p><p class=
+=3D"default" id=3D"isPasted" style=3D"margin: 0;"><strong>Besoin de sortir =
+de la tyrannie d=E2=80=99Helvetica ?</strong> <a href=3D"https://g08dc.r.a.=
+d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng5ngtpTPRgFyU7BC7bwq5J/VVpcgRJFLk7t" sty=
+le=3D"color: #e73d2a; font-weight: bold; text-decoration: none;" sib_link_i=
+d=3D"37" templating=3D"n">Best Free Fonts</a>.</p><p class=3D"default" styl=
+e=3D"margin: 0;"><br></p><p class=3D"default" style=3D"margin: 0;"><a href=
+=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng7ggQKmO0ui0qQzMU6=
+ja1p/6ONeLFrLqTu3" style=3D"color: #e73d2a; font-weight: bold; text-decorat=
+ion: none;" sib_link_id=3D"38" templating=3D"n">Slop Evader</a> : Un nouvel=
+ outil de navigateur qui filtre vos recherches web pour n'inclure que les r=
+=C3=A9sultats d'avant le 30 novembre 2022, aka le jour o=C3=B9 ChatGPT a =
+=C3=A9t=C3=A9 rendu public. Disponible sur Chrome et Firefox.</p></div> </t=
+d> </tr><tr><td class=3D"r30-c" align=3D"center" style=3D"padding-bottom: 1=
+0px; padding-top: 10px;"> <table width=3D"100%" cellspacing=3D"0" cellpaddi=
+ng=3D"0" border=3D"0" role=3D"presentation" height=3D"1" style=3D"border-to=
+p-style: solid; background-clip: border-box; border-top-color: #e5e5e5; bor=
+der-top-width: 1px; font-size: 1px; line-height: 1px;"><tr><td height=3D"0"=
+ style=3D"font-size: 0px; line-height: 0px;">=C2=AD</td> </tr></table></td>=
+ </tr><tr><td class=3D"r45-c nl2go-default-textstyle" align=3D"left" style=
+=3D"color: #000; font-family: Arial; font-size: 14px; line-height: 1.3; wor=
+d-break: break-word; padding-top: 15px; text-align: left; valign: top;"> <d=
+iv><h4 class=3D"default-heading4" style=3D"margin: 0; color: #000; font-fam=
+ily: Arial; font-size: 18px; word-break: break-word;">CHIFFRES</h4><p style=
+=3D"margin: 0;">=C2=A0</p><p class=3D"default" id=3D"isPasted" style=3D"mar=
+gin: 0;"><a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng9=
+Zfwq5Ma9A3CknWqbWJyL/xmmAUcoGdb8F" style=3D"color: #e73d2a; font-weight: bo=
+ld; text-decoration: none;" sib_link_id=3D"39" templating=3D"n">10%</a> : C=
+=E2=80=99est la part des revenus de 2024 de Meta qui proviendraient des pub=
+licit=C3=A9s pour des scams et des biens interdits. Et le g=C3=A9ant des m=
+=C3=A9dias sociaux estime en interne que ses plateformes pr=C3=A9sentent 15=
+ Mds de publicit=C3=A9s d'escroquerie par jour =C3=A0 ses utilisateurs. Par=
+mi ses r=C3=A9ponses aux sp=C3=A9cialistes du marketing suspects : leur fac=
+turer un suppl=C3=A9ment pour les publicit=C3=A9s, et publier des rapports =
+sur les <em>Scammiest Scammers</em> (escrocs les plus frauduleux).</p><p cl=
+ass=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default" style=3D"=
+margin: 0;"><a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2=
+nfsbCZ0WzrPBd88ZqxxQOBl/VzYR_Tjc5me3" style=3D"color: #e73d2a; font-weight:=
+ bold; text-decoration: none;" sib_link_id=3D"40" templating=3D"n">=E2=82=
+=AC4M</a> : La startup fran=C3=A7aise <a href=3D"https://g08dc.r.a.d.sendib=
+m1.com/mk/cl/f/sh/7nVU1aA2nfuUC5VpyQddfUSO1KSD88H/VhrzOcdYr0U3" style=3D"co=
+lor: #e73d2a; font-weight: bold; text-decoration: none;" sib_link_id=3D"41"=
+ templating=3D"n">MuchBetter.ai</a> vient de closer une lev=C3=A9e pour sa =
+plateforme de coaching d=E2=80=99=C3=A9quipes commerciales et autres foncti=
+ons customer-facing. Ils ont d=C3=A9j=C3=A0 de gros comptes comme Bouygues =
+Telecom, Boulanger, La Poste et Philips. On d=C3=A9cryptait justement ce le=
+vier <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfwNBc1=
+8wzs5hqmCBgwzs4n/VvCHKA7seMx7" style=3D"color: #e73d2a; font-weight: bold; =
+text-decoration: none;" sib_link_id=3D"42" templating=3D"n">en septembre</a=
+>.</p></div> </td> </tr><tr><td class=3D"r30-c" align=3D"center" style=3D"p=
+adding-bottom: 10px; padding-top: 10px;"> <table width=3D"100%" cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" height=3D"1" st=
+yle=3D"border-top-style: solid; background-clip: border-box; border-top-col=
+or: #e5e5e5; border-top-width: 1px; font-size: 1px; line-height: 1px;"><tr>=
+<td height=3D"0" style=3D"font-size: 0px; line-height: 0px;">=C2=AD</td> </=
+tr></table></td> </tr><tr><td class=3D"r45-c nl2go-default-textstyle" align=
+=3D"left" style=3D"color: #000; font-family: Arial; font-size: 14px; line-h=
+eight: 1.3; word-break: break-word; padding-top: 15px; text-align: left; va=
+lign: top;"> <div><h4 class=3D"default-heading4" style=3D"margin: 0; color:=
+ #000; font-family: Arial; font-size: 18px; word-break: break-word;">COUP D=
+'=C5=92IL</h4><p class=3D"default" id=3D"isPasted" style=3D"margin: 0;"><br=
+></p><p class=3D"default" id=3D"isPasted" style=3D"margin: 0;"><a href=3D"h=
+ttps://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfyGB8WRvZ6XkD60M3Rmc1J/=
+r0ZQnYnLXvnP" style=3D"color: #e73d2a; font-weight: bold; text-decoration: =
+none;" sib_link_id=3D"43" templating=3D"n">L=E2=80=99IA d=C3=A9vore le mond=
+e</a> : La pr=C3=A9diction de Ben Evans reste la m=C3=AAme pour la 3e fois =
+depuis 2024.</p><p class=3D"default" style=3D"margin: 0;"><br></p><p class=
+=3D"default" style=3D"margin: 0;"><a href=3D"https://g08dc.r.a.d.sendibm1.c=
+om/mk/cl/f/sh/7nVU1aA2ng09Af1ku8KzmZPoWPwZLxp/nekUI_4_bBvP" style=3D"color:=
+ #e73d2a; font-weight: bold; text-decoration: none;" sib_link_id=3D"44" tem=
+plating=3D"n"><em>Extremely offline</em></a><strong>, ce qui se passe lorsq=
+u'une =C3=AEle est coup=C3=A9e d'Internet</strong> : En 2022, une puissante=
+ =C3=A9ruption volcanique a sectionn=C3=A9 le c=C3=A2ble Internet sous-mari=
+n des Tonga dans le Pacifique. La panne a montr=C3=A9 =C3=A0 quel point la =
+vie moderne d=C3=A9pend de quelques c=C3=A2bles fragiles et =C3=A9loign=C3=
+=A9s. La r=C3=A9paration des dommages a pris des semaines et a laiss=C3=A9 =
+les Tongiens trouver des moyens d'organiser leur vie quotidienne hors ligne=
+.</p><p class=3D"default" style=3D"margin: 0;"><br></p><p class=3D"default"=
+ style=3D"margin: 0;"><a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/s=
+h/7nVU1aA2ng22ABX3shZRovjcgmRM5uL/NYUIZ53WOhLJ" style=3D"color: #e73d2a; fo=
+nt-weight: bold; text-decoration: none;" sib_link_id=3D"45" templating=3D"n=
+">Stickerbox</a> : un cube boost=C3=A9 =C3=A0 l=E2=80=99IA qui transforme u=
+ne description orale et en sort un sticker =C3=A0 colorier, le tout pour $9=
+9. Bienvenue dans le futur !</p></div> </td> </tr></table></td> </tr></tabl=
+e></th> </tr></table></td> </tr></table></td> </tr></table><table cellspaci=
+ng=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%=
+" align=3D"center" class=3D"r3-o" style=3D"table-layout: fixed; width: 100%=
+;"><tr><td valign=3D"top" class=3D"r9-i" style=3D"background-color: #000000=
+;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"present=
+ation" width=3D"700" align=3D"center" class=3D"r0-o" style=3D"table-layout:=
+ fixed; width: 700px;"><tr><td class=3D"r4-i" style=3D"padding-bottom: 30px=
+; padding-top: 20px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation"><tr><th width=3D"100%" valign=3D"=
+top" class=3D"r5-c" style=3D"font-weight: normal;"> <table cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" class=
+=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><td valign=3D"top=
+" class=3D"r7-i" style=3D"padding-left: 15px; padding-right: 15px;"> <table=
+ width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"pr=
+esentation"><tr><td class=3D"r45-c nl2go-default-textstyle" align=3D"left" =
+style=3D"color: #000; font-family: Arial; font-size: 14px; line-height: 1.3=
+; word-break: break-word; padding-top: 15px; text-align: left; valign: top;=
+"> <div><p style=3D"margin: 0;"><span style=3D"color: #e73d2a; font-family:=
+ Arial; font-size: 20px;">=E2=96=B7 </span><span style=3D"color: #e73d2a; f=
+ont-family: Arial, helvetica, sans-serif; font-size: 20px;"><strong>NOW PLA=
+YING</strong></span></p></div> </td> </tr><tr><td class=3D"r45-c nl2go-defa=
+ult-textstyle" align=3D"left" style=3D"color: #000; font-family: Arial; fon=
+t-size: 14px; word-break: break-word; line-height: 1; padding-top: 15px; te=
+xt-align: left; valign: top;"> <div><h4 class=3D"default-heading4" style=3D=
+"margin: 0; color: #000; font-family: Arial; font-size: 18px; word-break: b=
+reak-word;"><a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2=
+ng3v9i2MrGntrI3Qr8w8pqr/opJeaGxUP7f7" target=3D"_blank" rel=3D"noopener nor=
+eferrer" style=3D"color: #e73d2a; font-weight: bold; text-decoration: none;=
+" sib_link_id=3D"46" templating=3D"n">La Martingale - Esther Moisy-Kirschba=
+um, c<span data-token-index=3D"1" class=3D"notion-enable-hover" id=3D"isPas=
+ted" style=3D"font-weight: 600;">omment gagner de l'argent avec l'IA et le =
+vibe coding ?</span></a></h4></div> </td> </tr></table></td> </tr></table><=
+/th> </tr></table></td> </tr></table></td> </tr></table><table cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" =
+align=3D"center" class=3D"r50-o" style=3D"background-image: url('https://im=
+g.mailinblue.com/9006340/images/content_library/original/6814db6611f1d8b7b7=
+40652c.jpg'); background-position: center; background-size: cover; font-siz=
+e: 0; table-layout: fixed; width: 100%;"><tr><td valign=3D"top"> <table cel=
+lspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=
+=3D"700" align=3D"center" class=3D"r0-o" style=3D"table-layout: fixed; widt=
+h: 700px;"><tr><td class=3D"r4-i" style=3D"padding-bottom: 20px; padding-to=
+p: 20px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation"><tr><th width=3D"50%" valign=3D"middle" class=
+=3D"r18-c" style=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpad=
+ding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" class=3D"r6-o"=
+ style=3D"table-layout: fixed; width: 100%;"><tr><td valign=3D"top" class=
+=3D"r7-i" style=3D"padding-left: 10px; padding-right: 10px;"> <table width=
+=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presenta=
+tion"><tr><td class=3D"r45-c nl2go-default-textstyle" align=3D"left" style=
+=3D"color: #000; font-family: Arial; font-size: 14px; word-break: break-wor=
+d; line-height: 1; padding-top: 15px; text-align: left; valign: top;"> <div=
+><p style=3D"margin: 0;"><span style=3D"color: #ffffff; font-family: Arial;=
+ font-size: 20px;"><strong>TU AS AIM=C3=89 CETTE NEWSLETTER ?</strong></spa=
+n></p><p style=3D"margin: 0;"><span style=3D"color: #ffffff; font-family: A=
+rial; font-size: 20px;"><strong>DONNE-NOUS TON AVIS :=C2=A0</strong></span>=
+</p></div> </td> </tr></table></td> </tr></table></th> <th width=3D"25%" va=
+lign=3D"middle" class=3D"r18-c" style=3D"font-weight: normal;"> <table cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D=
+"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><td v=
+align=3D"top" class=3D"r7-i" style=3D"padding-left: 10px; padding-right: 10=
+px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0=
+" role=3D"presentation"><tr><td class=3D"r2-c" align=3D"center"> <table cel=
+lspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=
+=3D"89" class=3D"r3-o" style=3D"table-layout: fixed; width: 89px;"><tr><td =
+class=3D"r51-i" style=3D"font-size: 0px; line-height: 0px; padding-bottom: =
+15px; padding-top: 15px;"> <a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/c=
+l/f/sh/7nVU1aA2ng5o9EXfpq2LteNF1VQvZnN/jga2H1WB0qI5" target=3D"_blank" styl=
+e=3D"color: #e73d2a; font-weight: bold; text-decoration: none;" sib_link_id=
+=3D"47" templating=3D"n"> <img src=3D"https://g08dc.img.a.d.sendibm1.com/im=
+/sh/xH9WGj4f_IHJ.png?u=3DWtVElij8PJZGfbwWHrhdMGT2eKNAG7K5" width=3D"89" bor=
+der=3D"0" style=3D"display: block; width: 100%;" sib_img_id=3D"7"></a> </td=
+> </tr></table></td> </tr></table></td> </tr></table></th> <th width=3D"25%=
+" valign=3D"middle" class=3D"r18-c" style=3D"font-weight: normal;"> <table =
+cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" widt=
+h=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><=
+td valign=3D"top" class=3D"r7-i" style=3D"padding-left: 10px; padding-right=
+: 10px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation"><tr><td class=3D"r2-c" align=3D"center"> <tabl=
+e cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" wi=
+dth=3D"89" class=3D"r3-o" style=3D"table-layout: fixed; width: 89px;"><tr><=
+td class=3D"r51-i" style=3D"font-size: 0px; line-height: 0px; padding-botto=
+m: 15px; padding-top: 15px;"> <a href=3D"https://g08dc.r.a.d.sendibm1.com/m=
+k/cl/f/sh/7nVU1aA2ng7h8l2yoPGnw0h3BrviJjt/-XGn729XqTOl" target=3D"_blank" s=
+tyle=3D"color: #e73d2a; font-weight: bold; text-decoration: none;" sib_link=
+_id=3D"48" templating=3D"n"> <img src=3D"https://g08dc.img.a.d.sendibm1.com=
+/im/sh/p88Safeh6Rud.png?u=3DWtVElij8PJZGg4HEUI5zSBdIi9kzEr29" width=3D"89" =
+border=3D"0" style=3D"display: block; width: 100%;" sib_img_id=3D"8"></a> <=
+/td> </tr></table></td> </tr></table></td> </tr></table></th> </tr></table>=
+</td> </tr></table></td> </tr></table><table cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" align=3D"center" c=
+lass=3D"r52-o" style=3D"background-color: #f7f4f4; background-image: url('h=
+ttps://img.mailinblue.com/9006340/images/content_library/original/6814dd85d=
+e4382a10d1433e5.jpeg'); background-position: center; background-repeat: no-=
+repeat; background-size: cover; font-size: 0; table-layout: fixed; width: 1=
+00%;"><tr><td valign=3D"top"> <table cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0" role=3D"presentation" width=3D"700" align=3D"center" class=3D"r0=
+-o" style=3D"table-layout: fixed; width: 700px;"><tr><td class=3D"r4-i" sty=
+le=3D"padding-bottom: 20px; padding-top: 20px;"> <table width=3D"100%" cell=
+spacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th =
+width=3D"100%" valign=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"=
+> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentat=
+ion" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100=
+%;"><tr><td valign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; padd=
+ing-right: 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0=
+" border=3D"0" role=3D"presentation"><tr><td class=3D"r41-c nl2go-default-t=
+extstyle" align=3D"left" style=3D"color: #000; font-family: Arial; font-siz=
+e: 14px; line-height: 1.3; word-break: break-word; padding-bottom: 15px; pa=
+dding-top: 15px; text-align: left; valign: top;"> <div><p style=3D"margin: =
+0; text-align: center;"><span style=3D"color: #ffffff;">Cet email t'a =C3=
+=A9t=C3=A9 forward=C3=A9 ?</span></p><p style=3D"margin: 0; text-align: cen=
+ter;"><a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2ng9a8H=
+YHmyVFyN0rMEQV3gP/-JN-IGP6QnVP" target=3D"_blank" style=3D"color: #e73d2a; =
+font-weight: bold; text-decoration: none;" sib_link_id=3D"49" templating=3D=
+"n"><span style=3D"color: #e73d2a;">Rejoins la communaut=C3=A9 Magma aujour=
+d'hui !</span></a></p></div> </td> </tr></table></td> </tr></table></th> </=
+tr></table></td> </tr></table></td> </tr></table><table cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" align=3D=
+"center" class=3D"r53-o" style=3D"background-image: url('https://img.mailin=
+blue.com/9006340/images/content_library/original/6814dd7211f1d8b7b74065c7.j=
+peg'); background-position: center; background-repeat: no-repeat; backgroun=
+d-size: cover; font-size: 0; table-layout: fixed; width: 100%;"><tr><td val=
+ign=3D"top"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=
+=3D"presentation" width=3D"700" align=3D"center" class=3D"r0-o" style=3D"ta=
+ble-layout: fixed; width: 700px;"><tr><td class=3D"r4-i" style=3D"padding-b=
+ottom: 20px; padding-top: 20px;"> <table width=3D"100%" cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th width=3D"100%" =
+valign=3D"middle" class=3D"r18-c" style=3D"font-weight: normal;"> <table ce=
+llspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=
+=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><t=
+d valign=3D"top" class=3D"r7-i" style=3D"padding-left: 15px; padding-right:=
+ 15px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" role=3D"presentation"><tr><td class=3D"r54-c" align=3D"center"> <tab=
+le cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" w=
+idth=3D"670" align=3D"center" class=3D"r43-o" style=3D"table-layout: fixed;=
+ width: 670px;"><tr><td class=3D"r55-i" style=3D"padding-bottom: 10px; padd=
+ing-left: 141px; padding-right: 141px; padding-top: 10px;"> <table width=3D=
+"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentatio=
+n"><tr><th width=3D"131" valign=3D"top" class=3D"r5-c" style=3D"font-weight=
+: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D=
+"presentation" width=3D"100%" class=3D"r6-o" style=3D"table-layout: fixed;"=
+><tr><td class=3D"r7-i" style=3D"padding-left: 20px; padding-right: 20px;">=
+ <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" rol=
+e=3D"presentation"><tr><th width=3D"100%" valign=3D"top" class=3D"r12-c" st=
+yle=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0" role=3D"presentation" width=3D"100%" class=3D"r13-o" style=3D"ta=
+ble-layout: fixed; width: 100%;"><tr><td align=3D"left" valign=3D"top" clas=
+s=3D"r56-i nl2go-default-textstyle" style=3D"color: #000; font-family: Aria=
+l; font-size: 14px; line-height: 1.3; text-align: left; word-break: break-w=
+ord;"> <div><p style=3D"margin: 0;"><a href=3D"https://g08dc.r.a.d.sendibm1=
+.com/mk/cl/f/sh/7nVU1aA2nfsbetijQFlHYIOdgLmP7tp/LaF2kp503MOc" target=3D"_bl=
+ank" style=3D"color: #e73d2a; font-weight: bold; text-decoration: none;" si=
+b_link_id=3D"50" templating=3D"n"><span style=3D"color: #ffffff;"><strong>I=
+NSCRIPTION</strong></span></a></p></div> </td> </tr></table></th> </tr></ta=
+ble></td> </tr></table></th> <th width=3D"113" valign=3D"top" class=3D"r5-c=
+" style=3D"font-weight: normal;"> <table cellspacing=3D"0" cellpadding=3D"0=
+" border=3D"0" role=3D"presentation" width=3D"100%" class=3D"r6-o" style=3D=
+"table-layout: fixed;"><tr><td class=3D"r7-i" style=3D"padding-left: 20px; =
+padding-right: 20px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation"><tr><th width=3D"100%" valign=3D"=
+top" class=3D"r12-c" style=3D"font-weight: normal;"> <table cellspacing=3D"=
+0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" clas=
+s=3D"r13-o" style=3D"table-layout: fixed; width: 100%;"><tr><td align=3D"ce=
+nter" valign=3D"top" class=3D"r57-i nl2go-default-textstyle" style=3D"color=
+: #000; font-family: Arial; font-size: 14px; line-height: 1.3; text-align: =
+center; word-break: break-word;"> <div><p style=3D"margin: 0;"><span style=
+=3D"color: #ffffff;"><strong>ARCHIVES</strong></span></p></div> </td> </tr>=
+</table></th> </tr></table></td> </tr></table></th> <th width=3D"144" valig=
+n=3D"top" class=3D"r5-c" style=3D"font-weight: normal;"> <table cellspacing=
+=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" =
+class=3D"r6-o" style=3D"table-layout: fixed;"><tr><td class=3D"r7-i" style=
+=3D"padding-left: 20px; padding-right: 20px;"> <table width=3D"100%" cellsp=
+acing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation"><tr><th wi=
+dth=3D"100%" valign=3D"top" class=3D"r12-c" style=3D"font-weight: normal;">=
+ <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentati=
+on" width=3D"100%" class=3D"r13-o" style=3D"table-layout: fixed; width: 100=
+%;"><tr><td align=3D"right" valign=3D"top" class=3D"r58-i nl2go-default-tex=
+tstyle" style=3D"color: #000; font-family: Arial; font-size: 14px; line-hei=
+ght: 1.3; text-align: right; word-break: break-word;"> <div><p style=3D"mar=
+gin: 0;"><a href=3D"https://g08dc.r.a.d.sendibm1.com/mk/cl/f/sh/7nVU1aA2nfu=
+UeQE2OozjaeiRqiHBrqL/OsyJQNR-HjSR" target=3D"_blank" style=3D"color: #e73d2=
+a; font-weight: bold; text-decoration: none;" sib_link_id=3D"51" templating=
+=3D"n"><span style=3D"color: #ffffff;"><strong>COMMUNAUT=C3=89</strong></sp=
+an></a></p></div> </td> </tr></table></th> </tr></table></td> </tr></table>=
+</th> </tr></table></td> </tr></table></td> </tr></table></td> </tr></table=
+></th> </tr></table></td> </tr></table></td> </tr></table><table cellspacin=
+g=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%"=
+ align=3D"center" class=3D"r3-o" style=3D"table-layout: fixed; width: 100%;=
+"><tr><td valign=3D"top" class=3D"r9-i" style=3D"background-color: #000000;=
+"> <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"presenta=
+tion" width=3D"700" align=3D"center" class=3D"r0-o" style=3D"table-layout: =
+fixed; width: 700px;"><tr><td class=3D"r4-i" style=3D"padding-bottom: 20px;=
+ padding-top: 20px;"> <table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" role=3D"presentation"><tr><th width=3D"100%" valign=3D"=
+top" class=3D"r5-c" style=3D"font-weight: normal;"> <table cellspacing=3D"0=
+" cellpadding=3D"0" border=3D"0" role=3D"presentation" width=3D"100%" class=
+=3D"r6-o" style=3D"table-layout: fixed; width: 100%;"><tr><td valign=3D"top=
+" class=3D"r7-i" style=3D"padding-left: 15px; padding-right: 15px;"> <table=
+ width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" border=3D"0" role=3D"pr=
+esentation"><tr><td class=3D"r59-c nl2go-default-textstyle" align=3D"left" =
+style=3D"color: #000; font-family: Arial; font-size: 14px; line-height: 1.3=
+; word-break: break-word; padding-bottom: 5px; padding-top: 5px; text-align=
+: left; valign: top;"> <div><p style=3D"margin: 0; text-align: center;"><sp=
+an style=3D"color: #bebebe; font-size: 14px;">Copyright <strong>=C2=A9 2025=
+ PLANET, All rights reserved.</strong></span><br><span style=3D"color: #beb=
+ebe; font-size: 14px;">Modifier ses pr=C3=A9f=C3=A9rences email ou se d=C3=
+=A9sinscrire de la liste</span></p></div> </td> </tr></table></td> </tr></t=
+able></th> </tr></table></td> </tr></table></td> </tr></table></td> </tr></=
+table> <div align=3D"center" style=3D"color: #727272; font-size: 10px;">Si =
+vous souhaitez vous d=C3=A9sinscrire de notre newsletter, cliquez <a style=
+=3D"color:#01a4c6;" target=3D"_blank" href=3D"https://g08dc.r.a.d.sendibm1.=
+com/mk/un/v2/sh/1t6AVsdYhqSR1rLFGLqJ8inBQURcq1/U3bx7q1hAnYA">ici</a></div> =
+ </body></html>
+
+
+---------?=_92010-1255401159244--
+

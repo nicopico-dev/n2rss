@@ -33,6 +33,15 @@ class GDIYNewsletterHandlerTest : BaseNewsletterHandlerTest<GDIYNewsletterHandle
     @Nested
     inner class EmailProcessingTest {
         @Test
+        fun `should not handle GDIY communication emails`() {
+            // GIVEN
+            val emails = loadEmails("$STUBS_EMAIL_ROOT_FOLDER/GDIY - Communication")
+
+            // WHEN - THEN
+            emails.all { handler.canHandle(it) } shouldBe false
+        }
+
+        @Test
         fun `should extract all articles from 'GDIY - Ces projets secondaires'`() {
             // GIVEN
             val email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/GDIY/Ces projets secondaires.eml")

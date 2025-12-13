@@ -25,4 +25,5 @@ data class Email(
     val subject: String,
     val content: EmailContent,
     val messageId: MessageId,
+    val replyTo: Sender? = null,
 )

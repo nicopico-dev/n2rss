@@ -58,6 +58,9 @@ fun Message.toEmail(): Email {
             }
         },
         messageId = MessageId(message = this),
+        replyTo = if (replyTo.isNotEmpty()) {
+            Sender(replyTo[0].toString())
+        } else null,
     )
 
     // Remove flag SEEN if necessary

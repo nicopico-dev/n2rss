@@ -231,6 +231,7 @@ class MessageExtKtTest {
         messageNumber: Int = 0,
         sentDate: Date = Date(),
         receivedDate: Date? = null,
+        replyTo: Array<Address> = emptyArray(),
     ): Message {
         return mockk<Message> {
             val msg = this
@@ -243,6 +244,7 @@ class MessageExtKtTest {
             every { msg.flags } returns Flags()
             every { setFlag(any(), any()) } just Runs
             every { msg.getHeader(any()) } answers { headers[firstArg()] }
+            every { msg.replyTo } returns replyTo
         }
     }
     //endregion
