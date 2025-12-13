@@ -1,0 +1,2000 @@
+Return-Path: <bounces+31804505-e1d4-n2rss=nicopico.fr@em2003.mail.beehiiv.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id kCdJO3JUK2hLiQYAQTsBvA
+	(envelope-from <bounces+31804505-e1d4-n2rss=nicopico.fr@em2003.mail.beehiiv.com>)
+	for <n2rss@nicopico.fr>; Mon, 19 May 2025 17:55:31 +0200
+Return-path: <bounces+31804505-e1d4-n2rss=nicopico.fr@em2003.mail.beehiiv.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Mon, 19 May 2025 17:55:31 +0200
+Received: from o167.ptr4513.mail.beehiiv.com ([159.183.140.27])
+	by smtpin1.paris1.alwaysdata.com with esmtps (TLS1.3:ECDHE_RSA_AES_128_GCM_SHA256:128)
+	(Exim 4.92)
+	(envelope-from <bounces+31804505-e1d4-n2rss=nicopico.fr@em2003.mail.beehiiv.com>)
+	id 1uH2ps-0001D7-FN
+	for n2rss@nicopico.fr; Mon, 19 May 2025 17:55:28 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.beehiiv.com;
+	h=content-type:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:from:subject:to;
+	s=s1; bh=dpfA6CbZUe1dxbYhMXsBHW0WNXuFCI7ODvjGW0MG/+A=;
+	b=EXgxVZUL/rQkFWAO55TOgrBC9maCssCEpHTrQ3BYAEEEoQEAolW7BWtYeVax37Q5H1bq
+	f/Zz6GRcMMdNvEs4mfas4ihY3QsEDoDZ4fPg0JXt2yp0T2mNpSJoHZvulPlOSz2ARmoxB5
+	lhB8bV0pXiR7cLB8fpIwzJW4cpqN0mgfPpxCBrKVydhs7FWkyFqXgxthyLIZSCGEmEquae
+	JZsgtZrH4ZBY4EIRjoxTn1hd1o59NKUoki31co6l/ra1DglNJDpPrm3k4rxfzQagOU3KMy
+	S7fOwHWsAMDyZoym/AxOgRsLAXnMuPTVnWQ3ijs6dtdXJJnQFynWapDLLpe9VF7A==
+Received: by recvd-6884bf9dd7-8hm4t with SMTP id recvd-6884bf9dd7-8hm4t-1-682B546B-6
+	2025-05-19 15:55:23.069151925 +0000 UTC m=+3520029.733007333
+Received: from MzE4MDQ1MDU (unknown)
+	by geopod-ismtpd-16 (SG) with HTTP
+	id 7PzVa_nLSguL7wWLIfgp6w
+	Mon, 19 May 2025 15:55:22.982 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=b18849339c40405d9c2c9cc5129d77114f4762960ed69fd3793447e89f29
+Date: Mon, 19 May 2025 15:55:26 +0000 (UTC)
+From: Vinay Gaba <jetpackcomposeapp@mail.beehiiv.com>
+Mime-Version: 1.0
+Message-ID: <7PzVa_nLSguL7wWLIfgp6w@geopod-ismtpd-16>
+Subject: =?UTF-8?B?8J+agA==?= JetpackCompose.app's Dispatch Issue #16 |
+ =?UTF-8?B?8J+Xke+4jyBHb29nbGUgUGxheeKAmXM=?= app-purge drama,
+ =?UTF-8?B?8J+boO+4jyBBbWF6b27igJlz?= shiny new KMP
+ =?UTF-8?B?4oCcQXBwIFBsYXRmb3Jt4oCdLCDwn46o?= the theme bug that steals your
+ =?UTF-8?B?Q29sdW1u4oCZcyBjb2xvciwg8J+kow==?= "Soft Earnings" and
+ =?UTF-8?B?8J+Tig==?= @Preview-free code-coverage.
+Reply-To: Vinay Gaba <vinaygaba@gmail.com>
+Feedback-ID: 
+ =?us-ascii?Q?bc62266a-7794-421f-a9eb-1e9d67c1b199=3Anewsletter=3Af8362cd3-9f8c-?=
+ =?us-ascii?Q?4280-a770-93d9fc087075=3Adcab3ddea48a514?=
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Cmailto=3Af8362cd3-9f8c-4280-a770-93d9fc087075+b61ea426-a930-446?=
+ =?us-ascii?Q?7-be8d-b5d292fe045b+bc62266a-7794-421f-?=
+ =?us-ascii?Q?a9eb-1e9d67c1b199=40unsub=2Ebeehiiv=2Ecom=3E=2C?=
+ =?us-ascii?Q?_=3Chttps=3A=2F=2Fjetpackcomposeapp=2Ebeehiiv=2Ecom=2Funsubscribe=2FeyJ0eXAiOiJ?=
+ =?us-ascii?Q?KV1QiLCJhbGciOiJIUzI1NiJ9=2EeyJzdWJzY3JpY?=
+ =?us-ascii?Q?mVyX2lkIjoiYjYxZWE0MjYtYTkzMC00NDY3LWJl?=
+ =?us-ascii?Q?OGQtYjVkMjkyZmUwNDViIiwicG9zdF9pZCI6ImJ?=
+ =?us-ascii?Q?jNjIyNjZhLTc3OTQtNDIxZi1hOWViLTFlOWQ2N2?=
+ =?us-ascii?Q?MxYjE5OSIsImxhc3RfcmVzb3VyY2VfZ3VpZCI6I?=
+ =?us-ascii?Q?lBvc3Q6YmM2MjI2NmEtNzc5NC00MjFmLWE5ZWIt?=
+ =?us-ascii?Q?MWU5ZDY3YzFiMTk5In0=2E1kCpCBh27d=5FxOaNXpD5?=
+ =?us-ascii?Q?J1ygEnIt-=5Fh-w8jV9wYmE4bE=3E?=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+sId: f8362cd3-9f8c-4280-a770-93d9fc087075
+x-beehiiv-ids: 
+ =?us-ascii?Q?{=22account=5Fname=22=3A=22https=3A=2F=2Fjetpackcomposeapp=2Ebeehiiv=2Ecom=2F=22=2C=22camp?=
+ =?us-ascii?Q?aign=5Fid=22=3A=22bc62266a-7794-421f-a9eb-1e9d6?=
+ =?us-ascii?Q?7c1b199=22=2C=22category=22=3A=22newsletter=22=2C=22email?=
+ =?us-ascii?Q?=5Fgenerated=5Fat=22=3A1747670122=2C=22user=5Fid=22=3A=22f8?=
+ =?us-ascii?Q?362cd3-9f8c-4280-a770-93d9fc087075=22}?=
+x-beehiiv-type: newsletter
+x-list-id: f8362cd3-9f8c-4280-a770-93d9fc087075
+x-list-owner: <mailto:vinaygaba@gmail.com>
+x-newsletter: https://jetpackcomposeapp.beehiiv.com/p/dispatch-issue-16
+x-newsletter-id: https://jetpackcomposeapp.beehiiv.com/
+x-newsletter-signup: https://jetpackcomposeapp.beehiiv.com/subscribe
+X-SG-EID: 
+ =?us-ascii?Q?u001=2E9TI6XQVv5i7jOh8NftXQCjod=2Fz4VytqEPYSFs=2Fu2eq9znWDGbciukOsiu?=
+ =?us-ascii?Q?AKZaOylnLC7Z52ccmIniIAwQLisOfkeCuzGjpmM?=
+ =?us-ascii?Q?0zyiAbvivxPiJ77beLy3RWgH+AmtxwTIveXlixc?=
+ =?us-ascii?Q?maTZqHPhfOfdR9WFcyl0Hbin4jIcgSedECM75ms?=
+ =?us-ascii?Q?sGmNI3wSR=2FKwRmA41jSDfOVs64niEcKE4PftFik?=
+ =?us-ascii?Q?ztt+Ixb8eyiNw5E+I5XocwdZ954DDpvktbH3APz?= =?us-ascii?Q?y1Lm?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprD1ZcmFObA4po1bG?=
+ =?us-ascii?Q?aUE6gycaKwkoN23AtrLGfV4GV7p7=2Fx0Vl3nAwSq?=
+ =?us-ascii?Q?mViwqSDQHdU8Ay5cW4uNxt2v1n5=2FUfOsniNkc1e?=
+ =?us-ascii?Q?f4CkhjdXKAjs7NfYSrB+n0Rc=2Ft98XluY4wd7aTI?=
+ =?us-ascii?Q?G5IWLDZ+ZsLUm2qEYJEnfXbfOVZfrAJ4XhrJ=2FoO?=
+ =?us-ascii?Q?KyQTQKCP8sISXZKwoavv=2Flw=2FhZk9=2Fp39k8Dipc=2F?=
+ =?us-ascii?Q?8YprUiyFDl2gL4L+0YfjcLNqnCg9mYjukrC7y5n?=
+ =?us-ascii?Q?Vg5uXBVA2V=2FOfYCc4n=2Ftbmkrpg2K=2FjT296G9fkp?=
+ =?us-ascii?Q?XPYsLWQWf8QA=3D=3D?=
+To: "n2rss@nicopico.fr" <n2rss@nicopico.fr>
+X-Entity-ID: u001.HbMtOne6YMEawMB7AjZwZw==
+X-alwaysdata-Spam-Report: 	1.66 LONG_SUBJ [221] - Subject is too long
+	0.50 URI_COUNT_ODD [63]
+	0.50 MID_RHS_NOT_FQDN - Message-ID RHS is not a fully-qualified domain name
+	0.20 ZERO_FONT [2] - Zero sized font used
+	0.20 MANY_INVISIBLE_PARTS [3] - Many parts are visually hidden
+	0.00 TO_DN_EQ_ADDR_ALL - All of the recipients have display names that are
+ the same as their address
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 RWL_MAILSPIKE_VERYGOOD [159.183.140.27:from] - From address is listed in
+ RWL - very good reputation
+	0.00 REPLYTO_DOM_NEQ_FROM_DOM - Reply-To domain does not match the From
+ domain
+	0.00 REPLYTO_DN_EQ_FROM_DN - Reply-To display name matches From
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_THREE [3] - Message has 3-5 Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MV_CASE
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [vinaygaba@gmail.com] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 FREEMAIL_REPLYTO [gmail.com] - Reply-To is a Freemail address
+	0.00 DKIM_TRACE [mail.beehiiv.com:+] - DKIM trace symbol
+	0.00 ASN [asn:11377, ipnet:159.183.128.0/18, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.20 R_DKIM_ALLOW [mail.beehiiv.com:s=s1] - DKIM verification succeed
+	-0.50 DMARC_POLICY_ALLOW [beehiiv.com, reject] - DMARC permit policy
+	-0.51 URL_REPUTATION [-0.50802670079069]
+	-0.65 IP_REPUTATION_HAM [asn: 11377(-0.19), country: US(-0.00),
+ ip: 159.183.140.27(-0.45)]
+X-alwaysdata-Spam-Score: 1.09
+
+--b18849339c40405d9c2c9cc5129d77114f4762960ed69fd3793447e89f29
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+----------
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/f354632e-3542-4=
+929-abfc-955561e34f67/Dispatch_Logo_w__Runway.png?t=3D1747608544)
+Follow image link: (https://www.runway.team/webinar/the-roi-of-mobile-relea=
+se-management?utm_source=3Djetpack&utm_medium=3Dnewsletter&utm_campaign=3Dm=
+ay-2-25)
+Caption:=20
+
+Your mobile release =E2=80=9Ctax=E2=80=9D costs more than you realize.
+
+Join mobile leaders from Skyscanner and SoFi on _May 22_ to measure exactly=
+ what you=E2=80=99re losing=E2=80=94and learn the real ROI of improving you=
+r mobile release process.
+
+Register for the live discussion (https://www.runway.team/webinar/the-roi-o=
+f-mobile-release-management?utm_source=3Djetpack&utm_medium=3Dnewsletter&ut=
+m_campaign=3Dmay-2-25)
+
+
+----------GM Friends. This is [JetpackCompose.app](https://JetpackCompose.a=
+pp)=E2=80=99s Dispatch, sliding into your inbox with the grace of a Compose=
+ recomposition that _actually_ skips unnecessary work.
+
+This is Issue # 16 and is jam-packed with practical tips, juicy industry ti=
+dbits, and a healthy dose of nerdy enthusiasm. Let=E2=80=99s dig in!
+
+# =F0=9F=95=B5=F0=9F=8F=BB=E2=80=8D=E2=99=82=EF=B8=8F Insider Insight
+
+Let=E2=80=99s be honest: debugging animation jank is right up there with =
+=E2=80=9Cherding cats=E2=80=9D and =E2=80=9Cexplaining state hoisting to yo=
+ur manager=E2=80=9D on the frustration scale. But here=E2=80=99s a tool tha=
+t flies under the radar for even seasoned Android devs: **ADB=E2=80=99s --b=
+ugreport option for video recordings**. Simply run the following:
+
+```
+adb shell screenrecord --bugreport /sdcard/recording.mp4
+```
+You=E2=80=99ll get a video recording of your app **with frame-timing overla=
+ys baked in**=E2=80=94like frame numbers, timestamps, and dropped frame ind=
+icators. It=E2=80=99s like having a personal slow-mo referee for your app=
+=E2=80=99s UI performance!
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/7608ab59-7956-4=
+07c-bbd8-ef069fe93cca/adb_screenrecorder.png?t=3D1747604562)
+Caption: Source: Shoutout to Cyril Mottier who shed light on this super coo=
+l adb feature
+
+#### Why does this matter?
+
+* **Diagnose Animation Hiccups:** See exactly where frames are being droppe=
+d or delayed during those tricky transitions or complex Compose animations =
+that you are now able to build with the wonderful APIs it offers.
+
+* **Share with Team:** Got a performance bug that only happens on your cowo=
+rker=E2=80=99s 5-year-old Samsung? Now you can record, annotate, and send e=
+vidence for all to see (and fix!).
+
+* **When to Use:** Anytime you optimize animations, debug =E2=80=9Cjank,=E2=
+=80=9D or want to impress your PM with a CSI-style breakdown of why that mo=
+dal takes 500ms too long to appear.
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/d5f3651a-a253-4=
+5a2-a8e3-6ee8b75487e2/Spot_the_bug.png?t=3D1746127287)
+Follow image link: (https://bitdrift.io/landing/mobile-observability?utm_ca=
+mpaign=3Dsp&utm_medium=3Dnews&utm_source=3Ddispatch)
+Caption:=20
+
+----------
+Despite our best efforts, sometimes issues slip through the cracks. That's =
+why having an amazing observability tool in your corner is important to kee=
+p your=C2=A0app humming. [Bitdrift](https://bitdrift.io/landing/mobile-obse=
+rvability?utm_campaign=3Dsp&utm_medium=3Dnews&utm_source=3Ddispatch) gives =
+you on-demand observability that's custom-built for mobile teams: no log li=
+mits, no overage fees, and no waiting on your next app release.=C2=A0[Learn=
+ More](https://bitdrift.io/landing/mobile-observability?utm_campaign=3Dsp&u=
+tm_medium=3Dnews&utm_source=3Ddispatch)
+
+
+----------When this code is run, the `Column` doesn=E2=80=99t render the ba=
+ckground color that was applied to it. Why is that?
+
+```
+@Composable
+fun MainScreen(
+    modifier: Modifier =3D Modifier,
+    nightModeEnabled: Boolean =3D false
+) {
+    val screenModifier =3D modifier
+        .background(color =3D AppColors.background)
+        .fillMaxSize()
+
+    AppTheme(darkMode =3D nightModeEnabled) {
+        Column(modifier =3D screenModifier) {
+            // Your content here
+        }
+    }
+}
+```
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+# =F0=9F=98=86 Dev Delight
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/ea6bd17e-6139-4=
+82b-8ef3-68b1ffcda3e9/pope.png?t=3D1747603567)
+Caption: The next time you want to convince the hiring manager to skip some=
+ rounds, send them this screenshot =F0=9F=98=8E
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2de78f0f-c699-4=
+f2d-82bb-0d6ca0a5344c/trackt_poop.png?t=3D1747603679)
+Caption: This is a REAL APP!!! It=E2=80=99s called =E2=80=9CSoft Earnings=
+=E2=80=9D =F0=9F=A4=A3=F0=9F=A4=A3
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+# =F0=9F=99=8B=F0=9F=8F=BB=E2=80=8D=E2=99=82=EF=B8=8F How do I?
+
+### **Today=E2=80=99s question: How do I exclude Composable Previews from C=
+ode Coverage Reports**
+
+Raise your hand if you=E2=80=99ve ever looked at your code coverage report =
+and thought, =E2=80=9CHow do I have 800 lines of untested code in my UI mod=
+ule?=E2=80=9D Only to realize=E2=80=94yep, it=E2=80=99s all those `@Preview=
+` functions littering your Compose files. =F0=9F=98=85
+
+The solution depends on the framework you are using to calculate the code c=
+overage.
+
+**If you are using **[**Kover**](https://kotlin.github.io/kover/)**:**
+
+You can configure Kover to ignore anything under a specific annotation, e.g=
+. `@Preview`. It looks along the lines of =E2=80=94
+
+```
+configure {
+    filters {
+         excludes {
+             ...
+             annotatedBy(
+                 "androidx.compose.ui.tooling.preview.Preview"
+             )
+         }
+     }
+}=20
+```
+Easy peasy =F0=9F=A4=93
+
+**If you are using **[**Jacoco**](https://www.jacoco.org/jacoco/)**:**
+
+Unfortunately, Jacoco can=E2=80=99t directly filter by arbitrary annotation=
+. However, here=E2=80=99s a secret =F0=9F=A4=AB - it _will_ ignore [anythin=
+g annotated with =E2=80=9CGenerated=E2=80=9D](https://github.com/jacoco/jac=
+oco/blob/master/org.jacoco.core/src/org/jacoco/core/internal/analysis/filte=
+r/AnnotationGeneratedFilter.java#L51).=20
+
+This is shaky grounds if I=E2=80=99m being honest since this is not an API =
+contract and just an implementation detail, however, that hasn=E2=80=99t st=
+opped manny teams from creating custom annotations that end with the suffix=
+ =E2=80=9CGenerated=E2=80=9D and then adding it to their previews. As an ex=
+ample, annotating your previews with this custom annotation will be skipped=
+ by Jacoco from the code coverage reports.
+
+```
+@Target(AnnotationTarget.FUNCTION)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class ExcludeFromCodeCoverageReport
+```
+Then simply annotate your previews:
+
+```
+@Preview
+@ExcludeFromCodeCoverageReport
+fun MyComponentPreview() { ... }
+```
+**Pro move:** Write a small script or use a Kotlin compiler plugin to auto-=
+insert the exclusion annotation on all your preview functions. Some teams h=
+ave hundreds (if not thousands) such annotations=E2=80=94automation will sa=
+ve your sanity.
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+# =F0=9F=A4=94 Interesting tid-bits
+
+### The Great Google Play Purge: 47% Fewer Apps, 100% More Drama
+
+Ever opened the Play Store lately and thought, =E2=80=9CHuh, didn=E2=80=99t=
+ there used to be more=E2=80=A6 stuff?=E2=80=9D You=E2=80=99re not hallucin=
+ating (at least not about this): Google Play has [shed a jaw-dropping 47% o=
+f its apps since early 2024](https://techcrunch.com/2025/04/29/google-play-=
+sees-47-decline-in-apps-since-start-of-last-year/). That=E2=80=99s a drop f=
+rom 3.4 million to about 1.8 million apps worldwide!
+
+What=E2=80=99s behind this mass extinction event? Google=E2=80=99s been on =
+a crusade to oust low-quality, spammy, and downright useless apps. The new =
+policies aren=E2=80=99t just targeting  broken apps anymore=E2=80=94they=E2=
+=80=99re also eliminating so-called =E2=80=9Cstatic=E2=80=9D apps (think si=
+ngle-wallpaper wonders, glorified PDFs, or those apps that do, well=E2=80=
+=A6 nothing).
+
+But there=E2=80=99s more: stricter verification requirements, expanded huma=
+n reviews (no more sneaking in a =E2=80=9CHello World=E2=80=9D bitcoin mine=
+r at 3am), and a heavy investment in AI-driven threat detection. In 2024 al=
+one, Google claims it blocked 2.36 million policy-violating apps and banned=
+ over 158,000 developer accounts. Yikes.
+
+**Why should you care?**
+
+* **Visibility boost**: With less junk, high-quality apps (like yours, obvi=
+ously) have a better chance to shine.
+
+* **Publishing pains**: The flip side is that even legitimate apps are runn=
+ing into more hoops=E2=80=94extra verifications, tougher quality checks, an=
+d the occasional Kafkaesque review cycle.
+
+* **Not an industry-wide trend**: Apple=E2=80=99s App Store actually saw a =
+slight _increase_ in total apps during the same period, so this is uniquely=
+ Android=E2=80=99s growing pain.
+
+**My take:**
+This is (mostly) a good thing for users and serious devs. But let=E2=80=99s=
+ be real=E2=80=94the process has been bumpy, especially for indie and small=
+-team developers. Expect the rough edges to smooth out as Google iterates a=
+nd developer tooling catches up. I=E2=80=99m going to be at Google I/O next=
+ week and I plan to surface this directly to the fine folks at Google and g=
+et their perspective on things. Stay tuned for the next issue which is goin=
+g to give you a behind the scenes look at Google I/O 2025!
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/df6942e4-4290-4=
+16f-a020-296758ee4738/android_closed_testing.png?t=3D1747607437)
+Caption: With Google now mandating a minimum of 12 testers who run your app=
+ for 14 straight days before you can ship, grassroots hubs like this subred=
+dit have sprung up to help devs hit the quota.
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+# =F0=9F=8D=BE Code Corner
+
+### Amazon=E2=80=99s =E2=80=9C[App Platform](https://amzn.github.io/app-pla=
+tform/)=E2=80=9D: A New Contender for Multiplatform Architecture (and Why Y=
+ou Should Care)
+
+It=E2=80=99s not every day that Amazon open-sources a new application frame=
+work, especially one targeting Kotlin Multiplatform. Enter [**App Platform*=
+*](https://amzn.github.io/app-platform/)=E2=80=94a lightweight, opinionated=
+ framework for state and memory management across Android, iOS, JVM, and (s=
+oon) Web. Let=E2=80=99s break down what makes it worth a look, especially i=
+f you=E2=80=99re architecting for scale or dreaming of true code reuse.
+
+**Key Features**
+
+* **Strict Separation of Concerns:** App Platform enforces a clean split be=
+tween APIs and implementations. This not only keeps your boundaries crisp (=
+no more =E2=80=9Cleaky abstractions=E2=80=9D horror stories) but can _also_=
+ reduce build times. The framework even validates your module structure at =
+build time!
+
+* **Integrated Dependency Injection:** By default, it uses `kotlin-inject-a=
+nvil` (but you can swap it out). You get the flexibility of Dagger/Anvil, b=
+ut it=E2=80=99s not hard-wired=E2=80=94use what fits your stack. Fun fact: =
+This project is being led by [Ralf Wondratschek](https://x.com/vRallev) who=
+ happens to be the creator of [Anvil](https://github.com/square/anvil).=20
+
+* **Scopes as First-Class Citizens:** App Platform makes =E2=80=9Cscope=E2=
+=80=9D a fundamental concept. You get clear, lifecycle-aware boundaries for=
+ features=E2=80=94think =E2=80=9Cscreen,=E2=80=9D =E2=80=9Csession,=E2=80=
+=9D or =E2=80=9Capplication=E2=80=9D scopes, each with their own DI, corout=
+ine scopes, and teardown hooks.
+
+* **Presenter Pattern, Powered by Molecule:** Business and navigation logic=
+ is written using Compose (via [Molecule](https://github.com/cashapp/molecu=
+le)), making reactive state management more natural than wrangling flows an=
+d callbacks.
+
+* **UI Layer Decoupling:** The UI is =E2=80=9Cpluggable.=E2=80=9D Want Comp=
+ose on Android, SwiftUI on iOS, or a mix of both? The renderer pattern isol=
+ates UI, so you can swap or test easily.
+
+* **Testing First:** Tons of helpers and fakes for unit/device testing. Bon=
+us: thanks to Compose Multiplatform, you can even test renderers in isolati=
+on on iOS and desktop.
+
+* **Gradle Plugin Magic:** The setup DSL configures the Compose compiler, K=
+SP, DI integrations, and even Android namespaces/artifact IDs for you. Less=
+ yak-shaving, more coding.
+
+Overall, I think this is pretty interesting to see given that it=E2=80=99s =
+targeting Kotlin Multiplatform and it=E2=80=99s always nice to have a big p=
+layer backing an emerging framework. Still early days but I think it=E2=80=
+=99s a big vote of confidence from them and will help codebases scale bette=
+r.=20
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/9f5a6ea1-be17-4=
+298-b40e-569660a5b8ad/Spot_the_bug_solution.png?t=3D1746127289)
+Follow image link: (https://bitdrift.io/landing/mobile-observability?utm_ca=
+mpaign=3Dsp&utm_medium=3Dnews&utm_source=3Ddispatch)
+Caption:=20
+
+Why doesn=E2=80=99t the `Column` get the correct background?
+
+**Answer**
+
+Well, it=E2=80=99s because it accesses the theme before you set it, so it g=
+ets the default colors instead of the ones you want.** Be very careful with=
+ storing modifiers in variables and applying them later**, it's very easy t=
+o mistakenly use them multiple times and/or cause bugs that aren=E2=80=99t =
+obvious.
+
+Here=E2=80=99s what you can do instead:
+
+```
+@Composable
+fun MainScreen(
+    modifier: Modifier =3D Modifier,
+    nightModeEnabled: Boolean =3D false
+) {
+    AppTheme(darkMode =3D nightModeEnabled) {
+        Column(
+            modifier =3D modifier
+                // Here, the background color is accessed
+                // only in the scope of the AppTheme
+                .background(color =3D AppColors.background)
+                .fillMaxSize()
+        ) {
+            // Your content here
+        }
+    }
+}
+```
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+# =F0=9F=91=82 Make your voice heard
+
+Have opinions about Android Development/Jetpack Compose and want to share i=
+t directly with the folks working on it?=20
+
+Well, you are in luck because the Android team is running a [User Research =
+Study](https://docs.google.com/forms/d/e/1FAIpQLSe2D3Zre57wvldvNWvEAZK2cJZE=
+6aScGNfT0QSFCXvH5VzdGQ/viewform) focusing on Android Studio Tooling and the=
+y want to hear from you. They are especially interested in feedback about U=
+I development and animations in Compose.=20
+
+**It=E2=80=99ll be a 75 min session and they are offering up-to $300 in gif=
+t code for your time**.
+
+This isn=E2=80=99t an ad - I just thought that this audience is packed with=
+ seasoned leaders so I=E2=80=99ll surface this for everyone to be aware of.=
+ You can [sign up here](https://docs.google.com/forms/d/e/1FAIpQLSe2D3Zre57=
+wvldvNWvEAZK2cJZE6aScGNfT0QSFCXvH5VzdGQ/viewform).
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+# =F0=9F=A6=84 How you can help?
+
+If you enjoy reading this newsletter and would like to keep Dispatch free, =
+here are two quick ways to help:
+
+=F0=9F=91=89=F0=9F=8F=BB **Chip in via **[**Github Sponsors**](https://gith=
+ub.com/sponsors/vinaygaba). **If your company offers an education budget, c=
+ontributing a =E2=80=9Ccoffee=E2=80=9D to keep this newsletter going will c=
+ertainly qualify**. You=E2=80=99ll get an instant receipt for reimbursement=
+, and I=E2=80=99ll keep Dispatch running =E2=98=95=EF=B8=8F
+
+=F0=9F=91=89=F0=9F=8F=BB**Spread the word**. [Tweet](https://x.com/intent/p=
+ost?url=3Dhttps%3A%2F%2Fwww.jetpackcompose.app%2Fnewsletter&text=3DCheck+th=
+is+newsletter+by+%40vinaygaba&hashtags=3DAndroidDev%2CJetpackCompose&relate=
+d=3Dvinaygaba), [Bluesky](https://bsky.app/intent/compose?text=3DI%20love%2=
+0reading%20Dispatch%20to%20keep%20up%20with%20the%20Android%20ecosystem.%20=
+Check%20it%20out%20-%20https://www.jetpackcompose.app/newsletter), toot, Sl=
+ack, or carrier=E2=80=91pigeon this issue to someone who loves Android. Eac=
+h new subscriber pushes Dispatch closer to sustainability.
+
+# =F0=9F=91=82 Let me hear it!
+
+What=E2=80=99d you think of this email? Tap your choice below and lemme hea=
+r it =F0=9F=91=87=20
+
+##### =F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=80[ ](mailt=
+o:vinaygaba@gmail.com?subject=3DJetpackCompose.app%20Dispatch%20-%20Issue%2=
+0#16&body=3DThat%20was%20amazing)**[AMAZING-LOVED IT!](mailto:vinaygaba@gma=
+il.com?subject=3DJetpackCompose.app%20Dispatch%20-%20Issue%20#16&body=3DTha=
+t%20was%20amazing)**
+
+##### =F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=80[ ](mailto:vinaygaba@gmail.com?su=
+bject=3DJetpackCompose.app%20Dispatch%20-%20Issue%20#16&body=3DPretty%20goo=
+d)**[PRETTY GOOD!](mailto:vinaygaba@gmail.com?subject=3DJetpackCompose.app%=
+20Dispatch%20-%20Issue%20#16&body=3DPretty%20good)**
+
+##### =F0=9F=9A=80[ ](mailto:vinaygaba@gmail.com?subject=3DJetpackCompose.a=
+pp%20Dispatch%20-%20Issue%20#16&body=3DCould've%20been%20better)**[MEH - NO=
+T GREAT](mailto:vinaygaba@gmail.com?subject=3DJetpackCompose.app%20Dispatch=
+%20-%20Issue%20#16&body=3DCould've%20been%20better)**
+
+On that note, here=E2=80=99s hoping that your bugs are minor and your compi=
+lations are error free.
+
+=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=
+=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=
+=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=E2=80=94=
+=E2=80=94=E2=80=94
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/98648a15-a870-4=
+f13-91e8-669a521ae470/image.png?t=3D1743740108)
+Caption:=20
+
+**[Vinay Gaba](https://www.vinaygaba.me/?utm_source=3Djetpackcomposeapp.bee=
+hiiv.com&utm_medium=3Dnewsletter&utm_campaign=3Djetpackcompose-app-s-dispat=
+ch-issue-12&_bhlid=3Dbb58b3c0e815b4c0ed6ce6429851dc5bc770f4c8)**
+
+Tech Lead Manager @ Airbnb | Google Developer Expert for Android
+
+Vinay Gaba is a Google Developer Expert for Android and serves as a Tech Le=
+ad Manager at Airbnb, where he spearheads the UI Tooling team. His team's m=
+ission is to enhance developer productivity through cutting-edge tools leve=
+raging LLMs and Generative AI. Vinay has deep expertise in Android, UI Infr=
+astructure, Developer Tooling, Design Systems and Figma Plugins. Prior to A=
+irbnb, he worked at Snapchat, Spotify, and Deloitte. Vinay holds a Master's=
+ degree in Computer Science from Columbia University.
+
+
+
+=E2=80=94=E2=80=94=E2=80=94
+
+You are reading a plain text version of this post. For the best experience,=
+ copy and paste this link in your browser to view the post online:
+https://jetpackcomposeapp.beehiiv.com/p/dispatch-issue-16
+
+--b18849339c40405d9c2c9cc5129d77114f4762960ed69fd3793447e89f29
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office" style=3D"font-size:16px;"><head></head><head><meta charset=
+=3D"utf-8"/><!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=
+=3D"IE=3Dedge"/><!--<![endif]--><meta name=3D"viewport" content=3D"width=3D=
+device-width,initial-scale=3D1"/><meta name=3D"x-apple-disable-message-refo=
+rmatting"/><meta name=3D"format-detection" content=3D"telephone=3Dno,addres=
+s=3Dno,email=3Dno,date=3Dno,url=3Dno"/><meta name=3D"color-scheme" content=
+=3D"light"/><meta name=3D"supported-color-schemes" content=3D"light"/><titl=
+e>=F0=9F=9A=80 JetpackCompose.app&#39;s Dispatch Issue #16 | =F0=9F=97=91=
+=EF=B8=8F Google Play=E2=80=99s app-purge drama, =F0=9F=9B=A0=EF=B8=8F Amaz=
+on=E2=80=99s shiny new KMP =E2=80=9CApp Platform=E2=80=9D, =F0=9F=8E=A8 the=
+ theme bug that steals your Column=E2=80=99s color, =F0=9F=A4=A3 &quot;Soft=
+ Earnings&quot; and =F0=9F=93=8A @Preview-free code-coverage. </title><!--[=
+if mso]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:=
+PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]--><style>
+  :root { color-scheme: light; supported-color-schemes: light; }
+  body { margin: 0; padding: 0; min-width: 100%!important; -ms-text-size-ad=
+just: 100% !important; -webkit-transform: scale(1) !important; -webkit-text=
+-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !importa=
+nt; }
+  .body { word-wrap: normal; word-spacing:normal; }
+  table.mso { width: 100%; border-collapse: collapse; padding: 0; table-lay=
+out: fixed; }
+  img { border: 0; outline: none; }
+  table {  mso-table-lspace: 0px; mso-table-rspace: 0px; }
+  td, a, span {  mso-line-height-rule: exactly; }
+  #root [x-apple-data-detectors=3Dtrue],
+  a[x-apple-data-detectors=3Dtrue],
+  #MessageViewBody a { color: inherit !important; text-decoration: inherit =
+!important; font-size: inherit !important; font-family: inherit !important;=
+ font-weight: inherit !important; line-height: inherit !important; }
+  span.MsoHyperlink { color: inherit !important; mso-style-priority: 99 !im=
+portant; }
+  span.MsoHyperlinkFollowed { color: inherit !important; mso-style-priority=
+: 99 !important; }
+  .a { background-color:#f9fafb; }
+  .b { background-color:#4636f7; }
+  .c  { background-color:#FFFFFF; }
+  .d { background-color:#FFFCDD; }
+  .d2 { background-color:#FFFFFF; }
+  .d3 { background-color:#FFFFFF; }
+  h1 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h2 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h3 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h4 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h5 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h6 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, ul, li, ol, p=
+, p a { margin: 0;padding: 0; }
+  h1 { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;font-size=
+:28px;color:#222222;line-height:1.75;padding-bottom:4px;padding-top:16px;ms=
+o-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  h2 { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;font-size=
+:24px;color:#2A2A2A;line-height:1.5;padding-bottom:4px;padding-top:16px;mso=
+-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  h3 { font-family:'Poppins',Helvetica,sans-serif;font-weight:700;font-size=
+:20px;color:#2A2A2A;line-height:1.25;padding-bottom:4px;padding-top:16px;ms=
+o-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  h4 { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;font-size=
+:18px;color:#2A2A2A;line-height:1.125;padding-bottom:4px;padding-top:16px;m=
+so-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  h5 { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;font-size=
+:16px;color:#2A2A2A;line-height:1;padding-bottom:4px;padding-top:4px;mso-ma=
+rgin-top-alt:4px;mso-margin-bottom-alt:4px }
+  h6 { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;font-size=
+:14px;color:#2A2A2A;line-height:0.875;padding-bottom:4px;padding-top:4px;ms=
+o-margin-top-alt:4px;mso-margin-bottom-alt:4px }
+  p { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;color:#222=
+222;font-size:16px;line-height:1.5;padding-bottom:12px;padding-top:12px;mso=
+-margin-top-alt:12px;mso-margin-bottom-alt:12px; }
+  p a, .e a, ul a, li a, .h a, .h2 a, .h3 a { word-break:break-word;color:#=
+4636f7 !important;text-decoration:none;font-weight:bold; }
+  p a span, .e a span, ul a span, li a span { color: inherit }
+  p .bold { font-weight:bold;color:#222222; }
+  p span[style*=3D"font-size"] { line-height: 1.6; }
+  .f p { font-size:12px;line-height:15px;color:#222222;padding:0; }
+  .f p a { color:#222222 !important; }
+  .g p { font-family:'Poppins',Helvetica,sans-serif;font-size:14px;line-hei=
+ght:20px;font-weight:normal;margin:0; }
+  .g p a  { text-decoration: underline; }
+  .i p { font-family:'Poppins',Helvetica,sans-serif;line-height:1.5;font-si=
+ze:15px;color:#222222; }
+  .i p a { color:#222222 !important; }
+  .i2 p { font-family:'Poppins',Helvetica,sans-serif;line-height:1.5;font-s=
+ize:15px;color:#222222; }
+  .i2 p a { color:#222222 !important; }
+  .i3 p { font-family:'Poppins',Helvetica,sans-serif;line-height:1.8;font-s=
+ize:24px;color:#222222; }
+  .i3 p a { color:#222222 !important; }
+  .h p a { color:#595959 !important; }
+  .h2 p a { color:#595959 !important; }
+  .h3 p a { color:#595959 !important; }
+  .f p a, .i p a, .i2 p a, .i3 p a, .h p a, .h2 p a, .h3 p a { text-decorat=
+ion:underline; }
+  .j { border-top:3px Solid #DFD150; }
+  .k p { padding-left:15px;padding-bottom:0px;padding-top:6px;mso-margin-to=
+p-alt:6px;mso-margin-bottom-alt:0px;mso-margin-left-alt:15px; }
+  .o { background-color:#FFFFFF;border:1px solid #F1F1F1;border-radius:5px;=
+ }
+  .o p { font-family:'Poppins',Helvetica,sans-serif;padding:0px;margin:0px;=
+ }
+  .l p,
+  .l p a { font-size:14px;line-height:20px;font-weight: bold;color:#222222;=
+padding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .m p,
+  .m p a { font-size:13px;line-height:18px;font-weight:400;color:#222222;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .n p,
+  .n p a { font-size:12px;line-height:17px;font-weight:400;color:#222222;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .p { background-color:#FFFFFF;max-width:520px;border:1px solid #E1E8ED;bo=
+rder:1px solid rgba(80, 80, 80, 0.3);border-radius:5px; }
+  .q { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !impo=
+rtant;border:1px solid #e1e8ed;border:1px solid rgba(80, 80, 80, 0.3);borde=
+r-radius:10px;background-color:#FFFFFF; }
+  .q p { font-size:16px;font-family:system-ui,Helvetica,Roboto,Calibri,sans=
+-serif !important;color:#222222;padding:4px 0; }
+  .r { border:1px solid #E1E8ED !important;border-radius:5px; }
+  .s p { font-size: 14px; line-height: 17px; font-weight: 400; color: #6978=
+82; text-decoration: none; }
+  .t p { font-family:'Poppins',Helvetica,sans-serif;font-size:12px;line-hei=
+ght:1.5;font-weight:400;color:#222222;font-style:italic;padding:0px; }
+  .v { border-radius:10px;border:solid 0px #DFD150;background-color:#4636f7=
+;font-family:'Poppins',Helvetica,sans-serif;color:#FFFFFF; }
+  .v a { text-decoration:none;display:block;color:#FFFFFF; }
+  .w p { font-size:12px;line-height:15px;font-weight:400;color:#FFFFFF; }
+  .w p a { text-decoration: underline !important;color:#FFFFFF !important; =
+}
+  ul { font-family:'Poppins',Helvetica,sans-serif;margin:0px 0px 0px 25px !=
+important;padding:0px !important;color:#222222;line-height:24px;list-style:=
+disc;font-size:16px; }
+  ul > li { font-family:'Poppins',Helvetica,sans-serif;margin:10px 0px 0px =
+0px !important;padding: 0px 0px 0px 0px !important; color: #222222; list-st=
+yle:disc; }
+  ol { font-family:'Poppins',Helvetica,sans-serif;margin: 0px 0px 0px 25px =
+!important;padding:0px !important;color:#222222;line-height:24px;list-style=
+:decimal;font-size:16px; }
+  ol > li { font-family:'Poppins',Helvetica,sans-serif;margin:10px 0px 0px =
+0px !important;padding: 0px 0px 0px 0px !important; color: #222222; list-st=
+yle:decimal; }
+  .e h3,
+  .e p,
+  .e span { padding-bottom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-m=
+argin-bottom-alt:0px; }
+  .e span,
+  .e li { font-family:'Poppins',Helvetica,sans-serif;font-size:16px;color:#=
+222222;line-height:24px; }
+  .rec { font-family:  ui-sans-serif, system-ui, -apple-system, BlinkMacSys=
+temFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-ser=
+if, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color E=
+moji" !important; }
+  .rec__button:hover { background-color: #f9fafb !important; }
+  .copyright a {color: inherit !important; text-decoration: none !important=
+; font-size: inherit !important; font-family: inherit !important; font-weig=
+ht: inherit !important; line-height: inherit !important;}
+  .txt_social p { padding: 0; word-break: break-all; }
+  .table, .table-c, .table-h { border: 1px solid #C0C0C0; }
+  .table-c { padding:5px; background-color:#FFFFFF; }
+  .table-c p { color: #222222; font-family:'Poppins',Helvetica,sans-serif !=
+important;overflow-wrap: break-word; }
+  .table-h { padding:5px; background-color:#F1F1F1; }
+  .table-h p { color: #222222; font-family:'Poppins',Helvetica,sans-serif !=
+important;overflow-wrap: break-word; }
+  @media only screen and (max-width:667px) {
+    .aa { width: 100% !important; }
+    .bb img { width: 100% !important; height: auto !important; max-width: n=
+one !important; }
+    .cc { padding: 0px 8px !important; }
+    .ee { padding-top:10px !important;padding-bottom:10px !important; }
+    .ff ul, .ff ol { margin: 0px 0px 0px 10px !important;padding: 0px !impo=
+rtant; }
+    .ff li { margin:10px 0px 0px 10px !important; }
+    .r {height:140px !important;}
+    .s p { font-size:13px !important;line-height:15px !important; }
+    .mob-hide {display:none !important;}
+    .mob-stack {display:block !important;width:100% !important;}
+    .mob-w-full {width:100% !important;}
+    .mob-block {display:block !important;}
+    .embed-img {padding:0px 0px 12px 0px !important;}
+    .socialShare {padding-top:15px !important;}
+    .rec { padding-left:15px!important;padding-right:15px!important; }
+    .bodyWrapper { padding:10px 4px 10px 4px !important; }
+    .social-mobile {float:left !important;margin-top:10px !important;}
+  }
+  @media screen and (max-width: 480px) {
+    u + .a .gg { width: 100% !important; width: 100vw !important; }
+    .tok-heart { padding-top:75% !important; }
+    .tok-play { padding-top: 250px !important; }
+  }
+  @media screen and (max-width: 320px) {
+    .tok-heart { padding-top:65% !important; }
+  }
+  .u { border: 1px solid #CACACA !important; border-radius: 2px !important;=
+ background-color: #ffffff !important; padding: 0px 13px 0px 13px !importan=
+t; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Se=
+goe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif !important;fon=
+t-size: 12px !important; color: #767676 !important; }
+  .u a { text-decoration: none; display: block !important; color: #767676 !=
+important; margin: 0px !important; }
+  .u span, .u img { color: #767676 !important;margin:0px !important; max-he=
+ight:32px !important;background-color:#ffffff !important; }
+</style><!--[if mso]><style type=3D"text/css">
+    sup { font-size: 100% !important;vertical-align: .5em !important;mso-te=
+xt-raise: -1.5% !important;line-height: 0 !important; }
+    ul { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ul li { margin-left: 0px !important; mso-special-format: decimal; }
+    ol { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ol li { margin-left: 0px !important; mso-special-format: decimal; }
+    li.listItem { margin-left:15px !important; margin-top:0px !important; }
+    .paddingDesktop { padding: 10px 0 !important; }
+    .edm_outlooklist { margin-left: -20px !important; }
+    .embedImage { display:none !important; }
+</style><![endif]--><style>
+        @font-face {
+          font-family: 'Poppins';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFV=
+rJJfecnFHGPc.woff2') format('woff2');
+        }
+
+        @font-face {
+          font-family: 'Poppins';
+          font-style: italic;
+          font-weight: 400;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/poppins/v22/pxiGyp8kv8JHgFV=
+rJJLucHtAOvWDSA.woff2') format('woff2');
+        }
+        @font-face {
+          font-family: 'Poppins';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/poppins/v22/pxiByp8kv8JHgFV=
+rLCz7Z1xlFd2JQEk.woff2') format('woff2');
+        }
+
+        @font-face {
+          font-family: 'Poppins';
+          font-style: italic;
+          font-weight: 700;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/poppins/v22/pxiDyp8kv8JHgFV=
+rJJLmy15VF9eOYktMqg.woff2') format('woff2');
+        }
+</style></head><body class=3D"a" style=3D"margin:0px auto;padding:0px;word-=
+wrap:normal;word-spacing:normal;background-color:#f9fafb;"><div role=3D"art=
+icle" aria-roledescription=3D"email" aria-label=3D"email_name" lang=3D"en" =
+style=3D"font-size:1rem"><div style=3D"display:none;max-height:0px;overflow=
+:hidden;"> =F0=9F=92=8C In today=E2=80=99s Dispatch: =F0=9F=97=91=EF=B8=8F =
+Google Play=E2=80=99s 47 % app-purge drama, =F0=9F=9B=A0=EF=B8=8F Amazon=E2=
+=80=99s shiny new KMP =E2=80=9CApp Platform=E2=80=9D, =F0=9F=8E=9E=EF=B8=8F=
+ ADB slow-mo frame-timing captures, =F0=9F=8E=A8 the theme bug that steals =
+your Column=E2=80=99s color, =F0=9F=A4=A3 &quot;Soft Earnings&quot; and =F0=
+=9F=93=8A @Preview-free code-coverage magic. &#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204; </div><table role=3D"none" width=3D"100%" border=3D"0"=
+ cellspacing=3D"0" align=3D"center" cellpadding=3D"0" class=3D"gg"><tr><td =
+align=3D"center" valign=3D"top"><table role=3D"none" width=3D"670" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"aa" style=3D"width:670p=
+x;table-layout:fixed;"><tr><td class=3D"bodyWrapper" align=3D"center" valig=
+n=3D"top" style=3D"padding:10px 5px 10px 5px;"><table role=3D"none" width=
+=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"=
+><tr><td align=3D"center" valign=3D"top" style=3D"border-width:0px 0px 0px =
+0px;border-style: solid; border-color: #4636f7;border-radius:10px 10px 0px =
+0px;background-color:#FFFFFF;" class=3D"c"><table role=3D"none" width=3D"10=
+0%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr i=
+d=3D"header"><td style=3D"padding:15px 15px 0px 15px;"><div style=3D"paddin=
+g-top:0px;padding-right:0px;padding-bottom:20px;padding-left:0px;"><table r=
+ole=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+" align=3D"center"><tr><td class=3D"f" align=3D"right" valign=3D"top"><p> M=
+ay 19, 2025 &nbsp; | &nbsp; <a href=3D"https://link.mail.beehiiv.com/ss/c/u=
+001.DgkFNI5fx5JE22pMoCZFwAQ-1zlkWP0Jty0jQqcdt_a2lHFOLrgu1J5pnfGxivDh1bu08Lr=
+XULBcKBupQQstI2r9ppD4qfw9ArdWSRQ3RuAvTgrXTeXb0qAhSFJhxZQfVN_jXfZT548kwZlHMK=
+ERTkAnOEu_9732Nqb8W2-6CgYLW_ZF3Ap9nC1FvQ9e0mLWywWfwDcdtaoaAdYszP8_MAtnylCdE=
+vMFet3P4jxJEHar9BV0Eu1WMVznhn5lKV-2CQ-t8cssgymuKBJKwzVvV_XedgQ5ziYuy7eFIjfp=
+384x5NVHx9iMrZ-x8XJjYv_t/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h0/h001.6xURNvbt0xouCcr=
+KYzlPTQkhUsH1rBFhz0aItAmem1M"><span class=3D"translation_missing" title=3D"=
+translation missing: en.templates.posts.email.v3.header.read_online">Read O=
+nline</span></a></p></td></tr><tr><td class=3D"dd" align=3D"center" valign=
+=3D"top" style=3D"padding:15px 0;"><table role=3D"none" width=3D"100%" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=
+=3D"center" valign=3D"top"><h1 style=3D"text-align:left;font-family:'Poppin=
+s',Helvetica,sans-serif;font-weight:Bold;font-size:32px;color:#222222;paddi=
+ng:2px 0;line-height:38px;"> JetpackCompose.app&#39;s Dispatch Issue #16 </=
+h1><p style=3D"text-align:left;font-family:'Poppins',Helvetica,sans-serif;f=
+ont-weight:normal;font-size:20px;color:#3E3E3E;padding:5px 0;line-height:24=
+px;"> =F0=9F=92=8C In today=E2=80=99s Dispatch: =F0=9F=97=91=EF=B8=8F Googl=
+e Play=E2=80=99s 47 % app-purge drama, =F0=9F=9B=A0=EF=B8=8F Amazon=E2=80=
+=99s shiny new KMP =E2=80=9CApp Platform=E2=80=9D, =F0=9F=8E=9E=EF=B8=8F AD=
+B slow-mo frame-timing captures, =F0=9F=8E=A8 the theme bug that steals you=
+r Column=E2=80=99s color, =F0=9F=A4=A3 &quot;Soft Earnings&quot; and =F0=9F=
+=93=8A @Preview-free code-coverage magic. </p></td></tr></table></td></tr><=
+tr><td align=3D"center" valign=3D"top" class=3D"dd"><table role=3D"none" wi=
+dth=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"cent=
+er"><tr><td align=3D"left" valign=3D"middle" class=3D"mob-stack"><table rol=
+e=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"right"=
+ class=3D"social-mobile"><tr><td align=3D"left" valign=3D"middle"><table ro=
+le=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"left"=
+ style=3D"width:100%"><tr><td align=3D"center" valign=3D"middle"><a href=3D=
+"https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwLthoO8EAda-gT=
+SubkiPggFj8usWPQdZOFu16tdTFrq-aHfexA0VxF5mPaauCZBVYuyCIxGO_hRGuYhI5Z-n5sahj=
+2VLOiNiCZWgRqAUNt7-ilH-qUpDw91x4AE9JhoG63iXqZBe9cc0INlTcVezqew7QAqEN-f_M2CA=
+ukqZmgUWtjq99BYBRUAgg6_uArrHkqLP8b75gwZCw5TJzTIe5fN2Z7kCFUybFOPuEnZ3fB9bzXW=
+YzW_sVoFknAPhGi53qZtbh5Kvixms0bDlNahlo1z9Nl34tR-z4KyXFFoFlZJ_CFmltmgzHhI2VZ=
+2tLyAzkIjY1Rs-TlddntLcGiLtjxUPoCt6exUCouG2FS3GfPmU/4gm/VVHcxVIJQxSWZuj7UGYW=
+3Q/h1/h001.RK_dogBcMF3UIyQluS4V44Mw6Z4lzSvOgCqgkcpvYdg" style=3D"text-decor=
+ation:none; display:block;"><table role=3D"none" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center" valign=
+=3D"middle" style=3D"border: 1px solid #E5E7EB; border-radius: 100%; width:=
+ 18px; height: 18px; padding: 8px;"><img style=3D"display:block; width:100%=
+; height:100%; max-width:18px; max-height:18px; object-fit: contain;" alt=
+=3D"share on facebook" width=3D"18" border=3D"0" src=3D"https://media.beehi=
+iv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,qual=
+ity=3D80/static_assets/header/facebook.png"/></td></tr></table></a></td><td=
+ width=3D"8" style=3D"width:8px;">&nbsp;</td><td align=3D"center" valign=3D=
+"middle"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.fkViF09bFfun30f=
+F7Tap4VJaPnnJKjT4PNBbnAyb_LhvjHxyQ2vjlmXP7bCwQbRl8WkmrdCUCzaoIxUf4hIYRgDIjM=
+Z_ok8SrqqtIg4fZFTozryODDPLLT3_oKferYI24NANCE05-w6g5daIRKT1dFsiyewt2MFN-lyuR=
+JRHhqZFe-4_HJcqkWpSk9PnKewouSVP_DBLSn0aigtvGxO0g-NIFnZ2gnhM6qfLvfl9nCEX9pi3=
+MkPLPj5g-6twIowDaDrXIQODdducqqV_dbKOKSdSpVslZUC0e2za8z8EoQEEnCJaMCTWIkyZMfV=
+u4t3GK9oUANw9zMPFK5Eu7zuuTpATptb2oKQ-wD4qUdsZLDXDEq0hFE7dQtdTO0en7RAQOwK5-J=
+cYRGHkAYbtHbM0c2lqpb3R6GZz0RJJtmXzR_Of7wSD47I0D2T0FIrKnK1HlNRZsQzI9UofgdOm8=
+tjW8ydjJB17RL95qx0eTs01_4AXQx5kWhxCXzQJ0aemxbdBCk5-r0FcWRLXBga7Sls3r6kf_1IA=
+1ezykYsiSIR605ffCFFm5rimhdgED-PgdKieDsOMj1-GAuEqPwxEcdsiDgZPx-YTU5f0fwn_Uf9=
+8YdLVAmoJVinypYQlO5HpLj_8GXcQ7TK0oTPMyCKix_JRepBsxB0EJCtk-qPVtCeeNCCWhAF0Mu=
+9B5OLtu5mGqwEcRMq5feh3N89tDWZrIxFdC2dz58JFP3RjA8cFXd3m871na3I-da8b4hx5V1NSK=
+FdIXrQtEty8l6bq8einuBvbeJoLEoiGt6GVKdYXy9GbOHOUmcftn_ZTYDis9OATcZvDo2DBH3z0=
+n_VIT9zMB9cJdHWbL9av2WylQ0PDPoh3u6Tt32v_Y9YmtInVwAvuOrOZFF326T4O6ib1UGFd_2z=
+N7Q/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h2/h001.gjd0dwwMpDshfly33WTCh_pY_8ygpNupWmUH=
+PcZ7nlE" style=3D"text-decoration:none; display:block;"><table role=3D"none=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td=
+ align=3D"center" valign=3D"middle" style=3D"border: 1px solid #E5E7EB; bor=
+der-radius: 100%; width: 18px; height: 18px; padding: 8px;"><img style=3D"d=
+isplay:block; width:100%; height:100%; max-width:18px; max-height:18px; obj=
+ect-fit: contain;" alt=3D"share on twitter" width=3D"18" height=3D"18" bord=
+er=3D"0" src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,fo=
+rmat=3Dauto,onerror=3Dredirect,quality=3D80/static_assets/header/x.png"/></=
+td></tr></table></a></td><td width=3D"8" style=3D"width:8px;">&nbsp;</td><t=
+d align=3D"center" valign=3D"middle"><a href=3D"https://link.mail.beehiiv.c=
+om/ss/c/u001.DgkFNI5fx5JE22pMoCZFwIXUwdzeriIJ_sV6F3S-z0VHhb-yJ0qoVZATP9LMvX=
+YFxGXVkJlXvU0ofHFHF89ow8Bd3282XAaDFRAT8taixuvlYyfHDIXcWjwyxccFVI4xejBENhJ0-=
+VxDWzqnKLmJwIzVKr26YKlUS6UTV5HSr8qZrh_XrJrojVN-WlvCn9RPrTk20q2lBovOqikpKUoK=
+YCfQkFsoMCW32CJIOqnedQ8Oi50IYOPWYsKFXtEGxe1vrighyvZyyUs-lihsl3uzEJ1Nyangwg5=
+bRcBapW4pjxHxXu69tDMebsi1OkNNA86zZ4SbhDfXGV0z_bUGhIkTLfimMUsh35VStFPyhhb9SS=
+ZOMhFiVCxDsgq8kPPlvBx2QrlbbkEuspa3MqeXkHe7PqWZZ_23DFqbVhZ3Wm30JlQZQI8_m1w6h=
+ujC4yTnTa6BctbAdFznsfpsqDZdlHMRCGqorn6hJy3c1dq-_eeBGz8yJ5qR84Qk7pAFtuIAoGUB=
+KezpvFujsiCaiYgh3c6hSRnVVJa5ZbDuRSnVkHzCSOTPfK1tVHkcD5_T2scaowWRqSpojGDC1j-=
+GKa5zk6vyXiELzSIdFup3FBiGuJkmEYCuLcxv7RWX_ZpRm0-tXKGmzPZbbj9Hyc3P4bC6q_LRx4=
+2u2DLiuihZucBd_IyBLVniGfZj50Ibkyf2W9E7_yWucV1bJksY1DXSO_EZ4AacM_Dic2d-QfXb9=
+qz5DQitS0vrSj15n2ok12soqYlfTCSfq49b1nDhLgXVnsWlMGpyyOKvwxNlFf9PP9B0TH1oGIar=
+hVE4CWVe162JOl0Ww8pdq89mdYmQ5N7QH-enxJg_GLEGuQT62VZo1CL4XPBv4l_dvxNRugqiFC4=
+4Mg8xNXZg/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h3/h001.N0f4y9d_aja_QGjZKRArMNYsd_X4ac=
+qIKIbB9d7WARM" style=3D"text-decoration:none; display:block;"><table role=
+=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"=
+><tr><td align=3D"center" valign=3D"middle" style=3D"border: 1px solid #E5E=
+7EB; border-radius: 100%; width: 18px; height: 18px; padding: 8px;"><img st=
+yle=3D"display:block; width:100%; height:100%; max-width:18px; max-height:1=
+8px; object-fit: contain;" alt=3D"share on threads" width=3D"18" height=3D"=
+18" border=3D"0" src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale=
+-down,format=3Dauto,onerror=3Dredirect,quality=3D80/static_assets/header/th=
+reads.png"/></td></tr></table></a></td><td width=3D"8" style=3D"width:8px;"=
+>&nbsp;</td><td align=3D"center" valign=3D"middle"><a href=3D"https://link.=
+mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwGBM6Fqh00-MoI-hDmH0PV_-yX1M=
+d8MlKUH0lPHrTtLbKK8TH7CgdLM8-RRLPDiet7CLjEvf-cWlslnqabFuvUbFdqTTpcHtFu-v7b6=
+i-u5uwjYpQhMo-V2tz36xJK8s5MZxl4t5e9oagHfnWz_2murSG4pxVwV2QFI0kCPnBGc3Ub5EO4=
+slu_Bs8WlKP8G3Jx3uJEZBhGcQP-XIMl6VibJ_ISuIO_LLuIeeOPHUq2xUggedgHldz9h0hA8oP=
+I3e8b76JGDaT2DCaw291jmHeowv2xrQXE29JfAjdcdZ9Y5SbVUaNV7bCILd6_JJA17NFX578ZRv=
+C-PWBbIs9e2jIxSwp7Jxxk11UXjE_8vf9dIkQww87y8Vw3_-9yINQ5MnvQ/4gm/VVHcxVIJQxSW=
+Zuj7UGYW3Q/h4/h001.qW6vnNMkHZ-hqMaz7oSxQ_WpOP8leLf_ecN1SyQA5xI" style=3D"te=
+xt-decoration:none; display:block;"><table role=3D"none" border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center" va=
+lign=3D"middle" style=3D"border: 1px solid #E5E7EB; border-radius: 100%; wi=
+dth: 18px; height: 18px; padding: 8px;"><img style=3D"display:block; width:=
+100%; height:100%; max-width:18px; max-height:18px; object-fit: contain;" a=
+lt=3D"share on linkedin" width=3D"18" height=3D"18" border=3D"0" src=3D"htt=
+ps://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=
+=3Dredirect,quality=3D80/static_assets/header/linkedin.png"/></td></tr></ta=
+ble></a></td></tr></table></td></tr></table></td></tr></table></td></tr><tr=
+><td style=3D"height:0px;width:0px;"><div style=3D"height:1px;" data-open-t=
+racking=3D"true"> <img src=3D"https://link.mail.beehiiv.com/ss/o/u001.eM8Iu=
+sFZxtj9gc9jsunxhw/4gm/VVHcxVIJQxSWZuj7UGYW3Q/ho.gif" alt=3D"" width=3D"1" h=
+eight=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !importan=
+t;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !import=
+ant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !impor=
+tant;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 =
+!important;"/> </div></td></tr></table></div></td></tr><tr id=3D"content-bl=
+ocks"><td class=3D"email-card-body" align=3D"center" valign=3D"top" style=
+=3D"padding-bottom:15px;"><table role=3D"none" width=3D"100%" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td><table role=3D=
+"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" styl=
+e=3D""><tr><td height=3D"8.0px" style=3D"line-height:1px;font-size:1px;heig=
+ht:8.0px;"> &nbsp; </td></tr><tr><td><table role=3D"none" width=3D"100%" bo=
+rder=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td width=3D"8.0px" styl=
+e=3D"line-height:1px;font-size:1px;width:8.0px;"> &nbsp; </td><td bgcolor=
+=3D"#F2F7FF" style=3D"background-color:#F2F7FF;border-color:#222222;border-=
+radius:16px;border-style:solid;border-width:4px;padding:8.0px 8.0px 8.0px 8=
+.0px;"><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0"><tr><td align=3D"center" valign=3D"top" style=3D"padding-b=
+ottom:20px;padding-left:15px;padding-right:15px;padding-top:20px; " class=
+=3D"dd"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" style=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" =
+style=3D"width:409px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.D=
+gkFNI5fx5JE22pMoCZFwHpzmrSQi6KDSXOZjym00SNvrhZU7-KEY5ssPz2F4SRCf_eSYpg_XED8=
+GJvuovCzGRFSL8RHUlCDsZGgWgTwqIO08UaJ61qBsxOH5HJkX_NEUrHu3iMnvIUO4jub2e2a0pd=
+zvLAkQXPxDQErt517fu1Idy6tySc2vYZFzgoNv8pwZtfbJfpnPPWIjJJnaI1Fn89ZrqAZXkhFb6=
+HuEq4m_oSsxpbi4EXv9qRRNx4QD5ET/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h5/h001.42ufuprfg=
+W37bEykYNE2vOrbYiMKN1oRGPH1MAR6s8k" rel=3D"noopener noreferrer nofollow" st=
+yle=3D"text-decoration:none;" target=3D"_blank"><img src=3D"https://media.b=
+eehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,=
+quality=3D80/uploads/asset/file/f354632e-3542-4929-abfc-955561e34f67/Dispat=
+ch_Logo_w__Runway.png?t=3D1747608544" alt=3D"" height=3D"auto" width=3D"409=
+" style=3D"display:block;width:100%;border-radius:0px 0px 0px 0px;border-st=
+yle:solid;border-width:0px 0px 0px 0px;box-sizing:border-box;border-color:#=
+E5E7EB;" border=3D"0"/></a></td></tr></table></td></tr><tr><td class=3D"dd"=
+ align=3D"center" style=3D"padding:0px 15px;text-align:center;word-break:br=
+eak-word;"><p style=3D"mso-line-height-alt:150.0%;"><span style=3D"">Your m=
+obile release =E2=80=9Ctax=E2=80=9D costs more than you realize.</span></p>=
+</td></tr><tr><td class=3D"dd" align=3D"center" style=3D"padding:0px 15px;t=
+ext-align:center;word-break:break-word;"><p style=3D"mso-line-height-alt:15=
+0.0%;"><span style=3D"">Join mobile leaders from Skyscanner and SoFi on </s=
+pan><span style=3D""><span style=3D"text-decoration:underline;">May 22</spa=
+n></span><span style=3D""> to measure exactly what you=E2=80=99re losing=E2=
+=80=94and learn the real ROI of improving your mobile release process.</spa=
+n></p></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"padding-bo=
+ttom:14px;padding-left:15px;padding-right:15px;padding-top:14px;text-align:=
+center;width:100%;word-break:break-word;" class=3D"dd"><table role=3D"none"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" style=3D=
+"margin:14px auto 14px auto;"><tr><td align=3D"center" valign=3D"middle" he=
+ight=3D"44.75" style=3D"height:44.75px;background-color:#4636f7;border-colo=
+r:#DFD150;border-radius:10px 10px 10px 10px;border-style:solid;border-width=
+:0px 0px 0px 0px;color:#FFFFFF;font-family:'Poppins',Helvetica,sans-serif;"=
+><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwHp=
+zmrSQi6KDSXOZjym00SNvrhZU7-KEY5ssPz2F4SRCf_eSYpg_XED8GJvuovCzGRFSL8RHUlCDsZ=
+GgWgTwqIO08UaJ61qBsxOH5HJkX_NEUrHu3iMnvIUO4jub2e2a0pdzvLAkQXPxDQErt517fu1Id=
+y6tySc2vYZFzgoNv8pwAafqCRP6VSSws60RW3YrBnJUUZ10FfXlt5VqO7gXbb7hJhpHHYDvQM1P=
+FDjafXX4/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h6/h001.X8UfuybFxzs0c-sHrGYdvDatFCUbnKa=
+psQMbue7lwGA" target=3D"_blank" rel=3D"noopener noreferrer nofollow" style=
+=3D"color:#FFFFFF;display:block;font-size:16px;font-size:16px;font-weight:n=
+ormal;padding:0px 14px;padding:14px 14px 14px 14px;text-decoration:none;"> =
+Register for the live discussion </a></td></tr></table></td></tr></table></=
+td><td width=3D"8.0px" style=3D"line-height:1px;font-size:1px;width:8.0px;"=
+> &nbsp; </td></tr></table></td></tr><tr><td height=3D"8.0px" style=3D"line=
+-height:1px;font-size:1px;height:8.0px;"> &nbsp; </td></tr></table></td></t=
+r><tr><td class=3D"dd" align=3D"justify" style=3D"padding:0px 15px;text-ali=
+gn:justify;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"=
+> GM Friends. This is <a class=3D"link" href=3D"https://link.mail.beehiiv.c=
+om/ss/c/u001._tsfBaTYDXVcTACgjk6AyxX1A3CY2buQ-jRQQKRamSPAUjr3z0pmTnFIpC46fI=
+37UX1iLci02SZaqT8S5VCZRhfxUjsUQILavLUZpfRI0LW7XnmvLlsgHIJlCJpz3zHiTEWKnH_4Y=
+UmynXQryjkkH1CqOhQYLyCTR6atTbObG_5wUHnyvTDNpEzCaB2zFcCJ1YzhVBz-m6mfMDBd6-2i=
+P5u8peLF9_1g_JqzItEtb-WnTHew_cOTEEtONokBPM70FX0oeCvBmzICoIsvXim7_A/4gm/VVHc=
+xVIJQxSWZuj7UGYW3Q/h7/h001.9nlOPglfNymDEBJ-cRRDng3739gPbTDJGwBXclGOddE" tar=
+get=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>JetpackCompose.ap=
+p</span></a>=E2=80=99s Dispatch, sliding into your inbox with the grace of =
+a Compose recomposition that <i>actually</i> skips unnecessary work. </p></=
+td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-=
+align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"=
+> This is Issue # 16 and is jam-packed with practical tips, juicy industry =
+tidbits, and a healthy dose of nerdy enthusiasm. Let=E2=80=99s dig in! </p>=
+</td></tr><tr><td id=3D"insider-insight" class=3D"dd" align=3D"center" vali=
+gn=3D"top" style=3D"color:#222222;font-weight:normal;padding:0px 15px;text-=
+align:center;"><h1 style=3D"color:#222222;font-weight:normal;mso-line-heigh=
+t-alt:175.0%;">=F0=9F=95=B5=F0=9F=8F=BB=E2=80=8D=E2=99=82=EF=B8=8F Insider =
+Insight</h1></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"paddi=
+ng:0px 15px;text-align:justify;word-break:break-word;"><p style=3D"mso-line=
+-height-alt:150.0%;"> Let=E2=80=99s be honest: debugging animation jank is =
+right up there with =E2=80=9Cherding cats=E2=80=9D and =E2=80=9Cexplaining =
+state hoisting to your manager=E2=80=9D on the frustration scale. But here=
+=E2=80=99s a tool that flies under the radar for even seasoned Android devs=
+: <b>ADB=E2=80=99s --bugreport option for video recordings</b>. Simply run =
+the following: </p></td></tr><tr><td style=3D"padding:0px 15px;"><pre style=
+=3D"background:#282828;border-radius:10px;color:#FFFFFF;line-height:1.5;ove=
+rflow-wrap:break-word;padding:16px;white-space:pre-wrap;word-break:break-wo=
+rd;"><code>adb shell screenrecord <span style=3D"color: #7ee787">--bugrepor=
+t</span> /sdcard/recording.mp4</code></pre></td></tr><tr><td class=3D"dd" a=
+lign=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-wo=
+rd;"><p style=3D"mso-line-height-alt:150.0%;"> You=E2=80=99ll get a video r=
+ecording of your app <b>with frame-timing overlays baked in</b>=E2=80=94lik=
+e frame numbers, timestamps, and dropped frame indicators. It=E2=80=99s lik=
+e having a personal slow-mo referee for your app=E2=80=99s UI performance! =
+</p></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"padding-bott=
+om:20px;padding-left:15px;padding-right:15px;padding-top:20px; " class=3D"d=
+d"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" st=
+yle=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=
+=3D"width:630px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=
+=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/f=
+ile/7608ab59-7956-407c-bbd8-ef069fe93cca/adb_screenrecorder.png?t=3D1747604=
+562" alt=3D"" height=3D"auto" width=3D"630" style=3D"display:block;width:10=
+0%;" border=3D"0"/></td></tr><tr><td align=3D"center" valign=3D"top" class=
+=3D"t" style=3D"width:630px; padding: 4px 0px 4px 0px;"><a href=3D"https://=
+link.mail.beehiiv.com/ss/c/u001.rGdB9E1ROeJf9wpf88uOeyEFgdrIw1ExpcQgJ_IxHJR=
+3SiqzJjsP5wriA9bRwxhyuOJgD3LJawCbGAm3QOE0DZ_lJyL7cxSMaSkygEqnSKkdYGMYH7fa9P=
+pk9KV7YXCl4ziNUCqtJE655sLmrEB0ENC3LBZpZwTpbbLwamuw61lU1YeppWL7-G7kHPNXYib5l=
+DHE7IZHbV1SYZjdW2EO_qfqsRC5NO7sddm_1I0xMHlwYOaX2-loYiAv9CR9xht8rnLzsB3VPXKj=
+IFMSeaukabgnR-OCQNXRFM71UVGKuPg/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h8/h001.d49iQR7Q=
+bSudN9SJoljUxoxG0hmzE22QZx5ecBN7UR4" target=3D"_blank" rel=3D"noopener nore=
+ferrer nofollow" style=3D"text-decoration:underline;text-decoration-color:#=
+222222;"><p>Source: Shoutout to Cyril Mottier who shed light on this super =
+cool adb feature</p></a></td></tr></table></td></tr><tr><td id=3D"why-does-=
+this-matter" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#2A2=
+A2A;font-weight:normal;padding:0px 15px;text-align:left;"><h4 style=3D"colo=
+r:#2A2A2A;font-weight:normal;mso-line-height-alt:112.5%;">Why does this mat=
+ter?</h4></td></tr><tr><td style=3D"padding-bottom:12px;padding-left:37px;p=
+adding-right:27px;padding-top:12px;" class=3D"ee"><div style=3D"margin-left=
+:0px;" class=3D"edm_outlooklist"><ul style=3D"font-weight:normal;list-style=
+-type:disc;margin-bottom:12px !important;margin-top:12px !important;padding=
+:0px 0px 0px 0px;"><li class=3D"listItem ultext"><p style=3D"mso-line-heigh=
+t-alt:150.0%;padding:0px;text-align:left;word-break:break-word;"><b>Diagnos=
+e Animation Hiccups:</b> See exactly where frames are being dropped or dela=
+yed during those tricky transitions or complex Compose animations that you =
+are now able to build with the wonderful APIs it offers. </p></li><li class=
+=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%;padding:0px;tex=
+t-align:left;word-break:break-word;"><b>Share with Team:</b> Got a performa=
+nce bug that only happens on your coworker=E2=80=99s 5-year-old Samsung? No=
+w you can record, annotate, and send evidence for all to see (and fix!). </=
+p></li><li class=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%=
+;padding:0px;text-align:left;word-break:break-word;"><b>When to Use:</b> An=
+ytime you optimize animations, debug =E2=80=9Cjank,=E2=80=9D or want to imp=
+ress your PM with a CSI-style breakdown of why that modal takes 500ms too l=
+ong to appear. </p></li></ul></div></td></tr><tr><td align=3D"center" valig=
+n=3D"top" style=3D"padding-bottom:20px;padding-left:15px;padding-right:15px=
+;padding-top:20px; " class=3D"dd"><table role=3D"none" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td align=
+=3D"center" valign=3D"top" style=3D"width:630px;"><img src=3D"https://media=
+.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirec=
+t,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4da0-8d98-80da6ad9baf5/Divi=
+der-min.png?t=3D1715138076" alt=3D"" height=3D"auto" width=3D"630" style=3D=
+"display:block;width:100%;" border=3D"0"/></td></tr></table></td></tr><tr><=
+td align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-lef=
+t:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"n=
+one" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 aut=
+o 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:346px;"><=
+a href=3D"https://link.mail.beehiiv.com/ss/c/u001.lR7FjY4yQEEvLc4jEurND27JW=
+ly9QT1Zs90VVGSWE9YXCxTraSfyqoajjwCI9VCy32tc8HcX5fUzawk24a4ee5PJLASjPXagAEWc=
+LYeldCE6qXFwjjZyduD_HrPUDqpmzCFnYDBaWJp6CYyz3EXxaNksqtM4SEjXRmMkqVx1UXPS_er=
+VjRTHyqf6hiFkfZ3Dpd1zGduOH1Ir9emDBXYWcw/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h9/h001.=
+ZNZ3w2gN76y0OKCWKTzSlyFtNGJp-pabzS3_leqV39U" rel=3D"noopener noreferrer nof=
+ollow" style=3D"text-decoration:none;" target=3D"_blank"><img src=3D"https:=
+//media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3D=
+redirect,quality=3D80/uploads/asset/file/d5f3651a-a253-45a2-a8e3-6ee8b75487=
+e2/Spot_the_bug.png?t=3D1746127287" alt=3D"" height=3D"auto" width=3D"346" =
+style=3D"display:block;width:100%;" border=3D"0"/></a></td></tr></table></t=
+d></tr><tr><td><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0" style=3D""><tr><td bgcolor=3D"#ffee96" style=3D"ba=
+ckground-color:#ffee96;border-radius:8px;padding:8.0px 8.0px 8.0px 8.0px;">=
+<table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0"><tr><td class=3D"dd" align=3D"justify" style=3D"padding:0px 15px;=
+text-align:justify;word-break:break-word;"><p style=3D"mso-line-height-alt:=
+150.0%;"><span style=3D"font-family:Lato,'Open Sans','Segoe UI',Tahoma,sans=
+-serif;">Despite our best efforts, sometimes issues slip through the cracks=
+. That&#39;s why having an amazing observability tool in your corner is imp=
+ortant to keep your=C2=A0app humming. </span><span style=3D"font-family:Lat=
+o,'Open Sans','Segoe UI',Tahoma,sans-serif;"><a class=3D"link" href=3D"http=
+s://link.mail.beehiiv.com/ss/c/u001.lR7FjY4yQEEvLc4jEurND27JWly9QT1Zs90VVGS=
+WE9YXCxTraSfyqoajjwCI9VCy32tc8HcX5fUzawk24a4ee5PJLASjPXagAEWcLYeldCE6qXFwjj=
+ZyduD_HrPUDqpmzCFnYDBaWJp6CYyz3EXxaIqHNF7YVelDjuMstKiptNc4oSGd3zABLYcdfkBBO=
+OxWXgBRrRmFoj1cDL5cwRwxBw/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h10/h001.Ow50mkERYA5SF=
+7I65hEpiew3THOuUaDl35_IjssuNsQ" target=3D"_blank" rel=3D"noopener noreferre=
+r nofollow"><span>Bitdrift</span></a></span><span style=3D"font-family:Lato=
+,'Open Sans','Segoe UI',Tahoma,sans-serif;"> gives you on-demand observabil=
+ity that&#39;s custom-built for mobile teams: no log limits, no overage fee=
+s, and no waiting on your next app release.=C2=A0</span><span style=3D"font=
+-family:Lato,'Open Sans','Segoe UI',Tahoma,sans-serif;"><a class=3D"link" h=
+ref=3D"https://link.mail.beehiiv.com/ss/c/u001.lR7FjY4yQEEvLc4jEurND27JWly9=
+QT1Zs90VVGSWE9YXCxTraSfyqoajjwCI9VCy32tc8HcX5fUzawk24a4ee5PJLASjPXagAEWcLYe=
+ldCE6qXFwjjZyduD_HrPUDqpmzCFnYDBaWJp6CYyz3EXxaBdB6Ih1aEbV27qz-W9Lu1W9GIkZIi=
+28x74uzx3k8w9MKkUH5n7XhekAUo2x48ARhQ/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h11/h001.po=
+j7Q_EgeRszlr_xwooWoNYsnGG2bRyWlbQuYQWnHe0" target=3D"_blank" rel=3D"noopene=
+r noreferrer nofollow"><span>Learn More</span></a></span></p></td></tr></ta=
+ble></td></tr></table></td></tr><tr><td class=3D"dd" align=3D"left" style=
+=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"ms=
+o-line-height-alt:150.0%;"> When this code is run, the <code>Column</code> =
+doesn=E2=80=99t render the background color that was applied to it. Why is =
+that? </p></td></tr><tr><td style=3D"padding:0px 15px;"><pre style=3D"backg=
+round:#282828;border-radius:10px;color:#FFFFFF;line-height:1.5;overflow-wra=
+p:break-word;padding:16px;white-space:pre-wrap;word-break:break-word;"><cod=
+e><span style=3D"color: #d2a8ff">@Composable</span>
+<span style=3D"color: #ff7b72">fun</span> <span style=3D"color: #d2a8ff">Ma=
+inScreen</span><span style=3D"color: #c9d1d9">(</span>
+    <span style=3D"color: #c9d1d9">modifier</span><span style=3D"color: #c9=
+d1d9">:</span> <span style=3D"color: #ffa657">Modifier</span> <span style=
+=3D"color: #c9d1d9">=3D</span> <span style=3D"color: #ffa657">Modifier</spa=
+n><span style=3D"color: #c9d1d9">,</span>
+    <span style=3D"color: #c9d1d9">nightModeEnabled</span><span style=3D"co=
+lor: #c9d1d9">:</span> <span style=3D"color: #ffa657">Boolean</span> <span =
+style=3D"color: #c9d1d9">=3D</span> <span style=3D"color: #ff7b72">false</s=
+pan>
+<span style=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1d9">&#12=
+3;</span>
+    <span style=3D"color: #ff7b72">val</span> <span style=3D"color: #79c0ff=
+">screenModifier</span> <span style=3D"color: #c9d1d9">=3D</span> <span sty=
+le=3D"color: #c9d1d9">modifier</span>
+        <span style=3D"color: #c9d1d9">.</span><span style=3D"color: #d2a8f=
+f">background</span><span style=3D"color: #c9d1d9">(</span><span style=3D"c=
+olor: #c9d1d9">color</span> <span style=3D"color: #c9d1d9">=3D</span> <span=
+ style=3D"color: #ffa657">AppColors</span><span style=3D"color: #c9d1d9">.<=
+/span><span style=3D"color: #c9d1d9">background</span><span style=3D"color:=
+ #c9d1d9">)</span>
+        <span style=3D"color: #c9d1d9">.</span><span style=3D"color: #d2a8f=
+f">fillMaxSize</span><span style=3D"color: #c9d1d9">()</span>
+
+    <span style=3D"color: #ffa657">AppTheme</span><span style=3D"color: #c9=
+d1d9">(</span><span style=3D"color: #c9d1d9">darkMode</span> <span style=3D=
+"color: #c9d1d9">=3D</span> <span style=3D"color: #c9d1d9">nightModeEnabled=
+</span><span style=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1d=
+9">&#123;</span>
+        <span style=3D"color: #ffa657">Column</span><span style=3D"color: #=
+c9d1d9">(</span><span style=3D"color: #c9d1d9">modifier</span> <span style=
+=3D"color: #c9d1d9">=3D</span> <span style=3D"color: #c9d1d9">screenModifie=
+r</span><span style=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1=
+d9">&#123;</span>
+            <span style=3D"color: #c9d1d9">// Your content here</span>
+        <span style=3D"color: #c9d1d9">&#125;</span>
+    <span style=3D"color: #c9d1d9">&#125;</span>
+<span style=3D"color: #c9d1d9">&#125;</span></code></pre></td></tr><tr><td =
+align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-left:1=
+5px;padding-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"none=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0=
+ auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:630px;"><img=
+ src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Da=
+uto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4da0-8=
+d98-80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"" height=3D"auto" w=
+idth=3D"630" style=3D"display:block;width:100%;" border=3D"0"/></td></tr></=
+table></td></tr><tr><td id=3D"dev-delight" class=3D"dd" align=3D"center" va=
+lign=3D"top" style=3D"color:#222222;font-weight:normal;padding:0px 15px;tex=
+t-align:center;"><h1 style=3D"color:#222222;font-weight:normal;mso-line-hei=
+ght-alt:175.0%;">=F0=9F=98=86 Dev Delight</h1></td></tr><tr><td align=3D"ce=
+nter" valign=3D"top" style=3D"padding-bottom:20px;padding-left:15px;padding=
+-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"none" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr=
+><td align=3D"center" valign=3D"top" style=3D"width:630px;"><img src=3D"htt=
+ps://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=
+=3Dredirect,quality=3D80/uploads/asset/file/ea6bd17e-6139-482b-8ef3-68b1ffc=
+da3e9/pope.png?t=3D1747603567" alt=3D"" height=3D"auto" width=3D"630" style=
+=3D"display:block;width:100%;" border=3D"0"/></td></tr><tr><td align=3D"cen=
+ter" valign=3D"top" class=3D"t" style=3D"width:630px; padding: 4px 0px 4px =
+0px;"><p>The next time you want to convince the hiring manager to skip some=
+ rounds, send them this screenshot =F0=9F=98=8E</p></td></tr></table></td><=
+/tr><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0px;line-hei=
+ght:0px;padding:30px 0px 30px;" class=3D"dd"><table class=3D"j" role=3D"non=
+e" width=3D"50%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"=
+center"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td align=3D"center=
+" valign=3D"top" style=3D"padding-bottom:20px;padding-left:15px;padding-rig=
+ht:15px;padding-top:20px; " class=3D"dd"><table role=3D"none" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td=
+ align=3D"center" valign=3D"top" style=3D"width:630px;"><img src=3D"https:/=
+/media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dr=
+edirect,quality=3D80/uploads/asset/file/2de78f0f-c699-4f2d-82bb-0d6ca0a5344=
+c/trackt_poop.png?t=3D1747603679" alt=3D"" height=3D"auto" width=3D"630" st=
+yle=3D"display:block;width:100%;" border=3D"0"/></td></tr><tr><td align=3D"=
+center" valign=3D"top" class=3D"t" style=3D"width:630px; padding: 4px 0px 4=
+px 0px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.X-_MZAGbVkecU0B=
+WE9cUIZZW_GgdEwtvTPiBPmg11Ax3gQjtAgrYBh-OWKvQkma8wnROelCh99tzAmfT0HUbt-f12Q=
+kNNAEedL5WxMAbv11HYUipViNKAMZ0n_Q6ngmQyhf8ygzyLLlMxYb7nGVu2Ej5r3Ju9dNE-nwPW=
+ovu-o26sW5PA8VIOj7q3pA43xVoxVvvnPlzUI1RYydkQE9lUbcZJIAcgl8uwkMlvITupaheJwy8=
+rq7AIUOTzCXxOrAbLxLmNiltHJw3d4vNDrqgd23XcEAtt-u2rP_WbaJoye4svrN0iaRkqAWPWZO=
+2rBtDyHoqX7l9GHG5IN7tKMFc3w/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h12/h001.AZkAdY3efBB=
+ezmXNJLoPnuG341fNp86IClXdv9Ha9b8" target=3D"_blank" rel=3D"noopener norefer=
+rer nofollow" style=3D"text-decoration:underline;text-decoration-color:#222=
+222;"><p>This is a REAL APP!!! It=E2=80=99s called =E2=80=9CSoft Earnings=
+=E2=80=9D =F0=9F=A4=A3=F0=9F=A4=A3</p></a></td></tr></table></td></tr><tr><=
+td align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-lef=
+t:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"n=
+one" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 aut=
+o 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:630px;"><=
+img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=
+=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4d=
+a0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"" height=3D"aut=
+o" width=3D"630" style=3D"display:block;width:100%;border-radius:0px 0px 0p=
+x 0px;border-style:solid;border-width:0px 0px 0px 0px;box-sizing:border-box=
+;border-color:#E5E7EB;" border=3D"0"/></td></tr></table></td></tr><tr><td i=
+d=3D"tipsy-tip" class=3D"dd" align=3D"center" valign=3D"top" style=3D"color=
+:#222222;font-weight:normal;padding:0px 15px;text-align:center;"><h1 style=
+=3D"color:#222222;font-weight:normal;mso-line-height-alt:175.0%;">=F0=9F=99=
+=8B=F0=9F=8F=BB=E2=80=8D=E2=99=82=EF=B8=8F How do I?</h1></td></tr><tr><td =
+id=3D"todays-question-how-do-i-exclude-co" class=3D"dd" align=3D"left" vali=
+gn=3D"top" style=3D"color:#2A2A2A;font-weight:Bold;padding:0px 15px;text-al=
+ign:left;"><h3 style=3D"color:#2A2A2A;font-weight:Bold;mso-line-height-alt:=
+125.0%;"><b>Today=E2=80=99s question: How do I exclude Composable Previews =
+from Code Coverage Reports</b></h3></td></tr><tr><td id=3D"raise-your-hand-=
+if-youve-ever-looke" class=3D"dd" align=3D"justify" style=3D"padding:0px 15=
+px;text-align:justify;word-break:break-word;"><p style=3D"mso-line-height-a=
+lt:150.0%;"> Raise your hand if you=E2=80=99ve ever looked at your code cov=
+erage report and thought, =E2=80=9CHow do I have 800 lines of untested code=
+ in my UI module?=E2=80=9D Only to realize=E2=80=94yep, it=E2=80=99s all th=
+ose <code>@Preview</code> functions littering your Compose files. =F0=9F=98=
+=85 </p></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"padding:0=
+px 15px;text-align:justify;word-break:break-word;"><p style=3D"mso-line-hei=
+ght-alt:150.0%;"> The solution depends on the framework you are using to ca=
+lculate the code coverage. </p></td></tr><tr><td class=3D"dd" align=3D"just=
+ify" style=3D"padding:0px 15px;text-align:justify;word-break:break-word;"><=
+p style=3D"mso-line-height-alt:150.0%;"><b>If you are using </b><a class=3D=
+"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.yxhf85zjpz-MIApjdxkV=
+hbRq6wGzFKoYAW8D6bQXIleXkLhl4fj0iBJLhTOey9HEi3VfHzcZn-NBlm8ZmHbqkD7RKJi6uhA=
+WdCzRqPgKjDQBieA_NwfKtvjpOONgvtdSSF13Jch8Nim4vc3lStuu8DPshBydtplKp-L8UPb9x6=
+TXEWPM-0hacwl7_IdHrTW_NwNiihBNa8HRHMPwGG-vR_OM68-cu-DZOQze-bqV-ruZiE6LpJDcK=
+LYPW-0b2vM2HvilPMvX6PI4urVHuax8mA/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h13/h001.zLAS1=
+RbixWCpJJ3SlBlw46gHv_TosItbFMdLM75MCi0" target=3D"_blank" rel=3D"noopener n=
+oreferrer nofollow"><span><b>Kover</b></span></a><b>:</b></p></td></tr><tr>=
+<td class=3D"dd" align=3D"justify" style=3D"padding:0px 15px;text-align:jus=
+tify;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> You =
+can configure Kover to ignore anything under a specific annotation, e.g. <c=
+ode>@Preview</code>. It looks along the lines of =E2=80=94 </p></td></tr><t=
+r><td style=3D"padding:0px 15px;"><pre style=3D"background:#282828;border-r=
+adius:10px;color:#FFFFFF;line-height:1.5;overflow-wrap:break-word;padding:1=
+6px;white-space:pre-wrap;word-break:break-word;"><code>configure&lt;KoverRe=
+portExtension&gt; <span style=3D"color: #79c0ff">&#123;</span>
+    filters <span style=3D"color: #79c0ff">&#123;</span>
+         excludes <span style=3D"color: #79c0ff">&#123;</span>
+             ...
+             annotatedBy<span style=3D"color: #79c0ff">(</span>
+                 <span style=3D"color: #a5d6ff">"androidx.compose.ui.toolin=
+g.preview.Preview"</span>
+             <span style=3D"color: #79c0ff">)</span>
+         <span style=3D"color: #79c0ff">&#125;</span>
+     <span style=3D"color: #79c0ff">&#125;</span>
+<span style=3D"color: #79c0ff">&#125;</span> </code></pre></td></tr><tr><td=
+ class=3D"dd" align=3D"justify" style=3D"padding:0px 15px;text-align:justif=
+y;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Easy pe=
+asy =F0=9F=A4=93 </p></td></tr><tr><td class=3D"dd" align=3D"justify" style=
+=3D"padding:0px 15px;text-align:justify;word-break:break-word;"><p style=3D=
+"mso-line-height-alt:150.0%;"><b>If you are using </b><a class=3D"link" hre=
+f=3D"https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwJq9ffuN2r=
+Owtin4E6l-h_S1LdTYdZ3gzy1lZha1DLjau_4mD5UInqYzWThi3FgU9V93IdqifMuBFW9qqnnzF=
+3WGwhQMSWFuDXB5h42v2Qd16AL2-hjioi2e8PmAS_9bGafTMK8IN_zTK3PznDIVReG-8RB5aChG=
+89xVAhvfCEkufEx6XG8IBrzEv6Y6oFiqqWa1t4PdzlpkF4vdHRbWVdK1Mfq3lEJMoy3NzKbUfrM=
+AP26hrleyv0jLUZaw9eAnPw/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h14/h001.vcdkcF1Q_qmLGIE=
+QZepfPO5uDRhoyQyZIScR8ZEuIfc" target=3D"_blank" rel=3D"noopener noreferrer =
+nofollow"><span><b>Jacoco</b></span></a><b>:</b></p></td></tr><tr><td class=
+=3D"dd" align=3D"justify" style=3D"padding:0px 15px;text-align:justify;word=
+-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Unfortunately=
+, Jacoco can=E2=80=99t directly filter by arbitrary annotation. However, he=
+re=E2=80=99s a secret =F0=9F=A4=AB - it <i>will</i> ignore <a class=3D"link=
+" href=3D"https://link.mail.beehiiv.com/ss/c/u001.VBK7zsTE8wL-WWof4_f9iqgPM=
+qbDMG2ZBB_spY-5hcJzVriS3zyy6Zq7dVpJHWGR0Eq6HOYNj8xP3e0VKDbk4QN4f7TxoUfKh6NI=
+3vd2eM7Lq-RJkWiOtdEKfPR57LcudAF4eToMLMeXpnrTyFZPoSfHCpB0fD4ay_1Sd5t_fbKA4x-=
+wdXuvWJzg6CWs3HomBwTIHpQsLb5lordRFOhvwJQjenxLufcUFVf-xxMuyJPk3_Caa5IV-bj4_N=
+xwBm8EYtbozWp5hG1JY-KEDPxkSZk7d1_e2_vYlBaOo7auBCXV-rE3_JCK7rt0ZOE88D4DpOs0G=
+SoZBxNbqHO4mAU03mgiZxDr7j4D3PtxOJ9dTQ1STRgaSeiJJ8MaYW0SM1BPQ8Atk3KFx9nRnxQA=
+hBKzMfOD7gujTlx36H7MeOSvzSk/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h15/h001.6RYFu4FFK95=
+1eaztm3LkAkgyOGooW5sumZTS-0eEDMQ" target=3D"_blank" rel=3D"noopener norefer=
+rer nofollow"><span>anything annotated with =E2=80=9CGenerated=E2=80=9D</sp=
+an></a>. </p></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"padd=
+ing:0px 15px;text-align:justify;word-break:break-word;"><p style=3D"mso-lin=
+e-height-alt:150.0%;"> This is shaky grounds if I=E2=80=99m being honest si=
+nce this is not an API contract and just an implementation detail, however,=
+ that hasn=E2=80=99t stopped manny teams from creating custom annotations t=
+hat end with the suffix =E2=80=9CGenerated=E2=80=9D and then adding it to t=
+heir previews. As an example, annotating your previews with this custom ann=
+otation will be skipped by Jacoco from the code coverage reports. </p></td>=
+</tr><tr><td style=3D"padding:0px 15px;"><pre style=3D"background:#282828;b=
+order-radius:10px;color:#FFFFFF;line-height:1.5;overflow-wrap:break-word;pa=
+dding:16px;white-space:pre-wrap;word-break:break-word;"><code><span style=
+=3D"color: #d2a8ff">@Target</span><span style=3D"color: #c9d1d9">(</span><s=
+pan style=3D"color: #ffa657">AnnotationTarget</span><span style=3D"color: #=
+c9d1d9">.</span><span style=3D"color: #ffa657">FUNCTION</span><span style=
+=3D"color: #c9d1d9">)</span>
+<span style=3D"color: #d2a8ff">@Retention</span><span style=3D"color: #c9d1=
+d9">(</span><span style=3D"color: #ffa657">AnnotationRetention</span><span =
+style=3D"color: #c9d1d9">.</span><span style=3D"color: #ffa657">RUNTIME</sp=
+an><span style=3D"color: #c9d1d9">)</span>
+<span style=3D"color: #ff7b72">annotation</span> <span style=3D"color: #ff7=
+b72">class</span> <span style=3D"color: #ffa657">ExcludeFromCodeCoverageRep=
+ort</span></code></pre></td></tr><tr><td class=3D"dd" align=3D"left" style=
+=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"ms=
+o-line-height-alt:150.0%;"> Then simply annotate your previews: </p></td></=
+tr><tr><td style=3D"padding:0px 15px;"><pre style=3D"background:#282828;bor=
+der-radius:10px;color:#FFFFFF;line-height:1.5;overflow-wrap:break-word;padd=
+ing:16px;white-space:pre-wrap;word-break:break-word;"><code><span style=3D"=
+color: #d2a8ff">@Preview</span>
+<span style=3D"color: #d2a8ff">@ExcludeFromCodeCoverageReport</span>
+<span style=3D"color: #ff7b72">fun</span> <span style=3D"color: #d2a8ff">My=
+ComponentPreview</span><span style=3D"color: #c9d1d9">()</span> <span style=
+=3D"color: #c9d1d9">&#123;</span> <span style=3D"color: #79c0ff">..</span><=
+span style=3D"color: #c9d1d9">.</span> <span style=3D"color: #c9d1d9">&#125=
+;</span></code></pre></td></tr><tr><td class=3D"dd" align=3D"justify" style=
+=3D"padding:0px 15px;text-align:justify;word-break:break-word;"><p style=3D=
+"mso-line-height-alt:150.0%;"><b>Pro move:</b> Write a small script or use =
+a Kotlin compiler plugin to auto-insert the exclusion annotation on all you=
+r preview functions. Some teams have hundreds (if not thousands) such annot=
+ations=E2=80=94automation will save your sanity. </p></td></tr><tr><td alig=
+n=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-left:15px;=
+padding-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"none" bo=
+rder=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 aut=
+o;"><tr><td align=3D"center" valign=3D"top" style=3D"width:630px;"><img src=
+=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,=
+onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4da0-8d98-=
+80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"" height=3D"auto" width=
+=3D"630" style=3D"display:block;width:100%;border-radius:0px 0px 0px 0px;bo=
+rder-style:solid;border-width:0px 0px 0px 0px;box-sizing:border-box;border-=
+color:#E5E7EB;" border=3D"0"/></td></tr></table></td></tr><tr><td id=3D"int=
+eresting-tidbits" class=3D"dd" align=3D"center" valign=3D"top" style=3D"col=
+or:#222222;font-weight:normal;padding:0px 15px;text-align:center;"><h1 styl=
+e=3D"color:#222222;font-weight:normal;mso-line-height-alt:175.0%;">=F0=9F=
+=A4=94 Interesting tid-bits</h1></td></tr><tr><td id=3D"the-great-google-pl=
+ay-purge-47-fewe" class=3D"dd" align=3D"left" valign=3D"top" style=3D"color=
+:#2A2A2A;font-weight:Bold;padding:0px 15px;text-align:left;"><h3 style=3D"c=
+olor:#2A2A2A;font-weight:Bold;mso-line-height-alt:125.0%;">The Great Google=
+ Play Purge: 47% Fewer Apps, 100% More Drama</h3></td></tr><tr><td class=3D=
+"dd" align=3D"justify" style=3D"padding:0px 15px;text-align:justify;word-br=
+eak:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Ever opened the =
+Play Store lately and thought, =E2=80=9CHuh, didn=E2=80=99t there used to b=
+e more=E2=80=A6 stuff?=E2=80=9D You=E2=80=99re not hallucinating (at least =
+not about this): Google Play has <a class=3D"link" href=3D"https://link.mai=
+l.beehiiv.com/ss/c/u001.fkViF09bFfun30fF7Tap4R6uS3WwiO6xZ5gRKEf_fAAOrRR0kct=
+E85zJXmykGF45XJjUF_fRrAVopGLC8JZ0x54LDE4xpFVFzzJajhCXpGpl9dftaXhEM09z0kalGr=
+WEsK_TsJS9bl_gZDbcfK7I7XSdn66ovr5cyCdemJI1S5qvNIN_8XS2x1rUlTzGuwmZSFfI-2MFH=
+ggfNLpyuTSzhY7wg5ylWqCG6_5milRnoVMTHSveD-kFxZGCkMld1fxFrkmqbUlS4DFgY7Va3iJ2=
+FyMZVQidhyqYQW75GgkBus0JMr6touOjGHTBR7NRlKAzjaKxzWrT1_YyCs-7jSyhId1ctho81UZ=
+0oKFmGK19W7Y/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h16/h001.rSY-2_oJKINjEhwtknXZqNrgK_=
+IxQEx6kQ5eU0QYv8Q" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><=
+span>shed a jaw-dropping 47% of its apps since early 2024</span></a>. That=
+=E2=80=99s a drop from 3.4 million to about 1.8 million apps worldwide! </p=
+></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"padding:0px 15px=
+;text-align:justify;word-break:break-word;"><p style=3D"mso-line-height-alt=
+:150.0%;"> What=E2=80=99s behind this mass extinction event? Google=E2=80=
+=99s been on a crusade to oust low-quality, spammy, and downright useless a=
+pps. The new policies aren=E2=80=99t just targeting broken apps anymore=E2=
+=80=94they=E2=80=99re also eliminating so-called =E2=80=9Cstatic=E2=80=9D a=
+pps (think single-wallpaper wonders, glorified PDFs, or those apps that do,=
+ well=E2=80=A6 nothing). </p></td></tr><tr><td class=3D"dd" align=3D"justif=
+y" style=3D"padding:0px 15px;text-align:justify;word-break:break-word;"><p =
+style=3D"mso-line-height-alt:150.0%;"> But there=E2=80=99s more: stricter v=
+erification requirements, expanded human reviews (no more sneaking in a =E2=
+=80=9CHello World=E2=80=9D bitcoin miner at 3am), and a heavy investment in=
+ AI-driven threat detection. In 2024 alone, Google claims it blocked 2.36 m=
+illion policy-violating apps and banned over 158,000 developer accounts. Yi=
+kes. </p></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"padding:=
+0px 15px;text-align:justify;word-break:break-word;"><p style=3D"mso-line-he=
+ight-alt:150.0%;"><b>Why should you care?</b></p></td></tr><tr><td style=3D=
+"padding-bottom:12px;padding-left:37px;padding-right:27px;padding-top:12px;=
+" class=3D"ee"><div style=3D"margin-left:0px;" class=3D"edm_outlooklist"><u=
+l style=3D"font-weight:normal;list-style-type:disc;margin-bottom:12px !impo=
+rtant;margin-top:12px !important;padding:0px 0px 0px 0px;"><li class=3D"lis=
+tItem ultext"><p style=3D"mso-line-height-alt:150.0%;padding:0px;text-align=
+:left;word-break:break-word;"><b>Visibility boost</b>: With less junk, high=
+-quality apps (like yours, obviously) have a better chance to shine. </p></=
+li><li class=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%;pad=
+ding:0px;text-align:left;word-break:break-word;"><b>Publishing pains</b>: T=
+he flip side is that even legitimate apps are running into more hoops=E2=80=
+=94extra verifications, tougher quality checks, and the occasional Kafkaesq=
+ue review cycle. </p></li><li class=3D"listItem ultext"><p style=3D"mso-lin=
+e-height-alt:150.0%;padding:0px;text-align:left;word-break:break-word;"><b>=
+Not an industry-wide trend</b>: Apple=E2=80=99s App Store actually saw a sl=
+ight <i>increase</i> in total apps during the same period, so this is uniqu=
+ely Android=E2=80=99s growing pain. </p></li></ul></div></td></tr><tr><td c=
+lass=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-b=
+reak:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>My take:</b><=
+br>This is (mostly) a good thing for users and serious devs. But let=E2=80=
+=99s be real=E2=80=94the process has been bumpy, especially for indie and s=
+mall-team developers. Expect the rough edges to smooth out as Google iterat=
+es and developer tooling catches up. I=E2=80=99m going to be at Google I/O =
+next week and I plan to surface this directly to the fine folks at Google a=
+nd get their perspective on things. Stay tuned for the next issue which is =
+going to give you a behind the scenes look at Google I/O 2025! </p></td></t=
+r><tr><td align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padd=
+ing-left:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><table ro=
+le=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margi=
+n:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:47=
+2px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,=
+format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/df6942e4-4=
+290-416f-a020-296758ee4738/android_closed_testing.png?t=3D1747607437" alt=
+=3D"" height=3D"auto" width=3D"472" style=3D"display:block;width:100%;" bor=
+der=3D"0"/></td></tr><tr><td align=3D"center" valign=3D"top" class=3D"t" st=
+yle=3D"width:472px; padding: 4px 0px 4px 0px;"><a href=3D"https://link.mail=
+.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwLenba6KhUcDmaQ4KK_k-AUl5iRRplnc=
+yThq1hezz-9ytVpoSTqgBmgY5swaiSC767es6236xvR8xJOW0imQu8xHhZZNLRUUhk4i_mXgIk7=
+EinhTeX15BVln9nhn1Xe3NvP-EV1mEnC5wEsphZH2-w8QuczdMYi-ytgUb0XaXB5yj7S59T2syA=
+zA-kOCATFG_q235OCzuVMSNMAX-K5zjEvVvPdKx4m85WK26zcsIz5t1acXPsSln3uza5XGIFuAh=
+AY-hgXESYWyQLS_oJKTstw/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h17/h001.bLjuqtrMNI7KgQei=
+_WsVK0cJaa65C93pVMz7KlGlLbk" target=3D"_blank" rel=3D"noopener noreferrer n=
+ofollow" style=3D"text-decoration:underline;text-decoration-color:#222222;"=
+><p>With Google now mandating a minimum of 12 testers who run your app for =
+14 straight days before you can ship, grassroots hubs like this subreddit h=
+ave sprung up to help devs hit the quota.</p></a></td></tr></table></td></t=
+r><tr><td align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padd=
+ing-left:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><table ro=
+le=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margi=
+n:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:63=
+0px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,=
+format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-c=
+c0d-4da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"" height=
+=3D"auto" width=3D"630" style=3D"display:block;width:100%;" border=3D"0"/><=
+/td></tr></table></td></tr><tr><td id=3D"pop-quiz" class=3D"dd" align=3D"ce=
+nter" valign=3D"top" style=3D"color:#222222;font-weight:normal;padding:0px =
+15px;text-align:center;"><h1 style=3D"color:#222222;font-weight:normal;mso-=
+line-height-alt:175.0%;">=F0=9F=8D=BE Code Corner</h1></td></tr><tr><td id=
+=3D"amazons-app-platform-a-new-contende" class=3D"dd" align=3D"left" valign=
+=3D"top" style=3D"color:#2A2A2A;font-weight:Bold;padding:0px 15px;text-alig=
+n:left;"><h3 style=3D"color:#2A2A2A;font-weight:Bold;mso-line-height-alt:12=
+5.0%;">Amazon=E2=80=99s =E2=80=9C<a class=3D"link" href=3D"https://link.mai=
+l.beehiiv.com/ss/c/u001.hSrvmxovPLgmHvBWHyKXBAZbrcBVQ1MEvhPxDCaijOV8bQc_clV=
+f3Mdi5Vm5xuoRSbIZi1mOloAPQBWhnmpJunUNrolda8M0D3ex8QwLCqxZ7BsrGcjdoBcJI-TScP=
+vgzFaMXZ4cHWHvX4P6vrWh8Ya6RGfWX3ii5COvYh_h-UulGILlEoZdFzxYMNwTPKpx6I0sZSVLD=
+l90-nKNe1a-cP2occ5P1fVSXXf3DoaBKWrC5UeH2AeFvkyN0oz_PZA06IC8LsDGM5IVbuPp5Y_w=
+Qw/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h18/h001.AGJvkUO69luC1GMemPfFhEvmPgxjYoJrBW55=
+JTJ2wfg" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>App P=
+latform</span></a>=E2=80=9D: A New Contender for Multiplatform Architecture=
+ (and Why You Should Care)</h3></td></tr><tr><td class=3D"dd" align=3D"left=
+" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p styl=
+e=3D"mso-line-height-alt:150.0%;"> It=E2=80=99s not every day that Amazon o=
+pen-sources a new application framework, especially one targeting Kotlin Mu=
+ltiplatform. Enter <a class=3D"link" href=3D"https://link.mail.beehiiv.com/=
+ss/c/u001.hSrvmxovPLgmHvBWHyKXBAZbrcBVQ1MEvhPxDCaijOV8bQc_clVf3Mdi5Vm5xuoRS=
+bIZi1mOloAPQBWhnmpJunUNrolda8M0D3ex8QwLCqxZ7BsrGcjdoBcJI-TScPvgzFaMXZ4cHWHv=
+X4P6vrWh8Ya6RGfWX3ii5COvYh_h-UulGILlEoZdFzxYMNwTPKpx6I0sZSVLDl90-nKNe1a-cCc=
+DkeIZfJZ789xGevrpic3uG2JXiTjTKykuUddSAU7JbV03x2MqVpx9UuOomkl3rA/4gm/VVHcxVI=
+JQxSWZuj7UGYW3Q/h19/h001.7uCvZSGVxClK1iLQqfeAhFcvmQBYCR3jmJrbar5s54Y" targe=
+t=3D"_blank" rel=3D"noopener noreferrer nofollow"><span><b>App Platform</b>=
+</span></a>=E2=80=94a lightweight, opinionated framework for state and memo=
+ry management across Android, iOS, JVM, and (soon) Web. Let=E2=80=99s break=
+ down what makes it worth a look, especially if you=E2=80=99re architecting=
+ for scale or dreaming of true code reuse. </p></td></tr><tr><td class=3D"d=
+d" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:brea=
+k-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>Key Features</b></p></=
+td></tr><tr><td style=3D"padding-bottom:12px;padding-left:37px;padding-righ=
+t:27px;padding-top:12px;" class=3D"ee"><div style=3D"margin-left:0px;" clas=
+s=3D"edm_outlooklist"><ul style=3D"font-weight:normal;list-style-type:disc;=
+margin-bottom:12px !important;margin-top:12px !important;padding:0px 0px 0p=
+x 0px;"><li class=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0=
+%;padding:0px;text-align:left;word-break:break-word;"><b>Strict Separation =
+of Concerns:</b> App Platform enforces a clean split between APIs and imple=
+mentations. This not only keeps your boundaries crisp (no more =E2=80=9Clea=
+ky abstractions=E2=80=9D horror stories) but can <i>also</i> reduce build t=
+imes. The framework even validates your module structure at build time! </p=
+></li><li class=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%;=
+padding:0px;text-align:left;word-break:break-word;"><b>Integrated Dependenc=
+y Injection:</b> By default, it uses <code>kotlin-inject-anvil</code> (but =
+you can swap it out). You get the flexibility of Dagger/Anvil, but it=E2=80=
+=99s not hard-wired=E2=80=94use what fits your stack. Fun fact: This projec=
+t is being led by <a class=3D"link" href=3D"https://link.mail.beehiiv.com/s=
+s/c/u001.rGdB9E1ROeJf9wpf88uOe07RjO2XzdCWdBlQ6EnV31DMMazHImtpyFCpU1dAIo4Jdk=
+h1M6ov30EUJI7IOps9cOlSDLc6SVL0pDzYc1qjteraLqrqPy0TMw65eSIu56Ke99M0T9rmP8geE=
+6b9LyfDsPqlRgVt-IcTJENdGHTTN58-xWQJ2LYnPjAKoDBf58HgLyTY-8QvaXBJkl6n2R89Copd=
+d9k7J8CkxWGYYV15H13mwymQj7upuMEYDrp2IUrT/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h20/h00=
+1.ZPalB01oKqujWtNEDypeKk-B8VQVgR1vJuyB6CmUERM" target=3D"_blank" rel=3D"noo=
+pener noreferrer nofollow"><span>Ralf Wondratschek</span></a> who happens t=
+o be the creator of <a class=3D"link" href=3D"https://link.mail.beehiiv.com=
+/ss/c/u001.VBK7zsTE8wL-WWof4_f9itbxzLAsl6cYVOKSfvypClRu3QWX1QNs_VofYpXh9lHw=
+1XfOCyld3iydyLpH4-1FCw_VguVV94J04Rwa1GaMj9FDgymOFKjtWQnM57VRxMktFldSbKANFAf=
+tAvnWJRDafcxkCKdolEQt0QnYFqcOZHv_UWa6eZ491ajTvdlXcp9Vs5AkbTV5AvVZ5J0jG0GMKm=
+8J9i9gS0e-RK4pGINJVQ6r6xtf8eQf8YqcOjuiVP8M_lFuoiUGrB9QmUxE3AZTRw/4gm/VVHcxV=
+IJQxSWZuj7UGYW3Q/h21/h001.C1JVI440ezaVLz467deCPXgBEPbXOQ-qUwFXBO0DLlg" targ=
+et=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Anvil</span></a>. =
+</p></li><li class=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.=
+0%;padding:0px;text-align:left;word-break:break-word;"><b>Scopes as First-C=
+lass Citizens:</b> App Platform makes =E2=80=9Cscope=E2=80=9D a fundamental=
+ concept. You get clear, lifecycle-aware boundaries for features=E2=80=94th=
+ink =E2=80=9Cscreen,=E2=80=9D =E2=80=9Csession,=E2=80=9D or =E2=80=9Capplic=
+ation=E2=80=9D scopes, each with their own DI, coroutine scopes, and teardo=
+wn hooks. </p></li><li class=3D"listItem ultext"><p style=3D"mso-line-heigh=
+t-alt:150.0%;padding:0px;text-align:left;word-break:break-word;"><b>Present=
+er Pattern, Powered by Molecule:</b> Business and navigation logic is writt=
+en using Compose (via <a class=3D"link" href=3D"https://link.mail.beehiiv.c=
+om/ss/c/u001.VBK7zsTE8wL-WWof4_f9imXSnGUYBrR2KoWO4vgk9Z9Hj7-9jzYuYyCLWEtF-L=
+FbOBiD457jITxlITEgMaLXItzP6MBXztdQXKLdLQWgZXV1IUz_Y4yGG-nh_80ikfJ8-vgTqC4Kn=
+rlTmpZiNVId147nOpz_JkjwQNypDAHh1qT5OD-aTtuUvypKT2hT-gpPCbgip96llxk7ULI-MhxC=
+WKbgMP2nhy0nMmAQarXHKHIc3pGOp6y_QxM3VW6bsQeXxF8OxCoV2W3IfDEBsEWp2w/4gm/VVHc=
+xVIJQxSWZuj7UGYW3Q/h22/h001.2kMwh0gISZuJzVfUk2gVvKBNA9Om-fKqfnY1CqAyWD0" ta=
+rget=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Molecule</span><=
+/a>), making reactive state management more natural than wrangling flows an=
+d callbacks. </p></li><li class=3D"listItem ultext"><p style=3D"mso-line-he=
+ight-alt:150.0%;padding:0px;text-align:left;word-break:break-word;"><b>UI L=
+ayer Decoupling:</b> The UI is =E2=80=9Cpluggable.=E2=80=9D Want Compose on=
+ Android, SwiftUI on iOS, or a mix of both? The renderer pattern isolates U=
+I, so you can swap or test easily. </p></li><li class=3D"listItem ultext"><=
+p style=3D"mso-line-height-alt:150.0%;padding:0px;text-align:left;word-brea=
+k:break-word;"><b>Testing First:</b> Tons of helpers and fakes for unit/dev=
+ice testing. Bonus: thanks to Compose Multiplatform, you can even test rend=
+erers in isolation on iOS and desktop. </p></li><li class=3D"listItem ultex=
+t"><p style=3D"mso-line-height-alt:150.0%;padding:0px;text-align:left;word-=
+break:break-word;"><b>Gradle Plugin Magic:</b> The setup DSL configures the=
+ Compose compiler, KSP, DI integrations, and even Android namespaces/artifa=
+ct IDs for you. Less yak-shaving, more coding. </p></li></ul></div></td></t=
+r><tr><td class=3D"dd" align=3D"justify" style=3D"padding:0px 15px;text-ali=
+gn:justify;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"=
+> Overall, I think this is pretty interesting to see given that it=E2=80=99=
+s targeting Kotlin Multiplatform and it=E2=80=99s always nice to have a big=
+ player backing an emerging framework. Still early days but I think it=E2=
+=80=99s a big vote of confidence from them and will help codebases scale be=
+tter. </p></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"paddin=
+g-bottom:20px;padding-left:15px;padding-right:15px;padding-top:20px; " clas=
+s=3D"dd"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D=
+"0" style=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top"=
+ style=3D"width:630px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image=
+/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/ass=
+et/file/2a3345ca-cc0d-4da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076=
+" alt=3D"" height=3D"auto" width=3D"630" style=3D"display:block;width:100%;=
+border-radius:0px 0px 0px 0px;border-style:solid;border-width:0px 0px 0px 0=
+px;box-sizing:border-box;border-color:#E5E7EB;" border=3D"0"/></td></tr></t=
+able></td></tr><tr><td align=3D"center" valign=3D"top" style=3D"padding-bot=
+tom:20px;padding-left:15px;padding-right:15px;padding-top:20px; " class=3D"=
+dd"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" s=
+tyle=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" styl=
+e=3D"width:441px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.lR7Fj=
+Y4yQEEvLc4jEurND27JWly9QT1Zs90VVGSWE9YXCxTraSfyqoajjwCI9VCy32tc8HcX5fUzawk2=
+4a4ee5PJLASjPXagAEWcLYeldCE6qXFwjjZyduD_HrPUDqpmzCFnYDBaWJp6CYyz3EXxaK-mwnf=
+0JxLLw8rjuiBMmSARrw-Ojhs4sBP_4b014HshQkNNNPI24-L2oElJEct4xQ/4gm/VVHcxVIJQxS=
+WZuj7UGYW3Q/h23/h001.5jDb9qFrykVCcMY56qPJX9syULIZnlcSb19rMI0M_nw" rel=3D"no=
+opener noreferrer nofollow" style=3D"text-decoration:none;" target=3D"_blan=
+k"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,for=
+mat=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/9f5a6ea1-be17=
+-4298-b40e-569660a5b8ad/Spot_the_bug_solution.png?t=3D1746127289" alt=3D"" =
+height=3D"auto" width=3D"441" style=3D"display:block;width:100%;" border=3D=
+"0"/></a></td></tr></table></td></tr><tr><td class=3D"dd" align=3D"left" st=
+yle=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D=
+"mso-line-height-alt:150.0%;"> Why doesn=E2=80=99t the <code>Column</code> =
+get the correct background? </p></td></tr><tr><td class=3D"dd" align=3D"lef=
+t" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p sty=
+le=3D"mso-line-height-alt:150.0%;"><b>Answer</b></p></td></tr><tr><td class=
+=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break=
+:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Well, it=E2=80=99s =
+because it accesses the theme before you set it, so it gets the default col=
+ors instead of the ones you want.<b> Be very careful with storing modifiers=
+ in variables and applying them later</b>, it&#39;s very easy to mistakenly=
+ use them multiple times and/or cause bugs that aren=E2=80=99t obvious. </p=
+></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;te=
+xt-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0=
+%;"> Here=E2=80=99s what you can do instead: </p></td></tr><tr><td style=3D=
+"padding:0px 15px;"><pre style=3D"background:#282828;border-radius:10px;col=
+or:#FFFFFF;line-height:1.5;overflow-wrap:break-word;padding:16px;white-spac=
+e:pre-wrap;word-break:break-word;"><code><span style=3D"color: #d2a8ff">@Co=
+mposable</span>
+<span style=3D"color: #ff7b72">fun</span> <span style=3D"color: #d2a8ff">Ma=
+inScreen</span><span style=3D"color: #c9d1d9">(</span>
+    <span style=3D"color: #c9d1d9">modifier</span><span style=3D"color: #c9=
+d1d9">:</span> <span style=3D"color: #ffa657">Modifier</span> <span style=
+=3D"color: #c9d1d9">=3D</span> <span style=3D"color: #ffa657">Modifier</spa=
+n><span style=3D"color: #c9d1d9">,</span>
+    <span style=3D"color: #c9d1d9">nightModeEnabled</span><span style=3D"co=
+lor: #c9d1d9">:</span> <span style=3D"color: #ffa657">Boolean</span> <span =
+style=3D"color: #c9d1d9">=3D</span> <span style=3D"color: #ff7b72">false</s=
+pan>
+<span style=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1d9">&#12=
+3;</span>
+    <span style=3D"color: #ffa657">AppTheme</span><span style=3D"color: #c9=
+d1d9">(</span><span style=3D"color: #c9d1d9">darkMode</span> <span style=3D=
+"color: #c9d1d9">=3D</span> <span style=3D"color: #c9d1d9">nightModeEnabled=
+</span><span style=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1d=
+9">&#123;</span>
+        <span style=3D"color: #ffa657">Column</span><span style=3D"color: #=
+c9d1d9">(</span>
+            <span style=3D"color: #c9d1d9">modifier</span> <span style=3D"c=
+olor: #c9d1d9">=3D</span> <span style=3D"color: #c9d1d9">modifier</span>
+                <span style=3D"color: #c9d1d9">// Here, the background colo=
+r is accessed</span>
+                <span style=3D"color: #c9d1d9">// only in the scope of the =
+AppTheme</span>
+                <span style=3D"color: #c9d1d9">.</span><span style=3D"color=
+: #d2a8ff">background</span><span style=3D"color: #c9d1d9">(</span><span st=
+yle=3D"color: #c9d1d9">color</span> <span style=3D"color: #c9d1d9">=3D</spa=
+n> <span style=3D"color: #ffa657">AppColors</span><span style=3D"color: #c9=
+d1d9">.</span><span style=3D"color: #c9d1d9">background</span><span style=
+=3D"color: #c9d1d9">)</span>
+                <span style=3D"color: #c9d1d9">.</span><span style=3D"color=
+: #d2a8ff">fillMaxSize</span><span style=3D"color: #c9d1d9">()</span>
+        <span style=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1=
+d9">&#123;</span>
+            <span style=3D"color: #c9d1d9">// Your content here</span>
+        <span style=3D"color: #c9d1d9">&#125;</span>
+    <span style=3D"color: #c9d1d9">&#125;</span>
+<span style=3D"color: #c9d1d9">&#125;</span></code></pre></td></tr><tr><td =
+align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-left:1=
+5px;padding-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"none=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0=
+ auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:630px;"><img=
+ src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Da=
+uto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4da0-8=
+d98-80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"" height=3D"auto" w=
+idth=3D"630" style=3D"display:block;width:100%;" border=3D"0"/></td></tr></=
+table></td></tr><tr><td id=3D"media-player" class=3D"dd" align=3D"center" v=
+align=3D"top" style=3D"color:#222222;font-weight:normal;padding:0px 15px;te=
+xt-align:center;"><h1 style=3D"color:#222222;font-weight:normal;mso-line-he=
+ight-alt:175.0%;">=F0=9F=91=82 Make your voice heard</h1></td></tr><tr><td =
+class=3D"dd" align=3D"justify" style=3D"padding:0px 15px;text-align:justify=
+;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Have opi=
+nions about Android Development/Jetpack Compose and want to share it direct=
+ly with the folks working on it? </p></td></tr><tr><td class=3D"dd" align=
+=3D"justify" style=3D"padding:0px 15px;text-align:justify;word-break:break-=
+word;"><p style=3D"mso-line-height-alt:150.0%;"> Well, you are in luck beca=
+use the Android team is running a <a class=3D"link" href=3D"https://link.ma=
+il.beehiiv.com/ss/c/u001.nWEFIqmNaW88EMp5mRPFL1o3_BjDrLeHcFRQAYls6lZnPKkXK5=
+aSmrgEYZDVYEmq-TaFrnNq28gAD-BJqaTjuef2fOIsHR_SzEhPL9Lvy_wjIkrc5T8Faz9cpEim6=
+mvuPqrnihXdWVNazLvyXDo0DnSCPOFSHhDtVuGpTUsImRzHNQ8LQzVZT8ymCu0xcA81y6XwMXWb=
+DQmQIu4xv_OVfWeaZJwG4tIZ_OBrvFsvfMj0s9S-TOKOj2I04eDS6kk7eW6iCbeTFJ1zcRFe2Jv=
+N_pqkXx5Ca4nA3d5rjLIKtuMk3OmEW4XxyEV1DNHe3cbMXW1it9TVgFX1jomOvCZd0Ban5aSK_d=
+FP4AsgBm0LoJ4/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h24/h001.0pz-w8ClYI39wzOa2sbq8rH7V=
+VBBIc0jpjAKWUheyCM" target=3D"_blank" rel=3D"noopener noreferrer nofollow">=
+<span>User Research Study</span></a> focusing on Android Studio Tooling and=
+ they want to hear from you. They are especially interested in feedback abo=
+ut UI development and animations in Compose. </p></td></tr><tr><td class=3D=
+"dd" align=3D"justify" style=3D"padding:0px 15px;text-align:justify;word-br=
+eak:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>It=E2=80=99ll =
+be a 75 min session and they are offering up-to $300 in gift code for your =
+time</b>. </p></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"pad=
+ding:0px 15px;text-align:justify;word-break:break-word;"><p style=3D"mso-li=
+ne-height-alt:150.0%;"> This isn=E2=80=99t an ad - I just thought that this=
+ audience is packed with seasoned leaders so I=E2=80=99ll surface this for =
+everyone to be aware of. You can <a class=3D"link" href=3D"https://link.mai=
+l.beehiiv.com/ss/c/u001.nWEFIqmNaW88EMp5mRPFL1o3_BjDrLeHcFRQAYls6lZnPKkXK5a=
+SmrgEYZDVYEmq-TaFrnNq28gAD-BJqaTjuef2fOIsHR_SzEhPL9Lvy_wjIkrc5T8Faz9cpEim6m=
+vuPqrnihXdWVNazLvyXDo0DnSCPOFSHhDtVuGpTUsImRzHNQ8LQzVZT8ymCu0xcA81y6XwMXWbD=
+QmQIu4xv_OVfWeaZJwG4tIZ_OBrvFsvfMj0s9S-TOKOj2I04eDS6kk7eW6iCbeTFJ1zcRFe2JvN=
+_pqkXx5Ca4nA3d5rjLIKtuOvVI3J8vlJXTWgHEJZPzQfMDNYzkb2uXNXl6exjf3nihZ6EJjMnvl=
+zp53d3mGi844/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h25/h001.SL0Uy1p6-tzvb8xZukq6AmAeHo=
+vAnWaHEWsaYFW9BkQ" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><=
+span>sign up here</span></a>. </p></td></tr><tr><td align=3D"center" valign=
+=3D"top" style=3D"padding-bottom:20px;padding-left:15px;padding-right:15px;=
+padding-top:20px; " class=3D"dd"><table role=3D"none" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td align=
+=3D"center" valign=3D"top" style=3D"width:630px;"><img src=3D"https://media=
+.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirec=
+t,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4da0-8d98-80da6ad9baf5/Divi=
+der-min.png?t=3D1715138076" alt=3D"" height=3D"auto" width=3D"630" style=3D=
+"display:block;width:100%;" border=3D"0"/></td></tr></table></td></tr><tr><=
+td id=3D"how-you-can-help" class=3D"dd" align=3D"center" valign=3D"top" sty=
+le=3D"color:#222222;font-weight:normal;padding:0px 15px;text-align:center;"=
+><h1 style=3D"color:#222222;font-weight:normal;mso-line-height-alt:175.0%;"=
+>=F0=9F=A6=84 How you can help?</h1></td></tr><tr><td class=3D"dd" align=3D=
+"justify" style=3D"padding:0px 15px;text-align:justify;word-break:break-wor=
+d;"><p style=3D"mso-line-height-alt:150.0%;"> If you enjoy reading this new=
+sletter and would like to keep Dispatch free, here are two quick ways to he=
+lp: </p></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"padding:0=
+px 15px;text-align:justify;word-break:break-word;"><p style=3D"mso-line-hei=
+ght-alt:150.0%;"> =F0=9F=91=89=F0=9F=8F=BB <b>Chip in via </b><a class=3D"l=
+ink" href=3D"https://link.mail.beehiiv.com/ss/c/u001.VBK7zsTE8wL-WWof4_f9is=
+kY8eD0KYWw5FV_WYJcoE4ZKQwh52RgXNWQxMqtYEOqI3OyiKbFVR4CxjV92PijC4-90u9ql8bwD=
+qoeVN9ffFTUp4W3NlYWmO85b5F7iVQ-XSrDB2aiC8yhIyWIpsqmQkDGWUYx8LOifNfW305mrDY5=
+QlKek_e1lqj6PjtN8-iTmHDMDb6_g9UYHAO4O7UqU5iDFNGPE8_SsoKNLVkc5upb_94eTBct2qI=
+jxXIkHam0nKdKoEAtL0CaXoglLEjn6Q/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h26/h001.DUx_dW-=
+nRz4zfjRu3nCX7I8Mqkm9mvdRBSWNtsuPbGA" target=3D"_blank" rel=3D"noopener nor=
+eferrer nofollow"><span><b>Github Sponsors</b></span></a>. <b>If your compa=
+ny offers an education budget, contributing a =E2=80=9Ccoffee=E2=80=9D to k=
+eep this newsletter going will certainly qualify</b>. You=E2=80=99ll get an=
+ instant receipt for reimbursement, and I=E2=80=99ll keep Dispatch running =
+=E2=98=95=EF=B8=8F </p></td></tr><tr><td class=3D"dd" align=3D"justify" sty=
+le=3D"padding:0px 15px;text-align:justify;word-break:break-word;"><p style=
+=3D"mso-line-height-alt:150.0%;"> =F0=9F=91=89=F0=9F=8F=BB<b>Spread the wor=
+d</b>. <a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.rG=
+dB9E1ROeJf9wpf88uOe1SANJG0qeMP8ynzfGjGS5ZWj7Azb_94NsdgzGqCHzmwPQ4oEE7TJT06c=
+C54wgBrXgIkp7clKVMpSYRHe9QoFXoAcie2wD21YGerDEZVHT7dyC9pkVyNjqbNG-6Wzju_ba2i=
+ixtdF6Damzi8KAreyHhavWm1a_2A1Qj-rKZ2d6gnITZ1SVhN43o8ZIraveucs9HwJFIdR9Lu7AX=
+jT-FAvXqkCkjAJ0k0Mg420rUsnCgtW5o3fNOJqGmyE36b5z3A8uH2pYvAzbBKOxqFEpJgijby4W=
+OxxsAvPkse_esayu8Hag6zg_uv5ogXx1BNPP6nSysgu3rQNrWvqSBoh3yzOvYX6SXr8rrWYXqKX=
+PMJ1KgZeI-imRu0l_oFuIjLovq8ci7v62FliNNwdwUUCyPVsIgbSM88mnk3-SwZVrn4fmtqnGS1=
+JRB2sy-sYTMXK0rwIQ/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h27/h001.AxlpM3cjUUWqdYX96_eM=
+vmTfeY-ZCIIz-hLUO_4VJcw" target=3D"_blank" rel=3D"noopener noreferrer nofol=
+low"><span>Tweet</span></a>, <a class=3D"link" href=3D"https://link.mail.be=
+ehiiv.com/ss/c/u001.lR7FjY4yQEEvLc4jEurND4ZPVyfpO_X7SNgpIlrafAq-ESMrdmSjo2l=
+ZJwFmS8SMPvQkR0-DHhpN9p2VaAoRhLZdyO8CzcgBsiqfyqP2jCN4ts01NlmtMdPbo-ku43iu2n=
+G3iOgCY6iGdWWqggFYAQudmaE80g4HjJFSNgzPEnMkLN1p84bMvcmpWcb1cSZV2Md2qwnFHuexV=
+Tawt7rPRhC_pD0trWx-hDei9EtJ5D2ZnYtaO9klDJVJx6sju0zKuuUHUhcsmjbX47mTdAmBvLgO=
+8GecEX3m1ScrjVhYjLYwUTavY61stDHK9drdG_6rEkBPwSDamUkvl2yDl4vXpd3pC2F9Rv04ATa=
+hXnj14wXxP98fjsEl4VupRFmBqKtrmt26lQ9EIG2LHRRtL32qm5bSvkYEIEDfcbHWsAoPH32wEn=
+GcsEJ9QuXEluRUWMAz/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h28/h001.EL8Gd8LwZc4e2fUyAmfm=
+vfd3hxQGdnVL8CyOw5jmAkw" target=3D"_blank" rel=3D"noopener noreferrer nofol=
+low"><span>Bluesky</span></a>, toot, Slack, or carrier=E2=80=91pigeon this =
+issue to someone who loves Android. Each new subscriber pushes Dispatch clo=
+ser to sustainability. </p></td></tr><tr><td id=3D"let-me-hear-it" class=3D=
+"dd" align=3D"center" valign=3D"top" style=3D"color:#222222;font-weight:nor=
+mal;padding:0px 15px;text-align:center;"><h1 style=3D"color:#222222;font-we=
+ight:normal;mso-line-height-alt:175.0%;">=F0=9F=91=82 Let me hear it!</h1><=
+/td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text=
+-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;=
+"> What=E2=80=99d you think of this email? Tap your choice below and lemme =
+hear it =F0=9F=91=87 </p></td></tr><tr><td id=3D"amazingloved-it" class=3D"=
+dd" align=3D"left" valign=3D"top" style=3D"color:#2A2A2A;font-weight:normal=
+;padding:0px 15px;text-align:left;"><h5 style=3D"color:#2A2A2A;font-weight:=
+normal;mso-line-height-alt:100.0%;">=F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=80=F0=
+=9F=9A=80=F0=9F=9A=80<a class=3D"link" href=3D"mailto:vinaygaba@gmail.com?s=
+ubject=3DJetpackCompose.app%20Dispatch%20-%20Issue%20#16&body=3DThat%20was%=
+20amazing" target=3D"_blank" rel=3D"noopener noreferrer nofollow" clicktrac=
+king=3D"off"><span>=C2=A0</span></a><b><a class=3D"link" href=3D"mailto:vin=
+aygaba@gmail.com?subject=3DJetpackCompose.app%20Dispatch%20-%20Issue%20#16&=
+body=3DThat%20was%20amazing" target=3D"_blank" rel=3D"noopener noreferrer n=
+ofollow" clicktracking=3D"off"><span style=3D"color: rgb(70, 54, 247)">AMAZ=
+ING-LOVED IT!</span></a></b></h5></td></tr><tr><td id=3D"pretty-good" class=
+=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#2A2A2A;font-weight:no=
+rmal;padding:0px 15px;text-align:left;"><h5 style=3D"color:#2A2A2A;font-wei=
+ght:normal;mso-line-height-alt:100.0%;">=F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=
+=80<a class=3D"link" href=3D"mailto:vinaygaba@gmail.com?subject=3DJetpackCo=
+mpose.app%20Dispatch%20-%20Issue%20#16&body=3DPretty%20good" target=3D"_bla=
+nk" rel=3D"noopener noreferrer nofollow" clicktracking=3D"off"><span>=C2=A0=
+</span></a><b><a class=3D"link" href=3D"mailto:vinaygaba@gmail.com?subject=
+=3DJetpackCompose.app%20Dispatch%20-%20Issue%20#16&body=3DPretty%20good" ta=
+rget=3D"_blank" rel=3D"noopener noreferrer nofollow" clicktracking=3D"off">=
+<span style=3D"color: rgb(70, 54, 247)">PRETTY GOOD!</span></a></b></h5></t=
+d></tr><tr><td id=3D"meh-not-great" class=3D"dd" align=3D"left" valign=3D"t=
+op" style=3D"color:#2A2A2A;font-weight:normal;padding:0px 15px;text-align:l=
+eft;"><h5 style=3D"color:#2A2A2A;font-weight:normal;mso-line-height-alt:100=
+.0%;">=F0=9F=9A=80<a class=3D"link" href=3D"mailto:vinaygaba@gmail.com?subj=
+ect=3DJetpackCompose.app%20Dispatch%20-%20Issue%20#16&body=3DCould&#39;ve%2=
+0been%20better" target=3D"_blank" rel=3D"noopener noreferrer nofollow" clic=
+ktracking=3D"off"><span>=C2=A0</span></a><b><a class=3D"link" href=3D"mailt=
+o:vinaygaba@gmail.com?subject=3DJetpackCompose.app%20Dispatch%20-%20Issue%2=
+0#16&body=3DCould&#39;ve%20been%20better" target=3D"_blank" rel=3D"noopener=
+ noreferrer nofollow" clicktracking=3D"off"><span style=3D"color: #4636f7">=
+MEH - NOT GREAT</span></a></b></h5></td></tr><tr><td class=3D"dd" align=3D"=
+justify" style=3D"padding:0px 15px;text-align:justify;word-break:break-word=
+;"><p style=3D"mso-line-height-alt:150.0%;"> On that note, here=E2=80=99s h=
+oping that your bugs are minor and your compilations are error free. </p></=
+td></tr><tr><td align=3D"center" valign=3D"top" style=3D"font-size:0px;line=
+-height:0px;padding:30px 0px 30px;" class=3D"dd"><table class=3D"j" role=3D=
+"none" width=3D"50%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=
+=3D"center"><tr><td> &nbsp; </td></tr></table></td></tr><tr><td width=3D"10=
+0%"><table role=3D"none" width=3D"100%" class=3D"mob-w-full" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0"><tr><td width=3D"30%" style=3D"vertical-=
+align:top;" class=3D"mob-stack"><table role=3D"none" width=3D"100%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center" =
+valign=3D"top" style=3D"padding-bottom:20px;padding-left:15px;padding-right=
+:15px;padding-top:20px; " class=3D"dd"><table role=3D"none" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td a=
+lign=3D"center" valign=3D"top" style=3D"width:189px;"><img src=3D"https://m=
+edia.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dred=
+irect,quality=3D80/uploads/asset/file/98648a15-a870-4f13-91e8-669a521ae470/=
+image.png?t=3D1743740108" alt=3D"" height=3D"auto" width=3D"189" style=3D"d=
+isplay:block;width:100%;border-radius:90px;" border=3D"0"/></td></tr></tabl=
+e></td></tr></tbody></table></td><td width=3D"70%" style=3D"vertical-align:=
+top;" class=3D"mob-stack"><table role=3D"none" width=3D"100%" border=3D"0" =
+cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td class=3D"dd" align=3D"le=
+ft" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p st=
+yle=3D"mso-line-height-alt:150.0%;"><span style=3D"color:inherit;"><b><a cl=
+ass=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22=
+pMoCZFwErNLW1FzHhXqiF4sLrEvQBOZ_v9CeZWJyOb4yg9ETXMvt3ymeKD0XzOKRl9LWjJBKyVC=
+xf2T03ANXYGLhyrFxW59YtzJeBo1hdQqy7mJfF9dAs95khVNGGHOb0Dzo9swY16gvvEsOevnHY0=
+__1XMe0_tycQzkBB-PRrNajB4kpt2t3T0ZWTT4OaIOJv6-Rmw1bsKyGqg_4ncZ77dmr9wh6rf3Z=
+6HAxy_YBOAS02bJFydIt95sssvWlbntyg_5jEWg/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h29/h001=
+.kKVnX0hkKqGfao1vD7S8AnlRtq6jn_QmJvvFos3IbRY" target=3D"_blank" rel=3D"noop=
+ener noreferrer nofollow"><span style=3D"color: rgb(70, 54, 247)">Vinay Gab=
+a</span></a></b></span></p></td></tr><tr><td class=3D"dd" align=3D"left" st=
+yle=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D=
+"mso-line-height-alt:150.0%;"><span style=3D"color:rgb(107, 95, 81);font-fa=
+mily:Inter, sans-serif;font-size:16px;font-weight:400;">Tech Lead Manager @=
+ Airbnb | Google Developer Expert for Android</span></p></td></tr><tr><td c=
+lass=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-b=
+reak:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><span style=3D"c=
+olor:rgb(107, 95, 81);font-family:Inter, sans-serif;font-size:0.8rem;font-w=
+eight:400;">Vinay Gaba is a Google Developer Expert for Android and serves =
+as a Tech Lead Manager at Airbnb, where he spearheads the UI Tooling team. =
+His team&#39;s mission is to enhance developer productivity through cutting=
+-edge tools leveraging LLMs and Generative AI. Vinay has deep expertise in =
+Android, UI Infrastructure, Developer Tooling, Design Systems and Figma Plu=
+gins. Prior to Airbnb, he worked at Snapchat, Spotify, and Deloitte. Vinay =
+holds a Master&#39;s degree in Computer Science from Columbia University.</=
+span></p></td></tr></tbody></table></td></tr></table></td></tr></table></td=
+></tr></table></td></tr><tr><td align=3D"center" valign=3D"top"><table role=
+=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" a=
+lign=3D"center"><tr><td><tr><td class=3D"b" align=3D"center" valign=3D"top"=
+ bgcolor=3D"#4636f7" style=3D"padding:0px 0px 0px 0px;border-style:solid;bo=
+rder-width: 0px 0px 0px 0px;border-color: #4636f7;border-bottom-left-radius=
+:10px;border-bottom-right-radius:10px;"><table role=3D"none" width=3D"100%"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td =
+align=3D"center" valign=3D"top" bgcolor=3D"#f9fafb" style=3D"padding:12px">=
+<table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadd=
+ing=3D"0" align=3D"center"><tr><td><span style=3D"padding-left:1px;"></span=
+></td><td align=3D"center" valign=3D"middle" width=3D"75" style=3D"width:75=
+px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.fkViF09bFfun30fF7Ta=
+p4dG3MKtKiquKxilXkmnEwtlGo8drd2WClo8DnTbAumQndyZ-Tb9kY3cN8WjoFjdIjrPIMpJ9Y9=
+_V1QIBSul__7aJOE4Tw2JLTdcxdWK4RUUwdgCvA56H1LE8_lxOWvarVeMPEwZpfHLokbP1h4PQJ=
+r-jhj4ucDlfDcRM4KHemYhC4mgqqH11CBy7owN4J6IJNvLiFpAdHGkyikMAnrEfpoST3WX415tW=
+q1sPNGHheEVQ0AJC5JWmbpqdQVASIPDWAA/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h30/h001.wv7E=
+S221G3QcQ_9Qky778Yw4_2ccVORveIsrX84TqDg" style=3D"text-decoration:none;"><i=
+mg width=3D"22" height=3D"22" alt=3D"tw" border=3D"0" style=3D"display:bloc=
+k;max-width:22px;color:Dark" src=3D"https://media.beehiiv.com/cdn-cgi/image=
+/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/static_asse=
+ts/x_dark.png"/></a></td><td align=3D"center" valign=3D"middle" width=3D"75=
+" style=3D"width:75px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.=
+hETvff7I2eizPqVU0gB_A6YHYKeDP6nK4-H3BspaeMMfOfhxo1rxBrCriM_12DAY7uw5K2cgoyU=
+vvD667cdbot-Kk7eWLnAK5PfP2Y_cqClAk-ESglp4sMS915cgup0oWguExv34ScVW676LEXlWGJ=
+TvjIg3qryPRq7shesC0MGlrkIL0ujHEQ4xHj06sbcvy2gLbkfvTSqRT4cZIfYmCHhug51LwQV2R=
+sqI7MTL2ijvyOFnAIUwkvgV7-XNwUY7gh_UvFfL28SbnvebNFytIw/4gm/VVHcxVIJQxSWZuj7U=
+GYW3Q/h31/h001.Y_kkUG-V8PGt9HEBXpQHbegKAgKBowabrXhsC49wHZQ" style=3D"text-d=
+ecoration:none;"><img width=3D"22" height=3D"22" alt=3D"ig" border=3D"0" st=
+yle=3D"display:block;max-width:22px;color:Dark" src=3D"https://media.beehii=
+v.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quali=
+ty=3D80/static_assets/instagram_dark.png"/></a></td><td align=3D"center" va=
+lign=3D"middle" width=3D"75" style=3D"width:75px;"><a href=3D"https://link.=
+mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwB8Y7NfPBUuS4MjRExsSdBC6UtnY=
+NObwhBoJN14kFAMNgLWhf2tjS0Rp0gjTuqyccNsjQW6GtZRP4esJIWqRbre3Bp_XXghpRWtMGd_=
+VMdkfiiO7AjrrkHduQ4KQXwt3XyhGoUnqYcxafujhih9-QN1a6L9-C5-VVqreDewZgifbjwv49y=
+qLx1DdEypJ-W5CaRduJK5Oci7QH34INLTzmbnkeC_N6c52ISdq_2XQBjU-rXE5uxaVHWngB8glv=
+_GIpQ/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h32/h001.ATC7ftyy2aVh6n_VDsdYK-n8XOFcPPHPB=
+hStefevDVM" style=3D"text-decoration:none;"><img width=3D"22" height=3D"22"=
+ alt=3D"thds" border=3D"0" style=3D"display:block;max-width:22px;color:Dark=
+" src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3D=
+auto,onerror=3Dredirect,quality=3D80/static_assets/threads_dark.png"/></a><=
+/td><td align=3D"center" valign=3D"middle" width=3D"75" style=3D"width:75px=
+;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFw=
+GBM6Fqh00-MoI-hDmH0PV_hgMrD-3VblOUjg4nTti0Pgf_Kub3d2QzDSXTIRWqBvqv0RRJTa9m3=
+LSwJadQ4i6PS12thE3t6BqoNw8XXKzwZG9vIVCGsRKAYCSxKM-SwpQP217xW9wytljsKE3yUbbw=
+2iarhEzmH0NwmVEC4LvEdnKdhRHoH8edWKhKfLtrqwhkYTK8ywBt9IStHxAOPtgGINAWnp9xwY0=
+2F3d_w8n2BDrBfbmmR5y9yDHcCF_rPxw/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h33/h001.uTZeic=
+KEeXHcDqSVnMJlcPYVv6Gfxg_ISv0MNtilIFY" style=3D"text-decoration:none;"><img=
+ width=3D"22" height=3D"22" alt=3D"in" border=3D"0" style=3D"display:block;=
+max-width:22px;color:Dark" src=3D"https://media.beehiiv.com/cdn-cgi/image/f=
+it=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/static_assets=
+/linkedin_dark.png"/></a></td><td align=3D"center" valign=3D"middle" width=
+=3D"75" style=3D"width:75px;"><a href=3D"https://link.mail.beehiiv.com/ss/c=
+/u001.lR7FjY4yQEEvLc4jEurND-JohwlO8GIBvjK534gXy_gmSXC9T67UcoAxAWMBUMe0SQs_x=
+fvAVWtgkKmvWmmRuZWMdE5PLOUpIvjWuPpdVYCiZBvDxrCNV8LLdMwARN135w6ljCbQxFQFboJq=
+1Rd4k2fGQKujotqdyB8OFpHTzmxmqHBuyU6Vj5w2TI7AE4w8jOTQebIEHeLXrm_2B8hy55W7m9G=
+A11vlvJ_NWKd7a5l5yONO6kmaLb4SOFMXP22TF8lR4Ta-tjAd_uO0isdpLkyp9tiLFNS491zTej=
+Po754/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h34/h001.-nhvj7fiw-ZV4nw4slNRLG0OZ6Gi41LSq=
+JK4cOdzX2o" style=3D"text-decoration:none;"><img width=3D"22" height=3D"22"=
+ alt=3D"in" border=3D"0" style=3D"display:block;max-width:22px;color:Dark" =
+src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dau=
+to,onerror=3Dredirect,quality=3D80/bluesky_black.png"/></a></td><td><span s=
+tyle=3D"padding-left:1px;"></span></td></tr></table></td></tr><tr><td heigh=
+t=3D"10" style=3D"line-height:1px;font-size:1px;height:10px;"> &nbsp; </td>=
+</tr><tr><td class=3D"w" align=3D"center" valign=3D"top" style=3D"padding:1=
+5px 15px 15px 15px;"><table role=3D"none" width=3D"100%" border=3D"0" cells=
+pacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center" va=
+lign=3D"top"><p style=3D"font-family:'Poppins',Helvetica,sans-serif;color:#=
+FFFFFF!important;"> Update your email preferences or unsubscribe <a class=
+=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.8U9ubRxM-1UkyChnW=
+ssEh1VU-OwihNKvFKRYv51QbKPxbY_rW1MzGPUxFYT2FqJpgDZgyIYYofmcLA3NwyphuBhVjXgz=
+W9YbGgKHUb2kEvHkRc37GRAg10vO1dlbvCqdy3b0Wn0hTl71IsVX4zx12TQTmtAu2zIminCUK7Z=
+14VwRaFmk5mWFFupwjGtEtjIvltuABksIOywhFLyX3fYKBz2L5tr1UGV8GCfICV5d3OExDDj3_D=
+G0u7V7OAFQACXJAncZmo_8bqfx-R0FmtzFZ824gs4GaXFWEJAtX7WuVJRUaA4OfKv_ZuUdaQsL7=
+UviWECY70gRtkxlq2MlwWlqm4z6O42yiIVzmDwiWJynZPiBfqLCL87AUWSbyVex88AhY7IT4Em1=
+6DEy9vIu982DbuNZ_M5rX-JAsin1498oml_lEHB7Jq0APCct9VO_o0H7gGUP5_Fpz8npqxWrlBm=
+-CaMPZdz8qjY4QSggNGSuu9mSNzxkboFJ48nYtjPRrKHKDWHny4KOMBP8_Rywby4_S2NfVtR3tS=
+c7EfKCaL7kaqbrBMr7sV7N2ZwCxf-z3cKLgIHhn-gE1fL9--8z2q9vRp9c0kdj8ElcdC_Mgrfbv=
+QFHrScHJqUZptmLDZXhePh644tMiolCxo4Ha0PC_5oCHPa5f8rQ6gZtR3EpnFAQ_lK8EKedqofF=
+bXT-uxVKx7IyfBGPq-ffA0HXnQB4Mc_OeskxSEJZ1o-r-CxGPiX6otzGAbJ1fYtcJac0tpHMgES=
+Hu7k_EzqiXn9-9JBIgT8-V-wxLLyvccmQWkYy_Ps44luazOTN9PnwyzINQcP8dFaNuog5D0AIr0=
+2mtjJ76BTtNUdwk6fbaCyO8ecQqp2ZrfQ/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h35/h001.vNekQ=
+2RzajIzISPnjKIesfKkvkzgDfjHHSpPJQAywq8" style=3D"text-decoration:underline;=
+text-decoration-color:#FFFFFF!important;color:#FFFFFF!important;"> here</a>=
+</p><p class=3D"copyright" style=3D"font-family:'Poppins',Helvetica,sans-se=
+rif;color:#FFFFFF!important;"> &copy; 2025 JetpackCompose.app Dispatch </p>=
+<p style=3D"font-family:'Poppins',Helvetica,sans-serif;color:#FFFFFF!import=
+ant;"> 228 Park Ave S, #29976, New York, New York 10003, United States </p>=
+</td></tr><tr style=3D"display: table-row !important;"><td align=3D"center"=
+ valign=3D"top" style=3D"padding-top:20px;" style=3D"display:table-cell !im=
+portant;"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center" style=3D"display:table !important;"><tr style=3D"di=
+splay:table-row !important;"><td class=3D"u" align=3D"center" valign=3D"mid=
+dle" height=3D"32" style=3D"height:32px;display:table-cell !important; max-=
+height: 32px !important;margin:0px !important; background-color: #ffffff !i=
+mportant;"><a style=3D"line-height:32px !important;text-decoration:none;dis=
+play:block !important;" href=3D"https://link.mail.beehiiv.com/ss/c/u001.Dgk=
+FNI5fx5JE22pMoCZFwBa5vTwOa4tNVtOMTHUlje9qudfo65ii2AwFkEdVaWLZt0VCmeBwWpgWnW=
+34VF0DK6AJADjplJ-sFVbSVbZ6ZwBNYnvg5PlXlzVsMCJ62YgrR_NrNzAHgstcerDIFg0GFqvz0=
+y_-NXAFNpQ31Xt42Lj_g-CemHNpUwc08ckmzLzoI5gDtio5Fw2lIGM8cAXogSIS41fHKGT2ubsZ=
+NZniHmgVySYVBX_lvHcztmPjo09p/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h36/h001.nqHXeLVNSD=
+MF7b79q-wVRWJmWvqabjQmCAP7duhH9co"><img src=3D"https://media.beehiiv.com/ou=
+tput-onlinepngtools.png" width=3D"16" alt=3D"beehiiv logo" style=3D"display=
+:inline-block !important;max-width:16px !important; vertical-align:-3px !im=
+portant;width: 16px !important;" border=3D"0"/><span style=3D"padding-left:=
+11px !important;display: inline-block !important;">Powered by beehiiv</span=
+></a></td></tr></table></td></tr><tr><td align=3D"left" valign=3D"top" heig=
+ht=3D"2" style=3D"height:2px;"><a href=3D'https://link.mail.beehiiv.com/ss/=
+c/u001.qld8dlH7ELbJrJhZVte54M40fheu0MwPg5IjLYy7n3jgz4LCCkAqeqYvQBbmVYLB9Ehf=
+KzgnMiFOdRw--Mg35EIEOLZvIcHR5smpU9t2jDo/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h37/h001=
+.S2QfD98NRW_Fy3psBns2LpCsN1cuXjPln101hUWeYf0' style=3D"color: #4636f7 !impo=
+rtant; cursor: default; font-size: 1px; text-decoration: none;"> Terms of S=
+ervice </a></td></tr></table></td></tr></table></td></tr></td></tr></table>=
+</td></tr></table></td></tr></table></td></tr></table></div></body></html>
+--b18849339c40405d9c2c9cc5129d77114f4762960ed69fd3793447e89f29--
