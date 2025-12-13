@@ -24,6 +24,7 @@ import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
@@ -58,34 +59,76 @@ class CafetechNewsletterHandler : NewsletterHandlerSingleFeed {
             ?.toUrlOrNull()?.removeAppStoreRedirect()
             ?: throw NewsletterParsingException("Could not find the newsletter URL for \"${email.subject}\"")
 
-        return document
-            .select("h1.header-anchor-post")
-            .map { articleTitleElement ->
-                val title = articleTitleElement.text()
+        return document.parseMultipleArticles(newsletterLink) ?: document.parseSingleArticle(newsletterLink)
+    }
 
-                // Take <p> elements after the title, until "Pour aller plus loin"
-                val paragraphCount = AtomicInteger(0)
-                val contentElements = articleTitleElement
-                    .nextElementSibling()!! // Picture
-                    .nextElementSiblings()
-                    .takeWhile {
-                        it.tagName() == "p"
-                            && paragraphCount.incrementAndGet() <= ARTICLE_DESCRIPTION_PARAGRAPHS
-                            && !it.text().startsWith(ARTICLE_LINKS_P_PREFIX)
-                    }
-                val articleDescription = contentElements
-                    .joinToString(
-                        separator = "\n\n",
-                        transform = Element::text,
-                        postfix = ARTICLE_DESCRIPTION_POSTFIX,
+    private fun Document.parseMultipleArticles(
+        newsletterLink: URL,
+    ): List<Article>? {
+        val elements = select("h1.header-anchor-post")
+        return if (elements.isNotEmpty()) {
+            elements
+                .map { articleTitleElement ->
+                    val title = articleTitleElement.text()
+
+                    // Take <p> elements after the title, until "Pour aller plus loin"
+                    val paragraphCount = AtomicInteger(0)
+                    val contentElements = articleTitleElement
+                        .nextElementSibling()!! // Picture
+                        .nextElementSiblings()
+                        .takeWhile {
+                            it.tagName() == "p"
+                                && paragraphCount.incrementAndGet() <= ARTICLE_DESCRIPTION_PARAGRAPHS
+                                && !it.text().startsWith(ARTICLE_LINKS_P_PREFIX)
+                        }
+                    val description = contentElements
+                        .joinToString(
+                            separator = "\n\n",
+                            transform = Element::text,
+                            postfix = ARTICLE_DESCRIPTION_POSTFIX,
+                        )
+
+                    Article(
+                        title = title,
+                        description = description,
+                        link = newsletterLink,
                     )
+                }
+        } else null
+    }
 
-                Article(
-                    title = title,
-                    description = articleDescription,
-                    link = newsletterLink,
-                )
+    private fun Document.parseSingleArticle(newsletterLink: URL): List<Article> {
+        val articleTitleElement = selectFirst("h1.post-title")
+
+        val title = articleTitleElement?.text()
+            ?: throw NewsletterParsingException("Could not find the newsletter article title")
+
+        // The article description starts after a `<a class="image-link">` element
+        val imageLinkElement = selectFirst("a.image-link")
+            ?: throw NewsletterParsingException("Could not find the start of the article description")
+
+        val contentElements = allElements
+            .subList(
+                indexOf(imageLinkElement) + 1,
+                allElements.size,
+            )
+            .takeWhile {
+                // Take elements until "Pour aller plus loin"
+                !it.text().startsWith(ARTICLE_LINKS_P_PREFIX)
             }
+        val description = contentElements
+            .joinToString(
+                separator = "\n\n",
+                transform = Element::text,
+            )
+
+        return listOf(
+            Article(
+                title = title,
+                link = newsletterLink.removeAppStoreRedirect(),
+                description = description,
+            )
+        )
     }
 
     /**

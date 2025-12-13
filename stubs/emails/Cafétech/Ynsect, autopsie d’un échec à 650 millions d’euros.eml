@@ -1,0 +1,2299 @@
+Return-Path: <bounce+c72d0e.63af5d-n2rss=nicopico.fr@mg-d0.substack.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id aFKRGPW2O2mNijcAQTsBvA
+	(envelope-from <bounce+c72d0e.63af5d-n2rss=nicopico.fr@mg-d0.substack.com>)
+	for <n2rss@nicopico.fr>; Fri, 12 Dec 2025 07:32:21 +0100
+Return-path: <bounce+c72d0e.63af5d-n2rss=nicopico.fr@mg-d0.substack.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Fri, 12 Dec 2025 07:32:21 +0100
+Received: from m244-44.mailgun.net ([159.112.244.44])
+	by smtpin1.paris1.alwaysdata.com with utf8esmtps  (TLS1.2) tls TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <bounce+c72d0e.63af5d-n2rss=nicopico.fr@mg-d0.substack.com>)
+	id 1vTwhP-00G18K-0M
+	for n2rss@nicopico.fr;
+	Fri, 12 Dec 2025 07:32:19 +0100
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mg-d0.substack.com; q=dns/txt; s=mailo; t=1765521137; x=1765528337;
+ h=List-Unsubscribe-Post: List-Unsubscribe: List-Post: List-Id: List-Archive: List-Owner: Reply-To: In-Reply-To: References: Sender: Sender: Date: Message-Id: To: To: From: From: Subject: Subject: Content-Type: Mime-Version;
+ bh=Os0Em6fc6TTJ3Y2qtgefRrk0YmOgVMsxbgU01/AtSLI=;
+ b=mzIkOR6gPuYJQxKMJslBe9Ps/cxYRV2buS5RiYp3tuJH/YJwqevROAkzFYTlunn3ZSwXIGLzfjGaU/4mquZUwoQd9QvbPixGRIJHdKhcI4mzt082jr9VV8hAonZfQhFQ+VAt+ZykESkbstTRpnLUotvdkAbsiHPDOebG/yJAKag=
+X-Mailgun-Sid: WyI1MWJiNCIsIm4ycnNzQG5pY29waWNvLmZyIiwiNjNhZjVkIl0=
+Received: by b90a14317bce5fa1d8abf659478e8ae2f693bc40043d75d2aded10126f0b48a9 with HTTP
+ id 693bb6f192080432d8911725; Fri, 12 Dec 2025 06:32:16 GMT
+X-Mailgun-Sending-Ip: 159.112.244.44
+X-Mailgun-Batch-Id: 693bb6f0c8aec0501eec8330
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="3a585c2fbfe6ef80927b7901913d1762f88d6f66092258c8566467bb5e89"
+Subject: =?UTF-8?q?Ynsect,_autopsie_d=E2=80=99un_=C3=A9chec_=C3=A0_650_millions_d?=
+ =?UTF-8?q?=E2=80=99euros?=
+From: =?utf-8?b?SsOpcsO0bWUgTWFyaW4gLyBDYWbDqXRlY2g=?=
+ <cafetech+french-tech@substack.com>
+To: n2rss@nicopico.fr
+X-Mailgun-Tag: post
+X-Mailgun-Track-Clicks: false
+Message-Id: <20251212063054.3.92b2bf2dd3b48778@mg-d0.substack.com>
+Date: Fri, 12 Dec 2025 06:30:54 +0000
+Feedback-Id: post-181322320:cat-post:pub-51206:substack
+Sender: =?utf-8?b?SsOpcsO0bWUgTWFyaW4gLyBDYWbDqXRlY2g=?=
+ <cafetech+french-tech@substack.com>
+References: <post-181322320@substack.com>
+In-Reply-To: <post-181322320@substack.com>
+Reply-To: =?utf-8?b?SsOpcsO0bWUgTWFyaW4gLyBDYWbDqXRlY2g=?=
+ <reply+2zyd74&5f3rgc&&6a561970589ff3b378a599ca64ae666ffe451c028ea6be105ca921902f15174c@mg1.substack.com>
+List-Owner: <mailto:cafetech+french-tech@substack.com>
+List-Url: <https://cafetech.substack.com/>
+List-Archive: <https://cafetech.substack.com/archive>
+List-Id: <cafetech.substack.com>
+List-Post: <https://cafetech.substack.com/p/ynsect-autopsie-dun-echec-a-650-millions>
+List-Unsubscribe: <https://cafetech.substack.com/action/disable_email/disable?token=eyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE4MTMyMjMyMCwiaWF0IjoxNzY1NTIxMTM1LCJleHAiOjE3OTcwNTcxMzUsImlzcyI6InB1Yi01MTIwNiIsInN1YiI6ImRpc2FibGVfZW1haWwifQ.xiHuCTBvSZLF333t386fw_GblpJOWFQymOE1xGX6Hzo&all_sections=true>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Mailgun-Variables: {"category": "post", "email_generated_at": "1765521135955", "is_freemail":
+ "true", "post_audience": "everyone", "post_id": "181322320", "post_type":
+ "newsletter", "pub_community_enabled": "true", "publication_id": "51206",
+ "subdomain": "cafetech", "user_id": "327700668"}
+X-alwaysdata-Spam-Report: 	0.50 URI_COUNT_ODD [19] - Odd number of URIs in multipart/alternative message
+	0.50 MANY_INVISIBLE_PARTS [6] - Many parts are visually hidden
+	0.30 ZERO_FONT [4] - Zero sized font used
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 TAGGED_FROM [french-tech] - SMTP from has plus tags
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 REPLYTO_DOM_NEQ_TO_DOM - Reply-To domain does not match the To domain
+	0.00 REPLYTO_DOM_NEQ_FROM_DOM - Reply-To domain does not match the From
+ domain
+	0.00 REPLYTO_DN_EQ_FROM_DN - Reply-To display name matches From
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_TWO [2] - Message has two Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MV_CASE - Mime-Version .vs. MIME-Version
+	0.00 MISSING_XM_UA - Message has neither X-Mailer nor User-Agent header
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 MID_RHS_MATCH_FROMTLD - Message-ID RHS matches From domain tld
+	0.00 HAS_REPLYTO
+ [reply+2zyd74&5f3rgc&&6a561970589ff3b378a599ca64ae666ffe451c028ea6be105ca921902f15174c@mg1.substack.com]
+ - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [mg-d0.substack.com:+] - DKIM trace symbol
+	0.00 BLOCKLISTDE_FAIL [159.112.244.44:server fail]
+	0.00 ASN [asn:396479, ipnet:159.112.244.0/24, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.12 MAILLIST [generic] - Message seems to be from maillist
+	-0.50 DMARC_POLICY_ALLOW [substack.com, reject] - DMARC permit policy
+	-0.54 DKIM_REPUTATION [-0.53909852455677]
+	-0.81 IP_REPUTATION_HAM [asn: 396479(-0.27), country: US(-0.00),
+ ip: 159.112.244.44(-0.53)]
+	-1.18 R_DKIM_ALLOW [mg-d0.substack.com:s=mailo] - DKIM verification succeed
+X-alwaysdata-Spam-Score: -1.96
+
+--3a585c2fbfe6ef80927b7901913d1762f88d6f66092258c8566467bb5e89
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+View this post on the web at https://cafetech.substack.com/p/ynsect-autopsi=
+e-dun-echec-a-650-millions
+
+Bonjour,=20
+Pour cette derni=C3=A8re =C3=A9dition French Tech de l=E2=80=99ann=C3=A9e, =
+je vous propose un grand format pour comprendre comment Yncest a pu dispara=
+=C3=AEtre avoir avoir d=C3=A9pens=C3=A9 plus de 650 millions d=E2=80=99euro=
+s en 15 ans.
+C=E2=80=99est l=E2=80=99article le plus long jamais publi=C3=A9 sur Caf=C3=
+=A9tech - et il aurait pu l=E2=80=99=C3=AAtre encore davantage tant les chi=
+ffres, informations, et anecdotes que l=E2=80=99on m=E2=80=99a rapport=C3=
+=A9s sont nombreux.
+Surtout, il illustre parfaitement la raison pour laquelle j=E2=80=99ai lanc=
+=C3=A9, il y a quelques mois, une =C3=A9dition d=C3=A9di=C3=A9e =C3=A0 la F=
+rench Tech [ https://substack.com/redirect/da0468d1-00c2-42e3-8ba9-c60b7697=
+0aaa?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ]:=
+ adopter envers les entreprises fran=C3=A7aises le m=C3=AAme regard critiqu=
+e, la m=C3=AAme exigence d=E2=80=99analyse et la m=C3=AAme volont=C3=A9 de =
+d=C3=A9passer les =C3=A9l=C3=A9ments de langage que pour n=E2=80=99importe =
+quelle soci=C3=A9t=C3=A9 =C3=A9trang=C3=A8re.
+C=E2=80=99est ce qui m=E2=80=99anime quand j=E2=80=99analyse la position do=
+minante de Doctolib [ https://substack.com/redirect/73429397-bd1c-44f6-9bc6=
+-fa84a55a4899?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8Pa=
+Fv0-2U ] ou questionne la strat=C3=A9gie d=E2=80=99OVH dans l=E2=80=99IA [ =
+https://substack.com/redirect/098194dd-81e8-4143-84cb-de67322252ff?j=3DeyJ1=
+IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ]. Certains m=
+=E2=80=99ont accus=C3=A9 d=E2=80=99=C3=AAtre anti-French Tech. Je pense au =
+contraire que c=E2=80=99est absolument n=C3=A9cessaire.=20
+N=E2=80=99h=C3=A9sitez pas =C3=A0 partager cet article autour de vous. Et b=
+ienvenue aux plus de 250 personnes qui se sont inscrites hier =C3=A0 la new=
+sletter pour le lire.
+Bonne lecture et bon week-end.
+=E2=80=9CTous les investisseurs s=C3=A9rieux sont partis en courant=E2=80=
+=9D. Le constat d=E2=80=99un ancien employ=C3=A9 r=C3=A9sume =C3=A0 lui seu=
+l la lente agonie d=E2=80=99Ynsect. Faute d=E2=80=99avoir pu trouver les fo=
+nds n=C3=A9cessaires pour financer son plan de relance, la start-up sp=C3=
+=A9cialis=C3=A9e dans l=E2=80=99=C3=A9levage de vers de farine a =C3=A9t=C3=
+=A9 plac=C3=A9e la semaine derni=C3=A8re en liquidation judiciaire par le t=
+ribunal de commerce d=E2=80=99=C3=89vry. Selon nos informations, son sort n=
+e s=E2=80=99est jou=C3=A9 qu=E2=80=99=C3=A0 dix petits millions d=E2=80=99e=
+uros... Un comble pour une entreprise qui a englouti plus de 650 millions e=
+n moins de quinze ans.
+=C3=89chec d=E2=80=99un ambitieux projet ou v=C3=A9ritable gabegie financi=
+=C3=A8re nourrie d=E2=80=99argent public ? Par son ampleur, l=E2=80=99histo=
+ire d=E2=80=99Ynsect est in=C3=A9dite dans la French Tech. Pour certains, e=
+lle illustre les d=C3=A9fis colossaux auxquels se heurtent les start-up ind=
+ustrielles. Pour d=E2=80=99autres, elle incarne les d=C3=A9rives d=E2=80=99=
+un mod=C3=A8le de financement, en partie aliment=C3=A9 par l=E2=80=99argent=
+ public de Bpifrance. Pour r=C3=A9aliser l=E2=80=99autopsie de cette chute,=
+ Caf=C3=A9tech s=E2=80=99est entretenu avec d=E2=80=99anciens dirigeants et=
+ salari=C3=A9s. Et pass=C3=A9 au crible dix ann=C3=A9es de bilans comptable=
+s et de documents juridiques.
+Plus grande ferme d=E2=80=99insectes au monde
+Lanc=C3=A9e en 2011, Ynsect fait partie des pionni=C3=A8res de l=E2=80=99=
+=C3=A9levage d=E2=80=99insectes destin=C3=A9s =C3=A0 l=E2=80=99alimentation=
+=2E L=E2=80=99entreprise mise alors sur=20=
+le scarab=C3=A9e Tenebrio molitor, pr=
+is=C3=A9 pour ses qualit=C3=A9s nutritionnelles. =C3=80 ses d=C3=A9buts, el=
+le ambitionne de r=C3=A9volutionner l=E2=80=99alimentation humaine, mais l=
+=E2=80=99id=C3=A9e tourne court. =E2=80=9CL=E2=80=99acceptation sociale =C3=
+=A9tait trop faible et la r=C3=A9glementation infernale=E2=80=9D, se souvie=
+nt un ancien dirigeant. Elle se r=C3=A9oriente alors vers la nourriture pou=
+r poissons d=E2=80=99=C3=A9levage, =E2=80=9Cun march=C3=A9 qui r=C3=A9uniss=
+ait =C3=A0 la fois une th=C3=A8se =C3=A9cologique et une th=C3=A8se =C3=A9c=
+onomique=E2=80=9D.
+Financ=C3=A9 pendant trois ans par des subventions publiques, Ynsect attire=
+ ses premiers investisseurs en 2014. Coup sur coup, la jeune pousse r=C3=A9=
+alise deux lev=C3=A9es de fonds, pour un total de sept millions d=E2=80=99e=
+uros. Deux ans plus tard, elle r=C3=A9colte 14 millions suppl=C3=A9mentaire=
+s. Ces moyens financiers lui permettent de sortir de ses laboratoires d=E2=
+=80=99=C3=89vry pour racheter un premier d=C3=A9monstrateur =C3=A0 Dole, da=
+ns le Jura. Objectif: =E2=80=9Cconvaincre les investisseurs que nous pouvio=
+ns produire de mani=C3=A8re rentable=E2=80=9D, raconte un ex-employ=C3=A9.
+Car les dirigeants voient beaucoup plus grand. D=C3=A8s 2018, ils ambitionn=
+ent d=E2=80=99=C3=A9riger une usine gigantesque de 45.000 m=C3=A8tres carr=
+=C3=A9s =C3=A0 Poulainville, pr=C3=A8s d=E2=80=99Amiens, qui doit devenir l=
+a plus grande ferme d=E2=80=99insectes au monde. Elle est d=C3=A9di=C3=A9e =
+=C3=A0 l=E2=80=99=C3=A9levage de larves de scarab=C3=A9e dans des bacs empi=
+l=C3=A9s les uns au-dessus des autres jusqu=E2=80=99=C3=A0 37 m=C3=A8tres d=
+e haut. Les capacit=C3=A9s de production doivent initialement =C3=AAtre 100=
+ fois sup=C3=A9rieures =C3=A0 celles de Dole=E2=80=A6 puis 200 fois. Ce sit=
+e fait entrer Ynsect dans une nouvelle dimension. Mais il pr=C3=A9cipitera =
+=C3=A9galement sa chute.
+Plan d=E2=80=99affaires obsol=C3=A8te
+Comme un symbole d=E2=80=99un projet vou=C3=A9 =C3=A0 l=E2=80=99=C3=A9chec,=
+ la premi=C3=A8re pierre du chantier de Poulainville a =C3=A9t=C3=A9 pos=C3=
+=A9e le 17 mars 2020. La veille au soir, Emmanuel Macron annon=C3=A7ait le =
+premier confinement. Les travaux sont aussit=C3=B4t interrompus, puis forte=
+ment ralentis. La cha=C3=AEne logistique est perturb=C3=A9e, notamment pour=
+ les puces n=C3=A9cessaires au syst=C3=A8me informatique. Les complications=
+ s=E2=80=99accumulent, tout comme les surco=C3=BBts. Repouss=C3=A9e de deux=
+ ans, la mise en service n=E2=80=99intervient progressivement que d=C3=A9bu=
+t 2024. Et le budget initial est largement d=C3=A9pass=C3=A9.
+En r=C3=A9alit=C3=A9, l=E2=80=99usine de Poulainville =C3=A9tait probableme=
+nt vou=C3=A9e =C3=A0 l=E2=80=99=C3=A9chec avant m=C3=AAme le d=C3=A9but du =
+chantier: sa construction reposait sur un plan d=E2=80=99affaires d=C3=A9j=
+=C3=A0 obsol=C3=A8te. Entre-temps, Ynsect avait en effet abandonn=C3=A9 le =
+march=C3=A9 de l=E2=80=99aquaculture: avec des co=C3=BBts de production net=
+tement sup=C3=A9rieurs, impossible de rivaliser avec les farines de poisson=
+ utilis=C3=A9es pour nourrir saumons et crevettes d=E2=80=99=C3=A9levage. =
+=E2=80=9CLe business plan avait =C3=A9t=C3=A9 =C3=A9tabli par des consultan=
+ts, sans tenir compte des r=C3=A9alit=C3=A9s op=C3=A9rationnelles=E2=80=9D,=
+ souligne un ex-salari=C3=A9.
+Or, la capacit=C3=A9 de production du site avait =C3=A9t=C3=A9 pens=C3=A9e =
+pr=C3=A9cis=C3=A9ment pour ce march=C3=A9. Face =C3=A0 des clients qui ach=
+=C3=A8tent plusieurs millions de tonnes par an, les volumes doivent =C3=AAt=
+re consid=C3=A9rables. =E2=80=9CNotre feuille de route initiale =C3=A9tait =
+de produire 100.000 tonnes d=E2=80=99insectes par an=E2=80=9D, indique l=E2=
+=80=99ex-dirigeant. La start-up avait m=C3=AAme sign=C3=A9 un contrat majeu=
+r avec Skretting, premier producteur mondial d=E2=80=99aliments pour poisso=
+ns d=E2=80=99=C3=A9levage. Un accord=E2=80=A6 qui ne sera jamais honor=C3=
+=A9. =E2=80=9CIl =C3=A9tait trop tard pour faire marche arri=C3=A8re=E2=80=
+=9D, regrette notre interlocuteur.
+Une facture =C3=A0 plus de 400 millions
+=C3=80 la place, Ynsect se recentre sur la nourriture pour les animaux de c=
+ompagnie, qui offre de meilleurs prix de vente mais des volumes bien inf=C3=
+=A9rieurs. La d=C3=A9cision de b=C3=A2tir une usine d=E2=80=99une telle tai=
+lle ne s=E2=80=99explique pas seulement par des imp=C3=A9ratifs commerciaux=
+=2E =E2=80=9CNous =C3=A9tions en comp=C3=A9=
+tition avec d=E2=80=99autres acteu=
+rs, il fallait =C3=AAtre le plus gros le plus vite possible=E2=80=9D, expli=
+que un ancien d=E2=80=99Ynsect. =E2=80=9CLes investisseurs ne s=E2=80=99int=
+=C3=A9ressaient pas au pet food: jamais nous n=E2=80=99aurions lev=C3=A9 au=
+tant en leur promettant une usine plus petite=E2=80=9D, ajoute un autre.
+Les cons=C3=A9quences financi=C3=A8res de ce choix sont dramatiques. =E2=80=
+=9CNous =C3=A9tions les premiers =C3=A0 mener un tel projet, rappelle l=E2=
+=80=99ancien responsable. M=C3=AAme nos partenaires nous disaient que c=E2=
+=80=99=C3=A9tait le projet le plus complexe qu=E2=80=99ils aient jamais r=
+=C3=A9alis=C3=A9=E2=80=9D. Des machines sp=C3=A9cialement con=C3=A7ues pour=
+ Ynsect jusqu=E2=80=99=C3=A0 leur int=C3=A9gration avec des algorithmes de =
+pr=C3=A9cision, les complications et les erreurs se multiplient. =E2=80=9CC=
+haque probl=C3=A8me ajoutait un petit pourcentage de 200 millions d=E2=80=
+=99euros, et non de 30 ou 50 millions si nous avions opt=C3=A9 pour une usi=
+ne moins grande=E2=80=9D, poursuit-il.
+=E2=80=9CPersonne ne s=E2=80=99attendait =C3=A0 ce que les d=C3=A9penses d=
+=C3=A9rivent autant=E2=80=A6 Mais il n=E2=80=99y avait aucun suivi rigoureu=
+x=E2=80=9D
+D=C3=A8s lors, les investissements d=C3=A9rapent. =E2=80=9CPersonne ne s=E2=
+=80=99attendait =C3=A0 ce que les capex (d=C3=A9penses en capital, ndlr) d=
+=C3=A9rivent autant, assure un employ=C3=A9. Mais il n=E2=80=99y avait aucu=
+n suivi rigoureux.=E2=80=9D La faute notamment =C3=A0 des conflits internes=
+ et des dysfonctionnements dans la gouvernance. Au d=C3=A9part, le projet d=
+evait co=C3=BBter 150 millions d=E2=80=99euros. La facture d=C3=A9passera f=
+inalement les 400 millions. Cons=C3=A9quence: la tr=C3=A9sorerie d=E2=80=99=
+Ynsect est sans cesse sous tension. =E2=80=9CNous surveillions en permanenc=
+e le moment o=C3=B9 nous allions arriver =C3=A0 court de liquidit=C3=A9s=E2=
+=80=9D, ajoute-t-il.
+=C3=89quation financi=C3=A8re intenable
+La situation est d=E2=80=99autant plus difficile que l=E2=80=99op=C3=A9rati=
+onnel ne suit pas non plus. L=E2=80=99automatisation compl=C3=A8te du proce=
+ssus prend bien plus de temps que pr=C3=A9vu. La mortalit=C3=A9 des larves =
+s=E2=80=99envole, en raison notamment de la gestion imparfaite des temp=C3=
+=A9ratures et des vibrations g=C3=A9n=C3=A9r=C3=A9es par les machines. =E2=
+=80=9CCe qui fonctionne, ce sont les petites structures modulaires et peu a=
+utomatis=C3=A9es, c=E2=80=99est-=C3=A0-dire l=E2=80=99exact oppos=C3=A9 de =
+Poulainville=E2=80=9D, remarque un ex-salari=C3=A9. Mais =E2=80=9Cun tel mo=
+d=C3=A8le aurait exig=C3=A9 1.000 employ=C3=A9s dans l=E2=80=99usine=E2=80=
+=9D, r=C3=A9pond l=E2=80=99ancien dirigeant.
+La gestion des ressources humaines d=C3=A9rape elle aussi. En 2022, Ynsect =
+franchit le cap des 250 salari=C3=A9s, puis celui des 300 l=E2=80=99ann=C3=
+=A9e suivante. Plus d=E2=80=99une centaine d=E2=80=99entre eux sont affect=
+=C3=A9s =C3=A0 l=E2=80=99usine de Poulainville=E2=80=A6 qui n=E2=80=99est t=
+oujours pas op=C3=A9rationnelle. Beaucoup restent ainsi de longs mois =C3=
+=A0 ne pas faire grand-chose. =E2=80=9CNous avons envisag=C3=A9 de licencie=
+r, mais cela aurait eu un co=C3=BBt et pris du temps, alors m=C3=AAme que n=
+ous aurions d=C3=BB r=C3=A9embaucher peu apr=C3=A8s=E2=80=9D, justifie le r=
+esponsable. La masse salariale s=E2=80=99envole. En 2023, elle s=E2=80=99=
+=C3=A9l=C3=A8ve =C3=A0 25 millions d=E2=80=99euros, soit 38 fois le chiffre=
+ d=E2=80=99affaires.
+Au-del=C3=A0 des probl=C3=A8mes techniques, la taille de l=E2=80=99usine se=
+ traduit par une =C3=A9quation financi=C3=A8re intenable, plomb=C3=A9e par =
+des co=C3=BBts fixes extr=C3=AAmement =C3=A9lev=C3=A9s =E2=80=93 en particu=
+lier avec l=E2=80=99envol=C3=A9e des prix de l=E2=80=99=C3=A9nergie et des =
+c=C3=A9r=C3=A9ales n=C3=A9cessaires pour nourrir les larves. Pour atteindre=
+ le point d=E2=80=99=C3=A9quilibre op=C3=A9rationnel, la production devait =
+atteindre 30% de la capacit=C3=A9 initiale. Pour esp=C3=A9rer rentabiliser =
+les investissements, il fallait monter =C3=A0 60%. D=C3=A9but 2025, le site=
+ tournait seulement =C3=A0 15%. =E2=80=9CAvec deux ans de plus, nous y seri=
+ons arriv=C3=A9s=E2=80=9D, veut croire un salari=C3=A9.
+235 millions de pertes en quatre ans
+L=E2=80=99usine de Poulainville n=E2=80=99=C3=A9tant toujours pas en servic=
+e, le chiffre d=E2=80=99affaires r=C3=A9el demeure d=C3=A9risoire. Entre 20=
+20 et 2023, Ynsect ne r=C3=A9alise que 1,8 million d=E2=80=99euros de vente=
+ de produits, fabriqu=C3=A9s =C3=A0 Dole pour l=E2=80=99alimentation animal=
+e et pour des engrais obtenus =C3=A0 partir des d=C3=A9jections de larves. =
+Sur la m=C3=AAme p=C3=A9riode, l=E2=80=99entreprise d=C3=A9pense 16,2 milli=
+ons d=E2=80=99euros rien qu=E2=80=99en mati=C3=A8res premi=C3=A8res. Incapa=
+ble d=E2=80=99atteindre un taux de reproduction suffisant, elle doit notamm=
+ent acheter =E2=80=93 au prix fort =E2=80=93 des larves =C3=A9lev=C3=A9es a=
+illeurs.
+En ajoutant les salaires et les investissements, les pertes sont vertigineu=
+ses: en quatre ans, elles atteignent 235 millions d=E2=80=99euros. L=E2=80=
+=99=C3=A9volution des flux de tr=C3=A9sorerie =E2=80=93 l=E2=80=99argent qu=
+i sort r=C3=A9ellement des caisses =E2=80=93 est encore plus alarmante: -10=
+0 millions rien qu=E2=80=99en 2023, selon nos informations. Fin 2023, ses l=
+iquidit=C3=A9s tombent =C3=A0 19,5 millions, de quoi tenir seulement quelqu=
+es mois. L=E2=80=99entreprise =C3=A9vite une premi=C3=A8re fois la catastro=
+phe gr=C3=A2ce au soutien de Bpifrance et de la famille Peugeot. En =C3=A9c=
+hange, elle est contrainte de lancer un premier plan social [ https://subst=
+ack.com/redirect/9722181a-46d6-4d1d-a36c-5b7d4dcd36ed?j=3DeyJ1IjoiNWYzcmdjI=
+n0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ].
+Cette op=C3=A9ration illustre la communication hasardeuse d=E2=80=99Ynsect.=
+ =C3=80 l=E2=80=99=C3=A9poque, la start-up annonce une lev=C3=A9e de fonds =
+de 160 millions d=E2=80=99euros. En r=C3=A9alit=C3=A9, il s=E2=80=99agit de=
+ 107 millions d=E2=80=99euros d=E2=80=99obligations convertibles en actions=
+ =E2=80=93 des obligations qui ne seront jamais converties et viendront don=
+c alourdir la dette. M=C3=AAme sc=C3=A9nario en 2021, lorsqu=E2=80=99elle =
+=C3=A9voque une lev=C3=A9e record de 372 millions de dollars: =C3=A0 peine =
+plus de la moiti=C3=A9 est vers=C3=A9e en fonds propres. Le reste provient =
+de pr=C3=AAts contract=C3=A9s aupr=C3=A8s de grandes banques fran=C3=A7aise=
+s.
+Pr=C3=A8s de 200 millions d=E2=80=99euros d=E2=80=99argent public
+Selon nos calculs, les v=C3=A9ritables lev=C3=A9es de fonds d=E2=80=99Ynsec=
+t se chiffrent =C3=A0 un peu plus de 300 millions d=E2=80=99euros. S=E2=80=
+=99y ajoutent quelque 170 millions d=E2=80=99obligations convertibles, 150 =
+millions de cr=C3=A9dits et une vingtaine de millions de subventions publiq=
+ues, dont 15 millions de l=E2=80=99Union europ=C3=A9enne. La Caisse des d=
+=C3=A9p=C3=B4ts et consignations a =C3=A9galement inject=C3=A9 au moins 8 m=
+illions dans la SCI Vertycal, charg=C3=A9e de la construction =C3=A0 Poulai=
+nville. Au total, plus de 650 millions se sont ainsi envol=C3=A9s. Pr=C3=A8=
+s de 200 millions proviennent de l=E2=80=99argent public.
+=E2=80=9CYnsect n=E2=80=99a pas lev=C3=A9 cet argent sur un projet industri=
+el solide mais sur des chiffres de march=C3=A9 bidon=E2=80=9D, d=C3=A9nonce=
+ un responsable de l=E2=80=99entreprise. En 2021, la start-up faisait miroi=
+ter =C3=A0 ses investisseurs un chiffre d=E2=80=99affaires de 500 millions =
+d=E2=80=99euros dans cinq ans. Elle pr=C3=A9voyait d=E2=80=99ouvrir une diz=
+aine de nouvelles usines, notamment aux =C3=89tats-Unis et en Asie. Et elle=
+ mettait en avant un carnet de commandes sup=C3=A9rieur =C3=A0 100 millions=
+=2E =E2=80=9CMais une partie de ces con=
+trats portait sur l=E2=80=99aquacultur=
+e, un march=C3=A9 d=C3=A9j=C3=A0 abandonn=C3=A9=E2=80=9D, souligne notre in=
+terlocuteur.
+=E2=80=9COfficiellement, la lev=C3=A9e de fonds devait financer les projets=
+ d=E2=80=99expansion, en r=C3=A9alit=C3=A9, elle devait avant tout permettr=
+e d=E2=80=99achever Poulainville=E2=80=9D
+=C3=80 la m=C3=AAme =C3=A9poque, Ynsect rach=C3=A8te =C3=A9galement la star=
+t-up n=C3=A9erlandaise Protifarm, sp=C3=A9cialis=C3=A9e dans un autre type =
+de scarab=C3=A9e, le Buffalo, d=C3=A9j=C3=A0 utilis=C3=A9 pour fabriquer de=
+s hamburgers, des p=C3=A2tes ou des barres prot=C3=A9in=C3=A9es. Pr=C3=A8s =
+de dix ans apr=C3=A8s avoir abandonn=C3=A9 l=E2=80=99id=C3=A9e, l=E2=80=99e=
+ntreprise se tourne =C3=A0 nouveau vers l=E2=80=99alimentation humaine [ ht=
+tps://substack.com/redirect/5fa2efbc-7feb-4325-bd1a-2c566b2ef6f5?j=3DeyJ1Ij=
+oiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ]. Un =C3=A9chec:=
+ Protifarm est rapidement ferm=C3=A9, pour des pertes proche de 30 millions=
+ d=E2=80=99euros. M=C3=AAme constat aux =C3=89tats-Unis, avec l=E2=80=99acq=
+uisition d=E2=80=99un petit sp=C3=A9cialiste de l=E2=80=99alimentation pour=
+ volaille.
+Un =E2=80=9Ctour du monde=E2=80=9D pour trouver de l=E2=80=99argent
+Pour financer son ambitieuse feuille de route, Ynsect a besoin de capitaux =
+bien plus importants. L=E2=80=99option d=E2=80=99un SPAC =E2=80=93 une intr=
+oduction en Bourse via un v=C3=A9hicule d=E2=80=99investissement =E2=80=93 =
+est =C3=A9cart=C3=A9e, la direction se montrant =E2=80=9Ctrop gourmande=E2=
+=80=9D. Car la start-up vise, d=C3=A9but 2022, un tour de financement XXL: =
+250 millions d=E2=80=99euros en fonds propres et autant en dettes. Mais l=
+=E2=80=99euphorie qui entourait les start-up s=E2=80=99=C3=A9vapore avec le=
+ durcissement des politiques mon=C3=A9taires. Les investisseurs se retirent=
+ et la lev=C3=A9e de fonds =C3=A9choue.
+Commence alors un v=C3=A9ritable =E2=80=9Ctour du monde=E2=80=9D pour trouv=
+er des financements. Deux banques d=E2=80=99affaires sont mandat=C3=A9es. L=
+es dirigeants rencontrent des centaines de fonds, jusqu=E2=80=99en Arabie S=
+aoudite et au Qatar. Mais plus grand monde ne croit aux projets d=E2=80=99Y=
+nsect. Il y a pourtant urgence. =E2=80=9COfficiellement, la lev=C3=A9e de f=
+onds devait financer les projets d=E2=80=99expansion, en r=C3=A9alit=C3=A9,=
+ elle devait avant tout permettre d=E2=80=99achever Poulainville=E2=80=9D, =
+t=C3=A9moigne un employ=C3=A9. =C3=80 court de liquidit=C3=A9s, la start-up=
+ doit accepter le recours aux obligations convertibles.
+C=E2=80=99est le d=C3=A9but d=E2=80=99une spirale infernale. De nouveaux di=
+rigeants =E2=80=9Ccompl=C3=A8tement d=C3=A9connect=C3=A9s de la r=C3=A9alit=
+=C3=A9=E2=80=9D prennent les commandes. Sans succ=C3=A8s. Fin 2024, l=E2=80=
+=99entreprise doit se placer en proc=C3=A9dure de sauvegarde [ https://subs=
+tack.com/redirect/7cb47c31-392f-4365-b409-556b5a78ea89?j=3DeyJ1IjoiNWYzcmdj=
+In0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U ]. Et les plans sociaux s=
+=E2=80=99encha=C3=AEnent. Ces derni=C3=A8res semaines, Ynsect ne comptait p=
+lus qu=E2=80=99une quarantaine d=E2=80=99employ=C3=A9s. En coulisses, un pl=
+an de relance est pr=C3=A9par=C3=A9 =C3=A0 la h=C3=A2te. Il repose sur un m=
+od=C3=A8le radicalement diff=C3=A9rent, =C3=A0 l=E2=80=99oppos=C3=A9 des r=
+=C3=AAves de grandeur et de l=E2=80=99automatisation qui avaient fa=C3=A7on=
+n=C3=A9 la strat=C3=A9gie initiale.
+=C3=80 dix millions pr=C3=A8s=E2=80=A6
+Ce =E2=80=9Cnouvel Ynsect=E2=80=9D aurait abandonn=C3=A9 l=E2=80=99=C3=A9le=
+vage =C3=A0 Poulainville, o=C3=B9 les effectifs auraient =C3=A9t=C3=A9 rame=
+n=C3=A9s =C3=A0 une vingtaine de personnes. L=E2=80=99usine n=E2=80=99aurai=
+t alors conserv=C3=A9 que ses cha=C3=AEnes de transformation. Les larves au=
+raient =C3=A9t=C3=A9 achet=C3=A9es aupr=C3=A8s d=E2=80=99Entosolution, une =
+start-up allemande =E2=80=9Cque personne ne conna=C3=AEt=E2=80=9D, prometta=
+nt des prix bas gr=C3=A2ce =C3=A0 des m=C3=A9thodes plus traditionnelles. L=
+a direction assurait que les co=C3=BBts de production auraient =C3=A9t=C3=
+=A9 abaiss=C3=A9s de 70%. Elle revendiquait aussi trois clients pr=C3=AAts =
+=C3=A0 acheter initialement plusieurs dizaines de tonnes par an.
+Une enveloppe de 32 millions d=E2=80=99euros =C3=A9tait n=C3=A9cessaire pou=
+r relancer la machine. En juillet, Bpifrance et le fonds belge Astanor, le =
+premier actionnaire de la soci=C3=A9t=C3=A9 =E2=80=93 qui a investi 45 mill=
+ions selon ses dires, nettement plus selon l=E2=80=99une de nos sources =E2=
+=80=93, apportent pr=C3=A8s de neuf millions. De quoi offrir quelques mois =
+de r=C3=A9pit pour trouver les 23 millions restants. Mais Ynsect n=E2=80=99=
+a finalement r=C3=A9uni que 13 millions. =E2=80=9CFaute de financement, le =
+redressement de l=E2=80=99entreprise n=E2=80=99appara=C3=AEt pas possible=
+=E2=80=9D, conclut ainsi le tribunal de commerce d=E2=80=99=C3=89vry.
+Ynsect ferm=C3=A9e, son h=C3=A9ritage ne se limitera pas =C3=A0 son =C3=A9c=
+hec spectaculaire, esp=C3=A8rent plusieurs participants au projet. =E2=80=
+=9CYnsect a d=C3=A9frich=C3=A9 le terrain, souligne l=E2=80=99un d=E2=80=99=
+entre eux. D=E2=80=99autres vont apprendre de nos erreurs sur l=E2=80=99ind=
+ustrialisation et profiter des avanc=C3=A9es que nous avons permises dans l=
+a r=C3=A9glementation=E2=80=9D. Pendant dix ans, =E2=80=9CYnsect a produit =
+des connaissances et comp=C3=A9tences, et a cr=C3=A9=C3=A9 un =C3=A9cosyst=
+=C3=A8me de clients et fournisseurs=E2=80=9D, ajoute un autre. Un troisi=C3=
+=A8me est plus perplexe. =E2=80=9COui, le march=C3=A9 peut =C3=AAtre gigant=
+esque=E2=80=A6 mais peut-=C3=AAtre pas pour des acteurs europ=C3=A9ens=E2=
+=80=9D.
+Cr=C3=A9dit photos: Ynsect
+
+Unsubscribe https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9jYWZldGVjaC5=
+zdWJzdGFjay5jb20vYWN0aW9uL2Rpc2FibGVfZW1haWw_dG9rZW49ZXlKMWMyVnlYMmxrSWpvek=
+1qYzNNREEyTmpnc0luQnZjM1JmYVdRaU9qRTRNVE15TWpNeU1Dd2lhV0YwSWpveE56WTFOVEl4T=
+VRNMUxDSmxlSEFpT2pFM09UY3dOVGN4TXpVc0ltbHpjeUk2SW5CMVlpMDFNVEl3TmlJc0luTjFZ=
+aUk2SW1ScGMyRmliR1ZmWlcxaGFXd2lmUS54aUh1Q1RCdlNaTEYzMzN0Mzg2ZndfR2JscEpPV0Z=
+ReW1PRTF4R1g2SHpvIiwicCI6MTgxMzIyMzIwLCJzIjo1MTIwNiwiZiI6dHJ1ZSwidSI6MzI3Nz=
+AwNjY4LCJpYXQiOjE3NjU1MjExMzUsImV4cCI6MjA4MTA5NzEzNSwiaXNzIjoicHViLTAiLCJzd=
+WIiOiJsaW5rLXJlZGlyZWN0In0.t_kXvjD1-yHxTl3_nhHj30-uRmtY-WN74r4AWcCj2hM?
+--3a585c2fbfe6ef80927b7901913d1762f88d6f66092258c8566467bb5e89
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html style=3D"scrollbar-width: thin;scrollbar-color: rgb(219,219,219)rgb(2=
+55,255,255);"><head><meta charset=3D"utf-8"><title>Ynsect, autopsie d&#8217=
+;un &#233;chec &#224; 650 millions d&#8217;euros</title><style>
+@media (max-width: 1024px) {
+  .typography .pullquote-align-left,
+  .typography.editor .pullquote-align-left,
+  .typography .pullquote-align-right,
+  .typography.editor .pullquote-align-right,
+  .typography .pullquote-align-wide,
+  .typography.editor .pullquote-align-wide,
+  .typography .pullquote-align-center,
+  .typography.editor .pullquote-align-center {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .typography .markup table.image-wrapper img,
+  .typography.editor .markup table.image-wrapper img,
+  .typography .markup table.kindle-wrapper img,
+  .typography.editor .markup table.kindle-wrapper img {
+    max-width: 550px;
+  }
+}
+@media (min-width: 1024px) {
+  .typography:not(:has(#toc)) .captioned-image-container figure:has(> a.ima=
+ge2-offset-left),
+  .typography.editor:not(:has(#toc)) .captioned-image-container figure:has(=
+> a.image2-offset-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  .typography:not(:has(#toc)) .captioned-image-container figure:has(> a.ima=
+ge2-offset-right),
+  .typography.editor:not(:has(#toc)) .captioned-image-container figure:has(=
+> a.image2-offset-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (min-width: 1300px) {
+  .typography .captioned-image-container figure:has(> a.image2-offset-left)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  .typography .captioned-image-container figure:has(> a.image2-offset-right=
+),
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (max-width: 1024px) {
+  .typography,
+  .typography.editor {
+    /* Disable offset on mobile/tablet */
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left),
+  .typography .captioned-image-container figure:has(> a.image2-align-right)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right) {
+    float: none;
+    margin: 1em auto;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left.t=
+hefp),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left.thefp),
+  .typography .captioned-image-container figure:has(> a.image2-align-right.=
+thefp),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right.thefp) {
+    margin: 1em auto;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-offset-left)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-left),
+  .typography .captioned-image-container figure:has(> a.image2-offset-right=
+),
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-right) {
+    margin: 1em auto;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left) =
+=2Eimage2-inset,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left) .image2-inset,
+  .typography .captioned-image-container figure:has(> a.image2-align-right)=
+ .image2-inset,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right) .image2-inset {
+    display: block;
+    justify-content: initial;
+  }
+}
+@media (max-width: 768px) {
+  .typography .markup div.sponsorship-campaign-embed,
+  .typography.editor .markup div.sponsorship-campaign-embed {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .typography .markup div.sponsorship-campaign-embed:first-child,
+  .typography.editor .markup div.sponsorship-campaign-embed:first-child {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.youtube-overlay,
+  .typography.editor .markup div.youtube-overlay,
+  .typography .markup div.vimeo-overlay,
+  .typography.editor .markup div.vimeo-overlay {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  .typography .markup div.tiktok-wrap,
+  .typography.editor .markup div.tiktok-wrap {
+    width: calc(95vw - 32px);
+    height: calc((95vw - 32px - 2px) / 0.485714);
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.embedded-publication-wrap .embedded-publication.s=
+how-subscribe,
+  .typography.editor .markup div.embedded-publication-wrap .embedded-public=
+ation.show-subscribe {
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.subscription-widget-wrap .subscription-widget.sho=
+w-subscribe,
+  .typography.editor .markup div.subscription-widget-wrap .subscription-wid=
+get.show-subscribe,
+  .typography .markup div.subscription-widget-wrap-editor .subscription-wid=
+get.show-subscribe,
+  .typography.editor .markup div.subscription-widget-wrap-editor .subscript=
+ion-widget.show-subscribe,
+  .typography .markup div.captioned-button-wrap .subscription-widget.show-s=
+ubscribe,
+  .typography.editor .markup div.captioned-button-wrap .subscription-widget=
+=2Eshow-subscribe {
+    padding: 0px 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.subscription-widget-wrap .subscription-widget.sho=
+w-subscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.subscription-widget-wrap .subscription-wid=
+get.show-subscribe .subscription-widget-subscribe .button,
+  .typography .markup div.subscription-widget-wrap-editor .subscription-wid=
+get.show-subscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.subscription-widget-wrap-editor .subscript=
+ion-widget.show-subscribe .subscription-widget-subscribe .button,
+  .typography .markup div.captioned-button-wrap .subscription-widget.show-s=
+ubscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.captioned-button-wrap .subscription-widget=
+=2Eshow-subscribe .subscription-widget-subscribe .button {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet,
+  .typography.editor .markup .tweet {
+    padding: 12px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet .tweet-text,
+  .typography.editor .markup .tweet .tweet-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet .tweet-photos-container.two,
+  .typography.editor .markup .tweet .tweet-photos-container.two,
+  .typography .markup .tweet .tweet-photos-container.three,
+  .typography.editor .markup .tweet .tweet-photos-container.three,
+  .typography .markup .tweet .tweet-photos-container.four,
+  .typography.editor .markup .tweet .tweet-photos-container.four {
+    height: 200px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet a.expanded-link .expanded-link-img,
+  .typography.editor .markup .tweet a.expanded-link .expanded-link-img {
+    max-height: 180px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .tweet a.expanded-link .expanded-link-description,
+  .typography.editor .markup .tweet a.expanded-link .expanded-link-descript=
+ion {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup .apple-podcast-container,
+  .typography.editor .markup .apple-podcast-container {
+    width: unset;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed img.install-substack-app-=
+embed-img,
+  .typography.editor .markup .install-substack-app-embed img.install-substa=
+ck-app-embed-img {
+    margin: 0 auto 16px auto;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-text,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-text {
+    margin: 0 0 12px 0;
+    max-width: 100%;
+    width: auto;
+    text-align: center;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-link,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-link {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container {
+    height: 38px;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container a.comment {
+    height: 38px;
+    line-height: 38px;
+    padding-right: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .share-button-container .separator {
+    display: block;
+    margin: 0;
+    height: 8px;
+    border-left: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .share-button-container a.share.first img {
+    padding-left: 0;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container a.mobile {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 541px) {
+  .settings-add-pub-modal-wrapper .container .add-recommending-pub-modal-co=
+ntainer {
+    padding: 36px;
+    height: 680px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .settings-add-pub-modal-wrapper .container .add-recommending-pub-modal-co=
+ntainer .footer {
+    position: absolute;
+    bottom: 36px;
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .header-anchor-parent {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .post {
+    padding: 16px 0 0 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-header .post-label {
+    margin-top: 8px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-header .meta-author-wrap.alternative-meta .meta-right-column =
+=2Epost-meta {
+    margin-top: 6px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .footer-facepile-container {
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-footer.use-separators {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-footer.next-prev {
+    height: 64px;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-contributor-footer .post-contributor-bio-table {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-table-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .post-contributor-footer .post-contributor-bio-userhead-cell,
+  .post-contributor-footer .post-contributor-bio-body-cell {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-body-cell {
+    flex-grow: 1;
+  }
+  .post-contributor-footer .post-contributor-bio-body-table {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-body-table-row {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-copy-cell,
+  .post-contributor-footer .post-contributor-bio-controls-cell {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-copy-cell {
+    margin: 0 0 16px 0;
+  }
+  .post-contributor-footer .post-contributor-bio-controls-cell {
+    width: auto;
+  }
+  .post-contributor-footer .post-contributor-bio-controls {
+    margin: auto;
+  }
+  .post-contributor-footer .post-contributor-bio-controls .button.primary {
+    width: 100%;
+  }
+  .post-contributor-footer .post-contributor-bio-text {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .post-silhouette {
+    padding: 32px 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-title {
+    margin-top: 10.44225025px;
+    height: 120px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-meta {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-meta.with-byline-image {
+    margin: 20px 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item,
+  .post-meta.alternative-meta .post-meta-item {
+    padding-right: 16px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item,
+  .post-meta.alternative-meta .post-meta-item {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item.guest-author-pu=
+blication,
+  .post-meta.alternative-meta .post-meta-item.guest-author-publication {
+    display: none;
+  }
+}
+@media screen and (max-width: 370px) {
+  .post-meta .post-meta-item .post-meta-button {
+    height: 36px !important;
+    /* important to override in-line height style on emails */
+  }
+  .post-meta .post-meta-item .post-meta-button .meta-button-label {
+    display: none;
+  }
+  .post-meta .post-meta-item .post-meta-button > svg {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 370px) {
+  .post-meta .post-meta-item {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .floating-subscribe-button {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  body .pullquote-align-left,
+  body .pullquote-align-right,
+  body .pullquote-align-wide,
+  body .pullquote-align-center {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  body .markup table.image-wrapper img,
+  body .markup table.kindle-wrapper img {
+    max-width: 550px;
+  }
+}
+@media (min-width: 1024px) {
+  body:not(:has(#toc)) .captioned-image-container figure:has(> a.image2-off=
+set-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  body:not(:has(#toc)) .captioned-image-container figure:has(> a.image2-off=
+set-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (min-width: 1300px) {
+  body .captioned-image-container figure:has(> a.image2-offset-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  body .captioned-image-container figure:has(> a.image2-offset-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (max-width: 1024px) {
+  body {
+    /* Disable offset on mobile/tablet */
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left),
+  body .captioned-image-container figure:has(> a.image2-align-right) {
+    float: none;
+    margin: 1em auto;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left.thefp),
+  body .captioned-image-container figure:has(> a.image2-align-right.thefp) =
+{
+    margin: 1em auto;
+  }
+  body .captioned-image-container figure:has(> a.image2-offset-left),
+  body .captioned-image-container figure:has(> a.image2-offset-right) {
+    margin: 1em auto;
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left) .image2=
+-inset,
+  body .captioned-image-container figure:has(> a.image2-align-right) .image=
+2-inset {
+    display: block;
+    justify-content: initial;
+  }
+}
+@media (max-width: 768px) {
+  body .markup div.sponsorship-campaign-embed {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  body .markup div.sponsorship-campaign-embed:first-child {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.youtube-overlay,
+  body .markup div.vimeo-overlay {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  body .markup div.tiktok-wrap {
+    width: calc(95vw - 32px);
+    height: calc((95vw - 32px - 2px) / 0.485714);
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.embedded-publication-wrap .embedded-publication.show-sub=
+scribe {
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.subscription-widget-wrap .subscription-widget.show-subsc=
+ribe,
+  body .markup div.subscription-widget-wrap-editor .subscription-widget.sho=
+w-subscribe,
+  body .markup div.captioned-button-wrap .subscription-widget.show-subscrib=
+e {
+    padding: 0px 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.subscription-widget-wrap .subscription-widget.show-subsc=
+ribe .subscription-widget-subscribe .button,
+  body .markup div.subscription-widget-wrap-editor .subscription-widget.sho=
+w-subscribe .subscription-widget-subscribe .button,
+  body .markup div.captioned-button-wrap .subscription-widget.show-subscrib=
+e .subscription-widget-subscribe .button {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet {
+    padding: 12px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet .tweet-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet .tweet-photos-container.two,
+  body .markup .tweet .tweet-photos-container.three,
+  body .markup .tweet .tweet-photos-container.four {
+    height: 200px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet a.expanded-link .expanded-link-img {
+    max-height: 180px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .tweet a.expanded-link .expanded-link-description {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup .apple-podcast-container {
+    width: unset;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed img.install-substack-app-embed-i=
+mg {
+    margin: 0 auto 16px auto;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-text=
+ {
+    margin: 0 0 12px 0;
+    max-width: 100%;
+    width: auto;
+    text-align: center;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-link=
+ {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 500px) {
+  body .header a.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+}
+@media screen and (max-width: 420px) {
+  body .subscription-receipt table:first-of-type .subscription-amount .subs=
+cription-discount {
+    width: 72px !important;
+  }
+}
+@media screen and (min-width: 481px) {
+  body .share-button-container {
+    height: auto;
+  }
+}
+@media screen and (max-width: 480px) {
+  body .share-button-container .separator {
+    display: block !important;
+    margin: 0 !important;
+    height: 8px !important;
+    border-left: none !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .digest .item .post-meta-item.audience {
+    display: none;
+  }
+}
+@media screen and (min-width: 500px) {
+  .digest-publication .logo img {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .comments-page .container .comment-list .collapsed-reply {
+    margin-left: calc(10 + 32px - 24px);
+  }
+}
+@media screen and (max-width: 650px) {
+  .comment > .comment-list {
+    padding-left: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .finish-magic-login-modal .modal-content .container {
+    padding: 24px 0;
+  }
+}
+@media (max-width: 650px) {
+  .reader2-text-b3 {
+    line-height: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .reader2-text-h4 {
+    line-height: 24px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .user-profile-modal {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .subscribe-widget form.form .sideBySideWrap button.rightButton {
+    padding: 10px 12px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .pub-icon:hover .logo-hover,
+  .feed-item-icon:hover .logo-hover {
+    display: block;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-ufi.single-full-width-button .post-ufi-button-wrapper {
+    width: 100%;
+    padding: 16px;
+  }
+  .post-ufi.single-full-width-button .post-ufi-button-wrapper:empty {
+    display: none;
+  }
+  .post-ufi.single-full-width-button .post-ufi-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper-editor {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper-editor:active {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .file-embed-button.wide,
+  .file-embed-error-button.wide {
+    display: none;
+  }
+}
+@media only screen and (min-width: 630px) {
+  .file-embed-button.narrow,
+  .file-embed-error-button.narrow {
+    display: none;
+  }
+}
+@media screen and (min-width: 541px) {
+  .audio-player-wrapper .audio-player {
+    min-width: 500px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper .audio-player .audio-player-progress {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper .audio-player .audio-player-progress .audio-player-=
+progress-bar .audio-player-progress-bar-popup {
+    top: -54px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-progress {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-progress .audio-p=
+layer-progress-bar .audio-player-progress-bar-popup {
+    top: -54px;
+  }
+}
+@media (min-width: 250px) {
+  .audio-player-wrapper-fancy .audio-player {
+    padding: 32px;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: flex;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:last-of-type=
+ {
+    display: block;
+  }
+}
+@media (min-width: 300px) {
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+}
+@media (min-width: 350px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-substack-logo {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-title {
+    margin-top: 16px;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 15%;
+    width: 15%;
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-substack-logo {
+    display: block;
+  }
+}
+@media (min-width: 350px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 25%;
+    width: 25%;
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: flex;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+}
+@media (min-width: 400px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 40%;
+    width: 40%;
+  }
+}
+@media (max-width: 400px) {
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    margin-top: 12px;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button {
+    font-size: 13px;
+    padding: 6px 12px;
+    height: auto;
+    margin-top: 10px;
+  }
+}
+@media (min-width: 600px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 55%;
+    width: 55%;
+  }
+}
+@media (max-width: 650px) {
+  .poll-editor-modal {
+    min-width: calc(100% - 20px);
+  }
+}
+@media (max-width: 750px) {
+  .poll-embed .poll-anchor-target .poll-anchor-copy-button {
+    left: 8px;
+    top: 45px;
+  }
+}
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    p a:not(.primary.button),
+    .post p:not(.button-wrapper) a:not(.primary.button),
+    .footnote a.footnote-anchor:not(.primary.button),
+    .thread-head .markup p:not(.button-wrapper) a:not(.primary.button) {
+      color: #007a76;
+      text-decoration: none;
+    }
+    p a:not(.primary.button):hover,
+    .post p:not(.button-wrapper) a:not(.primary.button):hover,
+    .footnote a.footnote-anchor:not(.primary.button):hover,
+    .thread-head .markup p:not(.button-wrapper) a:not(.primary.button):hove=
+r {
+      text-decoration: underline;
+    }
+  }
+}</style></head><body class=3D"email-body" style=3D"font-kerning: auto;--im=
+age-offset-margin: -120px;"><img src=3D"https://eotrx.substackcdn.com/open?=
+token=3DeyJtIjoiPDIwMjUxMjEyMDYzMDU0LjMuOTJiMmJmMmRkM2I0ODc3OEBtZy1kMC5zdWJ=
+zdGFjay5jb20-IiwidSI6MzI3NzAwNjY4LCJyIjoibjJyc3NAbmljb3BpY28uZnIiLCJkIjoibW=
+ctZDAuc3Vic3RhY2suY29tIiwicCI6MTgxMzIyMzIwLCJ0IjoibmV3c2xldHRlciIsImEiOiJld=
+mVyeW9uZSIsInMiOjUxMjA2LCJjIjoicG9zdCIsImYiOnRydWUsInBvc2l0aW9uIjoidG9wIiwi=
+aWF0IjoxNzY1NTIxMTM1LCJleHAiOjE3NjgxMTMxMzUsImlzcyI6InB1Yi0wIiwic3ViIjoiZW8=
+ifQ.AGfHVeo-b_u5vol70SOkPaScHIGRV1K9ki6TO9ZL6b0" alt=3D"" width=3D"1" heigh=
+t=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !important;bo=
+rder-width:0 !important;margin-top:0 !important;margin-bottom:0 !important;=
+margin-right:0 !important;margin-left:0 !important;padding-top:0 !important=
+;padding-bottom:0 !important;padding-right:0 !important;padding-left:0 !imp=
+ortant;"/><div class=3D"preview" style=3D"display:none;font-size:1px;color:=
+#333333;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hid=
+den;">&#8220;Personne ne s&#8217;attendait &#224; ce que les d&#233;penses =
+d&#233;rivent autant&#8230; Mais il n&#8217;y avait aucun suivi rigoureux&#=
+8221;</div><div class=3D"preview" style=3D"display:none;font-size:1px;color=
+:#333333;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hi=
+dden;">&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp=
+; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#8=
+47; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; =
+&#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp;=
+ &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#84=
+7; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &=
+#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nb=
+sp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&=
+#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199=
+; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbs=
+p; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#=
+847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199;=
+ &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp=
+; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#8=
+47; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; =
+&#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp;=
+ &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#84=
+7; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &=
+#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nb=
+sp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&=
+#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199=
+; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbs=
+p; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#=
+847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199;=
+ &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp=
+; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#8=
+47; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; =
+&#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp;=
+ &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#84=
+7; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &=
+#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;</div><table class=
+=3D"email-body-container" role=3D"presentation" width=3D"100%" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td></td><td class=3D"conte=
+nt" width=3D"550"></td><td></td></tr><tr><td></td><td class=3D"content" wid=
+th=3D"550" align=3D"left"><div style=3D"font-size: 16px;line-height: 26px;m=
+ax-width: 550px;width: 100%;margin: 0 auto;overflow-wrap: break-word;"><tab=
+le role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0"><tbody><tr><td align=3D"right" style=3D"height:20px;"><table =
+role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0"><tbody><tr><td style=3D"vertical-align:middle;"><span class=3D"p=
+encraft pc-reset reset-IxiVJZ tw-font-body tw-text-ssm tw-text-substack-sec=
+ondary" style=3D"font-family: SF Pro Text, -apple-system, system-ui, BlinkM=
+acSystemFont, Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple =
+Color Emoji, Segoe UI Emoji, Segoe UI Symbol;font-size: 13px;color: unset;l=
+ist-style: none;text-decoration: unset;margin: 0;"><div class=3D"pencraft p=
+c-reset align-right-VJbKw5 size-12-mmZ61m reset-IxiVJZ" style=3D"list-style=
+: none;color: unset;text-align: right;font-size: 12px;line-height: 16px;tex=
+t-decoration: unset;margin: 0;"><span class=3D"pencraft pc-reset reset-IxiV=
+JZ" translated=3D"" style=3D"list-style: none;color: unset;text-decoration:=
+ unset;margin: 0;">Vous avez re&#231;u cet e-mail car il a &#233;t&#233; tr=
+ansf&#233;r&#233; ? <a class=3D"pencraft pc-reset decoration-underline-ClTk=
+Yc reset-IxiVJZ" href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly=
+9jYWZldGVjaC5zdWJzdGFjay5jb20vc3Vic2NyaWJlP3V0bV9zb3VyY2U9ZW1haWwmdXRtX2Nhb=
+XBhaWduPWVtYWlsLXN1YnNjcmliZSZyPTVmM3JnYyZuZXh0PWh0dHBzJTNBJTJGJTJGY2FmZXRl=
+Y2guc3Vic3RhY2suY29tJTJGcCUyRnluc2VjdC1hdXRvcHNpZS1kdW4tZWNoZWMtYS02NTAtbWl=
+sbGlvbnMiLCJwIjoxODEzMjIzMjAsInMiOjUxMjA2LCJmIjp0cnVlLCJ1IjozMjc3MDA2NjgsIm=
+lhdCI6MTc2NTUyMTEzNSwiZXhwIjoyMDgxMDk3MTM1LCJpc3MiOiJwdWItMCIsInN1YiI6Imxpb=
+mstcmVkaXJlY3QifQ.pqXIWtxOxBfQQruTE6n_2i1mx7Ewe7rlDcqY9Rmexrc?" style=3D"li=
+st-style: none;color: unset;text-decoration: unset;margin: 0;-webkit-text-d=
+ecoration-line: underline;text-decoration-line: underline;">Inscrivez-vous =
+ici</a> pour en d&#233;couvrir plus</span></div></span></td></tr></tbody></=
+table></td></tr></tbody></table><table class=3D"header graphic-header" role=
+=3D"presentation" style=3D"border-spacing: 0;padding: 16px 0 32px;"><tbody>=
+<tr><td align=3D"center" style=3D"text-align: center;padding: 0;"><a href=
+=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9jYWZldGVjaC5zdWJzdGF=
+jay5jb20vcC95bnNlY3QtYXV0b3BzaWUtZHVuLWVjaGVjLWEtNjUwLW1pbGxpb25zP3V0bV9jYW=
+1wYWlnbj1lbWFpbC1oYWxmLXBvc3Qmcj01ZjNyZ2MmdG9rZW49ZXlKMWMyVnlYMmxrSWpvek1qY=
+zNNREEyTmpnc0luQnZjM1JmYVdRaU9qRTRNVE15TWpNeU1Dd2lhV0YwSWpveE56WTFOVEl4TVRN=
+MUxDSmxlSEFpT2pFM05qZ3hNVE14TXpVc0ltbHpjeUk2SW5CMVlpMDFNVEl3TmlJc0luTjFZaUk=
+2SW5CdmMzUXRjbVZoWTNScGIyNGlmUS5HZ3FIdHpVVVVabVF0T0w0S3FRNkhxWTVRek5UU0VXN3=
+B4QVV6Vk0yem4wIiwicCI6MTgxMzIyMzIwLCJzIjo1MTIwNiwiZiI6dHJ1ZSwidSI6MzI3NzAwN=
+jY4LCJpYXQiOjE3NjU1MjExMzUsImV4cCI6MjA4MTA5NzEzNSwiaXNzIjoicHViLTAiLCJzdWIi=
+OiJsaW5rLXJlZGlyZWN0In0.jlx_Il3DQGzwW_HvpPFPGvWonTbz_u2kC1kgueJzOaM?"><img =
+class=3D"header-image" role=3D"presentation" width=3D"550" height=3D"109" s=
+rc=3D"https://substackcdn.com/image/fetch/$s_!gg48!,w_1100,c_limit,f_auto,q=
+_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazon=
+aws.com%2Fpublic%2Fimages%2F9166d399-8ec6-4a5a-bda9-79f61bd41423_2400x474.p=
+ng" style=3D"border: none !important;vertical-align: middle;max-width: 550p=
+x;display: block;margin: 0 auto;height: auto;width: 100%;"></a></td></tr></=
+tbody></table><div class=3D"post typography" dir=3D"auto" style=3D"--image-=
+offset-margin: -120px;padding: 32px 0 0 0;font-size: 16px;line-height: 26px=
+;"><div class=3D"post-header" role=3D"region" aria-label=3D"En-t&#234;te du=
+ post" style=3D"font-size: 16px;line-height: 26px;"><h1 class=3D"post-title=
+ published title-X77sOw" dir=3D"auto" style=3D"direction: auto;text-align: =
+start;unicode-bidi: isolate;color: rgb(54,55,55);font-family: 'SF Pro Displ=
+ay',-apple-system-headline,system-ui,-apple-system,BlinkMacSystemFont,'Sego=
+e UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji=
+','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing: antialiased;-=
+moz-osx-font-smoothing: antialiased;-webkit-appearance: optimizelegibility;=
+-moz-appearance: optimizelegibility;appearance: optimizelegibility;margin: =
+0;line-height: 36px;font-size: 32px;"><a href=3D"https://substack.com/app-l=
+ink/post?publication_id=3D51206&post_id=3D181322320&utm_source=3Dpost-email=
+-title&utm_campaign=3Demail-post-title&isFreemail=3Dtrue&r=3D5f3rgc&token=
+=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE4MTMyMjMyMCwiaWF0IjoxNzY1NTIx=
+MTM1LCJleHAiOjE3NjgxMTMxMzUsImlzcyI6InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmVhY3R=
+pb24ifQ.GgqHtzUUUZmQtOL4KqQ6HqY5QzNTSEW7pxAUzVM2zn0" style=3D"color: rgb(54=
+,55,55);text-decoration: none;">Ynsect, autopsie d&#8217;un &#233;chec &#22=
+4; 650 millions d&#8217;euros</a></h1><h3 class=3D"subtitle subtitle-HEEcLo=
+" dir=3D"auto" style=3D"direction: auto;text-align: start;unicode-bidi: iso=
+late;font-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-=
+system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'App=
+le Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: normal;-web=
+kit-font-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webki=
+t-appearance: optimizelegibility;-moz-appearance: optimizelegibility;appear=
+ance: optimizelegibility;margin: 4px 0 0;color: #777777;line-height: 24px;f=
+ont-size: 18px;margin-top: 12px;">&#8220;Personne ne s&#8217;attendait &#22=
+4; ce que les d&#233;penses d&#233;rivent autant&#8230; Mais il n&#8217;y a=
+vait aucun suivi rigoureux&#8221;</h3><table class=3D"post-meta" role=3D"pr=
+esentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"=
+ style=3D"margin: 1em 0;height: 20px;align-items: center;"><tbody><tr><td><=
+table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0"><tbody><tr><td><table role=3D"presentation" width=3D"auto"=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"v=
+ertical-align:middle;"><div class=3D"pencraft pc-reset color-primary-zABazT=
+ line-height-20-t4M0El font-meta-MWBumP size-11-NuY2Zx weight-medium-fw81nC=
+ transform-uppercase-yKDgcq reset-IxiVJZ meta-EgzBVA custom-css-email-post-=
+author" style=3D"list-style: none;font-size: 11px;line-height: 20px;text-de=
+coration: unset;color: rgb(54,55,55);margin: 0;font-family: 'SF Compact',-a=
+pple-system,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,He=
+lvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Sym=
+bol';font-weight: 500;text-transform: uppercase;letter-spacing: .2px;"><a c=
+lass=3D"pencraft pc-reset color-primary-zABazT line-height-20-t4M0El font-m=
+eta-MWBumP size-11-NuY2Zx weight-medium-fw81nC transform-uppercase-yKDgcq r=
+eset-IxiVJZ meta-EgzBVA" style=3D"list-style: none;color: rgb(54,55,55);mar=
+gin: 0;font-size: 11px;line-height: 20px;font-family: 'SF Compact',-apple-s=
+ystem,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetic=
+a,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';f=
+ont-weight: 500;text-transform: uppercase;letter-spacing: .2px;text-decorat=
+ion: none" href=3D"https://substack.com/@jeromemarin">J&#233;r&#244;me Mari=
+n</a></div></td></tr></tbody></table></td></tr><tr><td><table role=3D"prese=
+ntation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><t=
+body><tr><td style=3D"vertical-align:middle;"><div class=3D"pencraft pc-res=
+et color-secondary-ls1g8s line-height-20-t4M0El font-meta-MWBumP size-11-Nu=
+Y2Zx weight-medium-fw81nC transform-uppercase-yKDgcq reset-IxiVJZ meta-EgzB=
+VA" style=3D"list-style: none;font-size: 11px;line-height: 20px;text-decora=
+tion: unset;color: rgb(119,119,119);margin: 0;font-family: 'SF Compact',-ap=
+ple-system,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Hel=
+vetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symb=
+ol';font-weight: 500;text-transform: uppercase;letter-spacing: .2px;"><time=
+ datetime=3D"2025-12-12T06:32:01.365Z">d&#233;c. 12</time></div></td></tr><=
+/tbody></table></td></tr></tbody></table></td><td align=3D"right"><table ro=
+le=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpaddi=
+ng=3D"0"><tbody><tr><td style=3D"vertical-align:middle;"><a href=3D"https:/=
+/substack.com/@jeromemarin"><img class=3D"custom-css-email-avatar avatar-QI=
+Q5yR" src=3D"https://substackcdn.com/image/fetch/$s_!1Qar!,f_auto,q_auto:go=
+od,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%=
+2Fpublic%2Fimages%2F8c15e96d-c5bf-467d-be90-e9b53832c6e0_362x434.jpeg" styl=
+e=3D"box-sizing: border-box;border-radius: 500000px;max-width: 550px;border=
+: none;vertical-align: middle;width: 40px;height: 40px;min-width: 40px;min-=
+height: 40px;object-fit: cover;margin: 0px;display: inline" width=3D"40" he=
+ight=3D"40"></a></td></tr></tbody></table></td></tr></tbody></table><table =
+class=3D"email-ufi-2-top" role=3D"presentation" width=3D"100%" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0" style=3D"border-top: 1px solid rgb(0,0=
+,0,.1);border-bottom: 1px solid rgb(0,0,0,.1);min-width: 100%;"><tbody><tr =
+height=3D"16"><td height=3D"16" style=3D"font-size:0px;line-height:0;">&nbs=
+p;</td></tr><tr><td><table role=3D"presentation" width=3D"100%" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td><table role=3D"present=
+ation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbo=
+dy><tr><td style=3D"vertical-align:middle;"><table role=3D"presentation" wi=
+dth=3D"38" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td =
+align=3D"center"><a class=3D"email-icon-button" href=3D"https://substack.co=
+m/app-link/post?publication_id=3D51206&post_id=3D181322320&utm_source=3Dsub=
+stack&isFreemail=3Dtrue&submitLike=3Dtrue&token=3DeyJ1c2VyX2lkIjozMjc3MDA2N=
+jgsInBvc3RfaWQiOjE4MTMyMjMyMCwicmVhY3Rpb24iOiLinaQiLCJpYXQiOjE3NjU1MjExMzUs=
+ImV4cCI6MTc2ODExMzEzNSwiaXNzIjoicHViLTUxMjA2Iiwic3ViIjoicmVhY3Rpb24ifQ.GIQa=
+MFsJFyNzDwwkW-yW6YisV3-u4SbhJgurd3zy3K4&utm_medium=3Demail&utm_campaign=3De=
+mail-reaction&r=3D5f3rgc" style=3D"font-family: system-ui,-apple-system,Bli=
+nkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color E=
+moji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;font-weight:=
+ 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-transform: =
+uppercase;font-size: 12px;line-height: 1;padding: 9px 0;text-decoration: no=
+ne;color: rgb(119,119,119);min-width: 38px;box-sizing: border-box;width: 38=
+px"><img class=3D"icon" src=3D"https://substackcdn.com/image/fetch/$s_!PeVs=
+!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstac=
+k.com%2Ficon%2FLucideHeart%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%=
+2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"border: n=
+one;vertical-align: middle;max-width: 18px" alt=3D""></a></td></tr></tbody>=
+</table></td><td width=3D"8" style=3D"min-width: 8px"></td><td style=3D"ver=
+tical-align:middle;"><table role=3D"presentation" width=3D"38" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a cla=
+ss=3D"email-icon-button" href=3D"https://substack.com/app-link/post?publica=
+tion_id=3D51206&post_id=3D181322320&utm_source=3Dsubstack&utm_medium=3Demai=
+l&isFreemail=3Dtrue&comments=3Dtrue&token=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInB=
+vc3RfaWQiOjE4MTMyMjMyMCwiaWF0IjoxNzY1NTIxMTM1LCJleHAiOjE3NjgxMTMxMzUsImlzcy=
+I6InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.GgqHtzUUUZmQtOL4KqQ6HqY5Qz=
+NTSEW7pxAUzVM2zn0&r=3D5f3rgc&utm_campaign=3Demail-half-magic-comments&actio=
+n=3Dpost-comment&utm_source=3Dsubstack&utm_medium=3Demail" style=3D"font-fa=
+mily: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetic=
+a,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';d=
+isplay: inline-block;font-weight: 500;border: 1px solid rgb(0,0,0,.1);borde=
+r-radius: 9999px;text-transform: uppercase;font-size: 12px;line-height: 1;p=
+adding: 9px 0;text-decoration: none;color: rgb(119,119,119);min-width: 38px=
+;box-sizing: border-box;width: 38px"><img class=3D"icon" src=3D"https://sub=
+stackcdn.com/image/fetch/$s_!x1tS!,w_36,c_scale,f_png,q_auto:good,fl_progre=
+ssive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideComments%3Fv%3D4%26he=
+ight%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"=
+18" height=3D"18" style=3D"border: none;vertical-align: middle;max-width: 1=
+8px" alt=3D""></a></td></tr></tbody></table></td><td width=3D"8" style=3D"m=
+in-width: 8px"></td><td style=3D"vertical-align:middle;"><table role=3D"pre=
+sentation" width=3D"38" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><t=
+body><tr><td align=3D"center"><a class=3D"email-icon-button" href=3D"https:=
+//substack.com/app-link/post?publication_id=3D51206&post_id=3D181322320&utm=
+_source=3Dsubstack&utm_medium=3Demail&utm_content=3Dshare&utm_campaign=3Dem=
+ail-share&action=3Dshare&triggerShare=3Dtrue&isFreemail=3Dtrue&r=3D5f3rgc&t=
+oken=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE4MTMyMjMyMCwiaWF0IjoxNzY1=
+NTIxMTM1LCJleHAiOjE3NjgxMTMxMzUsImlzcyI6InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmV=
+hY3Rpb24ifQ.GgqHtzUUUZmQtOL4KqQ6HqY5QzNTSEW7pxAUzVM2zn0" style=3D"font-fami=
+ly: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,=
+Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';dis=
+play: inline-block;font-weight: 500;border: 1px solid rgb(0,0,0,.1);border-=
+radius: 9999px;text-transform: uppercase;font-size: 12px;line-height: 1;pad=
+ding: 9px 0;text-decoration: none;color: rgb(119,119,119);min-width: 38px;b=
+ox-sizing: border-box;width: 38px"><img class=3D"icon" src=3D"https://subst=
+ackcdn.com/image/fetch/$s_!_L14!,w_36,c_scale,f_png,q_auto:good,fl_progress=
+ive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideShare2%3Fv%3D4%26height=
+%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" =
+height=3D"18" style=3D"border: none;vertical-align: middle;max-width: 18px"=
+ alt=3D""></a></td></tr></tbody></table></td><td width=3D"8" style=3D"min-w=
+idth: 8px"></td><td style=3D"vertical-align:middle;"><table role=3D"present=
+ation" width=3D"38" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody=
+><tr><td align=3D"center"><a class=3D"email-icon-button" href=3D"https://su=
+bstack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS9wdWIvY2FmZ=
+XRlY2gvcC95bnNlY3QtYXV0b3BzaWUtZHVuLWVjaGVjLWEtNjUwLW1pbGxpb25zP3V0bV9zb3Vy=
+Y2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWwtcmVzdGFjay1=
+jb21tZW50JmFjdGlvbj1yZXN0YWNrLWNvbW1lbnQmcj01ZjNyZ2MmdG9rZW49ZXlKMWMyVnlYMm=
+xrSWpvek1qYzNNREEyTmpnc0luQnZjM1JmYVdRaU9qRTRNVE15TWpNeU1Dd2lhV0YwSWpveE56W=
+TFOVEl4TVRNMUxDSmxlSEFpT2pFM05qZ3hNVE14TXpVc0ltbHpjeUk2SW5CMVlpMDFNVEl3TmlJ=
+c0luTjFZaUk2SW5CdmMzUXRjbVZoWTNScGIyNGlmUS5HZ3FIdHpVVVVabVF0T0w0S3FRNkhxWTV=
+Rek5UU0VXN3B4QVV6Vk0yem4wIiwicCI6MTgxMzIyMzIwLCJzIjo1MTIwNiwiZiI6dHJ1ZSwidS=
+I6MzI3NzAwNjY4LCJpYXQiOjE3NjU1MjExMzUsImV4cCI6MjA4MTA5NzEzNSwiaXNzIjoicHViL=
+TAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.tyqDgeBo0lIOg5rkF5kGuheGoTxdzKXS3A1MptG3=
+dxg?&utm_source=3Dsubstack&utm_medium=3Demail" style=3D"font-family: system=
+-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans=
+-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inli=
+ne-block;font-weight: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 99=
+99px;text-transform: uppercase;font-size: 12px;line-height: 1;padding: 9px =
+0;text-decoration: none;color: rgb(119,119,119);min-width: 38px;box-sizing:=
+ border-box;width: 38px"><img class=3D"icon" src=3D"https://substackcdn.com=
+/image/fetch/$s_!5EGt!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/=
+https%3A%2F%2Fsubstack.com%2Ficon%2FNoteForwardIcon%3Fv%3D4%26height%3D36%2=
+6fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=
+=3D"18" style=3D"border: none;vertical-align: middle;max-width: 18px" alt=
+=3D""></a></td></tr></tbody></table></td></tr></tbody></table></td><td alig=
+n=3D"right"><table role=3D"presentation" width=3D"auto" border=3D"0" cellsp=
+acing=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"vertical-align:middle=
+;"><table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a class=3D"email-butt=
+on-outline" href=3D"https://open.substack.com/pub/cafetech/p/ynsect-autopsi=
+e-dun-echec-a-650-millions?utm_source=3Demail&redirect=3Dapp-store&utm_camp=
+aign=3Demail-read-in-app" style=3D"font-family: system-ui,-apple-system,Bli=
+nkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color E=
+moji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;font-weight:=
+ 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-transform: =
+uppercase;font-size: 12px;line-height: 12px;padding: 9px 14px;text-decorati=
+on: none;color: rgb(119,119,119);"><div class=3D"email-button-spacer" style=
+=3D"font-size: 16px;line-height: 26px;display: inline-block;vertical-align:=
+ middle;max-width: 0;min-height: 18px;"></div><span class=3D"email-button-t=
+ext" style=3D"vertical-align: middle;margin-right: 4px">LIRE DANS L'APP</sp=
+an><img class=3D"icon text-icon" src=3D"https://substackcdn.com/image/fetch=
+/$s_!ET-_!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%=
+2Fsubstack.com%2Ficon%2FLucideArrowUpRight%3Fv%3D4%26height%3D36%26fill%3Dn=
+one%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" st=
+yle=3D"min-width: 18px;min-height: 18px;border: none;vertical-align: middle=
+;margin-right: 0;margin-left: 0;max-width: 18px" alt=3D""></a></td></tr></t=
+body></table></td></tr></tbody></table></td></tr></tbody></table></td></tr>=
+<tr height=3D"16"><td height=3D"16" style=3D"font-size:0px;line-height:0;">=
+&nbsp;</td></tr></tbody></table></div></div><div class=3D"post typography" =
+dir=3D"auto" style=3D"--image-offset-margin: -120px;padding: 32px 0 0 0;fon=
+t-size: 16px;line-height: 26px;"><div class=3D"body markup" dir=3D"auto" st=
+yle=3D"text-align: initial;font-size: 16px;line-height: 26px;width: 100%;wo=
+rd-break: break-word;margin-bottom: 16px;"><p style=3D"margin: 0 0 20px 0;c=
+olor: rgb(54,55,55);line-height: 26px;font-size: 16px;margin-top: 0;">Bonjo=
+ur, </p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26=
+px;font-size: 16px;">Pour cette derni&#232;re &#233;dition French Tech de l=
+&#8217;ann&#233;e, je vous propose un grand format pour comprendre comment =
+Yncest a pu dispara&#238;tre avoir avoir d&#233;pens&#233; plus de 650 mill=
+ions d&#8217;euros en 15 ans.</p><p style=3D"margin: 0 0 20px 0;color: rgb(=
+54,55,55);line-height: 26px;font-size: 16px;">C&#8217;est l&#8217;article l=
+e plus long jamais publi&#233; sur Caf&#233;tech - et il aurait pu l&#8217;=
+&#234;tre encore davantage tant les chiffres, informations, et anecdotes qu=
+e l&#8217;on m&#8217;a rapport&#233;s sont nombreux.</p><p style=3D"margin:=
+ 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>=
+Surtout, il illustre parfaitement la raison pour laquelle j&#8217;ai lanc&#=
+233;, il y a quelques mois, une </span><a href=3D"https://substack.com/redi=
+rect/da0468d1-00c2-42e3-8ba9-c60b76970aaa?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWX=
+HBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D"color: #007a76;text-d=
+ecoration: none;">&#233;dition d&#233;di&#233;e &#224; la French Tech</a><s=
+pan>: adopter envers les entreprises fran&#231;aises le m&#234;me regard cr=
+itique, la m&#234;me exigence d&#8217;analyse et la m&#234;me volont&#233; =
+de d&#233;passer les &#233;l&#233;ments de langage que pour n&#8217;importe=
+ quelle soci&#233;t&#233; &#233;trang&#232;re.</span></p><p style=3D"margin=
+: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span=
+>C&#8217;est ce qui m&#8217;anime quand j&#8217;analyse </span><a href=3D"h=
+ttps://substack.com/redirect/73429397-bd1c-44f6-9bc6-fa84a55a4899?j=3DeyJ1I=
+joiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=
+=3D"color: #007a76;text-decoration: none;">la position dominante de Doctoli=
+b</a><span> ou questionne </span><a href=3D"https://substack.com/redirect/0=
+98194dd-81e8-4143-84cb-de67322252ff?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_U=
+VYfMbw_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D"color: #007a76;text-decorat=
+ion: none;">la strat&#233;gie d&#8217;OVH dans l&#8217;IA</a><span>. Certai=
+ns m&#8217;ont accus&#233; d&#8217;&#234;tre anti-French Tech. Je pense au =
+contraire que c&#8217;est absolument n&#233;cessaire. </span></p><p style=
+=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16=
+px;">N&#8217;h&#233;sitez pas &#224; partager cet article autour de vous. E=
+t bienvenue aux plus de 250 personnes qui se sont inscrites hier &#224; la =
+newsletter pour le lire.</p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55=
+,55);line-height: 26px;font-size: 16px;">Bonne lecture et bon week-end.</p>=
+<p class=3D"button-wrapper" data-attrs=3D"{&quot;url&quot;:&quot;https://su=
+bstack.com/app-link/post?publication_id=3D51206&post_id=3D181322320&utm_sou=
+rce=3Dsubstack&utm_medium=3Demail&utm_content=3Dshare&utm_campaign=3Demail-=
+share&action=3Dshare&triggerShare=3Dtrue&isFreemail=3Dtrue&r=3D5f3rgc&token=
+=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE4MTMyMjMyMCwiaWF0IjoxNzY1NTIx=
+MTM1LCJleHAiOjE3NjgxMTMxMzUsImlzcyI6InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmVhY3R=
+pb24ifQ.GgqHtzUUUZmQtOL4KqQ6HqY5QzNTSEW7pxAUzVM2zn0&quot;,&quot;text&quot;:=
+&quot;Partager&quot;,&quot;action&quot;:null,&quot;class&quot;:null}" data-=
+component-name=3D"ButtonCreateButton" style=3D"margin: 0 0 20px 0;color: rg=
+b(54,55,55);line-height: 26px;font-size: 16px;text-align: center;cursor: po=
+inter;border-radius: 4px;"><a class=3D"button primary" href=3D"https://subs=
+tack.com/app-link/post?publication_id=3D51206&post_id=3D181322320&utm_sourc=
+e=3Dsubstack&utm_medium=3Demail&utm_content=3Dshare&utm_campaign=3Demail-sh=
+are&action=3Dshare&triggerShare=3Dtrue&isFreemail=3Dtrue&r=3D5f3rgc&token=
+=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3RfaWQiOjE4MTMyMjMyMCwiaWF0IjoxNzY1NTIx=
+MTM1LCJleHAiOjE3NjgxMTMxMzUsImlzcyI6InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmVhY3R=
+pb24ifQ.GgqHtzUUUZmQtOL4KqQ6HqY5QzNTSEW7pxAUzVM2zn0" rel=3D"" style=3D"font=
+-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helve=
+tica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol=
+';display: inline-block;box-sizing: border-box;cursor: pointer;border: none=
+;border-radius: 8px;font-size: 14px;line-height: 20px;font-weight: 600;text=
+-align: center;margin: 0;opacity: 1;outline: none;white-space: nowrap;color=
+: #ffffff !important;text-decoration: none !important;background-color: #00=
+7a76;padding: 12px 20px;height: auto;"><span style=3D"color: #ffffff;text-d=
+ecoration: none;">Partager</span></a></p><div style=3D"font-size: 16px;line=
+-height: 26px;"><hr style=3D"margin: 32px 0;padding: 0;height: 1px;backgrou=
+nd: #e6e6e6;border: none;"></div><div class=3D"captioned-image-container-st=
+atic" style=3D"font-size: 16px;line-height: 26px;margin: 32px auto;"><figur=
+e style=3D"width: 100%;margin: 0 auto;"><table class=3D"image-wrapper" widt=
+h=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" data-component-=
+name=3D"Image2ToDOMStatic" style=3D"mso-padding-alt: 1em 0 1.6em;"><tbody><=
+tr><td style=3D"text-align: center;"></td><td class=3D"content" align=3D"le=
+ft" width=3D"800" style=3D"text-align: center;"><a class=3D"image-link" tar=
+get=3D"_blank" href=3D"https://substack.com/redirect/a4e8d3cd-0d75-40f3-a67=
+d-3cd193254b24?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8P=
+aFv0-2U" rel=3D"" style=3D"position: relative;flex-direction: column;align-=
+items: center;padding: 0;width: auto;height: auto;border: none;text-decorat=
+ion: none;display: block;margin: 0;"><img class=3D"wide-image" data-attrs=
+=3D"{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/pub=
+lic/images/7d78fef6-2dc0-43dd-b827-e268e97f54f3_800x400.webp&quot;,&quot;sr=
+cNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:n=
+ull,&quot;height&quot;:400,&quot;width&quot;:800,&quot;resizeWidth&quot;:nu=
+ll,&quot;bytes&quot;:57640,&quot;alt&quot;:null,&quot;title&quot;:null,&quo=
+t;type&quot;:&quot;image/webp&quot;,&quot;href&quot;:null,&quot;belowTheFol=
+d&quot;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;=
+https://cafetech.substack.com/i/181322320?img=3Dhttps%3A%2F%2Fsubstack-post=
+-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7d78fef6-2dc0-43dd-b827-e268e97=
+f54f3_800x400.webp&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:n=
+ull,&quot;offset&quot;:false}" alt=3D"" width=3D"550" height=3D"275" src=3D=
+"https://substackcdn.com/image/fetch/$s_!a8Om!,w_1100,c_limit,f_auto,q_auto=
+:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.c=
+om%2Fpublic%2Fimages%2F7d78fef6-2dc0-43dd-b827-e268e97f54f3_800x400.webp" s=
+tyle=3D"border: none !important;vertical-align: middle;display: block;-ms-i=
+nterpolation-mode: bicubic;height: auto;margin-bottom: 0;width: auto !impor=
+tant;max-width: 100% !important;margin: 0 auto;"></a></td><td style=3D"text=
+-align: center;"></td></tr></tbody></table></figure></div><p style=3D"margi=
+n: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><em>=
+&#8220;Tous les investisseurs s&#233;rieux sont partis en courant&#8221;.</=
+em><span> Le constat d&#8217;un ancien employ&#233; r&#233;sume &#224; lui =
+seul la lente agonie d&#8217;Ynsect. Faute d&#8217;avoir pu trouver les fon=
+ds n&#233;cessaires pour financer son plan de relance, la start-up sp&#233;=
+cialis&#233;e dans l&#8217;&#233;levage de vers de farine a &#233;t&#233; p=
+lac&#233;e la semaine derni&#232;re en liquidation judiciaire par le tribun=
+al de commerce d&#8217;&#201;vry. Selon nos informations, son sort ne s&#82=
+17;est jou&#233; qu&#8217;&#224; dix petits millions d&#8217;euros... Un co=
+mble pour une entreprise qui a englouti plus de 650 millions en moins de qu=
+inze ans.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);lin=
+e-height: 26px;font-size: 16px;">&#201;chec d&#8217;un ambitieux projet ou =
+v&#233;ritable gabegie financi&#232;re nourrie d&#8217;argent public ? Par =
+son ampleur, l&#8217;histoire d&#8217;Ynsect est in&#233;dite dans la Frenc=
+h Tech. Pour certains, elle illustre les d&#233;fis colossaux auxquels se h=
+eurtent les start-up industrielles. Pour d&#8217;autres, elle incarne les d=
+&#233;rives d&#8217;un mod&#232;le de financement, en partie aliment&#233; =
+par l&#8217;argent public de Bpifrance. Pour r&#233;aliser l&#8217;autopsie=
+ de cette chute, Caf&#233;tech s&#8217;est entretenu avec d&#8217;anciens d=
+irigeants et salari&#233;s. Et pass&#233; au crible dix ann&#233;es de bila=
+ns comptables et de documents juridiques.</p><h3 class=3D"header-anchor-pos=
+t" style=3D"position: relative;font-family: 'SF Pro Display',-apple-system-=
+headline,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helve=
+tica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol=
+';font-weight: bold;-webkit-font-smoothing: antialiased;-moz-osx-font-smoot=
+hing: antialiased;-webkit-appearance: optimizelegibility;-moz-appearance: o=
+ptimizelegibility;appearance: optimizelegibility;margin: 1em 0 0.625em 0;co=
+lor: rgb(54,55,55);line-height: 1.16em;font-size: 1.375em;"><strong>Plus gr=
+ande ferme d&#8217;insectes au monde</strong></h3><p style=3D"margin: 0 0 2=
+0px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>Lanc&#=
+233;e en 2011, Ynsect fait partie des pionni&#232;res de l&#8217;&#233;leva=
+ge d&#8217;insectes destin&#233;s &#224; l&#8217;alimentation. L&#8217;entr=
+eprise mise alors sur le scarab&#233;e Tenebrio molitor, pris&#233; pour se=
+s qualit&#233;s nutritionnelles. &#192; ses d&#233;buts, elle ambitionne de=
+ r&#233;volutionner l&#8217;alimentation humaine, mais l&#8217;id&#233;e to=
+urne court. </span><em>&#8220;L&#8217;acceptation sociale &#233;tait trop f=
+aible et la r&#233;glementation infernale&#8221;,</em><span> se souvient un=
+ ancien dirigeant. Elle se r&#233;oriente alors vers la nourriture pour poi=
+ssons d&#8217;&#233;levage,</span><em> &#8220;un march&#233; qui r&#233;uni=
+ssait &#224; la fois une th&#232;se &#233;cologique et une th&#232;se &#233=
+;conomique&#8221;</em><span>.</span></p><p style=3D"margin: 0 0 20px 0;colo=
+r: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>Financ&#233; pen=
+dant trois ans par des subventions publiques, Ynsect attire ses premiers in=
+vestisseurs en 2014. Coup sur coup, la jeune pousse r&#233;alise deux lev&#=
+233;es de fonds, pour un total de sept millions d&#8217;euros. Deux ans plu=
+s tard, elle r&#233;colte 14 millions suppl&#233;mentaires. Ces moyens fina=
+nciers lui permettent de sortir de ses laboratoires d&#8217;&#201;vry pour =
+racheter un premier d&#233;monstrateur &#224; Dole, dans le Jura. Objectif:=
+ </span><em>&#8220;convaincre les investisseurs que nous pouvions produire =
+de mani&#232;re rentable&#8221;,</em><span> raconte un ex-employ&#233;.</sp=
+an></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26p=
+x;font-size: 16px;">Car les dirigeants voient beaucoup plus grand. D&#232;s=
+ 2018, ils ambitionnent d&#8217;&#233;riger une usine gigantesque de 45.000=
+ m&#232;tres carr&#233;s &#224; Poulainville, pr&#232;s d&#8217;Amiens, qui=
+ doit devenir la plus grande ferme d&#8217;insectes au monde. Elle est d&#2=
+33;di&#233;e &#224; l&#8217;&#233;levage de larves de scarab&#233;e dans de=
+s bacs empil&#233;s les uns au-dessus des autres jusqu&#8217;&#224; 37 m&#2=
+32;tres de haut. Les capacit&#233;s de production doivent initialement &#23=
+4;tre 100 fois sup&#233;rieures &#224; celles de Dole&#8230; puis 200 fois.=
+ Ce site fait entrer Ynsect dans une nouvelle dimension. Mais il pr&#233;ci=
+pitera &#233;galement sa chute.</p><h3 class=3D"header-anchor-post" style=
+=3D"position: relative;font-family: 'SF Pro Display',-apple-system-headline=
+,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Ari=
+al,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-w=
+eight: bold;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: an=
+tialiased;-webkit-appearance: optimizelegibility;-moz-appearance: optimizel=
+egibility;appearance: optimizelegibility;margin: 1em 0 0.625em 0;color: rgb=
+(54,55,55);line-height: 1.16em;font-size: 1.375em;"><strong>Plan d&#8217;af=
+faires obsol&#232;te</strong></h3><div class=3D"captioned-image-container-s=
+tatic" style=3D"font-size: 16px;line-height: 26px;margin: 32px auto;"><figu=
+re style=3D"width: 100%;margin: 0 auto;"><table class=3D"image-wrapper" wid=
+th=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" data-component=
+-name=3D"Image2ToDOMStatic" style=3D"mso-padding-alt: 1em 0 1.6em;"><tbody>=
+<tr><td style=3D"text-align: center;"></td><td class=3D"content" align=3D"l=
+eft" width=3D"800" style=3D"text-align: center;"><a class=3D"image-link" ta=
+rget=3D"_blank" href=3D"https://substack.com/redirect/15ef5c68-2040-4d50-8f=
+12-85e51309b6c6?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8=
+PaFv0-2U" rel=3D"" style=3D"position: relative;flex-direction: column;align=
+-items: center;padding: 0;width: auto;height: auto;border: none;text-decora=
+tion: none;display: block;margin: 0;"><img class=3D"wide-image" data-attrs=
+=3D"{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/pub=
+lic/images/025566f7-be29-47c7-90ac-e3ea3bcf738a_800x400.jpeg&quot;,&quot;sr=
+cNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:n=
+ull,&quot;height&quot;:400,&quot;width&quot;:800,&quot;resizeWidth&quot;:nu=
+ll,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;&quot;,&quot;title&quot;:nu=
+ll,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot;:tru=
+e,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;isProc=
+essing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" alt=3D=
+"" title=3D"" width=3D"550" height=3D"275" src=3D"https://substackcdn.com/i=
+mage/fetch/$s_!Qul7!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep=
+/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F025=
+566f7-be29-47c7-90ac-e3ea3bcf738a_800x400.jpeg" style=3D"border: none !impo=
+rtant;vertical-align: middle;display: block;-ms-interpolation-mode: bicubic=
+;height: auto;margin-bottom: 0;width: auto !important;max-width: 100% !impo=
+rtant;margin: 0 auto;"></a></td><td style=3D"text-align: center;"></td></tr=
+></tbody></table></figure></div><p style=3D"margin: 0 0 20px 0;color: rgb(5=
+4,55,55);line-height: 26px;font-size: 16px;">Comme un symbole d&#8217;un pr=
+ojet vou&#233; &#224; l&#8217;&#233;chec, la premi&#232;re pierre du chanti=
+er de Poulainville a &#233;t&#233; pos&#233;e le 17 mars 2020. La veille au=
+ soir, Emmanuel Macron annon&#231;ait le premier confinement. Les travaux s=
+ont aussit&#244;t interrompus, puis fortement ralentis. La cha&#238;ne logi=
+stique est perturb&#233;e, notamment pour les puces n&#233;cessaires au sys=
+t&#232;me informatique. Les complications s&#8217;accumulent, tout comme le=
+s surco&#251;ts. Repouss&#233;e de deux ans, la mise en service n&#8217;int=
+ervient progressivement que d&#233;but 2024. Et le budget initial est large=
+ment d&#233;pass&#233;.</p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,=
+55);line-height: 26px;font-size: 16px;"><span>En r&#233;alit&#233;, l&#8217=
+;usine de Poulainville &#233;tait probablement vou&#233;e &#224; l&#8217;&#=
+233;chec avant m&#234;me le d&#233;but du chantier: sa construction reposai=
+t sur un plan d&#8217;affaires d&#233;j&#224; obsol&#232;te. Entre-temps, Y=
+nsect avait en effet abandonn&#233; le march&#233; de l&#8217;aquaculture: =
+avec des co&#251;ts de production nettement sup&#233;rieurs, impossible de =
+rivaliser avec les farines de poisson utilis&#233;es pour nourrir saumons e=
+t crevettes d&#8217;&#233;levage. </span><em>&#8220;Le business plan avait =
+&#233;t&#233; &#233;tabli par des consultants, sans tenir compte des r&#233=
+;alit&#233;s op&#233;rationnelles&#8221;,</em><span> souligne un ex-salari&=
+#233;.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-h=
+eight: 26px;font-size: 16px;"><span>Or, la capacit&#233; de production du s=
+ite avait &#233;t&#233; pens&#233;e pr&#233;cis&#233;ment pour ce march&#23=
+3;. Face &#224; des clients qui ach&#232;tent plusieurs millions de tonnes =
+par an, les volumes doivent &#234;tre consid&#233;rables. </span><em>&#8220=
+;Notre feuille de route initiale &#233;tait de produire 100.000 tonnes d&#8=
+217;insectes par an&#8221;,</em><span> indique l&#8217;ex-dirigeant. La sta=
+rt-up avait m&#234;me sign&#233; un contrat majeur avec Skretting, premier =
+producteur mondial d&#8217;aliments pour poissons d&#8217;&#233;levage. Un =
+accord&#8230; qui ne sera jamais honor&#233;. </span><em>&#8220;Il &#233;ta=
+it trop tard pour faire marche arri&#232;re&#8221;,</em><span> regrette not=
+re interlocuteur.</span></p><h3 class=3D"header-anchor-post" style=3D"posit=
+ion: relative;font-family: 'SF Pro Display',-apple-system-headline,system-u=
+i,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-s=
+erif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bo=
+ld;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: antialiased=
+;-webkit-appearance: optimizelegibility;-moz-appearance: optimizelegibility=
+;appearance: optimizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55=
+);line-height: 1.16em;font-size: 1.375em;"><strong>Une facture &#224; plus =
+de 400 millions</strong></h3><p style=3D"margin: 0 0 20px 0;color: rgb(54,5=
+5,55);line-height: 26px;font-size: 16px;"><span>&#192; la place, Ynsect se =
+recentre sur la nourriture pour les animaux de compagnie, qui offre de meil=
+leurs prix de vente mais des volumes bien inf&#233;rieurs. La d&#233;cision=
+ de b&#226;tir une usine d&#8217;une telle taille ne s&#8217;explique pas s=
+eulement par des imp&#233;ratifs commerciaux. </span><em>&#8220;Nous &#233;=
+tions en comp&#233;tition avec d&#8217;autres acteurs, il fallait &#234;tre=
+ le plus gros le plus vite possible&#8221;</em><span>, explique un ancien d=
+&#8217;Ynsect. </span><em>&#8220;Les investisseurs ne s&#8217;int&#233;ress=
+aient pas au pet food: jamais nous n&#8217;aurions lev&#233; autant en leur=
+ promettant une usine plus petite&#8221;,</em><span> ajoute un autre.</span=
+></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;=
+font-size: 16px;"><span>Les cons&#233;quences financi&#232;res de ce choix =
+sont dramatiques. </span><em>&#8220;Nous &#233;tions les premiers &#224; me=
+ner un tel projet,</em><span> rappelle l&#8217;ancien responsable. </span><=
+em>M&#234;me nos partenaires nous disaient que c&#8217;&#233;tait le projet=
+ le plus complexe qu&#8217;ils aient jamais r&#233;alis&#233;&#8221;</em><s=
+pan>. Des machines sp&#233;cialement con&#231;ues pour Ynsect jusqu&#8217;&=
+#224; leur int&#233;gration avec des algorithmes de pr&#233;cision, les com=
+plications et les erreurs se multiplient. </span><em>&#8220;Chaque probl&#2=
+32;me ajoutait un petit pourcentage de 200 millions d&#8217;euros, et non d=
+e 30 ou 50 millions si nous avions opt&#233; pour une usine moins grande&#8=
+221;,</em><span> poursuit-il.</span></p><div class=3D"pullquote" style=3D"f=
+ont-size: 16px;line-height: 26px;border-top: 1px solid #e6e6e6;border-botto=
+m: 1px solid #e6e6e6;margin: 32px auto;text-align: center;"><h3 style=3D"fo=
+nt-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-system,=
+BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Colo=
+r Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font-=
+smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appeara=
+nce: optimizelegibility;-moz-appearance: optimizelegibility;appearance: opt=
+imizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1=
+=2E16em;font-size: 1.375em;"><em>&#8220=
+;Personne ne s&#8217;attendait &#224;=20=
+ce que les d&#233;penses d&#233;rivent autant&#8230; Mais il n&#8217;y avai=
+t aucun suivi rigoureux&#8221;</em></h3></div><p style=3D"margin: 0 0 20px =
+0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>D&#232;s l=
+ors, les investissements d&#233;rapent. </span><em>&#8220;Personne ne s&#82=
+17;attendait &#224; ce que les capex (d&#233;penses en capital, ndlr) d&#23=
+3;rivent autant,</em><span> assure un employ&#233;. </span><em>Mais il n&#8=
+217;y avait aucun suivi rigoureux.&#8221; </em><span>La faute notamment &#2=
+24; des conflits internes et des dysfonctionnements dans la gouvernance</sp=
+an><em>. </em><span>Au d&#233;part, le projet devait co&#251;ter 150 millio=
+ns d&#8217;euros. La facture d&#233;passera finalement les 400 millions. Co=
+ns&#233;quence: la tr&#233;sorerie d&#8217;Ynsect est sans cesse sous tensi=
+on. </span><em>&#8220;Nous surveillions en permanence le moment o&#249; nou=
+s allions arriver &#224; court de liquidit&#233;s&#8221;</em><span>, ajoute=
+-t-il.</span></p><h3 class=3D"header-anchor-post" style=3D"position: relati=
+ve;font-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-sy=
+stem,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple=
+ Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-=
+font-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-ap=
+pearance: optimizelegibility;-moz-appearance: optimizelegibility;appearance=
+: optimizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-heig=
+ht: 1.16em;font-size: 1.375em;"><strong>&#201;quation financi&#232;re inten=
+able</strong></h3><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-=
+height: 26px;font-size: 16px;"><span>La situation est d&#8217;autant plus d=
+ifficile que l&#8217;op&#233;rationnel ne suit pas non plus. L&#8217;automa=
+tisation compl&#232;te du processus prend bien plus de temps que pr&#233;vu=
+=2E La mortalit&#233; des larves s&#821=
+7;envole, en raison notamment de la ge=
+stion imparfaite des temp&#233;ratures et des vibrations g&#233;n&#233;r&#2=
+33;es par les machines. </span><em>&#8220;Ce qui fonctionne, ce sont les pe=
+tites structures modulaires et peu automatis&#233;es, c&#8217;est-&#224;-di=
+re l&#8217;exact oppos&#233; de Poulainville&#8221;,</em><span> remarque un=
+ ex-salari&#233;. Mais </span><em>&#8220;un tel mod&#232;le aurait exig&#23=
+3; 1.000 employ&#233;s dans l&#8217;usine&#8221;,</em><span> r&#233;pond l&=
+#8217;ancien dirigeant.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb=
+(54,55,55);line-height: 26px;font-size: 16px;"><span>La gestion des ressour=
+ces humaines d&#233;rape elle aussi. En 2022, Ynsect franchit le cap des 25=
+0 salari&#233;s, puis celui des 300 l&#8217;ann&#233;e suivante. Plus d&#82=
+17;une centaine d&#8217;entre eux sont affect&#233;s &#224; l&#8217;usine d=
+e Poulainville&#8230; qui n&#8217;est toujours pas op&#233;rationnelle. Bea=
+ucoup restent ainsi de longs mois &#224; ne pas faire grand-chose. </span><=
+em>&#8220;Nous avons envisag&#233; de licencier, mais cela aurait eu un co&=
+#251;t et pris du temps, alors m&#234;me que nous aurions d&#251; r&#233;em=
+baucher peu apr&#232;s&#8221;,</em><span> justifie le responsable. La masse=
+ salariale s&#8217;envole. En 2023, elle s&#8217;&#233;l&#232;ve &#224; 25 =
+millions d&#8217;euros, soit 38 fois le chiffre d&#8217;affaires.</span></p=
+><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font=
+-size: 16px;"><span>Au-del&#224; des probl&#232;mes techniques, la taille d=
+e l&#8217;usine se traduit par une &#233;quation financi&#232;re intenable,=
+ plomb&#233;e par des co&#251;ts fixes extr&#234;mement &#233;lev&#233;s &#=
+8211; en particulier avec l&#8217;envol&#233;e des prix de l&#8217;&#233;ne=
+rgie et des c&#233;r&#233;ales n&#233;cessaires pour nourrir les larves. Po=
+ur atteindre le point d&#8217;&#233;quilibre op&#233;rationnel, la producti=
+on devait atteindre 30% de la capacit&#233; initiale. Pour esp&#233;rer ren=
+tabiliser les investissements, il fallait monter &#224; 60%. D&#233;but 202=
+5, le site tournait seulement &#224; 15%. </span><em>&#8220;Avec deux ans d=
+e plus, nous y serions arriv&#233;s&#8221;,</em><span> veut croire un salar=
+i&#233;.</span></p><h3 class=3D"header-anchor-post" style=3D"position: rela=
+tive;font-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-=
+system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'App=
+le Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webki=
+t-font-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-=
+appearance: optimizelegibility;-moz-appearance: optimizelegibility;appearan=
+ce: optimizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-he=
+ight: 1.16em;font-size: 1.375em;"><strong>235 millions de pertes en quatre =
+ans</strong></h3><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-h=
+eight: 26px;font-size: 16px;">L&#8217;usine de Poulainville n&#8217;&#233;t=
+ant toujours pas en service, le chiffre d&#8217;affaires r&#233;el demeure =
+d&#233;risoire. Entre 2020 et 2023, Ynsect ne r&#233;alise que 1,8 million =
+d&#8217;euros de vente de produits, fabriqu&#233;s &#224; Dole pour l&#8217=
+;alimentation animale et pour des engrais obtenus &#224; partir des d&#233;=
+jections de larves. Sur la m&#234;me p&#233;riode, l&#8217;entreprise d&#23=
+3;pense 16,2 millions d&#8217;euros rien qu&#8217;en mati&#232;res premi&#2=
+32;res. Incapable d&#8217;atteindre un taux de reproduction suffisant, elle=
+ doit notamment acheter &#8211; au prix fort &#8211; des larves &#233;lev&#=
+233;es ailleurs.</p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);lin=
+e-height: 26px;font-size: 16px;"><span>En ajoutant les salaires et les inve=
+stissements, les pertes sont vertigineuses: en quatre ans, elles atteignent=
+ 235 millions d&#8217;euros. L&#8217;&#233;volution des flux de tr&#233;sor=
+erie &#8211; l&#8217;argent qui sort r&#233;ellement des caisses &#8211; es=
+t encore plus alarmante: -100 millions rien qu&#8217;en 2023, selon nos inf=
+ormations. Fin 2023, ses liquidit&#233;s tombent &#224; 19,5 millions, de q=
+uoi tenir seulement quelques mois. L&#8217;entreprise &#233;vite une premi&=
+#232;re fois la catastrophe gr&#226;ce au soutien de Bpifrance et de la fam=
+ille Peugeot. En &#233;change, elle est contrainte de </span><a href=3D"htt=
+ps://substack.com/redirect/9722181a-46d6-4d1d-a36c-5b7d4dcd36ed?j=3DeyJ1Ijo=
+iNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" rel=3D"" style=3D=
+"color: #007a76;text-decoration: none;">lancer un premier plan social</a><s=
+pan>.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-he=
+ight: 26px;font-size: 16px;">Cette op&#233;ration illustre la communication=
+ hasardeuse d&#8217;Ynsect. &#192; l&#8217;&#233;poque, la start-up annonce=
+ une lev&#233;e de fonds de 160 millions d&#8217;euros. En r&#233;alit&#233=
+;, il s&#8217;agit de 107 millions d&#8217;euros d&#8217;obligations conver=
+tibles en actions &#8211; des obligations qui ne seront jamais converties e=
+t viendront donc alourdir la dette. M&#234;me sc&#233;nario en 2021, lorsqu=
+&#8217;elle &#233;voque une lev&#233;e record de 372 millions de dollars: &=
+#224; peine plus de la moiti&#233; est vers&#233;e en fonds propres. Le res=
+te provient de pr&#234;ts contract&#233;s aupr&#232;s de grandes banques fr=
+an&#231;aises.</p><h3 class=3D"header-anchor-post" style=3D"position: relat=
+ive;font-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-s=
+ystem,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Appl=
+e Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit=
+-font-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-a=
+ppearance: optimizelegibility;-moz-appearance: optimizelegibility;appearanc=
+e: optimizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-hei=
+ght: 1.16em;font-size: 1.375em;"><strong>Pr&#232;s de 200 millions d&#8217;=
+euros d&#8217;argent public</strong></h3><div class=3D"captioned-image-cont=
+ainer-static" style=3D"font-size: 16px;line-height: 26px;margin: 32px auto;=
+"><figure style=3D"width: 100%;margin: 0 auto;"><table class=3D"image-wrapp=
+er" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" data-co=
+mponent-name=3D"Image2ToDOMStatic" style=3D"mso-padding-alt: 1em 0 1.6em;">=
+<tbody><tr><td style=3D"text-align: center;"></td><td class=3D"content" ali=
+gn=3D"left" width=3D"800" style=3D"text-align: center;"><a class=3D"image-l=
+ink" target=3D"_blank" href=3D"https://substack.com/redirect/e286b143-1c05-=
+4e76-9559-2f6b5014c6c1?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUo=
+HsRukz8PaFv0-2U" rel=3D"" style=3D"position: relative;flex-direction: colum=
+n;align-items: center;padding: 0;width: auto;height: auto;border: none;text=
+-decoration: none;display: block;margin: 0;"><img class=3D"wide-image" data=
+-attrs=3D"{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.c=
+om/public/images/b6a9f64a-80ab-4d30-ac23-3a00b6e5978c_800x400.png&quot;,&qu=
+ot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&qu=
+ot;:null,&quot;height&quot;:400,&quot;width&quot;:800,&quot;resizeWidth&quo=
+t;:null,&quot;bytes&quot;:null,&quot;alt&quot;:&quot;&quot;,&quot;title&quo=
+t;:null,&quot;type&quot;:null,&quot;href&quot;:null,&quot;belowTheFold&quot=
+;:true,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:null,&quot;i=
+sProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" a=
+lt=3D"" title=3D"" width=3D"550" height=3D"275" src=3D"https://substackcdn.=
+com/image/fetch/$s_!-_rk!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:=
+steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%=
+2Fb6a9f64a-80ab-4d30-ac23-3a00b6e5978c_800x400.png" style=3D"border: none !=
+important;vertical-align: middle;display: block;-ms-interpolation-mode: bic=
+ubic;height: auto;margin-bottom: 0;width: auto !important;max-width: 100% !=
+important;margin: 0 auto;"></a></td><td style=3D"text-align: center;"></td>=
+</tr></tbody></table></figure></div><p style=3D"margin: 0 0 20px 0;color: r=
+gb(54,55,55);line-height: 26px;font-size: 16px;">Selon nos calculs, les v&#=
+233;ritables lev&#233;es de fonds d&#8217;Ynsect se chiffrent &#224; un peu=
+ plus de 300 millions d&#8217;euros. S&#8217;y ajoutent quelque 170 million=
+s d&#8217;obligations convertibles, 150 millions de cr&#233;dits et une vin=
+gtaine de millions de subventions publiques, dont 15 millions de l&#8217;Un=
+ion europ&#233;enne. La Caisse des d&#233;p&#244;ts et consignations a &#23=
+3;galement inject&#233; au moins 8 millions dans la SCI Vertycal, charg&#23=
+3;e de la construction &#224; Poulainville. Au total, plus de 650 millions =
+se sont ainsi envol&#233;s. Pr&#232;s de 200 millions proviennent de l&#821=
+7;argent public.</p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);lin=
+e-height: 26px;font-size: 16px;"><em>&#8220;Ynsect n&#8217;a pas lev&#233; =
+cet argent sur un projet industriel solide mais sur des chiffres de march&#=
+233; bidon&#8221;,</em><span> d&#233;nonce un responsable de l&#8217;entrep=
+rise. En 2021, la start-up faisait miroiter &#224; ses investisseurs un chi=
+ffre d&#8217;affaires de 500 millions d&#8217;euros dans cinq ans. Elle pr&=
+#233;voyait d&#8217;ouvrir une dizaine de nouvelles usines, notamment aux &=
+#201;tats-Unis et en Asie. Et elle mettait en avant un carnet de commandes =
+sup&#233;rieur &#224; 100 millions. </span><em>&#8220;Mais une partie de ce=
+s contrats portait sur l&#8217;aquaculture, un march&#233; d&#233;j&#224; a=
+bandonn&#233;&#8221;</em><span>, souligne notre interlocuteur.</span></p><d=
+iv class=3D"pullquote" style=3D"font-size: 16px;line-height: 26px;border-to=
+p: 1px solid #e6e6e6;border-bottom: 1px solid #e6e6e6;margin: 32px auto;tex=
+t-align: center;"><h3 style=3D"font-family: 'SF Pro Display',-apple-system-=
+headline,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helve=
+tica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol=
+';font-weight: bold;-webkit-font-smoothing: antialiased;-moz-osx-font-smoot=
+hing: antialiased;-webkit-appearance: optimizelegibility;-moz-appearance: o=
+ptimizelegibility;appearance: optimizelegibility;margin: 1em 0 0.625em 0;co=
+lor: rgb(54,55,55);line-height: 1.16em;font-size: 1.375em;"><em><strong>&#8=
+220;Officiellement, la lev&#233;e de fonds devait financer les projets d&#8=
+217;expansion, en r&#233;alit&#233;, elle devait avant tout permettre d&#82=
+17;achever Poulainville&#8221;</strong></em></h3></div><p style=3D"margin: =
+0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>&=
+#192; la m&#234;me &#233;poque, Ynsect rach&#232;te &#233;galement la start=
+-up n&#233;erlandaise Protifarm, sp&#233;cialis&#233;e dans un autre type d=
+e scarab&#233;e, le Buffalo, d&#233;j&#224; utilis&#233; pour fabriquer des=
+ hamburgers, des p&#226;tes ou des barres prot&#233;in&#233;es. Pr&#232;s d=
+e dix ans apr&#232;s avoir abandonn&#233; l&#8217;id&#233;e, l&#8217;entrep=
+rise </span><a href=3D"https://substack.com/redirect/5fa2efbc-7feb-4325-bd1=
+a-2c566b2ef6f5?j=3DeyJ1IjoiNWYzcmdjIn0.e7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8P=
+aFv0-2U" rel=3D"" style=3D"color: #007a76;text-decoration: none;">se tourne=
+ &#224; nouveau vers l&#8217;alimentation humaine</a><span>. Un &#233;chec:=
+ Protifarm est rapidement ferm&#233;, pour des pertes proche de 30 millions=
+ d&#8217;euros. M&#234;me constat aux &#201;tats-Unis, avec l&#8217;acquisi=
+tion d&#8217;un petit sp&#233;cialiste de l&#8217;alimentation pour volaill=
+e.</span></p><h3 class=3D"header-anchor-post" style=3D"position: relative;f=
+ont-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-system=
+,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Col=
+or Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font=
+-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appear=
+ance: optimizelegibility;-moz-appearance: optimizelegibility;appearance: op=
+timizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: =
+1.16em;font-size: 1.375em;"><strong>Un &#8220;tour du monde&#8221; pour tro=
+uver de l&#8217;argent</strong></h3><p style=3D"margin: 0 0 20px 0;color: r=
+gb(54,55,55);line-height: 26px;font-size: 16px;"><span>Pour financer son am=
+bitieuse feuille de route, Ynsect a besoin de capitaux bien plus importants=
+=2E L&#8217;option d&#8217;un SPAC &#82=
+11; une introduction en Bourse via un=20=
+v&#233;hicule d&#8217;investissement &#8211; est &#233;cart&#233;e, la dire=
+ction se montrant </span><em>&#8220;trop gourmande&#8221;.</em><span> Car l=
+a start-up vise, d&#233;but 2022, un tour de financement XXL: 250 millions =
+d&#8217;euros en fonds propres et autant en dettes. Mais l&#8217;euphorie q=
+ui entourait les start-up s&#8217;&#233;vapore avec le durcissement des pol=
+itiques mon&#233;taires. Les investisseurs se retirent et la lev&#233;e de =
+fonds &#233;choue.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,5=
+5,55);line-height: 26px;font-size: 16px;"><span>Commence alors un v&#233;ri=
+table</span><em> &#8220;tour du monde&#8221;</em><span> pour trouver des fi=
+nancements. Deux banques d&#8217;affaires sont mandat&#233;es. Les dirigean=
+ts rencontrent des centaines de fonds, jusqu&#8217;en Arabie Saoudite et au=
+ Qatar. Mais plus grand monde ne croit aux projets d&#8217;Ynsect. Il y a p=
+ourtant urgence. </span><em>&#8220;Officiellement, la lev&#233;e de fonds d=
+evait financer les projets d&#8217;expansion, en r&#233;alit&#233;, elle de=
+vait avant tout permettre d&#8217;achever Poulainville&#8221;,</em><span> t=
+&#233;moigne un employ&#233;. &#192; court de liquidit&#233;s, la start-up =
+doit accepter le recours aux obligations convertibles.</span></p><p style=
+=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16=
+px;"><span>C&#8217;est le d&#233;but d&#8217;une spirale infernale. De nouv=
+eaux dirigeants </span><em>&#8220;compl&#232;tement d&#233;connect&#233;s d=
+e la r&#233;alit&#233;&#8221;</em><span> prennent les commandes. Sans succ&=
+#232;s. Fin 2024, l&#8217;entreprise doit </span><a href=3D"https://substac=
+k.com/redirect/7cb47c31-392f-4365-b409-556b5a78ea89?j=3DeyJ1IjoiNWYzcmdjIn0=
+=2Ee7WSRIpWXHBqD_UVYfMbw_y1ZuUoHsRukz=
+8PaFv0-2U" rel=3D"" style=3D"color: #007=
+a76;text-decoration: none;">se placer en proc&#233;dure de sauvegarde</a><s=
+pan>. Et les plans sociaux s&#8217;encha&#238;nent. Ces derni&#232;res sema=
+ines, Ynsect ne comptait plus qu&#8217;une quarantaine d&#8217;employ&#233;=
+s. En coulisses, un plan de relance est pr&#233;par&#233; &#224; la h&#226;=
+te. Il repose sur un mod&#232;le radicalement diff&#233;rent, &#224; l&#821=
+7;oppos&#233; des r&#234;ves de grandeur et de l&#8217;automatisation qui a=
+vaient fa&#231;onn&#233; la strat&#233;gie initiale.</span></p><h3 class=3D=
+"header-anchor-post" style=3D"position: relative;font-family: 'SF Pro Displ=
+ay',-apple-system-headline,system-ui,-apple-system,BlinkMacSystemFont,'Sego=
+e UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji=
+','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing: antialiased;-=
+moz-osx-font-smoothing: antialiased;-webkit-appearance: optimizelegibility;=
+-moz-appearance: optimizelegibility;appearance: optimizelegibility;margin: =
+1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;font-size: 1.375em=
+;"><strong>&#192; dix millions pr&#232;s&#8230;</strong></h3><p style=3D"ma=
+rgin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><=
+span>Ce &#8220;nouvel Ynsect&#8221; aurait abandonn&#233; l&#8217;&#233;lev=
+age &#224; Poulainville, o&#249; les effectifs auraient &#233;t&#233; ramen=
+&#233;s &#224; une vingtaine de personnes. L&#8217;usine n&#8217;aurait alo=
+rs conserv&#233; que ses cha&#238;nes de transformation. Les larves auraien=
+t &#233;t&#233; achet&#233;es aupr&#232;s d&#8217;Entosolution, une start-u=
+p allemande </span><em>&#8220;que personne ne conna&#238;t&#8221;,</em><spa=
+n> promettant des prix bas gr&#226;ce &#224; des m&#233;thodes plus traditi=
+onnelles. La direction assurait que les co&#251;ts de production auraient &=
+#233;t&#233; abaiss&#233;s de 70%. Elle revendiquait aussi trois clients pr=
+&#234;ts &#224; acheter initialement plusieurs dizaines de tonnes par an.</=
+span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 2=
+6px;font-size: 16px;"><span>Une enveloppe de 32 millions d&#8217;euros &#23=
+3;tait n&#233;cessaire pour relancer la machine. En juillet, Bpifrance et l=
+e fonds belge Astanor, le premier actionnaire de la soci&#233;t&#233; &#821=
+1; qui a investi 45 millions selon ses dires, nettement plus selon l&#8217;=
+une de nos sources &#8211;, apportent pr&#232;s de neuf millions. De quoi o=
+ffrir quelques mois de r&#233;pit pour trouver les 23 millions restants. Ma=
+is Ynsect n&#8217;a finalement r&#233;uni que 13 millions. </span><em>&#822=
+0;Faute de financement, le redressement de l&#8217;entreprise n&#8217;appar=
+a&#238;t pas possible&#8221;,</em><span> conclut ainsi le tribunal de comme=
+rce d&#8217;&#201;vry.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(=
+54,55,55);line-height: 26px;font-size: 16px;"><span>Ynsect ferm&#233;e, son=
+ h&#233;ritage ne se limitera pas &#224; son &#233;chec spectaculaire, esp&=
+#232;rent plusieurs participants au projet. </span><em>&#8220;Ynsect a d&#2=
+33;frich&#233; le terrain,</em><span> souligne l&#8217;un d&#8217;entre eux=
+=2E </span><em>D&#8217;autres vont appr=
+endre de nos erreurs sur l&#8217;indus=
+trialisation et profiter des avanc&#233;es que nous avons permises dans la =
+r&#233;glementation&#8221;.</em><span> Pendant dix ans, </span><em>&#8220;Y=
+nsect a produit des connaissances et comp&#233;tences, et a cr&#233;&#233; =
+un &#233;cosyst&#232;me de clients et fournisseurs&#8221;</em><span>, ajout=
+e un autre. Un troisi&#232;me est plus perplexe. </span><em>&#8220;Oui, le =
+march&#233; peut &#234;tre gigantesque&#8230; mais peut-&#234;tre pas pour =
+des acteurs europ&#233;ens&#8221;.</em></p><div style=3D"font-size: 16px;li=
+ne-height: 26px;"><hr style=3D"margin: 32px 0;padding: 0;height: 1px;backgr=
+ound: #e6e6e6;border: none;"></div><p style=3D"margin: 0 0 20px 0;color: rg=
+b(54,55,55);line-height: 26px;font-size: 16px;margin-bottom: 0;">Cr&#233;di=
+t photos: Ynsect</p></div></div><div class=3D"postscript-placeholder" style=
+=3D"margin: 32px 0 0;width: 100%;box-sizing: border-box;font-size: 16px;lin=
+e-height: 26px;"></div><table class=3D"email-ufi-2-bottom" role=3D"presenta=
+tion" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=
+=3D"border-top: 1px solid rgb(0,0,0,.1);border-bottom: 1px solid rgb(0,0,0,=
+=2E1);min-width: 100%;"><tbody><tr h=
+eight=3D"16"><td height=3D"16" style=3D"f=
+ont-size:0px;line-height:0;">&nbsp;</td></tr><tr><td><table role=3D"present=
+ation" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbo=
+dy><tr><td><table role=3D"presentation" width=3D"auto" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto;"><tbody><tr><td style=
+=3D"vertical-align:middle;"><table role=3D"presentation" width=3D"auto" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"cente=
+r"><a class=3D"email-button-outline" href=3D"https://substack.com/app-link/=
+post?publication_id=3D51206&post_id=3D181322320&utm_source=3Dsubstack&isFre=
+email=3Dtrue&submitLike=3Dtrue&token=3DeyJ1c2VyX2lkIjozMjc3MDA2NjgsInBvc3Rf=
+aWQiOjE4MTMyMjMyMCwicmVhY3Rpb24iOiLinaQiLCJpYXQiOjE3NjU1MjExMzUsImV4cCI6MTc=
+2ODExMzEzNSwiaXNzIjoicHViLTUxMjA2Iiwic3ViIjoicmVhY3Rpb24ifQ.GIQaMFsJFyNzDww=
+kW-yW6YisV3-u4SbhJgurd3zy3K4&utm_medium=3Demail&utm_campaign=3Demail-reacti=
+on&r=3D5f3rgc" style=3D"font-family: system-ui,-apple-system,BlinkMacSystem=
+Font,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Sego=
+e UI Emoji','Segoe UI Symbol';display: inline-block;font-weight: 500;border=
+: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-transform: uppercase;f=
+ont-size: 12px;line-height: 12px;padding: 9px 14px;text-decoration: none;co=
+lor: rgb(119,119,119);"><img class=3D"icon" src=3D"https://substackcdn.com/=
+image/fetch/$s_!PeVs!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/h=
+ttps%3A%2F%2Fsubstack.com%2Ficon%2FLucideHeart%3Fv%3D4%26height%3D36%26fill=
+%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18=
+" style=3D"margin-right: 8px;min-width: 18px;min-height: 18px;border: none;=
+vertical-align: middle;max-width: 18px" alt=3D""><span class=3D"email-butto=
+n-text" style=3D"vertical-align: middle;">Liker</span></a></td></tr></tbody=
+></table></td><td width=3D"8" style=3D"min-width: 8px"></td><td style=3D"ve=
+rtical-align:middle;"><table role=3D"presentation" width=3D"auto" border=3D=
+"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a =
+class=3D"email-button-outline" href=3D"https://substack.com/app-link/post?p=
+ublication_id=3D51206&post_id=3D181322320&utm_source=3Dsubstack&utm_medium=
+=3Demail&isFreemail=3Dtrue&comments=3Dtrue&token=3DeyJ1c2VyX2lkIjozMjc3MDA2=
+NjgsInBvc3RfaWQiOjE4MTMyMjMyMCwiaWF0IjoxNzY1NTIxMTM1LCJleHAiOjE3NjgxMTMxMzU=
+sImlzcyI6InB1Yi01MTIwNiIsInN1YiI6InBvc3QtcmVhY3Rpb24ifQ.GgqHtzUUUZmQtOL4KqQ=
+6HqY5QzNTSEW7pxAUzVM2zn0&r=3D5f3rgc&utm_campaign=3Demail-half-magic-comment=
+s&action=3Dpost-comment&utm_source=3Dsubstack&utm_medium=3Demail" style=3D"=
+font-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,H=
+elvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Sy=
+mbol';display: inline-block;font-weight: 500;border: 1px solid rgb(0,0,0,.1=
+);border-radius: 9999px;text-transform: uppercase;font-size: 12px;line-heig=
+ht: 12px;padding: 9px 14px;text-decoration: none;color: rgb(119,119,119);">=
+<img class=3D"icon" src=3D"https://substackcdn.com/image/fetch/$s_!x1tS!,w_=
+36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.co=
+m%2Ficon%2FLucideComments%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2=
+523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" style=3D"margin-rig=
+ht: 8px;min-width: 18px;min-height: 18px;border: none;vertical-align: middl=
+e;max-width: 18px" alt=3D""><span class=3D"email-button-text" style=3D"vert=
+ical-align: middle;">Commenter</span></a></td></tr></tbody></table></td><td=
+ width=3D"8" style=3D"min-width: 8px"></td><td style=3D"vertical-align:midd=
+le;"><table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=
+=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a class=3D"email-=
+button-outline" href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9=
+vcGVuLnN1YnN0YWNrLmNvbS9wdWIvY2FmZXRlY2gvcC95bnNlY3QtYXV0b3BzaWUtZHVuLWVjaG=
+VjLWEtNjUwLW1pbGxpb25zP3V0bV9zb3VyY2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbWFpbCZ1d=
+G1fY2FtcGFpZ249ZW1haWwtcmVzdGFjay1jb21tZW50JmFjdGlvbj1yZXN0YWNrLWNvbW1lbnQm=
+cj01ZjNyZ2MmdG9rZW49ZXlKMWMyVnlYMmxrSWpvek1qYzNNREEyTmpnc0luQnZjM1JmYVdRaU9=
+qRTRNVE15TWpNeU1Dd2lhV0YwSWpveE56WTFOVEl4TVRNMUxDSmxlSEFpT2pFM05qZ3hNVE14TX=
+pVc0ltbHpjeUk2SW5CMVlpMDFNVEl3TmlJc0luTjFZaUk2SW5CdmMzUXRjbVZoWTNScGIyNGlmU=
+S5HZ3FIdHpVVVVabVF0T0w0S3FRNkhxWTVRek5UU0VXN3B4QVV6Vk0yem4wIiwicCI6MTgxMzIy=
+MzIwLCJzIjo1MTIwNiwiZiI6dHJ1ZSwidSI6MzI3NzAwNjY4LCJpYXQiOjE3NjU1MjExMzUsImV=
+4cCI6MjA4MTA5NzEzNSwiaXNzIjoicHViLTAiLCJzdWIiOiJsaW5rLXJlZGlyZWN0In0.tyqDge=
+Bo0lIOg5rkF5kGuheGoTxdzKXS3A1MptG3dxg?&utm_source=3Dsubstack&utm_medium=3De=
+mail" style=3D"font-family: system-ui,-apple-system,BlinkMacSystemFont,'Seg=
+oe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoj=
+i','Segoe UI Symbol';display: inline-block;font-weight: 500;border: 1px sol=
+id rgb(0,0,0,.1);border-radius: 9999px;text-transform: uppercase;font-size:=
+ 12px;line-height: 12px;padding: 9px 14px;text-decoration: none;color: rgb(=
+119,119,119);"><img class=3D"icon" src=3D"https://substackcdn.com/image/fet=
+ch/$s_!5EGt!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2=
+F%2Fsubstack.com%2Ficon%2FNoteForwardIcon%3Fv%3D4%26height%3D36%26fill%3Dno=
+ne%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18" sty=
+le=3D"margin-right: 8px;min-width: 18px;min-height: 18px;border: none;verti=
+cal-align: middle;max-width: 18px" alt=3D""><span class=3D"email-button-tex=
+t" style=3D"vertical-align: middle;">Restack</span></a></td></tr></tbody></=
+table></td></tr></tbody></table></td><td align=3D"right"><table role=3D"pre=
+sentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">=
+<tbody><tr></tr></tbody></table></td></tr></tbody></table></td></tr><tr hei=
+ght=3D"16"><td height=3D"16" style=3D"font-size:0px;line-height:0;">&nbsp;<=
+/td></tr></tbody></table><div class=3D"footer footer-ZM59BM" style=3D"color=
+: rgb(119,119,119);text-align: center;font-size: 16px;line-height: 26px;pad=
+ding: 24px0;"><div style=3D"font-size: 16px;line-height: 26px;padding-botto=
+m: 24px"><p class=3D"pencraft pc-reset color-secondary-ls1g8s size-12-mmZ61=
+m reset-IxiVJZ small meta-B2bqa5" style=3D"list-style: none;font-family: sy=
+stem-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,=
+sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';padding-b=
+ottom: 0;font-size: 12px;line-height: 16px;margin: 0;color: rgb(119,119,119=
+);text-decoration: unset;">&#169; 2025 <span>SAS Caf&#233;tech</span> <br><=
+a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9jYWZldGVjaC5zd=
+WJzdGFjay5jb20vYWN0aW9uL2Rpc2FibGVfZW1haWw_dG9rZW49ZXlKMWMyVnlYMmxrSWpvek1q=
+YzNNREEyTmpnc0luQnZjM1JmYVdRaU9qRTRNVE15TWpNeU1Dd2lhV0YwSWpveE56WTFOVEl4TVR=
+NMUxDSmxlSEFpT2pFM09UY3dOVGN4TXpVc0ltbHpjeUk2SW5CMVlpMDFNVEl3TmlJc0luTjFZaU=
+k2SW1ScGMyRmliR1ZmWlcxaGFXd2lmUS54aUh1Q1RCdlNaTEYzMzN0Mzg2ZndfR2JscEpPV0ZRe=
+W1PRTF4R1g2SHpvIiwicCI6MTgxMzIyMzIwLCJzIjo1MTIwNiwiZiI6dHJ1ZSwidSI6MzI3NzAw=
+NjY4LCJpYXQiOjE3NjU1MjExMzUsImV4cCI6MjA4MTA5NzEzNSwiaXNzIjoicHViLTAiLCJzdWI=
+iOiJsaW5rLXJlZGlyZWN0In0.t_kXvjD1-yHxTl3_nhHj30-uRmtY-WN74r4AWcCj2hM?" styl=
+e=3D"color: #007a76;text-decoration: none;"><span style=3D"color: rgb(119,1=
+19,119);text-decoration: underline;">Se d&#233;sabonner</span></a></p></div=
+><p class=3D"footerSection-EHR0jG small powered-by-substack" style=3D"paddi=
+ng: 0 24px;font-size: 12px;line-height: 20px;margin: 0;color: rgb(119,119,1=
+19);font-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Robo=
+to,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe U=
+I Symbol';padding-bottom: 0;margin-top: 0;"><a href=3D"https://substack.com=
+/redirect/8081044b-94d7-4596-9220-38041d88c703?j=3DeyJ1IjoiNWYzcmdjIn0.e7WS=
+RIpWXHBqD_UVYfMbw_y1ZuUoHsRukz8PaFv0-2U" style=3D"color: #007a76;text-decor=
+ation: none;display: inline-block;margin: 0 4px;"><img src=3D"https://subst=
+ackcdn.com/image/fetch/$s_!zgFk!,w_270,c_limit,f_auto,q_auto:good,fl_progre=
+ssive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneric-app-button-f=
+r%402x.png" srcset=3D"https://substackcdn.com/image/fetch/$s_!h-8e!,w_135,c=
+_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2=
+Fimg%2Femail%2Fgeneric-app-button-fr.png, https://substackcdn.com/image/fet=
+ch/$s_!zgFk!,w_270,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A=
+%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneric-app-button-fr%402x.png 2x, https=
+://substackcdn.com/image/fetch/$s_!z142!,w_405,c_limit,f_auto,q_auto:good,f=
+l_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fgeneric-app-=
+button-fr%403x.png 3x" width=3D"135" alt=3D"Obtenir l&#8217;app" height=3D"=
+40" style=3D"max-width: 550px;border: none !important;vertical-align: middl=
+e;"></a><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly9zdWJz=
+dGFjay5jb20vc2lnbnVwP3V0bV9zb3VyY2U9c3Vic3RhY2smdXRtX21lZGl1bT1lbWFpbCZ1dG1=
+fY29udGVudD1mb290ZXImdXRtX2NhbXBhaWduPWF1dG9maWxsZWQtZm9vdGVyJmZyZWVTaWdudX=
+BFbWFpbD1uMnJzc0BuaWNvcGljby5mciZyPTVmM3JnYyIsInAiOjE4MTMyMjMyMCwicyI6NTEyM=
+DYsImYiOnRydWUsInUiOjMyNzcwMDY2OCwiaWF0IjoxNzY1NTIxMTM1LCJleHAiOjIwODEwOTcx=
+MzUsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.JATHrpqSJ5nPEqzxVh_fHn=
+fxcvJ-kAZRn_6dijczOS4?" style=3D"color: #007a76;text-decoration: none;displ=
+ay: inline-block;margin: 0 4px;"><img src=3D"https://substackcdn.com/image/=
+fetch/$s_!whhV!,w_368,c_limit,f_auto,q_auto:good,fl_progressive:steep/https=
+%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-button-fr%402x.png" srcset=3D=
+"https://substackcdn.com/image/fetch/$s_!nWhE!,w_184,c_limit,f_auto,q_auto:=
+good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublis=
+h-button-fr.png, https://substackcdn.com/image/fetch/$s_!whhV!,w_368,c_limi=
+t,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%=
+2Femail%2Fpublish-button-fr%402x.png 2x, https://substackcdn.com/image/fetc=
+h/$s_!GW0f!,w_552,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%=
+2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-button-fr%403x.png 3x" width=3D"1=
+84" alt=3D"&#201;crire" height=3D"40" style=3D"max-width: 550px;border: non=
+e !important;vertical-align: middle;"></a></p></div></div></td><td></td></t=
+r></tbody></table><img src=3D"https://eotrx.substackcdn.com/open?token=3Dey=
+JtIjoiPDIwMjUxMjEyMDYzMDU0LjMuOTJiMmJmMmRkM2I0ODc3OEBtZy1kMC5zdWJzdGFjay5jb=
+20-IiwidSI6MzI3NzAwNjY4LCJyIjoibjJyc3NAbmljb3BpY28uZnIiLCJkIjoibWctZDAuc3Vi=
+c3RhY2suY29tIiwicCI6MTgxMzIyMzIwLCJ0IjoibmV3c2xldHRlciIsImEiOiJldmVyeW9uZSI=
+sInMiOjUxMjA2LCJjIjoicG9zdCIsImYiOnRydWUsInBvc2l0aW9uIjoiYm90dG9tIiwiaWF0Ij=
+oxNzY1NTIxMTM1LCJleHAiOjE3NjgxMTMxMzUsImlzcyI6InB1Yi0wIiwic3ViIjoiZW8ifQ.YY=
+p52X8OBgeBG1AC52B3NH8qulirNJ-NVP0zLteqayY" alt=3D"" width=3D"1" height=3D"1=
+" border=3D"0" style=3D"height:1px !important;width:1px !important;border-w=
+idth:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin=
+-right:0 !important;margin-left:0 !important;padding-top:0 !important;paddi=
+ng-bottom:0 !important;padding-right:0 !important;padding-left:0 !important=
+;"/><img width=3D"1" height=3D"1" alt=3D"" src=3D"https://email.mg-d0.subst=
+ack.com/o/eJxEkEnO4yAQRk8Tdm1BMXrBWSyGIkFtg8WQlm_f8p9I__aV6unpC27gs7bLnrUPE=
+q3iLslI0DKtpATGuCZ4uLxvTyzY3MC4ufF7lauU5GWp1lGbiKvXVOiweuGY0kYoZWRKoEi2QEEy=
+YEAVp1IsfFnBg08QI_fCaG0egh7PP5Euffo-XPi7hHqQ3LfU8CfBjjaR3KGbmzFjCWjxje2q5Yt=
+ztMwwDsCBfsi4TrQF__Udx8BGzum3UI9jljyuDYvzO8avePo9BzdyLbdI3qmk2QKt94egJYd65l=
+CX1EifPtbD5WKDSzgwvMj4LDg7tvubg9aUKmXI28L_AAAA__-Kr3Up"></body></html>
+
+--3a585c2fbfe6ef80927b7901913d1762f88d6f66092258c8566467bb5e89--
