@@ -129,7 +129,7 @@ dependencies {
     implementation(libs.flyway.core)
     implementation(libs.flyway.mysql)
 
-    testImplementation(libs.springBoot.starter.test) {
+    testImplementation(libs.bundles.springBoot.test.starters) {
         exclude(group = "org.mockito")
     }
     testImplementation(libs.springMock)

@@ -27,17 +27,20 @@ kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core-j
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
 
 # Spring Boot Starters
-springBoot-starter-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc", version.ref = "springBoot" }
 springBoot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "springBoot" }
 springBoot-starter-aspectj = { module = "org.springframework.boot:spring-boot-starter-aspectj", version.ref = "springBoot" }
 springBoot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "springBoot" }
 springBoot-starter-restclient = { module = "org.springframework.boot:spring-boot-starter-restclient", version.ref = "springBoot" }
 springBoot-starter-thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf", version.ref = "springBoot" }
 springBoot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "springBoot" }
+springBoot-starter-webmvc = { module = "org.springframework.boot:spring-boot-starter-webmvc", version.ref = "springBoot" }
 springBoot-devtools = { module = "org.springframework.boot:spring-boot-devtools", version.ref = "springBoot" }
 springBoot-dockerCompose = { module = "org.springframework.boot:spring-boot-docker-compose", version.ref = "springBoot" }
 springBoot-configurationProcessor = { module = "org.springframework.boot:spring-boot-configuration-processor", version.ref = "springBoot" }
+
+# Spring Boot Starters (tests)
 springBoot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "springBoot" }
+springBoot-starter-webmvc-test = { module = "org.springframework.boot:spring-boot-starter-webmvc-test", version.ref = "springBoot" }
 springMock = { module = "com.ninja-squad:springmockk", version.ref = "springMock" }
 
 # Other Libraries
@@ -72,6 +75,10 @@ springBoot-starters = [
     "springBoot-starter-restclient",
     "springBoot-starter-thymeleaf",
     "springBoot-starter-validation",
+]
+springBoot-test-starters = [
+    "springBoot-starter-test",
+    "springBoot-starter-webmvc-test",
 ]
 springBoot-dev = [
     "springBoot-devtools",
