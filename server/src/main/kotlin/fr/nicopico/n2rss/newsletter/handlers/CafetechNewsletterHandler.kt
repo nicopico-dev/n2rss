@@ -103,14 +103,14 @@ class CafetechNewsletterHandler : NewsletterHandlerSingleFeed {
         val title = articleTitleElement?.text()
             ?: throw NewsletterParsingException("Could not find the newsletter article title")
 
-        // The article description starts if a `<a class="image-link">` element
+        // The article description starts after a `<a class="image-link">` element
         val imageLinkElement = selectFirst("a.image-link")
             ?: throw NewsletterParsingException("Could not find the start of the article description")
 
         val contentElements = allElements
             .subList(
-                this.indexOf(imageLinkElement) + 1,
-                allElements.size
+                indexOf(imageLinkElement) + 1,
+                allElements.size,
             )
             .takeWhile {
                 // Take elements until "Pour aller plus loin"
