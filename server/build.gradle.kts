@@ -126,7 +126,6 @@ dependencies {
     implementation(libs.annotations)
 
     runtimeOnly(libs.mariadb.driver)
-    implementation(libs.flyway.core)
     implementation(libs.flyway.mysql)
 
     testImplementation(libs.bundles.springBoot.test.starters) {
