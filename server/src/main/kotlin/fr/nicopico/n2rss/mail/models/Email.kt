@@ -19,10 +19,7 @@ package fr.nicopico.n2rss.mail.models
 
 import jakarta.mail.Message
 import kotlinx.datetime.LocalDate
-import kotlin.concurrent.atomics.AtomicReference
-import kotlin.concurrent.atomics.ExperimentalAtomicApi
 
-@OptIn(ExperimentalAtomicApi::class)
 data class Email(
     val sender: Sender,
     val date: LocalDate,
@@ -30,16 +27,16 @@ data class Email(
     val content: EmailContent,
     val replyTo: Sender? = null,
 ) {
-    private val underlyingMessage = AtomicReference<Message?>(null)
+    // `message` is used as an identifier to operate on the email with Jakarta Mail API.
+    // `underlyingMessage` is kept outside the primary constructor
+    // as multiple reads of the same emails could be unequal
+    @Suppress("DataClassShouldBeImmutable")
+    private lateinit var underlyingMessage: Message
 
     fun setMessage(message: Message) {
-        check(underlyingMessage.compareAndSet(null, message)) {
-            "Message can only be set once"
-        }
+        underlyingMessage = message
     }
 
     val message: Message
-        get() = checkNotNull(underlyingMessage.load()) {
-            "Message was not set"
-        }
+        get() = underlyingMessage
 }
