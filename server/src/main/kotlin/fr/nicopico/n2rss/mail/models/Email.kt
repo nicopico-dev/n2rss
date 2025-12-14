@@ -17,6 +17,7 @@
  */
 package fr.nicopico.n2rss.mail.models
 
+import jakarta.mail.Message
 import kotlinx.datetime.LocalDate
 
 data class Email(
@@ -24,6 +25,22 @@ data class Email(
     val date: LocalDate,
     val subject: String,
     val content: EmailContent,
-    val messageId: MessageId,
     val replyTo: Sender? = null,
-)
+) {
+    // `message` is used as an identifier to operate on the email with Jakarta Mail API.
+    // `underlyingMessage` is kept outside the primary constructor
+    // as multiple reads of the same emails could be unequal
+    @Suppress("DataClassShouldBeImmutable")
+    private lateinit var underlyingMessage: Message
+
+    @Synchronized
+    fun setMessage(message: Message) {
+        check(!this::underlyingMessage.isInitialized) {
+            "Message already set"
+        }
+        underlyingMessage = message
+    }
+
+    val message: Message
+        get() = underlyingMessage
+}

@@ -21,7 +21,6 @@ import fr.nicopico.n2rss.mail.models.EmailContent
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import io.kotest.assertions.assertSoftly
-import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.instanceOf
 import io.mockk.Runs
@@ -67,9 +66,7 @@ class MessageExtKtTest {
             it.subject shouldBe subject
             it.content shouldBe EmailContent.TextOnly(content)
             it.sender shouldBe Sender(sender)
-            it.messageId should { messageId ->
-                messageId.message shouldBe message
-            }
+            it.message shouldBe message
             it.date shouldBe sentDate.toKotlinLocaleDate()
         }
     }

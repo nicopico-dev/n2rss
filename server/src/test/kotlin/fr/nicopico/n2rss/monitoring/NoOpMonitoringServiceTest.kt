@@ -53,7 +53,6 @@ class NoOpMonitoringServiceTest {
             date = LocalDate.now(),
             subject = "test",
             content = EmailContent.TextOnly("test"),
-            messageId = mockk(),
         )
         val exception = Exception("Test exception")
         shouldNotThrowAny {
