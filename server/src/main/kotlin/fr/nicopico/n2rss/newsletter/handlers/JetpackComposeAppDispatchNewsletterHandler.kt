@@ -56,7 +56,9 @@ class JetpackComposeAppDispatchNewsletterHandler : NewsletterHandlerSingleFeed {
         val linkUrl = linkElement.attr("href").toUrlOrNull()
             ?: throw NewsletterParsingException("Unable to find the \"Read Online\" link")
 
-        val titleElements = document.select("h1").drop(1)
+        val titleElements = document.select("h1")
+            // The first H1 tag is the title of the newsletter
+            .drop(1)
 
         val allElements = document.allElements
         return titleElements.map { titleElement ->
