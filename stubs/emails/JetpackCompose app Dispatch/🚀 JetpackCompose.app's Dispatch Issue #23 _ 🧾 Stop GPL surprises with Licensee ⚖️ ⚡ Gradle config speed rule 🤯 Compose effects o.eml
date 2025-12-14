@@ -1,0 +1,2034 @@
+Return-Path: <bounces+31804505-e1d4-n2rss=nicopico.fr@em2003.mail.beehiiv.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id 8NTxOdpqF2nQJy4AQTsBvA
+	(envelope-from <bounces+31804505-e1d4-n2rss=nicopico.fr@em2003.mail.beehiiv.com>)
+	for <n2rss@nicopico.fr>; Fri, 14 Nov 2025 18:46:03 +0100
+Return-path: <bounces+31804505-e1d4-n2rss=nicopico.fr@em2003.mail.beehiiv.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Fri, 14 Nov 2025 18:46:03 +0100
+Received: from o170.ptr9231.mail.beehiiv.com ([159.183.140.172])
+	by smtpin1.paris1.alwaysdata.com with esmtps  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <bounces+31804505-e1d4-n2rss=nicopico.fr@em2003.mail.beehiiv.com>)
+	id 1vJxs0-007RfB-16
+	for n2rss@nicopico.fr;
+	Fri, 14 Nov 2025 18:46:01 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mail.beehiiv.com;
+	h=content-type:date:from:mime-version:subject:reply-to:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:from:subject:to;
+	s=s1; bh=wYGjqSTNAx+RvQLQhjcLsx2baQpvMIooUfdyuva9fhA=;
+	b=Bk1+eFO95ZkzIP9aLWR7WKWQWTjandIWpItXYUPbQWK94cC/Tj0lPmJOvxwr7V4jUzSy
+	N/FAl/6EOwpGjqh2d+4KpPrPhrm0qHf/IY6I/tnCEuVZYsQrOzPcmgo++gPN357S7nmFuJ
+	wI0jIQRGlnlxoQkVulqPEo5inkOtkKiH9SOSJyFfOdJOtxqza+bb9Ysxrr6A9RjfBSVnT5
+	DhvTVcnbxCz5qOJoppEPcDyDJqHZaUVzy73JWp9pZQZcyo06RWwf0k2BmrItOyFzmlmqiq
+	XXQlyuQsOx4p+O3tpitQcASM4iOqYxqrg/bWp/aG6TrrfwTeJRThMKH/UIlkiXvw==
+Received: by recvd-7f4fb8995-jgz2d with SMTP id recvd-7f4fb8995-jgz2d-1-69176AD2-2A
+	2025-11-14 17:45:54.49781976 +0000 UTC m=+14086869.075988500
+Received: from MzE4MDQ1MDU (unknown)
+	by geopod-ismtpd-2 (SG) with HTTP
+	id LTvrc8nGTGmhRJNIRiilYw
+	Fri, 14 Nov 2025 17:45:54.483 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=f9a2e7c41078e4915587568e4640bdc3376f584d4f1436d55a53593328c3
+Date: Fri, 14 Nov 2025 17:45:58 +0000 (UTC)
+From: Vinay Gaba <jetpackcomposeapp@mail.beehiiv.com>
+Mime-Version: 1.0
+Message-ID: <LTvrc8nGTGmhRJNIRiilYw@geopod-ismtpd-2>
+Subject: =?UTF-8?B?8J+agA==?= JetpackCompose.app's Dispatch Issue #23 |
+ =?UTF-8?B?8J+nvg==?= Stop GPL surprises with Licensee
+ =?UTF-8?B?4pqW77iPIOKaoQ==?= Gradle config speed rule =?UTF-8?B?8J+krw==?=
+ Compose effects order puzzle =?UTF-8?B?8J+noA==?= AI vs git bisect
+Reply-To: Vinay Gaba <vinaygaba@gmail.com>
+Feedback-ID: 
+ =?us-ascii?Q?bd3b688f-4dcf-4a30-beb9-ed37fb09e8b3=3Anewsletter=3Af8362cd3-9f8c-?=
+ =?us-ascii?Q?4280-a770-93d9fc087075=3Adcab3ddea48a514?=
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Cmailto=3Af8362cd3-9f8c-4280-a770-93d9fc087075+b61ea426-a930-446?=
+ =?us-ascii?Q?7-be8d-b5d292fe045b+bd3b688f-4dcf-4a30-?=
+ =?us-ascii?Q?beb9-ed37fb09e8b3=40unsub=2Ebeehiiv=2Ecom=3E=2C?=
+ =?us-ascii?Q?_=3Chttps=3A=2F=2Fjetpackcomposeapp=2Ebeehiiv=2Ecom=2Funsubscribe=2FeyJ0eXAiOiJ?=
+ =?us-ascii?Q?KV1QiLCJhbGciOiJIUzI1NiJ9=2EeyJzdWJzY3JpY?=
+ =?us-ascii?Q?mVyX2lkIjoiYjYxZWE0MjYtYTkzMC00NDY3LWJl?=
+ =?us-ascii?Q?OGQtYjVkMjkyZmUwNDViIiwicG9zdF9pZCI6ImJ?=
+ =?us-ascii?Q?kM2I2ODhmLTRkY2YtNGEzMC1iZWI5LWVkMzdmYj?=
+ =?us-ascii?Q?A5ZThiMyIsImxhc3RfcmVzb3VyY2VfZ3VpZCI6I?=
+ =?us-ascii?Q?lBvc3Q6YmQzYjY4OGYtNGRjZi00YTMwLWJlYjkt?=
+ =?us-ascii?Q?ZWQzN2ZiMDllOGIzIn0=2EcEQ47EeOUzZQbv-rD0e?=
+ =?us-ascii?Q?LQFqxi203xd2ZOEfjLNORhdk=3E?=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+sId: f8362cd3-9f8c-4280-a770-93d9fc087075
+x-beehiiv-ids: 
+ =?us-ascii?Q?{=22account=5Fname=22=3A=22https=3A=2F=2Fjetpackcomposeapp=2Ebeehiiv=2Ecom=2F=22=2C=22camp?=
+ =?us-ascii?Q?aign=5Fid=22=3A=22bd3b688f-4dcf-4a30-beb9-ed37f?=
+ =?us-ascii?Q?b09e8b3=22=2C=22category=22=3A=22newsletter=22=2C=22email?=
+ =?us-ascii?Q?=5Fgenerated=5Fat=22=3A1763142354=2C=22user=5Fid=22=3A=22f8?=
+ =?us-ascii?Q?362cd3-9f8c-4280-a770-93d9fc087075=22}?=
+x-beehiiv-type: newsletter
+x-list-id: f8362cd3-9f8c-4280-a770-93d9fc087075
+x-list-owner: <mailto:vinaygaba@gmail.com>
+x-newsletter: https://jetpackcomposeapp.beehiiv.com/p/dispatch-issue-23
+x-newsletter-id: https://jetpackcomposeapp.beehiiv.com/
+x-newsletter-signup: https://jetpackcomposeapp.beehiiv.com/subscribe
+X-SG-EID: 
+ =?us-ascii?Q?u001=2E9TI6XQVv5i7jOh8NftXQCjod=2Fz4VytqEPYSFs=2Fu2eq9znWDGbciukOsiu?=
+ =?us-ascii?Q?AKZaOylnLC7Z52ccmIniIAwQLisOfkeCuzGjpmM?=
+ =?us-ascii?Q?0zyiAbvivxMwlIHTZBnBGHUtjGX2hX6vf4o9MEt?=
+ =?us-ascii?Q?U6J9UrGKjDTcDU8tMz5JM+sngn1Iga1V1LbMP2R?=
+ =?us-ascii?Q?C4=2FPPn4vZXGZxaNh4S4ESsTH66Q0kVjrLReOnjO?=
+ =?us-ascii?Q?1YsaL0kgEnL12onPZRA3LRlblUFo1QCZvSLMTWE?= =?us-ascii?Q?ku+M?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprD1ZcmFObA4po1bG?=
+ =?us-ascii?Q?aUE6gycaKwkoN23AtrLGfV4GV7p7=2Fx0Vl3nAwSq?=
+ =?us-ascii?Q?mViwqSDQHdXHQ0yCZhcDRLEBY5TYbhBVnME79HH?=
+ =?us-ascii?Q?Tc3yXw90J2lxhQHGxy+oReyByGk9GF97Xc+0IBb?=
+ =?us-ascii?Q?dmtgrAzEkkHSP2Rpn5c9dwgp3qkMChHQ=2FiKI3cd?=
+ =?us-ascii?Q?IaXU5gjuccQZQuxWSd7NBoRfLHBq0cfXsVh9o=2Fo?=
+ =?us-ascii?Q?yK81+FliNWX2UZEAGdTmuzLb2ECtIehHjONzF9v?=
+ =?us-ascii?Q?DAwCDlrtMsz7Viw9Kw=2Fxtbf5jNNWWYpQJ23fs86?=
+ =?us-ascii?Q?tQtIPKCY0qZiUYJk4kBAJKP5s1K64HQRJS3vRgq?=
+ =?us-ascii?Q?BxPlGoOdU5ZoYPV?=
+To: "n2rss@nicopico.fr" <n2rss@nicopico.fr>
+X-Entity-ID: u001.HbMtOne6YMEawMB7AjZwZw==
+X-alwaysdata-Spam-Report: 	2.00 FREEMAIL_REPLYTO_NEQ_FROM - Reply-To is a Freemail address and it not
+ match From header or SMTP From, also From is not another Freemail
+	0.50 MID_RHS_NOT_FQDN - Message-ID RHS is not a fully-qualified domain name
+	0.05 MANY_INVISIBLE_PARTS [1] - Many parts are visually hidden
+	0.00 TO_DN_EQ_ADDR_ALL - All of the recipients have display names that are
+ the same as their address
+	0.00 R_SPF_NA [No domain] - Missing SPF record
+	0.00 RWL_MAILSPIKE_POSSIBLE [159.183.140.172:from] - From address is listed
+ in Mailspike RWL - possibly legit
+	0.00 REPLYTO_DOM_NEQ_TO_DOM - Reply-To domain does not match the To domain
+	0.00 REPLYTO_DOM_NEQ_FROM_DOM - Reply-To domain does not match the From
+ domain
+	0.00 REPLYTO_DN_EQ_FROM_DN - Reply-To display name matches From
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_THREE [3] - Message has 3-5 Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MV_CASE - Mime-Version .vs. MIME-Version
+	0.00 MISSING_XM_UA - Message has neither X-Mailer nor User-Agent header
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 HAS_REPLYTO [vinaygaba@gmail.com] - Has Reply-To header
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 FREEMAIL_REPLYTO [gmail.com] - Reply-To is a Freemail address
+	0.00 DKIM_TRACE [mail.beehiiv.com:+] - DKIM trace symbol
+	0.00 ASN [asn:11377, ipnet:159.183.128.0/18, country:US]
+	0.00 ARC_NA - ARC signature absent
+	-0.00 BAYES_HAM [31.10%] - Message probably ham, probability:
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.29 DKIM_REPUTATION [-0.29366197812192]
+	-0.50 DMARC_POLICY_ALLOW [beehiiv.com, reject] - DMARC permit policy
+	-0.59 IP_REPUTATION_HAM [asn: 11377(-0.23), country: US(-0.00),
+ ip: 159.183.140.172(-0.35)]
+	-0.77 R_DKIM_ALLOW [mail.beehiiv.com:s=s1] - DKIM verification succeed
+X-alwaysdata-Spam-Score: 0.29
+
+--f9a2e7c41078e4915587568e4640bdc3376f584d4f1436d55a53593328c3
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+----------
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/f354632e-3542-4=
+929-abfc-955561e34f67/Dispatch_Logo_w__Runway.png?t=3D1747608544)
+Follow image link: (https://www.runway.team/whitepapers/2025-state-of-mobil=
+e-release-management-report?utm_source=3Djetpack&utm_medium=3Dnewsletter&ut=
+m_campaign=3Dago-18-25)
+Caption:=20
+
+##### =3D=3D**2025 State of Mobile Release Management**=3D=3D
+
+[Runway](https://www.runway.team/whitepapers/2025-state-of-mobile-release-m=
+anagement-report?utm_source=3Djetpack&utm_medium=3Dnewsletter&utm_campaign=
+=3Dago-18-25)'s new report on mobile releases shows that automation alone i=
+sn't solving core issues: **teams that invest significantly in automation s=
+till lose 6=E2=80=9310 hours per release to manual busywork and coordinatio=
+n overhead** =E2=80=93 about the same as teams with less automation in plac=
+e
+
+Read the full report =E2=86=92  (https://www.runway.team/whitepapers/2025-s=
+tate-of-mobile-release-management-report?utm_source=3Djetpack&utm_medium=3D=
+newsletter&utm_campaign=3Dago-18-25)
+
+
+----------GM Friends. This is [JetpackCompose.app](https://JetpackCompose.a=
+pp)=E2=80=99s Dispatch, the newsletter that arrives in your inbox with more=
+ performance-boosting energy than a perfectly configured Baseline Profile.
+
+This is Issue # 23, so, silence that Slack notification for "just five more=
+ minutes," grab your favorite Friday morning/night alcoholic beverage, and =
+let's dive in=E2=80=A6 _hic_ =F0=9F=98=B5=E2=80=8D=F0=9F=92=AB
+
+# =F0=9F=A5=82=C2=A0Tipsy Tip
+
+Here's a scenario that keeps legal teams up at night: you're building a clo=
+sed-source product, and somewhere deep in your dependency graph, a GPL-lice=
+nsed library sneaks in. By the time you discover it, you're weeks away from=
+ release. Panic ensues. Lawyers get involved. Your PM starts stress-eating =
+donuts.
+
+Enter [Licensee](https://github.com/cashapp/licensee), a brilliant Gradle p=
+lugin from the folks at Cash App that validates your dependency licenses _b=
+efore_ they become a problem.
+
+Here's how it works: you define which licenses your project allows, and Lic=
+ensee fails your build if anything violates those rules. It's like having a=
+ legal compliance officer built into your CI pipeline.
+
+**Setup is dead simple:**
+
+```
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'app.cash.licensee:licensee-gradle-plugin:1.14.1'
+  }
+}
+
+apply plugin: 'app.cash.licensee'
+```
+**Then configure your allowed licenses:**
+
+```
+licensee {
+  allow('Apache-2.0')
+  allow('MIT')
+  allow('BSD-3-Clause')
+}
+```
+Now when you run `./gradlew licensee`, it'll scan your entire dependency gr=
+aph and fail the build if anything doesn't match your allowlist. The plugin=
+ generates two incredibly useful reports:
+
+1. `artifacts.json` =E2=80=93 A complete inventory of every dependency and =
+its license
+
+2. `validation.txt` =E2=80=93 A human-readable report showing what's allowe=
+d and what's not
+
+**But wait, there's more!** You can also handle edge cases:
+
+```
+licensee {
+  // Allow specific dependencies with wonky license data
+  allowDependency('com.example', 'sketchy-lib', '1.0') {
+    because 'Apache-2.0, but they typo'd the license URL'
+  }
+ =20
+  // Ignore internal/commercial dependencies
+  ignoreDependencies('com.mycompany.internal') {
+    because 'internal closed-source libraries'
+  }
+ =20
+  // Allow non-SPDX license URLs
+  allowUrl('https://example.com/custom-license.html') {
+    because 'Apache-2.0, but self-hosted'
+  }
+}
+```
+The `because` clauses are brilliant=E2=80=94they force you to document _why=
+_ you're making exceptions, which is exactly what your future self (or your=
+ legal team) will thank you for.
+
+I=E2=80=99m confident most readers weren=E2=80=99t aware of the existence o=
+f this library. And if you help build apps of any reasonable size, this is =
+a no-brainer integration that will allow you to shine at work =F0=9F=AA=A9 =
+Pays to be the subscriber of this newsletter =F0=9F=A4=A3
+
+Jokes aside, the plugin is actively maintained, works with Android, Kotlin =
+Multiplatform, and standard JVM projects, and has saved countless developer=
+s from licensing nightmares. If you're not using it yet, you're playing wit=
+h fire =F0=9F=94=A5
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/d5f3651a-a253-4=
+5a2-a8e3-6ee8b75487e2/Spot_the_bug.png?t=3D1746127287)
+Follow image link: (https://blog.bitdrift.io/post/memory-leaks?utm_campaign=
+=3Dsp&utm_medium=3Dnews&utm_source=3Ddispatch)
+Caption:=20
+
+----------
+Crashes are loud, leaks are quiet. Our latest hands-on guide shows how to s=
+pot memory leaks before your users feel the pain, using **[bitdrift](https:=
+//blog.bitdrift.io/post/memory-leaks?utm_campaign=3Dsp&utm_medium=3Dnews&ut=
+m_source=3Ddispatch)**=E2=80=99s lightweight SDK. **[Read the guide](https:=
+//blog.bitdrift.io/post/memory-leaks?utm_campaign=3Dsp&utm_medium=3Dnews&ut=
+m_source=3Ddispatch)**.=20
+
+
+----------Consider the following code snippet=E2=80=94
+
+```
+@Composable
+fun Example() {
+    Log.d("Example", "First")
+    SideEffect { Log.d("Example", "SideEffect") }
+    DisposableEffect(Unit) {
+        Log.d("Example", "DisposableEffect")
+        onDispose {}
+    }
+    LaunchedEffect(Unit) { Log.d("Example", "LaunchedEffect") }
+    Box(
+        modifier =3D Modifier
+            .onSizeChanged { Log.d("Example", "Layout") }
+            .drawBehind { Log.d("Example", "Draw") }
+    )
+    Log.d("Example", "Last")
+}
+```
+In what order do you expect to see the log statements printed out?
+
+You will find the answer in a section below =E2=AC=87=EF=B8=8F
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+
+
+# =F0=9F=98=86 Dev Delight
+
+I found Kotlin=E2=80=99s [very first public commit](https://github.com/JetB=
+rains/kotlin/commit/369b1974782b821e44b7aa6cd68e2e41eb2ba036) from 15 years=
+ ago. The file list? BinaryTree, Graph, Queue, UnionFind, ArrayList, Iterat=
+or, LinkedList, BinaryHeap, PriorityQueue. Looking at this list, you can't =
+help but chuckle. It feels less like the birth of a pragmatic, modern progr=
+amming language and more like someone was building the ultimate toolkit to =
+absolutely demolish FAANG coding interviews =F0=9F=98=85
+
+There=E2=80=99s something delightful about a language that introduced itsel=
+f with data structures before niceties. It=E2=80=99s like showing up to a p=
+otluck with a fully balanced red-black tree.
+
+On a serious note: those primitives still echo in the way Kotlin encourages=
+ immutability and expressive algorithms today. **Also, .jetl files**! Early=
+ days are wild.
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+# =F0=9F=A4=BF Deep Dive
+
+### What=E2=80=99s a =E2=80=9Cnormal=E2=80=9D Gradle configuration time, an=
+yway?
+
+Confession: most of us treat Gradle configuration like a weather pattern=E2=
+=80=94unpredictable, mildly annoying, and definitely outside our control. I=
+t doesn=E2=80=99t have to be. You can (and should) know what =E2=80=9Chealt=
+hy=E2=80=9D looks like and catch regressions before your team accepts slow =
+configs as fate.
+
+The excellent write=E2=80=91up by [Aurimas Liutikas](https://bsky.app/profi=
+le/liutikas.net) titled =E2=80=9C[Unreasonable Configuration =E2=80=94 What=
+ is a Normal Amount of Gradle Configuration Time?](https://www.liutikas.net=
+/2025/11/02/Unreasonable-Configuration.html)=E2=80=9D makes a crisp, opinio=
+nated case: for a modern Apple Silicon laptop, **a well=E2=80=91maintained =
+build=E2=80=99s configuration phase should be roughly 100ms per subproject =
+on a config cache miss**. If your build has 20 subprojects, ~2 seconds is a=
+ reasonable ballpark. If you=E2=80=99re seeing 9s, 20s, 26s=E2=80=A6it=E2=
+=80=99s time to pop the hood.
+
+Why this rule of thumb works
+
+* The configuration phase is largely serial today (Isolated Projects is cha=
+nging that, but most builds aren=E2=80=99t there yet). You=E2=80=99re gated=
+ by single=E2=80=91core velocity, not parallelism.
+
+* Well=E2=80=91behaved plugins follow =E2=80=9Ctask configuration avoidance=
+=E2=80=9D and defer expensive work to execution. If configuration is slow, =
+someone=E2=80=99s doing too much up front.
+
+Measure it correctly (no vibes, only receipts)
+
+* You want to time just initialization + configuration, not task execution.=
+ The simplest way:
+
+  * Clear config cache: `rm -fr .gradle/configuration-cache/`
+
+* Dry run: `./gradlew build --dry-run`
+
+* Better: use [gradle-profiler](https://github.com/gradle/gradle-profiler) =
+to automate and smooth out variance. Aurimas provides a simple scenario fil=
+e to isolate _just_ the configuration phase with a clean cache:
+
+**Why does this matter?**
+
+Configuration runs _every single time_ you sync, build, or run a task. If y=
+our configuration is slow, every interaction with your build system is slow=
+. This compounds over hundreds of builds per day across your entire team.
+
+**Key takeaways:**
+
+1. **Measure your configuration time** using the dry-run approach above
+
+2. **Calculate your expected time** (number of subprojects =C3=97 100ms)
+
+3. **If you're more than 2-3x over**, you've got work to do
+
+4. **Profile to find the culprit** (see Aurimas's post for profiling techni=
+ques)
+
+5. **Common offenders**: plugins that do I/O during configuration, eager ta=
+sk creation, and complex dependency resolution
+
+Configuration phase should be lightweight and fast. If it's not, you're ble=
+eding productivity every single day. Time to investigate =F0=9F=94=8D
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+# =F0=9F=94=A6 Community Spotlight
+
+I love git bisect. But on mobile, rebuilds are expensive, caches are fickle=
+, and reproductions can be flaky. [Matt McKenna](https://bsky.app/profile/m=
+mckenna.me) [argues](https://blog.mmckenna.me/git-bisect-for-mobile-is-dead=
+) that in many cases it=E2=80=99s faster to shovel the =E2=80=9Cbig diff=E2=
+=80=9D between good and bad releases into an AI agent and ask: =E2=80=9CGiv=
+en the bug behavior, what looks suspicious?=E2=80=9D .=20
+
+Where it shines
+
+* Repro is flaky or only on prod devices.
+
+* 1000+ commits between tags with slow builds.
+
+* Vague symptoms: =E2=80=9Csome screens stall=E2=80=9D or =E2=80=9Cmetrics =
+dipped.=E2=80=9D
+
+Where bisect still wins
+
+* Minimal repro exists and is deterministic.
+
+* You have fast local builds and good caches.
+
+* You want the exact first bad commit as a fact in the postmortem.
+
+This is one more concrete example where LLMs are changing what our day to d=
+ay looks like and it=E2=80=99s a super important tool in our arsenal to use=
+ where the situation demands it.=20
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/9f5a6ea1-be17-4=
+298-b40e-569660a5b8ad/Spot_the_bug_solution.png?t=3D1746127289)
+Follow image link: (https://blog.bitdrift.io/post/memory-leaks?utm_campaign=
+=3Dsp&utm_medium=3Dnews&utm_source=3Ddispatch)
+Caption:=20
+
+Heres=E2=80=99s the order in which the print statements are printed=E2=80=
+=94
+
+```
+First
+Last
+DisposableEffect
+SideEffect
+Layout
+Draw
+LaunchedEffect
+```
+**Why This Order?**
+
+**1. Composition Phase (First, Last)**
+
+```
+First
+Last
+```
+These log statements execute during the **composition phase** - when Compos=
+e is reading your `@Composable` function to build/update the UI tree. This =
+phase runs synchronously and completely before any effects execute.
+
+**2. Effects Execute After Composition**
+
+After composition completes, Compose processes effects in a specific order:
+
+**DisposableEffect Before SideEffect**
+
+```
+DisposableEffect  // "Remembered effect"
+SideEffect        // "Side effect"
+```
+This is the key insight! Compose has two categories of effects:
+
+* **Remembered effects** (`DisposableEffect`, `LaunchedEffect`, `produceSta=
+te`, etc.) - These are effects that remember state and can be disposed
+
+* **Side effects** (`SideEffect`) - These run after every successful recomp=
+osition
+
+This makes sense architecturally: `SideEffect` is designed to publish Compo=
+se state to non-Compose code, so it should run after all Compose-managed ef=
+fects have set themselves up.
+
+**Layout and Draw**
+
+```
+Layout  // onSizeChanged
+Draw    // drawBehind
+```
+These run during the **layout** and **draw** phases of the standard Android=
+ rendering pipeline, which happens after composition and effects.
+
+**LaunchedEffect Comes Last**
+
+```
+LaunchedEffect
+```
+`LaunchedEffect` is special - it launches a coroutine, and by default uses =
+`Dispatchers.Main.immediate` (this is the case currently and the behavior w=
+as different pre Compose 1.0). However, the _body_ of the coroutine doesn't=
+ execute immediately. Here's why:
+
+* `LaunchedEffect` sets up during the effects phase (along with `Disposable=
+Effect`)
+
+* But the coroutine body itself is dispatched to the main thread's message =
+queue
+
+* This means it runs after the current frame's composition, layout, and dra=
+w are complete
+
+Think of it as: "The effect is registered now, but the work happens in the =
+next message loop iteration."
+
+Thanks to [Nicklas Ansman](https://bsky.app/profile/ansman.bsky.social) for=
+ asking this brainteaser in ASG and enlightening us with new insights.=20
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4=
+da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076)
+Caption:=20
+
+# =F0=9F=A6=84 How you can help?
+
+If you enjoy reading this newsletter and would like to keep Dispatch free, =
+here are two quick ways to help:
+
+=F0=9F=91=89=F0=9F=8F=BB **Chip in via **[**Github Sponsors**](https://gith=
+ub.com/sponsors/vinaygaba). **If your company offers an education budget, c=
+ontributing a =E2=80=9Ccoffee=E2=80=9D to keep this newsletter going will c=
+ertainly qualify**. You=E2=80=99ll get an instant receipt for reimbursement=
+, and I=E2=80=99ll keep Dispatch running =E2=98=95=EF=B8=8F All our kind su=
+pporters get [featured here](https://www.jetpackcompose.app/supporters).
+
+=F0=9F=91=89=F0=9F=8F=BB**Spread the word**. [Tweet](https://x.com/intent/p=
+ost?url=3Dhttps%3A%2F%2Fwww.jetpackcompose.app%2Fnewsletter&text=3DCheck+th=
+is+newsletter+by+%40vinaygaba&hashtags=3DAndroidDev%2CJetpackCompose&relate=
+d=3Dvinaygaba), [Bluesky](https://bsky.app/intent/compose?text=3DI%20love%2=
+0reading%20Dispatch%20to%20keep%20up%20with%20the%20Android%20ecosystem.%20=
+Check%20it%20out%20-%20https://www.jetpackcompose.app/newsletter), toot, Sl=
+ack, or carrier=E2=80=91pigeon this issue to someone who loves Android. Eac=
+h new subscriber pushes Dispatch closer to sustainability.
+
+# =F0=9F=91=82 Let me hear it!
+
+What=E2=80=99d you think of this email? Tap your choice below and lemme hea=
+r it =F0=9F=91=87=20
+
+##### =F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=80[ ](mailt=
+o:vinaygaba@gmail.com?subject=3DJetpackCompose.app%20Dispatch%20-%20Issue%2=
+0#23&body=3DThat%20was%20amazing)**[AMAZING-LOVED IT!](mailto:vinaygaba@gma=
+il.com?subject=3DJetpackCompose.app%20Dispatch%20-%20Issue%20#23&body=3DTha=
+t%20was%20amazing)**
+
+##### =F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=80[ ](mailto:vinaygaba@gmail.com?su=
+bject=3DJetpackCompose.app%20Dispatch%20-%20Issue%20#23&body=3DPretty%20goo=
+d)**[PRETTY GOOD!](mailto:vinaygaba@gmail.com?subject=3DJetpackCompose.app%=
+20Dispatch%20-%20Issue%20#23&body=3DPretty%20good)**
+
+##### =F0=9F=9A=80[ ](mailto:vinaygaba@gmail.com?subject=3DJetpackCompose.a=
+pp%20Dispatch%20-%20Issue%20#23&body=3DCould've%20been%20better)**[MEH - NO=
+T GREAT](mailto:vinaygaba@gmail.com?subject=3DJetpackCompose.app%20Dispatch=
+%20-%20Issue%20#23&body=3DCould've%20been%20better)**
+
+On that note, here=E2=80=99s hoping that your bugs are minor and your compi=
+lations are error free,
+
+=E2=80=94
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,forma=
+t=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/98648a15-a870-4=
+f13-91e8-669a521ae470/image.png?t=3D1743740108)
+Caption:=20
+
+**[Vinay Gaba](https://www.vinaygaba.me/?utm_source=3Djetpackcomposeapp.bee=
+hiiv.com&utm_medium=3Dnewsletter&utm_campaign=3Djetpackcompose-app-s-dispat=
+ch-issue-12&_bhlid=3Dbb58b3c0e815b4c0ed6ce6429851dc5bc770f4c8)**
+
+Tech Lead Manager @ Airbnb | Google Developer Expert for Android | ex-Snap,=
+ Spotify, Deloitte
+
+Vinay Gaba is a Google Developer Expert for Android and serves as a Tech Le=
+ad Manager at Airbnb, where he spearheads the UI Tooling team. His team's m=
+ission is to enhance developer productivity through cutting-edge tools leve=
+raging LLMs and Generative AI. Vinay has deep expertise in Android, UI Infr=
+astructure, Developer Tooling, Design Systems and Figma Plugins. Prior to A=
+irbnb, he worked at Snapchat, Spotify, and Deloitte. Vinay holds a Master's=
+ degree in Computer Science from Columbia University.
+
+
+
+=E2=80=94=E2=80=94=E2=80=94
+
+You are reading a plain text version of this post. For the best experience,=
+ copy and paste this link in your browser to view the post online:
+https://jetpackcomposeapp.beehiiv.com/p/dispatch-issue-23
+
+--f9a2e7c41078e4915587568e4640bdc3376f584d4f1436d55a53593328c3
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html><html lang=3D"en" xmlns=3D"http://www.w3.org/1999/xhtml" xml=
+ns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com=
+:office:office" style=3D"font-size:16px;"><head></head><head><meta charset=
+=3D"utf-8"/><!--[if !mso]><!--><meta http-equiv=3D"X-UA-Compatible" content=
+=3D"IE=3Dedge"/><!--<![endif]--><meta name=3D"viewport" content=3D"width=3D=
+device-width,initial-scale=3D1"/><meta name=3D"x-apple-disable-message-refo=
+rmatting"/><meta name=3D"format-detection" content=3D"telephone=3Dno,addres=
+s=3Dno,email=3Dno,date=3Dno,url=3Dno"/><meta name=3D"color-scheme" content=
+=3D"light"/><meta name=3D"supported-color-schemes" content=3D"light"/><titl=
+e>=F0=9F=9A=80 JetpackCompose.app&#39;s Dispatch Issue #23 | =F0=9F=A7=BE S=
+top GPL surprises with Licensee =E2=9A=96=EF=B8=8F =E2=9A=A1 Gradle config =
+speed rule =F0=9F=A4=AF Compose effects order puzzle =F0=9F=A7=A0 AI vs git=
+ bisect</title><!--[if mso]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:=
+PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif=
+]--><style>
+  :root { color-scheme: light; supported-color-schemes: light; }
+  body { margin: 0; padding: 0; min-width: 100%!important; -ms-text-size-ad=
+just: 100% !important; -webkit-transform: scale(1) !important; -webkit-text=
+-size-adjust: 100% !important; -webkit-font-smoothing: antialiased !importa=
+nt; }
+  .body { word-wrap: normal; word-spacing:normal; }
+  table.mso { width: 100%; border-collapse: collapse; padding: 0; table-lay=
+out: fixed; }
+  img { border: 0; outline: none; }
+  table {  mso-table-lspace: 0px; mso-table-rspace: 0px; }
+  td, a, span {  mso-line-height-rule: exactly; }
+  #root [x-apple-data-detectors=3Dtrue],
+  a[x-apple-data-detectors=3Dtrue],
+  #MessageViewBody a { color: inherit !important; text-decoration: inherit =
+!important; font-size: inherit !important; font-family: inherit !important;=
+ font-weight: inherit !important; line-height: inherit !important; }
+  span.MsoHyperlink { color: inherit !important; mso-style-priority: 99 !im=
+portant; }
+  span.MsoHyperlinkFollowed { color: inherit !important; mso-style-priority=
+: 99 !important; }
+  .a { background-color:#f9fafb; }
+  .b { background-color:#4636f7; }
+  .c  { background-color:#FFFFFF; }
+  .d { background-color:#FFFCDD; }
+  .d2 { background-color:#FFFFFF; }
+  .d3 { background-color:#FFFFFF; }
+  h1 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h2 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h3 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h4 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h5 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h6 a { text-decoration:none;color:#4636f7;font-weight:bold; }
+  h1, h1 a, h2, h2 a, h3, h3 a, h4, h4 a, h5, h5 a, h6, h6 a, ul, li, ol, p=
+, p a { margin: 0;padding: 0; }
+  h1 { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;font-size=
+:28px;color:#222222;line-height:1.75;padding-bottom:4px;padding-top:16px;ms=
+o-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  h2 { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;font-size=
+:24px;color:#2A2A2A;line-height:1.5;padding-bottom:4px;padding-top:16px;mso=
+-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  h3 { font-family:'Poppins',Helvetica,sans-serif;font-weight:700;font-size=
+:20px;color:#2A2A2A;line-height:1.25;padding-bottom:4px;padding-top:16px;ms=
+o-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  h4 { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;font-size=
+:18px;color:#2A2A2A;line-height:1.125;padding-bottom:4px;padding-top:16px;m=
+so-margin-top-alt:16px;mso-margin-bottom-alt:4px }
+  h5 { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;font-size=
+:16px;color:#2A2A2A;line-height:1;padding-bottom:4px;padding-top:4px;mso-ma=
+rgin-top-alt:4px;mso-margin-bottom-alt:4px }
+  h6 { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;font-size=
+:14px;color:#2A2A2A;line-height:0.875;padding-bottom:4px;padding-top:4px;ms=
+o-margin-top-alt:4px;mso-margin-bottom-alt:4px }
+  p { font-family:'Poppins',Helvetica,sans-serif;font-weight:400;color:#222=
+222;font-size:16px;line-height:1.5;padding-bottom:12px;padding-top:12px;mso=
+-margin-top-alt:12px;mso-margin-bottom-alt:12px; }
+  p a, .e a, ul a, li a, .h a, .h2 a, .h3 a { word-break:break-word;color:#=
+4636f7 !important;text-decoration:none;font-weight:bold; }
+  p a span, .e a span, ul a span, li a span { color: inherit }
+  p .bold { font-weight:bold;color:#222222; }
+  p span[style*=3D"font-size"] { line-height: 1.6; }
+  .f p { font-size:12px;line-height:15px;color:#222222;padding:0; }
+  .f p a { color:#222222 !important; }
+  .g p { font-family:'Poppins',Helvetica,sans-serif;font-size:14px;line-hei=
+ght:20px;font-weight:normal;margin:0; }
+  .g p a  { text-decoration: underline; }
+  .i p { font-family:'Poppins',Helvetica,sans-serif;line-height:1.5;font-si=
+ze:15px;color:#222222; }
+  .i p a { color:#222222 !important; }
+  .i2 p { font-family:'Poppins',Helvetica,sans-serif;line-height:1.5;font-s=
+ize:15px;color:#222222; }
+  .i2 p a { color:#222222 !important; }
+  .i3 p { font-family:'Poppins',Helvetica,sans-serif;line-height:1.8;font-s=
+ize:24px;color:#222222; }
+  .i3 p a { color:#222222 !important; }
+  .h p a { color:#595959 !important; }
+  .h2 p a { color:#595959 !important; }
+  .h3 p a { color:#595959 !important; }
+  .f p a, .i p a, .i2 p a, .i3 p a, .h p a, .h2 p a, .h3 p a { text-decorat=
+ion:underline; }
+  .j { border-top:3px Solid #DFD150; }
+  .k p { padding-left:15px;padding-bottom:0px;padding-top:6px;mso-margin-to=
+p-alt:6px;mso-margin-bottom-alt:0px;mso-margin-left-alt:15px; }
+  .o { background-color:#FFFFFF;border:1px solid #F1F1F1;border-radius:5px;=
+ }
+  .o p { font-family:'Poppins',Helvetica,sans-serif;padding:0px;margin:0px;=
+ }
+  .l p,
+  .l p a, .l a { font-size:14px;line-height:20px;font-weight: bold;color:#2=
+22222;padding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .m p,
+  .m p a { font-size:13px;line-height:18px;font-weight:400;color:#222222;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .n p,
+  .n p a { font-size:12px;line-height:17px;font-weight:400;color:#222222;pa=
+dding-bottom:6px;mso-margin-bottom-alt:6px;text-decoration:none; }
+  .p { background-color:#FFFFFF;max-width:520px;border:1px solid #E1E8ED;bo=
+rder:1px solid rgba(80, 80, 80, 0.3);border-radius:5px; }
+  .q { font-size:16px;font-family:Helvetica,Roboto,Calibri,sans-serif !impo=
+rtant;border:1px solid #e1e8ed;border:1px solid rgba(80, 80, 80, 0.3);borde=
+r-radius:10px;background-color:#FFFFFF; }
+  .q p { font-size:16px;font-family:system-ui,Helvetica,Roboto,Calibri,sans=
+-serif !important;color:#222222;padding:4px 0; }
+  .r { border:1px solid #E1E8ED !important;border-radius:5px; }
+  .s p { font-size: 14px; line-height: 17px; font-weight: 400; color: #6978=
+82; text-decoration: none; }
+  .t p { font-family:'Poppins',Helvetica,sans-serif;font-size:12px;line-hei=
+ght:1.5;font-weight:400;color:#222222;font-style:italic;padding:0px; }
+  .v { border-radius:10px;border:solid 0px #DFD150;background-color:#4636f7=
+;font-family:'Poppins',Helvetica,sans-serif;color:#FFFFFF; }
+  .v a { text-decoration:none;display:block;color:#FFFFFF; }
+  .w p { font-size:12px;line-height:15px;font-weight:400;color:#FFFFFF; }
+  .w p a { text-decoration: underline !important;color:#FFFFFF !important; =
+}
+  ul { font-family:'Poppins',Helvetica,sans-serif;margin:0px 0px 0px 25px !=
+important;padding:0px !important;color:#222222;line-height:24px;list-style:=
+disc;font-size:16px; }
+  ul > li { font-family:'Poppins',Helvetica,sans-serif;margin:10px 0px 0px =
+0px !important;padding: 0px 0px 0px 0px !important; color: #222222; list-st=
+yle:disc; }
+  ol { font-family:'Poppins',Helvetica,sans-serif;margin: 0px 0px 0px 25px =
+!important;padding:0px !important;color:#222222;line-height:24px;list-style=
+:decimal;font-size:16px; }
+  ol > li { font-family:'Poppins',Helvetica,sans-serif;margin:10px 0px 0px =
+0px !important;padding: 0px 0px 0px 0px !important; color: #222222; }
+  .e h3,
+  .e p,
+  .e span { padding-bottom:0px;padding-top:0px;mso-margin-top-alt:0px;mso-m=
+argin-bottom-alt:0px; }
+  .e span,
+  .e li { font-family:'Poppins',Helvetica,sans-serif;font-size:16px;color:#=
+222222;line-height:24px; }
+  .rec { font-family:  ui-sans-serif, system-ui, -apple-system, BlinkMacSys=
+temFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-ser=
+if, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color E=
+moji" !important; }
+  .rec__button:hover { background-color: #f9fafb !important; }
+  .copyright a {color: inherit !important; text-decoration: none !important=
+; font-size: inherit !important; font-family: inherit !important; font-weig=
+ht: inherit !important; line-height: inherit !important;}
+  .txt_social p { padding: 0; word-break: break-all; }
+  .table, .table-c, .table-h { border: 1px solid #C0C0C0; }
+  .table-c { padding:5px; background-color:#FFFFFF; }
+  .table-c p { color: #222222; font-family:'Poppins',Helvetica,sans-serif !=
+important;overflow-wrap: break-word; }
+  .table-h { padding:5px; background-color:#F1F1F1; }
+  .table-h p { color: #222222; font-family:'Poppins',Helvetica,sans-serif !=
+important;overflow-wrap: break-word; }
+  @media only screen and (max-width:667px) {
+    .aa, .w100pc { width: 100% !important; }
+    .bb img { width: 100% !important; height: auto !important; max-width: n=
+one !important; }
+    .cc { padding: 0px 8px !important; }
+    .ee { padding-top:10px !important;padding-bottom:10px !important; }
+    .ff ul, .ff ol { margin: 0px 0px 0px 10px !important;padding: 0px !impo=
+rtant; }
+    .ff li { margin:10px 0px 0px 10px !important; }
+    .r {height:140px !important;}
+    .s p { font-size:13px !important;line-height:15px !important; }
+    .mob-hide {display:none !important;}
+    .mob-show {display: block !important; width: auto !important; overflow:=
+ visible !important; float: none !important; max-height: inherit !important=
+; line-height: inherit !important;}
+    .mob-stack {width:100% !important;display:block !important;}
+    .mob-w-full {width:100% !important;}
+    .mob-block {display:block !important;}
+    .embed-img {padding:0px 0px 12px 0px !important;}
+    .socialShare {padding-top:15px !important;}
+    .rec { padding-left:15px!important;padding-right:15px!important; }
+    .bodyWrapper { padding:10px 4px 10px 4px !important; }
+    .social-mobile {float:left !important;margin-top:10px !important;}
+  }
+  @media screen and (max-width: 480px) {
+    u + .a .gg { width: 100% !important; width: 100vw !important; }
+    .tok-heart { padding-top:75% !important; }
+    .tok-play { padding-top: 250px !important; }
+  }
+  @media screen and (max-width: 320px) {
+    .tok-heart { padding-top:65% !important; }
+  }
+  .u { border: 1px solid #CACACA !important; border-radius: 2px !important;=
+ background-color: #ffffff !important; padding: 0px 13px 0px 13px !importan=
+t; font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Se=
+goe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif !important;fon=
+t-size: 12px !important; color: #767676 !important; }
+  .u a { text-decoration: none; display: block !important; color: #767676 !=
+important; margin: 0px !important; }
+  .u span, .u img { color: #767676 !important;margin:0px !important; max-he=
+ight:32px !important;background-color:#ffffff !important; }
+</style><!--[if mso]><style type=3D"text/css">
+    h1, h2, h3, h4, h5, h6 {font-family: Arial, sans-serif !important;}
+    body, table, td, p, a, span {font-family: Arial, sans-serif !important;=
+}
+    sup { font-size: 100% !important;vertical-align: .5em !important;mso-te=
+xt-raise: -1.5% !important;line-height: 0 !important; }
+    ul { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ul li { margin-left: 0px !important; mso-special-format: decimal; }
+    ol { margin-left:0px !important; margin-right:10px !important; margin-t=
+op:20px !important; margin-bottom:20px !important; }
+    ol li { margin-left: 0px !important; mso-special-format: decimal; }
+    li.listItem { margin-left:15px !important; margin-top:0px !important; }
+    .paddingDesktop { padding: 10px 0 !important; }
+    .edm_outlooklist { margin-left: -20px !important; }
+    .embedImage { display:none !important; }
+</style><![endif]--><!-- __merge_tags_in_links__ --><style>
+        @font-face {
+          font-family: 'Poppins';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/poppins/v22/pxiEyp8kv8JHgFV=
+rJJfecnFHGPc.woff2') format('woff2');
+        }
+
+        @font-face {
+          font-family: 'Poppins';
+          font-style: italic;
+          font-weight: 400;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/poppins/v22/pxiGyp8kv8JHgFV=
+rJJLucHtAOvWDSA.woff2') format('woff2');
+        }
+        @font-face {
+          font-family: 'Poppins';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/poppins/v22/pxiByp8kv8JHgFV=
+rLCz7Z1xlFd2JQEk.woff2') format('woff2');
+        }
+
+        @font-face {
+          font-family: 'Poppins';
+          font-style: italic;
+          font-weight: 700;
+          font-display: swap;
+          src: url('https://fonts.gstatic.com/s/poppins/v22/pxiDyp8kv8JHgFV=
+rJJLmy15VF9eOYktMqg.woff2') format('woff2');
+        }
+</style></head><body class=3D"a" style=3D"margin:0px auto;padding:0px;word-=
+wrap:normal;word-spacing:normal;background-color:#f9fafb;"><div role=3D"art=
+icle" aria-roledescription=3D"email" aria-label=3D"email_name" lang=3D"en" =
+style=3D"font-size:1rem"><div style=3D"display:none;max-height:0px;overflow=
+:hidden;"> =F0=9F=92=8C In today=E2=80=99s Dispatch:=F0=9F=A7=BE Stop GPL s=
+urprises with Licensee =E2=9A=A1 Gradle config speed rule =F0=9F=A4=AF Comp=
+ose effects order puzzle =F0=9F=A7=A0 AI vs git bisect &#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;=
+&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#1=
+60;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;=
+&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#82=
+04;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&=
+#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#16=
+0;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&=
+#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#820=
+4;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#=
+8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160=
+;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#=
+160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204=
+;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8204;&#160;&#8=
+204;&#160;&#8204;&#160;&#8204; </div><table role=3D"none" width=3D"100%" bo=
+rder=3D"0" cellspacing=3D"0" align=3D"center" cellpadding=3D"0" class=3D"gg=
+"><tr><td align=3D"center" valign=3D"top"><table role=3D"none" width=3D"670=
+" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" class=3D"aa" style=3D"wi=
+dth:670px;table-layout:fixed;"><tr><td class=3D"bodyWrapper" align=3D"cente=
+r" valign=3D"top" style=3D"padding:10px 5px 10px 5px;"><table role=3D"none"=
+ width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"c=
+enter"><tr><td align=3D"center" valign=3D"top" style=3D"border-width:0px 0p=
+x 0px 0px;border-style: solid; border-color: #4636f7;border-radius:10px 10p=
+x 0px 0px;background-color:#FFFFFF;" class=3D"c"><table role=3D"none" width=
+=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"=
+><tr id=3D"header"><td style=3D"padding:15px 15px 0px 15px;"><div style=3D"=
+padding-top:0px;padding-right:0px;padding-bottom:20px;padding-left:0px;"><t=
+able role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" align=3D"center"><tr><td class=3D"f" align=3D"right" valign=3D"top"=
+><p> November 14, 2025 &nbsp; | &nbsp; <a href=3D"https://link.mail.beehiiv=
+.com/ss/c/u001.8U9ubRxM-1UkyChnWssEh1VU-OwihNKvFKRYv51QbKPgqTttg7220xjQNQVb=
+qP59ZTXfC7bVfzOULbdvGLwOWTSEk-hcit0WASlFtv1LV97QQLrjSFZ7LM7f6F3bExsowVB9Qs2=
+pAzLF-UhCXeXBtfA5gru1K5ifwfuLDaw_fMpc_3lii2Tpk22cghs4IlWjT9N0w3WA2K-a-3k7GA=
+Z7AlA-RUODPcI_lgq5QwOu6RoiV9yhnE56l64oKd8km3r98DXMBvZjHGl3shcwa1n4yXqcP3Pdp=
+vIZ7_sAysJ4FaNuFUM2Xlxk7V-iId0VquyhvRfG4CA2R1Ot-K4lEdMs5BlSq3k14c8Biou2pRoJ=
+VioVTVRf8J_WvG_ZMftogpeD8FTbqBxUYIGiFMKdY8GkMFHboXo_z8FuXEEZc625TL0wjjok0zL=
+LmElqIMlVd8_FDqMTTZIPtXeWeiOe-TAyk2dgvbv70z9LiI53lf1b2xfqcL0HfetAeGEqKQB8Az=
+s803QQG0Rr63i00zU9Fz023aZNuJ612fiPILQRR5_HMLuDW1WeA8kr6OvGYVAccURYsSrckbjhO=
+GfTCT08Zgde5oy-ccdcOXSRSUKNoZgyIG0zUxFjWJNuuYNIovTJVznpVZaGbmNrdUEsFtCSogqT=
+OxIbsrJWh4bNDbog07BWIOKfpt6xRiOVxl9lcznCcYD8sKWbAI9hXZkTFYS2gZkNJioZyQmnQUT=
+efPUV8zVLynVAFKjBcGqIpVoPQvkg7FAKHr1pmL5_NogA4o1URbIxkgAIXyblaENCZFeTirXtip=
+GtepmMUhOL9Ekvv-_72stj5Ok-YUlVnExZvJSrSavjmKIjmVOwApvLcuOL2EgXYY8/4ll/JaCmo=
+O2XR_mOOL4COBFzHw/h0/h001.AdbJkO2XLZeQj9XzWCnmCO2BR3j6235mLmo8mEp7CeA"><spa=
+n class=3D"translation_missing" title=3D"translation missing: en.templates.=
+posts.email.header.read_online">Read Online</span></a></p></td></tr><tr><td=
+ class=3D"dd" align=3D"center" valign=3D"top" style=3D"padding:15px 0;"><ta=
+ble role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" align=3D"center"><tr><td align=3D"center" valign=3D"top"><h1 style=
+=3D"text-align:left;font-family:'Poppins',Helvetica,sans-serif;font-weight:=
+Bold;font-size:32px;color:#222222;padding:2px 0;line-height:38px;"> Jetpack=
+Compose.app&#39;s Dispatch Issue #23 </h1><p style=3D"text-align:left;font-=
+family:'Poppins',Helvetica,sans-serif;font-weight:normal;font-size:20px;col=
+or:#3E3E3E;padding:5px 0;line-height:24px;"> =F0=9F=92=8C In today=E2=80=99=
+s Dispatch:=F0=9F=A7=BE Stop GPL surprises with Licensee =E2=9A=A1 Gradle c=
+onfig speed rule =F0=9F=A4=AF Compose effects order puzzle =F0=9F=A7=A0 AI =
+vs git bisect </p></td></tr></table></td></tr><tr><td align=3D"center" vali=
+gn=3D"top" class=3D"dd"><table role=3D"none" width=3D"100%" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"left" v=
+align=3D"middle" class=3D"mob-stack"><table role=3D"none" border=3D"0" cell=
+spacing=3D"0" cellpadding=3D"0" align=3D"right" class=3D"social-mobile"><tr=
+><td align=3D"left" valign=3D"middle"><table role=3D"none" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0" align=3D"left" style=3D"width:100%"><tr><t=
+d align=3D"center" valign=3D"middle"><a href=3D"https://link.mail.beehiiv.c=
+om/ss/c/u001.DgkFNI5fx5JE22pMoCZFwLthoO8EAda-gTSubkiPggFj8usWPQdZOFu16tdTFr=
+q-aHfexA0VxF5mPaauCZBVYkcYiozEDSoYCiejBAcmB7-PafEfPg_-uKqwZrCmnbotr6svyNYPE=
+Odlfh-cjil5oFUqb7h4Kc4ac57u114xwB-rziGGdALy-4oOr_lD3o1pvhNdGSq46V6j7lXxG6Kb=
+y1x1h_aGYLDVP7QWGwKVdDwG1fVs9qRFFnEZPNK3iEH5iXqIFyUGlD4vavLLjVvAQMcyNDGaxhz=
+s0tPTdbLFSogisYvwrsF_sfZ1_SCxfoS2BGzneSGFmlo726cTelRwmNvoY_k7klfwMwyMBBM8LE=
+LIBU9v4YyOTwEcJaVnkMSi/4ll/JaCmoO2XR_mOOL4COBFzHw/h1/h001.76auZ_5cPpKyI4SP-=
+a-FnT26_HDKFcVOPNvgjF4l8bg" style=3D"text-decoration:none; display:block;">=
+<table role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=
+=3D"center"><tr><td align=3D"center" valign=3D"middle" style=3D"border: 1px=
+ solid #E5E7EB; border-radius: 100%; width: 18px; height: 18px; padding: 8p=
+x;"><img style=3D"display:block; width:100%; height:100%; max-width:18px; m=
+ax-height:18px; object-fit: contain;" alt=3D"share on facebook" width=3D"18=
+" border=3D"0" src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-d=
+own,format=3Dauto,onerror=3Dredirect,quality=3D80/static_assets/header/face=
+book.png"/></td></tr></table></a></td><td width=3D"8" style=3D"width:8px;">=
+&nbsp;</td><td align=3D"center" valign=3D"middle"><a href=3D"https://link.m=
+ail.beehiiv.com/ss/c/u001.fkViF09bFfun30fF7Tap4VJaPnnJKjT4PNBbnAyb_LhvjHxyQ=
+2vjlmXP7bCwQbRl8WkmrdCUCzaoIxUf4hIYRgDIjMZ_ok8SrqqtIg4fZFQIYa3_Y0nBE0LQo43t=
+0u227t5KHusqqrY01gPJJ-8wq-mm98h1lxfdogZMNQcXrZuoXDMkToi2Ezfz92qvoWStv7CuDhT=
+Xtxuj5gSHCb_J3NDYdEBHrImctsbA78IH56yXESz-nzAAzdcObwfUgU45MOfK_WQDopWSA1n9n-=
+MNp1rQCDy4XpcEkHZmjGbAd63AV8Y-x7LBn5QXarFJxce6b7Txeh-1QHhQVJ40PUOCHKpFCqXe5=
+whWmRwaGNiQAoDIid55KblTrjKX-joma88GdmjUOWLivTHdTz6DKlmvhTNu47UOGFh1rnC1YMEF=
+yAayglq-JUB2wOESzLdvW6r3fAWItBNCCe0gotNMSRPyNn19Sk4kYeo6qlsvMPrNNqeQEvFUULI=
+F9nJOKUsqDaiu9Z7b5jgxTx3pTrN8rtLjsouQ_-qtZ2DW-ME4fNX-z5jkjWQJylfE7egmEIfikY=
+TP74tJEBKAc6Ac5HLLGf7oLp-XkelKUTdxFxXAaL_eFhtL5h7wnSqKrxM1ST-mjevsZQu324DVJ=
+N0aNYL5KIn2Cw/4ll/JaCmoO2XR_mOOL4COBFzHw/h2/h001.47MCZd9XEK0T5XSEbGmJmA5o1B=
+pbFUV4nCeKRQRiMIM" style=3D"text-decoration:none; display:block;"><table ro=
+le=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"cente=
+r"><tr><td align=3D"center" valign=3D"middle" style=3D"border: 1px solid #E=
+5E7EB; border-radius: 100%; width: 18px; height: 18px; padding: 8px;"><img =
+style=3D"display:block; width:100%; height:100%; max-width:18px; max-height=
+:18px; object-fit: contain;" alt=3D"share on twitter" width=3D"18" height=
+=3D"18" border=3D"0" src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Ds=
+cale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/static_assets/heade=
+r/x.png"/></td></tr></table></a></td><td width=3D"8" style=3D"width:8px;">&=
+nbsp;</td><td align=3D"center" valign=3D"middle"><a href=3D"https://link.ma=
+il.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwIXUwdzeriIJ_sV6F3S-z0VHhb-yJ0=
+qoVZATP9LMvXYFxGXVkJlXvU0ofHFHF89ow8Bd3282XAaDFRAT8taixutbqnm3qJFvX_BMEIvqK=
+6RQhiaCwfv9kjkI7sdPta2bHxtF75t2EKMaw3PvDyfJg9uCHTqFwdZ9oGMZFQ9v1w_A8bczQQMo=
+mmAQOl0kaIC2QOoRb6_pwO83wxyy8GmmhaZ-wrf5gLCMofg5oEInEAZRkn9iuf-nZGzmddoOpR_=
+_YW1nYrIrNvxdbq54e9O0fLhmwmuvpNiNbyqhencvOhjEkzUH1IjoOZQeAjEdjR9CxFsK5xbd8b=
+5Nm3Jn7BozNlVO8FEXN7YMwpnur81hR_WUApZAmPiVgpvVsSMPkA6NJHeZsXQEVjYEhAy9YxPx_=
+F8ZkhGeO8NsAeIQaCXf6BissuMcQZ_aW06YSeoEE4ByZr-55DbrGOnZ-ZaIZINCQCHc0pyy0klK=
+hG3a9ZLGYOerGqWtHizXWP4xqyOThJZQpK-pfY91f-EN9xhfPU21-BGg8qBd5lygFdMACxgc_ea=
+H9_M2InSbppHZEvdGxa9fxAAMESe3NBYYtN7P3Jo4y7nXZ37dad8CNmHdqUPqnpvL/4ll/JaCmo=
+O2XR_mOOL4COBFzHw/h3/h001.ads-YLgtVNN1m9JZYvh6g_xtcQFqg7EknLEo-k0otVQ" styl=
+e=3D"text-decoration:none; display:block;"><table role=3D"none" border=3D"0=
+" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"cen=
+ter" valign=3D"middle" style=3D"border: 1px solid #E5E7EB; border-radius: 1=
+00%; width: 18px; height: 18px; padding: 8px;"><img style=3D"display:block;=
+ width:100%; height:100%; max-width:18px; max-height:18px; object-fit: cont=
+ain;" alt=3D"share on threads" width=3D"18" height=3D"18" border=3D"0" src=
+=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,=
+onerror=3Dredirect,quality=3D80/static_assets/header/threads.png"/></td></t=
+r></table></a></td><td width=3D"8" style=3D"width:8px;">&nbsp;</td><td alig=
+n=3D"center" valign=3D"middle"><a href=3D"https://link.mail.beehiiv.com/ss/=
+c/u001.DgkFNI5fx5JE22pMoCZFwGBM6Fqh00-MoI-hDmH0PV_-yX1Md8MlKUH0lPHrTtLbKK8T=
+H7CgdLM8-RRLPDiet8YmnvXlgmQR3yaejmoFTPwtsiZzIOq-ZE7ALcBocvvoHxENR84yxysGHWD=
+Rwz_rIpsg5-Lt3olTxptHW4uH3eiR0dLbJH8hTOy_zY4tDQ8lH7HzmlkUsIk_vdHMlMJ9v0nIeY=
+6BIFRHoxJyxzPNA53P9rLtjmfQzc4B2DkfeSjowh8YgeSgPY33rRi6JoSqiDpYjbbr3v-bkS4FT=
+1tDV0Swjo4kfPchOLLhUWDXUUm1JgsplWoIUmEmZlJ7ANbRcPOzhU8HgP0LYNL_z_ApYrRdAhhq=
+-i6cU1qhj-RSXP0vDPzepawDZSItG3ay5NFODw/4ll/JaCmoO2XR_mOOL4COBFzHw/h4/h001.z=
+l9-rOhH8BozhAjK25Ri9BeOLfMXPnCO5S6nd3WQjV8" style=3D"text-decoration:none; =
+display:block;"><table role=3D"none" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" align=3D"center"><tr><td align=3D"center" valign=3D"middle" styl=
+e=3D"border: 1px solid #E5E7EB; border-radius: 100%; width: 18px; height: 1=
+8px; padding: 8px;"><img style=3D"display:block; width:100%; height:100%; m=
+ax-width:18px; max-height:18px; object-fit: contain;" alt=3D"share on linke=
+din" width=3D"18" height=3D"18" border=3D"0" src=3D"https://media.beehiiv.c=
+om/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=
+=3D80/static_assets/header/linkedin.png"/></td></tr></table></a></td></tr><=
+/table></td></tr></table></td></tr></table></td></tr><tr><td style=3D"line-=
+height:0;"><div data-open-tracking=3D"true"> <img src=3D"https://link.mail.=
+beehiiv.com/ss/o/u001.eM8IusFZxtj9gc9jsunxhw/4ll/JaCmoO2XR_mOOL4COBFzHw/ho.=
+gif" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !im=
+portant;width:1px !important;border-width:0 !important;margin-top:0 !import=
+ant;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !imp=
+ortant;padding-top:0 !important;padding-bottom:0 !important;padding-right:0=
+ !important;padding-left:0 !important;"/> </div></td></tr></table></div></t=
+d></tr><tr id=3D"content-blocks"><td class=3D"email-card-body" align=3D"cen=
+ter" valign=3D"top" style=3D"padding-bottom:px;"><table role=3D"none" width=
+=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"=
+><tr><td><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" style=3D""><tr><td height=3D"8.0px" style=3D"line-height=
+:1px;font-size:1px;height:8.0px;"> &nbsp; </td></tr><tr><td><table role=3D"=
+none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><=
+td width=3D"8.0px" style=3D"line-height:1px;font-size:1px;width:8.0px;"> &n=
+bsp; </td><td bgcolor=3D"#F2F7FF" style=3D"background-color:#F2F7FF;border-=
+color:#222;border-radius:16px;border-style:solid;border-width:4px;padding:8=
+.0px 8.0px 8.0px 8.0px;"><table role=3D"none" width=3D"100%" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0"><tr><td align=3D"center" valign=3D"top" =
+style=3D"padding-bottom:20px;padding-left:15px;padding-right:15px;padding-t=
+op:20px; " class=3D"dd"><table role=3D"none" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td align=3D"center"=
+ valign=3D"top" style=3D"width:409px;"><a href=3D"https://link.mail.beehiiv=
+.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwHpzmrSQi6KDSXOZjym00SPu8-ozypXbSQpr18mf=
+63tBOeAe-A1VutqYUbiSCAJRCbnDMpG8dgQcZUC5ayCyx7CNmQU-TLwgpYWUu_Tpv-65X43g572=
+JAyVie5B-cxuuTtbeamo_4LQAaCS1RxwuFJR6V3ChfuXKe7sOGDZYJC4dxrfiPyvDD0wf7i1l_V=
+JjwaZ_MoonciBdP1qmt2LSwDs3o38rte8HjS74vjbyIF99Jepy_b1TDuLC_nMBZQFnrQ/4ll/Ja=
+CmoO2XR_mOOL4COBFzHw/h5/h001.fyD1-lXStUNGchPcacFm80E-cHMotjoO7irEXckInAU" r=
+el=3D"noopener noreferrer nofollow" style=3D"text-decoration:none;" target=
+=3D"_blank"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale=
+-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/f354=
+632e-3542-4929-abfc-955561e34f67/Dispatch_Logo_w__Runway.png?t=3D1747608544=
+" alt=3D"" height=3D"auto" width=3D"409" style=3D"display:block;width:100%;=
+border-radius:0px 0px 0px 0px;border-style:solid;border-width:0px 0px 0px 0=
+px;box-sizing:border-box;border-color:#222;" border=3D"0"/></a></td></tr></=
+table></td></tr><tr><td class=3D"dd" align=3D"center" valign=3D"top" style=
+=3D"color:#2A2A2A;font-weight:normal;padding:0px 15px;text-align:center;"><=
+h5 style=3D"color:#2A2A2A;font-weight:normal;mso-line-height-alt:100.0%;"><=
+span style=3D"background-color:#d7ff9e;"><span style=3D""><b>2025 State of =
+Mobile Release Management</b></span></span></h5></td></tr><tr><td class=3D"=
+dd" align=3D"justify" style=3D"padding:0px 15px;text-align:justify;word-bre=
+ak:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><span style=3D""><=
+a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5=
+JE22pMoCZFwHpzmrSQi6KDSXOZjym00SPu8-ozypXbSQpr18mf63tBOeAe-A1VutqYUbiSCAJRC=
+bnDMpG8dgQcZUC5ayCyx7CNmQU-TLwgpYWUu_Tpv-65X43g572JAyVie5B-cxuuTtbeamo_4LQA=
+aCS1RxwuFJR6V3ChfuXKe7sOGDZYJC4dxrfiPyvDD0wf7i1l_VJjwZv3Z0FU-894SlGtCCkgLoJ=
+pJnlx_DA44o_obi96HICBtVXNfrK5Kv3mwYlD9ancnQ/4ll/JaCmoO2XR_mOOL4COBFzHw/h6/h=
+001.fU0Va1wLB_3n4XO8Gc9HfjwTFQ_80_FqMM0j3K5se8g" target=3D"_blank" rel=3D"n=
+oopener noreferrer nofollow"><span>Runway</span></a></span><span style=3D""=
+>&#39;s new report on mobile releases shows that automation alone isn&#39;t=
+ solving core issues: </span><span style=3D""><b>teams that invest signific=
+antly in automation still lose 6=E2=80=9310 hours per release to manual bus=
+ywork and coordination overhead</b></span><span style=3D""> =E2=80=93 about=
+ the same as teams with less automation in place</span></p></td></tr><tr cl=
+ass=3D"btn_row"><td valign=3D"top" style=3D"padding-bottom:14px;padding-lef=
+t:15px;padding-right:15px;padding-top:14px;text-align:center;width:100%;wor=
+d-break:break-word;" class=3D"dd"><table width=3D"100%" role=3D"none" borde=
+r=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:14px auto 14px =
+auto;"><tr><td align=3D"center" valign=3D"middle"><table role=3D"none" bord=
+er=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td style=3D"background-co=
+lor:#4636f7;border-radius:10px;mso-padding-alt:14px 14px;" class=3D"btn"><a=
+ href=3D"https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwHpzmr=
+SQi6KDSXOZjym00SPu8-ozypXbSQpr18mf63tBOeAe-A1VutqYUbiSCAJRCbnDMpG8dgQcZUC5a=
+yCyx7CNmQU-TLwgpYWUu_Tpv-65X43g572JAyVie5B-cxuuTtbeamo_4LQAaCS1RxwuFJR6V3Ch=
+fuXKe7sOGDZYJC4dxrfiPyvDD0wf7i1l_VJjwXo9ZrCf_W-CObetnEg5AhdP25x5dKe40T7WMOw=
+8EC4vvgIzjGNzxVibKE3uPQQFpQ/4ll/JaCmoO2XR_mOOL4COBFzHw/h7/h001.7gr5SwLpDaJf=
+BVAQBcEhTHyjvvel5c4p6WUL1P3ncHc" target=3D"_blank" rel=3D"noopener noreferr=
+er nofollow" style=3D"background-color:#4636f7;border-radius:10px;color:#FF=
+FFFF;display:inline-block;font-family:'Poppins',Helvetica,sans-serif;font-s=
+ize:16px;font-weight:normal;line-height:18px;padding:14px 14px;text-decorat=
+ion:none;"> Read the full report =E2=86=92 </a></td></tr></table></td></tr>=
+</table></td></tr></table></td><td width=3D"8.0px" style=3D"line-height:1px=
+;font-size:1px;width:8.0px;"> &nbsp; </td></tr></table></td></tr><tr><td he=
+ight=3D"8.0px" style=3D"line-height:1px;font-size:1px;height:8.0px;"> &nbsp=
+; </td></tr></table></td></tr><tr><td class=3D"dd" align=3D"justify" style=
+=3D"padding:0px 15px;text-align:justify;word-break:break-word;"><p style=3D=
+"mso-line-height-alt:150.0%;"> GM Friends. This is <a class=3D"link" href=
+=3D"https://link.mail.beehiiv.com/ss/c/u001._tsfBaTYDXVcTACgjk6AyxX1A3CY2bu=
+Q-jRQQKRamSPAUjr3z0pmTnFIpC46fI37UX1iLci02SZaqT8S5VCZRhfxUjsUQILavLUZpfRI0L=
+W7XnmvLlsgHIJlCJpz3zHiTEWKnH_4YUmynXQryjkkH1CqOhQYLyCTR6atTbObG_5wUHnyvTDNp=
+EzCaB2zFcCJ4cXBfXCM74XEHxtZU0j8zOq0OsuWQScOwDlktILsCvWqyfzd5Gb4divoedOWMTgH=
+QpQDxl4rwHrRkD-mVRWsuQ/4ll/JaCmoO2XR_mOOL4COBFzHw/h8/h001.ewG4-oRovAcOP6C5k=
+8R2vFOgC8LDxhfhreeDcwfYjg0" target=3D"_blank" rel=3D"noopener noreferrer no=
+follow"><span>JetpackCompose.app</span></a>=E2=80=99s Dispatch, the newslet=
+ter that arrives in your inbox with more performance-boosting energy than a=
+ perfectly configured Baseline Profile. </p></td></tr><tr><td class=3D"dd" =
+align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-w=
+ord;"><p style=3D"mso-line-height-alt:150.0%;"> This is Issue # 23, so, sil=
+ence that Slack notification for &quot;just five more minutes,&quot; grab y=
+our favorite Friday morning/night alcoholic beverage, and let&#39;s dive in=
+=E2=80=A6 <i>hic</i>=C2=A0=F0=9F=98=B5=E2=80=8D=F0=9F=92=AB </p></td></tr><=
+tr><td id=3D"tipsy-tip" class=3D"dd" align=3D"center" valign=3D"top" style=
+=3D"color:#222222;font-weight:normal;padding:0px 15px;text-align:center;"><=
+h1 style=3D"color:#222222;font-weight:normal;mso-line-height-alt:175.0%;">=
+=F0=9F=A5=82=C2=A0Tipsy Tip</h1></td></tr><tr><td class=3D"dd" align=3D"jus=
+tify" style=3D"padding:0px 15px;text-align:justify;word-break:break-word;">=
+<p style=3D"mso-line-height-alt:150.0%;"> Here&#39;s a scenario that keeps =
+legal teams up at night: you&#39;re building a closed-source product, and s=
+omewhere deep in your dependency graph, a GPL-licensed library sneaks in. B=
+y the time you discover it, you&#39;re weeks away from release. Panic ensue=
+s. Lawyers get involved. Your PM starts stress-eating donuts. </p></td></tr=
+><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:l=
+eft;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Enter=
+ <a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.VBK7zsTE=
+8wL-WWof4_f9imXSnGUYBrR2KoWO4vgk9Z9ImwEmVFtd3nac6877a1tmCRKYWlZk-rv6cIMH0aE=
+6FTuf3TqwFu-WiWRijZM7MMS4QvwTTUjfw0DWMeXTIqNxRbi7ov1VBOtp1cJO7ja7TTCyRh7CRE=
+QksEHSy0PcjEiwZE5pXiKtjRvmoFfuHD6EKoLewiIUOo51y7VD9cwV1JXxHSCHTE4F6Kdn1LIr7=
+7MjKkcb9NcV6alKmvyIszDCEsbXvAbGWM5X0RJf92ktsA/4ll/JaCmoO2XR_mOOL4COBFzHw/h9=
+/h001.w4TR5ObaTndYkaWdnZgzRCfcs9yLaIFIDB_OFFoyJlw" target=3D"_blank" rel=3D=
+"noopener noreferrer nofollow"><span>Licensee</span></a>, a brilliant Gradl=
+e plugin from the folks at Cash App that validates your dependency licenses=
+ <i>before</i> they become a problem. </p></td></tr><tr><td class=3D"dd" al=
+ign=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-wor=
+d;"><p style=3D"mso-line-height-alt:150.0%;"> Here&#39;s how it works: you =
+define which licenses your project allows, and Licensee fails your build if=
+ anything violates those rules. It&#39;s like having a legal compliance off=
+icer built into your CI pipeline. </p></td></tr><tr><td class=3D"dd" align=
+=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"=
+><p style=3D"mso-line-height-alt:150.0%;"><b>Setup is dead simple:</b></p><=
+/td></tr><tr><td style=3D"padding:0px 15px;"><pre style=3D"background:#2828=
+28;border-radius:10px;color:#FFFFFF;line-height:1.5;overflow-wrap:break-wor=
+d;padding:16px;white-space:pre-wrap;word-break:break-word;"><code><span sty=
+le=3D"color: #d2a8ff">buildscript</span> <span style=3D"color: #c9d1d9">&#1=
+23;</span>
+  <span style=3D"color: #d2a8ff">repositories</span> <span style=3D"color: =
+#c9d1d9">&#123;</span>
+    <span style=3D"color: #d2a8ff">mavenCentral</span><span style=3D"color:=
+ #c9d1d9">()</span>
+  <span style=3D"color: #c9d1d9">&#125;</span>
+  <span style=3D"color: #d2a8ff">dependencies</span> <span style=3D"color: =
+#c9d1d9">&#123;</span>
+    <span style=3D"color: #c9d1d9">classpath</span> <span style=3D"color: #=
+f0f6fc;background-color: #8e1519">'</span><span style=3D"color: #c9d1d9">ap=
+p</span><span style=3D"color: #c9d1d9">.</span><span style=3D"color: #c9d1d=
+9">cash</span><span style=3D"color: #c9d1d9">.</span><span style=3D"color: =
+#c9d1d9">licensee</span><span style=3D"color: #c9d1d9">:</span><span style=
+=3D"color: #c9d1d9">licensee-gradle-plugin</span><span style=3D"color: #c9d=
+1d9">:</span><span style=3D"color: #79c0ff">1.14.1</span><span style=3D"col=
+or: #f0f6fc;background-color: #8e1519">'</span>
+  <span style=3D"color: #c9d1d9">&#125;</span>
+<span style=3D"color: #c9d1d9">&#125;</span>
+
+<span style=3D"color: #c9d1d9">apply</span> <span style=3D"color: #c9d1d9">=
+plugin</span><span style=3D"color: #c9d1d9">:</span> <span style=3D"color: =
+#f0f6fc;background-color: #8e1519">'</span><span style=3D"color: #c9d1d9">a=
+pp</span><span style=3D"color: #c9d1d9">.</span><span style=3D"color: #c9d1=
+d9">cash</span><span style=3D"color: #c9d1d9">.</span><span style=3D"color:=
+ #c9d1d9">licensee</span><span style=3D"color: #f0f6fc;background-color: #8=
+e1519">'</span></code></pre></td></tr><tr><td class=3D"dd" align=3D"left" s=
+tyle=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=
+=3D"mso-line-height-alt:150.0%;"><b>Then configure your allowed licenses:</=
+b></p></td></tr><tr><td style=3D"padding:0px 15px;"><pre style=3D"backgroun=
+d:#282828;border-radius:10px;color:#FFFFFF;line-height:1.5;overflow-wrap:br=
+eak-word;padding:16px;white-space:pre-wrap;word-break:break-word;"><code><s=
+pan style=3D"color: #d2a8ff">licensee</span> <span style=3D"color: #c9d1d9"=
+>&#123;</span>
+  <span style=3D"color: #d2a8ff">allow</span><span style=3D"color: #c9d1d9"=
+>(</span><span style=3D"color: #f0f6fc;background-color: #8e1519">'</span><=
+span style=3D"color: #ffa657">Apache-2</span><span style=3D"color: #79c0ff"=
+>.0</span><span style=3D"color: #f0f6fc;background-color: #8e1519">'</span>=
+<span style=3D"color: #c9d1d9">)</span>
+  <span style=3D"color: #d2a8ff">allow</span><span style=3D"color: #c9d1d9"=
+>(</span><span style=3D"color: #f0f6fc;background-color: #8e1519">'</span><=
+span style=3D"color: #ffa657">MIT</span><span style=3D"color: #f0f6fc;backg=
+round-color: #8e1519">'</span><span style=3D"color: #c9d1d9">)</span>
+  <span style=3D"color: #d2a8ff">allow</span><span style=3D"color: #c9d1d9"=
+>(</span><span style=3D"color: #f0f6fc;background-color: #8e1519">'</span><=
+span style=3D"color: #ffa657">BSD-3-Clause</span><span style=3D"color: #f0f=
+6fc;background-color: #8e1519">'</span><span style=3D"color: #c9d1d9">)</sp=
+an>
+<span style=3D"color: #c9d1d9">&#125;</span></code></pre></td></tr><tr><td =
+class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-=
+break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Now when you r=
+un <code>./gradlew licensee</code>, it&#39;ll scan your entire dependency g=
+raph and fail the build if anything doesn&#39;t match your allowlist. The p=
+lugin generates two incredibly useful reports: </p></td></tr><tr><td style=
+=3D"padding-bottom:12px;padding-left:37px;padding-right:27px;padding-top:12=
+px;" class=3D"ee"><div style=3D"margin-left:0px;" class=3D"edm_outlooklist"=
+><ol start=3D"1" style=3D"list-style-type:decimal;margin:0px 0px;padding:0p=
+x 0px 0px 0px;"><li class=3D"listItem ultext"><p style=3D"mso-line-height-a=
+lt:150.0%;padding:0px;text-align:left;word-break:break-word;"><code>artifac=
+ts.json</code> =E2=80=93 A complete inventory of every dependency and its l=
+icense </p></li><li class=3D"listItem ultext"><p style=3D"mso-line-height-a=
+lt:150.0%;padding:0px;text-align:left;word-break:break-word;"><code>validat=
+ion.txt</code> =E2=80=93 A human-readable report showing what&#39;s allowed=
+ and what&#39;s not </p></li></ol></div></td></tr><tr><td class=3D"dd" alig=
+n=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-word;=
+"><p style=3D"mso-line-height-alt:150.0%;"><b>But wait, there&#39;s more!</=
+b> You can also handle edge cases: </p></td></tr><tr><td style=3D"padding:0=
+px 15px;"><pre style=3D"background:#282828;border-radius:10px;color:#FFFFFF=
+;line-height:1.5;overflow-wrap:break-word;padding:16px;white-space:pre-wrap=
+;word-break:break-word;"><code><span style=3D"color: #d2a8ff">licensee</spa=
+n> <span style=3D"color: #c9d1d9">&#123;</span>
+  <span style=3D"color: #c9d1d9">// Allow specific dependencies with wonky =
+license data</span>
+  <span style=3D"color: #d2a8ff">allowDependency</span><span style=3D"color=
+: #c9d1d9">(</span><span style=3D"color: #f0f6fc;background-color: #8e1519"=
+>'</span><span style=3D"color: #c9d1d9">com</span><span style=3D"color: #c9=
+d1d9">.</span><span style=3D"color: #c9d1d9">example</span><span style=3D"c=
+olor: #f0f6fc;background-color: #8e1519">'</span><span style=3D"color: #c9d=
+1d9">,</span> <span style=3D"color: #f0f6fc;background-color: #8e1519">'</s=
+pan><span style=3D"color: #c9d1d9">sketchy-lib</span><span style=3D"color: =
+#f0f6fc;background-color: #8e1519">'</span><span style=3D"color: #c9d1d9">,=
+</span> <span style=3D"color: #f0f6fc;background-color: #8e1519">'</span><s=
+pan style=3D"color: #79c0ff">1.0</span><span style=3D"color: #f0f6fc;backgr=
+ound-color: #8e1519">'</span><span style=3D"color: #c9d1d9">)</span> <span =
+style=3D"color: #c9d1d9">&#123;</span>
+    <span style=3D"color: #c9d1d9">because</span> <span style=3D"color: #f0=
+f6fc;background-color: #8e1519">'</span><span style=3D"color: #ffa657">Apac=
+he-2</span><span style=3D"color: #79c0ff">.0</span><span style=3D"color: #c=
+9d1d9">,</span> <span style=3D"color: #c9d1d9">but</span> <span style=3D"co=
+lor: #c9d1d9">they</span> <span style=3D"color: #c9d1d9">typo</span><span s=
+tyle=3D"color: #f0f6fc;background-color: #8e1519">'</span><span style=3D"co=
+lor: #c9d1d9">d</span> <span style=3D"color: #c9d1d9">the</span> <span styl=
+e=3D"color: #c9d1d9">license</span> <span style=3D"color: #ffa657">URL</spa=
+n><span style=3D"color: #f0f6fc;background-color: #8e1519">'</span>
+  <span style=3D"color: #c9d1d9">&#125;</span>
+ =20
+  <span style=3D"color: #c9d1d9">// Ignore internal/commercial dependencies=
+</span>
+  <span style=3D"color: #d2a8ff">ignoreDependencies</span><span style=3D"co=
+lor: #c9d1d9">(</span><span style=3D"color: #f0f6fc;background-color: #8e15=
+19">'</span><span style=3D"color: #c9d1d9">com</span><span style=3D"color: =
+#c9d1d9">.</span><span style=3D"color: #c9d1d9">mycompany</span><span style=
+=3D"color: #c9d1d9">.</span><span style=3D"color: #ff7b72">internal</span><=
+span style=3D"color: #f0f6fc;background-color: #8e1519">'</span><span style=
+=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1d9">&#123;</span>
+    <span style=3D"color: #c9d1d9">because</span> <span style=3D"color: #f0=
+f6fc;background-color: #8e1519">'</span><span style=3D"color: #ff7b72">inte=
+rnal</span> <span style=3D"color: #c9d1d9">closed-source</span> <span style=
+=3D"color: #c9d1d9">libraries</span><span style=3D"color: #f0f6fc;backgroun=
+d-color: #8e1519">'</span>
+  <span style=3D"color: #c9d1d9">&#125;</span>
+ =20
+  <span style=3D"color: #c9d1d9">// Allow non-SPDX license URLs</span>
+  <span style=3D"color: #d2a8ff">allowUrl</span><span style=3D"color: #c9d1=
+d9">(</span><span style=3D"color: #f0f6fc;background-color: #8e1519">'</spa=
+n><span style=3D"color: #c9d1d9">https</span><span style=3D"color: #c9d1d9"=
+>:</span><span style=3D"color: #c9d1d9">//example.com/custom-license.html')=
+ &#123;</span>
+    <span style=3D"color: #c9d1d9">because</span> <span style=3D"color: #f0=
+f6fc;background-color: #8e1519">'</span><span style=3D"color: #ffa657">Apac=
+he-2</span><span style=3D"color: #79c0ff">.0</span><span style=3D"color: #c=
+9d1d9">,</span> <span style=3D"color: #c9d1d9">but</span> <span style=3D"co=
+lor: #c9d1d9">self-hosted</span><span style=3D"color: #f0f6fc;background-co=
+lor: #8e1519">'</span>
+  <span style=3D"color: #c9d1d9">&#125;</span>
+<span style=3D"color: #c9d1d9">&#125;</span></code></pre></td></tr><tr><td =
+class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-=
+break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> The <code>beca=
+use</code> clauses are brilliant=E2=80=94they force you to document <i>why<=
+/i> you&#39;re making exceptions, which is exactly what your future self (o=
+r your legal team) will thank you for. </p></td></tr><tr><td class=3D"dd" a=
+lign=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-wo=
+rd;"><p style=3D"mso-line-height-alt:150.0%;"> I=E2=80=99m confident most r=
+eaders weren=E2=80=99t aware of the existence of this library. And if you h=
+elp build apps of any reasonable size, this is a no-brainer integration tha=
+t will allow you to shine at work =F0=9F=AA=A9 Pays to be the subscriber of=
+ this newsletter =F0=9F=A4=A3 </p></td></tr><tr><td class=3D"dd" align=3D"l=
+eft" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p s=
+tyle=3D"mso-line-height-alt:150.0%;"> Jokes aside, the plugin is actively m=
+aintained, works with Android, Kotlin Multiplatform, and standard JVM proje=
+cts, and has saved countless developers from licensing nightmares. If you&#=
+39;re not using it yet, you&#39;re playing with fire =F0=9F=94=A5 </p></td>=
+</tr><tr><td align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;p=
+adding-left:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><table=
+ role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"ma=
+rgin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width=
+:630px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-do=
+wn,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345c=
+a-cc0d-4da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"" heig=
+ht=3D"auto" width=3D"630" style=3D"display:block;width:100%;" border=3D"0"/=
+></td></tr></table></td></tr><tr><td align=3D"center" valign=3D"top" style=
+=3D"padding-bottom:20px;padding-left:15px;padding-right:15px;padding-top:20=
+px; " class=3D"dd"><table role=3D"none" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" style=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" vali=
+gn=3D"top" style=3D"width:346px;"><a href=3D"https://link.mail.beehiiv.com/=
+ss/c/u001.lR7FjY4yQEEvLc4jEurNDw72-IGGvSSJqzthiiG7zqIf5zxR-8Wendwg4GGYpH_N2=
+7mZbP0_MGK-J5N0hKlvfEGFpPhIVKIfoRBCg-2GI8uRslbL6iL22RNLtUwJgTX6Sxz9abu3BOhv=
+rFZuiRmpOcQHVXosAtnrvCKrjuzhodsT6-X3AzQBYy5wIJLIe1-cZZI-h_8gvtmZ-H0EgOw-iw/=
+4ll/JaCmoO2XR_mOOL4COBFzHw/h10/h001.5YDbI8aUzzXJLMwTremZcY0-WkA1hDY12HFsTs4=
+3WSI" rel=3D"noopener noreferrer nofollow" style=3D"text-decoration:none;" =
+target=3D"_blank"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=
+=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/f=
+ile/d5f3651a-a253-45a2-a8e3-6ee8b75487e2/Spot_the_bug.png?t=3D1746127287" a=
+lt=3D"" height=3D"auto" width=3D"346" style=3D"display:block;width:100%;bor=
+der-radius:0px 0px 0px 0px;border-style:solid;border-width:0px 0px 0px 0px;=
+box-sizing:border-box;border-color:#E5E7EB;" border=3D"0"/></a></td></tr></=
+table></td></tr><tr><td><table role=3D"none" width=3D"100%" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" style=3D""><tr><td bgcolor=3D"#ffee96" st=
+yle=3D"background-color:#ffee96;border-radius:8px;padding:8.0px 8.0px 8.0px=
+ 8.0px;"><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0"><tr><td class=3D"dd" align=3D"justify" style=3D"padding:=
+0px 15px;text-align:justify;word-break:break-word;"><p style=3D"mso-line-he=
+ight-alt:150.0%;"><span style=3D"">Crashes are loud, leaks are quiet. Our l=
+atest hands-on guide shows how to spot memory leaks before your users feel =
+the pain, using </span><span style=3D""><b><a class=3D"link" href=3D"https:=
+//link.mail.beehiiv.com/ss/c/u001.lR7FjY4yQEEvLc4jEurNDw72-IGGvSSJqzthiiG7z=
+qIf5zxR-8Wendwg4GGYpH_N27mZbP0_MGK-J5N0hKlvfEGFpPhIVKIfoRBCg-2GI8uRslbL6iL2=
+2RNLtUwJgTX6dNw3FmT1aYKdzBo0JrWiM1Mkk2kjlTixxfmuN_s2TNKy8yhJm_13w-p7ynZ7_7f=
+eZ2GBt2CtMulEiWxYfRG3ig/4ll/JaCmoO2XR_mOOL4COBFzHw/h11/h001.qFEfIqBU0Hht98G=
+Oe7cfvWJob-tMVAVvGmu6o2H6O2k" target=3D"_blank" rel=3D"noopener noreferrer =
+nofollow"><span>bitdrift</span></a></b></span><span style=3D"">=E2=80=99s l=
+ightweight SDK. </span><span style=3D""><b><a class=3D"link" href=3D"https:=
+//link.mail.beehiiv.com/ss/c/u001.lR7FjY4yQEEvLc4jEurNDw72-IGGvSSJqzthiiG7z=
+qIf5zxR-8Wendwg4GGYpH_N27mZbP0_MGK-J5N0hKlvfEGFpPhIVKIfoRBCg-2GI8uRslbL6iL2=
+2RNLtUwJgTX6VxMmGglzfMitQFoOAmJ9nD6Dayd1wTSURCAM9F5k3k1KtjJR_nCDktssDGmh6FU=
+e5T_jQm4Apkt7YII8mf_AMg/4ll/JaCmoO2XR_mOOL4COBFzHw/h12/h001.xaeuR0j5Jfw3QJ4=
+5QoPKJycW1V0FrpmX4Z8AcquA3KQ" target=3D"_blank" rel=3D"noopener noreferrer =
+nofollow"><span>Read the guide</span></a></b></span><span style=3D"">. </sp=
+an></p></td></tr></table></td></tr></table></td></tr><tr><td class=3D"dd" a=
+lign=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-wo=
+rd;"><p style=3D"mso-line-height-alt:150.0%;"> Consider the following code =
+snippet=E2=80=94 </p></td></tr><tr><td style=3D"padding:0px 15px;"><pre sty=
+le=3D"background:#282828;border-radius:10px;color:#FFFFFF;line-height:1.5;o=
+verflow-wrap:break-word;padding:16px;white-space:pre-wrap;word-break:break-=
+word;"><code><span style=3D"color: #d2a8ff">@Composable</span>
+<span style=3D"color: #ff7b72">fun</span> <span style=3D"color: #d2a8ff">Ex=
+ample</span><span style=3D"color: #c9d1d9">()</span> <span style=3D"color: =
+#c9d1d9">&#123;</span>
+    <span style=3D"color: #ffa657">Log</span><span style=3D"color: #c9d1d9"=
+>.</span><span style=3D"color: #d2a8ff">d</span><span style=3D"color: #c9d1=
+d9">(</span><span style=3D"color: #a5d6ff">"Example"</span><span style=3D"c=
+olor: #c9d1d9">,</span> <span style=3D"color: #a5d6ff">"First"</span><span =
+style=3D"color: #c9d1d9">)</span>
+    <span style=3D"color: #ffa657">SideEffect</span> <span style=3D"color: =
+#c9d1d9">&#123;</span> <span style=3D"color: #ffa657">Log</span><span style=
+=3D"color: #c9d1d9">.</span><span style=3D"color: #d2a8ff">d</span><span st=
+yle=3D"color: #c9d1d9">(</span><span style=3D"color: #a5d6ff">"Example"</sp=
+an><span style=3D"color: #c9d1d9">,</span> <span style=3D"color: #a5d6ff">"=
+SideEffect"</span><span style=3D"color: #c9d1d9">)</span> <span style=3D"co=
+lor: #c9d1d9">&#125;</span>
+    <span style=3D"color: #ffa657">DisposableEffect</span><span style=3D"co=
+lor: #c9d1d9">(</span><span style=3D"color: #ffa657">Unit</span><span style=
+=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1d9">&#123;</span>
+        <span style=3D"color: #ffa657">Log</span><span style=3D"color: #c9d=
+1d9">.</span><span style=3D"color: #d2a8ff">d</span><span style=3D"color: #=
+c9d1d9">(</span><span style=3D"color: #a5d6ff">"Example"</span><span style=
+=3D"color: #c9d1d9">,</span> <span style=3D"color: #a5d6ff">"DisposableEffe=
+ct"</span><span style=3D"color: #c9d1d9">)</span>
+        <span style=3D"color: #d2a8ff">onDispose</span> <span style=3D"colo=
+r: #c9d1d9">&#123;&#125;</span>
+    <span style=3D"color: #c9d1d9">&#125;</span>
+    <span style=3D"color: #ffa657">LaunchedEffect</span><span style=3D"colo=
+r: #c9d1d9">(</span><span style=3D"color: #ffa657">Unit</span><span style=
+=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1d9">&#123;</span> <=
+span style=3D"color: #ffa657">Log</span><span style=3D"color: #c9d1d9">.</s=
+pan><span style=3D"color: #d2a8ff">d</span><span style=3D"color: #c9d1d9">(=
+</span><span style=3D"color: #a5d6ff">"Example"</span><span style=3D"color:=
+ #c9d1d9">,</span> <span style=3D"color: #a5d6ff">"LaunchedEffect"</span><s=
+pan style=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1d9">&#125;=
+</span>
+    <span style=3D"color: #ffa657">Box</span><span style=3D"color: #c9d1d9"=
+>(</span>
+        <span style=3D"color: #c9d1d9">modifier</span> <span style=3D"color=
+: #c9d1d9">=3D</span> <span style=3D"color: #ffa657">Modifier</span>
+            <span style=3D"color: #c9d1d9">.</span><span style=3D"color: #d=
+2a8ff">onSizeChanged</span> <span style=3D"color: #c9d1d9">&#123;</span> <s=
+pan style=3D"color: #ffa657">Log</span><span style=3D"color: #c9d1d9">.</sp=
+an><span style=3D"color: #d2a8ff">d</span><span style=3D"color: #c9d1d9">(<=
+/span><span style=3D"color: #a5d6ff">"Example"</span><span style=3D"color: =
+#c9d1d9">,</span> <span style=3D"color: #a5d6ff">"Layout"</span><span style=
+=3D"color: #c9d1d9">)</span> <span style=3D"color: #c9d1d9">&#125;</span>
+            <span style=3D"color: #c9d1d9">.</span><span style=3D"color: #d=
+2a8ff">drawBehind</span> <span style=3D"color: #c9d1d9">&#123;</span> <span=
+ style=3D"color: #ffa657">Log</span><span style=3D"color: #c9d1d9">.</span>=
+<span style=3D"color: #d2a8ff">d</span><span style=3D"color: #c9d1d9">(</sp=
+an><span style=3D"color: #a5d6ff">"Example"</span><span style=3D"color: #c9=
+d1d9">,</span> <span style=3D"color: #a5d6ff">"Draw"</span><span style=3D"c=
+olor: #c9d1d9">)</span> <span style=3D"color: #c9d1d9">&#125;</span>
+    <span style=3D"color: #c9d1d9">)</span>
+    <span style=3D"color: #ffa657">Log</span><span style=3D"color: #c9d1d9"=
+>.</span><span style=3D"color: #d2a8ff">d</span><span style=3D"color: #c9d1=
+d9">(</span><span style=3D"color: #a5d6ff">"Example"</span><span style=3D"c=
+olor: #c9d1d9">,</span> <span style=3D"color: #a5d6ff">"Last"</span><span s=
+tyle=3D"color: #c9d1d9">)</span>
+<span style=3D"color: #c9d1d9">&#125;</span></code></pre></td></tr><tr><td =
+class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-=
+break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> In what order =
+do you expect to see the log statements printed out? </p></td></tr><tr><td =
+class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-=
+break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> You will find =
+the answer in a section below =E2=AC=87=EF=B8=8F </p></td></tr><tr><td alig=
+n=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-left:15px;=
+padding-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"none" bo=
+rder=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto 0 aut=
+o;"><tr><td align=3D"center" valign=3D"top" style=3D"width:630px;"><img src=
+=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,=
+onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0d-4da0-8d98-=
+80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"" height=3D"auto" width=
+=3D"630" style=3D"display:block;width:100%;border-radius:0px 0px 0px 0px;bo=
+rder-style:solid;border-width:0px 0px 0px 0px;box-sizing:border-box;border-=
+color:#E5E7EB;" border=3D"0"/></td></tr></table></td></tr><tr><td class=3D"=
+dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:bre=
+ak-word;"><p style=3D"mso-line-height-alt:150.0%;"></p></td></tr><tr><td id=
+=3D"dev-delight" class=3D"dd" align=3D"center" valign=3D"top" style=3D"colo=
+r:#222222;font-weight:normal;padding:0px 15px;text-align:center;"><h1 style=
+=3D"color:#222222;font-weight:normal;mso-line-height-alt:175.0%;">=F0=9F=98=
+=86 Dev Delight</h1></td></tr><tr><td class=3D"dd" align=3D"justify" style=
+=3D"padding:0px 15px;text-align:justify;word-break:break-word;"><p style=3D=
+"mso-line-height-alt:150.0%;"> I found Kotlin=E2=80=99s <a class=3D"link" h=
+ref=3D"https://link.mail.beehiiv.com/ss/c/u001.VBK7zsTE8wL-WWof4_f9imB9pq8x=
+8ybYz5mJmjEYRHMAz6gPRXYYnEgQJjYL-y62iY1wTWADjmgViWmKaJQx7DWz8UwA4YsJ_YZ97MB=
+7xVgB3cU-D_SzVWzwduacmpAnHvF9ClNczyel0DeN4tm4K44olGFd5MdGfiIVkga-CdCJPxLYsu=
+iYv6-61DvQDDj94LhSYzOWw-l80HBzFCqjgzhjrFECk2AYn00nemdcQOiVU8sOeUbhgXxeAOktK=
+7pml8HKG2WRxcYfJ4ezbWH7q5khwbymbyc-KFiRmk8Ft0MqdkMu8grcrC9MjgGa0xmPWAxpu1lt=
+aQhnmKM4Cxj8Fg/4ll/JaCmoO2XR_mOOL4COBFzHw/h13/h001.h_xxhQ9bqj62jq5juDGfp8eU=
+gSN-M0aBzJUtLYII4fY" target=3D"_blank" rel=3D"noopener noreferrer nofollow"=
+><span>very first public commit</span></a> from 15 years ago. The file list=
+? BinaryTree, Graph, Queue, UnionFind, ArrayList, Iterator, LinkedList, Bin=
+aryHeap, PriorityQueue. Looking at this list, you can&#39;t help but chuckl=
+e. It feels less like the birth of a pragmatic, modern programming language=
+ and more like someone was building the ultimate toolkit to absolutely demo=
+lish FAANG coding interviews =F0=9F=98=85 </p></td></tr><tr><td class=3D"dd=
+" align=3D"justify" style=3D"padding:0px 15px;text-align:justify;word-break=
+:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> There=E2=80=99s som=
+ething delightful about a language that introduced itself with data structu=
+res before niceties. It=E2=80=99s like showing up to a potluck with a fully=
+ balanced red-black tree. </p></td></tr><tr><td class=3D"dd" align=3D"justi=
+fy" style=3D"padding:0px 15px;text-align:justify;word-break:break-word;"><p=
+ style=3D"mso-line-height-alt:150.0%;"> On a serious note: those primitives=
+ still echo in the way Kotlin encourages immutability and expressive algori=
+thms today. <b>Also, .jetl files</b>! Early days are wild. </p></td></tr><t=
+r><td align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-=
+left:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><table role=
+=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:=
+0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:630p=
+x;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,fo=
+rmat=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a3345ca-cc0=
+d-4da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"" height=3D=
+"auto" width=3D"630" style=3D"display:block;width:100%;" border=3D"0"/></td=
+></tr></table></td></tr><tr><td id=3D"pop-quiz" class=3D"dd" align=3D"cente=
+r" valign=3D"top" style=3D"color:#222222;font-weight:normal;padding:0px 15p=
+x;text-align:center;"><h1 style=3D"color:#222222;font-weight:normal;mso-lin=
+e-height-alt:175.0%;">=F0=9F=A4=BF Deep Dive</h1></td></tr><tr><td id=3D"wh=
+ats-a-normal-gradle-configuration" class=3D"dd" align=3D"justify" valign=3D=
+"top" style=3D"color:#2A2A2A;font-weight:Bold;padding:0px 15px;text-align:j=
+ustify;"><h3 style=3D"color:#2A2A2A;font-weight:Bold;mso-line-height-alt:12=
+5.0%;">What=E2=80=99s a =E2=80=9Cnormal=E2=80=9D Gradle configuration time,=
+ anyway?</h3></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"padd=
+ing:0px 15px;text-align:justify;word-break:break-word;"><p style=3D"mso-lin=
+e-height-alt:150.0%;"> Confession: most of us treat Gradle configuration li=
+ke a weather pattern=E2=80=94unpredictable, mildly annoying, and definitely=
+ outside our control. It doesn=E2=80=99t have to be. You can (and should) k=
+now what =E2=80=9Chealthy=E2=80=9D looks like and catch regressions before =
+your team accepts slow configs as fate. </p></td></tr><tr><td class=3D"dd" =
+align=3D"justify" style=3D"padding:0px 15px;text-align:justify;word-break:b=
+reak-word;"><p style=3D"mso-line-height-alt:150.0%;"> The excellent write=
+=E2=80=91up by <span style=3D"color:rgb(51, 51, 51);font-family:sans-serif;=
+font-size:18px;font-weight:400;"><a class=3D"link" href=3D"https://link.mai=
+l.beehiiv.com/ss/c/u001.lR7FjY4yQEEvLc4jEurND-JohwlO8GIBvjK534gXy_i8LWz4hyE=
+ZGciA6GiFc7nXa8oImxSvx27AwvBKdZtdwQexlVAxx4oMb-7JIceGQ-TvZjF8GG8idAb3wHRsCt=
+2lquzpfuKDZa9bgkmqbh5dfCwk8hEhXFuIH_Q6QrVyHNSfq-rd6jaBE9peXg9pbPQk_SuaTAJXB=
+IkzWzoGEea2m1yRojDUFYf6JM-OTFTxhPcunH1x5ETxiHVgSqAV7aT4rSmWgjlY90ZYNZ_UxQJC=
+WA/4ll/JaCmoO2XR_mOOL4COBFzHw/h14/h001.6Pr07jF3mCYM7Z9TzG3okpnMmJegmQdn6HXu=
+YDBrwYw" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Aurim=
+as Liutikas</span></a></span><span style=3D"color:rgb(51, 51, 51);font-fami=
+ly:sans-serif;font-size:18px;font-weight:400;"> titled</span> =E2=80=9C<a c=
+lass=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE2=
+2pMoCZFwF-lyMAqaUuZ5J5zad5bNKWbdgHzLNfXRS1lzuQw8fTsV-NGWG5xE_XrP2OGkaREtCpB=
+0aFWJXpDflDyd_Clyg0bxSM0pem5mtfzVRXOu8Ic2DGUNXUxojQ-wqUxnlvjziXBp3XbeA3aipV=
+JRTwvOl3iq-oI5cRYi24ZwzOlJE3NpoS-TW1AWcYnJYLnYri7o9ksa1jElX0caP1zmUKbbQQLgh=
+tzj1OxoXw8D1fg3ArlYDg7qtZiazez3vPk5iIpYkj2-StRklGC0ckJ1ozKImKpFb5NpCJe3tLCw=
+pOXJsIm/4ll/JaCmoO2XR_mOOL4COBFzHw/h15/h001.MwsNsxwj1G29dEPDjASb_Rlb9jgHSea=
+UjUFSDShXhuw" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>=
+Unreasonable Configuration =E2=80=94 What is a Normal Amount of Gradle Conf=
+iguration Time?</span></a>=E2=80=9D makes a crisp, opinionated case: for a =
+modern Apple Silicon laptop, <b>a well=E2=80=91maintained build=E2=80=99s c=
+onfiguration phase should be roughly 100ms per subproject on a config cache=
+ miss</b>. If your build has 20 subprojects, ~2 seconds is a reasonable bal=
+lpark. If you=E2=80=99re seeing 9s, 20s, 26s=E2=80=A6it=E2=80=99s time to p=
+op the hood. </p></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"=
+padding:0px 15px;text-align:justify;word-break:break-word;"><p style=3D"mso=
+-line-height-alt:150.0%;"> Why this rule of thumb works </p></td></tr><tr><=
+td style=3D"padding-bottom:12px;padding-left:37px;padding-right:27px;paddin=
+g-top:12px;" class=3D"ee"><div style=3D"margin-left:0px;" class=3D"edm_outl=
+ooklist"><ul style=3D"font-weight:normal;list-style-type:disc;margin-bottom=
+:12px !important;margin-top:12px !important;padding:0px 0px 0px 0px;"><li c=
+lass=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%;padding:0px=
+;text-align:left;word-break:break-word;"> The configuration phase is largel=
+y serial today (Isolated Projects is changing that, but most builds aren=E2=
+=80=99t there yet). You=E2=80=99re gated by single=E2=80=91core velocity, n=
+ot parallelism. </p></li><li class=3D"listItem ultext"><p style=3D"mso-line=
+-height-alt:150.0%;padding:0px;text-align:left;word-break:break-word;"> Wel=
+l=E2=80=91behaved plugins follow =E2=80=9Ctask configuration avoidance=E2=
+=80=9D and defer expensive work to execution. If configuration is slow, som=
+eone=E2=80=99s doing too much up front. </p></li></ul></div></td></tr><tr><=
+td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;wo=
+rd-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Measure it =
+correctly (no vibes, only receipts) </p></td></tr><tr><td style=3D"padding-=
+bottom:12px;padding-left:37px;padding-right:27px;padding-top:12px;" class=
+=3D"ee"><div style=3D"margin-left:0px;" class=3D"edm_outlooklist"><ul style=
+=3D"font-weight:normal;list-style-type:disc;margin-bottom:12px !important;m=
+argin-top:12px !important;padding:0px 0px 0px 0px;"><li class=3D"listItem u=
+ltext"><p style=3D"mso-line-height-alt:150.0%;padding:0px;text-align:left;w=
+ord-break:break-word;"> You want to time just initialization + configuratio=
+n, not task execution. The simplest way: </p><ul style=3D"list-style-type:d=
+isc;margin:0px 0px;padding:0px 0px 0px 0px;"><li class=3D"listItem ultext">=
+<p style=3D"mso-line-height-alt:150.0%;padding:0px;text-align:left;word-bre=
+ak:break-word;"> Clear config cache: <code>rm -fr .gradle/configuration-cac=
+he/</code></p></li><li class=3D"listItem ultext"><p style=3D"mso-line-heigh=
+t-alt:150.0%;padding:0px;text-align:left;word-break:break-word;"> Dry run: =
+<code>./gradlew build --dry-run</code></p></li></ul></li><li class=3D"listI=
+tem ultext"><p style=3D"mso-line-height-alt:150.0%;padding:0px;text-align:l=
+eft;word-break:break-word;"> Better: use <a class=3D"link" href=3D"https://=
+link.mail.beehiiv.com/ss/c/u001.VBK7zsTE8wL-WWof4_f9irXPAchqNuL7YE9MRVYh7a4=
+t7dQKpMXnjuBGVsLDXWfVErl9bRtjhbQzTrYWydTrApFkO-0w_C-iDIxkivXzq1U12YnkjyF4CL=
+N720C65GB-sYUsuagn-E8NS7F5A_0GcJEve8JzCN0KUSYPVfq-wJzDAdjOAhJFiYnqBztDJZrfe=
+iafvxwnJO_VIizr1bpshCE6nw85TE5B1AN3ymh0IWOy6uLLYQctRCdIqcO5xCP_FZfix94LkJRg=
+L0qErw4eq3xLxCE1s1-bis9ivteBhP4/4ll/JaCmoO2XR_mOOL4COBFzHw/h16/h001.zcHEUNU=
+mM-oIHA9QST-XMtsmcS8lFEqmzy4rftYWK80" target=3D"_blank" rel=3D"noopener nor=
+eferrer nofollow"><span>gradle-profiler</span></a> to automate and smooth o=
+ut variance. Aurimas provides a simple scenario file to isolate <i>just</i>=
+ the configuration phase with a clean cache: </p></li></ul></div></td></tr>=
+<tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:le=
+ft;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>Why =
+does this matter?</b></p></td></tr><tr><td class=3D"dd" align=3D"left" styl=
+e=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"m=
+so-line-height-alt:150.0%;"> Configuration runs <i>every single time</i> yo=
+u sync, build, or run a task. If your configuration is slow, every interact=
+ion with your build system is slow. This compounds over hundreds of builds =
+per day across your entire team. </p></td></tr><tr><td class=3D"dd" align=
+=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"=
+><p style=3D"mso-line-height-alt:150.0%;"><b>Key takeaways:</b></p></td></t=
+r><tr><td style=3D"padding-bottom:12px;padding-left:37px;padding-right:27px=
+;padding-top:12px;" class=3D"ee"><div style=3D"margin-left:0px;" class=3D"e=
+dm_outlooklist"><ol start=3D"1" style=3D"list-style-type:decimal;margin:0px=
+ 0px;padding:0px 0px 0px 0px;"><li class=3D"listItem ultext"><p style=3D"ms=
+o-line-height-alt:150.0%;padding:0px;text-align:left;word-break:break-word;=
+"><b>Measure your configuration time</b> using the dry-run approach above <=
+/p></li><li class=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0=
+%;padding:0px;text-align:left;word-break:break-word;"><b>Calculate your exp=
+ected time</b> (number of subprojects =C3=97 100ms) </p></li><li class=3D"l=
+istItem ultext"><p style=3D"mso-line-height-alt:150.0%;padding:0px;text-ali=
+gn:left;word-break:break-word;"><b>If you&#39;re more than 2-3x over</b>, y=
+ou&#39;ve got work to do </p></li><li class=3D"listItem ultext"><p style=3D=
+"mso-line-height-alt:150.0%;padding:0px;text-align:left;word-break:break-wo=
+rd;"><b>Profile to find the culprit</b> (see Aurimas&#39;s post for profili=
+ng techniques) </p></li><li class=3D"listItem ultext"><p style=3D"mso-line-=
+height-alt:150.0%;padding:0px;text-align:left;word-break:break-word;"><b>Co=
+mmon offenders</b>: plugins that do I/O during configuration, eager task cr=
+eation, and complex dependency resolution </p></li></ol></div></td></tr><tr=
+><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;=
+word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Configura=
+tion phase should be lightweight and fast. If it&#39;s not, you&#39;re blee=
+ding productivity every single day. Time to investigate =F0=9F=94=8D </p></=
+td></tr><tr><td align=3D"center" valign=3D"top" style=3D"padding-bottom:20p=
+x;padding-left:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><ta=
+ble role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D=
+"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"wi=
+dth:630px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale=
+-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2a33=
+45ca-cc0d-4da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"" h=
+eight=3D"auto" width=3D"630" style=3D"display:block;width:100%;border-radiu=
+s:0px 0px 0px 0px;border-style:solid;border-width:0px 0px 0px 0px;box-sizin=
+g:border-box;border-color:#E5E7EB;" border=3D"0"/></td></tr></table></td></=
+tr><tr><td id=3D"community-spotlight" class=3D"dd" align=3D"center" valign=
+=3D"top" style=3D"color:#222222;font-weight:normal;padding:0px 15px;text-al=
+ign:center;"><h1 style=3D"color:#222222;font-weight:normal;mso-line-height-=
+alt:175.0%;">=F0=9F=94=A6 Community Spotlight</h1></td></tr><tr><td class=
+=3D"dd" align=3D"justify" style=3D"padding:0px 15px;text-align:justify;word=
+-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> I love git bi=
+sect. But on mobile, rebuilds are expensive, caches are fickle, and reprodu=
+ctions can be flaky. <a class=3D"link" href=3D"https://link.mail.beehiiv.co=
+m/ss/c/u001.lR7FjY4yQEEvLc4jEurND-JohwlO8GIBvjK534gXy_gu_Gg6B62QfOS4Sh6mRVa=
+2K0OxIJuXeI5NE7tISYsOmFj8a3EstMHWzHM9wYIPbsBJYKzN_8qW2LyUzTKg3dM6i_9v0XPR41=
+Ky2wA9xFfypdLpuREmUpA430e6QJRJPd_MC-ixu_mlssqn1WSLFIvEb_bJB_XhYb4RRraGqJ169=
+IIVfSwLuN01uCS_gUp-bjdq2kiHN3Y0-_XF4_wqAva_rWfM39upPox4bKiOR0rb3w/4ll/JaCmo=
+O2XR_mOOL4COBFzHw/h17/h001.wkeo0d6NjJFIpdDKXTl7sTtOmOJnugEiwoHLjBr_gaA" tar=
+get=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>Matt McKenna</spa=
+n></a>=C2=A0<a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u0=
+01.lR7FjY4yQEEvLc4jEurND2zqyzpBaY6UGmInkIdBohljphzOF22zRqLHwzjuGxpEbvKOcBmn=
+8pcHd4YFSRXo3RnMxKDyzASo12shRk8EK-WhHaaLYc5IKnBCFf3oJWG3Ydimj3HmtP-uLc6tbEs=
+vZPPhZs5Kbnb6gBlOutAEAKI9xDnxe_0nPKgas8DlyweB74iSbszGdH6r8AVI82dATctNGkgOaC=
+fVheYnxsYBan_HX2wo984m_PehkElUn0wxMVd_rj8QEgl6f61fFIyOnXkED32mg_hO1yVhqK2HO=
+_HiCVyK-tvQLYmnl0RNWUmK/4ll/JaCmoO2XR_mOOL4COBFzHw/h18/h001.nXTENfAyEsnRf_J=
+CBBQfmqQKVFBrLlL0u-ZaANsLdU0" target=3D"_blank" rel=3D"noopener noreferrer =
+nofollow"><span>argues</span></a> that in many cases it=E2=80=99s faster to=
+ shovel the =E2=80=9Cbig diff=E2=80=9D between good and bad releases into a=
+n AI agent and ask: =E2=80=9CGiven the bug behavior, what looks suspicious?=
+=E2=80=9D . </p></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"p=
+adding:0px 15px;text-align:justify;word-break:break-word;"><p style=3D"mso-=
+line-height-alt:150.0%;"> Where it shines </p></td></tr><tr><td style=3D"pa=
+dding-bottom:12px;padding-left:37px;padding-right:27px;padding-top:12px;" c=
+lass=3D"ee"><div style=3D"margin-left:0px;" class=3D"edm_outlooklist"><ul s=
+tyle=3D"font-weight:normal;list-style-type:disc;margin-bottom:12px !importa=
+nt;margin-top:12px !important;padding:0px 0px 0px 0px;"><li class=3D"listIt=
+em ultext"><p style=3D"mso-line-height-alt:150.0%;padding:0px;text-align:le=
+ft;word-break:break-word;"> Repro is flaky or only on prod devices. </p></l=
+i><li class=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%;padd=
+ing:0px;text-align:left;word-break:break-word;"> 1000+ commits between tags=
+ with slow builds. </p></li><li class=3D"listItem ultext"><p style=3D"mso-l=
+ine-height-alt:150.0%;padding:0px;text-align:left;word-break:break-word;"> =
+Vague symptoms: =E2=80=9Csome screens stall=E2=80=9D or =E2=80=9Cmetrics di=
+pped.=E2=80=9D </p></li></ul></div></td></tr><tr><td class=3D"dd" align=3D"=
+left" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p =
+style=3D"mso-line-height-alt:150.0%;"> Where bisect still wins </p></td></t=
+r><tr><td style=3D"padding-bottom:12px;padding-left:37px;padding-right:27px=
+;padding-top:12px;" class=3D"ee"><div style=3D"margin-left:0px;" class=3D"e=
+dm_outlooklist"><ul style=3D"font-weight:normal;list-style-type:disc;margin=
+-bottom:12px !important;margin-top:12px !important;padding:0px 0px 0px 0px;=
+"><li class=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%;padd=
+ing:0px;text-align:left;word-break:break-word;"> Minimal repro exists and i=
+s deterministic. </p></li><li class=3D"listItem ultext"><p style=3D"mso-lin=
+e-height-alt:150.0%;padding:0px;text-align:left;word-break:break-word;"> Yo=
+u have fast local builds and good caches. </p></li><li class=3D"listItem ul=
+text"><p style=3D"mso-line-height-alt:150.0%;padding:0px;text-align:left;wo=
+rd-break:break-word;"> You want the exact first bad commit as a fact in the=
+ postmortem. </p></li></ul></div></td></tr><tr><td class=3D"dd" align=3D"le=
+ft" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p st=
+yle=3D"mso-line-height-alt:150.0%;"> This is one more concrete example wher=
+e LLMs are changing what our day to day looks like and it=E2=80=99s a super=
+ important tool in our arsenal to use where the situation demands it. </p><=
+/td></tr><tr><td align=3D"center" valign=3D"top" style=3D"padding-bottom:20=
+px;padding-left:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><t=
+able role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=
+=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D=
+"width:630px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dsc=
+ale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2=
+a3345ca-cc0d-4da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"=
+" height=3D"auto" width=3D"630" style=3D"display:block;width:100%;border-ra=
+dius:0px 0px 0px 0px;border-style:solid;border-width:0px 0px 0px 0px;box-si=
+zing:border-box;border-color:#E5E7EB;" border=3D"0"/></td></tr></table></td=
+></tr><tr><td align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;=
+padding-left:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><tabl=
+e role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"m=
+argin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"widt=
+h:441px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.lR7FjY4yQEEvLc=
+4jEurNDw72-IGGvSSJqzthiiG7zqIf5zxR-8Wendwg4GGYpH_N27mZbP0_MGK-J5N0hKlvfEGFp=
+PhIVKIfoRBCg-2GI8uRslbL6iL22RNLtUwJgTX6GuViTTA_ZuNyAKzSwU9nM4LSFYod17VFTz25=
+j32ZDV8XZBLJ3drPr9Tmv_fo78DlV5tvpUO4wQjcMrPMRXzFlg/4ll/JaCmoO2XR_mOOL4COBFz=
+Hw/h19/h001.eeQbzRedj_NYakx4yP2LxGjfAbT0sqbPp_SFZ0d8fSc" rel=3D"noopener no=
+referrer nofollow" style=3D"text-decoration:none;" target=3D"_blank"><img s=
+rc=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Daut=
+o,onerror=3Dredirect,quality=3D80/uploads/asset/file/9f5a6ea1-be17-4298-b40=
+e-569660a5b8ad/Spot_the_bug_solution.png?t=3D1746127289" alt=3D"" height=3D=
+"auto" width=3D"441" style=3D"display:block;width:100%;border-radius:0px 0p=
+x 0px 0px;border-style:solid;border-width:0px 0px 0px 0px;box-sizing:border=
+-box;border-color:#E5E7EB;" border=3D"0"/></a></td></tr></table></td></tr><=
+tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:lef=
+t;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> Heres=
+=E2=80=99s the order in which the print statements are printed=E2=80=94 </p=
+></td></tr><tr><td style=3D"padding:0px 15px;"><pre style=3D"background:#28=
+2828;border-radius:10px;color:#FFFFFF;line-height:1.5;overflow-wrap:break-w=
+ord;padding:16px;white-space:pre-wrap;word-break:break-word;"><code>First
+Last
+DisposableEffect
+SideEffect
+Layout
+Draw
+LaunchedEffect</code></pre></td></tr><tr><td class=3D"dd" align=3D"left" st=
+yle=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p style=3D=
+"mso-line-height-alt:150.0%;"><b>Why This Order?</b></p></td></tr><tr><td c=
+lass=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-b=
+reak:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>1. Compositio=
+n Phase (First, Last)</b></p></td></tr><tr><td style=3D"padding:0px 15px;">=
+<pre style=3D"background:#282828;border-radius:10px;color:#FFFFFF;line-heig=
+ht:1.5;overflow-wrap:break-word;padding:16px;white-space:pre-wrap;word-brea=
+k:break-word;"><code>First
+Last</code></pre></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"pad=
+ding:0px 15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-=
+height-alt:150.0%;"> These log statements execute during the <b>composition=
+ phase</b> - when Compose is reading your <code>@Composable</code> function=
+ to build/update the UI tree. This phase runs synchronously and completely =
+before any effects execute. </p></td></tr><tr><td class=3D"dd" align=3D"lef=
+t" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p sty=
+le=3D"mso-line-height-alt:150.0%;"><b>2. Effects Execute After Composition<=
+/b></p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 1=
+5px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt=
+:150.0%;"> After composition completes, Compose processes effects in a spec=
+ific order: </p></td></tr><tr><td id=3D"disposable-effect-before-side-effec=
+" class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;wor=
+d-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><b>Disposable=
+Effect Before SideEffect</b></p></td></tr><tr><td style=3D"padding:0px 15px=
+;"><pre style=3D"background:#282828;border-radius:10px;color:#FFFFFF;line-h=
+eight:1.5;overflow-wrap:break-word;padding:16px;white-space:pre-wrap;word-b=
+reak:break-word;"><code>DisposableEffect  // "Remembered effect"
+SideEffect        // "Side effect"</code></pre></td></tr><tr><td class=3D"d=
+d" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:brea=
+k-word;"><p style=3D"mso-line-height-alt:150.0%;"> This is the key insight!=
+ Compose has two categories of effects: </p></td></tr><tr><td style=3D"padd=
+ing-bottom:12px;padding-left:37px;padding-right:27px;padding-top:12px;" cla=
+ss=3D"ee"><div style=3D"margin-left:0px;" class=3D"edm_outlooklist"><ul sty=
+le=3D"font-weight:normal;list-style-type:disc;margin-bottom:12px !important=
+;margin-top:12px !important;padding:0px 0px 0px 0px;"><li class=3D"listItem=
+ ultext"><p style=3D"mso-line-height-alt:150.0%;padding:0px;text-align:left=
+;word-break:break-word;"><b>Remembered effects</b> (<code>DisposableEffect<=
+/code>, <code>LaunchedEffect</code>, <code>produceState</code>, etc.) - The=
+se are effects that remember state and can be disposed </p></li><li class=
+=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%;padding:0px;tex=
+t-align:left;word-break:break-word;"><b>Side effects</b> (<code>SideEffect<=
+/code>) - These run after every successful recomposition </p></li></ul></di=
+v></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;t=
+ext-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.=
+0%;"> This makes sense architecturally: <code>SideEffect</code> is designed=
+ to publish Compose state to non-Compose code, so it should run after all C=
+ompose-managed effects have set themselves up. </p></td></tr><tr><td id=3D"=
+layout-and-draw" class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text=
+-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;=
+"><b>Layout and Draw</b></p></td></tr><tr><td style=3D"padding:0px 15px;"><=
+pre style=3D"background:#282828;border-radius:10px;color:#FFFFFF;line-heigh=
+t:1.5;overflow-wrap:break-word;padding:16px;white-space:pre-wrap;word-break=
+:break-word;"><code>Layout  // onSizeChanged
+Draw    // drawBehind</code></pre></td></tr><tr><td class=3D"dd" align=3D"l=
+eft" style=3D"padding:0px 15px;text-align:left;word-break:break-word;"><p s=
+tyle=3D"mso-line-height-alt:150.0%;"> These run during the <b>layout</b> an=
+d <b>draw</b> phases of the standard Android rendering pipeline, which happ=
+ens after composition and effects. </p></td></tr><tr><td id=3D"launched-eff=
+ect-comes-last" class=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-=
+align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"=
+><b>LaunchedEffect Comes Last</b></p></td></tr><tr><td style=3D"padding:0px=
+ 15px;"><pre style=3D"background:#282828;border-radius:10px;color:#FFFFFF;l=
+ine-height:1.5;overflow-wrap:break-word;padding:16px;white-space:pre-wrap;w=
+ord-break:break-word;"><code>LaunchedEffect</code></pre></td></tr><tr><td c=
+lass=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-b=
+reak:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><code>LaunchedEf=
+fect</code> is special - it launches a coroutine, and by default uses <code=
+>Dispatchers.Main.immediate</code> (this is the case currently and the beha=
+vior was different pre Compose 1.0). However, the <i>body</i> of the corout=
+ine doesn&#39;t execute immediately. Here&#39;s why: </p></td></tr><tr><td =
+style=3D"padding-bottom:12px;padding-left:37px;padding-right:27px;padding-t=
+op:12px;" class=3D"ee"><div style=3D"margin-left:0px;" class=3D"edm_outlook=
+list"><ul style=3D"font-weight:normal;list-style-type:disc;margin-bottom:12=
+px !important;margin-top:12px !important;padding:0px 0px 0px 0px;"><li clas=
+s=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%;padding:0px;te=
+xt-align:left;word-break:break-word;"><code>LaunchedEffect</code> sets up d=
+uring the effects phase (along with <code>DisposableEffect</code>) </p></li=
+><li class=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%;paddi=
+ng:0px;text-align:left;word-break:break-word;"> But the coroutine body itse=
+lf is dispatched to the main thread&#39;s message queue </p></li><li class=
+=3D"listItem ultext"><p style=3D"mso-line-height-alt:150.0%;padding:0px;tex=
+t-align:left;word-break:break-word;"> This means it runs after the current =
+frame&#39;s composition, layout, and draw are complete </p></li></ul></div>=
+</td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px;tex=
+t-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:150.0%=
+;"> Think of it as: &quot;The effect is registered now, but the work happen=
+s in the next message loop iteration.&quot; </p></td></tr><tr><td class=3D"=
+dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-break:bre=
+ak-word;"><p style=3D"mso-line-height-alt:150.0%;"> Thanks to <a class=3D"l=
+ink" href=3D"https://link.mail.beehiiv.com/ss/c/u001.lR7FjY4yQEEvLc4jEurND-=
+JohwlO8GIBvjK534gXy_g9v02ma5-eQvySX0Mp8b3JiIUL6MXH1hy1kXGl-9wupEN9yaxFVYZGi=
+lRz4iP96-7k5nnH1VlUE5sBtVKJ57AGX0FSr43YPphs2Kt8eY9Q5BNgrZWxqsSJrB_YsoeJNX9K=
+sfzz9no7tsTk83Kg6ZuBBHAF9fBlldyUhQNJhWZHEIwT-ztCFdCTyLgRpeQ9AktH-IqrYDNrwms=
+Gfkti4QtBpI8xNMTZz2CsTqQeryPE3ai88tIeon8VErlzhEpuZok/4ll/JaCmoO2XR_mOOL4COB=
+FzHw/h20/h001.T2taOUMyJu13Ru1xQFql89n43IZScV6NodIC7XYzz4o" target=3D"_blank=
+" rel=3D"noopener noreferrer nofollow"><span>Nicklas Ansman</span></a> for =
+asking this brainteaser in ASG and enlightening us with new insights. </p><=
+/td></tr><tr><td align=3D"center" valign=3D"top" style=3D"padding-bottom:20=
+px;padding-left:15px;padding-right:15px;padding-top:20px; " class=3D"dd"><t=
+able role=3D"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=
+=3D"margin:0 auto 0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D=
+"width:630px;"><img src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dsc=
+ale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/uploads/asset/file/2=
+a3345ca-cc0d-4da0-8d98-80da6ad9baf5/Divider-min.png?t=3D1715138076" alt=3D"=
+" height=3D"auto" width=3D"630" style=3D"display:block;width:100%;" border=
+=3D"0"/></td></tr></table></td></tr><tr><td id=3D"how-you-can-help" class=
+=3D"dd" align=3D"center" valign=3D"top" style=3D"color:#222222;font-weight:=
+normal;padding:0px 15px;text-align:center;"><h1 style=3D"color:#222222;font=
+-weight:normal;mso-line-height-alt:175.0%;">=F0=9F=A6=84 How you can help?<=
+/h1></td></tr><tr><td class=3D"dd" align=3D"justify" style=3D"padding:0px 1=
+5px;text-align:justify;word-break:break-word;"><p style=3D"mso-line-height-=
+alt:150.0%;"> If you enjoy reading this newsletter and would like to keep D=
+ispatch free, here are two quick ways to help: </p></td></tr><tr><td class=
+=3D"dd" align=3D"justify" style=3D"padding:0px 15px;text-align:justify;word=
+-break:break-word;"><p style=3D"mso-line-height-alt:150.0%;"> =F0=9F=91=89=
+=F0=9F=8F=BB <b>Chip in via </b><a class=3D"link" href=3D"https://link.mail=
+.beehiiv.com/ss/c/u001.VBK7zsTE8wL-WWof4_f9iskY8eD0KYWw5FV_WYJcoE4ZKQwh52Rg=
+XNWQxMqtYEOqI3OyiKbFVR4CxjV92PijC4-90u9ql8bwDqoeVN9ffFTUp4W3NlYWmO85b5F7iVQ=
+-XSrDB2aiC8yhIyWIpsqmQkDGWUYx8LOifNfW305mrDY5QlKek_e1lqj6PjtN8-iTonPakbcGsO=
+FjXMl16snUGPBagE-wrztLGUpjjeGuRPkIot9AIRkBXyujDd-FIxMEEAAsM_pPPbx_f36gjoaky=
+A/4ll/JaCmoO2XR_mOOL4COBFzHw/h21/h001.75pZyOh1PTptRJV6EqUQqEehPaspiP8UvQmz6=
+WDJPK8" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span><b>Git=
+hub Sponsors</b></span></a>. <b>If your company offers an education budget,=
+ contributing a =E2=80=9Ccoffee=E2=80=9D to keep this newsletter going will=
+ certainly qualify</b>. You=E2=80=99ll get an instant receipt for reimburse=
+ment, and I=E2=80=99ll keep Dispatch running =E2=98=95=EF=B8=8F All our kin=
+d supporters get <a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss=
+/c/u001.DgkFNI5fx5JE22pMoCZFwAQ-1zlkWP0Jty0jQqcdt_Yx9a-geSuhhRMzahW2F8y419I=
+nVpxpM_ZMXuOp5EQJ0s-r9h-Tlmq3kIZPeD1AsvqoasRY0DzWvwQsCf_3yNMyeRTm2qKxDWQWP0=
+KvDuL886jV4IARfwUlEGEKB81yppeieJ2lUfRTQDsBBi1T9SFjBqgJ4Naayo-ZNS5u333KmhO40=
+rZiFokgcAZ1L-S8dse2JzZ0lzJKkrPigf0kLpEqyuaHGJi-wyawjy-jvQVwn1EOQ4SYYUmvDwYU=
+Hy9y6g0/4ll/JaCmoO2XR_mOOL4COBFzHw/h22/h001.a-DrKo_Kd1pdl6M1wHroF0NoqCzmmV4=
+EYC8wsWPpBlU" target=3D"_blank" rel=3D"noopener noreferrer nofollow"><span>=
+featured here</span></a>. </p></td></tr><tr><td class=3D"dd" align=3D"justi=
+fy" style=3D"padding:0px 15px;text-align:justify;word-break:break-word;"><p=
+ style=3D"mso-line-height-alt:150.0%;"> =F0=9F=91=89=F0=9F=8F=BB<b>Spread t=
+he word</b>. <a class=3D"link" href=3D"https://link.mail.beehiiv.com/ss/c/u=
+001.rGdB9E1ROeJf9wpf88uOe1SANJG0qeMP8ynzfGjGS5ZWj7Azb_94NsdgzGqCHzmwPQ4oEE7=
+TJT06cC54wgBrXgIkp7clKVMpSYRHe9QoFXoAcie2wD21YGerDEZVHT7dyC9pkVyNjqbNG-6Wzj=
+u_ba2iixtdF6Damzi8KAreyHhavWm1a_2A1Qj-rKZ2d6gnITZ1SVhN43o8ZIraveucs9HwJFIdR=
+9Lu7AXjT-FAvXqkCkjAJ0k0Mg420rUsnCgtW5o3fNOJqGmyE36b5z3A8uH2pYvAzbBKOxqFEpJg=
+ijby4WOxxsAvPkse_esayu8Hag6zg_uv5ogXx1BNPP6nSysgu3rQNrWvqSBoh3yzOvYX6SXr8rr=
+WYXqKXPMJ1KgZkRVVas2QW_7xBzOqGLt9F1HmTvJKDNY7i9oJOC5BNJtb9H7ZDktDJr5Y91avIe=
+cbli_8fbZmWU838DaTFe58mg/4ll/JaCmoO2XR_mOOL4COBFzHw/h23/h001.6yjSYOmO_IbvF-=
+jv_psHHjBQWsL0Q4Pb3Ro_21blSo4" target=3D"_blank" rel=3D"noopener noreferrer=
+ nofollow"><span>Tweet</span></a>, <a class=3D"link" href=3D"https://link.m=
+ail.beehiiv.com/ss/c/u001.lR7FjY4yQEEvLc4jEurND4ZPVyfpO_X7SNgpIlrafAq-ESMrd=
+mSjo2lZJwFmS8SMPvQkR0-DHhpN9p2VaAoRhLZdyO8CzcgBsiqfyqP2jCN4ts01NlmtMdPbo-ku=
+43iu2nG3iOgCY6iGdWWqggFYAQudmaE80g4HjJFSNgzPEnMkLN1p84bMvcmpWcb1cSZV2Md2qwn=
+FHuexVTawt7rPRhC_pD0trWx-hDei9EtJ5D2ZnYtaO9klDJVJx6sju0zKuuUHUhcsmjbX47mTdA=
+mBvLgO8GecEX3m1ScrjVhYjLYwUTavY61stDHK9drdG_6rEkBPwSDamUkvl2yDl4vXpd3pC2F9R=
+v04ATahXnj14wW53-KylefhQM0Z-NdpWGsj6rWhFsqzR-kQLoHUsUhJ4iAbsS5NKVmhhAiO3cE0=
+BLhO7djBN1QXj5RKXTOYKk3V/4ll/JaCmoO2XR_mOOL4COBFzHw/h24/h001.OjvjgV75RYNRpq=
+cLIHoBR67A6_RU88OhBTuuVnmTbBo" target=3D"_blank" rel=3D"noopener noreferrer=
+ nofollow"><span>Bluesky</span></a>, toot, Slack, or carrier=E2=80=91pigeon=
+ this issue to someone who loves Android. Each new subscriber pushes Dispat=
+ch closer to sustainability. </p></td></tr><tr><td id=3D"let-me-hear-it" cl=
+ass=3D"dd" align=3D"center" valign=3D"top" style=3D"color:#222222;font-weig=
+ht:normal;padding:0px 15px;text-align:center;"><h1 style=3D"color:#222222;f=
+ont-weight:normal;mso-line-height-alt:175.0%;">=F0=9F=91=82 Let me hear it!=
+</h1></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15p=
+x;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:1=
+50.0%;"> What=E2=80=99d you think of this email? Tap your choice below and =
+lemme hear it =F0=9F=91=87 </p></td></tr><tr><td id=3D"amazingloved-it" cla=
+ss=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#2A2A2A;font-weight:=
+normal;padding:0px 15px;text-align:left;"><h5 style=3D"color:#2A2A2A;font-w=
+eight:normal;mso-line-height-alt:100.0%;">=F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=
+=80=F0=9F=9A=80=F0=9F=9A=80<a class=3D"link" href=3D"mailto:vinaygaba@gmail=
+.com?subject=3DJetpackCompose.app%20Dispatch%20-%20Issue%20#23&body=3DThat%=
+20was%20amazing" target=3D"_blank" rel=3D"noopener noreferrer nofollow" cli=
+cktracking=3D"off"><span>=C2=A0</span></a><b><a class=3D"link" href=3D"mail=
+to:vinaygaba@gmail.com?subject=3DJetpackCompose.app%20Dispatch%20-%20Issue%=
+20#23&body=3DThat%20was%20amazing" target=3D"_blank" rel=3D"noopener norefe=
+rrer nofollow" clicktracking=3D"off" style=3D"text-decoration-color: rgb(70=
+, 54, 247);"><span style=3D"color: rgb(70, 54, 247);">AMAZING-LOVED IT!</sp=
+an></a></b></h5></td></tr><tr><td id=3D"pretty-good" class=3D"dd" align=3D"=
+left" valign=3D"top" style=3D"color:#2A2A2A;font-weight:normal;padding:0px =
+15px;text-align:left;"><h5 style=3D"color:#2A2A2A;font-weight:normal;mso-li=
+ne-height-alt:100.0%;">=F0=9F=9A=80=F0=9F=9A=80=F0=9F=9A=80<a class=3D"link=
+" href=3D"mailto:vinaygaba@gmail.com?subject=3DJetpackCompose.app%20Dispatc=
+h%20-%20Issue%20#23&body=3DPretty%20good" target=3D"_blank" rel=3D"noopener=
+ noreferrer nofollow" clicktracking=3D"off"><span>=C2=A0</span></a><b><a cl=
+ass=3D"link" href=3D"mailto:vinaygaba@gmail.com?subject=3DJetpackCompose.ap=
+p%20Dispatch%20-%20Issue%20#23&body=3DPretty%20good" target=3D"_blank" rel=
+=3D"noopener noreferrer nofollow" clicktracking=3D"off" style=3D"text-decor=
+ation-color: rgb(70, 54, 247);"><span style=3D"color: rgb(70, 54, 247);">PR=
+ETTY GOOD!</span></a></b></h5></td></tr><tr><td id=3D"meh-not-great" class=
+=3D"dd" align=3D"left" valign=3D"top" style=3D"color:#2A2A2A;font-weight:no=
+rmal;padding:0px 15px;text-align:left;"><h5 style=3D"color:#2A2A2A;font-wei=
+ght:normal;mso-line-height-alt:100.0%;">=F0=9F=9A=80<a class=3D"link" href=
+=3D"mailto:vinaygaba@gmail.com?subject=3DJetpackCompose.app%20Dispatch%20-%=
+20Issue%20#23&body=3DCould&#39;ve%20been%20better" target=3D"_blank" rel=3D=
+"noopener noreferrer nofollow" clicktracking=3D"off"><span>=C2=A0</span></a=
+><b><a class=3D"link" href=3D"mailto:vinaygaba@gmail.com?subject=3DJetpackC=
+ompose.app%20Dispatch%20-%20Issue%20#23&body=3DCould&#39;ve%20been%20better=
+" target=3D"_blank" rel=3D"noopener noreferrer nofollow" clicktracking=3D"o=
+ff" style=3D"text-decoration-color: #4636f7;"><span style=3D"color: #4636f7=
+;">MEH - NOT GREAT</span></a></b></h5></td></tr><tr><td class=3D"dd" align=
+=3D"justify" style=3D"padding:0px 15px;text-align:justify;word-break:break-=
+word;"><p style=3D"mso-line-height-alt:150.0%;"> On that note, here=E2=80=
+=99s hoping that your bugs are minor and your compilations are error free, =
+</p></td></tr><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px 15px=
+;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-alt:15=
+0.0%;"><span style=3D"color:rgb(34, 34, 34);font-family:Poppins, Helvetica,=
+ sans-serif;font-size:16px;font-weight:400;">=E2=80=94</span></p></td></tr>=
+<tr><td width=3D"100%"><table role=3D"none" width=3D"100%" class=3D"mob-w-f=
+ull" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tr><td width=3D"30%"=
+ style=3D"vertical-align:top;" class=3D"mob-stack"><table role=3D"none" wid=
+th=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td=
+ align=3D"center" valign=3D"top" style=3D"padding-bottom:20px;padding-left:=
+15px;padding-right:15px;padding-top:20px; " class=3D"dd"><table role=3D"non=
+e" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto =
+0 auto;"><tr><td align=3D"center" valign=3D"top" style=3D"width:189px;"><im=
+g src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3D=
+auto,onerror=3Dredirect,quality=3D80/uploads/asset/file/98648a15-a870-4f13-=
+91e8-669a521ae470/image.png?t=3D1743740108" alt=3D"" height=3D"auto" width=
+=3D"189" style=3D"display:block;width:100%;border-radius:90px 90px 90px 90p=
+x;border-style:solid;border-width:0px 0px 0px 0px;box-sizing:border-box;bor=
+der-color:#E5E7EB;" border=3D"0"/></td></tr></table></td></tr></tbody></tab=
+le></td><td width=3D"70%" style=3D"vertical-align:top;" class=3D"mob-stack"=
+><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0"><tbody><tr><td class=3D"dd" align=3D"left" style=3D"padding:0px =
+15px;text-align:left;word-break:break-word;"><p style=3D"mso-line-height-al=
+t:150.0%;"><span style=3D"color:inherit;"><b><a class=3D"link" href=3D"http=
+s://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwErNLW1FzHhXqiF4sLr=
+EvQBOZ_v9CeZWJyOb4yg9ETXMvt3ymeKD0XzOKRl9LWjJBKyVCxf2T03ANXYGLhyrFxW59YtzJe=
+Bo1hdQqy7mJfF9dAs95khVNGGHOb0Dzo9swY16gvvEsOevnHY0__1XMe0_tycQzkBB-PRrNajB4=
+kpt2t3T0ZWTT4OaIOJv6-Rmw1bsKyGqg_4ncZ77dmr9wh6rf3Z6HAxy_YBOAS02bJFydIt95sss=
+vWlbntyg_5jEWg/4ll/JaCmoO2XR_mOOL4COBFzHw/h25/h001.HWqMqo4ndQiaDw9S8kM5fdsQ=
+49lXBwq4A8EHx5Vb3rI" target=3D"_blank" rel=3D"noopener noreferrer nofollow"=
+ style=3D"text-decoration-color: rgb(70, 54, 247);"><span style=3D"color: r=
+gb(70, 54, 247);">Vinay Gaba</span></a></b></span></p></td></tr><tr><td cla=
+ss=3D"dd" align=3D"left" style=3D"padding:0px 15px;text-align:left;word-bre=
+ak:break-word;"><p style=3D"mso-line-height-alt:150.0%;"><span style=3D"col=
+or:rgb(107, 95, 81);font-family:Inter, sans-serif;font-size:16px;font-weigh=
+t:400;">Tech Lead Manager @ Airbnb | Google Developer Expert for Android | =
+ex-Snap, Spotify, Deloitte</span></p></td></tr><tr><td class=3D"dd" align=
+=3D"justify" style=3D"padding:0px 15px;text-align:justify;word-break:break-=
+word;"><p style=3D"mso-line-height-alt:150.0%;"><span style=3D"color:rgb(10=
+7, 95, 81);font-family:Inter, sans-serif;font-size:0.8rem;font-weight:400;"=
+>Vinay Gaba is a Google Developer Expert for Android and serves as a Tech L=
+ead Manager at Airbnb, where he spearheads the UI Tooling team. His team&#3=
+9;s mission is to enhance developer productivity through cutting-edge tools=
+ leveraging LLMs and Generative AI. Vinay has deep expertise in Android, UI=
+ Infrastructure, Developer Tooling, Design Systems and Figma Plugins. Prior=
+ to Airbnb, he worked at Snapchat, Spotify, and Deloitte. Vinay holds a Mas=
+ter&#39;s degree in Computer Science from Columbia University.</span></p></=
+td></tr></tbody></table></td></tr></table></td></tr></table></td></tr></tab=
+le></td></tr><tr><td align=3D"center" valign=3D"top"><table role=3D"none" w=
+idth=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"cen=
+ter"><tr><td><tr><td class=3D"b" align=3D"center" valign=3D"top" bgcolor=3D=
+"#4636f7" style=3D"padding:0px 0px 0px 0px;border-style:solid;border-width:=
+ 0px 0px 0px 0px;border-color: #4636f7;border-bottom-left-radius:10px;borde=
+r-bottom-right-radius:10px;"><table role=3D"none" width=3D"100%" border=3D"=
+0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"ce=
+nter" valign=3D"top" bgcolor=3D"#f9fafb" style=3D"padding:12px"><table role=
+=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" a=
+lign=3D"center"><tr><td><span style=3D"padding-left:1px;"></span></td><td a=
+lign=3D"center" valign=3D"middle" width=3D"75" style=3D"width:75px;"><a hre=
+f=3D"https://link.mail.beehiiv.com/ss/c/u001.fkViF09bFfun30fF7Tap4dG3MKtKiq=
+uKxilXkmnEwtlGo8drd2WClo8DnTbAumQndyZ-Tb9kY3cN8WjoFjdIjrPIMpJ9Y9_V1QIBSul__=
+7aJOE4Tw2JLTdcxdWK4RUUwdgCvA56H1LE8_lxOWvarVeMPEwZpfHLokbP1h4PQJr-jhj4ucDlf=
+DcRM4KHemYhCvJw9BOlXPGiVWSDeIR6HrcYQksmg0kwC4F-g_33YVPHHsSlQzKjFoEvugT5mtiD=
+NwpD-qd7bJam6WzV8D6Ildw/4ll/JaCmoO2XR_mOOL4COBFzHw/h26/h001.MXYnR3qoYu7irG0=
+S2XUEyj9dBnoPb8Ldy6FdUgZxOpQ" style=3D"text-decoration:none;"><img width=3D=
+"22" height=3D"22" alt=3D"tw" border=3D"0" style=3D"display:block;max-width=
+:22px;color:Dark" src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscal=
+e-down,format=3Dauto,onerror=3Dredirect,quality=3D80/static_assets/x_dark.p=
+ng"/></a></td><td align=3D"center" valign=3D"middle" width=3D"75" style=3D"=
+width:75px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.hETvff7I2ei=
+zPqVU0gB_A6YHYKeDP6nK4-H3BspaeMMfOfhxo1rxBrCriM_12DAY7uw5K2cgoyUvvD667cdbot=
+-Kk7eWLnAK5PfP2Y_cqClAk-ESglp4sMS915cgup0oWguExv34ScVW676LEXlWGJTvjIg3qryPR=
+q7shesC0MGlrkIL0ujHEQ4xHj06sbcvMOaqe6VOAz0ArwLnefts5htNskfZwQzB_3aRdQ4ta5CQ=
+MSxVVIZ27JzLX5kewlNNqbOfGw3uY3GjriJHJrtZwg/4ll/JaCmoO2XR_mOOL4COBFzHw/h27/h=
+001.lGcd89LguuIYFlieIkobICJzsdcj9KU71LbkUZk2uR0" style=3D"text-decoration:n=
+one;"><img width=3D"22" height=3D"22" alt=3D"ig" border=3D"0" style=3D"disp=
+lay:block;max-width:22px;color:Dark" src=3D"https://media.beehiiv.com/cdn-c=
+gi/image/fit=3Dscale-down,format=3Dauto,onerror=3Dredirect,quality=3D80/sta=
+tic_assets/instagram_dark.png"/></a></td><td align=3D"center" valign=3D"mid=
+dle" width=3D"75" style=3D"width:75px;"><a href=3D"https://link.mail.beehii=
+v.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwB8Y7NfPBUuS4MjRExsSdBC6UtnYNObwhBoJN14=
+kFAMNgLWhf2tjS0Rp0gjTuqyccNsjQW6GtZRP4esJIWqRbre3Bp_XXghpRWtMGd_VMdkfiiO7Aj=
+rrkHduQ4KQXwt3XyhGoUnqYcxafujhih9-QN1a6L9-C5-VVqreDewZgifbuWu1JtZ7X7tT4gc8I=
+nOpK_cHwV72IjhYSUTFFg110UuUrOK5Gs3tjVr8nHe1blcur9ZpIhWf73Gq_zCSuLmmpQ/4ll/J=
+aCmoO2XR_mOOL4COBFzHw/h28/h001.Nphwtcn3o7ZlKCk3_hp_YV9J50BK1QaZX4FoUkNScwc"=
+ style=3D"text-decoration:none;"><img width=3D"22" height=3D"22" alt=3D"thd=
+s" border=3D"0" style=3D"display:block;max-width:22px;color:Dark" src=3D"ht=
+tps://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerro=
+r=3Dredirect,quality=3D80/static_assets/threads_dark.png"/></a></td><td ali=
+gn=3D"center" valign=3D"middle" width=3D"75" style=3D"width:75px;"><a href=
+=3D"https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwGBM6Fqh00-=
+MoI-hDmH0PV_hgMrD-3VblOUjg4nTti0Pgf_Kub3d2QzDSXTIRWqBvqv0RRJTa9m3LSwJadQ4i6=
+PS12thE3t6BqoNw8XXKzwZG9vIVCGsRKAYCSxKM-SwpQP217xW9wytljsKE3yUbbw2iarhEzmH0=
+NwmVEC4LvEdVnUKi9d0pSQcZZDoH0HVmqafCoHbOsOGQmAgxSfXK3WRdg5Ru52utynTGEw5GIwX=
+uOnOuUyhpp_OsaNgTLaPxA/4ll/JaCmoO2XR_mOOL4COBFzHw/h29/h001.OZnRnXm3-bEHhfDi=
+BcfgtXa7VJk39_490NzuMCzpoAw" style=3D"text-decoration:none;"><img width=3D"=
+22" height=3D"22" alt=3D"in" border=3D"0" style=3D"display:block;max-width:=
+22px;color:Dark" src=3D"https://media.beehiiv.com/cdn-cgi/image/fit=3Dscale=
+-down,format=3Dauto,onerror=3Dredirect,quality=3D80/static_assets/linkedin_=
+dark.png"/></a></td><td align=3D"center" valign=3D"middle" width=3D"75" sty=
+le=3D"width:75px;"><a href=3D"https://link.mail.beehiiv.com/ss/c/u001.lR7Fj=
+Y4yQEEvLc4jEurND-JohwlO8GIBvjK534gXy_gmSXC9T67UcoAxAWMBUMe0SQs_xfvAVWtgkKmv=
+WmmRuZWMdE5PLOUpIvjWuPpdVYCiZBvDxrCNV8LLdMwARN135w6ljCbQxFQFboJq1Rd4k2fGQKu=
+jotqdyB8OFpHTzmxmqHBuyU6Vj5w2TI7AE4w8jOTQebIEHeLXrm_2B8hy54aawZJmh97pwCgOXu=
+XQ3nltndg8-MIPJVcPYpDctCYAOnwfhs29dee-IgGCDDuUzdGy8xtYQz6D9QfDsbmcev4/4ll/J=
+aCmoO2XR_mOOL4COBFzHw/h30/h001.mXvqJu6Vl_JN7XZ1GWNn3fRNJ46SlKBy8XqEvg7y6yI"=
+ style=3D"text-decoration:none;"><img width=3D"22" height=3D"22" alt=3D"in"=
+ border=3D"0" style=3D"display:block;max-width:22px;color:Dark" src=3D"http=
+s://media.beehiiv.com/cdn-cgi/image/fit=3Dscale-down,format=3Dauto,onerror=
+=3Dredirect,quality=3D80/bluesky_black.png"/></a></td><td><span style=3D"pa=
+dding-left:1px;"></span></td></tr></table></td></tr><tr><td height=3D"10" s=
+tyle=3D"line-height:1px;font-size:1px;height:10px;"> &nbsp; </td></tr><tr><=
+td class=3D"w" align=3D"center" valign=3D"top" style=3D"padding:15px 15px 1=
+5px 15px;"><table role=3D"none" width=3D"100%" border=3D"0" cellspacing=3D"=
+0" cellpadding=3D"0" align=3D"center"><tr><td align=3D"center" valign=3D"to=
+p"><p style=3D"font-family:'Poppins',Helvetica,sans-serif;color:#FFFFFF!imp=
+ortant;"> Update your email preferences or unsubscribe <a class=3D"link" hr=
+ef=3D"https://link.mail.beehiiv.com/ss/c/u001.8U9ubRxM-1UkyChnWssEh1VU-Owih=
+NKvFKRYv51QbKPxbY_rW1MzGPUxFYT2FqJpgDZgyIYYofmcLA3NwyphuBhVjXgzW9YbGgKHUb2k=
+EvHkRc37GRAg10vO1dlbvCqdy3b0Wn0hTl71IsVX4zx12VTVnPAKWvgWu6eRoL4KXWJDQ_xYLID=
+tfqU4wkePgJDQ3TucXym9kgsok0I68RIJlD0oUawR3nHc4ZO8xOmcuPs3WBp_fIx8mcnQu9nbmH=
+_CNnkukX4j3iDTCaj6wAo2K6ZjpdLi4BrorSLJZxkKGuOa2FvmfTXt84dqWZ5F6F9YdYOkerax9=
+NranyRZeYACZbcxYqvk51ySxQGixruV8_LfX9IWG29EmohPh913m-xwFfvSA8ruswm9NxoKdISA=
+3TQSDgBXORLjGkblWiFG21eT9Itx8E4zw8zAI8Sz0yQwo9FCMLJuCh5i7VMH2XGxStaiv2bpq6z=
+Xu40LsTaQZbrDbDvVxXJApx6Unc7lIml1xroPVOOzk5uMGTeumGjTn3ShYCdru2qu42MYEqexmO=
+oViL9Gacw5J_jURaNb_VcXYcK0lMLx3QjKRuRzIqYyrlFPSfG4YbZfU-WDMb3GI3jTUHLPwXkQG=
+78yQV2ycbkGMuYAopPoC6j3TdE9pucfMZKc71PBVRMysrdGjrFiDLWKHNWmEoQsKnlWgFSZE7mS=
+hHGOrpxE0QiNIhfEWBzdBQaZB3Tlmc4AL1dBKpAbagkvnKjbbHxP9L6w1-e56K2CTVDSJoBZFUA=
+X7MtiALbsD7uAph8uohaeZQwARRu06oDg9sbOx1NnE0fSVeFrR9ZxghVR3CA_TMYoH3qvSUcUJo=
+ZaThMCFMNgtkJaIbQL7RJ_3FWGxtXLo7PzQsaY_ZN8cc5UkG-R9_c2oYaNexV94zpsTKqZN-2ZD=
+nr8DAqpdFTbOlGOY2wmEUeIhAmxJlFexPKFx32s87XxeGG8xA271zFR43Mql5DXpBWJArPRCmxy=
+Dlx72OemmEryiryvW1v7puPDc8UBzPMp5kQIGDaLsskU6ZLuMnMmiMkDTEQ6a2h0mAKJz-pE7Gw=
+xFAbrWkEA/4ll/JaCmoO2XR_mOOL4COBFzHw/h31/h001.eE30xI39mkFZzTWjdl_kM1GXjc2aW=
+uEXlf8p0CcDWQY" style=3D"text-decoration:underline;text-decoration-color:#F=
+FFFFF!important;color:#FFFFFF!important;"> here</a></p><p class=3D"copyrigh=
+t" style=3D"font-family:'Poppins',Helvetica,sans-serif;color:#FFFFFF!import=
+ant;"> &copy; 2025 JetpackCompose.app Dispatch </p><p style=3D"font-family:=
+'Poppins',Helvetica,sans-serif;color:#FFFFFF!important;"> 228 Park Ave S, #=
+29976, New York, New York 10003, United States </p></td></tr><tr style=3D"d=
+isplay: table-row !important;"><td align=3D"center" valign=3D"top" style=3D=
+"padding-top:20px;" style=3D"display:table-cell !important;"><table role=3D=
+"none" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" align=3D"center" st=
+yle=3D"display:table !important;"><tr style=3D"display:table-row !important=
+;"><td class=3D"u" align=3D"center" valign=3D"middle" height=3D"32" style=
+=3D"height:32px;display:table-cell !important; max-height: 32px !important;=
+margin:0px !important; background-color: #ffffff !important;"><a style=3D"l=
+ine-height:32px !important;text-decoration:none;display:block !important;" =
+href=3D"https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwBa5vTw=
+Oa4tNVtOMTHUlje94DGN9QLg2ktBiJUhBUgx0kknz7ikpTZD76KeK9JPM7AM6_TyzaIdC9h8NgN=
+yCKbYeS076e4Ckyf5_SzESMQt7XC9hw9IkEmcq4Po6enNO0ilv-Z7ieuVB6t1dvodH_lAHh90e6=
+4HjARa2Wslq9GD5qm1Z0LJ0zQD19GLhlra3YwkhExHYdvT7YW7Fw3cGrA3Fx1BQEyOjWNJVb53n=
+TPhS/4ll/JaCmoO2XR_mOOL4COBFzHw/h32/h001.2VyD1sCgd2kZoIUjT8UOdKf3kVlbROB9Az=
+YEPFaZO00"><img src=3D"https://media.beehiiv.com/output-onlinepngtools.png"=
+ width=3D"16" alt=3D"beehiiv logo" style=3D"display:inline-block !important=
+;max-width:16px !important; vertical-align:-3px !important;width: 16px !imp=
+ortant;" border=3D"0"/><span style=3D"padding-left:11px !important;display:=
+ inline-block !important;">Powered by beehiiv</span></a></td></tr></table><=
+/td></tr><tr><td align=3D"left" valign=3D"top" height=3D"2" style=3D"height=
+:2px;"><a href=3D'https://link.mail.beehiiv.com/ss/c/u001.qld8dlH7ELbJrJhZV=
+te54M40fheu0MwPg5IjLYy7n3jgz4LCCkAqeqYvQBbmVYLB9EhfKzgnMiFOdRw--Mg35EIEOLZv=
+IcHR5smpU9t2jDo/4ll/JaCmoO2XR_mOOL4COBFzHw/h33/h001.r7n3PAAwshx8TtM0iQ1Oqq8=
+TG6nwhmlvn4BnDbIxeBg' style=3D"color: #4636f7 !important; cursor: default; =
+font-size: 1px; text-decoration: none;"> Terms of Service </a></td></tr></t=
+able></td></tr></table></td></tr></td></tr></table></td></tr></table></td><=
+/tr></table></td></tr></table></div></body></html>
+--f9a2e7c41078e4915587568e4640bdc3376f584d4f1436d55a53593328c3--
