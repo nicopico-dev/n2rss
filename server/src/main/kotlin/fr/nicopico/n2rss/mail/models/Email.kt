@@ -17,13 +17,29 @@
  */
 package fr.nicopico.n2rss.mail.models
 
+import jakarta.mail.Message
 import kotlinx.datetime.LocalDate
+import kotlin.concurrent.atomics.AtomicReference
+import kotlin.concurrent.atomics.ExperimentalAtomicApi
 
+@OptIn(ExperimentalAtomicApi::class)
 data class Email(
     val sender: Sender,
     val date: LocalDate,
     val subject: String,
     val content: EmailContent,
-    val messageId: MessageId,
     val replyTo: Sender? = null,
-)
+) {
+    private val underlyingMessage = AtomicReference<Message?>(null)
+
+    fun setMessage(message: Message) {
+        check(underlyingMessage.compareAndSet(null, message)) {
+            "Message can only be set once"
+        }
+    }
+
+    val message: Message
+        get() = checkNotNull(underlyingMessage.load()) {
+            "Message was not set"
+        }
+}

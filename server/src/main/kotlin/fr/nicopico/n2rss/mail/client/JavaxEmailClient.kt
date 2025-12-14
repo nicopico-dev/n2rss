@@ -50,7 +50,7 @@ class JavaxEmailClient(
     }
 
     override fun markAsRead(email: Email) {
-        val message = email.messageId.message
+        val message = email.message
         doInStore {
             message.folder.use(Folder.READ_WRITE) {
                 message.setFlag(Flags.Flag.SEEN, true)
@@ -59,7 +59,7 @@ class JavaxEmailClient(
     }
 
     override fun moveToProcessed(email: Email) {
-        val message = email.messageId.message
+        val message = email.message
 
         doInStore {
             getFolder(processedFolder).use(

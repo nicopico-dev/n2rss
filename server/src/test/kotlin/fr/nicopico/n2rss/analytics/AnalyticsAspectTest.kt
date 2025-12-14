@@ -420,7 +420,6 @@ class AnalyticsAspectTest {
                 content = TextOnly(
                     "Mark pennsylvania link granted viewing snap ellen, spell burst sales."
                 ),
-                messageId = mockk(),
             )
 
             // SETUP
@@ -451,7 +450,6 @@ class AnalyticsAspectTest {
                 content = TextOnly(
                     "Replacement islam traditional bruce connectivity boost theft, maritime dust south."
                 ),
-                messageId = mockk(),
             )
 
             // SETUP

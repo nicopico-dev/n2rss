@@ -226,7 +226,6 @@ class GithubMonitoringServiceTest {
             subject = "Any title",
             sender = Sender("test <test@example.com>"),
             date = LocalDate.fromEpochDays(2000),
-            messageId = mockk(),
             content = TextOnly(
                 "Guatemala georgia duplicate dealer popular spectrum surface, block databases attempt aids phrase"
             )

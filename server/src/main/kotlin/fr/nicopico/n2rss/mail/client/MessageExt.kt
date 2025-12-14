@@ -19,7 +19,6 @@ package fr.nicopico.n2rss.mail.client
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.EmailContent
-import fr.nicopico.n2rss.mail.models.MessageId
 import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import jakarta.mail.Flags
@@ -57,11 +56,12 @@ fun Message.toEmail(): Email {
                 } else EmailContent.TextOnly(content.toString())
             }
         },
-        messageId = MessageId(message = this),
         replyTo = if (replyTo.isNotEmpty()) {
             Sender(replyTo[0].toString())
         } else null,
-    )
+    ).also {
+        it.setMessage(this)
+    }
 
     // Remove flag SEEN if necessary
     if (Flags.Flag.SEEN !in originalFlags) {
