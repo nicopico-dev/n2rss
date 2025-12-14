@@ -50,7 +50,23 @@ class JetpackComposeAppDispatchNewsletterHandlerTest :
             publication.articles.first() shouldBe Article(
                 title = "\uD83D\uDD75\uD83C\uDFFB\u200D♂\uFE0F Insider Insight",
                 link = URL("https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwAQ-1zlkWP0Jty0jQqcdt_a2lHFOLrgu1J5pnfGxivDh1bu08LrXULBcKBupQQstI2r9ppD4qfw9ArdWSRQ3RuAvTgrXTeXb0qAhSFJhxZQfVN_jXfZT548kwZlHMKERTkAnOEu_9732Nqb8W2-6CgYLW_ZF3Ap9nC1FvQ9e0mLWywWfwDcdtaoaAdYszP8_MAtnylCdEvMFet3P4jxJEHar9BV0Eu1WMVznhn5lKV-2CQ-t8cssgymuKBJKwzVvV_XedgQ5ziYuy7eFIjfp384x5NVHx9iMrZ-x8XJjYv_t/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h0/h001.6xURNvbt0xouCcrKYzlPTQkhUsH1rBFhz0aItAmem1M"),
-                description = "TODO !",
+                description = """
+                    Let’s be honest: debugging animation jank is right up there with “herding cats” and “explaining state hoisting to your manager” on the frustration scale. But here’s a tool that flies under the radar for even seasoned Android devs: ADB’s --bugreport option for video recordings. Simply run the following:
+
+                    You’ll get a video recording of your app with frame-timing overlays baked in—like frame numbers, timestamps, and dropped frame indicators. It’s like having a personal slow-mo referee for your app’s UI performance!
+
+                    Source: Shoutout to Cyril Mottier who shed light on this super cool adb feature
+
+                    Diagnose Animation Hiccups: See exactly where frames are being dropped or delayed during those tricky transitions or complex Compose animations that you are now able to build with the wonderful APIs it offers.
+
+                    Share with Team: Got a performance bug that only happens on your coworker’s 5-year-old Samsung? Now you can record, annotate, and send evidence for all to see (and fix!).
+
+                    When to Use: Anytime you optimize animations, debug “jank,” or want to impress your PM with a CSI-style breakdown of why that modal takes 500ms too long to appear.
+
+                    Despite our best efforts, sometimes issues slip through the cracks. That's why having an amazing observability tool in your corner is important to keep your app humming. Bitdrift gives you on-demand observability that's custom-built for mobile teams: no log limits, no overage fees, and no waiting on your next app release. Learn More
+
+                    When this code is run, the Column doesn’t render the background color that was applied to it. Why is that?
+                """.trimIndent(),
             )
         }
     }

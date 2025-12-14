@@ -64,13 +64,13 @@ class JetpackComposeAppDispatchNewsletterHandler : NewsletterHandlerSingleFeed {
             val nextIndex = document.select("h1", startingAfterIndex = index)
                 ?.let { document.indexOf(it) }
                 ?: allElements.size
-            val articleDescription = allElements.subList(
-                index + 1,
-                nextIndex,
-            ).joinToString(
-                separator = "\n\n",
-                transform = Element::text,
-            )
+            val articleDescription = allElements
+                .subList(index + 1, nextIndex)
+                .filter { it.tagName() == "p" }
+                .joinToString(
+                    separator = "\n\n",
+                    transform = Element::text,
+                )
 
             Article(
                 title = titleElement.text(),
