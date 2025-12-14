@@ -19,9 +19,14 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.html
+import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
+import fr.nicopico.n2rss.newsletter.handlers.jsoup.indexOf
+import fr.nicopico.n2rss.newsletter.handlers.jsoup.select
 import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
+import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
 
@@ -46,8 +51,36 @@ class JetpackComposeAppDispatchNewsletterHandler : NewsletterHandlerSingleFeed {
                 .addAttributes("span", "style"),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
-        println(document)
 
-        return emptyList()
+        val linkElement = document.select("a[href]").first { it.text() == READ_ONLINE_LINK_TEXT }
+        val linkUrl = linkElement.attr("href").toUrlOrNull()
+            ?: throw NewsletterParsingException("Unable to find the \"Read Online\" link")
+
+        val titleElements = document.select("h1").drop(1)
+
+        val allElements = document.allElements
+        return titleElements.map { titleElement ->
+            val index = document.indexOf(titleElement)
+            val nextIndex = document.select("h1", startingAfterIndex = index)
+                ?.let { document.indexOf(it) }
+                ?: allElements.size
+            val articleDescription = allElements.subList(
+                index + 1,
+                nextIndex,
+            ).joinToString(
+                separator = "\n\n",
+                transform = Element::text,
+            )
+
+            Article(
+                title = titleElement.text(),
+                link = linkUrl,
+                description = articleDescription,
+            )
+        }
+    }
+
+    companion object {
+        private const val READ_ONLINE_LINK_TEXT = "Read Online"
     }
 }

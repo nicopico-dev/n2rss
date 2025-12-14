@@ -20,10 +20,13 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.models.Article
 import io.kotest.matchers.collections.beEmpty
+import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import java.net.URL
 
 class JetpackComposeAppDispatchNewsletterHandlerTest :
     BaseNewsletterHandlerTest<JetpackComposeAppDispatchNewsletterHandler>(
@@ -43,6 +46,12 @@ class JetpackComposeAppDispatchNewsletterHandlerTest :
 
             // THEN
             publication.articles shouldNot beEmpty()
+
+            publication.articles.first() shouldBe Article(
+                title = "\uD83D\uDD75\uD83C\uDFFB\u200D♂\uFE0F Insider Insight",
+                link = URL("https://link.mail.beehiiv.com/ss/c/u001.DgkFNI5fx5JE22pMoCZFwAQ-1zlkWP0Jty0jQqcdt_a2lHFOLrgu1J5pnfGxivDh1bu08LrXULBcKBupQQstI2r9ppD4qfw9ArdWSRQ3RuAvTgrXTeXb0qAhSFJhxZQfVN_jXfZT548kwZlHMKERTkAnOEu_9732Nqb8W2-6CgYLW_ZF3Ap9nC1FvQ9e0mLWywWfwDcdtaoaAdYszP8_MAtnylCdEvMFet3P4jxJEHar9BV0Eu1WMVznhn5lKV-2CQ-t8cssgymuKBJKwzVvV_XedgQ5ziYuy7eFIjfp384x5NVHx9iMrZ-x8XJjYv_t/4gm/VVHcxVIJQxSWZuj7UGYW3Q/h0/h001.6xURNvbt0xouCcrKYzlPTQkhUsH1rBFhz0aItAmem1M"),
+                description = "TODO !",
+            )
         }
     }
 }
