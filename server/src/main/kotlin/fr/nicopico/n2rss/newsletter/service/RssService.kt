@@ -68,7 +68,7 @@ class RssService(
                             link = article.link.toString()
                             description = SyndContentImpl().apply {
                                 type = "text/html"
-                                value = article.description
+                                value = article.description.restoreHtmlLineFeeds()
                             }
                             publishedDate = publication.date.toLegacyDate()
                         }
@@ -76,5 +76,18 @@ class RssService(
             }
 
         return feed
+    }
+
+    private fun String.restoreHtmlLineFeeds(): String {
+        val isLikelyHtml = contains('<') && contains('>')
+        return if (isLikelyHtml) {
+            this // assume already HTML
+        } else {
+            val normalized = replace("\r\n", "\n")
+            val paragraphs = normalized.split("\n\n+").flatMap { it.split("\n\n") }
+            paragraphs.joinToString(separator = "</p><p>") { p ->
+                p.split('\n').joinToString("<br/>")
+            }.let { "<p>$it</p>" }
+        }
     }
 }
