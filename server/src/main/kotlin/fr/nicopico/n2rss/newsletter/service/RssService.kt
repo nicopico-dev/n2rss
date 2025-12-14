@@ -78,23 +78,28 @@ class RssService(
         return feed
     }
 
-    private fun String.restoreHtmlLineFeeds(): String {
-        val isLikelyHtml = contains('<') && contains('>')
-        return if (isLikelyHtml) {
-            this // assume already HTML
-        } else {
+    companion object {
+        private val HTML_TAG_REGEX = Regex("<[a-zA-Z][^>]*>")
+
+        private val PARAGRAPH_SPLIT = Regex("\n\n+")
+        private const val LINE_BREAK_SPLIT = '\n'
+
+        private fun String.restoreHtmlLineFeeds(): String {
+            val isLikelyHtml = HTML_TAG_REGEX.containsMatchIn(this)
+            if (isLikelyHtml) return this
+
             // Convert multiple line-feeds to paragraph, and single line-feeds to line breaks
             val normalized = replace("\r\n", "\n")
-            val paragraphs = normalized.split("\n\n+")
-            paragraphs
-                .joinToString(
-                    prefix = "<p>",
-                    separator = "</p><p>",
-                    postfix = "</p>",
-                    transform = { p ->
-                        p.split('\n').joinToString("<br/>")
-                    }
-                )
+            val paragraphs = normalized.split(PARAGRAPH_SPLIT)
+            return paragraphs.joinToString(
+                prefix = "<p>",
+                separator = "</p><p>",
+                postfix = "</p>",
+                transform = { p ->
+                    p.split(LINE_BREAK_SPLIT)
+                        .joinToString("<br/>")
+                }
+            )
         }
     }
 }
