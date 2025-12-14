@@ -33,7 +33,11 @@ data class Email(
     @Suppress("DataClassShouldBeImmutable")
     private lateinit var underlyingMessage: Message
 
+    @Synchronized
     fun setMessage(message: Message) {
+        check(!this::underlyingMessage.isInitialized) {
+            "Message already set"
+        }
         underlyingMessage = message
     }
 
