@@ -83,11 +83,18 @@ class RssService(
         return if (isLikelyHtml) {
             this // assume already HTML
         } else {
+            // Convert multiple line-feeds to paragraph, and single line-feeds to line breaks
             val normalized = replace("\r\n", "\n")
-            val paragraphs = normalized.split("\n\n+").flatMap { it.split("\n\n") }
-            paragraphs.joinToString(separator = "</p><p>") { p ->
-                p.split('\n').joinToString("<br/>")
-            }.let { "<p>$it</p>" }
+            val paragraphs = normalized.split("\n\n+")
+            paragraphs
+                .joinToString(
+                    prefix = "<p>",
+                    separator = "</p><p>",
+                    postfix = "</p>",
+                    transform = { p ->
+                        p.split('\n').joinToString("<br/>")
+                    }
+                )
         }
     }
 }
