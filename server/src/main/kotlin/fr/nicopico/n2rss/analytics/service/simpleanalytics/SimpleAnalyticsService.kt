@@ -25,8 +25,8 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
-import org.springframework.web.client.HttpClientErrorException
 import org.springframework.web.client.RestClient
+import org.springframework.web.client.RestClientException
 
 @Service
 class SimpleAnalyticsService(
@@ -71,7 +71,7 @@ class SimpleAnalyticsService(
                     .body(simpleAnalyticsEvent)
                     .retrieve()
                     .toBodilessEntity()
-            } catch (e: HttpClientErrorException) {
+            } catch (e: RestClientException) {
                 throw AnalyticsException("Unable to send analytics event $event", e)
             }
         }
