@@ -45,7 +45,8 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
     override fun extractArticles(email: Email): Map<Newsletter, List<Article>> {
         val cleanedHtml = Jsoup.clean(
             email.content.html,
-            Safelist.basic(),
+            Safelist.basic()
+                .addAttributes("span", "style"),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
 
@@ -76,6 +77,14 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
                 // Ignore entries with an invalid link
                 val link = tag.attr("href").toUrlOrNull()
                     ?: return@mapNotNull null
+
+                // Smaller link added below the article should be ignored
+                val isBottomLink = tag.select("span[style]")
+                    .any { it.attr("style").contains(Regex("font-size:\\s*11px")) }
+                if (isBottomLink) {
+                    return@mapNotNull null
+                }
+
                 val title = markSponsoredTitle(this, tag.text()).trim()
 
                 // In JSOUP 1.20.1, the DOM structure or nextSibling() behavior might have changed

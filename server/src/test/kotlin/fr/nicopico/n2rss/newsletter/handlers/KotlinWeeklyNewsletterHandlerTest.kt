@@ -177,7 +177,7 @@ class KotlinWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<KotlinWeekly
                 withClue("notes") {
                     newsletter.notes shouldBe "Libraries"
                 }
-                withClue("articles") {
+                withClue("libraries") {
                     articles.map { it.title } shouldBe listOf(
                         "GeminiKMP",
                         "JNAV : Jetpack compose Navigation",
@@ -189,7 +189,7 @@ class KotlinWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<KotlinWeekly
                     )
                 }
 
-                withClue("First article") {
+                withClue("First library") {
                     assertSoftly(articles[0]) {
                         withClue("title") {
                             title shouldBe "GeminiKMP"
@@ -201,6 +201,55 @@ class KotlinWeeklyNewsletterHandlerTest : BaseNewsletterHandlerTest<KotlinWeekly
                             description shouldBe "John O'Reilly, the serial KMP content creator, ended 2023 releasing GeminiKMP, a Kotlin Multiplatform sample that uses Gemini Generative AI APIs."
                         }
                     }
+                }
+            }
+        }
+
+        @Test
+        fun `should extract all articles & libraries from email #494`() {
+            // GIVEN
+            val email: Email = loadEmail("$STUBS_EMAIL_ROOT_FOLDER/Kotlin Weekly/Kotlin Weekly #494.eml")
+
+            // WHEN
+            val publications = handler.process(email)
+
+            // THEN
+            publications shouldHaveSize 2
+
+            withClue("articles") {
+                publications[0].articles.map { it.title } shouldBe listOf(
+                    "The Journey to Compose Hot Reload 1.0.0",
+                    "Dependency Injection with Koin, the minimal setup (KMP)",
+                    "Update your Kotlin projects for Android Gradle Plugin 9.0",
+                    "Explore internal mechanisms of Retrofit, and how it works",
+                    "How I’m Using Agents for Development - January 2026",
+                    "Backpressure in Client-Server Applications",
+                    "Setting up Kotest on KMP",
+                    "SPONSORED - Compose courses launch next week",
+                    "300 - From Vibe coding to Software engineering",
+                )
+            }
+
+            assertSoftly(publications[1]) {
+                withClue("title") {
+                    title shouldBe "Kotlin Weekly #494"
+                }
+                withClue("date") {
+                    date shouldHaveSameDayAs (email.date)
+                }
+                withClue("newsletter") {
+                    newsletter.name shouldBe "Kotlin Weekly"
+                }
+                withClue("notes") {
+                    newsletter.notes shouldBe "Libraries"
+                }
+                withClue("libraries") {
+                    articles.map { it.title } shouldBe listOf(
+                        "Resilient - Kotlin Multiplatform Library",
+                        "Llamatik",
+                        "Nominatim Proxy",
+                        "Kotlin Multiplatform State Machine",
+                    )
                 }
             }
         }
