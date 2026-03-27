@@ -52,8 +52,13 @@ class JavaxEmailClient(
     override fun markAsRead(email: Email) {
         val message = email.message
         doInStore {
-            message.folder.use(Folder.READ_WRITE) {
-                message.setFlag(Flags.Flag.SEEN, true)
+            message.folder.use(Folder.READ_WRITE) { folder ->
+                val freshMessage = if (message.isExpunged || !folder.isOpen || message.messageNumber <= 0) {
+                    folder.getMessage(message.messageNumber)
+                } else {
+                    message
+                }
+                freshMessage.setFlag(Flags.Flag.SEEN, true)
             }
         }
     }
@@ -67,12 +72,18 @@ class JavaxEmailClient(
                 // Ensure the destination folder is present
                 createAutomatically = true
             ) { destination ->
-                message.folder.use(Folder.READ_WRITE, expungeOnClose = true) { source ->
-                    // Copy from `source` to `destination`
-                    source.copyMessages(arrayOf(message), destination)
+                message.folder.use(Folder.READ_WRITE, expungeOnClose = true) { folder ->
+                    val freshMessage = if (message.isExpunged || !folder.isOpen || message.messageNumber <= 0) {
+                        folder.getMessage(message.messageNumber)
+                    } else {
+                        message
+                    }
+
+                    // Copy from `folder` to `destination`
+                    folder.copyMessages(arrayOf(freshMessage), destination)
 
                     // Delete the original
-                    message.setFlag(Flags.Flag.DELETED, true)
+                    freshMessage.setFlag(Flags.Flag.DELETED, true)
                 }
             }
         }
@@ -92,12 +103,16 @@ class JavaxEmailClient(
         createAutomatically: Boolean = false,
         block: (Folder) -> T,
     ): T {
-        if (isOpen) error("Folder $this is already open")
-
-        if (createAutomatically && !exists()) {
-            // This folder can hold folders and messages
-            create(Folder.HOLDS_FOLDERS or Folder.HOLDS_MESSAGES)
+        if (!exists()) {
+            if (createAutomatically) {
+                // This folder can hold folders and messages
+                create(Folder.HOLDS_FOLDERS or Folder.HOLDS_MESSAGES)
+            } else {
+                throw jakarta.mail.FolderNotFoundException(this, "Folder $name does not exist")
+            }
         }
+
+        if (isOpen) error("Folder $this is already open")
         open(mode)
         try {
             return block(this)
