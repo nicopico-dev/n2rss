@@ -61,7 +61,7 @@ class EmailChecker(
         }
     }
 
-    @Suppress("TooGenericExceptionCaught")
+    @Suppress("TooGenericExceptionCaught", "NestedBlockDepth")
     private fun processEmail(email: Email) {
         var newsletterHandler: NewsletterHandler? = null
         try {
@@ -83,7 +83,13 @@ class EmailChecker(
                 emailClient.markAsRead(email)
                 if (moveAfterProcessingEnabled) {
                     LOG.debug("Move \"{}\" to processed folder", email.subject)
-                    emailClient.moveToProcessed(email)
+                    try {
+                        emailClient.moveToProcessed(email)
+                    } catch (e: Exception) {
+                        LOG.error("Error while moving email {} to processed", email.subject, e)
+                        monitoringService
+                            .notifyGenericError(e, context = "Moving email '${email.subject}' to processed folder")
+                    }
                 }
             } catch (e: Exception) {
                 LOG.error("Error while marking email {} as processed", email.subject, e)
