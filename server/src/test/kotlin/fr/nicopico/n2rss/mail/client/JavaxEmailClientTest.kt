@@ -153,6 +153,83 @@ class JavaxEmailClientTest : GreenMailTestBase(
     }
 
     @Test
+    fun `markAsRead should handle stale message objects`() {
+        // GIVEN
+        val folder = "INBOX"
+        deliverTextMessage(
+            folderName = folder,
+            from = "from@email.com",
+            subject = "Subject 1",
+            content = "Hello World! 1",
+        )
+
+        val emailClient = JavaxEmailClient(
+            config = EmailServerConfiguration(
+                protocol = "imap",
+                host = greenMail.imap.bindTo,
+                port = greenMail.imap.port,
+                user = USER_EMAIL,
+                password = USER_PASSWORD,
+            ),
+            folders = listOf(folder),
+            processedFolder = TRASH_FOLDER,
+        )
+
+        // Retrieval 1: Open and close folder
+        val emails = emailClient.checkEmails()
+        val email = emails[0]
+
+        // WHEN
+        // Re-open folder and try to mark as read using the old message object
+        shouldNotThrowAny {
+            emailClient.markAsRead(email)
+        }
+
+        // THEN
+        val unreadEmails = emailClient.checkEmails()
+        unreadEmails shouldHaveSize 0
+    }
+
+    @Test
+    fun `moveToProcessed should handle stale message objects`() {
+        // GIVEN
+        val folder = "INBOX"
+        prepareFolders(TRASH_FOLDER)
+        deliverTextMessage(
+            folderName = folder,
+            from = "from@email.com",
+            subject = "Subject 1",
+            content = "Hello World! 1",
+        )
+
+        val emailClient = JavaxEmailClient(
+            config = EmailServerConfiguration(
+                protocol = "imap",
+                host = greenMail.imap.bindTo,
+                port = greenMail.imap.port,
+                user = USER_EMAIL,
+                password = USER_PASSWORD,
+            ),
+            folders = listOf(folder),
+            processedFolder = TRASH_FOLDER,
+        )
+
+        // Retrieval 1: Open and close folder
+        val emails = emailClient.checkEmails()
+        val email = emails[0]
+
+        // WHEN
+        // Re-open folder and try to move using the old message object
+        shouldNotThrowAny {
+            emailClient.moveToProcessed(email)
+        }
+
+        // THEN
+        val unreadEmails = emailClient.checkEmails()
+        unreadEmails shouldHaveSize 0
+    }
+
+    @Test
     fun `emailClient should move processed messages to another folder`() {
         // GIVEN
         prepareFolders(SECONDARY_FOLDER, TRASH_FOLDER)
