@@ -20,13 +20,18 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.EmailContent
+import fr.nicopico.n2rss.mail.models.Sender
+import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.models.Article
 import io.kotest.matchers.collections.beEmpty
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
 import io.kotest.matchers.string.shouldContain
+import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import java.net.URL
 
 class JetpackComposeAppDispatchNewsletterHandlerTest :
@@ -104,7 +109,33 @@ class JetpackComposeAppDispatchNewsletterHandlerTest :
             publication.articles[4].description shouldContain "kotlin-lsp"
             publication.articles[4].description shouldContain "Vouch"
             publication.articles[5].description shouldContain "If you enjoy reading this newsletter"
-            publication.articles[6].description shouldContain "What did you think of this email?"
+            publication.articles[6].description shouldContain "On that note, here’s hoping that your bugs are minor"
+        }
+
+        @Test
+        fun `should fail with NewsletterParsingException when read online link is missing`() {
+            // GIVEN
+            val email = Email(
+                sender = Sender("JetpackCompose.app <jetpackcomposeapp@mail.beehiiv.com>"),
+                date = LocalDate(2026, 4, 7),
+                subject = "JetpackCompose.app's Dispatch",
+                content = EmailContent.HtmlOnly(
+                    html = """
+                        <html>
+                            <body>
+                                <h1>JetpackCompose.app's Dispatch</h1>
+                                <h1>🤿 Deep Dive</h1>
+                                <p>Some content</p>
+                            </body>
+                        </html>
+                    """.trimIndent(),
+                ),
+            )
+
+            // WHEN - THEN
+            assertThrows<NewsletterParsingException> {
+                handler.process(email)
+            }
         }
     }
 }

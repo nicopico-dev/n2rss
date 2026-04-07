@@ -26,6 +26,7 @@ import fr.nicopico.n2rss.newsletter.models.Article
 import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.utils.url.toUrlOrNull
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
 import org.jsoup.nodes.Element
 import org.jsoup.safety.Safelist
 import org.springframework.stereotype.Component
@@ -48,12 +49,14 @@ class JetpackComposeAppDispatchNewsletterHandler : NewsletterHandlerSingleFeed {
             email.content.html,
             Safelist.basic()
                 .addTags("h1")
+                .addAttributes("a", "data-read-online-tooltip")
                 .addAttributes("span", "style"),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
 
-        val linkElement = document.select("a[href]").first { it.text() == READ_ONLINE_LINK_TEXT }
-        val linkUrl = linkElement.attr("href").toUrlOrNull()
+        val linkUrl = findReadOnlineLink(document)
+            ?.attr("href")
+            ?.toUrlOrNull()
             ?: throw NewsletterParsingException("Unable to find the \"Read Online\" link")
 
         val titleElements = document.select("h1")
@@ -80,6 +83,21 @@ class JetpackComposeAppDispatchNewsletterHandler : NewsletterHandlerSingleFeed {
                 description = articleDescription,
             )
         }
+    }
+
+    private fun findReadOnlineLink(document: Document): Element? {
+        val normalizedReadOnline = READ_ONLINE_LINK_TEXT.normalizedText()
+        return document.select("a[href]")
+            .firstOrNull { it.text().normalizedText() == normalizedReadOnline }
+            ?: document.select("a[href][data-read-online-tooltip]").firstOrNull()
+            ?: document.select("a[href]")
+                .firstOrNull { it.text().normalizedText().contains(normalizedReadOnline) }
+    }
+
+    private fun String.normalizedText(): String {
+        return trim()
+            .replace("\\s+".toRegex(), " ")
+            .lowercase()
     }
 
     companion object {
