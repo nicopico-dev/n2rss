@@ -20,12 +20,18 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.mail.models.EmailContent
+import fr.nicopico.n2rss.mail.models.Sender
+import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.models.Article
 import io.kotest.matchers.collections.beEmpty
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNot
+import io.kotest.matchers.string.shouldContain
+import kotlinx.datetime.LocalDate
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import java.net.URL
 
 class JetpackComposeAppDispatchNewsletterHandlerTest :
@@ -68,6 +74,68 @@ class JetpackComposeAppDispatchNewsletterHandlerTest :
                     When this code is run, the Column doesn’t render the background color that was applied to it. Why is that?
                 """.trimIndent(),
             )
+        }
+
+        @Test
+        fun `should extract articles from issue #26`() {
+            // GIVEN
+            val email: Email =
+                loadEmail("$STUBS_EMAIL_ROOT_FOLDER/JetpackCompose app Dispatch/\uD83D\uDE80 JetpackCompose.app's Dispatch Issue #26 _ \uD83D\uDCA3 Compose BOM Drama \uD83D\uDE80 Android Bench \uD83C\uDFAD Maestro Flaky Tests \uD83E\uDDF0 Kotlin LSP Breakout.eml")
+
+            // WHEN
+            val publication = handler.process(email)
+
+            // THEN
+            publication.articles shouldNot beEmpty()
+            publication.articles.map(Article::title) shouldBe listOf(
+                "🤿 Deep Dive",
+                "😆 Dev Delight",
+                "🌶️ Spicy hot-takes",
+                "🥂 Tipsy Tip",
+                "🤔 Interesting tid-bits",
+                "🦄 How you can help?",
+                "👂 Let me hear it!",
+            )
+
+            publication.articles.map(Article::link).distinct() shouldBe listOf(
+                URL("https://link.mail.beehiiv.com/ss/c/u001.8U9ubRxM-1UkyChnWssEh1VU-OwihNKvFKRYv51QbKPgqTttg7220xjQNQVbqP591P42xYddpFi2Ve_cfyMH5OK_FLaCSmf7M6UFBwhZ1e9bXQDfJYVx_GcrVQ-hOdjDjNzaQKS5ZJEBrj8Fe4GiebL167plJFqsHxQuCca9pMHn9fVisQQojrn97-jTzBl01n5xs-cV3HQppydCoeeu2XTqBnJcjMutzw_YYuA8ZW_Oog4n-cwOAt3H0nnCtdUnkNHlcBWT-uRLnKsobc8cB1eDus45wUr9fh2YqZ8CJSD9Bpo-LrwCJH2uPzbZSB-plcgk0G2It0BFKHnvr7gsclpE2Px4K6AcwEz6zoqqgq0XBMBU4YifAzX066T1xwgQnnt-rw-bvbwkJ_Ygz3lOnV5j4Yvj-dNCMuL1Twl9uxEh0pf3EzFDDfyEBd6GxZ2X6BqvbpYhnjVmNy6bl7ocX-cZyPiu-6TMWIdFP8CoqS65IwIR2jdwwq68CT2NFYCZS2jssQzC7LLhrM4_cpsapy_gip01trAq_0IgLy7a432nZGqJXQXxDKzEIUPmcUn-GRWgxYWQ3d2xiZ2d8pVNyqLhmovAv3I_FU3TXYNlUJa2wPfJowXTlyQgxpeRRJx_aJD2hpAmBlbS2YiR1lx7LQZdDdihgQqSPELjJQe6zv8G7U0vYwoT14UoJL49-Fj2B5a1YbUxLAKaSWEkRkReiA3XbbgIBNcX4jaAhCsp3PqMVvzJKJlwIxuzPHXBR429eQWp9ZeZAFMnpl3xubYI6lJvjN-F-AkjIoK6eW3ZCRcxuOqhiKqElggxsUMhHr8AmepB89kL33iyJmJhw43lLP9V7_yyngMn9xRJL67c1Ws/4pb/o73yLWTbQQSol4JUlC-QrQ/h0/h001.-bmxxW_h_978uqNsI-oYU2un0ONkZpdfNfYJpUTzEyM"),
+            )
+
+            publication.articles[0].description shouldContain "Android Bench"
+            publication.articles[0].description shouldContain "16% and 72%"
+            publication.articles[1].description shouldContain "Working backwards doesn’t work for everything"
+            publication.articles[2].description shouldContain "Let's Defuse the Compose BOM"
+            publication.articles[3].description shouldContain "LookaheadAnimationVisualDebugging"
+            publication.articles[4].description shouldContain "kotlin-lsp"
+            publication.articles[4].description shouldContain "Vouch"
+            publication.articles[5].description shouldContain "If you enjoy reading this newsletter"
+            publication.articles[6].description shouldContain "On that note, here’s hoping that your bugs are minor"
+        }
+
+        @Test
+        fun `should fail with NewsletterParsingException when read online link is missing`() {
+            // GIVEN
+            val email = Email(
+                sender = Sender("JetpackCompose.app <jetpackcomposeapp@mail.beehiiv.com>"),
+                date = LocalDate(2026, 4, 7),
+                subject = "JetpackCompose.app's Dispatch",
+                content = EmailContent.HtmlOnly(
+                    html = """
+                        <html>
+                            <body>
+                                <h1>JetpackCompose.app's Dispatch</h1>
+                                <h1>🤿 Deep Dive</h1>
+                                <p>Some content</p>
+                            </body>
+                        </html>
+                    """.trimIndent(),
+                ),
+            )
+
+            // WHEN - THEN
+            assertThrows<NewsletterParsingException> {
+                handler.process(email)
+            }
         }
     }
 }
