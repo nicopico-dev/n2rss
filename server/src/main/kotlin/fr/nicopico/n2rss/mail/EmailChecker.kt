@@ -50,23 +50,33 @@ class EmailChecker(
             val emails = emailClient.checkEmails()
             LOG.info("{} emails found, processing...", emails.size)
 
+            val processedEmails = mutableListOf<Email>()
+
             for (email in emails) {
-                processEmail(email)
+                if (processEmail(email)) {
+                    processedEmails.add(email)
+                }
             }
 
             LOG.info("Processing done!")
+
+            if (moveAfterProcessingEnabled) {
+                LOG.debug("Move processed emails to specified folder")
+                moveAllProcessedEmails(processedEmails)
+            }
+
         } catch (e: Exception) {
             LOG.error("Error while checking emails", e)
             monitoringService.notifyGenericError(e, context = "Checking emails")
         }
     }
 
-    @Suppress("TooGenericExceptionCaught", "NestedBlockDepth")
-    private fun processEmail(email: Email) {
+    @Suppress("TooGenericExceptionCaught", "NestedBlockDepth", "ReturnCount")
+    private fun processEmail(email: Email): Boolean {
         var newsletterHandler: NewsletterHandler? = null
         try {
             newsletterHandler = newsletterService.findNewsletterHandlerForEmail(email)
-                ?: return
+                ?: return false
 
             LOG.info("\"{}\" is being processed by {}", email.subject, newsletterHandler::class.java)
             val publications = newsletterHandler.process(email)
@@ -81,16 +91,7 @@ class EmailChecker(
             try {
                 LOG.info("\"{}\" processing done, marking email as read", email.subject)
                 emailClient.markAsRead(email)
-                if (moveAfterProcessingEnabled) {
-                    LOG.debug("Move \"{}\" to processed folder", email.subject)
-                    try {
-                        emailClient.moveToProcessed(email)
-                    } catch (e: Exception) {
-                        LOG.error("Error while moving email {} to processed", email.subject, e)
-                        monitoringService
-                            .notifyGenericError(e, context = "Moving email '${email.subject}' to processed folder")
-                    }
-                }
+                return true
             } catch (e: Exception) {
                 LOG.error("Error while marking email {} as processed", email.subject, e)
                 monitoringService.notifyGenericError(e, context = "Marking email '${email.subject}' as processed")
@@ -98,6 +99,19 @@ class EmailChecker(
         } catch (e: Exception) {
             LOG.error("Error processing email {}", email.subject, e)
             monitoringService.notifyEmailProcessingError(email, e, newsletterHandler)
+        }
+
+        return false
+    }
+
+    @Suppress("TooGenericExceptionCaught")
+    private fun moveAllProcessedEmails(processedEmails: List<Email>) {
+        processedEmails.forEach { email ->
+            try {
+                emailClient.moveToProcessed(email)
+            } catch (e: Exception) {
+                LOG.warn("Error while moving email {} to processed", email.subject, e)
+            }
         }
     }
 }
