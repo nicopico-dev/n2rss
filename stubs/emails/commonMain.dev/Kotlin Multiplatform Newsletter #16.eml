@@ -1,0 +1,2602 @@
+Return-Path: <bounce+6baccb.6c29c7-n2rss=nicopico.fr@ghost.commonmain.dev>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id gNqAEN7p+Wn4SgEAQTsBvA
+	(envelope-from <bounce+6baccb.6c29c7-n2rss=nicopico.fr@ghost.commonmain.dev>)
+	for <n2rss@nicopico.fr>; Tue, 05 May 2026 15:00:14 +0200
+Return-path: <bounce+6baccb.6c29c7-n2rss=nicopico.fr@ghost.commonmain.dev>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Tue, 05 May 2026 15:00:14 +0200
+Received: from relay19.ghost.io ([159.112.250.66])
+	by smtpin1.paris1.alwaysdata.com with utf8esmtps  (TLS1.2) tls TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <bounce+6baccb.6c29c7-n2rss=nicopico.fr@ghost.commonmain.dev>)
+	id 1wKFNi-00G5h4-0F
+	for n2rss@nicopico.fr;
+	Tue, 05 May 2026 15:00:10 +0200
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=ghost.commonmain.dev; q=dns/txt; s=mailo; t=1777986007; x=1777993207;
+ h=Message-Id: List-Unsubscribe-Post: List-Unsubscribe: Sender: Sender: Reply-To: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date;
+ bh=Vr31a2gEBqw/E0aVXM/IYRE65/UMDe/tsqxZr3l5Lw0=;
+ b=Rqy6T4J+PPOfLCaY9K1AsT7bH5LKRKz7Vqb2bwekguBw5BM2xxS2PoM4eF8trqqh2KkAtCiuFZgDkddGtTTg+eJgKrLdINfem722lF8hdkupt8vWsXYW9ykbObeUYrFagEWP3XFGuA+0qmnjVNGCkgrjl9FJE3tntwtwb9GIeEM=
+X-Mailgun-Sid: WyJhYmMxNyIsIm4ycnNzQG5pY29waWNvLmZyIiwiNmMyOWM3Il0=
+Received: by 54b6883f2e3cfc28644d0b6a146e5be7eadccba7eed0789428216a9a68a0d7ee with HTTP
+ id 69f9e9d797aadcc98fbaad8b; Tue, 05 May 2026 13:00:07 GMT
+X-Mailgun-Sending-Ip-Pool-Name: Bulk - Standard
+X-Mailgun-Sending-Ip-Pool: 6155d7ba935d084321777411
+X-Mailgun-Sending-Ip: 159.112.250.66
+X-Mailgun-Batch-Id: 69f9e9d7f4ece30470a9cd87
+Date: Tue, 05 May 2026 13:00:07 +0000
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="371ab09b4da4035a63d9d7ef5c847b780d04a8eec2ecec17a6e39ee185f4"
+Subject: Kotlin Multiplatform Newsletter #16
+From: commonMain.dev <noreply@commonmain.dev>
+To: n2rss@nicopico.fr
+X-Mailgun-Tag: bulk-email
+X-Mailgun-Tag: ghost-email
+X-Mailgun-Tag: blog-1267092
+X-Mailgun-Track-Opens: true
+X-Mailgun-Deliver-By: Tue, 05 May 2026 13:00:05 +0000
+Reply-To: commonMain@bogdancodes.com
+Sender: commonMain.dev <noreply@commonmain.dev>
+Auto-Submitted: auto-generated
+X-Auto-Response-Suppress: OOF, AutoReply
+List-Unsubscribe: <https://commonmain.dev/unsubscribe/?uuid=3be13b1e-0485-41a9-8c96-0511056b8af0&key=2398c47651bed8b853093e735435511c1809b28c00a15f8930ddaf6c31d61d6e&newsletter=67cd9368-d42e-4d57-bb69-da242c7855ec>,
+ <mailto:u+mq6tmyzshfrtojtfnvqws3bnnfsd2nrzmy4wkolegmytgobxge4dambqgeytqnbvgu3cm2b5he2dszbugvqtamrtgfrdmobtgm2tamjymi4ggzddgfrtiojymyzcm2j5giydenrqguydkmjtgaydanzohfstsnldge4dqyrrhfrdmyrtmustimdhnbxxg5bomnxw23lpnzwwc2lofzsgk5rgoi6w4mtsonzsknbqnzuwg33qnfrw6ltgoithiplcovwgwllfnvqws3bgoq6wo2dpon2c2zlnmfuwyjtuhvrgy33hfuytenrxga4tejtwhuza@ghost.commonmain.dev>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Mailgun-Variables: {"email-id": "69f9e9d31387180001184556"}
+Message-Id: <20260505130007.9e95c188b19b6b3e@ghost.commonmain.dev>
+X-alwaysdata-Spam-Report: 	0.50 MX_INVALID [] - Domain has no working MX
+	0.30 FORGED_SENDER [noreply@commonmain.dev,
+ bounce@ghost.commonmain.dev] - Sender is forged (different From: header and
+ smtp MAIL FROM: addresses)
+	0.20 MANY_INVISIBLE_PARTS [3] - Many parts are visually hidden
+	0.10 ZERO_FONT [1] - Zero sized font used
+	0.00 TO_MATCH_ENVRCPT_ALL - All of the recipients match the envelope
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 TAGGED_FROM [6baccb.6c29c7-n2rss=nicopico.fr] - From address has
+ plus-tags
+	0.00 REPLYTO_DOM_NEQ_TO_DOM - Reply-To domain does not match the To domain
+	0.00 REPLYTO_DOM_NEQ_FROM_DOM - Reply-To domain does not match the From
+ domain
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_TWO [2] - Message has two Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 MV_CASE - Mime-Version .vs. MIME-Version
+	0.00 MISSING_XM_UA - Message has neither X-Mailer nor User-Agent header
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 MID_RHS_MATCH_FROMTLD - Message-ID RHS matches From domain tld
+	0.00 HAS_REPLYTO [commonMain@bogdancodes.com] - Has Reply-To header
+	0.00 FROM_NEQ_ENVFROM [noreply@commonmain.dev,
+ bounce@ghost.commonmain.dev] - From address is different to the envelope
+	0.00 FROM_HAS_DN - From header has a display name
+	0.00 DKIM_TRACE [ghost.commonmain.dev:+] - DKIM trace symbol
+	0.00 DKIM_REPUTATION [0]
+	0.00 ASN [asn:396479, ipnet:159.112.250.0/24, country:US]
+	0.00 ARC_NA - ARC signature absent
+	0.00 ALIAS_RESOLVED - Address was resolved through aliases
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 RWL_MAILSPIKE_GOOD [159.112.250.66:from] - From address is listed in
+ Mailspike RWL - good reputation
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.20 R_SPF_ALLOW [+ip4:159.112.240.0/20] - SPF verification allows sending
+	-0.20 R_DKIM_ALLOW [ghost.commonmain.dev:s=mailo] - DKIM verification succeed
+	-0.50 DMARC_POLICY_ALLOW [commonmain.dev, none] - DMARC permit policy
+	-0.58 SPF_REPUTATION_HAM [-0.57953458021428]
+	-0.78 IP_REPUTATION_HAM [asn: 396479(-0.25), country: US(-0.00),
+ ip: 159.112.250.66(-0.52)]
+X-alwaysdata-Spam-Score: -1.37
+
+--371ab09b4da4035a63d9d7ef5c847b780d04a8eec2ecec17a6e39ee185f4
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+
+
+
+
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=A0
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://commonmain.dev/r/e9366bfc?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0
+
+
+commonMain.dev [https://commonmain.dev/r/3a5c39a1?m=3D3be13b1e-0485-41a9-8c=
+96-0511056b8af0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+Kotlin Multiplatform Newsletter #16 [https://commonmain.dev/r/2fe5a315?m=3D=
+3be13b1e-0485-41a9-8c96-0511056b8af0]
+
+
+
+
+
+
+
+
+
+
+
+
+By Bogdan Codes =E2=80=A2 5 May 2026
+
+
+View in browser [https://commonmain.dev/r/1cc4b0c0?m=3D3be13b1e-0485-41a9-8=
+c96-0511056b8af0]
+
+
+
+
+View in browser [https://commonmain.dev/r/3c4690fb?m=3D3be13b1e-0485-41a9-8=
+c96-0511056b8af0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+We tackle the big question: Is Kotlin Multiplatform actually worth using in=
+ 2026? We dive into a step-by-step guide for migrating to Koin Annotations =
+in multi-module projects, the impact of Swift Export with proper enum suppo=
+rt in Kotlin 2.3.0, and a deep technical look at the mental models of concu=
+rrency and parallelism. Plus, we explore Haze 2.0's pluggable visual effect=
+s engine, a guide to building production-ready KMP SDKs, and a unique OTX R=
+untime Engineer role at Salvo Software.
+
+
+The Main Thread
+
+Community's most insightful threads, curated from social media platforms an=
+d websites.
+
+=E2=9D=93Is Kotlin Multiplatform (KMP) actually worth using in 2026? [https=
+://commonmain.dev/r/8262ee68?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0]
+
+Explore this Reddit discussion on the pros and cons of KMP and learn from t=
+he real-world experiences of fellow developers.
+
+
+Expect Actual
+
+Technical deep dives, or solving the "how-the-hell-do-I-test-this" problems=
+=2E
+
+
+
+
+
+
+
+
+
+
+
+
+SPONSORED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Stop treating Kotlin like a black box! =F0=9F=A7=A0
+
+To build truly performant multiplatform apps, writing code that just "works=
+" isn't enough. We need to understand what the compiler is actually doing u=
+nder the hood.
+
+That=E2=80=99s why I highly recommend Practical Kotlin Deep Dive [https://c=
+ommonmain.dev/r/a77f0fdb?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0] by skydo=
+ves. This isn't a basic syntax guide, it breaks down Kotlin internals, byte=
+code, and coroutines. It=E2=80=99s been a total game-changer for me when wr=
+iting and optimizing shared code.
+
+If you want to level up your Kotlin and KMP skills to a senior standard, yo=
+u need this on your desk.
+
+
+
+
+
+
+
+
+Get the Book [https://commonmain.dev/r/a40bf8a5?m=3D3be13b1e-0485-41a9-8c96=
+-0511056b8af0]
+
+
+
+
+
+
+
+
+
+
+
+
+=F0=9F=AA=99Migrating from Koin DSL to Koin Annotations in a Multimodule Pr=
+oject: A Step-by-Step Guide [https://commonmain.dev/r/ffcb43db?m=3D3be13b1e=
+-0485-41a9-8c96-0511056b8af0]
+
+Today we=E2=80=99re going to explore how to migrate a Compose Multiplatform=
+ multi-module project from Koin DSL to Koin Annotations. We=E2=80=99ll take=
+ a hands-on approach, diving deep into a project example [https://commonmai=
+n.dev/r/b67e61e1?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0] built by the Cod=
+andoTV [https://commonmain.dev/r/23d99f1b?m=3D3be13b1e-0485-41a9-8c96-05110=
+56b8af0] community.=E2=9C=82=EF=B8=8FManaging Gradle Daemons while Coding w=
+ith AI [https://commonmain.dev/r/c92bd98a?m=3D3be13b1e-0485-41a9-8c96-05110=
+56b8af0]
+
+How to use a PreToolUse hook to automatically prune stale Java processes an=
+d reclaim your RAM.=F0=9F=9A=A6Threads, Mutexes, Semaphores, Dispatchers & =
+Parallelism: The Mental Model Most Engineers Are Still Missing [https://com=
+monmain.dev/r/f1d3b244?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0]
+
+You use them every day. You know their names. But do you truly understand w=
+hy they exist, what they cost and how your CPU has been quietly lying to yo=
+u the whole time?=F0=9F=9B=A0=EF=B8=8FBuilding a Production-Ready Kotlin Mu=
+ltiplatform SDK for Android & iOS [https://commonmain.dev/r/1e3f1775?m=3D3b=
+e13b1e-0485-41a9-8c96-0511056b8af0]
+
+If you=E2=80=99re a mid-to-senior Android or iOS engineer who has heard the=
+ Kotlin Multiplatform (KMP) buzz but isn=E2=80=99t sure what a production-g=
+rade shared SDK actually looks like =E2=80=94 this article is for you. We=
+=E2=80=99ll go well beyond =E2=80=9CHello KMP=E2=80=9D and walk through the=
+ architecture, patterns, and hard-won decisions behind a real SDK that ship=
+s=C2=A0.aar=C2=A0to Android and=C2=A0.xcframework=C2=A0to iOS.=F0=9F=8F=8E=
+=EF=B8=8FThe Clean Line: Swift Export for KMP [https://commonmain.dev/r/2ca=
+ea5a1?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0]
+
+Kotlin 2.3.0 shipped Swift Export with proper enum support. This article co=
+vers the before, the after, and the things you need to know before you flip=
+ the switch.
+
+
+LazyColumn
+
+Compose Multiplatform tips, tricks, and code snippets.
+
+=E2=9A=A1Compose Performance Skills [https://commonmain.dev/r/e73b5952?m=3D=
+3be13b1e-0485-41a9-8c96-0511056b8af0]
+
+A curated library of Agent Skills focused on Jetpack Compose performance - =
+highly applicable to Compose Multiplatform performance as well.=F0=9F=AB=A8=
+Haze 2.0: A Pluggable Visual Effects Engine [https://commonmain.dev/r/f9814=
+763?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0]
+
+Haze is a library for backdrop-style visual effects in Jetpack Compose and =
+Compose Multiplatform. Up until now, blur has been the headline feature and=
+ the architecture has been built around that assumption.
+
+
+The Dependency Graph
+
+Curated libraries, tools and plugins that won't break your Gradle build.
+
+ * Pulsar [https://commonmain.dev/r/72c56258?m=3D3be13b1e-0485-41a9-8c96-05=
+11056b8af0]
+   Rich and ready-to-use haptics library.
+ * Colormath [https://commonmain.dev/r/32d1facd?m=3D3be13b1e-0485-41a9-8c96=
+-0511056b8af0]
+   Colormath is a Kotlin Multiplatform library for color manipulation and c=
+onversion.
+ * KMPUtils [https://commonmain.dev/r/b2e9a830?m=3D3be13b1e-0485-41a9-8c96-=
+0511056b8af0]
+   KMP Utils is a collection of all the things that are missing from Kotlin=
+ STL, popular KMP libraries & platform SDKs.
+
+
+Target: Production
+
+Showcase of real-world apps proving KMP is ready for prime time.
+
+
+
+
+
+
+
+
+
+
+
+
+SPONSORED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Carrd - Simple, free, fully responsive one-page sites for pretty much anyth=
+ing.
+
+Whether it's a personal profile, a landing page for your KMP project,=C2=A0=
+or something a bit more elaborate, Carrd has you covered.=C2=A0Simple, resp=
+onsive, and yup =E2=80=94 totally free!
+
+
+
+
+
+
+
+
+Get Started [https://commonmain.dev/r/4cbc7730?m=3D3be13b1e-0485-41a9-8c96-=
+0511056b8af0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OptyMacros - Optimize your diet. Eat what you want.
+Opty makes planning and tracking effortless. Plan your day, adjust as neede=
+d, and track progress automatically with exa=E2=80=A6
+
+
+Optimize your diet. Eat what you want.
+
+
+
+
+
+[https://commonmain.dev/r/393e54bc?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0=
+]
+
+
+CMP app with custom canvas widgets for charts and other visual elements.
+
+
+
+
+
+
+
+
+
+GitHub - terrakok/CozySpace
+Contribute to terrakok/CozySpace development by creating an account on GitH=
+ub.
+
+
+GitHub
+=E2=80=A2terrakok
+
+
+
+
+[https://commonmain.dev/r/0960cd53?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0=
+]
+
+
+A minimal, distraction-free tray app bringing ambient sounds to your deskto=
+p. Perfect for deep work, reading, or meditation.
+
+
+
+
+
+
+
+
+
+Better: Gym & Calorie Tracker - Apps on Google Play
+Gym log & calorie tracker in one app. Track lifts, macros, and nutrition.
+
+
+Apps on Google Play
+=E2=80=A2Behzod Halil
+
+
+
+
+[https://commonmain.dev/r/f158b5ea?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0=
+]
+
+
+=E2=86=92 Reddit discussion [https://commonmain.dev/r/6f6b1e22?m=3D3be13b1e=
+-0485-41a9-8c96-0511056b8af0] about shipping the app to production.
+
+
+
+
+
+Careers
+
+Kotlin Multiplatform job postings and opportunities.
+
+
+
+
+
+
+
+
+
+
+
+
+SPONSORED
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wellfound =E2=80=A2 Where startups and job seekers connect.
+
+=F0=9F=A4=9D Connect directly with founders at top startups - no third part=
+y recruiters allowed.
+=F0=9F=92=B8 Everything you need to know, all upfront. View salary, stock o=
+ptions, and more before applying.
+=E2=9C=8C=EF=B8=8F Say goodbye to cover letters - your profile is all you n=
+eed. One click to apply and you're done.
+=E2=9C=A8 Unique jobs at startups and tech companies you can=E2=80=99t find=
+ anywhere else.
+
+
+
+
+
+
+
+
+Find Your Next Remote Job [https://commonmain.dev/r/0620fe6e?m=3D3be13b1e-0=
+485-41a9-8c96-0511056b8af0]
+
+
+
+
+
+
+
+
+
+
+
+
+=F0=9F=9A=97OTX Runtime Engineer [https://commonmain.dev/r/48129f65?m=3D3be=
+13b1e-0485-41a9-8c96-0511056b8af0] at Salvo Software [https://commonmain.de=
+v/r/cf60542f?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0]
+
+We are looking for a Senior OTX Runtime Engineer to design and ship a produ=
+ction-grade runtime for the ISO 13209 Open Test sequence eXchange (OTX) sta=
+ndard. This is a deeply technical, high-ownership role at the core of Salvo=
+'s diagnostic toolchain. The work demands equal fluency in language-impleme=
+ntation concepts, Kotlin Multiplatform engineering, and automotive diagnost=
+ic protocols.
+
+----------------------------------------
+
+=C2=A0
+
+=F0=9F=9A=80 Get Featured!
+
+Got something interesting to share with the Kotlin Multiplatform community?=
+ Submit your link [https://commonmain.dev/r/e9596ed8?m=3D3be13b1e-0485-41a9=
+-8c96-0511056b8af0] for a chance to get featured in the next issue of commo=
+nMain.dev.
+
+=F0=9F=A4=9D Support the Build
+
+commonMain.dev is made possible by our partners. If you have a tool or serv=
+ice that helps KMP developers ship to production faster, we=E2=80=99d love =
+to help you reach our community. Collaborate with us [https://commonmain.de=
+v/r/c1192e6d?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0].
+
+=E2=9C=8D Code Review
+
+This newsletter is curated and written by a real human being. I=E2=80=99m a=
+lways looking for ways to optimize the build. Was there something you liked=
+ or disliked in particular? Or did you find a bug in this issue? Simply rep=
+ly to this email - I read every comment from the community and take your fe=
+edback into account for the next release.
+
+Until next time,
+Stay platform-independent!
+Bogdan =E2=80=A2 Founder of commonMain.dev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+commonMain.dev is not affiliated with JetBrains or the Kotlin Foundation.
+Kodee=C2=A0by=C2=A0JetBrains s.r.o. [https://commonmain.dev/r/36698e08?m=3D=
+3be13b1e-0485-41a9-8c96-0511056b8af0]=C2=A0is licensed under=C2=A0CC BY 4.0=
+ [https://commonmain.dev/r/ec1b6143?m=3D3be13b1e-0485-41a9-8c96-0511056b8af=
+0].
+
+
+
+commonMain.dev =C2=A9 2026 =E2=80=93 Unsubscribe [https://commonmain.dev/un=
+subscribe/?uuid=3D3be13b1e-0485-41a9-8c96-0511056b8af0&key=3D2398c47651bed8=
+b853093e735435511c1809b28c00a15f8930ddaf6c31d61d6e&newsletter=3D67cd9368-d4=
+2e-4d57-bb69-da242c7855ec]
+
+
+
+
+
+
+
+
+
+
+
+=C2=A0
+
+
+
+
+
+--371ab09b4da4035a63d9d7ef5c847b780d04a8eec2ecec17a6e39ee185f4
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html>
+    <head>
+        <meta name=3D"viewport" content=3D"width=3Ddevice-width">
+        <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DU=
+TF-8">
+        <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:=
+PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
+        <title>Kotlin Multiplatform Newsletter #16</title>
+        <style>
+@media only screen and (max-width: 620px) {
+  table.body {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  table.body .content {
+    padding: 0 !important;
+  }
+
+  table.body .container {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  table.body .main {
+    border-spacing: 10px 0 !important;
+    border-left-width: 0 !important;
+    border-radius: 0 !important;
+    border-right-width: 0 !important;
+  }
+
+  table.body .img-responsive {
+    height: auto !important;
+    max-width: 100% !important;
+    width: auto !important;
+  }
+}
+@media all {
+  .ExternalClass {
+    width: 100%;
+  }
+
+  .ExternalClass,
+=2EExternalClass p,
+=2EExternalClass span,
+=2EExternalClass font,
+=2EExternalClass td,
+=2EExternalClass div {
+    line-height: 100%;
+  }
+
+  .apple-link a {
+    color: inherit !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    text-decoration: none !important;
+  }
+
+  #MessageViewBody a {
+    color: inherit;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+}
+@media only screen and (max-width: 620px) {
+  table[class=3Dbody] h1 {
+    font-size: 28px !important;
+    margin-bottom: 10px !important;
+  }
+
+  table[class=3Dbody] p,
+table[class=3Dbody] ul,
+table[class=3Dbody] ol,
+table[class=3Dbody] td,
+table[class=3Dbody] span,
+table[class=3Dbody] a {
+    font-size: 16px !important;
+  }
+
+  table[class=3Dbody] .wrapper,
+table[class=3Dbody] .article {
+    padding: 10px !important;
+  }
+
+  table[class=3Dbody] .content {
+    padding: 0 !important;
+  }
+
+  table[class=3Dbody] .container {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  table[class=3Dbody] .main {
+    border-left-width: 0 !important;
+    border-radius: 0 !important;
+    border-right-width: 0 !important;
+  }
+
+  table[class=3Dbody] .btn table {
+    width: 100% !important;
+  }
+
+  table[class=3Dbody] .btn a {
+    width: 100% !important;
+  }
+
+  table[class=3Dbody] .img-responsive {
+    height: auto !important;
+    max-width: 100% !important;
+    width: auto !important;
+  }
+
+  table[class=3Dbody] p[class=3Dsmall],
+table[class=3Dbody] a[class=3Dsmall] {
+    font-size: 11px !important;
+  }
+}
+=2Ekg-nft-link {
+  display: block;
+  text-decoration: none !important;
+  color: #15212A !important;
+  font-family: inherit !important;
+  font-size: 14px;
+  line-height: 1.3;
+  padding-top: 4px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 4px;
+}
+=2Ekg-twitter-link {
+  display: block;
+  text-decoration: none !important;
+  color: #15212A !important;
+  font-family: inherit !important;
+  font-size: 15px;
+  padding: 8px;
+  line-height: 1.3;
+}
+=2Ekg-cta-link-accent .kg-cta-sponsor-label a {
+  color: #ffc106 !important;
+}
+=2Ekg-cta-text a:not(.kg-cta-link-accent .kg-cta-text a) {
+  color: #15212A;
+  text-decoration: underline;
+}
+=2Ekg-cta-link-accent .kg-cta-text a {
+  color: #ffc106 !important;
+}
+@media only screen and (max-width: 620px) {
+  table.body .kg-bookmark-card {
+    width: 90vw;
+  }
+
+  table.body .kg-bookmark-thumbnail {
+    display: none !important;
+  }
+
+  table.body .kg-bookmark-metadata span {
+    font-size: 13px !important;
+  }
+
+  table.body .kg-embed-card {
+    max-width: 90vw !important;
+  }
+
+  table.body .kg-cta-card {
+    padding: 0 20px;
+  }
+
+  table.body .kg-cta-card.kg-cta-bg-none {
+    padding: 0;
+  }
+
+  table.body .kg-cta-sponsor-label {
+    padding: 10px 0;
+  }
+
+  table.body table.kg-cta-content-wrapper:not(.kg-cta-bg-none.kg-cta-no-div=
+iders table.kg-cta-content-wrapper) {
+    padding: 20px 0;
+  }
+
+  table.body .kg-cta-immersive.kg-cta-has-img:not(.kg-cta-bg-none):not(.kg-=
+cta-no-label) table.kg-cta-content-wrapper {
+    padding-top: 0;
+  }
+
+  table.body .kg-cta-minimal .kg-cta-image-container {
+    padding-right: 20px;
+  }
+
+  table.body .kg-cta-immersive .kg-cta-image-container {
+    padding-bottom: 20px;
+  }
+
+  table.body .kg-cta-immersive.kg-cta-no-text .kg-cta-image-container {
+    padding-bottom: 0;
+  }
+
+  table.body .kg-cta-button-container {
+    padding-top: 16px;
+  }
+
+  table.body .kg-cta-minimal .kg-cta-image-container {
+    display: inline-block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    padding-bottom: 16px !important;
+    padding-right: 0 !important;
+  }
+
+  table.body .kg-cta-minimal .kg-cta-content-inner {
+    display: inline-block !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  table.body .kg-cta-minimal img.kg-cta-image {
+    width: 52px !important;
+    height: 52px !important;
+  }
+}
+@media all {
+  .ExternalClass {
+    width: 100%;
+  }
+
+  .ExternalClass,
+=2EExternalClass p,
+=2EExternalClass span,
+=2EExternalClass font,
+=2EExternalClass td,
+=2EExternalClass div {
+    line-height: 100%;
+  }
+
+  .recipient-link a {
+    color: inherit !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    text-decoration: none !important;
+  }
+
+  #MessageViewBody a {
+    color: inherit;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+}
+=2Epost-title-link {
+  display: block;
+  margin-top: 32px;
+  color: #15212A;
+  text-align: center;
+  line-height: 1.1;
+}
+=2Epost-title-link-left {
+  text-align: left;
+}
+=2Eview-online-link {
+  word-wrap: none;
+  white-space: nowrap;
+  color: #ffffff;
+  color: rgba(255, 255, 255, .6);
+  text-decoration: underline !important;
+}
+=2Ekg-audio-link {
+  color: #15212a !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+@media only screen and (max-width: 620px) {
+  .hide-mobile {
+    display: none;
+  }
+
+  .mobile-only {
+    display: initial !important;
+  }
+
+  .hide-desktop {
+    display: initial !important;
+  }
+
+  .desktop-only {
+    display: none !important;
+  }
+
+  table.body p,
+table.body ul,
+table.body ol,
+table.body td {
+    font-size: 16px;
+  }
+
+  table.header .post-excerpt {
+    font-size: 16px !important;
+  }
+
+  table.body .kg-callout-card {
+    padding: 16px 24px !important;
+  }
+
+  table.body .kg-callout-text {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  table.body pre {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+  }
+
+  table.body .main,
+table.header .header-main {
+    border-spacing: 10px 0 !important;
+    border-left-width: 0 !important;
+    border-radius: 0 !important;
+    border-right-width: 0 !important;
+  }
+
+  table.header .site-icon {
+    padding-top: 0 !important;
+  }
+
+  table.header .site-info {
+    padding-top: 24px !important;
+  }
+
+  table.header .post-title-link {
+    margin-top: 24px !important;
+  }
+
+  table.header .post-meta-wrapper {
+    padding-bottom: 24px !important;
+  }
+
+  table.header .site-icon img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  table.header .site-url a {
+    font-size: 13px !important;
+    padding-bottom: 16px !important;
+  }
+
+  table.header .post-meta,
+table.header .post-meta-date {
+    white-space: normal !important;
+    font-size: 13px !important;
+    line-height: 1.2;
+  }
+
+  table.header .post-meta,
+table.header .view-online {
+    width: 100% !important;
+  }
+
+  table.header .post-meta-left,
+table.header .post-meta-left.view-online {
+    width: 100% !important;
+    text-align: left !important;
+  }
+
+  table.header .post-meta.view-online-mobile {
+    display: table-row !important;
+  }
+
+  table.header .post-meta-left.view-online-mobile,
+table.header .post-meta-left.view-online-mobile .view-online {
+    text-align: left !important;
+  }
+
+  table.header .post-meta.view-online.desktop {
+    display: none !important;
+  }
+
+  table.header .view-online {
+    text-decoration: underline;
+  }
+
+  table.body .footer p,
+table.body .footer p span {
+    font-size: 13px !important;
+  }
+
+  table.header .view-online-link,
+table.body .footer,
+table.body .footer a {
+    font-size: 13px !important;
+  }
+
+  table.header .post-title a {
+    font-size: 26px !important;
+    line-height: 1.1 !important;
+  }
+
+  table.feedback-buttons {
+    display: table !important;
+    width: 100% !important;
+    max-width: 390px;
+  }
+
+  table.feedback-buttons img {
+    display: inherit !important;
+  }
+
+  table.body .feedback-button-text {
+    display: none!important;
+  }
+
+  table.body .latest-posts-header {
+    font-size: 12px !important;
+  }
+
+  table.body .latest-post-title {
+    padding-right: 8px !important;
+  }
+
+  table.body .latest-post h4,
+table.body .latest-post h4 span {
+    padding: 4px 0 6px !important;
+    font-size: 15px !important;
+  }
+
+  table.body .latest-post-excerpt,
+table.body .latest-post-excerpt a,
+table.body .latest-post-excerpt span {
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+  }
+
+  table.body .subscription-box h3 {
+    font-size: 14px !important;
+  }
+
+  table.body .subscription-box p,
+table.body .subscription-box p span {
+    font-size: 13px !important;
+  }
+
+  table.body .subscription-details,
+table.body .manage-subscription {
+    display: inline-block;
+    width: 100%;
+    text-align: left !important;
+    font-size: 13px !important;
+  }
+
+  table.body .subscription-details {
+    padding-bottom: 12px;
+  }
+
+  table.body h1 {
+    font-size: 32px !important;
+    line-height: 1.3 !important;
+  }
+
+  table.body h2,
+table.body h2 span {
+    font-size: 26px !important;
+    line-height: 1.22 !important;
+  }
+
+  table.body h3 {
+    font-size: 21px !important;
+    line-height: 1.25 !important;
+  }
+
+  table.body h4 {
+    font-size: 19px !important;
+    line-height: 1.3 !important;
+  }
+
+  table.body h5 {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+
+  table.body h6 {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+
+  table.body blockquote {
+    font-size: 16px !important;
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  table.body blockquote p {
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+  }
+
+  table.body blockquote.kg-blockquote-alt {
+    border-left: 0 none !important;
+    margin: 0 !important;
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+  }
+
+  table.body blockquote.kg-blockquote-alt p {
+    margin-right: 20px !important;
+    margin-left: 20px !important;
+  }
+
+  table.body hr {
+    margin: 2em 0 !important;
+  }
+
+  .feature-image-caption {
+    font-size: 13px!important;
+  }
+
+  .kg-card-figcaption {
+    font-size: 13px!important;
+  }
+
+  .kg-card-figcaption p,
+=2Ekg-card-figcaption p span {
+    font-size: 13px!important;
+  }
+}
+@media all {
+  .subscription-details p.hidden {
+    display: none !important;
+  }
+}
+</style>
+        <!--[if mso]>
+        <style type=3D"text/css">
+            ul, ol { margin-left: 1.5em !important; }=20
+        </style>
+        <![endif]-->
+    </head>
+    <body data-testid=3D"email-preview-body" style=3D"background-color: #ff=
+f; font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial=
+, sans-serif; -webkit-font-smoothing: antialiased; font-size: 18px; line-he=
+ight: 0; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-si=
+ze-adjust: 100%; color: #15212A;"><img width=3D"1" height=3D"1" alt=3D"" sr=
+c=3D"https://email.ghost.commonmain.dev/o/eJw8zjluwzAQRuHTmJ2Ef7hPMYfhahORx=
+EBSfP4ALly-4gFfFV80l6CaUAiBoweCansa2zKqeO7cuBoyMVAEQBStc169xMXUm7fRNqOTzj0A=
+1SXA22h6paKGaGgPB0cGQFi5sSsUYybOPpv2sHi-5nWvZe77PPY0jrW2tzrl0Od1PSyOUebvKHP=
+tp7ol_20_y4embvmc38rbfC6kfQBr9Rb9HwAA___iLz7Y">
+        <span class=3D"preheader" style=3D"color: transparent; display: non=
+e; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; ms=
+o-hide: all; visibility: hidden; width: 0;">We tackle the big question: Is =
+Kotlin Multiplatform actually worth using in 2026? We dive into a step-by-s=
+tep guide for migrating to Koin Annotations in multi-module projects, the i=
+mpact of Swift Export with proper enum support in Kotlin 2.3.0, and a deep =
+technical look at the mental models of concurrency and parallelism. Plus, w=
+e explore Haze 2.0&#39;s pluggable visual effects engine, a guide to buildi=
+ng production-ready KMP SDKs, and a unique OTX Runtime Engineer role at Sal=
+vo Software.
+
+
+The Main</span>
+        <!-- SPACING TO AVOID BODY TEXT BEING DUPLICATED IN PREVIEW TEXT --=
+>
+        <div style=3D"display:none; max-height:0; overflow:hidden; mso-hide=
+: all;" aria-hidden=3D"true" role=3D"presentation">
+            &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F;=
+ &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#=
+x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x20=
+07;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; =
+&#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x=
+34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x200=
+7;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &=
+#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x3=
+4F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007=
+;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#=
+x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34=
+F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;=
+&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x=
+2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F=
+; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&=
+#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2=
+007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F;=
+ &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#=
+x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x20=
+07;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; =
+&#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x=
+34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x200=
+7;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &=
+#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x3=
+4F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007=
+;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#=
+x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34=
+F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;=
+&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x=
+2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F=
+; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&=
+#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2007;&#x34F; &#x2=
+007;&#x34F; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; =
+&#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD=
+; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#x=
+AD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &=
+#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD;=
+ &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xA=
+D; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#=
+xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; =
+&#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD=
+; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#x=
+AD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &=
+#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD;=
+ &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xA=
+D; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#=
+xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; =
+&#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD=
+; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#x=
+AD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &=
+#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD; &#xAD;  &#xA0;
+        </div>
+
+        <!-- HEADER WITH FULL-WIDTH BACKGROUND -->
+            <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" class=3D"header" width=3D"100%" style=3D"mso-table-lspace: 0=
+pt; mso-table-rspace: 0pt; line-height: 1.4; background-color: #292c33; wid=
+th: 100%; border-spacing: 0; border-collapse: collapse;" bgcolor=3D"#292c33=
+">
+                <!-- Outlook doesn't respect max-width so we need an extra =
+centered table -->
+                <!--[if mso]>
+                <tr>
+                    <td>
+                        <center>
+                            <table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"600">
+                <![endif]-->
+                <tr>
+                    <td style=3D"font-family: -apple-system, BlinkMacSystem=
+Font, Roboto, Helvetica, Arial, sans-serif; font-size: 18px; vertical-align=
+: top; color: #15212A;" valign=3D"top">&#xA0;</td>
+                    <td class=3D"container" align=3D"center" style=3D"font-=
+family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-s=
+erif; font-size: 18px; vertical-align: top; color: #15212A;" valign=3D"top"=
+>
+                        <div class=3D"content" style=3D"box-sizing: border-=
+box; display: block; margin: 0 auto; max-width: 600px;">
+                        <!-- Header content constrained to 600px -->
+                        <table role=3D"presentation" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" class=3D"header-main" style=3D"border-collapse: =
+separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-spacing: 20p=
+x 0; width: 100%; max-width: 600px; background: #ffffff; background-color: =
+#292c33;" width=3D"100%" bgcolor=3D"#292c33">
+                            <tr>
+                                <td class=3D"header-content" style=3D"font-=
+family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-s=
+erif; font-size: 18px; vertical-align: top; color: #15212A; padding: 0; mar=
+gin: 0 auto;" valign=3D"top">
+                                    <table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-colla=
+pse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+
+                                            <tr class=3D"site-info-row">
+                                                <td class=3D"site-info" wid=
+th=3D"100%" align=3D"center" style=3D"font-family: -apple-system, BlinkMacS=
+ystemFont, Roboto, Helvetica, Arial, sans-serif; font-size: 18px; vertical-=
+align: top; color: #15212A; padding-top: 32px;" valign=3D"top">
+                                                    <table role=3D"presenta=
+tion" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-coll=
+apse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;"=
+ width=3D"100%">
+                                                            <tr>
+                                                                <td class=
+=3D"site-icon" style=3D"font-family: -apple-system, BlinkMacSystemFont, Rob=
+oto, Helvetica, Arial, sans-serif; font-size: 18px; vertical-align: top; co=
+lor: #15212A; padding-bottom: 8px; padding-top: 8px; text-align: center; bo=
+rder-radius: 3px;" valign=3D"top" align=3D"center"><a href=3D"https://commo=
+nmain.dev/r/e9366bfc?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" style=3D"col=
+or: #ffc106; text-decoration: none; overflow-wrap: anywhere;" target=3D"_bl=
+ank"><img src=3D"https://storage.ghost.io/c/57/59/57597180-415a-44ab-aa77-3=
+8b4467c31d5/content/images/2026/01/-Icon--Gemini-icon-squircle-1.png" alt=
+=3D"commonMain.dev" border=3D"0" width=3D"44" height=3D"44" style=3D"border=
+: none; -ms-interpolation-mode: bicubic; max-width: 100%; width: 44px; heig=
+ht: 44px; border-radius: 3px;"></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class=
+=3D"site-url site-url-bottom-padding" style=3D"font-family: -apple-system, =
+BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; vertical-align: t=
+op; color: #ffffff; font-size: 16px; letter-spacing: -0.1px; font-weight: 7=
+00; text-transform: uppercase; text-align: center; padding-bottom: 12px;" v=
+align=3D"top" align=3D"center"><div style=3D"width: 100% !important;"><a hr=
+ef=3D"https://commonmain.dev/r/3a5c39a1?m=3D3be13b1e-0485-41a9-8c96-0511056=
+b8af0" class=3D"site-title" style=3D"text-decoration: none; color: #ffffff;=
+ overflow-wrap: anywhere;" target=3D"_blank">commonMain.dev</a></div></td>
+                                                            </tr>
+
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class=3D"post-title pos=
+t-title-no-excerpt post-title-left" style=3D"font-family: -apple-system, Bl=
+inkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-size: 18px; ve=
+rtical-align: top; background-color: #292c33; color: #ffffff; padding-botto=
+m: 16px; text-align: left;" valign=3D"top" bgcolor=3D"#292c33" align=3D"lef=
+t">
+                                                    <table role=3D"presenta=
+tion" border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-coll=
+apse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;"=
+ width=3D"100%">
+                                                        <tr>
+                                                            <td style=3D"fo=
+nt-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, san=
+s-serif; vertical-align: top; font-size: 36px; line-height: 1.1; font-weigh=
+t: 600; background-color: #292c33; color: #ffffff; text-align: left;" valig=
+n=3D"top" bgcolor=3D"#292c33" align=3D"left">
+                                                                <a href=3D"=
+https://commonmain.dev/r/2fe5a315?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0"=
+ class=3D"post-title-link post-title-link-left" style=3D"text-decoration: n=
+one; display: block; margin-top: 32px; line-height: 1.1; text-align: left; =
+overflow-wrap: anywhere; color: #ffffff;" target=3D"_blank">Kotlin Multipla=
+tform Newsletter #16</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width=3D"100%" style=3D=
+"font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, =
+sans-serif; font-size: 18px; vertical-align: top; color: #15212A; width: 10=
+0%;" align=3D"center" valign=3D"top">
+                                                    <table class=3D"post-me=
+ta-wrapper" role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" width=3D"100%" style=3D"border-collapse: separate; mso-table-lspace=
+: 0pt; mso-table-rspace: 0pt; width: 100%; padding-bottom: 32px;">
+                                                        <tr>
+                                                            <td height=3D"2=
+0" class=3D"post-meta post-meta-left" style=3D"font-family: -apple-system, =
+BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; vertical-align: t=
+op; color: #ffffff; color: rgba(255, 255, 255, .6); font-size: 13px; font-w=
+eight: 400; text-align: left; padding: 0;" valign=3D"top" align=3D"left">
+                                                                By Bogdan C=
+odes &#x2022; <span class=3D"post-meta-date" style=3D"white-space: nowrap;"=
+>5 May 2026 </span>
+                                                            </td>
+                                                            <td class=3D"po=
+st-meta post-meta-left view-online desktop" style=3D"font-family: -apple-sy=
+stem, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; vertical-al=
+ign: top; color: rgba(255, 255, 255, .6); font-size: 13px; font-weight: 400=
+; text-align: right;" valign=3D"top" align=3D"right">
+                                                                <a href=3D"=
+https://commonmain.dev/r/1cc4b0c0?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0"=
+ class=3D"view-online-link" style=3D"word-wrap: none; white-space: nowrap; =
+color: #ffffff; color: rgba(255, 255, 255, .6); overflow-wrap: anywhere; te=
+xt-decoration: underline;" target=3D"_blank">View in browser</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class=3D"post-m=
+eta post-meta-left view-online-mobile" style=3D"color: #ffffff; color: rgba=
+(255, 255, 255, .6); font-size: 13px; font-weight: 400; text-align: left; d=
+isplay: none;" align=3D"left">
+                                                            <td height=3D"2=
+0" class=3D"view-online" style=3D"font-family: -apple-system, BlinkMacSyste=
+mFont, Roboto, Helvetica, Arial, sans-serif; vertical-align: top; color: #f=
+fffff; color: rgba(255, 255, 255, .6); font-size: 13px; font-weight: 400; t=
+ext-align: center;" valign=3D"top" align=3D"center">
+                                                                <a href=3D"=
+https://commonmain.dev/r/3c4690fb?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0"=
+ class=3D"view-online-link" style=3D"word-wrap: none; white-space: nowrap; =
+color: #ffffff; color: rgba(255, 255, 255, .6); overflow-wrap: anywhere; te=
+xt-decoration: underline;" target=3D"_blank">View in browser</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        </div>
+                    </td>
+                    <td style=3D"font-family: -apple-system, BlinkMacSystem=
+Font, Roboto, Helvetica, Arial, sans-serif; font-size: 18px; vertical-align=
+: top; color: #15212A;" valign=3D"top">&#xA0;</td>
+                </tr>
+                <!--[if mso]>
+                            </table>
+                        </center>
+                    </td>
+                </tr>
+                <![endif]-->
+            </table>
+
+        <!-- MAIN CONTENT AREA -->
+        <table role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" class=3D"body" width=3D"100%" style=3D"border-collapse: separate=
+; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; line-height: 1=
+=2E4; background-color: #ffffff;" bgcolor=3D"#ffffff">
+            <!-- Outlook doesn't respect max-width so we need an extra cent=
+ered table -->
+            <!--[if mso]>
+            <tr>
+                <td>
+                    <center>
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"600">
+            <![endif]-->
+            <tr>
+                <td style=3D"font-family: -apple-system, BlinkMacSystemFont=
+, Roboto, Helvetica, Arial, sans-serif; font-size: 18px; vertical-align: to=
+p; color: #15212A;" valign=3D"top">&#xA0;</td>
+                <td class=3D"container" style=3D"font-family: -apple-system=
+, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-size: 18px=
+; vertical-align: top; color: #15212A; display: block; max-width: 600px; ma=
+rgin: 0 auto;" valign=3D"top">
+                    <div class=3D"content" style=3D"box-sizing: border-box;=
+ display: block; margin: 0 auto; max-width: 600px;">
+                        <table role=3D"presentation" border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" class=3D"main" width=3D"100%" style=3D"border-co=
+llapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-spac=
+ing: 20px 0; width: 100%; max-width: 600px; background: #ffffff; background=
+-color: #ffffff;" bgcolor=3D"#ffffff">                            <tr>
+                                <td class=3D"wrapper" style=3D"font-family:=
+ -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; f=
+ont-size: 18px; vertical-align: top; color: #15212A; box-sizing: border-box=
+;" valign=3D"top">
+                                    <table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" data-testid=3D"email-=
+preview-content" style=3D"border-collapse: separate; mso-table-lspace: 0pt;=
+ mso-table-rspace: 0pt; width: 100%;">
+                                        <tr class=3D"post-content-row">
+                                            <td class=3D"post-content-sans-=
+serif" style=3D"font-family: -apple-system, BlinkMacSystemFont, Roboto, Hel=
+vetica, Arial, sans-serif; vertical-align: top; font-size: 17px; line-heigh=
+t: 1.5; color: #15212A; padding-bottom: 20px; border-bottom: 1px solid #292=
+c33; padding-top: 32px; max-width: 600px;" valign=3D"top">
+                                                <!-- POST CONTENT START -->
+                                                <p style=3D"margin: 0 0 1.5=
+em 0; line-height: 1.6; color: #15212A;">We tackle the big question: Is Kot=
+lin Multiplatform actually worth using in 2026? We dive into a step-by-step=
+ guide for migrating to <strong style=3D"font-weight: 700;">Koin Annotation=
+s</strong> in multi-module projects, the impact of <strong style=3D"font-we=
+ight: 700;">Swift Export</strong> with proper enum support in Kotlin 2.3.0,=
+ and a deep technical look at the mental models of <strong style=3D"font-we=
+ight: 700;">concurrency and parallelism</strong>. Plus, we explore <strong =
+style=3D"font-weight: 700;">Haze 2.0&#39;s</strong> pluggable visual effect=
+s engine, a guide to building production-ready KMP SDKs, and a unique <stro=
+ng style=3D"font-weight: 700;">OTX Runtime Engineer</strong> role at Salvo =
+Software.</p><h3 id=3D"the-main-thread" style=3D"margin-top: 0; font-family=
+: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; =
+line-height: 1.11; font-weight: 600; text-rendering: optimizeLegibility; ma=
+rgin: 1.5em 0 0.5em 0; font-size: 26px; color: #292c33;"><strong style=3D"f=
+ont-weight: 700;">The Main Thread</strong></h3><p style=3D"margin: 0 0 1.5e=
+m 0; line-height: 1.6; color: #15212A;">Community&#39;s most insightful thr=
+eads, curated from social media platforms and websites.</p><div class=3D"kg=
+-card kg-callout-card kg-callout-card-white" style=3D"display: flex; margin=
+: 0 0 1.5em 0; padding: 24px; border-radius: 8px; background: #fff; border:=
+ 1px solid #dddedf;"><div class=3D"kg-callout-emoji" style=3D"padding-right=
+: 12px; font-size: 20px;">&#x2753;</div><div class=3D"kg-callout-text" styl=
+e=3D"color: inherit;"><a href=3D"https://commonmain.dev/r/8262ee68?m=3D3be1=
+3b1e-0485-41a9-8c96-0511056b8af0" rel=3D"noreferrer" style=3D"overflow-wrap=
+: anywhere; text-decoration: none; font-weight: 700; color: #d5a104;" targe=
+t=3D"_blank">Is Kotlin Multiplatform (KMP) actually worth using in 2026?</a=
+><br><br>Explore this Reddit discussion on the pros and cons of KMP and lea=
+rn from the real-world experiences of fellow developers.</div></div><h3 id=
+=3D"expect-actual" style=3D"margin-top: 0; font-family: -apple-system, Blin=
+kMacSystemFont, Roboto, Helvetica, Arial, sans-serif; line-height: 1.11; fo=
+nt-weight: 600; text-rendering: optimizeLegibility; margin: 1.5em 0 0.5em 0=
+; font-size: 26px; color: #292c33;">Expect Actual</h3><p style=3D"margin: 0=
+ 0 1.5em 0; line-height: 1.6; color: #15212A;">Technical deep dives, or sol=
+ving the &quot;how-the-hell-do-I-test-this&quot; problems.</p><table class=
+=3D"kg-card kg-cta-card kg-cta-bg-grey  kg-cta-minimal    kg-cta-link-accen=
+t " border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=
+=3D"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt=
+; width: 100%; margin: 0 0 1.5em 0; padding: 0 24px; border-radius: 6px; ba=
+ckground: #f1f2f4;">
+           =20
+                <tbody><tr>
+                    <td style=3D"font-family: -apple-system, BlinkMacSystem=
+Font, Roboto, Helvetica, Arial, sans-serif; font-size: 18px; vertical-align=
+: top; color: #15212A;" valign=3D"top">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"border-collapse: separate; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; width: 100%;">
+                            <tbody><tr>
+                                <td class=3D"kg-cta-sponsor-label" style=3D=
+"font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, =
+sans-serif; font-size: 18px; vertical-align: top; color: #15212A; padding: =
+12px 0; border-bottom: 1px solid #292c33; border-color: #d0d1d2;" valign=3D=
+"top">
+                                    <p style=3D"line-height: 1.6; margin: 0=
+; font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,=
+ sans-serif; font-size: 12px; font-weight: 500; text-transform: uppercase; =
+color: inherit;"><span style=3D"white-space: pre-wrap;">SPONSORED</span></p=
+>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+           =20
+           =20
+                <tr>
+                    <td class=3D"kg-cta-content" style=3D"font-family: -app=
+le-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-s=
+ize: 18px; vertical-align: top; color: #15212A;" valign=3D"top">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" class=3D"kg-cta-content-wrapper" style=3D"border-coll=
+apse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; =
+padding: 24px 0 26px;">
+                            <tbody><tr>
+                               =20
+                                <td class=3D"kg-cta-content-inner" style=3D=
+"font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, =
+sans-serif; font-size: 18px; vertical-align: top; color: #15212A;" valign=
+=3D"top">
+                                    <table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"border-collapse: separate; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+                                       =20
+                                            <tbody><tr>
+                                                <td class=3D"kg-cta-text" s=
+tyle=3D"vertical-align: top; color: #15212A; font-family: -apple-system, Bl=
+inkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-size: 17px;" v=
+align=3D"top">
+                                                    <p style=3D"margin: 0 0=
+ 1.5em 0; margin-bottom: 1em; line-height: 1.4; color: inherit;"><b><strong=
+ style=3D"font-weight: 700; white-space: pre-wrap;">Stop treating Kotlin li=
+ke a black box! &#x1F9E0;</strong></b><br><br><span style=3D"white-space: p=
+re-wrap;">To build truly performant multiplatform apps, writing code that j=
+ust &quot;works&quot; isn&#39;t enough. We need to understand what the comp=
+iler is actually doing under the hood.</span></p><p style=3D"margin: 0 0 1.=
+5em 0; line-height: 1.4; margin-bottom: 0; color: inherit;"><span style=3D"=
+white-space: pre-wrap;">That&#x2019;s why I highly recommend </span><a href=
+=3D"https://commonmain.dev/r/a77f0fdb?m=3D3be13b1e-0485-41a9-8c96-0511056b8=
+af0" rel=3D"noreferrer" class=3D"cta-link-color" style=3D"overflow-wrap: an=
+ywhere; text-decoration: none; font-weight: 700; color: #ffc106;" target=3D=
+"_blank"><b><strong style=3D"font-weight: 700; white-space: pre-wrap;">Prac=
+tical Kotlin Deep Dive</strong></b></a><span style=3D"white-space: pre-wrap=
+;"> by skydoves. This isn&#39;t a basic syntax guide, it breaks down Kotlin=
+ internals, bytecode, and coroutines. It&#x2019;s been a total game-changer=
+ for me when writing and optimizing shared code.</span><br><br><span style=
+=3D"white-space: pre-wrap;">If you want to level up your Kotlin and KMP ski=
+lls to a senior standard, you need this on your desk.</span></p>
+                                                </td>
+                                            </tr>
+                                       =20
+                                       =20
+                                            <tr>
+                                                <td class=3D"kg-cta-button-=
+container" style=3D"font-family: -apple-system, BlinkMacSystemFont, Roboto,=
+ Helvetica, Arial, sans-serif; font-size: 18px; vertical-align: top; color:=
+ #15212A; padding-top: 20px;" valign=3D"top">
+                                                    <table class=3D"btn btn=
+-accent" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-c=
+ollapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing=
+: border-box; width: auto;" width=3D"auto"><tbody><tr><td align=3D"center" =
+style=3D"font-size: 18px; vertical-align: top; color: #15212A; padding: 8px=
+ 20px 9px; border-radius: 6px; text-align: center; font-family: -apple-syst=
+em, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; background-co=
+lor: #ffc106;" valign=3D"top" bgcolor=3D"#ffc106"><a href=3D"https://common=
+main.dev/r/a40bf8a5?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" style=3D"over=
+flow-wrap: anywhere; box-sizing: border-box; cursor: pointer; display: inli=
+ne-block; font-size: 15px; font-weight: 600; margin: 0; text-decoration: no=
+ne; color: #000000;" target=3D"_blank">Get the Book</a></td></tr></tbody></=
+table>
+                                                </td>
+                                            </tr>
+                                       =20
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+           =20
+        </tbody></table><div class=3D"kg-card kg-callout-card kg-callout-ca=
+rd-white" style=3D"display: flex; margin: 0 0 1.5em 0; padding: 24px; borde=
+r-radius: 8px; background: #fff; border: 1px solid #dddedf; margin-top: 1.5=
+em;"><div class=3D"kg-callout-emoji" style=3D"padding-right: 12px; font-siz=
+e: 20px;">&#x1FA99;</div><div class=3D"kg-callout-text" style=3D"color: inh=
+erit;"><a href=3D"https://commonmain.dev/r/ffcb43db?m=3D3be13b1e-0485-41a9-=
+8c96-0511056b8af0" rel=3D"noreferrer" style=3D"overflow-wrap: anywhere; tex=
+t-decoration: none; font-weight: 700; color: #d5a104;" target=3D"_blank">Mi=
+grating from Koin DSL to Koin Annotations in a Multimodule Project: A Step-=
+by-Step Guide</a><br><br>Today we&#x2019;re going to explore how to migrate=
+ a Compose Multiplatform multi-module project from Koin DSL to Koin Annotat=
+ions. We&#x2019;ll take a hands-on approach, diving deep into a <a href=3D"=
+https://commonmain.dev/r/b67e61e1?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0"=
+ target=3D"_blank" rel=3D"noopener ugc nofollow" style=3D"overflow-wrap: an=
+ywhere; text-decoration: none; font-weight: 700; color: #d5a104;">project e=
+xample</a> built by the <a href=3D"https://commonmain.dev/r/23d99f1b?m=3D3b=
+e13b1e-0485-41a9-8c96-0511056b8af0" target=3D"_blank" rel=3D"noopener ugc n=
+ofollow" style=3D"overflow-wrap: anywhere; text-decoration: none; font-weig=
+ht: 700; color: #d5a104;">CodandoTV</a> community.</div></div><div class=3D=
+"kg-card kg-callout-card kg-callout-card-white" style=3D"display: flex; mar=
+gin: 0 0 1.5em 0; padding: 24px; border-radius: 8px; background: #fff; bord=
+er: 1px solid #dddedf;"><div class=3D"kg-callout-emoji" style=3D"padding-ri=
+ght: 12px; font-size: 20px;">&#x2702;&#xFE0F;</div><div class=3D"kg-callout=
+-text" style=3D"color: inherit;"><a href=3D"https://commonmain.dev/r/c92bd9=
+8a?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" rel=3D"noreferrer" style=3D"ov=
+erflow-wrap: anywhere; text-decoration: none; font-weight: 700; color: #d5a=
+104;" target=3D"_blank">Managing Gradle Daemons while Coding with AI</a><br=
+><br>How to use a <code spellcheck=3D"false" style=3D"font-size: 0.9em; whi=
+te-space: pre-wrap;">PreToolUse</code> hook to automatically prune stale Ja=
+va processes and reclaim your RAM.</div></div><div class=3D"kg-card kg-call=
+out-card kg-callout-card-white" style=3D"display: flex; margin: 0 0 1.5em 0=
+; padding: 24px; border-radius: 8px; background: #fff; border: 1px solid #d=
+ddedf;"><div class=3D"kg-callout-emoji" style=3D"padding-right: 12px; font-=
+size: 20px;">&#x1F6A6;</div><div class=3D"kg-callout-text" style=3D"color: =
+inherit;"><a href=3D"https://commonmain.dev/r/f1d3b244?m=3D3be13b1e-0485-41=
+a9-8c96-0511056b8af0" rel=3D"noreferrer" style=3D"overflow-wrap: anywhere; =
+text-decoration: none; font-weight: 700; color: #d5a104;" target=3D"_blank"=
+>Threads, Mutexes, Semaphores, Dispatchers &amp; Parallelism: The Mental Mo=
+del Most Engineers Are Still Missing</a><br><br>You use them every day. You=
+ know their names. But do you truly understand why they exist, what they co=
+st and how your CPU has been quietly lying to you the whole time?</div></di=
+v><div class=3D"kg-card kg-callout-card kg-callout-card-white" style=3D"dis=
+play: flex; margin: 0 0 1.5em 0; padding: 24px; border-radius: 8px; backgro=
+und: #fff; border: 1px solid #dddedf;"><div class=3D"kg-callout-emoji" styl=
+e=3D"padding-right: 12px; font-size: 20px;">&#x1F6E0;&#xFE0F;</div><div cla=
+ss=3D"kg-callout-text" style=3D"color: inherit;"><a href=3D"https://commonm=
+ain.dev/r/1e3f1775?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" style=3D"overf=
+low-wrap: anywhere; text-decoration: none; font-weight: 700; color: #d5a104=
+;" target=3D"_blank">Building a Production-Ready Kotlin Multiplatform SDK f=
+or Android &amp; iOS</a><br><br>If you&#x2019;re a mid-to-senior Android or=
+ iOS engineer who has heard the Kotlin Multiplatform (KMP) buzz but isn&#x2=
+019;t sure what a production-grade shared SDK actually looks like &#x2014; =
+this article is for you. We&#x2019;ll go well beyond &#x201C;Hello KMP&#x20=
+1D; and walk through the architecture, patterns, and hard-won decisions beh=
+ind a real SDK that ships&#xA0;<code spellcheck=3D"false" style=3D"font-siz=
+e: 0.9em; white-space: pre-wrap;">.aar</code>&#xA0;to Android and&#xA0;<cod=
+e spellcheck=3D"false" style=3D"font-size: 0.9em; white-space: pre-wrap;">.=
+xcframework</code>&#xA0;to iOS.</div></div><div class=3D"kg-card kg-callout=
+-card kg-callout-card-white" style=3D"display: flex; margin: 0 0 1.5em 0; p=
+adding: 24px; border-radius: 8px; background: #fff; border: 1px solid #ddde=
+df;"><div class=3D"kg-callout-emoji" style=3D"padding-right: 12px; font-siz=
+e: 20px;">&#x1F3CE;&#xFE0F;</div><div class=3D"kg-callout-text" style=3D"co=
+lor: inherit;"><a href=3D"https://commonmain.dev/r/2caea5a1?m=3D3be13b1e-04=
+85-41a9-8c96-0511056b8af0" rel=3D"noreferrer" style=3D"overflow-wrap: anywh=
+ere; text-decoration: none; font-weight: 700; color: #d5a104;" target=3D"_b=
+lank">The Clean Line: Swift Export for KMP</a><br><br>Kotlin 2.3.0 shipped =
+Swift Export with proper enum support. This article covers the before, the =
+after, and the things you need to know before you flip the switch.</div></d=
+iv><h3 id=3D"lazycolumn" style=3D"margin-top: 0; font-family: -apple-system=
+, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; line-height: 1.=
+11; font-weight: 600; text-rendering: optimizeLegibility; margin: 1.5em 0 0=
+=2E5em 0; font-size: 26px; color: #292=
+c33;">LazyColumn</h3><p style=3D"margin=
+: 0 0 1.5em 0; line-height: 1.6; color: #15212A;">Compose Multiplatform tip=
+s, tricks, and code snippets.</p><div class=3D"kg-card kg-callout-card kg-c=
+allout-card-white" style=3D"display: flex; margin: 0 0 1.5em 0; padding: 24=
+px; border-radius: 8px; background: #fff; border: 1px solid #dddedf;"><div =
+class=3D"kg-callout-emoji" style=3D"padding-right: 12px; font-size: 20px;">=
+&#x26A1;</div><div class=3D"kg-callout-text" style=3D"color: inherit;"><a h=
+ref=3D"https://commonmain.dev/r/e73b5952?m=3D3be13b1e-0485-41a9-8c96-051105=
+6b8af0" rel=3D"noreferrer" style=3D"overflow-wrap: anywhere; text-decoratio=
+n: none; font-weight: 700; color: #d5a104;" target=3D"_blank">Compose Perfo=
+rmance Skills</a><br><br>A curated library of Agent Skills focused on Jetpa=
+ck Compose performance - highly applicable to Compose Multiplatform perform=
+ance as well.</div></div><div class=3D"kg-card kg-callout-card kg-callout-c=
+ard-white" style=3D"display: flex; margin: 0 0 1.5em 0; padding: 24px; bord=
+er-radius: 8px; background: #fff; border: 1px solid #dddedf;"><div class=3D=
+"kg-callout-emoji" style=3D"padding-right: 12px; font-size: 20px;">&#x1FAE8=
+;</div><div class=3D"kg-callout-text" style=3D"color: inherit;"><a href=3D"=
+https://commonmain.dev/r/f9814763?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0"=
+ rel=3D"noreferrer" style=3D"overflow-wrap: anywhere; text-decoration: none=
+; font-weight: 700; color: #d5a104;" target=3D"_blank">Haze 2.0: A Pluggabl=
+e Visual Effects Engine</a><br><br>Haze is a library for backdrop-style vis=
+ual effects in Jetpack Compose and Compose Multiplatform. Up until now, blu=
+r has been the headline feature and the architecture has been built around =
+that assumption.</div></div><h3 id=3D"the-dependency-graph" style=3D"margin=
+-top: 0; font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica,=
+ Arial, sans-serif; line-height: 1.11; font-weight: 600; text-rendering: op=
+timizeLegibility; margin: 1.5em 0 0.5em 0; font-size: 26px; color: #292c33;=
+">The Dependency Graph</h3><p style=3D"margin: 0 0 1.5em 0; line-height: 1.=
+6; color: #15212A;">Curated libraries, tools and plugins that won&#39;t bre=
+ak your Gradle build.</p><ul style=3D"margin: 0 0 1.5em 0; line-height: 1.6=
+; padding-left: 1.3em; padding-right: 1.5em; list-style: disc; max-width: 1=
+00%;"><li style=3D"margin: 0.5em 0; padding-left: 0.3em; line-height: 1.6; =
+color: #15212A;"><a href=3D"https://commonmain.dev/r/72c56258?m=3D3be13b1e-=
+0485-41a9-8c96-0511056b8af0" rel=3D"noreferrer" style=3D"overflow-wrap: any=
+where; color: #d5a104; text-decoration: none; font-weight: 700;" target=3D"=
+_blank"><strong style=3D"font-weight: 700;">Pulsar</strong></a><br>Rich and=
+ ready-to-use haptics library.</li><li style=3D"margin: 0.5em 0; padding-le=
+ft: 0.3em; line-height: 1.6; color: #15212A;"><a href=3D"https://commonmain=
+=2Edev/r/32d1facd?m=3D3be13b1e-0485-41a=
+9-8c96-0511056b8af0" rel=3D"noreferrer=
+" style=3D"overflow-wrap: anywhere; color: #d5a104; text-decoration: none; =
+font-weight: 700;" target=3D"_blank"><strong style=3D"font-weight: 700;">Co=
+lormath</strong></a><br>Colormath is a Kotlin Multiplatform library for col=
+or manipulation and conversion.</li><li style=3D"margin: 0.5em 0; padding-l=
+eft: 0.3em; line-height: 1.6; color: #15212A;"><a href=3D"https://commonmai=
+n.dev/r/b2e9a830?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" rel=3D"noreferre=
+r" style=3D"overflow-wrap: anywhere; color: #d5a104; text-decoration: none;=
+ font-weight: 700;" target=3D"_blank"><strong style=3D"font-weight: 700;">K=
+MPUtils</strong></a><br>KMP Utils is a collection of all the things that ar=
+e missing from Kotlin STL, popular KMP libraries &amp; platform SDKs.</li><=
+/ul><h3 id=3D"target-production" style=3D"margin-top: 0; font-family: -appl=
+e-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; line-he=
+ight: 1.11; font-weight: 600; text-rendering: optimizeLegibility; margin: 1=
+=2E5em 0 0.5em 0; font-size: 26px; colo=
+r: #292c33;">Target: Production</h3><p=
+ style=3D"margin: 0 0 1.5em 0; line-height: 1.6; color: #15212A;">Showcase =
+of real-world apps proving KMP is ready for prime time.</p><table class=3D"=
+kg-card kg-cta-card kg-cta-bg-grey  kg-cta-minimal    kg-cta-link-accent " =
+border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"bo=
+rder-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; widt=
+h: 100%; margin: 0 0 1.5em 0; padding: 0 24px; border-radius: 6px; backgrou=
+nd: #f1f2f4;">
+           =20
+                <tbody><tr>
+                    <td style=3D"font-family: -apple-system, BlinkMacSystem=
+Font, Roboto, Helvetica, Arial, sans-serif; font-size: 18px; vertical-align=
+: top; color: #15212A;" valign=3D"top">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"border-collapse: separate; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; width: 100%;">
+                            <tbody><tr>
+                                <td class=3D"kg-cta-sponsor-label" style=3D=
+"font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, =
+sans-serif; font-size: 18px; vertical-align: top; color: #15212A; padding: =
+12px 0; border-bottom: 1px solid #292c33; border-color: #d0d1d2;" valign=3D=
+"top">
+                                    <p style=3D"line-height: 1.6; margin: 0=
+; font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,=
+ sans-serif; font-size: 12px; font-weight: 500; text-transform: uppercase; =
+color: inherit;"><span style=3D"white-space: pre-wrap;">SPONSORED</span></p=
+>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+           =20
+           =20
+                <tr>
+                    <td class=3D"kg-cta-content" style=3D"font-family: -app=
+le-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-s=
+ize: 18px; vertical-align: top; color: #15212A;" valign=3D"top">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" class=3D"kg-cta-content-wrapper" style=3D"border-coll=
+apse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; =
+padding: 24px 0 26px;">
+                            <tbody><tr>
+                               =20
+                                <td class=3D"kg-cta-content-inner" style=3D=
+"font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, =
+sans-serif; font-size: 18px; vertical-align: top; color: #15212A;" valign=
+=3D"top">
+                                    <table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"border-collapse: separate; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+                                       =20
+                                            <tbody><tr>
+                                                <td class=3D"kg-cta-text" s=
+tyle=3D"vertical-align: top; color: #15212A; font-family: -apple-system, Bl=
+inkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-size: 17px;" v=
+align=3D"top">
+                                                    <p style=3D"margin: 0 0=
+ 1.5em 0; line-height: 1.4; margin-bottom: 0; color: inherit;"><b><strong s=
+tyle=3D"font-weight: 700; white-space: pre-wrap;">Carrd </strong></b><span =
+style=3D"white-space: pre-wrap;">- Simple, free, fully responsive one-page =
+sites for pretty much anything.</span><br><br><span style=3D"white-space: p=
+re-wrap;">Whether it&#39;s a personal profile, a landing page for your KMP =
+project,&#xA0;or something a bit more elaborate, Carrd has you covered.&#xA=
+0;Simple, responsive, and yup &#x2014; totally free!</span></p>
+                                                </td>
+                                            </tr>
+                                       =20
+                                       =20
+                                            <tr>
+                                                <td class=3D"kg-cta-button-=
+container" style=3D"font-family: -apple-system, BlinkMacSystemFont, Roboto,=
+ Helvetica, Arial, sans-serif; font-size: 18px; vertical-align: top; color:=
+ #15212A; padding-top: 20px;" valign=3D"top">
+                                                    <table class=3D"btn btn=
+-accent" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-c=
+ollapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing=
+: border-box; width: auto;" width=3D"auto"><tbody><tr><td align=3D"center" =
+style=3D"font-size: 18px; vertical-align: top; color: #15212A; padding: 8px=
+ 20px 9px; border-radius: 6px; text-align: center; font-family: -apple-syst=
+em, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; background-co=
+lor: #ffc106;" valign=3D"top" bgcolor=3D"#ffc106"><a href=3D"https://common=
+main.dev/r/4cbc7730?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" style=3D"over=
+flow-wrap: anywhere; box-sizing: border-box; cursor: pointer; display: inli=
+ne-block; font-size: 15px; font-weight: 600; margin: 0; text-decoration: no=
+ne; color: #000000;" target=3D"_blank">Get Started</a></td></tr></tbody></t=
+able>
+                                                </td>
+                                            </tr>
+                                       =20
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+           =20
+        </tbody></table><div style=3D"margin-top: 1.5em;">
+        <!--[if !mso !vml]-->
+            <div class=3D"kg-card kg-bookmark-card kg-card-hascaption" styl=
+e=3D"margin: 0 0 1.5em; padding: 0; width: 100%;">
+                <a class=3D"kg-bookmark-container" href=3D"https://commonma=
+in.dev/r/393e54bc?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" style=3D"displa=
+y: flex; min-height: 148px; font-family: -apple-system, BlinkMacSystemFont,=
+ Roboto, Helvetica, Arial, sans-serif; border-radius: 3px; background-color=
+: #ffffff; background-color: rgba(255, 255, 255, 0.25); border: 1px solid #=
+e0e7eb; border: 1px solid rgba(0, 0, 0, 0.12); overflow-wrap: anywhere; col=
+or: #d5a104; font-weight: 700; text-decoration: none;" target=3D"_blank">
+                    <div class=3D"kg-bookmark-content" style=3D"display: in=
+line-block; width: 100%; padding: 20px;">
+                        <div class=3D"kg-bookmark-title" style=3D"color: #1=
+5212A; font-size: 15px; line-height: 1.5; font-weight: 600;">OptyMacros - O=
+ptimize your diet. Eat what you want.</div>
+                        <div class=3D"kg-bookmark-description" style=3D"dis=
+play: -webkit-box; overflow-y: hidden; margin-top: 12px; max-height: 40px; =
+color: #15212a; color: rgba(0, 0, 0, 0.6); font-size: 13px; line-height: 1.=
+5; font-weight: 400; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">=
+Opty makes planning and tracking effortless. Plan your day, adjust as neede=
+d, and track p<span class=3D"desktop-only">rogress automatically with exa</=
+span>&#x2026;</div>
+                        <div class=3D"kg-bookmark-metadata" style=3D"displa=
+y: flex; flex-wrap: wrap; align-items: center; margin-top: 14px; color: #15=
+212A; font-size: 13px; font-weight: 400;">
+                            <img class=3D"kg-bookmark-icon" src=3D"https://=
+storage.ghost.io/c/57/59/57597180-415a-44ab-aa77-38b4467c31d5/content/image=
+s/icon/favicon.svg" alt style=3D"border: none; -ms-interpolation-mode: bicu=
+bic; max-width: 100%; border-radius: 6px; margin-right: 8px; width: 22px; h=
+eight: 22px; display: none;" width=3D"22" height=3D"22">
+                            <span class=3D"kg-bookmark-author" src=3D"Optim=
+ize your diet. Eat what you want." style=3D"line-height: 1.5;">Optimize you=
+r diet. Eat what you want.</span>
+                           =20
+                        </div>
+                    </div>
+                    <div class=3D"kg-bookmark-thumbnail" style=3D"min-width=
+: 140px; max-width: 180px; background-repeat: no-repeat; background-size: c=
+over; background-position: center; border-radius: 0 2px 2px 0; background-i=
+mage: url(&#39;https://storage.ghost.io/c/57/59/57597180-415a-44ab-aa77-38b=
+4467c31d5/content/images/thumbnail/opty-logo.DuCD3-Cy_1p1EFQ.svg&#39;);">
+                        <img src=3D"https://storage.ghost.io/c/57/59/575971=
+80-415a-44ab-aa77-38b4467c31d5/content/images/thumbnail/opty-logo.DuCD3-Cy_=
+1p1EFQ.svg" alt onerror=3D"this.style.display=3D&#39;none&#39;" style=3D"bo=
+rder: none; -ms-interpolation-mode: bicubic; max-width: 100%; border-radius=
+: 6px; display: none;"></div>
+                </a>
+                <div class=3D"kg-card-figcaption" style=3D"text-align: cent=
+er; font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Aria=
+l, sans-serif; padding-top: 10px; padding-bottom: 10px; line-height: 1.5; c=
+olor: #15212a; color: rgba(0, 0, 0, 0.6); font-size: 13px;"><p dir=3D"ltr" =
+style=3D"margin: 0 0 1.5em 0; line-height: 1.6; color: inherit;"><span styl=
+e=3D"white-space: pre-wrap;">CMP app with custom canvas widgets for charts =
+and other visual elements.</span></p></div>
+            </div>
+        <!--[endif]-->
+        <!--[if vml]>
+            <table class=3D"kg-card kg-bookmark-card--outlook" style=3D"mar=
+gin: 0; padding: 0; width: 100%; border: 1px solid #e5eff5; background: #ff=
+ffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O=
+xygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; border=
+-collapse: collapse; border-spacing: 0;" width=3D"100%">
+                <tr>
+                    <td width=3D"100%" style=3D"padding: 20px;">
+                        <table style=3D"margin: 0; padding: 0; border-colla=
+pse: collapse; border-spacing: 0;">
+                            <tr>
+                                <td class=3D"kg-bookmark-title--outlook">
+                                    <a href=3D"https://optymacros.com" styl=
+e=3D"text-decoration: none; color: #15212A; font-size: 15px; line-height: 1=
+=2E5em; font-weight: 600;">
+                                        OptyMacros - Optimize your diet. Ea=
+t what you want.
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class=3D"kg-bookmark-description--=
+outlook">
+                                        <a href=3D"https://optymacros.com" =
+style=3D"text-decoration: none; margin-top: 12px; color: #738a94; font-size=
+: 13px; line-height: 1.5em; font-weight: 400;">
+                                            Opty makes planning and trackin=
+g effortless. Plan your day, adjust as needed, and track p<span class=3D"de=
+sktop-only">rogress automatically with exa</span>=E2=80=A6
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class=3D"kg-bookmark-metadata--outlook"=
+ style=3D"padding-top: 14px; color: #15212A; font-size: 13px; font-weight: =
+400; line-height: 1.5em;">
+                                    <table style=3D"margin: 0; padding: 0; =
+border-collapse: collapse; border-spacing: 0;">
+                                        <tr>
+                                           =20
+                                                <td valign=3D"middle" class=
+=3D"kg-bookmark-icon--outlook" style=3D"padding-right: 8px; font-size: 0; l=
+ine-height: 1.5em;">
+                                                    <a href=3D"https://opty=
+macros.com" style=3D"text-decoration: none; color: #15212A;">
+                                                        <img src=3D"https:/=
+/storage.ghost.io/c/57/59/57597180-415a-44ab-aa77-38b4467c31d5/content/imag=
+es/icon/favicon.svg" width=3D"22" height=3D"22" alt=3D" ">
+                                                    </a>
+                                                </td>
+                                           =20
+                                            <td valign=3D"middle" class=3D"=
+kg-bookmark-byline--outlook">
+                                                <a href=3D"https://optymacr=
+os.com" style=3D"text-decoration: none; color: #15212A;">
+                                                    Optimize your diet. Eat=
+ what you want.
+                                                   =20
+                                                   =20
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <div class=3D"kg-bookmark-spacer--outlook" style=3D"height: 1.5=
+em;">&nbsp;</div>
+        <![endif]--></div><div>
+        <!--[if !mso !vml]-->
+            <div class=3D"kg-card kg-bookmark-card kg-card-hascaption" styl=
+e=3D"margin: 0 0 1.5em; padding: 0; width: 100%;">
+                <a class=3D"kg-bookmark-container" href=3D"https://commonma=
+in.dev/r/0960cd53?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" style=3D"displa=
+y: flex; min-height: 148px; font-family: -apple-system, BlinkMacSystemFont,=
+ Roboto, Helvetica, Arial, sans-serif; border-radius: 3px; background-color=
+: #ffffff; background-color: rgba(255, 255, 255, 0.25); border: 1px solid #=
+e0e7eb; border: 1px solid rgba(0, 0, 0, 0.12); overflow-wrap: anywhere; col=
+or: #d5a104; font-weight: 700; text-decoration: none;" target=3D"_blank">
+                    <div class=3D"kg-bookmark-content" style=3D"display: in=
+line-block; width: 100%; padding: 20px;">
+                        <div class=3D"kg-bookmark-title" style=3D"color: #1=
+5212A; font-size: 15px; line-height: 1.5; font-weight: 600;">GitHub - terra=
+kok/CozySpace</div>
+                        <div class=3D"kg-bookmark-description" style=3D"dis=
+play: -webkit-box; overflow-y: hidden; margin-top: 12px; max-height: 40px; =
+color: #15212a; color: rgba(0, 0, 0, 0.6); font-size: 13px; line-height: 1.=
+5; font-weight: 400; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">=
+Contribute to terrakok/CozySpace development by creating an account on GitH=
+ub.</div>
+                        <div class=3D"kg-bookmark-metadata" style=3D"displa=
+y: flex; flex-wrap: wrap; align-items: center; margin-top: 14px; color: #15=
+212A; font-size: 13px; font-weight: 400;">
+                            <img class=3D"kg-bookmark-icon" src=3D"https://=
+static.ghost.org/v5.0.0/images/link-icon.svg" alt style=3D"border: none; -m=
+s-interpolation-mode: bicubic; max-width: 100%; border-radius: 6px; margin-=
+right: 8px; width: 22px; height: 22px; display: none;" width=3D"22" height=
+=3D"22">
+                            <span class=3D"kg-bookmark-author" src=3D"GitHu=
+b" style=3D"line-height: 1.5;">GitHub</span>
+                            <span class=3D"kg-bookmark-publisher" src=3D"te=
+rrakok" style=3D"overflow: hidden; max-width: 240px; line-height: 1.5; text=
+-overflow: ellipsis; white-space: nowrap;"><span style=3D"margin: 0 6px;">&=
+#x2022;</span>terrakok</span>
+                        </div>
+                    </div>
+                    <div class=3D"kg-bookmark-thumbnail" style=3D"min-width=
+: 140px; max-width: 180px; background-repeat: no-repeat; background-size: c=
+over; background-position: center; border-radius: 0 2px 2px 0; background-i=
+mage: url(&#39;https://storage.ghost.io/c/57/59/57597180-415a-44ab-aa77-38b=
+4467c31d5/content/images/thumbnail/CozySpace&#39;);">
+                        <img src=3D"https://storage.ghost.io/c/57/59/575971=
+80-415a-44ab-aa77-38b4467c31d5/content/images/thumbnail/CozySpace" alt oner=
+ror=3D"this.style.display=3D&#39;none&#39;" style=3D"border: none; -ms-inte=
+rpolation-mode: bicubic; max-width: 100%; border-radius: 6px; display: none=
+;"></div>
+                </a>
+                <div class=3D"kg-card-figcaption" style=3D"text-align: cent=
+er; font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Aria=
+l, sans-serif; padding-top: 10px; padding-bottom: 10px; line-height: 1.5; c=
+olor: #15212a; color: rgba(0, 0, 0, 0.6); font-size: 13px;"><p dir=3D"ltr" =
+style=3D"margin: 0 0 1.5em 0; line-height: 1.6; color: inherit;"><span styl=
+e=3D"white-space: pre-wrap;">A minimal, distraction-free tray app bringing =
+ambient sounds to your desktop. Perfect for deep work, reading, or meditati=
+on.</span></p></div>
+            </div>
+        <!--[endif]-->
+        <!--[if vml]>
+            <table class=3D"kg-card kg-bookmark-card--outlook" style=3D"mar=
+gin: 0; padding: 0; width: 100%; border: 1px solid #e5eff5; background: #ff=
+ffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O=
+xygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; border=
+-collapse: collapse; border-spacing: 0;" width=3D"100%">
+                <tr>
+                    <td width=3D"100%" style=3D"padding: 20px;">
+                        <table style=3D"margin: 0; padding: 0; border-colla=
+pse: collapse; border-spacing: 0;">
+                            <tr>
+                                <td class=3D"kg-bookmark-title--outlook">
+                                    <a href=3D"https://github.com/terrakok/=
+CozySpace" style=3D"text-decoration: none; color: #15212A; font-size: 15px;=
+ line-height: 1.5em; font-weight: 600;">
+                                        GitHub - terrakok/CozySpace
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class=3D"kg-bookmark-description--=
+outlook">
+                                        <a href=3D"https://github.com/terra=
+kok/CozySpace" style=3D"text-decoration: none; margin-top: 12px; color: #73=
+8a94; font-size: 13px; line-height: 1.5em; font-weight: 400;">
+                                            Contribute to terrakok/CozySpac=
+e development by creating an account on GitHub.
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class=3D"kg-bookmark-metadata--outlook"=
+ style=3D"padding-top: 14px; color: #15212A; font-size: 13px; font-weight: =
+400; line-height: 1.5em;">
+                                    <table style=3D"margin: 0; padding: 0; =
+border-collapse: collapse; border-spacing: 0;">
+                                        <tr>
+                                           =20
+                                                <td valign=3D"middle" class=
+=3D"kg-bookmark-icon--outlook" style=3D"padding-right: 8px; font-size: 0; l=
+ine-height: 1.5em;">
+                                                    <a href=3D"https://gith=
+ub.com/terrakok/CozySpace" style=3D"text-decoration: none; color: #15212A;"=
+>
+                                                        <img src=3D"https:/=
+/static.ghost.org/v5.0.0/images/link-icon.svg" width=3D"22" height=3D"22" a=
+lt=3D" ">
+                                                    </a>
+                                                </td>
+                                           =20
+                                            <td valign=3D"middle" class=3D"=
+kg-bookmark-byline--outlook">
+                                                <a href=3D"https://github.c=
+om/terrakok/CozySpace" style=3D"text-decoration: none; color: #15212A;">
+                                                    GitHub
+                                                    &nbsp;&#x2022;&nbsp;
+                                                    terrakok
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <div class=3D"kg-bookmark-spacer--outlook" style=3D"height: 1.5=
+em;">&nbsp;</div>
+        <![endif]--></div><div>
+        <!--[if !mso !vml]-->
+            <div class=3D"kg-card kg-bookmark-card kg-card-hascaption" styl=
+e=3D"margin: 0 0 1.5em; padding: 0; width: 100%;">
+                <a class=3D"kg-bookmark-container" href=3D"https://commonma=
+in.dev/r/f158b5ea?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" style=3D"displa=
+y: flex; min-height: 148px; font-family: -apple-system, BlinkMacSystemFont,=
+ Roboto, Helvetica, Arial, sans-serif; border-radius: 3px; background-color=
+: #ffffff; background-color: rgba(255, 255, 255, 0.25); border: 1px solid #=
+e0e7eb; border: 1px solid rgba(0, 0, 0, 0.12); overflow-wrap: anywhere; col=
+or: #d5a104; font-weight: 700; text-decoration: none;" target=3D"_blank">
+                    <div class=3D"kg-bookmark-content" style=3D"display: in=
+line-block; width: 100%; padding: 20px;">
+                        <div class=3D"kg-bookmark-title" style=3D"color: #1=
+5212A; font-size: 15px; line-height: 1.5; font-weight: 600;">Better: Gym &a=
+mp; Calorie Tracker - Apps on Google Play</div>
+                        <div class=3D"kg-bookmark-description" style=3D"dis=
+play: -webkit-box; overflow-y: hidden; margin-top: 12px; max-height: 40px; =
+color: #15212a; color: rgba(0, 0, 0, 0.6); font-size: 13px; line-height: 1.=
+5; font-weight: 400; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">=
+Gym log &amp; calorie tracker in one app. Track lifts, macros, and nutritio=
+n.</div>
+                        <div class=3D"kg-bookmark-metadata" style=3D"displa=
+y: flex; flex-wrap: wrap; align-items: center; margin-top: 14px; color: #15=
+212A; font-size: 13px; font-weight: 400;">
+                            <img class=3D"kg-bookmark-icon" src=3D"https://=
+static.ghost.org/v5.0.0/images/link-icon.svg" alt style=3D"border: none; -m=
+s-interpolation-mode: bicubic; max-width: 100%; border-radius: 6px; margin-=
+right: 8px; width: 22px; height: 22px; display: none;" width=3D"22" height=
+=3D"22">
+                            <span class=3D"kg-bookmark-author" src=3D"Apps =
+on Google Play" style=3D"line-height: 1.5;">Apps on Google Play</span>
+                            <span class=3D"kg-bookmark-publisher" src=3D"Be=
+hzod Halil" style=3D"overflow: hidden; max-width: 240px; line-height: 1.5; =
+text-overflow: ellipsis; white-space: nowrap;"><span style=3D"margin: 0 6px=
+;">&#x2022;</span>Behzod Halil</span>
+                        </div>
+                    </div>
+                    <div class=3D"kg-bookmark-thumbnail" style=3D"min-width=
+: 140px; max-width: 180px; background-repeat: no-repeat; background-size: c=
+over; background-position: center; border-radius: 0 2px 2px 0; background-i=
+mage: url(&#39;https://storage.ghost.io/c/57/59/57597180-415a-44ab-aa77-38b=
+4467c31d5/content/images/thumbnail/988KdBr1Ed6q13_yIQPRZThGWynx4gV_8nD4i9Dr=
+tcxJ1MCgIVNxyUDjzW4Z0go8fdcVvCWDC2mjQJtBKpdMYw&#39;);">
+                        <img src=3D"https://storage.ghost.io/c/57/59/575971=
+80-415a-44ab-aa77-38b4467c31d5/content/images/thumbnail/988KdBr1Ed6q13_yIQP=
+RZThGWynx4gV_8nD4i9DrtcxJ1MCgIVNxyUDjzW4Z0go8fdcVvCWDC2mjQJtBKpdMYw" alt on=
+error=3D"this.style.display=3D&#39;none&#39;" style=3D"border: none; -ms-in=
+terpolation-mode: bicubic; max-width: 100%; border-radius: 6px; display: no=
+ne;"></div>
+                </a>
+                <div class=3D"kg-card-figcaption" style=3D"text-align: cent=
+er; font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Aria=
+l, sans-serif; padding-top: 10px; padding-bottom: 10px; line-height: 1.5; c=
+olor: #15212a; color: rgba(0, 0, 0, 0.6); font-size: 13px;"><p dir=3D"ltr" =
+style=3D"margin: 0 0 1.5em 0; line-height: 1.6; color: inherit;"><b><strong=
+ style=3D"font-weight: 700; white-space: pre-wrap;">&#x2192;</strong></b> <=
+a href=3D"https://commonmain.dev/r/6f6b1e22?m=3D3be13b1e-0485-41a9-8c96-051=
+1056b8af0" rel=3D"noreferrer" style=3D"overflow-wrap: anywhere; color: #d5a=
+104; font-weight: 700; text-decoration: none;" target=3D"_blank"><span styl=
+e=3D"white-space: pre-wrap;">Reddit discussion</span></a><span style=3D"whi=
+te-space: pre-wrap;"> about shipping the app to production.</span></p></div=
+>
+            </div>
+        <!--[endif]-->
+        <!--[if vml]>
+            <table class=3D"kg-card kg-bookmark-card--outlook" style=3D"mar=
+gin: 0; padding: 0; width: 100%; border: 1px solid #e5eff5; background: #ff=
+ffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O=
+xygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; border=
+-collapse: collapse; border-spacing: 0;" width=3D"100%">
+                <tr>
+                    <td width=3D"100%" style=3D"padding: 20px;">
+                        <table style=3D"margin: 0; padding: 0; border-colla=
+pse: collapse; border-spacing: 0;">
+                            <tr>
+                                <td class=3D"kg-bookmark-title--outlook">
+                                    <a href=3D"https://play.google.com/stor=
+e/apps/details?id=3Dio.behzodhalil.better" style=3D"text-decoration: none; =
+color: #15212A; font-size: 15px; line-height: 1.5em; font-weight: 600;">
+                                        Better: Gym &amp; Calorie Tracker -=
+ Apps on Google Play
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class=3D"kg-bookmark-description--=
+outlook">
+                                        <a href=3D"https://play.google.com/=
+store/apps/details?id=3Dio.behzodhalil.better" style=3D"text-decoration: no=
+ne; margin-top: 12px; color: #738a94; font-size: 13px; line-height: 1.5em; =
+font-weight: 400;">
+                                            Gym log &amp; calorie tracker i=
+n one app. Track lifts, macros, and nutrition.
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class=3D"kg-bookmark-metadata--outlook"=
+ style=3D"padding-top: 14px; color: #15212A; font-size: 13px; font-weight: =
+400; line-height: 1.5em;">
+                                    <table style=3D"margin: 0; padding: 0; =
+border-collapse: collapse; border-spacing: 0;">
+                                        <tr>
+                                           =20
+                                                <td valign=3D"middle" class=
+=3D"kg-bookmark-icon--outlook" style=3D"padding-right: 8px; font-size: 0; l=
+ine-height: 1.5em;">
+                                                    <a href=3D"https://play=
+=2Egoogle.com/store/apps/details?id=3Di=
+o.behzodhalil.better" style=3D"text-de=
+coration: none; color: #15212A;">
+                                                        <img src=3D"https:/=
+/static.ghost.org/v5.0.0/images/link-icon.svg" width=3D"22" height=3D"22" a=
+lt=3D" ">
+                                                    </a>
+                                                </td>
+                                           =20
+                                            <td valign=3D"middle" class=3D"=
+kg-bookmark-byline--outlook">
+                                                <a href=3D"https://play.goo=
+gle.com/store/apps/details?id=3Dio.behzodhalil.better" style=3D"text-decora=
+tion: none; color: #15212A;">
+                                                    Apps on Google Play
+                                                    &nbsp;&#x2022;&nbsp;
+                                                    Behzod Halil
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <div class=3D"kg-bookmark-spacer--outlook" style=3D"height: 1.5=
+em;">&nbsp;</div>
+        <![endif]--></div><h3 id=3D"careers" style=3D"margin-top: 0; font-f=
+amily: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-se=
+rif; line-height: 1.11; font-weight: 600; text-rendering: optimizeLegibilit=
+y; margin: 1.5em 0 0.5em 0; font-size: 26px; color: #292c33;">Careers</h3><=
+p style=3D"margin: 0 0 1.5em 0; line-height: 1.6; color: #15212A;">Kotlin M=
+ultiplatform job postings and opportunities.</p><table class=3D"kg-card kg-=
+cta-card kg-cta-bg-grey  kg-cta-minimal    kg-cta-link-accent " border=3D"0=
+" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collap=
+se: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; ma=
+rgin: 0 0 1.5em 0; padding: 0 24px; border-radius: 6px; background: #f1f2f4=
+;">
+           =20
+                <tbody><tr>
+                    <td style=3D"font-family: -apple-system, BlinkMacSystem=
+Font, Roboto, Helvetica, Arial, sans-serif; font-size: 18px; vertical-align=
+: top; color: #15212A;" valign=3D"top">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"border-collapse: separate; mso-table-lspace:=
+ 0pt; mso-table-rspace: 0pt; width: 100%;">
+                            <tbody><tr>
+                                <td class=3D"kg-cta-sponsor-label" style=3D=
+"font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, =
+sans-serif; font-size: 18px; vertical-align: top; color: #15212A; padding: =
+12px 0; border-bottom: 1px solid #292c33; border-color: #d0d1d2;" valign=3D=
+"top">
+                                    <p style=3D"line-height: 1.6; margin: 0=
+; font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial,=
+ sans-serif; font-size: 12px; font-weight: 500; text-transform: uppercase; =
+color: inherit;"><span style=3D"white-space: pre-wrap;">SPONSORED</span></p=
+>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+           =20
+           =20
+                <tr>
+                    <td class=3D"kg-cta-content" style=3D"font-family: -app=
+le-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-s=
+ize: 18px; vertical-align: top; color: #15212A;" valign=3D"top">
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" class=3D"kg-cta-content-wrapper" style=3D"border-coll=
+apse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; =
+padding: 24px 0 26px;">
+                            <tbody><tr>
+                               =20
+                                <td class=3D"kg-cta-content-inner" style=3D=
+"font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, =
+sans-serif; font-size: 18px; vertical-align: top; color: #15212A;" valign=
+=3D"top">
+                                    <table border=3D"0" cellpadding=3D"0" c=
+ellspacing=3D"0" width=3D"100%" style=3D"border-collapse: separate; mso-tab=
+le-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+                                       =20
+                                            <tbody><tr>
+                                                <td class=3D"kg-cta-text" s=
+tyle=3D"vertical-align: top; color: #15212A; font-family: -apple-system, Bl=
+inkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-size: 17px;" v=
+align=3D"top">
+                                                    <p style=3D"margin: 0 0=
+ 1.5em 0; line-height: 1.4; margin-bottom: 0; color: inherit;"><b><strong s=
+tyle=3D"font-weight: 700; white-space: pre-wrap;">wellfound</strong></b><sp=
+an style=3D"white-space: pre-wrap;"> &#x2022; Where startups and job seeker=
+s connect.</span><br><br><span style=3D"white-space: pre-wrap;">&#x1F91D; C=
+onnect directly with founders at top startups - no third party recruiters a=
+llowed.</span><br><span style=3D"white-space: pre-wrap;">&#x1F4B8; Everythi=
+ng you need to know, all upfront. View salary, stock options, and more befo=
+re applying.</span><br><span style=3D"white-space: pre-wrap;">&#x270C;&#xFE=
+0F; Say goodbye to cover letters - your profile is all you need. One click =
+to apply and you&#39;re done.</span><br><span style=3D"white-space: pre-wra=
+p;">&#x2728; Unique jobs at startups and tech companies you can&#x2019;t fi=
+nd anywhere else.</span></p>
+                                                </td>
+                                            </tr>
+                                       =20
+                                       =20
+                                            <tr>
+                                                <td class=3D"kg-cta-button-=
+container" style=3D"font-family: -apple-system, BlinkMacSystemFont, Roboto,=
+ Helvetica, Arial, sans-serif; font-size: 18px; vertical-align: top; color:=
+ #15212A; padding-top: 20px;" valign=3D"top">
+                                                    <table class=3D"btn btn=
+-accent" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"border-c=
+ollapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; box-sizing=
+: border-box; width: auto;" width=3D"auto"><tbody><tr><td align=3D"center" =
+style=3D"font-size: 18px; vertical-align: top; color: #15212A; padding: 8px=
+ 20px 9px; border-radius: 6px; text-align: center; font-family: -apple-syst=
+em, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; background-co=
+lor: #ffc106;" valign=3D"top" bgcolor=3D"#ffc106"><a href=3D"https://common=
+main.dev/r/0620fe6e?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" style=3D"over=
+flow-wrap: anywhere; box-sizing: border-box; cursor: pointer; display: inli=
+ne-block; font-size: 15px; font-weight: 600; margin: 0; text-decoration: no=
+ne; color: #000000;" target=3D"_blank">Find Your Next Remote Job</a></td></=
+tr></tbody></table>
+                                                </td>
+                                            </tr>
+                                       =20
+                                    </tbody></table>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </td>
+                </tr>
+           =20
+        </tbody></table><div class=3D"kg-card kg-callout-card kg-callout-ca=
+rd-white" style=3D"display: flex; margin: 0 0 1.5em 0; padding: 24px; borde=
+r-radius: 8px; background: #fff; border: 1px solid #dddedf; margin-top: 1.5=
+em;"><div class=3D"kg-callout-emoji" style=3D"padding-right: 12px; font-siz=
+e: 20px;">&#x1F697;</div><div class=3D"kg-callout-text" style=3D"color: inh=
+erit;"><a href=3D"https://commonmain.dev/r/48129f65?m=3D3be13b1e-0485-41a9-=
+8c96-0511056b8af0" rel=3D"noreferrer" style=3D"overflow-wrap: anywhere; tex=
+t-decoration: none; font-weight: 700; color: #d5a104;" target=3D"_blank">OT=
+X Runtime Engineer</a> at <a href=3D"https://commonmain.dev/r/cf60542f?m=3D=
+3be13b1e-0485-41a9-8c96-0511056b8af0" rel=3D"noreferrer" style=3D"overflow-=
+wrap: anywhere; text-decoration: none; font-weight: 700; color: #d5a104;" t=
+arget=3D"_blank">Salvo Software</a><br><br>We are looking for a Senior OTX =
+Runtime Engineer to design and ship a production-grade runtime for the ISO =
+13209 Open Test sequence eXchange (OTX) standard. This is a deeply technica=
+l, high-ownership role at the core of Salvo&#39;s diagnostic toolchain. The=
+ work demands equal fluency in language-implementation concepts, Kotlin Mul=
+tiplatform engineering, and automotive diagnostic protocols.</div></div><ta=
+ble class=3D"kg-card kg-hr-card" role=3D"presentation" width=3D"100%" borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse: separ=
+ate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;"><tbody><tr=
+><td style=3D"font-family: -apple-system, BlinkMacSystemFont, Roboto, Helve=
+tica, Arial, sans-serif; vertical-align: top; color: #15212A; margin: 0; pa=
+dding-top: 1.5em; padding-bottom: 3em; font-size: 17px;" valign=3D"top"><!-=
+-[if !mso]><!-- --><hr style=3D"position: relative; width: 100%; margin: 3e=
+m 0; padding: 0; height: 1px; background-color: transparent; border: 0; bor=
+der-top: 1px solid #292c33; display: none;"><!--<![endif]--><table class=3D=
+"kg-hr" role=3D"presentation" border=3D"0" cellpadding=3D"0" cellspacing=3D=
+"0" style=3D"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rs=
+pace: 0pt; width: 100%;" width=3D"100%"><tbody><tr><td style=3D"font-family=
+: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; =
+vertical-align: top; color: #15212A; padding-top: 1.5em; padding-bottom: 3e=
+m; margin: 0; padding: 0; border-top: 1px solid #292c33; font-size: 0; line=
+-height: 0;" valign=3D"top">&#xA0;</td></tr></tbody></table></td></tr></tbo=
+dy></table><h4 id=3D"%F0%9F%9A%80-get-featured" style=3D"font-family: -appl=
+e-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-we=
+ight: 600; text-rendering: optimizeLegibility; margin: 1.8em 0 0.5em 0; fon=
+t-size: 21px; line-height: 1.2; margin-top: 0; color: #292c33;">&#x1F680; G=
+et Featured!</h4><p style=3D"margin: 0 0 1.5em 0; line-height: 1.6; color: =
+#15212A;">Got something interesting to share with the Kotlin Multiplatform =
+community? <a href=3D"https://commonmain.dev/r/e9596ed8?m=3D3be13b1e-0485-4=
+1a9-8c96-0511056b8af0" rel=3D"noreferrer" style=3D"overflow-wrap: anywhere;=
+ color: #d5a104; text-decoration: none; font-weight: 700;" target=3D"_blank=
+">Submit your link</a> for a chance to get featured in the next issue of <s=
+trong style=3D"font-weight: 700;">commonMain.dev</strong>.</p><h4 id=3D"%F0=
+%9F%A4%9D-support-the-build" style=3D"margin-top: 0; font-family: -apple-sy=
+stem, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif; font-weight=
+: 600; text-rendering: optimizeLegibility; margin: 1.8em 0 0.5em 0; font-si=
+ze: 21px; line-height: 1.2; color: #292c33;">&#x1F91D; Support the Build</h=
+4><p style=3D"margin: 0 0 1.5em 0; line-height: 1.6; color: #15212A;"><stro=
+ng style=3D"font-weight: 700;">commonMain.dev</strong> is made possible by =
+our partners. If you have a tool or service that helps KMP developers ship =
+to production faster, we&#x2019;d love to help you reach our community. <a =
+href=3D"https://commonmain.dev/r/c1192e6d?m=3D3be13b1e-0485-41a9-8c96-05110=
+56b8af0" rel=3D"noreferrer" style=3D"overflow-wrap: anywhere; color: #d5a10=
+4; text-decoration: none; font-weight: 700;" target=3D"_blank">Collaborate =
+with us</a>.</p><h4 id=3D"%E2%9C%8D-code-review" style=3D"margin-top: 0; fo=
+nt-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, san=
+s-serif; font-weight: 600; text-rendering: optimizeLegibility; margin: 1.8e=
+m 0 0.5em 0; font-size: 21px; line-height: 1.2; color: #292c33;">&#x270D; C=
+ode Review</h4><p style=3D"margin: 0 0 1.5em 0; line-height: 1.6; color: #1=
+5212A;">This newsletter is curated and written by a real human being. I&#x2=
+019;m always looking for ways to optimize the build. Was there something yo=
+u liked or disliked in particular? Or did you find a bug in this issue? Sim=
+ply <strong style=3D"font-weight: 700;">reply to this email </strong>- I re=
+ad every comment from the community and take your feedback into account for=
+ the next release.</p><p style=3D"margin: 0 0 1.5em 0; line-height: 1.6; co=
+lor: #15212A;">Until next time, <br><strong style=3D"font-weight: 700;">Sta=
+y platform-independent!</strong><br>Bogdan &#x2022; Founder of commonMain.d=
+ev</p>
+                                                <!-- POST CONTENT END -->
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <!-- END MAIN CONTENT AREA -->
+
+
+
+
+                            <tr>
+                                <td class=3D"wrapper" align=3D"center" styl=
+e=3D"font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Ari=
+al, sans-serif; font-size: 18px; vertical-align: top; color: #15212A; box-s=
+izing: border-box;" valign=3D"top">
+                                    <table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-colla=
+pse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; p=
+adding-top: 40px; padding-bottom: 30px;">
+                                            <tr><td class=3D"footer" style=
+=3D"font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Aria=
+l, sans-serif; vertical-align: top; color: #15212a; color: rgba(0, 0, 0, 0.=
+6); margin-top: 20px; text-align: center; padding-bottom: 10px; padding-top=
+: 10px; padding-left: 30px; padding-right: 30px; line-height: 1.5; font-siz=
+e: 13px;" valign=3D"top" align=3D"center"><p dir=3D"ltr" style=3D"margin: 0=
+ 0 1.5em 0; line-height: 1.6;"><span>commonMain.dev is not affiliated with =
+JetBrains or the Kotlin Foundation.</span><br><span>Kodee</span><i><em clas=
+s=3D"italic">&#xA0;by&#xA0;</em></i><a href=3D"https://commonmain.dev/r/366=
+98e08?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" target=3D"_blank" rel=3D"no=
+opener noreferrer" style=3D"overflow-wrap: anywhere; color: #15212a; color:=
+ rgba(0, 0, 0, 0.6); text-decoration: underline; font-size: 13px;"><i><em c=
+lass=3D"italic">JetBrains s.r.o.</em></i></a><i><em class=3D"italic">&#xA0;=
+is licensed under&#xA0;</em></i><a href=3D"https://commonmain.dev/r/ec1b614=
+3?m=3D3be13b1e-0485-41a9-8c96-0511056b8af0" target=3D"_blank" rel=3D"noopen=
+er noreferrer" style=3D"overflow-wrap: anywhere; color: #15212a; color: rgb=
+a(0, 0, 0, 0.6); text-decoration: underline; font-size: 13px;"><i><em class=
+=3D"italic">CC BY 4.0</em></i></a><i><em class=3D"italic">.</em></i></p></t=
+d></tr>
+                                        <tr>
+                                            <td class=3D"footer" style=3D"f=
+ont-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sa=
+ns-serif; vertical-align: top; color: #15212a; color: rgba(0, 0, 0, 0.6); m=
+argin-top: 20px; text-align: center; padding-bottom: 10px; padding-top: 10p=
+x; padding-left: 30px; padding-right: 30px; line-height: 1.5; font-size: 13=
+px;" valign=3D"top" align=3D"center">commonMain.dev &#xA9; 2026 &#x2013; <a=
+ href=3D"https://commonmain.dev/unsubscribe/?uuid=3D3be13b1e-0485-41a9-8c96=
+-0511056b8af0&key=3D2398c47651bed8b853093e735435511c1809b28c00a15f8930ddaf6=
+c31d61d6e&newsletter=3D67cd9368-d42e-4d57-bb69-da242c7855ec" style=3D"overf=
+low-wrap: anywhere; color: #15212a; color: rgba(0, 0, 0, 0.6); text-decorat=
+ion: underline; font-size: 13px;" target=3D"_blank">Unsubscribe</a></td>
+                                        </tr>
+
+                                    </table>
+                                </td>
+                            </tr>
+</table>
+                        <!-- END CENTERED WHITE CONTAINER -->
+                    </div>
+                </td>
+                <td style=3D"font-family: -apple-system, BlinkMacSystemFont=
+, Roboto, Helvetica, Arial, sans-serif; font-size: 18px; vertical-align: to=
+p; color: #15212A;" valign=3D"top">&#xA0;</td>
+            </tr>
+
+            <!--[if mso]>
+                            </table>
+                        </center>
+                    </td>
+                </tr>
+            <![endif]-->
+        </table>
+    </body>
+</html>
+
+
+--371ab09b4da4035a63d9d7ef5c847b780d04a8eec2ecec17a6e39ee185f4--
