@@ -24,7 +24,7 @@ buildscript {
     }
     dependencies {
         // Use by Flyway Gradle Plugin
-        classpath("org.flywaydb:flyway-mysql:12.4.0")
+        classpath("org.flywaydb:flyway-mysql:12.5.0")
     }
 }
 
