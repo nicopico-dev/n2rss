@@ -28,4 +28,5 @@ interface PublicationRepository : JpaRepository<PublicationEntity, UUID> {
     fun countPublicationsByNewsletterCode(newsletterCode: String): Long
     fun findFirstByNewsletterCodeOrderByDateAsc(newsletterCode: String): PublicationEntity?
     fun findFirstByNewsletterCodeOrderByDateDesc(newsletterCode: String): PublicationEntity?
+    fun findFirstByNewsletterCodeAndTitle(newsletterCode: String, title: String): PublicationEntity?
 }

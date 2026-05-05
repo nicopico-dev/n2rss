@@ -23,7 +23,9 @@ import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
+import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import fr.nicopico.n2rss.newsletter.handlers.process
+import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.PublicationService
@@ -70,7 +72,7 @@ class EmailCheckerTest {
     @Test
     fun `emailChecker handles email when appropriate handler is present`(
         @MockK(relaxed = true) email: Email,
-        @MockK newsletterHandler: NewsletterHandler,
+        @MockK(relaxed = true) newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
     ) {
         // Given an email that should be handled by a newsletterHandler
@@ -107,10 +109,38 @@ class EmailCheckerTest {
     }
 
     @Test
+    fun `emailChecker do not process email if the corresponding publication already exists`(
+        @MockK(relaxed = true) email: Email,
+        @MockK newsletterHandler: NewsletterHandler,
+        @MockK newsletter: Newsletter,
+    ) {
+        // Given an email that already exists in the database
+        every { email.subject } returns "Email subject"
+        every { emailClient.checkEmails() } returns listOf(email)
+        every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
+        every { newsletterHandler.newsletters } returns listOf(newsletter)
+        every {
+            publicationService.doesPublicationAlreadyExist(
+                title = "Email subject",
+                newsletters = listOf(newsletter),
+            )
+        } returns true
+
+        // When we check the email
+        emailChecker.savePublicationsFromEmails()
+
+        // Then the email should not be processed again, but the email should be marked
+        verify(exactly = 0) { newsletterHandler.process(email) }
+        verify(exactly = 0) { publicationService.savePublications(any()) }
+        verify { emailClient.markAsRead(email) }
+        verify { emailClient.moveToProcessed(listOf(email)) }
+    }
+
+    @Test
     fun `emailChecker continues processing emails after a processing error`(
         @MockK(relaxed = true) errorEmail: Email,
         @MockK(relaxed = true) validEmail: Email,
-        @MockK newsletterHandler: NewsletterHandler,
+        @MockK(relaxed = true) newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
     ) {
         // Given an email that causes an error and a valid email
@@ -170,7 +200,7 @@ class EmailCheckerTest {
     @Test
     fun `emailChecker should notify an error on empty publications`(
         @MockK(relaxed = true) email: Email,
-        @MockK newsletterHandler: NewsletterHandler,
+        @MockK(relaxed = true) newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
     ) {
         // Given an email without any articles
@@ -202,7 +232,7 @@ class EmailCheckerTest {
     fun `emailChecker should not mark emails as read if the publications could not be saved`(
         @MockK(relaxed = true) email1: Email,
         @MockK(relaxed = true) email2: Email,
-        @MockK newsletterHandler: NewsletterHandler,
+        @MockK(relaxed = true) newsletterHandler: NewsletterHandler,
         @MockK(relaxed = true) publication1: Publication,
         @MockK(relaxed = true) publication2: Publication,
     ) {
@@ -244,7 +274,7 @@ class EmailCheckerTest {
     @Test
     fun `emailChecker should report markAsRead error as generic error`(
         @MockK(relaxed = true) email: Email,
-        @MockK newsletterHandler: NewsletterHandler,
+        @MockK(relaxed = true) newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
     ) {
         // GIVEN
@@ -273,7 +303,7 @@ class EmailCheckerTest {
     @Test
     fun `emailChecker should NOT report moveToProcessed error as generic error`(
         @MockK(relaxed = true) email: Email,
-        @MockK newsletterHandler: NewsletterHandler,
+        @MockK(relaxed = true) newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
     ) {
         // GIVEN

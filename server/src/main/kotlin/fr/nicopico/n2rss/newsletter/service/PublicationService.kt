@@ -64,6 +64,20 @@ class PublicationService(
                 )
             }
     }
+
+    @Transactional
+    fun doesPublicationAlreadyExist(title: String, newsletters: List<Newsletter>): Boolean {
+        newsletters.forEach { newsletter ->
+            val found = publicationRepository.findFirstByNewsletterCodeAndTitle(
+                newsletterCode = newsletter.code,
+                title = title,
+            )
+            if (found != null) {
+                return true
+            }
+        }
+        return false
+    }
     //endregion
 
     //region savePublications

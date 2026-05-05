@@ -39,6 +39,7 @@ import io.kotest.matchers.types.instanceOf
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
+import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
 import kotlinx.datetime.DatePeriod
@@ -239,6 +240,57 @@ class PublicationServiceTest {
 
         // THEN
         stats shouldBe instanceOf<NoPublication>()
+    }
+
+    @Test
+    fun `should indicate if a publication already exists`() {
+        // GIVEN
+        val publicationTitle = "Some title"
+        val newsletter = createStubNewsletter("code1")
+        val otherNewsletter = createStubNewsletter("code2")
+
+        every {
+            publicationRepository.findFirstByNewsletterCodeAndTitle(
+                newsletterCode = any(),
+                title = publicationTitle,
+            )
+        } answers {
+            val newsletterCode = firstArg<String>()
+            if (newsletterCode == "code2") mockk() else null
+        }
+
+        // WHEN
+        val result = publicationService.doesPublicationAlreadyExist(
+            title = publicationTitle,
+            newsletters = listOf(newsletter, otherNewsletter),
+        )
+
+        // THEN
+        result shouldBe true
+    }
+
+    @Test
+    fun `should indicate if a publication does not exist yet`() {
+        // GIVEN
+        val publicationTitle = "Some title"
+        val newsletter = createStubNewsletter("code1")
+        val otherNewsletter = createStubNewsletter("code2")
+
+        every {
+            publicationRepository.findFirstByNewsletterCodeAndTitle(
+                newsletterCode = any(),
+                title = publicationTitle,
+            )
+        } returns null
+
+        // WHEN
+        val result = publicationService.doesPublicationAlreadyExist(
+            title = publicationTitle,
+            newsletters = listOf(newsletter, otherNewsletter),
+        )
+
+        // THEN
+        result shouldBe false
     }
 
     @Nested

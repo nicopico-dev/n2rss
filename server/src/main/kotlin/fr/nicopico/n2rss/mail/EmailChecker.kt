@@ -22,6 +22,7 @@ import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
+import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import fr.nicopico.n2rss.newsletter.handlers.process
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.PublicationService
@@ -78,15 +79,24 @@ class EmailChecker(
             newsletterHandler = newsletterService.findNewsletterHandlerForEmail(email)
                 ?: return false
 
-            LOG.info("\"{}\" is being processed by {}", email.subject, newsletterHandler::class.java)
-            val publications = newsletterHandler.process(email)
+            val publicationAlreadySaved = publicationService.doesPublicationAlreadyExist(
+                title = email.subject,
+                newsletters = newsletterHandler.newsletters,
+            )
 
-            // At least one of the publications must have articles
-            if (publications.all { it.articles.isEmpty() }) {
-                throw NoPublicationFoundException()
+            if (publicationAlreadySaved) {
+                LOG.warn("\"{}\" ignored, publication already exists!", email.subject)
+            } else {
+                LOG.info("\"{}\" is being processed by {}", email.subject, newsletterHandler::class.java)
+                val publications = newsletterHandler.process(email)
+
+                // At least one of the publications must have articles
+                if (publications.all { it.articles.isEmpty() }) {
+                    throw NoPublicationFoundException()
+                }
+
+                publicationService.savePublications(publications)
             }
-
-            publicationService.savePublications(publications)
 
             try {
                 LOG.info("\"{}\" processing done, marking email as read", email.subject)
