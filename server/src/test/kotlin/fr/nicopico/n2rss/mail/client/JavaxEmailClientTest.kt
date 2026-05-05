@@ -221,7 +221,7 @@ class JavaxEmailClientTest : GreenMailTestBase(
         // WHEN
         // Re-open folder and try to move using the old message object
         shouldNotThrowAny {
-            emailClient.moveToProcessed(email)
+            emailClient.moveToProcessed(listOf(email))
         }
 
         // THEN
@@ -263,8 +263,7 @@ class JavaxEmailClientTest : GreenMailTestBase(
         emails[0].subject shouldBe "Subject 1"
         emails[3].subject shouldBe "Subject 4"
 
-        emailClient.moveToProcessed(emails[0])
-        emailClient.moveToProcessed(emails[3])
+        emailClient.moveToProcessed(listOf(emails[0], emails[3]))
 
         // THEN
         val retainedEmails = emailClient.checkEmails()

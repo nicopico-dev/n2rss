@@ -60,7 +60,7 @@ class EmailChecker(
 
             LOG.info("Processing done!")
 
-            if (moveAfterProcessingEnabled) {
+            if (moveAfterProcessingEnabled && processedEmails.isNotEmpty()) {
                 LOG.debug("Move processed emails to specified folder")
                 moveAllProcessedEmails(processedEmails)
             }
@@ -106,12 +106,10 @@ class EmailChecker(
 
     @Suppress("TooGenericExceptionCaught")
     private fun moveAllProcessedEmails(processedEmails: List<Email>) {
-        processedEmails.forEach { email ->
-            try {
-                emailClient.moveToProcessed(email)
-            } catch (e: Exception) {
-                LOG.warn("Error while moving email {} to processed", email.subject, e)
-            }
+        try {
+            emailClient.moveToProcessed(processedEmails)
+        } catch (e: Exception) {
+            LOG.warn("Error while moving processed emails to specified folder", e)
         }
     }
 }

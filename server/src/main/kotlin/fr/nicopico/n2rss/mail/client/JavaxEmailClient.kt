@@ -63,8 +63,9 @@ class JavaxEmailClient(
         }
     }
 
-    override fun moveToProcessed(email: Email) {
-        val message = email.message
+    override fun moveToProcessed(emails: List<Email>) {
+        if (emails.isEmpty()) return
+        val srcFolder = emails.first().message.folder
 
         doInStore {
             getFolder(processedFolder).use(
@@ -72,18 +73,26 @@ class JavaxEmailClient(
                 // Ensure the destination folder is present
                 createAutomatically = true
             ) { destination ->
-                message.folder.use(Folder.READ_WRITE, expungeOnClose = true) { folder ->
-                    val freshMessage = if (message.isExpunged || !folder.isOpen || message.messageNumber <= 0) {
-                        folder.getMessage(message.messageNumber)
-                    } else {
-                        message
-                    }
+                srcFolder.use(Folder.READ_WRITE, expungeOnClose = true) { folder ->
+                    val freshMessages = emails
+                        .map { it.message }
+                        .map { message ->
+                            // Ensure freshness
+                            if (message.isExpunged || !folder.isOpen || message.messageNumber <= 0) {
+                                folder.getMessage(message.messageNumber)
+                            } else {
+                                message
+                            }
+                        }
+                        .toTypedArray()
 
                     // Copy from `folder` to `destination`
-                    folder.copyMessages(arrayOf(freshMessage), destination)
+                    folder.copyMessages(freshMessages, destination)
 
-                    // Delete the original
-                    freshMessage.setFlag(Flags.Flag.DELETED, true)
+                    // Delete the originals
+                    freshMessages.forEach { message ->
+                        message.setFlag(Flags.Flag.DELETED, true)
+                    }
                 }
             }
         }

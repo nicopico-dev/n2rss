@@ -54,7 +54,7 @@ class LocalFileEmailClient(
         readEmails.add(email)
     }
 
-    override fun moveToProcessed(email: Email) {
+    override fun moveToProcessed(emails: List<Email>) {
         // No-op for local files
     }
 

@@ -86,7 +86,7 @@ class EmailCheckerTest {
         verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
         verify { emailClient.markAsRead(email) }
-        verify { emailClient.moveToProcessed(email) }
+        verify { emailClient.moveToProcessed(listOf(email)) }
     }
 
     @Test
@@ -135,7 +135,7 @@ class EmailCheckerTest {
 
         verify { emailClient.markAsRead(validEmail) }
         verify(exactly = 0) { emailClient.markAsRead(errorEmail) }
-        verify(exactly = 0) { emailClient.moveToProcessed(errorEmail) }
+        verify(exactly = 0) { emailClient.moveToProcessed(match { it.contains(errorEmail) }) }
 
         verify {
             monitoringService.notifyEmailProcessingError(
@@ -187,7 +187,7 @@ class EmailCheckerTest {
         verify(exactly = 0) {
             publicationService.savePublications(eq(listOf(publication)))
             emailClient.markAsRead(email)
-            emailClient.moveToProcessed(email)
+            emailClient.moveToProcessed(any())
         }
         verify {
             monitoringService.notifyEmailProcessingError(
@@ -225,11 +225,11 @@ class EmailCheckerTest {
         // THEN
         verify(exactly = 0) {
             emailClient.markAsRead(email1)
-            emailClient.moveToProcessed(email1)
+            emailClient.moveToProcessed(match { it.contains(email1) })
         }
         verify {
             emailClient.markAsRead(email2)
-            emailClient.moveToProcessed(email2)
+            emailClient.moveToProcessed(listOf(email2))
         }
         verify {
             monitoringService.notifyEmailProcessingError(
@@ -264,7 +264,7 @@ class EmailCheckerTest {
         verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
         verify { emailClient.markAsRead(email) }
-        verify(exactly = 0) { emailClient.moveToProcessed(email) }
+        verify(exactly = 0) { emailClient.moveToProcessed(any()) }
 
         verify { monitoringService.notifyGenericError(markAsReadError, any()) }
         confirmVerified(monitoringService)
@@ -293,7 +293,7 @@ class EmailCheckerTest {
         verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
         verify { emailClient.markAsRead(email) }
-        verify { emailClient.moveToProcessed(email) }
+        verify { emailClient.moveToProcessed(listOf(email)) }
 
         verify(exactly = 0) { monitoringService.notifyGenericError(moveToProcessedError, any()) }
         confirmVerified(monitoringService)
