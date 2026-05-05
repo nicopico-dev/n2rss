@@ -17,10 +17,12 @@
  */
 package fr.nicopico.n2rss.mail.client
 
+import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.EmailContent
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.collections.singleElement
 import io.kotest.matchers.shouldBe
 import jakarta.mail.Flags
 import jakarta.mail.search.FlagTerm
@@ -269,6 +271,59 @@ class JavaxEmailClientTest : GreenMailTestBase(
         val retainedEmails = emailClient.checkEmails()
         retainedEmails.none {
             it.subject == "Subject 1" || it.subject == "Subject 4"
+        }
+    }
+
+    @Test
+    fun `emailClient should handle processing several messages in multiple batches`() {
+        // GIVEN
+        prepareFolders(SECONDARY_FOLDER, TRASH_FOLDER)
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@email.com",
+            subject = "Subject 1",
+            content = "Hello World! 1",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 2",
+            content = "Hello World! 2",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 3",
+            content = "Hello World! 3",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 4",
+            content = "Hello World! 4",
+        )
+
+        // WHEN
+        val emails = emailClient.checkEmails()
+        emails.map { it.subject } shouldBe listOf(
+            "Subject 1",
+            "Subject 2",
+            "Subject 3",
+            "Subject 4",
+        )
+
+        // First batch
+        emailClient.markAsRead(emails[0])
+        emailClient.markAsRead(emails[1])
+        emailClient.moveToProcessed(listOf(emails[0], emails[1]))
+
+        // Second batch
+        emailClient.markAsRead(emails[2])
+        emailClient.moveToProcessed(listOf(emails[2]))
+
+        // THEN
+        emailClient.checkEmails() shouldBe singleElement<Email> {
+            it.subject == "Subject 4"
         }
     }
 }
