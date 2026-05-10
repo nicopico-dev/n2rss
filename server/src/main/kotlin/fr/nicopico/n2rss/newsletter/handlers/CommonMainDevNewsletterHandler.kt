@@ -159,7 +159,7 @@ class CommonMainDevNewsletterHandler : NewsletterHandlerMultipleFeeds {
 
     companion object {
         val mainNewsletter = Newsletter(
-            code = "commonMain-dev",
+            code = "commonmain_dev",
             name = "commonMain.dev",
             websiteUrl = "https://commonmain.dev/",
             notes = "Articles",
@@ -167,7 +167,7 @@ class CommonMainDevNewsletterHandler : NewsletterHandlerMultipleFeeds {
         )
 
         val librariesNewsletter = Newsletter(
-            code = "commonMain-dev/libraries",
+            code = "commonmain_dev/libraries",
             name = "commonMain.dev",
             websiteUrl = "https://commonmain.dev/",
             notes = "Libraries",
