@@ -19,6 +19,7 @@
 package fr.nicopico.n2rss.mail
 
 import fr.nicopico.n2rss.mail.client.EmailClient
+import fr.nicopico.n2rss.mail.client.EmailClientSession
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
@@ -38,6 +39,7 @@ import io.mockk.junit5.MockKExtension
 import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
+import io.mockk.verifyOrder
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -45,8 +47,11 @@ import org.junit.jupiter.api.extension.ExtendWith
 @ExtendWith(MockKExtension::class)
 class EmailCheckerTest {
 
-    @MockK(relaxUnitFun = true)
+    @MockK
     private lateinit var emailClient: EmailClient
+    @MockK(relaxUnitFun = true)
+    private lateinit var emailClientSession: EmailClientSession
+
     @MockK
     private lateinit var newsletterService: NewsletterService
     @MockK(relaxed = true)
@@ -59,6 +64,8 @@ class EmailCheckerTest {
     @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
+
+        every { emailClient.openSession() } returns emailClientSession
 
         emailChecker = EmailChecker(
             emailClient = emailClient,
@@ -76,7 +83,7 @@ class EmailCheckerTest {
         @MockK publication: Publication,
     ) {
         // Given an email that should be handled by a newsletterHandler
-        every { emailClient.checkEmails() } returns listOf(email)
+        every { emailClientSession.checkEmails() } returns listOf(email)
         every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
         every { newsletterHandler.process(email) } returns listOf(publication)
         every { publication.articles } returns listOf(mockk())
@@ -87,8 +94,8 @@ class EmailCheckerTest {
         // Then the email should be handled by newsletterHandlerA and not by newsletterHandlerB
         verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
-        verify { emailClient.markAsRead(email) }
-        verify { emailClient.moveToProcessed(listOf(email)) }
+        verify { emailClientSession.markAsRead(email) }
+        verify { emailClientSession.moveToProcessed(listOf(email)) }
     }
 
     @Test
@@ -96,7 +103,7 @@ class EmailCheckerTest {
         @MockK(relaxed = true) email: Email
     ) {
         // Given an email that should not be handled by any handler
-        every { emailClient.checkEmails() } returns listOf(email)
+        every { emailClientSession.checkEmails() } returns listOf(email)
         every { newsletterService.findNewsletterHandlerForEmail(email) } returns null
 
         // When we check the email
@@ -104,8 +111,8 @@ class EmailCheckerTest {
 
         // Then no handler should try to handle the email and no publication should be saved
         verify(exactly = 0) { publicationService.savePublications(any()) }
-        verify(exactly = 0) { emailClient.markAsRead(any()) }
-        verify(exactly = 0) { emailClient.moveToProcessed(any()) }
+        verify(exactly = 0) { emailClientSession.markAsRead(any()) }
+        verify(exactly = 0) { emailClientSession.moveToProcessed(any()) }
     }
 
     @Test
@@ -116,7 +123,7 @@ class EmailCheckerTest {
     ) {
         // Given an email that already exists in the database
         every { email.subject } returns "Email subject"
-        every { emailClient.checkEmails() } returns listOf(email)
+        every { emailClientSession.checkEmails() } returns listOf(email)
         every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
         every { newsletterHandler.newsletters } returns listOf(newsletter)
         every {
@@ -132,8 +139,8 @@ class EmailCheckerTest {
         // Then the email should not be processed again, but the email should be marked
         verify(exactly = 0) { newsletterHandler.process(email) }
         verify(exactly = 0) { publicationService.savePublications(any()) }
-        verify { emailClient.markAsRead(email) }
-        verify { emailClient.moveToProcessed(listOf(email)) }
+        verify { emailClientSession.markAsRead(email) }
+        verify { emailClientSession.moveToProcessed(listOf(email)) }
     }
 
     @Test
@@ -144,8 +151,8 @@ class EmailCheckerTest {
         @MockK publication: Publication,
     ) {
         // Given an email that causes an error and a valid email
-        every { emailClient.checkEmails() } returns listOf(errorEmail, validEmail)
-        every { emailClient.markAsRead(any()) } just Runs
+        every { emailClientSession.checkEmails() } returns listOf(errorEmail, validEmail)
+        every { emailClientSession.markAsRead(any()) } just Runs
 
         every { newsletterService.findNewsletterHandlerForEmail(any()) } returns newsletterHandler
 
@@ -163,9 +170,9 @@ class EmailCheckerTest {
         verify { newsletterHandler.process(validEmail) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
 
-        verify { emailClient.markAsRead(validEmail) }
-        verify(exactly = 0) { emailClient.markAsRead(errorEmail) }
-        verify(exactly = 0) { emailClient.moveToProcessed(match { it.contains(errorEmail) }) }
+        verify { emailClientSession.markAsRead(validEmail) }
+        verify(exactly = 0) { emailClientSession.markAsRead(errorEmail) }
+        verify(exactly = 0) { emailClientSession.moveToProcessed(match { it.contains(errorEmail) }) }
 
         verify {
             monitoringService.notifyEmailProcessingError(
@@ -180,18 +187,24 @@ class EmailCheckerTest {
     fun `emailChecker will not crash if the client fails`() {
         // Given that emailClient fails when checking emails
         val emailError = RuntimeException("TEST")
-        every { emailClient.checkEmails() } throws emailError
+        every { emailClientSession.checkEmails() } throws emailError
         every { monitoringService.notifyGenericError(any(), any()) } just Runs
 
         // When we check the emails
         emailChecker.savePublicationsFromEmails()
 
         // Then emailChecker should proceed without doing anything
-        verify { emailClient.checkEmails() }
+        verifyOrder {
+            emailClient.openSession()
+            emailClientSession.checkEmails()
+            emailClientSession.close()
+        }
+
         verify { monitoringService.notifyGenericError(emailError, "Checking emails") }
 
         confirmVerified(
             emailClient,
+            emailClientSession,
             publicationService,
             monitoringService,
         )
@@ -204,7 +217,7 @@ class EmailCheckerTest {
         @MockK publication: Publication,
     ) {
         // Given an email without any articles
-        every { emailClient.checkEmails() } returns listOf(email)
+        every { emailClientSession.checkEmails() } returns listOf(email)
         every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
         every { newsletterHandler.process(email) } returns listOf(publication)
         every { publication.articles } returns emptyList()
@@ -216,8 +229,8 @@ class EmailCheckerTest {
         // Then the email should be marked as read without creating a publication
         verify(exactly = 0) {
             publicationService.savePublications(eq(listOf(publication)))
-            emailClient.markAsRead(email)
-            emailClient.moveToProcessed(any())
+            emailClientSession.markAsRead(email)
+            emailClientSession.moveToProcessed(any())
         }
         verify {
             monitoringService.notifyEmailProcessingError(
@@ -237,7 +250,7 @@ class EmailCheckerTest {
         @MockK(relaxed = true) publication2: Publication,
     ) {
         // Given an email that should be handled by a newsletterHandler
-        every { emailClient.checkEmails() } returns listOf(email1, email2)
+        every { emailClientSession.checkEmails() } returns listOf(email1, email2)
         every { newsletterService.findNewsletterHandlerForEmail(any()) } returns newsletterHandler
         every { newsletterHandler.process(email1) } returns listOf(publication1)
         every { newsletterHandler.process(email2) } returns listOf(publication2)
@@ -254,12 +267,12 @@ class EmailCheckerTest {
 
         // THEN
         verify(exactly = 0) {
-            emailClient.markAsRead(email1)
-            emailClient.moveToProcessed(match { it.contains(email1) })
+            emailClientSession.markAsRead(email1)
+            emailClientSession.moveToProcessed(match { it.contains(email1) })
         }
         verify {
-            emailClient.markAsRead(email2)
-            emailClient.moveToProcessed(listOf(email2))
+            emailClientSession.markAsRead(email2)
+            emailClientSession.moveToProcessed(listOf(email2))
         }
         verify {
             monitoringService.notifyEmailProcessingError(
@@ -278,13 +291,13 @@ class EmailCheckerTest {
         @MockK publication: Publication,
     ) {
         // GIVEN
-        every { emailClient.checkEmails() } returns listOf(email)
+        every { emailClientSession.checkEmails() } returns listOf(email)
         every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
         every { newsletterHandler.process(email) } returns listOf(publication)
         every { publication.articles } returns listOf(mockk())
 
         val markAsReadError = RuntimeException("TEST")
-        every { emailClient.markAsRead(any()) } throws markAsReadError
+        every { emailClientSession.markAsRead(any()) } throws markAsReadError
         every { monitoringService.notifyGenericError(any(), any()) } just Runs
 
         // WHEN
@@ -293,8 +306,8 @@ class EmailCheckerTest {
         // THEN
         verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
-        verify { emailClient.markAsRead(email) }
-        verify(exactly = 0) { emailClient.moveToProcessed(any()) }
+        verify { emailClientSession.markAsRead(email) }
+        verify(exactly = 0) { emailClientSession.moveToProcessed(any()) }
 
         verify { monitoringService.notifyGenericError(markAsReadError, any()) }
         confirmVerified(monitoringService)
@@ -307,13 +320,13 @@ class EmailCheckerTest {
         @MockK publication: Publication,
     ) {
         // GIVEN
-        every { emailClient.checkEmails() } returns listOf(email)
+        every { emailClientSession.checkEmails() } returns listOf(email)
         every { newsletterService.findNewsletterHandlerForEmail(email) } returns newsletterHandler
         every { newsletterHandler.process(email) } returns listOf(publication)
         every { publication.articles } returns listOf(mockk())
 
         val moveToProcessedError = RuntimeException("TEST")
-        every { emailClient.moveToProcessed(any()) } throws moveToProcessedError
+        every { emailClientSession.moveToProcessed(any()) } throws moveToProcessedError
         every { monitoringService.notifyGenericError(any(), any()) } just Runs
 
         // WHEN
@@ -322,8 +335,8 @@ class EmailCheckerTest {
         // THEN
         verify { newsletterHandler.process(email) }
         verify { publicationService.savePublications(eq(listOf(publication))) }
-        verify { emailClient.markAsRead(email) }
-        verify { emailClient.moveToProcessed(listOf(email)) }
+        verify { emailClientSession.markAsRead(email) }
+        verify { emailClientSession.moveToProcessed(listOf(email)) }
 
         verify(exactly = 0) { monitoringService.notifyGenericError(moveToProcessedError, any()) }
         confirmVerified(monitoringService)

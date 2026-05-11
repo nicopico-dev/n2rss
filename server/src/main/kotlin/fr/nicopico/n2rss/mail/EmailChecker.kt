@@ -18,6 +18,7 @@
 package fr.nicopico.n2rss.mail
 
 import fr.nicopico.n2rss.mail.client.EmailClient
+import fr.nicopico.n2rss.mail.client.EmailClientSession
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
@@ -48,24 +49,25 @@ class EmailChecker(
     fun savePublicationsFromEmails() {
         try {
             LOG.info("Checking emails...")
-            val emails = emailClient.checkEmails()
-            LOG.info("{} emails found, processing...", emails.size)
+            emailClient.openSession().use { session ->
+                val emails = session.checkEmails()
+                LOG.info("{} emails found, processing...", emails.size)
 
-            val processedEmails = mutableListOf<Email>()
+                val processedEmails = mutableListOf<Email>()
 
-            for (email in emails) {
-                if (processEmail(email)) {
-                    processedEmails.add(email)
+                for (email in emails) {
+                    if (processEmail(session, email)) {
+                        processedEmails.add(email)
+                    }
+                }
+
+                LOG.info("Processing done!")
+
+                if (moveAfterProcessingEnabled && processedEmails.isNotEmpty()) {
+                    LOG.debug("Move processed emails to specified folder")
+                    moveAllProcessedEmails(session, processedEmails)
                 }
             }
-
-            LOG.info("Processing done!")
-
-            if (moveAfterProcessingEnabled && processedEmails.isNotEmpty()) {
-                LOG.debug("Move processed emails to specified folder")
-                moveAllProcessedEmails(processedEmails)
-            }
-
         } catch (e: Exception) {
             LOG.error("Error while checking emails", e)
             monitoringService.notifyGenericError(e, context = "Checking emails")
@@ -73,7 +75,7 @@ class EmailChecker(
     }
 
     @Suppress("TooGenericExceptionCaught", "NestedBlockDepth", "ReturnCount")
-    private fun processEmail(email: Email): Boolean {
+    private fun processEmail(session: EmailClientSession, email: Email): Boolean {
         var newsletterHandler: NewsletterHandler? = null
         try {
             newsletterHandler = newsletterService.findNewsletterHandlerForEmail(email)
@@ -100,7 +102,7 @@ class EmailChecker(
 
             try {
                 LOG.info("\"{}\" processing done, marking email as read", email.subject)
-                emailClient.markAsRead(email)
+                session.markAsRead(email)
                 return true
             } catch (e: Exception) {
                 LOG.error("Error while marking email {} as processed", email.subject, e)
@@ -115,9 +117,9 @@ class EmailChecker(
     }
 
     @Suppress("TooGenericExceptionCaught")
-    private fun moveAllProcessedEmails(processedEmails: List<Email>) {
+    private fun moveAllProcessedEmails(session: EmailClientSession, processedEmails: List<Email>) {
         try {
-            emailClient.moveToProcessed(processedEmails)
+            session.moveToProcessed(processedEmails)
         } catch (e: Exception) {
             LOG.warn("Error while moving processed emails to specified folder", e)
         }

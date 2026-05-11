@@ -137,8 +137,9 @@ class EmailCheckerIntegrationTest : GreenMailTestBase(
         // THEN
         confirmVerified(monitoringService)
 
-        val unreadEmails = emailClient.checkEmails()
-        unreadEmails should beEmpty()
+        emailClient.openSession().use {
+            it.checkEmails() should beEmpty()
+        }
     }
 
     @Test
@@ -181,7 +182,8 @@ class EmailCheckerIntegrationTest : GreenMailTestBase(
         // THEN
         confirmVerified(monitoringService)
 
-        val unreadEmails = emailClient.checkEmails()
-        unreadEmails should beEmpty()
+        emailClient.openSession().use {
+            it.checkEmails() should beEmpty()
+        }
     }
 }
