@@ -20,8 +20,8 @@ package fr.nicopico.n2rss.mail.client
 import fr.nicopico.n2rss.mail.models.Email
 import jakarta.mail.Flags
 import jakarta.mail.Folder
-import jakarta.mail.FolderNotFoundException
 import jakarta.mail.Message
+import jakarta.mail.MessagingException
 import jakarta.mail.Session
 import jakarta.mail.Store
 import jakarta.mail.search.FlagTerm
@@ -50,104 +50,6 @@ class JavaxEmailClient(
             folderNames = folders,
             processedFolderName = processedFolder,
         )
-    }
-
-    @Deprecated("Use EmailClientSession with openSession() instead")
-    override fun checkEmails(): List<Email> {
-        return folders
-            .flatMap { folderName ->
-                doInStore {
-                    getFolder(folderName)
-                        .use(Folder.READ_ONLY) { folder ->
-                            folder
-                                .search(FlagTerm(Flags(Flags.Flag.SEEN), false))
-                                .map { it.toEmail() }
-                        }
-                }
-            }
-    }
-
-    @Deprecated("Use EmailClientSession with openSession() instead")
-    override fun markAsRead(email: Email) {
-        val message = email.message
-        doInStore {
-            message.folder.use(Folder.READ_WRITE) { folder ->
-                val freshMessage = if (message.isExpunged || !folder.isOpen || message.messageNumber <= 0) {
-                    folder.getMessage(message.messageNumber)
-                } else {
-                    message
-                }
-                freshMessage.setFlag(Flags.Flag.SEEN, true)
-            }
-        }
-    }
-
-    @Deprecated("Use EmailClientSession with openSession() instead")
-    override fun moveToProcessed(emails: List<Email>) {
-        if (emails.isEmpty()) return
-        val srcFolder = emails.first().message.folder
-
-        doInStore {
-            getFolder(processedFolder).use(
-                Folder.READ_ONLY,
-                // Ensure the destination folder is present
-                createAutomatically = true
-            ) { destination ->
-                srcFolder.use(Folder.READ_WRITE, expungeOnClose = true) { folder ->
-                    val freshMessages = emails
-                        .map { it.message }
-                        .map { message ->
-                            // Ensure freshness
-                            if (message.isExpunged || !folder.isOpen || message.messageNumber <= 0) {
-                                folder.getMessage(message.messageNumber)
-                            } else {
-                                message
-                            }
-                        }
-                        .toTypedArray()
-
-                    // Copy from `folder` to `destination`
-                    folder.copyMessages(freshMessages, destination)
-
-                    // Delete the originals
-                    freshMessages.forEach { message ->
-                        message.setFlag(Flags.Flag.DELETED, true)
-                    }
-                }
-            }
-        }
-    }
-
-    private fun <T> doInStore(block: Store.() -> T): T {
-        val session = Session.getInstance(storeProps, null)
-        return session.getStore(config.protocol).use { store ->
-            store.connectWith(config)
-            store.block()
-        }
-    }
-
-    private fun <T> Folder.use(
-        mode: Int,
-        expungeOnClose: Boolean = false,
-        createAutomatically: Boolean = false,
-        block: (Folder) -> T,
-    ): T {
-        if (!exists()) {
-            if (createAutomatically) {
-                // This folder can hold folders and messages
-                create(Folder.HOLDS_FOLDERS or Folder.HOLDS_MESSAGES)
-            } else {
-                throw FolderNotFoundException(this, "Folder $name does not exist")
-            }
-        }
-
-        if (isOpen) error("Folder $this is already open")
-        open(mode)
-        try {
-            return block(this)
-        } finally {
-            close(expungeOnClose)
-        }
     }
 
     companion object {
@@ -182,17 +84,18 @@ private class JavaxEmailClientSession(
                     LOG.info("Folder {} does not exist, creating it", processedFolderName)
                     val created = folder.create(Folder.HOLDS_FOLDERS or Folder.HOLDS_MESSAGES)
                     if (!created) {
-                        LOG.error("Failed to create folder {}", processedFolderName)
+                        LOG.warn("Failed to create processed folder {}", processedFolderName)
                         null
                     } else folder
                 } else folder
-            } catch (e: Exception) {
-                LOG.error("Error while checking/creating processed folder {}", processedFolderName, e)
+            } catch (e: MessagingException) {
+                LOG.warn("Error while checking/creating processed folder {}", processedFolderName, e)
                 null
             }
         }
 
     init {
+        @Suppress("TooGenericExceptionCaught")
         try {
             folders.forEach { folder ->
                 folder.open(Folder.READ_WRITE)

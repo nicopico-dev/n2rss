@@ -42,13 +42,8 @@ class LocalFileEmailClient(
     }
 
     @Deprecated("Use EmailClientSession with openSession() instead")
-    override fun checkEmails(): List<Email> = openSession().use { it.checkEmails() }
+    fun checkEmails(): List<Email> = openSession().use { it.checkEmails() }
 
-    @Deprecated("Use EmailClientSession with openSession() instead")
-    override fun markAsRead(email: Email) = openSession().use { it.markAsRead(email) }
-
-    @Deprecated("Use EmailClientSession with openSession() instead")
-    override fun moveToProcessed(emails: List<Email>) = openSession().use { it.moveToProcessed(emails) }
 }
 
 private class LocalFileEmailClientSession(

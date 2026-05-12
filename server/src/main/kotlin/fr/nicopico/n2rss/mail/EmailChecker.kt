@@ -50,27 +50,31 @@ class EmailChecker(
         try {
             LOG.info("Checking emails...")
             emailClient.openSession().use { session ->
-                val emails = session.checkEmails()
-                LOG.info("{} emails found, processing...", emails.size)
-
-                val processedEmails = mutableListOf<Email>()
-
-                for (email in emails) {
-                    if (processEmail(session, email)) {
-                        processedEmails.add(email)
-                    }
-                }
-
-                LOG.info("Processing done!")
-
-                if (moveAfterProcessingEnabled && processedEmails.isNotEmpty()) {
-                    LOG.debug("Move processed emails to specified folder")
-                    moveAllProcessedEmails(session, processedEmails)
-                }
+                checkEmails(session)
             }
         } catch (e: Exception) {
             LOG.error("Error while checking emails", e)
             monitoringService.notifyGenericError(e, context = "Checking emails")
+        }
+    }
+
+    private fun checkEmails(session: EmailClientSession) {
+        val emails = session.checkEmails()
+        LOG.info("{} emails found, processing...", emails.size)
+
+        val processedEmails = mutableListOf<Email>()
+
+        for (email in emails) {
+            if (processEmail(session, email)) {
+                processedEmails.add(email)
+            }
+        }
+
+        LOG.info("Processing done!")
+
+        if (moveAfterProcessingEnabled && processedEmails.isNotEmpty()) {
+            LOG.debug("Move processed emails to specified folder")
+            moveAllProcessedEmails(session, processedEmails)
         }
     }
 

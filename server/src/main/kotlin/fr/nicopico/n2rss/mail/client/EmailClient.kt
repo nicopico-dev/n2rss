@@ -21,13 +21,6 @@ import fr.nicopico.n2rss.mail.models.Email
 import java.lang.AutoCloseable
 
 interface EmailClient {
-    @Deprecated("Use EmailClientSession with openSession() instead")
-    fun checkEmails(): List<Email>
-    @Deprecated("Use EmailClientSession with openSession() instead")
-    fun markAsRead(email: Email)
-    @Deprecated("Use EmailClientSession with openSession() instead")
-    fun moveToProcessed(emails: List<Email>)
-
     fun openSession(): EmailClientSession
 }
 
