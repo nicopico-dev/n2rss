@@ -21,11 +21,11 @@ import fr.nicopico.n2rss.newsletter.data.entity.PublicationEntity
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
-import java.util.UUID
 
-interface PublicationRepository : JpaRepository<PublicationEntity, UUID> {
+interface PublicationRepository : JpaRepository<PublicationEntity, Long> {
     fun findByNewsletterCode(newsletterCode: String, pageable: Pageable): Page<PublicationEntity>
     fun countPublicationsByNewsletterCode(newsletterCode: String): Long
     fun findFirstByNewsletterCodeOrderByDateAsc(newsletterCode: String): PublicationEntity?
     fun findFirstByNewsletterCodeOrderByDateDesc(newsletterCode: String): PublicationEntity?
+    fun findFirstByNewsletterCodeAndTitle(newsletterCode: String, title: String): PublicationEntity?
 }

@@ -22,8 +22,10 @@ import fr.nicopico.n2rss.mail.client.EmailServerConfiguration
 import fr.nicopico.n2rss.mail.client.GreenMailTestBase
 import fr.nicopico.n2rss.mail.client.JavaxEmailClient
 import fr.nicopico.n2rss.monitoring.MonitoringService
+import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import fr.nicopico.n2rss.newsletter.handlers.process
 import fr.nicopico.n2rss.newsletter.models.Article
+import fr.nicopico.n2rss.newsletter.models.Newsletter
 import fr.nicopico.n2rss.newsletter.models.Publication
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.PublicationService
@@ -37,7 +39,6 @@ import io.mockk.impl.annotations.MockK
 import io.mockk.just
 import io.mockk.mockk
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class EmailCheckerIntegrationTest : GreenMailTestBase(
@@ -121,10 +122,14 @@ class EmailCheckerIntegrationTest : GreenMailTestBase(
                     every { articles } returns listOf(mockk<Article>())
                 }
             )
+            every { newsletters } returns listOf(mockk<Newsletter>())
         }
         every {
             publicationService.savePublications(any())
         } just Runs
+        every {
+            publicationService.doesPublicationAlreadyExist(any(), any())
+        } returns false
 
         // WHEN
         emailChecker.savePublicationsFromEmails()
@@ -132,13 +137,12 @@ class EmailCheckerIntegrationTest : GreenMailTestBase(
         // THEN
         confirmVerified(monitoringService)
 
-        val unreadEmails = emailClient.checkEmails()
-        unreadEmails should beEmpty()
+        emailClient.openSession().use {
+            it.checkEmails() should beEmpty()
+        }
     }
 
     @Test
-    // TODO Restore this test and fix moveAfterProcessing
-    @Disabled("MoveAfterProcessing does not work yet")
     fun `should check emails for publications - with moveAfterProcessing`() {
         // GIVEN
         deliverTextMessage(
@@ -163,10 +167,14 @@ class EmailCheckerIntegrationTest : GreenMailTestBase(
                     every { articles } returns listOf(mockk<Article>())
                 }
             )
+            every { newsletters } returns listOf(mockk<Newsletter>())
         }
         every {
             publicationService.savePublications(any())
         } just Runs
+        every {
+            publicationService.doesPublicationAlreadyExist(any(), any())
+        } returns false
 
         // WHEN
         emailCheckerWithMoveAfterProcessing.savePublicationsFromEmails()
@@ -174,7 +182,8 @@ class EmailCheckerIntegrationTest : GreenMailTestBase(
         // THEN
         confirmVerified(monitoringService)
 
-        val unreadEmails = emailClient.checkEmails()
-        unreadEmails should beEmpty()
+        emailClient.openSession().use {
+            it.checkEmails() should beEmpty()
+        }
     }
 }

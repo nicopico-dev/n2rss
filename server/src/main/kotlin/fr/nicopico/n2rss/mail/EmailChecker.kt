@@ -18,10 +18,12 @@
 package fr.nicopico.n2rss.mail
 
 import fr.nicopico.n2rss.mail.client.EmailClient
+import fr.nicopico.n2rss.mail.client.EmailClientSession
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.monitoring.MonitoringService
 import fr.nicopico.n2rss.newsletter.handlers.NewsletterHandler
 import fr.nicopico.n2rss.newsletter.handlers.exception.NoPublicationFoundException
+import fr.nicopico.n2rss.newsletter.handlers.newsletters
 import fr.nicopico.n2rss.newsletter.handlers.process
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.PublicationService
@@ -47,50 +49,65 @@ class EmailChecker(
     fun savePublicationsFromEmails() {
         try {
             LOG.info("Checking emails...")
-            val emails = emailClient.checkEmails()
-            LOG.info("{} emails found, processing...", emails.size)
-
-            for (email in emails) {
-                processEmail(email)
+            emailClient.openSession().use { session ->
+                checkEmails(session)
             }
-
-            LOG.info("Processing done!")
         } catch (e: Exception) {
             LOG.error("Error while checking emails", e)
             monitoringService.notifyGenericError(e, context = "Checking emails")
         }
     }
 
-    @Suppress("TooGenericExceptionCaught", "NestedBlockDepth")
-    private fun processEmail(email: Email) {
+    private fun checkEmails(session: EmailClientSession) {
+        val emails = session.checkEmails()
+        LOG.info("{} emails found, processing...", emails.size)
+
+        val processedEmails = mutableListOf<Email>()
+
+        for (email in emails) {
+            if (processEmail(session, email)) {
+                processedEmails.add(email)
+            }
+        }
+
+        LOG.info("Processing done!")
+
+        if (moveAfterProcessingEnabled && processedEmails.isNotEmpty()) {
+            LOG.debug("Move processed emails to specified folder")
+            moveAllProcessedEmails(session, processedEmails)
+        }
+    }
+
+    @Suppress("TooGenericExceptionCaught", "NestedBlockDepth", "ReturnCount")
+    private fun processEmail(session: EmailClientSession, email: Email): Boolean {
         var newsletterHandler: NewsletterHandler? = null
         try {
             newsletterHandler = newsletterService.findNewsletterHandlerForEmail(email)
-                ?: return
+                ?: return false
 
-            LOG.info("\"{}\" is being processed by {}", email.subject, newsletterHandler::class.java)
-            val publications = newsletterHandler.process(email)
+            val publicationAlreadySaved = publicationService.doesPublicationAlreadyExist(
+                title = email.subject,
+                newsletters = newsletterHandler.newsletters,
+            )
 
-            // At least one of the publications must have articles
-            if (publications.all { it.articles.isEmpty() }) {
-                throw NoPublicationFoundException()
+            if (publicationAlreadySaved) {
+                LOG.warn("\"{}\" ignored, publication already exists!", email.subject)
+            } else {
+                LOG.info("\"{}\" is being processed by {}", email.subject, newsletterHandler::class.java)
+                val publications = newsletterHandler.process(email)
+
+                // At least one of the publications must have articles
+                if (publications.all { it.articles.isEmpty() }) {
+                    throw NoPublicationFoundException()
+                }
+
+                publicationService.savePublications(publications)
             }
-
-            publicationService.savePublications(publications)
 
             try {
                 LOG.info("\"{}\" processing done, marking email as read", email.subject)
-                emailClient.markAsRead(email)
-                if (moveAfterProcessingEnabled) {
-                    LOG.debug("Move \"{}\" to processed folder", email.subject)
-                    try {
-                        emailClient.moveToProcessed(email)
-                    } catch (e: Exception) {
-                        LOG.error("Error while moving email {} to processed", email.subject, e)
-                        monitoringService
-                            .notifyGenericError(e, context = "Moving email '${email.subject}' to processed folder")
-                    }
-                }
+                session.markAsRead(email)
+                return true
             } catch (e: Exception) {
                 LOG.error("Error while marking email {} as processed", email.subject, e)
                 monitoringService.notifyGenericError(e, context = "Marking email '${email.subject}' as processed")
@@ -98,6 +115,18 @@ class EmailChecker(
         } catch (e: Exception) {
             LOG.error("Error processing email {}", email.subject, e)
             monitoringService.notifyEmailProcessingError(email, e, newsletterHandler)
+        }
+
+        return false
+    }
+
+    @Suppress("TooGenericExceptionCaught")
+    private fun moveAllProcessedEmails(session: EmailClientSession, processedEmails: List<Email>) {
+        try {
+            session.moveToProcessed(processedEmails)
+        } catch (e: Exception) {
+            LOG.warn("Error while moving processed emails to specified folder", e)
+            monitoringService.notifyGenericError(e, context = "Moving emails to specified folder")
         }
     }
 }

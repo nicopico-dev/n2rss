@@ -20,14 +20,12 @@ package fr.nicopico.n2rss.mail.client
 import fr.nicopico.n2rss.mail.models.Email
 
 class NoOpEmailClient : EmailClient {
+    override fun openSession(): EmailClientSession = NoOpEmailClientSession
+}
 
+private object NoOpEmailClientSession : EmailClientSession {
     override fun checkEmails(): List<Email> = emptyList()
-
-    override fun markAsRead(email: Email) {
-        // No-op
-    }
-
-    override fun moveToProcessed(email: Email) {
-        // No-op
-    }
+    override fun markAsRead(email: Email) = Unit
+    override fun moveToProcessed(emails: List<Email>) = Unit
+    override fun close() = Unit
 }

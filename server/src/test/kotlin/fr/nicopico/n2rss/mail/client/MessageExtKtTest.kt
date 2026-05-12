@@ -232,6 +232,7 @@ class MessageExtKtTest {
     ): Message {
         return mockk<Message> {
             val msg = this
+            every { msg.folder } returns mockk()
             every { msg.messageNumber } returns messageNumber
             every { msg.subject } returns subject
             every { msg.content } returns content

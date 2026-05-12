@@ -17,10 +17,12 @@
  */
 package fr.nicopico.n2rss.mail.client
 
+import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.EmailContent
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.throwables.shouldNotThrowAny
 import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.collections.singleElement
 import io.kotest.matchers.shouldBe
 import jakarta.mail.Flags
 import jakarta.mail.search.FlagTerm
@@ -81,7 +83,7 @@ class JavaxEmailClientTest : GreenMailTestBase(
         )
 
         // WHEN
-        val emails = emailClient.checkEmails()
+        val emails: List<Email> = emailClient.openSession().use { it.checkEmails() }
 
         // THEN
         emails shouldHaveSize 3
@@ -141,14 +143,18 @@ class JavaxEmailClientTest : GreenMailTestBase(
         )
 
         // WHEN
-        val emails = emailClient.checkEmails()
-        shouldNotThrowAny {
-            emailClient.markAsRead(emails[1])
-            emailClient.markAsRead(emails[3])
+        val emails: List<Email>
+        emailClient.openSession().use { session ->
+            emails = session.checkEmails()
+
+            shouldNotThrowAny {
+                session.markAsRead(emails[1])
+                session.markAsRead(emails[3])
+            }
         }
 
         // THEN
-        val unreadEmails = emailClient.checkEmails()
+        val unreadEmails = emailClient.openSession().use { it.checkEmails() }
         unreadEmails.map { it.subject } shouldBe listOf("Subject 1", "Subject 3")
     }
 
@@ -176,17 +182,16 @@ class JavaxEmailClientTest : GreenMailTestBase(
         )
 
         // Retrieval 1: Open and close folder
-        val emails = emailClient.checkEmails()
-        val email = emails[0]
+        val email = emailClient.openSession().use { it.checkEmails()[0] }
 
         // WHEN
         // Re-open folder and try to mark as read using the old message object
         shouldNotThrowAny {
-            emailClient.markAsRead(email)
+            emailClient.openSession().use { it.markAsRead(email) }
         }
 
         // THEN
-        val unreadEmails = emailClient.checkEmails()
+        val unreadEmails = emailClient.openSession().use { it.checkEmails() }
         unreadEmails shouldHaveSize 0
     }
 
@@ -215,17 +220,16 @@ class JavaxEmailClientTest : GreenMailTestBase(
         )
 
         // Retrieval 1: Open and close folder
-        val emails = emailClient.checkEmails()
-        val email = emails[0]
+        val email = emailClient.openSession().use { it.checkEmails()[0] }
 
         // WHEN
         // Re-open folder and try to move using the old message object
         shouldNotThrowAny {
-            emailClient.moveToProcessed(email)
+            emailClient.openSession().use { it.moveToProcessed(listOf(email)) }
         }
 
         // THEN
-        val unreadEmails = emailClient.checkEmails()
+        val unreadEmails = emailClient.openSession().use { it.checkEmails() }
         unreadEmails shouldHaveSize 0
     }
 
@@ -259,17 +263,73 @@ class JavaxEmailClientTest : GreenMailTestBase(
         )
 
         // WHEN
-        val emails = emailClient.checkEmails()
-        emails[0].subject shouldBe "Subject 1"
-        emails[3].subject shouldBe "Subject 4"
+        emailClient.openSession().use { session ->
+            val emails = session.checkEmails()
+            emails[0].subject shouldBe "Subject 1"
+            emails[3].subject shouldBe "Subject 4"
 
-        emailClient.moveToProcessed(emails[0])
-        emailClient.moveToProcessed(emails[3])
+            session.moveToProcessed(listOf(emails[0], emails[3]))
+        }
 
         // THEN
-        val retainedEmails = emailClient.checkEmails()
+        val retainedEmails = emailClient.openSession().use { it.checkEmails() }
         retainedEmails.none {
             it.subject == "Subject 1" || it.subject == "Subject 4"
+        }
+    }
+
+    @Test
+    fun `emailClient should handle processing several messages in multiple batches`() {
+        // GIVEN
+        prepareFolders(SECONDARY_FOLDER, TRASH_FOLDER)
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@email.com",
+            subject = "Subject 1",
+            content = "Hello World! 1",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 2",
+            content = "Hello World! 2",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 3",
+            content = "Hello World! 3",
+        )
+        deliverTextMessage(
+            folderName = INBOX_FOLDER,
+            from = "from@another-email.com",
+            subject = "Subject 4",
+            content = "Hello World! 4",
+        )
+
+        // WHEN
+        emailClient.openSession().use { session ->
+            val emails = session.checkEmails()
+            emails.map { it.subject } shouldBe listOf(
+                "Subject 1",
+                "Subject 2",
+                "Subject 3",
+                "Subject 4",
+            )
+
+            // First batch
+            session.markAsRead(emails[0])
+            session.markAsRead(emails[1])
+            session.moveToProcessed(listOf(emails[0], emails[1]))
+
+            // Second batch
+            session.markAsRead(emails[2])
+            session.moveToProcessed(listOf(emails[2]))
+        }
+
+        // THEN
+        emailClient.openSession().use { it.checkEmails() } shouldBe singleElement<Email> {
+            it.subject == "Subject 4"
         }
     }
 }

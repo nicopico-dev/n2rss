@@ -42,16 +42,16 @@ class NoOpEmailClientTest {
 
         // WHEN - THEN
         shouldNotThrowAny {
-            emailClient.markAsRead(anyEmail)
+            emailClient.openSession().use {
+                it.markAsRead(anyEmail)
+            }
         }
     }
 
     @Test
     fun checkEmails() {
-        // WHEN
-        val result = emailClient.checkEmails()
-
-        // THEN
-        result should beEmpty()
+        emailClient.openSession().use {
+            it.checkEmails() should beEmpty()
+        }
     }
 }

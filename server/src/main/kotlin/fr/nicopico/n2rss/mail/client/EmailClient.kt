@@ -18,9 +18,14 @@
 package fr.nicopico.n2rss.mail.client
 
 import fr.nicopico.n2rss.mail.models.Email
+import java.lang.AutoCloseable
 
 interface EmailClient {
+    fun openSession(): EmailClientSession
+}
+
+interface EmailClientSession : AutoCloseable {
     fun checkEmails(): List<Email>
     fun markAsRead(email: Email)
-    fun moveToProcessed(email: Email)
+    fun moveToProcessed(emails: List<Email>)
 }

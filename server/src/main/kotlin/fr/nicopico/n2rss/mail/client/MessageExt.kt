@@ -23,11 +23,14 @@ import fr.nicopico.n2rss.mail.models.Sender
 import fr.nicopico.n2rss.utils.toKotlinLocaleDate
 import jakarta.mail.Flags
 import jakarta.mail.Message
+import jakarta.mail.UIDFolder
 import jakarta.mail.internet.MimeMultipart
 
 fun Message.toEmail(): Email {
     val originalFlags = flags
     val content = content
+    val msgUid = (folder as? UIDFolder)?.getUID(this)
+
     val email = Email(
         sender = Sender(from[0].toString()),
         date = this.sentDate.toKotlinLocaleDate(),
@@ -59,6 +62,7 @@ fun Message.toEmail(): Email {
         replyTo = if (replyTo.isNotEmpty()) {
             Sender(replyTo[0].toString())
         } else null,
+        msgUid = msgUid,
     ).also {
         it.setMessage(this)
     }

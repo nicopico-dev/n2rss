@@ -26,6 +26,7 @@ data class Email(
     val subject: String,
     val content: EmailContent,
     val replyTo: Sender? = null,
+    val msgUid: Long? = null,
 ) {
     // `message` is used as an identifier to operate on the email with Jakarta Mail API.
     // `underlyingMessage` is kept outside the primary constructor
