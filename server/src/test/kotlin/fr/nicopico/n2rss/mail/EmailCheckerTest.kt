@@ -314,7 +314,7 @@ class EmailCheckerTest {
     }
 
     @Test
-    fun `emailChecker should NOT report moveToProcessed error as generic error`(
+    fun `emailChecker should report moveToProcessed error as generic error`(
         @MockK(relaxed = true) email: Email,
         @MockK(relaxed = true) newsletterHandler: NewsletterHandler,
         @MockK publication: Publication,
@@ -338,7 +338,7 @@ class EmailCheckerTest {
         verify { emailClientSession.markAsRead(email) }
         verify { emailClientSession.moveToProcessed(listOf(email)) }
 
-        verify(exactly = 0) { monitoringService.notifyGenericError(moveToProcessedError, any()) }
+        verify { monitoringService.notifyGenericError(moveToProcessedError, any()) }
         confirmVerified(monitoringService)
     }
 }
