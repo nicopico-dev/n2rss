@@ -183,19 +183,32 @@ private class JavaxEmailClientSession(
         }
     }
 
+    @Suppress("LoggingSimilarMessage")
     override fun close() {
         folders.forEach {
             try {
                 it.close(/* expunge = */ false)
             } catch (_: IllegalStateException) {
                 // Do nothing
+            } catch (e: MessagingException) {
+                LOG.warn("Failed to close folder {}", it.fullName, e)
             }
         }
-        try {
-            processedFolder?.close(/* expunge = */ false)
-        } catch (_: IllegalStateException) {
-            // Do nothing
+
+        if (processedFolder != null) {
+            try {
+                processedFolder.close(/* expunge = */ false)
+            } catch (_: IllegalStateException) {
+                // Do nothing
+            } catch (e: MessagingException) {
+                LOG.warn("Failed to close folder {}", processedFolder.fullName, e)
+            }
         }
-        store.close()
+
+        try {
+            store.close()
+        } catch (e: MessagingException) {
+            LOG.warn("Failed to close store", e)
+        }
     }
 }

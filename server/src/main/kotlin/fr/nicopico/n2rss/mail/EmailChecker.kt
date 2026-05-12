@@ -126,6 +126,7 @@ class EmailChecker(
             session.moveToProcessed(processedEmails)
         } catch (e: Exception) {
             LOG.warn("Error while moving processed emails to specified folder", e)
+            monitoringService.notifyGenericError(e, context = "Moving emails to specified folder")
         }
     }
 }
