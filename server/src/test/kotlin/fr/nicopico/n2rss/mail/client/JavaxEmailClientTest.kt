@@ -27,7 +27,6 @@ import io.kotest.matchers.shouldBe
 import jakarta.mail.Flags
 import jakarta.mail.search.FlagTerm
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class JavaxEmailClientTest : GreenMailTestBase(
@@ -159,8 +158,6 @@ class JavaxEmailClientTest : GreenMailTestBase(
         unreadEmails.map { it.subject } shouldBe listOf("Subject 1", "Subject 3")
     }
 
-    // TODO Restore this test
-    @Disabled
     @Test
     fun `markAsRead should handle stale message objects`() {
         // GIVEN
@@ -198,8 +195,6 @@ class JavaxEmailClientTest : GreenMailTestBase(
         unreadEmails shouldHaveSize 0
     }
 
-    // TODO Restore this test
-    @Disabled
     @Test
     fun `moveToProcessed should handle stale message objects`() {
         // GIVEN

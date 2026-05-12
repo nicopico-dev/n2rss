@@ -24,6 +24,7 @@ import jakarta.mail.Message
 import jakarta.mail.MessagingException
 import jakarta.mail.Session
 import jakarta.mail.Store
+import jakarta.mail.UIDFolder
 import jakarta.mail.search.FlagTerm
 import org.slf4j.LoggerFactory
 import java.util.Properties
@@ -141,15 +142,44 @@ private class JavaxEmailClientSession(
     }
 
     private fun Email.getFreshMessage(): Message {
-        val folder = message.folder
-        return if (message.isExpunged || !folder.isOpen || message.messageNumber <= 0) {
-            LOG.info(
-                "Message is stale (expunged: {}, open: {}, number: {}), re-fetching",
-                message.isExpunged, folder.isOpen, message.messageNumber
-            )
-            folder.getMessage(message.messageNumber)
+        val currentMessage = message
+        val currentFolder = currentMessage.folder
+
+        val isPotentiallyValid = currentFolder.isOpen
+            && !currentMessage.isExpunged
+            && currentMessage.messageNumber > 0
+
+        val refetch: () -> Message = {
+            val sessionFolder = getSessionFolderByName(currentFolder.fullName)
+            sessionFolder.fetchMessage(msgUid, currentMessage.messageNumber)
+        }
+
+        return when {
+            !isPotentiallyValid -> refetch()
+            msgUid == null || currentFolder !is UIDFolder -> currentMessage // Cannot check, optimistic approach
+            currentFolder.getUID(currentMessage) == msgUid -> currentMessage // Still valid
+            else -> refetch()
+        }
+    }
+
+    private fun getSessionFolderByName(folderFullName: String): Folder {
+        return folders.find { it.fullName == folderFullName }
+            ?: processedFolder?.takeIf { it.fullName == folderFullName }
+            ?: error("Folder $folderFullName not found in current session")
+    }
+
+    private fun Folder.fetchMessage(msgUid: Long?, msgNum: Int): Message {
+        return if (msgUid != null && this is UIDFolder) {
+            LOG.info("Re-fetching message with UID {} from folder {}", msgUid, this.fullName)
+            this.getMessageByUID(msgUid)
+                ?: error("Message with UID $msgUid no longer exists in ${this.fullName}")
         } else {
-            message
+            LOG.warn(
+                "Re-fetching message by number {} (unreliable) from folder {}",
+                msgNum,
+                this.fullName,
+            )
+            this.getMessage(msgNum)
         }
     }
 
