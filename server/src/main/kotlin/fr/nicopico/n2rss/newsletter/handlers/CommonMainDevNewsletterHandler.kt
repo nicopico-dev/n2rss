@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.html
+import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.handlers.jsoup.extractSections
 import fr.nicopico.n2rss.newsletter.handlers.jsoup.process
 import fr.nicopico.n2rss.newsletter.models.Article
@@ -92,69 +93,72 @@ class CommonMainDevNewsletterHandler : NewsletterHandlerMultipleFeeds {
     }
 
     private fun extractArticlesFromElement(element: Element): List<Article> {
-        val articles = mutableListOf<Article>()
-
         // Important: we want to preserve the relative order of articles in the section.
         val articleElements = element.select(".kg-callout-card, ul > li, .kg-bookmark-card, .kg-cta-card")
 
-        for (articleElement in articleElements) {
+        return articleElements.map { articleElement ->
             when {
-                articleElement.hasClass("kg-callout-card") -> {
-                    val linkElement = articleElement.selectFirst(".kg-callout-text a")
-                    val title = linkElement?.text()
-                    val link = linkElement?.attr("href")?.toUrlOrNull()
-                    if (title != null && link != null) {
-                        val description = articleElement.selectFirst(".kg-callout-text")?.text()
-                            ?.removePrefix(title)
-                            ?.trim()
-                            ?: ""
-                        articles.add(Article(title, link, description))
-                    }
-                }
-
-                articleElement.tagName() == "li" -> {
-                    val linkElement = articleElement.selectFirst("a")
-                    val title = linkElement?.text()
-                    val link = linkElement?.attr("href")?.toUrlOrNull()
-                    if (title != null && link != null) {
-                        val description = articleElement.text().removePrefix(title).trim()
-                        articles.add(Article(title, link, description))
-                    }
-                }
-
-                articleElement.hasClass("kg-bookmark-card") -> {
-                    val linkElement = articleElement.selectFirst(".kg-bookmark-container")
-                    val title = articleElement.selectFirst(".kg-bookmark-title")?.text()
-                    val link = linkElement?.attr("href")?.toUrlOrNull()
-                    if (title != null && link != null) {
-                        val description = articleElement.selectFirst(".kg-bookmark-description")?.text() ?: ""
-                        val caption = articleElement.selectFirst(".kg-card-figcaption")?.text() ?: ""
-                        val fullDescription = listOf(description, caption).filter { it.isNotBlank() }.joinToString("\n")
-                        articles.add(Article(title, link, fullDescription))
-                    }
-                }
-
-                articleElement.hasClass("kg-cta-card") -> {
-                    val linkInText = articleElement.selectFirst(".kg-cta-text a")
-                    val title = linkInText?.text()
-                        ?: articleElement.selectFirst(".kg-cta-text b, .kg-cta-text strong")?.text()
-
-                    val link = linkInText?.attr("href")?.toUrlOrNull()
-                        ?: articleElement.selectFirst("a")?.attr("href")?.toUrlOrNull()
-
-                    if (title != null && link != null) {
-                        val isSponsored = articleElement.select(".kg-cta-sponsor-label").isNotEmpty()
-                        val displayTitle = if (isSponsored) "SPONSORED - $title" else title
-                        val description = articleElement.selectFirst(".kg-cta-text")?.text()
-                            ?.removePrefix(title)
-                            ?.trim()
-                            ?: ""
-                        articles.add(Article(displayTitle, link, description))
-                    }
-                }
+                articleElement.hasClass("kg-callout-card") -> processCalloutCardArticle(articleElement)
+                articleElement.tagName() == "li" -> processLiTagArticle(articleElement)
+                articleElement.hasClass("kg-bookmark-card") -> processBookmarkCardArticle(articleElement)
+                articleElement.hasClass("kg-cta-card") -> processCtaCardArticle(articleElement)
+                else -> throw NewsletterParsingException("Unknown article element $articleElement")
             }
         }
-        return articles
+    }
+
+    private fun processCalloutCardArticle(articleElement: Element): Article {
+        val linkElement = articleElement.selectFirst(".kg-callout-text a")
+        val title = linkElement?.text()
+        val link = linkElement?.attr("href")?.toUrlOrNull()
+        if (title != null && link != null) {
+            val description = articleElement.selectFirst(".kg-callout-text")?.text()
+                ?.removePrefix(title)
+                ?.trim()
+                ?: ""
+            return Article(title, link, description)
+        } else throw NewsletterParsingException("Invalid CalloutCard article $articleElement")
+    }
+
+    private fun processLiTagArticle(articleElement: Element): Article {
+        val linkElement = articleElement.selectFirst("a")
+        val title = linkElement?.text()
+        val link = linkElement?.attr("href")?.toUrlOrNull()
+        if (title != null && link != null) {
+            val description = articleElement.text().removePrefix(title).trim()
+            return Article(title, link, description)
+        } else throw NewsletterParsingException("Invalid <li> article $articleElement")
+    }
+
+    private fun processBookmarkCardArticle(articleElement: Element): Article {
+        val linkElement = articleElement.selectFirst(".kg-bookmark-container")
+        val title = articleElement.selectFirst(".kg-bookmark-title")?.text()
+        val link = linkElement?.attr("href")?.toUrlOrNull()
+        if (title != null && link != null) {
+            val description = articleElement.selectFirst(".kg-bookmark-description")?.text() ?: ""
+            val caption = articleElement.selectFirst(".kg-card-figcaption")?.text() ?: ""
+            val fullDescription = listOf(description, caption).filter { it.isNotBlank() }.joinToString("\n")
+            return Article(title, link, fullDescription)
+        } else throw NewsletterParsingException("Invalid BookmarkCard article $articleElement")
+    }
+
+    private fun processCtaCardArticle(articleElement: Element): Article {
+        val linkInText = articleElement.selectFirst(".kg-cta-text a")
+        val title = linkInText?.text()
+            ?: articleElement.selectFirst(".kg-cta-text b, .kg-cta-text strong")?.text()
+
+        val link = linkInText?.attr("href")?.toUrlOrNull()
+            ?: articleElement.selectFirst("a")?.attr("href")?.toUrlOrNull()
+
+        if (title != null && link != null) {
+            val isSponsored = articleElement.select(".kg-cta-sponsor-label").isNotEmpty()
+            val displayTitle = if (isSponsored) "SPONSORED - $title" else title
+            val description = articleElement.selectFirst(".kg-cta-text")?.text()
+                ?.removePrefix(title)
+                ?.trim()
+                .orEmpty()
+            return Article(displayTitle, link, description)
+        } else throw NewsletterParsingException("Invalid CtaCard article $articleElement")
     }
 
     companion object {
