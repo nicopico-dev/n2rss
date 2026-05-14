@@ -21,8 +21,10 @@ package fr.nicopico.n2rss.external.temporary
 import com.ninjasquad.springmockk.MockkBean
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointEntity
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
+import fr.nicopico.n2rss.security.RateLimiterService
 import io.mockk.every
 import io.mockk.junit5.MockKExtension
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -45,6 +47,16 @@ class TemporaryEndpointControllerTest {
 
     @MockkBean
     private lateinit var temporaryEndpointRepository: TemporaryEndpointRepository
+    @MockkBean
+    private lateinit var rateLimiterService: RateLimiterService
+    private val realRLS = RateLimiterService(10)
+
+    @BeforeEach
+    fun setUp() {
+        every { rateLimiterService.resolveBucket(any()) } answers {
+            realRLS.resolveBucket(firstArg())
+        }
+    }
 
     @Test
     fun `temp-endpoint should return the HTML content`() {
@@ -60,8 +72,7 @@ class TemporaryEndpointControllerTest {
 
         // WHEN & THEN
         mockMvc.perform(
-            get("/temp-endpoint/$endpointId")
-                .accept(MediaType.TEXT_HTML)
+            get("/temp-endpoint/$endpointId").accept(MediaType.TEXT_HTML)
         )
             .andExpect(status().isOk)
             .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
@@ -77,9 +88,7 @@ class TemporaryEndpointControllerTest {
 
         // WHEN & THEN
         mockMvc.perform(
-            get("/temp-endpoint/$endpointId")
-                .accept(MediaType.TEXT_HTML)
-        )
-            .andExpect(status().isNotFound)
+            get("/temp-endpoint/$endpointId").accept(MediaType.TEXT_HTML)
+        ).andExpect(status().isNotFound)
     }
 }

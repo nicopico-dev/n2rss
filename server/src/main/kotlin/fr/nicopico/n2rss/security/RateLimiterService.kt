@@ -21,12 +21,12 @@ package fr.nicopico.n2rss.security
 import io.github.bucket4j.Bandwidth
 import io.github.bucket4j.Bucket
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.toJavaDuration
 
-@Component
+@Service
 class RateLimiterService(
     @param:Value($$"${n2rss.security.max-requests-per-minute}")
     private val maxRequestPerMinute: Long,
