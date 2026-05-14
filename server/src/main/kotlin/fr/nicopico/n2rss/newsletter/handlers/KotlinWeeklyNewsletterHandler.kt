@@ -39,7 +39,11 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
     )
 
     override fun canHandle(email: Email): Boolean {
-        return email.sender.email.contains("mailinglist@kotlinweekly.net")
+        return email.sender.email.contains("mailinglist@kotlinweekly.net") || (
+            email.subject.startsWith("kotlin weekly", ignoreCase = true)
+                && with(email.sender.email) {
+                startsWith("eenriquelopez") && endsWith("mailchimpapp.com")
+            })
     }
 
     override fun extractArticles(email: Email): Map<Newsletter, List<Article>> {
@@ -112,6 +116,7 @@ class KotlinWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
                         link = link,
                         description = description,
                     )
+
                     sectionTitle.uppercase() in OPTIONAL_SECTIONS -> null
                     else -> throw NewsletterParsingException(
                         "Cannot find article description for article \"$title\" in Kotlin Weekly"
