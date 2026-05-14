@@ -140,7 +140,8 @@ The project requires a minimum of 80% code coverage. Certain classes are exclude
 
 ### Adding or updating support for a newsletter
 
-Follow the directives in [NewsletterHandler Guidelines](./newsletterhandler-guidelines.md)
+Follow the directives
+in [NewsletterHandler Guidelines](.agents/skills/newsletter-handler/references/newsletterhandler-guidelines.md)
 
 ### Custom Gradle Plugins
 

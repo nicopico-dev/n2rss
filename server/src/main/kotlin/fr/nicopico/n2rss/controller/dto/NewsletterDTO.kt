@@ -56,5 +56,5 @@ fun NewsletterInfo.toDTO() = NewsletterDTO(
             publicationPeriod = stats.publicationPeriodicity.toJavaPeriod(),
             articlesPerPublication = stats.articlesPerPublication,
         )
-    } else null,
+    } else null, // TODO Handle single publication stats (for the publication date)
 )

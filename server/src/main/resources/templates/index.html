@@ -94,11 +94,11 @@
                         articles every
                         <span th:text="${stats.humanReadablePublicationPeriod}"/>
                     </span>
-                    <span class="publication-start">
+                    <span class="publication-start" th:if="${stats}">
                         since <span th:text="${#temporals.format(stats.firstPublicationDate, #locale.ENGLISH)}"/>.
                         <br/>
                     </span>
-                    <span class="publication-last">
+                    <span class="publication-last" th:if="${stats}">
                         last publication : <span
                         th:text="${#temporals.format(stats.lastPublicationDate, #locale.ENGLISH)}"/>
                         <br/>
