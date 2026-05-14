@@ -21,15 +21,15 @@ package fr.nicopico.n2rss.security
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
-import org.springframework.beans.factory.annotation.Value
+import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component
-import org.springframework.util.AntPathMatcher
 import org.springframework.web.filter.OncePerRequestFilter
+import kotlin.time.Duration.Companion.nanoseconds
+import kotlin.time.toJavaDuration
 
 @Component
-class IpBlockerFilter(
-    @param:Value($$"${n2rss.security.blocked-ip-patterns}")
-    private val blockedIpPatterns: List<String>,
+class RateLimitFilter(
+    private val rateLimiterService: RateLimiterService,
 ) : OncePerRequestFilter() {
 
     override fun doFilterInternal(
@@ -37,22 +37,36 @@ class IpBlockerFilter(
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        val remoteIp = request.remoteAddr
-        if (remoteIp.matches(blockedIpPatterns)) {
-            response.status = HttpServletResponse.SC_FORBIDDEN
+        val clientIp = request.getClientIp()
+        val bucket = rateLimiterService.resolveBucket(clientIp)
+
+        val probe = bucket.tryConsumeAndReturnRemaining(1)
+
+        if (!probe.isConsumed) {
+            response.status = HttpStatus.TOO_MANY_REQUESTS.value()
+            response.contentType = "text/plain"
+            response.setHeader(
+                "Retry-After",
+                probe.nanosToWaitForRefill.nanoseconds.toJavaDuration()
+                    .seconds
+                    .coerceAtLeast(1)
+                    .toString(),
+            )
+            response.writer.write("Too many requests")
             return
         }
+
+        response.setHeader("X-Rate-Limit-Remaining", probe.remainingTokens.toString())
         filterChain.doFilter(request, response)
     }
 
-    companion object {
-        private fun String.matches(ipPatterns: List<String>): Boolean {
-            val matcher = AntPathMatcher()
-            val normalizedIp = this.replace('.', '/').replace(':', '/')
-            return ipPatterns.any { pattern ->
-                val normalizedPattern = pattern.replace('.', '/').replace(':', '/')
-                matcher.match(normalizedPattern, normalizedIp)
-            }
-        }
+    private fun HttpServletRequest.getClientIp(): String {
+        val forwardedFor = getHeader("X-Forwarded-For")
+        return forwardedFor
+            ?.split(",")
+            ?.firstOrNull()
+            ?.trim()
+            ?.takeIf { it.isNotBlank() }
+            ?: remoteAddr
     }
 }

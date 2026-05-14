@@ -18,41 +18,31 @@
 
 package fr.nicopico.n2rss.security
 
-import jakarta.servlet.FilterChain
-import jakarta.servlet.http.HttpServletRequest
-import jakarta.servlet.http.HttpServletResponse
+import io.github.bucket4j.Bandwidth
+import io.github.bucket4j.Bucket
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
-import org.springframework.util.AntPathMatcher
-import org.springframework.web.filter.OncePerRequestFilter
+import java.util.concurrent.ConcurrentHashMap
+import kotlin.time.Duration.Companion.minutes
+import kotlin.time.toJavaDuration
 
 @Component
-class IpBlockerFilter(
-    @param:Value($$"${n2rss.security.blocked-ip-patterns}")
-    private val blockedIpPatterns: List<String>,
-) : OncePerRequestFilter() {
+class RateLimiterService(
+    @param:Value($$"${n2rss.security.max-requests-per-minute}")
+    private val maxRequestPerMinute: Long,
+) {
+    private val buckets = ConcurrentHashMap<String, Bucket>()
 
-    override fun doFilterInternal(
-        request: HttpServletRequest,
-        response: HttpServletResponse,
-        filterChain: FilterChain
-    ) {
-        val remoteIp = request.remoteAddr
-        if (remoteIp.matches(blockedIpPatterns)) {
-            response.status = HttpServletResponse.SC_FORBIDDEN
-            return
-        }
-        filterChain.doFilter(request, response)
-    }
-
-    companion object {
-        private fun String.matches(ipPatterns: List<String>): Boolean {
-            val matcher = AntPathMatcher()
-            val normalizedIp = this.replace('.', '/').replace(':', '/')
-            return ipPatterns.any { pattern ->
-                val normalizedPattern = pattern.replace('.', '/').replace(':', '/')
-                matcher.match(normalizedPattern, normalizedIp)
-            }
+    fun resolveBucket(key: String): Bucket {
+        return buckets.computeIfAbsent(key) {
+            Bucket.builder()
+                .addLimit(
+                    Bandwidth.builder()
+                        .capacity(maxRequestPerMinute)
+                        .refillIntervally(maxRequestPerMinute, 1.minutes.toJavaDuration())
+                        .build()
+                )
+                .build()
         }
     }
 }
