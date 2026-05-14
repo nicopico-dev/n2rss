@@ -1,5 +1,11 @@
 # N2RSS Project Development Guidelines
 
+> [!IMPORTANT]
+> **CRITICAL: Test Execution**
+> - NEVER use the `run_test` command. It is broken and hangs indefinitely in this environment.
+> - ALWAYS run tests using Gradle via the terminal (e.g., `./gradlew test` or
+    `./gradlew :server:test --tests "ClassName"`).
+
 This document provides essential information for developers working on the N2RSS project.
 
 ## Build and Configuration Instructions
