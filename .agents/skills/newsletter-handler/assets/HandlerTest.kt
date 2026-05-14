@@ -18,7 +18,9 @@
 
 package fr.nicopico.n2rss.newsletter.handlers
 
-import fr.nicopico.n2rss.models.Email
+import fr.nicopico.n2rss.STUBS_EMAIL_ROOT_FOLDER
+import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.newsletter.models.Article
 import io.kotest.assertions.assertSoftly
 import io.kotest.assertions.withClue
 import io.kotest.matchers.shouldBe
