@@ -25,7 +25,6 @@ import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 import kotlin.time.Duration.Companion.nanoseconds
-import kotlin.time.toJavaDuration
 
 @Component
 class RateLimitFilter(
@@ -47,10 +46,7 @@ class RateLimitFilter(
             response.contentType = "text/plain"
             response.setHeader(
                 "Retry-After",
-                probe.nanosToWaitForRefill.nanoseconds.toJavaDuration()
-                    .seconds
-                    .coerceAtLeast(1)
-                    .toString(),
+                (probe.nanosToWaitForRefill.nanoseconds.inWholeSeconds + 1).toString(),
             )
             response.writer.write("Too many requests")
             return

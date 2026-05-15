@@ -120,6 +120,60 @@ class IpBlockerFilterTest {
     }
 
     @Test
+    fun `should match compressed IPv6`() {
+        // GIVEN
+        val blockedPatterns = listOf("2001:db8::*")
+        val filter = IpBlockerFilter(blockedPatterns)
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = "2001:db8::1"
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        // WHEN
+        filter.doFilter(request, response, filterChain)
+
+        // THEN
+        response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+    }
+
+    @Test
+    fun `should match compressed IPv6 with double star pattern`() {
+        // GIVEN
+        val blockedPatterns = listOf("2001:db8:**")
+        val filter = IpBlockerFilter(blockedPatterns)
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = "2001:db8::1"
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        // WHEN
+        filter.doFilter(request, response, filterChain)
+
+        // THEN
+        response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+    }
+
+    @Test
+    fun `should match compressed IP against expanded pattern`() {
+        // GIVEN
+        val blockedPatterns = listOf("2001:db8:0:0:0:0:0:1")
+        val filter = IpBlockerFilter(blockedPatterns)
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = "2001:db8::1"
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        // WHEN
+        filter.doFilter(request, response, filterChain)
+
+        // THEN
+        response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+    }
+
+    @Test
     fun `should match IPv6 with star pattern between colons`() {
         // GIVEN
         val blockedPatterns = listOf("2001:*:0:0:0:0:0:1")

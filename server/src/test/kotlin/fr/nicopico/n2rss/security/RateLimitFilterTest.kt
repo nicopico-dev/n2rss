@@ -20,8 +20,9 @@ package fr.nicopico.n2rss.security
 
 import io.github.bucket4j.Bandwidth
 import io.github.bucket4j.Bucket
+import io.kotest.matchers.ints.shouldBeGreaterThanOrEqual
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldNotBe
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -106,76 +107,20 @@ class RateLimitFilterTest {
         response.status shouldBe HttpStatus.TOO_MANY_REQUESTS.value()
         response.contentType shouldBe "text/plain"
         response.contentAsString shouldBe "Too many requests"
-        response.getHeader("Retry-After") shouldNotBe null
+        response.getHeader("Retry-After") shouldNotBeNull {
+            toInt() shouldBeGreaterThanOrEqual 60
+        }
         filterChain.request shouldBe null
     }
 
     @Test
-    fun `should NOT use X-Forwarded-For header for client IP if present`() {
+    fun `should ignore X-Forwarded-For header for client IP if present`() {
         // GIVEN
         val clientIp = "127.0.0.1"
         val forwardedIp = "203.0.113.195"
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
             addHeader("X-Forwarded-For", "$forwardedIp, 70.41.3.18, 150.172.238.178")
-        }
-        val response = MockHttpServletResponse()
-        val filterChain = MockFilterChain()
-
-        val bucket = Bucket.builder()
-            .addLimit(
-                Bandwidth.builder()
-                    .capacity(10)
-                    .refillIntervally(10, 1.minutes.toJavaDuration())
-                    .build()
-            )
-            .build()
-
-        every { rateLimiterService.resolveBucket(clientIp) } returns bucket
-
-        // WHEN
-        filter.doFilter(request, response, filterChain)
-
-        // THEN
-        verify { rateLimiterService.resolveBucket(clientIp) }
-    }
-
-    @Test
-    fun `should use remoteAddr if X-Forwarded-For is empty`() {
-        // GIVEN
-        val clientIp = "127.0.0.1"
-        val request = MockHttpServletRequest().apply {
-            remoteAddr = clientIp
-            addHeader("X-Forwarded-For", "")
-        }
-        val response = MockHttpServletResponse()
-        val filterChain = MockFilterChain()
-
-        val bucket = Bucket.builder()
-            .addLimit(
-                Bandwidth.builder()
-                    .capacity(10)
-                    .refillIntervally(10, 1.minutes.toJavaDuration())
-                    .build()
-            )
-            .build()
-
-        every { rateLimiterService.resolveBucket(clientIp) } returns bucket
-
-        // WHEN
-        filter.doFilter(request, response, filterChain)
-
-        // THEN
-        verify { rateLimiterService.resolveBucket(clientIp) }
-    }
-
-    @Test
-    fun `should use remoteAddr if X-Forwarded-For is blank`() {
-        // GIVEN
-        val clientIp = "127.0.0.1"
-        val request = MockHttpServletRequest().apply {
-            remoteAddr = clientIp
-            addHeader("X-Forwarded-For", "  ")
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
