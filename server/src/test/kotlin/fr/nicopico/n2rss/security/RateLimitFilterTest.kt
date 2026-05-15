@@ -111,11 +111,12 @@ class RateLimitFilterTest {
     }
 
     @Test
-    fun `should use X-Forwarded-For header for client IP if present`() {
+    fun `should NOT use X-Forwarded-For header for client IP if present`() {
         // GIVEN
+        val clientIp = "127.0.0.1"
         val forwardedIp = "203.0.113.195"
         val request = MockHttpServletRequest().apply {
-            remoteAddr = "127.0.0.1"
+            remoteAddr = clientIp
             addHeader("X-Forwarded-For", "$forwardedIp, 70.41.3.18, 150.172.238.178")
         }
         val response = MockHttpServletResponse()
@@ -130,13 +131,13 @@ class RateLimitFilterTest {
             )
             .build()
 
-        every { rateLimiterService.resolveBucket(forwardedIp) } returns bucket
+        every { rateLimiterService.resolveBucket(clientIp) } returns bucket
 
         // WHEN
         filter.doFilter(request, response, filterChain)
 
         // THEN
-        verify { rateLimiterService.resolveBucket(forwardedIp) }
+        verify { rateLimiterService.resolveBucket(clientIp) }
     }
 
     @Test

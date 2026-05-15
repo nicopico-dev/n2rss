@@ -28,9 +28,14 @@ import org.springframework.web.filter.OncePerRequestFilter
 
 @Component
 class IpBlockerFilter(
-    @param:Value($$"${n2rss.security.blocked-ip-patterns}")
-    private val blockedIpPatterns: List<String>,
+    @Value($$"${n2rss.security.blocked-ip-patterns}")
+    blockedIpPatterns: List<String>,
 ) : OncePerRequestFilter() {
+
+    private val blockedIpAntPatterns: List<String> = blockedIpPatterns
+        .takeIf { it.isNotEmpty() }
+        ?.map { it.normalizeForAnt() }
+        .orEmpty()
 
     override fun doFilterInternal(
         request: HttpServletRequest,
@@ -38,7 +43,7 @@ class IpBlockerFilter(
         filterChain: FilterChain
     ) {
         val remoteIp = request.remoteAddr
-        if (remoteIp.matches(blockedIpPatterns)) {
+        if (remoteIp.matches(blockedIpAntPatterns)) {
             response.status = HttpServletResponse.SC_FORBIDDEN
             return
         }
@@ -46,13 +51,17 @@ class IpBlockerFilter(
     }
 
     companion object {
-        private fun String.matches(ipPatterns: List<String>): Boolean {
-            val matcher = AntPathMatcher()
-            val normalizedIp = this.replace('.', '/').replace(':', '/')
-            return ipPatterns.any { pattern ->
-                val normalizedPattern = pattern.replace('.', '/').replace(':', '/')
-                matcher.match(normalizedPattern, normalizedIp)
+        private val matcher = AntPathMatcher()
+
+        private fun String.matches(normalizedIpPatterns: List<String>): Boolean {
+            val normalizedIp = this.normalizeForAnt()
+            return normalizedIpPatterns.any { ipPattern ->
+                matcher.match(ipPattern, normalizedIp)
             }
         }
+
+        private fun String.normalizeForAnt(): String = this
+            .replace('.', '/')
+            .replace(':', '/')
     }
 }

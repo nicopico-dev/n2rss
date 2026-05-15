@@ -124,7 +124,8 @@ dependencies {
     implementation(libs.rome)
     implementation(libs.jsonPath)
     implementation(libs.annotations)
-    implementation("com.bucket4j:bucket4j-core:8.7.0")
+    implementation(libs.bucket4j.core)
+    implementation(libs.caffeine)
 
     runtimeOnly(libs.mariadb.driver)
     implementation(libs.flyway.mysql)

@@ -61,12 +61,6 @@ class RateLimitFilter(
     }
 
     private fun HttpServletRequest.getClientIp(): String {
-        val forwardedFor = getHeader("X-Forwarded-For")
-        return forwardedFor
-            ?.split(",")
-            ?.firstOrNull()
-            ?.trim()
-            ?.takeIf { it.isNotBlank() }
-            ?: remoteAddr
+        return remoteAddr
     }
 }

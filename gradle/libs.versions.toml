@@ -1,5 +1,7 @@
 [versions]
 annotations = "26.1.0"
+bucket4j = "8.10.1"
+caffeine = "3.2.4"
 dependencyManagement = "1.1.7"
 detekt = "1.23.8"
 flyway = "12.6.0"
@@ -47,6 +49,8 @@ springMock = { module = "com.ninja-squad:springmockk", version.ref = "springMock
 
 # Other Libraries
 annotations = { module = "org.jetbrains:annotations", version.ref = "annotations" }
+bucket4j-core = { module = "com.bucket4j:bucket4j-core", version.ref = "bucket4j" }
+caffeine = { module = "com.github.ben-manes.caffeine:caffeine", version.ref = "caffeine" }
 flyway-mysql = { module = "org.flywaydb:flyway-mysql", version.ref = "flyway" }
 h2-database = { module = "com.h2database:h2", version.ref = "h2" }
 jackson-datatype-jsr310 = { module = "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" }
