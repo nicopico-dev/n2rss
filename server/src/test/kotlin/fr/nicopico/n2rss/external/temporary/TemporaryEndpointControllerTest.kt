@@ -49,12 +49,12 @@ class TemporaryEndpointControllerTest {
     private lateinit var temporaryEndpointRepository: TemporaryEndpointRepository
     @MockkBean
     private lateinit var rateLimiterService: RateLimiterService
-    private val realRLS = RateLimiterService(10)
+    private val _realRateLimiterService = RateLimiterService(10)
 
     @BeforeEach
     fun setUp() {
         every { rateLimiterService.resolveBucket(any()) } answers {
-            realRLS.resolveBucket(firstArg())
+            _realRateLimiterService.resolveBucket(firstArg())
         }
     }
 

@@ -25,6 +25,7 @@ import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import org.springframework.util.AntPathMatcher
 import org.springframework.web.filter.OncePerRequestFilter
+import java.net.Inet4Address
 import java.net.InetAddress
 
 @Component
@@ -68,12 +69,12 @@ class IpBlockerFilter(
 
         @Suppress("MagicNumber", "ReturnCount")
         private fun String.expandIp(): String {
-            if (this.contains(".")) return this
-            if (!this.contains(":")) return this
-
             // Use InetAddress to expand and normalize valid IPv6 addresses
             return try {
                 val addr = InetAddress.getByName(this)
+                if (addr is Inet4Address) {
+                    return addr.hostAddress
+                }
                 val bytes = addr.address
                 if (bytes.size == 16) {
                     (0..<8).joinToString(":") { i ->

@@ -141,5 +141,8 @@ class RateLimitFilterTest {
 
         // THEN
         verify { rateLimiterService.resolveBucket(clientIp) }
+        verify(exactly = 0) {
+            rateLimiterService.resolveBucket(forwardedIp)
+        }
     }
 }
