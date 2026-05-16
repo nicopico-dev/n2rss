@@ -45,7 +45,7 @@ class EmailChecker(
 ) {
     // We want to catch all exceptions here
     @Suppress("TooGenericExceptionCaught")
-    @Scheduled(cron = "\${n2rss.email.cron}")
+    @Scheduled(cron = $$"${n2rss.email.cron}")
     fun savePublicationsFromEmails() {
         try {
             LOG.info("Checking emails...")

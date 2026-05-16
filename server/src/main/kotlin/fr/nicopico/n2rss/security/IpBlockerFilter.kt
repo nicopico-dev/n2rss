@@ -29,7 +29,7 @@ import org.springframework.web.filter.OncePerRequestFilter
 class IpBlockerFilter(
     @Value($$"${n2rss.security.blocked-ip-patterns}")
     blockedIpPatterns: List<String>,
-    @param:Value("\${n2rss.security.trusted-proxies}")
+    @param:Value($$"${n2rss.security.trusted-proxies}")
     private val trustedProxies: List<String>,
 ) : OncePerRequestFilter() {
 
