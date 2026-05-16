@@ -43,7 +43,7 @@ class RateLimitFilterTest {
     @BeforeEach
     fun setUp() {
         rateLimiterService = mockk()
-        filter = RateLimitFilter(rateLimiterService)
+        filter = RateLimitFilter(rateLimiterService, emptyList())
     }
 
     @Test
@@ -114,7 +114,7 @@ class RateLimitFilterTest {
     }
 
     @Test
-    fun `should ignore X-Forwarded-For header for client IP if present`() {
+    fun `should use X-Forwarded-For header for client IP if present`() {
         // GIVEN
         val clientIp = "127.0.0.1"
         val forwardedIp = "203.0.113.195"
@@ -134,15 +134,72 @@ class RateLimitFilterTest {
             )
             .build()
 
-        every { rateLimiterService.resolveBucket(clientIp) } returns bucket
+        every { rateLimiterService.resolveBucket(forwardedIp) } returns bucket
 
         // WHEN
         filter.doFilter(request, response, filterChain)
 
         // THEN
-        verify { rateLimiterService.resolveBucket(clientIp) }
+        verify { rateLimiterService.resolveBucket(forwardedIp) }
         verify(exactly = 0) {
-            rateLimiterService.resolveBucket(forwardedIp)
+            rateLimiterService.resolveBucket(clientIp)
         }
+    }
+
+    @Test
+    fun `should use X-Forwarded-For header if it comes from a trusted proxy`() {
+        // GIVEN
+        val clientIp = "127.0.0.1"
+        val forwardedIp = "203.0.113.195"
+        val trustedProxies = listOf("127.0.0.1")
+        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies)
+
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = clientIp
+            addHeader("X-Forwarded-For", forwardedIp)
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        val bucket = Bucket.builder()
+            .addLimit(Bandwidth.builder().capacity(10).refillIntervally(10, 1.minutes.toJavaDuration()).build())
+            .build()
+
+        every { rateLimiterService.resolveBucket(forwardedIp) } returns bucket
+
+        // WHEN
+        filterWithTrustedProxy.doFilter(request, response, filterChain)
+
+        // THEN
+        verify { rateLimiterService.resolveBucket(forwardedIp) }
+    }
+
+    @Test
+    fun `should ignore X-Forwarded-For header if it comes from an untrusted proxy`() {
+        // GIVEN
+        val clientIp = "127.0.0.1"
+        val forwardedIp = "203.0.113.195"
+        val trustedProxies = listOf("192.168.1.1")
+        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies)
+
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = clientIp
+            addHeader("X-Forwarded-For", forwardedIp)
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        val bucket = Bucket.builder()
+            .addLimit(Bandwidth.builder().capacity(10).refillIntervally(10, 1.minutes.toJavaDuration()).build())
+            .build()
+
+        every { rateLimiterService.resolveBucket(clientIp) } returns bucket
+
+        // WHEN
+        filterWithTrustedProxy.doFilter(request, response, filterChain)
+
+        // THEN
+        verify { rateLimiterService.resolveBucket(clientIp) }
+        verify(exactly = 0) { rateLimiterService.resolveBucket(forwardedIp) }
     }
 }

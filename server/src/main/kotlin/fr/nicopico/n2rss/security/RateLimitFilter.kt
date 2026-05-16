@@ -21,6 +21,7 @@ package fr.nicopico.n2rss.security
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
@@ -29,6 +30,8 @@ import kotlin.time.Duration.Companion.nanoseconds
 @Component
 class RateLimitFilter(
     private val rateLimiterService: RateLimiterService,
+    @param:Value($$"${n2rss.security.trusted-proxies}")
+    private val trustedProxies: List<String>,
 ) : OncePerRequestFilter() {
 
     override fun doFilterInternal(
@@ -36,7 +39,7 @@ class RateLimitFilter(
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        val clientIp = request.getClientIp()
+        val clientIp = request.getClientIp(trustedProxies)
         val bucket = rateLimiterService.resolveBucket(clientIp)
 
         val probe = bucket.tryConsumeAndReturnRemaining(1)
@@ -54,9 +57,5 @@ class RateLimitFilter(
 
         response.setHeader("X-Rate-Limit-Remaining", probe.remainingTokens.toString())
         filterChain.doFilter(request, response)
-    }
-
-    private fun HttpServletRequest.getClientIp(): String {
-        return remoteAddr
     }
 }

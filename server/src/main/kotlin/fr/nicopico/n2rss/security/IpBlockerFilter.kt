@@ -23,94 +23,29 @@ import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
-import org.springframework.util.AntPathMatcher
 import org.springframework.web.filter.OncePerRequestFilter
-import java.net.Inet4Address
-import java.net.InetAddress
 
 @Component
 class IpBlockerFilter(
     @Value($$"${n2rss.security.blocked-ip-patterns}")
     blockedIpPatterns: List<String>,
+    @param:Value("\${n2rss.security.trusted-proxies}")
+    private val trustedProxies: List<String>,
 ) : OncePerRequestFilter() {
 
     private val blockedIpAntPatterns: List<String> = blockedIpPatterns
         .filter { it.isNotBlank() }
-        .map { it.normalizeForAnt() }
 
     override fun doFilterInternal(
         request: HttpServletRequest,
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        val remoteIp = request.remoteAddr
-        if (remoteIp.matches(blockedIpAntPatterns)) {
+        val remoteIp = request.getClientIp(trustedProxies)
+        if (remoteIp.matchesIp(blockedIpAntPatterns)) {
             response.status = HttpServletResponse.SC_FORBIDDEN
             return
         }
         filterChain.doFilter(request, response)
-    }
-
-    companion object {
-        private val matcher = AntPathMatcher()
-
-        private fun String.matches(normalizedIpPatterns: List<String>): Boolean {
-            val normalizedIp = this.normalizeForAnt()
-            return normalizedIpPatterns.any { ipPattern ->
-                matcher.match(ipPattern, normalizedIp)
-            }
-        }
-
-        private fun String.normalizeForAnt(): String {
-            return this.expandIp()
-                .replace('.', '/')
-                .replace(':', '/')
-        }
-
-        @Suppress("MagicNumber", "ReturnCount")
-        private fun String.expandIp(): String {
-            // Use InetAddress to expand and normalize valid IPv6 addresses
-            return try {
-                val addr = InetAddress.getByName(this)
-                if (addr is Inet4Address) {
-                    return addr.hostAddress
-                }
-                val bytes = addr.address
-                if (bytes.size == 16) {
-                    (0..<8).joinToString(":") { i ->
-                        val b1 = bytes[i * 2].toInt() and 0xff
-                        val b2 = bytes[i * 2 + 1].toInt() and 0xff
-                        (b1 shl 8 or b2).toString(16)
-                    }
-                } else this
-            } catch (_: Exception) {
-                // Fallback for patterns containing wildcards (* or **)
-                this.manualExpandIp()
-            }
-        }
-
-        @Suppress("MagicNumber", "ReturnCount")
-        private fun String.manualExpandIp(): String {
-            val ipWithGapExpanded = if (this.contains("::")) {
-                val parts = this.split("::")
-                if (parts.size != 2) return this
-
-                val before = if (parts[0].isEmpty()) emptyList() else parts[0].split(":")
-                val after = if (parts[1].isEmpty()) emptyList() else parts[1].split(":")
-                val missingCount = 8 - (before.size + after.size)
-                if (missingCount < 0) return this
-
-                val gap = List(missingCount) { "0" }
-                (before + gap + after).joinToString(":")
-            } else {
-                this
-            }
-
-            val segments = ipWithGapExpanded.split(":")
-            return segments.joinToString(":") { segment ->
-                if (segment == "*" || segment == "**") segment
-                else segment.lowercase().trimStart('0').ifEmpty { "0" }
-            }
-        }
     }
 }

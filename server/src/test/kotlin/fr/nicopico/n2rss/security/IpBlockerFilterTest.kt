@@ -31,7 +31,7 @@ class IpBlockerFilterTest {
     fun `should block IP if it matches one of the patterns`() {
         // GIVEN
         val blockedPatterns = listOf("192.168.1.*", "10.**")
-        val filter = IpBlockerFilter(blockedPatterns)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList())
         val request = MockHttpServletRequest().apply {
             remoteAddr = "192.168.1.10"
         }
@@ -50,7 +50,7 @@ class IpBlockerFilterTest {
     fun `should allow IP if it does not match any pattern`() {
         // GIVEN
         val blockedPatterns = listOf("192.168.1.*", "10.**")
-        val filter = IpBlockerFilter(blockedPatterns)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList())
         val request = MockHttpServletRequest().apply {
             remoteAddr = "192.168.2.1"
         }
@@ -69,7 +69,7 @@ class IpBlockerFilterTest {
     fun `should match IPv4 with star pattern`() {
         // GIVEN
         val blockedPatterns = listOf("192.168.*.1")
-        val filter = IpBlockerFilter(blockedPatterns)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList())
         val request = MockHttpServletRequest().apply {
             remoteAddr = "192.168.10.1"
         }
@@ -87,7 +87,7 @@ class IpBlockerFilterTest {
     fun `should match IPv4 with double star pattern`() {
         // GIVEN
         val blockedPatterns = listOf("10.**")
-        val filter = IpBlockerFilter(blockedPatterns)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList())
         val request = MockHttpServletRequest().apply {
             remoteAddr = "10.1.2.3"
         }
@@ -105,7 +105,7 @@ class IpBlockerFilterTest {
     fun `should match IPv6 with patterns`() {
         // GIVEN
         val blockedPatterns = listOf("2001:db8:**")
-        val filter = IpBlockerFilter(blockedPatterns)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList())
         val request = MockHttpServletRequest().apply {
             remoteAddr = "2001:db8:0:0:0:0:0:1"
         }
@@ -123,7 +123,7 @@ class IpBlockerFilterTest {
     fun `should match compressed IPv6`() {
         // GIVEN
         val blockedPatterns = listOf("2001:db8::*")
-        val filter = IpBlockerFilter(blockedPatterns)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList())
         val request = MockHttpServletRequest().apply {
             remoteAddr = "2001:db8::1"
         }
@@ -141,7 +141,7 @@ class IpBlockerFilterTest {
     fun `should match compressed IPv6 with double star pattern`() {
         // GIVEN
         val blockedPatterns = listOf("2001:db8:**")
-        val filter = IpBlockerFilter(blockedPatterns)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList())
         val request = MockHttpServletRequest().apply {
             remoteAddr = "2001:db8::1"
         }
@@ -159,7 +159,7 @@ class IpBlockerFilterTest {
     fun `should match compressed IP against expanded pattern`() {
         // GIVEN
         val blockedPatterns = listOf("2001:db8:0:0:0:0:0:1")
-        val filter = IpBlockerFilter(blockedPatterns)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList())
         val request = MockHttpServletRequest().apply {
             remoteAddr = "2001:db8::1"
         }
@@ -177,7 +177,7 @@ class IpBlockerFilterTest {
     fun `should match IPv6 with star pattern between colons`() {
         // GIVEN
         val blockedPatterns = listOf("2001:*:0:0:0:0:0:1")
-        val filter = IpBlockerFilter(blockedPatterns)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList())
         val request = MockHttpServletRequest().apply {
             remoteAddr = "2001:db8:0:0:0:0:0:1"
         }
@@ -189,5 +189,64 @@ class IpBlockerFilterTest {
 
         // THEN
         response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+    }
+
+    @Test
+    fun `should use X-Forwarded-For header for client IP if present`() {
+        // GIVEN
+        val blockedPatterns = listOf("203.0.113.195")
+        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = "127.0.0.1"
+            addHeader("X-Forwarded-For", "203.0.113.195, 70.41.3.18")
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        // WHEN
+        filter.doFilter(request, response, filterChain)
+
+        // THEN
+        response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+    }
+
+    @Test
+    fun `should use X-Forwarded-For header if it comes from a trusted proxy`() {
+        // GIVEN
+        val blockedPatterns = listOf("203.0.113.195")
+        val trustedProxies = listOf("127.0.0.1")
+        val filter = IpBlockerFilter(blockedPatterns, trustedProxies)
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = "127.0.0.1"
+            addHeader("X-Forwarded-For", "203.0.113.195, 70.41.3.18")
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        // WHEN
+        filter.doFilter(request, response, filterChain)
+
+        // THEN
+        response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+    }
+
+    @Test
+    fun `should ignore X-Forwarded-For header if it comes from an untrusted proxy`() {
+        // GIVEN
+        val blockedPatterns = listOf("203.0.113.195")
+        val trustedProxies = listOf("192.168.1.1")
+        val filter = IpBlockerFilter(blockedPatterns, trustedProxies)
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = "127.0.0.1"
+            addHeader("X-Forwarded-For", "203.0.113.195, 70.41.3.18")
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        // WHEN
+        filter.doFilter(request, response, filterChain)
+
+        // THEN
+        response.status shouldBe 200 // Allowed because 127.0.0.1 is not blocked, and X-Forwarded-For is ignored
     }
 }
