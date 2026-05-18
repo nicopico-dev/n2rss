@@ -43,7 +43,7 @@ class RateLimitFilterTest {
     @BeforeEach
     fun setUp() {
         rateLimiterService = mockk()
-        filter = RateLimitFilter(rateLimiterService, emptyList())
+        filter = RateLimitFilter(rateLimiterService, emptyList(), true)
     }
 
     @Test
@@ -153,7 +153,7 @@ class RateLimitFilterTest {
         val clientIp = "192.168.1.100"
         val forwardedIp = "203.0.113.195"
         val trustedProxies = listOf("192.168.1.100")
-        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies)
+        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies, true)
 
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
@@ -181,7 +181,7 @@ class RateLimitFilterTest {
         val clientIp = "192.168.1.2"
         val forwardedIp = "203.0.113.195"
         val trustedProxies = listOf("192.168.1.1")
-        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies)
+        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies, true)
 
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
@@ -235,6 +235,27 @@ class RateLimitFilterTest {
 
         // WHEN
         filter.doFilter(request, response, filterChain)
+
+        // THEN
+        response.status shouldBe HttpStatus.OK.value()
+        filterChain.request shouldBe request
+        verify(exactly = 0) { rateLimiterService.resolveBucket(any()) }
+    }
+
+    @Test
+    fun `should bypass rate limiting when disabled`() {
+        // GIVEN
+        val clientIp = "203.0.113.50"
+        val filterWithDisabledRateLimiting = RateLimitFilter(rateLimiterService, emptyList(), false)
+
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = clientIp
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        // WHEN
+        filterWithDisabledRateLimiting.doFilter(request, response, filterChain)
 
         // THEN
         response.status shouldBe HttpStatus.OK.value()

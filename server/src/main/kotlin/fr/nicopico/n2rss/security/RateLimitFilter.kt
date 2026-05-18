@@ -35,6 +35,8 @@ class RateLimitFilter(
     private val rateLimiterService: RateLimiterService,
     @param:Value($$"${n2rss.security.trusted-proxies}")
     private val trustedProxies: List<String>,
+    @param:Value($$"${n2rss.security.rate-limiting-enabled}")
+    private val rateLimitingEnabled: Boolean,
 ) : OncePerRequestFilter() {
 
     override fun doFilterInternal(
@@ -44,7 +46,7 @@ class RateLimitFilter(
     ) {
         val clientIp = request.getClientIp(trustedProxies)
 
-        if (clientIp.isLoopbackAddress) {
+        if (clientIp.isLoopbackAddress || !rateLimitingEnabled) {
             filterChain.doFilter(request, response)
             return
         }
