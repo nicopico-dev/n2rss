@@ -96,9 +96,15 @@ private fun String.manualExpandIp(): String {
     }
 }
 
+@Suppress("MagicNumber")
 val String.isLoopbackAddress: Boolean
-    get() = try {
-        InetAddress.getByName(this).isLoopbackAddress
-    } catch (_: Exception) {
-        false
+    get() = when {
+        this.equals("localhost", ignoreCase = true) -> true
+        this.startsWith("127.") -> split('.').size == 4
+            && split('.').all {
+            it.toIntOrNull() in 0..255
+        }
+
+        this == "::1" || this == "0:0:0:0:0:0:0:1" -> true
+        else -> false
     }
