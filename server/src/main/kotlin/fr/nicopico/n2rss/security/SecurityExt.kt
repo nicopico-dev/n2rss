@@ -95,3 +95,10 @@ private fun String.manualExpandIp(): String {
         else segment.lowercase().trimStart('0').ifEmpty { "0" }
     }
 }
+
+val String.isLoopbackAddress: Boolean
+    get() = try {
+        InetAddress.getByName(this).isLoopbackAddress
+    } catch (_: Exception) {
+        false
+    }

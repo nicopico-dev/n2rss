@@ -49,7 +49,7 @@ class RateLimitFilterTest {
     @Test
     fun `should allow request when rate limit is not exceeded`() {
         // GIVEN
-        val clientIp = "127.0.0.1"
+        val clientIp = "203.0.113.1"
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
         }
@@ -80,7 +80,7 @@ class RateLimitFilterTest {
     @Test
     fun `should block request when rate limit is exceeded`() {
         // GIVEN
-        val clientIp = "127.0.0.1"
+        val clientIp = "203.0.113.2"
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
         }
@@ -110,13 +110,14 @@ class RateLimitFilterTest {
         response.getHeader("Retry-After") shouldNotBeNull {
             toInt() shouldBeGreaterThanOrEqual 60
         }
+        verify { rateLimiterService.resolveBucket(clientIp) }
         filterChain.request shouldBe null
     }
 
     @Test
     fun `should use X-Forwarded-For header for client IP if present`() {
         // GIVEN
-        val clientIp = "127.0.0.1"
+        val clientIp = "192.168.1.1"
         val forwardedIp = "203.0.113.195"
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
@@ -149,9 +150,9 @@ class RateLimitFilterTest {
     @Test
     fun `should use X-Forwarded-For header if it comes from a trusted proxy`() {
         // GIVEN
-        val clientIp = "127.0.0.1"
+        val clientIp = "192.168.1.100"
         val forwardedIp = "203.0.113.195"
-        val trustedProxies = listOf("127.0.0.1")
+        val trustedProxies = listOf("192.168.1.100")
         val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies)
 
         val request = MockHttpServletRequest().apply {
@@ -177,7 +178,7 @@ class RateLimitFilterTest {
     @Test
     fun `should ignore X-Forwarded-For header if it comes from an untrusted proxy`() {
         // GIVEN
-        val clientIp = "127.0.0.1"
+        val clientIp = "192.168.1.2"
         val forwardedIp = "203.0.113.195"
         val trustedProxies = listOf("192.168.1.1")
         val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies)
@@ -201,5 +202,43 @@ class RateLimitFilterTest {
         // THEN
         verify { rateLimiterService.resolveBucket(clientIp) }
         verify(exactly = 0) { rateLimiterService.resolveBucket(forwardedIp) }
+    }
+
+    @Test
+    fun `should ignore loopback IPv4 requests`() {
+        // GIVEN
+        val clientIp = "127.0.0.1"
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = clientIp
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        // WHEN
+        filter.doFilter(request, response, filterChain)
+
+        // THEN
+        response.status shouldBe HttpStatus.OK.value()
+        filterChain.request shouldBe request
+        verify(exactly = 0) { rateLimiterService.resolveBucket(any()) }
+    }
+
+    @Test
+    fun `should ignore loopback IPv6 requests`() {
+        // GIVEN
+        val clientIp = "::1"
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = clientIp
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        // WHEN
+        filter.doFilter(request, response, filterChain)
+
+        // THEN
+        response.status shouldBe HttpStatus.OK.value()
+        filterChain.request shouldBe request
+        verify(exactly = 0) { rateLimiterService.resolveBucket(any()) }
     }
 }
