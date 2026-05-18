@@ -124,6 +124,8 @@ dependencies {
     implementation(libs.rome)
     implementation(libs.jsonPath)
     implementation(libs.annotations)
+    implementation(libs.bucket4j.core)
+    implementation(libs.caffeine)
 
     runtimeOnly(libs.mariadb.driver)
     implementation(libs.flyway.mysql)
