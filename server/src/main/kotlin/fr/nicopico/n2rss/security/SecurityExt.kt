@@ -100,9 +100,10 @@ private fun String.manualExpandIp(): String {
 val String.isLoopbackAddress: Boolean
     get() = when {
         this.equals("localhost", ignoreCase = true) -> true
-        this.startsWith("127.") -> split('.').size == 4
-            && split('.').all {
-            it.toIntOrNull() in 0..255
+        this.startsWith("127.") -> split('.')
+            .let { parts ->
+                parts.size == 4
+                    && parts.all { it.toIntOrNull() in 0..255 }
         }
 
         this == "::1" || this == "0:0:0:0:0:0:0:1" -> true
