@@ -21,9 +21,12 @@ package fr.nicopico.n2rss.security
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
+
+private val LOG = LoggerFactory.getLogger(IpBlockerFilter::class.java)
 
 @Component
 class IpBlockerFilter(
@@ -41,9 +44,10 @@ class IpBlockerFilter(
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        val remoteIp = request.getClientIp(trustedProxies)
-        if (remoteIp.matchesIp(blockedIpAntPatterns)) {
+        val clientIp = request.getClientIp(trustedProxies)
+        if (clientIp.matchesIp(blockedIpAntPatterns)) {
             response.status = HttpServletResponse.SC_FORBIDDEN
+            LOG.warn("Refused request for permanently blocked IP {}: {}", clientIp, request)
             return
         }
         filterChain.doFilter(request, response)

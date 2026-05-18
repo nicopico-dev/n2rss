@@ -21,11 +21,14 @@ package fr.nicopico.n2rss.security
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 import kotlin.time.Duration.Companion.nanoseconds
+
+private val LOG = LoggerFactory.getLogger(RateLimitFilter::class.java)
 
 @Component
 class RateLimitFilter(
@@ -52,6 +55,7 @@ class RateLimitFilter(
                 (probe.nanosToWaitForRefill.nanoseconds.inWholeSeconds + 1).toString(),
             )
             response.writer.write("Too many requests")
+            LOG.warn("Refused request from IP {} (too many request): {}", clientIp, request)
             return
         }
 
