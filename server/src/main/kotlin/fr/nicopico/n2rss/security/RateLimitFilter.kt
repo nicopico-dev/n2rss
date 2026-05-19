@@ -33,15 +33,24 @@ private val LOG = LoggerFactory.getLogger(RateLimitFilter::class.java)
 @Component
 class RateLimitFilter(
     private val rateLimiterService: RateLimiterService,
-    @param:Value($$"${n2rss.security.trusted-proxies}")
-    private val trustedProxies: List<String>,
+    @Value($$"${n2rss.security.trusted-proxies}")
+    trustedProxies: List<String>,
+    @param:Value($$"${n2rss.security.rate-limiting-enabled}")
+    private val rateLimitingEnabled: Boolean,
 ) : OncePerRequestFilter() {
+
+    private val trustedProxies = trustedProxies.filter { it.isNotBlank() }
 
     override fun doFilterInternal(
         request: HttpServletRequest,
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
+        if (!rateLimitingEnabled || request.remoteAddr.isLoopbackAddress) {
+            filterChain.doFilter(request, response)
+            return
+        }
+
         val clientIp = request.getClientIp(trustedProxies)
         val bucket = rateLimiterService.resolveBucket(clientIp)
 
