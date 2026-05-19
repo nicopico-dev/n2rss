@@ -61,7 +61,7 @@ class IpBlockerFilterTest {
         filter.doFilter(request, response, filterChain)
 
         // THEN
-        response.status shouldBe 200
+        response.status shouldBe HttpServletResponse.SC_OK
         filterChain.request shouldBe request
     }
 
@@ -207,7 +207,8 @@ class IpBlockerFilterTest {
         filter.doFilter(request, response, filterChain)
 
         // THEN
-        response.status shouldBe 200 // Allowed because 127.0.0.1 is not blocked, and X-Forwarded-For is ignored
+        // Allowed because 127.0.0.1 is not blocked, and X-Forwarded-For is ignored
+        response.status shouldBe HttpServletResponse.SC_OK
     }
 
     @Test
@@ -247,6 +248,7 @@ class IpBlockerFilterTest {
         filter.doFilter(request, response, filterChain)
 
         // THEN
-        response.status shouldBe 200 // Allowed because 127.0.0.1 is not blocked, and X-Forwarded-For is ignored
+        // Allowed because 127.0.0.1 is not blocked, and X-Forwarded-For is ignored
+        response.status shouldBe HttpServletResponse.SC_OK
     }
 }

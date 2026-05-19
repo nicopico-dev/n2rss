@@ -41,8 +41,7 @@ class SecurityExtTest {
                 remoteAddr = "192.168.1.1"
                 addHeader("X-Forwarded-For", "203.0.113.195")
             }
-            // THIS IS THE VULNERABILITY: it currently returns "203.0.113.195"
-            // After the fix, it should return "192.168.1.1"
+            // Regression test: ignore X-Forwarded-For when no trusted proxies are configured.
             request.getClientIp(emptyList()) shouldBe "192.168.1.1"
         }
 
