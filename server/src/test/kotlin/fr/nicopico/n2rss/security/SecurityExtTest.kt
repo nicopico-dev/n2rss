@@ -75,6 +75,7 @@ class SecurityExtTest {
         fun `should match IPv4 with wildcard`() {
             "192.168.1.100".matchesIpPatterns(listOf("192.168.1.*")) shouldBe true
             "192.168.2.100".matchesIpPatterns(listOf("192.168.1.*")) shouldBe false
+            "103.215.74.60".matchesIpPatterns(listOf("103.215.7*.*")) shouldBe true
         }
 
         @Test
