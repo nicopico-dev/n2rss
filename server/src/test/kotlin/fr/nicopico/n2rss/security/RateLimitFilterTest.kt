@@ -115,7 +115,7 @@ class RateLimitFilterTest {
     }
 
     @Test
-    fun `should use X-Forwarded-For header for client IP if present`() {
+    fun `should ignore X-Forwarded-For header if no trusted proxies are configured`() {
         // GIVEN
         val clientIp = "192.168.1.1"
         val forwardedIp = "203.0.113.195"
@@ -135,15 +135,15 @@ class RateLimitFilterTest {
             )
             .build()
 
-        every { rateLimiterService.resolveBucket(forwardedIp) } returns bucket
+        every { rateLimiterService.resolveBucket(clientIp) } returns bucket
 
         // WHEN
         filter.doFilter(request, response, filterChain)
 
         // THEN
-        verify { rateLimiterService.resolveBucket(forwardedIp) }
+        verify { rateLimiterService.resolveBucket(clientIp) }
         verify(exactly = 0) {
-            rateLimiterService.resolveBucket(clientIp)
+            rateLimiterService.resolveBucket(forwardedIp)
         }
     }
 

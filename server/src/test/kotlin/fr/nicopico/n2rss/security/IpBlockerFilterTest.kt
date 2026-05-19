@@ -192,7 +192,7 @@ class IpBlockerFilterTest {
     }
 
     @Test
-    fun `should use X-Forwarded-For header for client IP if present`() {
+    fun `should ignore X-Forwarded-For header if no trusted proxies are configured`() {
         // GIVEN
         val blockedPatterns = listOf("203.0.113.195")
         val filter = IpBlockerFilter(blockedPatterns, emptyList())
@@ -207,7 +207,7 @@ class IpBlockerFilterTest {
         filter.doFilter(request, response, filterChain)
 
         // THEN
-        response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+        response.status shouldBe 200 // Allowed because 127.0.0.1 is not blocked, and X-Forwarded-For is ignored
     }
 
     @Test

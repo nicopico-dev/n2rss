@@ -44,13 +44,12 @@ class RateLimitFilter(
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        val clientIp = request.getClientIp(trustedProxies)
-
-        if (clientIp.isLoopbackAddress || !rateLimitingEnabled) {
+        if (!rateLimitingEnabled || request.remoteAddr.isLoopbackAddress) {
             filterChain.doFilter(request, response)
             return
         }
 
+        val clientIp = request.getClientIp(trustedProxies)
         val bucket = rateLimiterService.resolveBucket(clientIp)
 
         val probe = bucket.tryConsumeAndReturnRemaining(1)

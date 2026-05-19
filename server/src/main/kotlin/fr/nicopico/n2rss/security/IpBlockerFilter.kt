@@ -45,7 +45,7 @@ class IpBlockerFilter(
         filterChain: FilterChain
     ) {
         val clientIp = request.getClientIp(trustedProxies)
-        if (clientIp.matchesIp(blockedIpAntPatterns)) {
+        if (clientIp.matchesIpPatterns(blockedIpAntPatterns)) {
             response.status = HttpServletResponse.SC_FORBIDDEN
             LOG.warn("Refused request for permanently blocked IP {}: {}", clientIp, request)
             return

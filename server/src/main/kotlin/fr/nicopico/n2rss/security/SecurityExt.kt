@@ -26,9 +26,9 @@ import java.net.InetAddress
 private val matcher = AntPathMatcher()
 
 fun HttpServletRequest.getClientIp(trustedProxies: List<String> = emptyList()): String {
-    val xForwardedFor = getHeader("X-Forwarded-For")
+    val xForwardedFor: String? = getHeader("X-Forwarded-For")
     val useXForwardedFor = !xForwardedFor.isNullOrBlank() &&
-        (trustedProxies.isEmpty() || remoteAddr.matchesIp(trustedProxies))
+        trustedProxies.isNotEmpty() && remoteAddr.matchesIpPatterns(trustedProxies)
 
     return if (useXForwardedFor) {
         xForwardedFor.split(",").first().trim()
@@ -37,7 +37,7 @@ fun HttpServletRequest.getClientIp(trustedProxies: List<String> = emptyList()): 
     }
 }
 
-fun String.matchesIp(patterns: List<String>): Boolean {
+fun String.matchesIpPatterns(patterns: List<String>): Boolean {
     val normalizedIp = this.normalizeForAnt()
     return patterns.any { pattern ->
         matcher.match(pattern.normalizeForAnt(), normalizedIp)
@@ -96,16 +96,15 @@ private fun String.manualExpandIp(): String {
     }
 }
 
+private val IP_PATTERN = Regex("^(?=.*[.:])[0-9a-fA-F.:%]+$")
+
 @Suppress("MagicNumber")
 val String.isLoopbackAddress: Boolean
     get() = when {
         this.equals("localhost", ignoreCase = true) -> true
-        this.startsWith("127.") -> split('.')
-            .let { parts ->
-                parts.size == 4
-                    && parts.all { it.toIntOrNull() in 0..255 }
+        this.matches(IP_PATTERN) -> {
+            runCatching { InetAddress.getByName(this).isLoopbackAddress }
+                .getOrDefault(false)
         }
-
-        this == "::1" || this == "0:0:0:0:0:0:0:1" -> true
         else -> false
     }
