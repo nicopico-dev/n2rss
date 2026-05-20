@@ -28,6 +28,8 @@ import org.springframework.web.client.RestClient
 import org.springframework.web.client.RestClientException
 import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
+import java.time.Instant
+import java.time.format.DateTimeFormatter
 
 @Service
 class PostHogAnalyticsService(
@@ -65,15 +67,16 @@ class PostHogAnalyticsService(
         }
     }
 
-    private fun AnalyticsEvent.toPostHogEvent(): PostHogEvent {
+    private fun AnalyticsEvent.toPostHogEvent(): Map<String, Any> {
         val distinctId = getDistinctId()
-        val (eventName, properties) = getEventNameAndProperties()
+        val (eventName, eventProperties) = getEventNameAndProperties()
+        val timestamp = DateTimeFormatter.ISO_INSTANT.format(Instant.now())
 
-        return PostHogEvent(
-            apiKey = postHogProperties?.apiKey ?: "",
-            event = eventName,
-            distinctId = distinctId,
-            properties = properties
+        return mapOf(
+            "api_key" to (postHogProperties?.apiKey ?: ""),
+            "event" to eventName,
+            "properties" to (eventProperties + ("distinct_id" to distinctId)),
+            "timestamp" to timestamp,
         )
     }
 
@@ -124,10 +127,3 @@ class PostHogAnalyticsService(
         private val LOG = LoggerFactory.getLogger(PostHogAnalyticsService::class.java)
     }
 }
-
-data class PostHogEvent(
-    val apiKey: String,
-    val event: String,
-    val distinctId: String,
-    val properties: Map<String, Any>,
-)
