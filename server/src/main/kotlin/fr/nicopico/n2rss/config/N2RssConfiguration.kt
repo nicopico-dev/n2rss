@@ -46,6 +46,9 @@ class N2RssConfiguration {
     @Bean
     fun analyticsProperties() = properties.analytics
 
+    @Bean
+    fun postHogProperties() = properties.analytics.postHog
+
 	@Bean
     fun githubProperties() = properties.github
 
@@ -99,11 +102,17 @@ constructor(
     data class AnalyticsProperties(
         val enabled: Boolean = true,
         val analyticsProfiles: List<String> = emptyList(),
-        val simpleAnalytics: SimpleAnalyticsProperties? = null
+        val simpleAnalytics: SimpleAnalyticsProperties? = null,
+        val postHog: PostHogProperties? = null
     )
     data class SimpleAnalyticsProperties(
         val userAgent: String,
         val hostname: String,
+    )
+
+    data class PostHogProperties(
+        val apiKey: String,
+        val host: String = "https://eu.i.posthog.com",
     )
     data class GithubProperties(
         val owner: String,

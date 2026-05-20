@@ -35,8 +35,6 @@ class SimpleAnalyticsService(
     private val analyticsProperties: N2RssProperties.AnalyticsProperties,
 ) : AnalyticsService {
 
-    private val simpleAnalyticsProperties = analyticsProperties.simpleAnalytics
-
     @Autowired
     constructor(
         restClientBuilder: RestClient.Builder,
@@ -46,6 +44,8 @@ class SimpleAnalyticsService(
         analyticsApiBaseUrl = "https://queue.simpleanalyticscdn.com",
         analyticsProperties = analyticsProperties,
     )
+
+    private val simpleAnalyticsProperties = analyticsProperties.simpleAnalytics
 
     private val restClient by lazy {
         restClientBuilder
