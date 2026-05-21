@@ -59,7 +59,7 @@ class SimpleAnalyticsService(
             try {
                 val simpleAnalyticsEvent = event.toSimpleAnalyticsEvent(simpleAnalyticsProperties)
                     ?: return
-                LOG.info("TRACK: $event")
+                LOG.debug("TRACK: {}", event)
                 restClient
                     .post()
                     .uri("/events")

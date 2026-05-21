@@ -46,9 +46,6 @@ class N2RssConfiguration {
     @Bean
     fun analyticsProperties() = properties.analytics
 
-    @Bean
-    fun postHogProperties() = properties.analytics.postHog
-
 	@Bean
     fun githubProperties() = properties.github
 

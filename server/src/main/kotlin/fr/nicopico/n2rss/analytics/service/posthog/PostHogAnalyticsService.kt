@@ -41,7 +41,7 @@ class PostHogAnalyticsService(
 
     private val restClient by lazy {
         requireNotNull(postHogProperties) {
-            "n2rss.analytics.posthog.host must be set"
+            "n2rss.analytics.posthog must be configured"
         }
         restClientBuilder
             .baseUrl(postHogProperties.host)
@@ -53,7 +53,7 @@ class PostHogAnalyticsService(
         if (analyticsProperties.enabled && postHogProperties != null) {
             try {
                 val postHogEvent = event.toPostHogEvent()
-                LOG.info("TRACK: $event")
+                LOG.debug("TRACK: {}", event)
                 restClient
                     .post()
                     .uri("/capture/")
