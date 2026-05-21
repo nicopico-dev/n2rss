@@ -57,6 +57,7 @@ class PostHogAnalyticsServiceTest {
         host: String = "http://localhost:" + server.port,
     ): PostHogAnalyticsService {
         return PostHogAnalyticsService(
+            analyticsApiBaseUrl = host,
             analyticsProperties = N2RssProperties.AnalyticsProperties(
                 enabled = enabled,
                 postHog = N2RssProperties.PostHogProperties(
@@ -251,6 +252,7 @@ class PostHogAnalyticsServiceTest {
     fun `No events should be sent if postHog properties are null`() {
         // GIVEN
         val analyticsService = PostHogAnalyticsService(
+            analyticsApiBaseUrl = "http://localhost",
             analyticsProperties = N2RssProperties.AnalyticsProperties(
                 enabled = true,
                 postHog = null,

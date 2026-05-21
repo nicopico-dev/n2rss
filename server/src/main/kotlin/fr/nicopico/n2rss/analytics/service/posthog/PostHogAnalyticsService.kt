@@ -22,29 +22,34 @@ import fr.nicopico.n2rss.analytics.models.AnalyticsException
 import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestClient
 import org.springframework.web.client.RestClientException
-import java.nio.charset.StandardCharsets
-import java.security.MessageDigest
-import java.time.Instant
-import java.time.format.DateTimeFormatter
 
 @Service
 class PostHogAnalyticsService(
     restClientBuilder: RestClient.Builder = RestClient.builder(),
+    private val analyticsApiBaseUrl: String,
     private val analyticsProperties: N2RssProperties.AnalyticsProperties,
 ) : AnalyticsService {
+
+    @Autowired
+    constructor(
+        restClientBuilder: RestClient.Builder,
+        analyticsProperties: N2RssProperties.AnalyticsProperties,
+    ) : this(
+        restClientBuilder = restClientBuilder,
+        analyticsApiBaseUrl = analyticsProperties.postHog?.host ?: "https://eu.i.posthog.com",
+        analyticsProperties = analyticsProperties,
+    )
 
     private val postHogProperties = analyticsProperties.postHog
 
     private val restClient by lazy {
-        requireNotNull(postHogProperties) {
-            "n2rss.analytics.posthog must be configured"
-        }
         restClientBuilder
-            .baseUrl(postHogProperties.host)
+            .baseUrl(analyticsApiBaseUrl)
             .build()
     }
 
@@ -52,7 +57,7 @@ class PostHogAnalyticsService(
     override fun track(event: AnalyticsEvent) {
         if (analyticsProperties.enabled && postHogProperties != null) {
             try {
-                val postHogEvent = event.toPostHogEvent()
+                val postHogEvent = event.toPostHogEvent(postHogProperties)
                 LOG.debug("TRACK: {}", event)
                 restClient
                     .post()
@@ -65,62 +70,6 @@ class PostHogAnalyticsService(
                 throw AnalyticsException("Unable to send analytics event $event", e)
             }
         }
-    }
-
-    private fun AnalyticsEvent.toPostHogEvent(): Map<String, Any> {
-        val distinctId = getDistinctId()
-        val (eventName, eventProperties) = getEventNameAndProperties()
-        val timestamp = DateTimeFormatter.ISO_INSTANT.format(Instant.now())
-
-        return mapOf(
-            "api_key" to (postHogProperties?.apiKey ?: ""),
-            "event" to eventName,
-            "properties" to (eventProperties + ("distinct_id" to distinctId)),
-            "timestamp" to timestamp,
-        )
-    }
-
-    private fun AnalyticsEvent.getDistinctId(): String = when (this) {
-        is AnalyticsEvent.Home -> hashUserAgent(userAgent)
-        is AnalyticsEvent.GetRssFeeds -> hashUserAgent(userAgent)
-        is AnalyticsEvent.GetFeed -> hashUserAgent(userAgent)
-        is AnalyticsEvent.RequestNewsletter -> hashUserAgent(userAgent)
-        is AnalyticsEvent.Error -> "anonymous"
-        is AnalyticsEvent.NewRelease -> "server"
-    }
-
-    private fun AnalyticsEvent.getEventNameAndProperties(): Pair<String, Map<String, Any>> =
-        when (this) {
-            is AnalyticsEvent.Home -> "Home" to mapOf("userAgent" to userAgent)
-            is AnalyticsEvent.GetRssFeeds -> "GetRssFeeds" to mapOf("userAgent" to userAgent)
-            is AnalyticsEvent.GetFeed -> "GetFeed" to
-                mapOf("feedCode" to feedCode, "userAgent" to userAgent)
-
-            is AnalyticsEvent.RequestNewsletter ->
-                "RequestNewsletter" to mapOf(
-                    "newsletterUrl" to newsletterUrl,
-                    "userAgent" to userAgent
-                )
-
-            is AnalyticsEvent.Error.HomeError -> "HomeError" to emptyMap()
-            is AnalyticsEvent.Error.GetRssFeedsError -> "GetRssFeedsError" to emptyMap()
-            is AnalyticsEvent.Error.GetFeedError -> "GetFeedError" to mapOf("feedCode" to feedCode)
-            is AnalyticsEvent.Error.RequestNewsletterError ->
-                "RequestNewsletterError" to emptyMap()
-
-            is AnalyticsEvent.Error.EmailParsingError ->
-                "EmailParsingError" to mapOf(
-                    "handlerName" to handlerName,
-                    "emailTitle" to emailTitle
-                )
-
-            is AnalyticsEvent.NewRelease -> "NewRelease" to mapOf("version" to version)
-        }
-
-    private fun hashUserAgent(userAgent: String): String {
-        val digest = MessageDigest.getInstance("SHA-256")
-        val hashBytes = digest.digest(userAgent.toByteArray(StandardCharsets.UTF_8))
-        return hashBytes.joinToString("") { "%02x".format(it) }
     }
 
     companion object {
