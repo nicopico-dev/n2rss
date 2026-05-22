@@ -21,6 +21,7 @@ import fr.nicopico.n2rss.controller.dto.NewsletterDTO
 import fr.nicopico.n2rss.controller.dto.toDTO
 import fr.nicopico.n2rss.newsletter.service.NewsletterService
 import fr.nicopico.n2rss.newsletter.service.RssService
+import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
@@ -41,6 +42,8 @@ class RssFeedController(
     fun getRssFeeds(
         @Suppress("unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
+        @Suppress("unused") /* Used by AnalyticsAspect */
+        request: HttpServletRequest,
     ): List<NewsletterDTO> {
         return newsletterService.getNonHiddenEnabledNewslettersInfo()
             .map { it.toDTO() }
@@ -54,13 +57,16 @@ class RssFeedController(
      * @param publicationCount The maximum number of publications to retrieve. Default is 2.
      * @param response The HttpServletResponse object used for writing the feed to the response output stream.
      */
+    @Suppress("LongParameterList")
     @GetMapping("{feed}", produces = [RSS_CONTENT_TYPE])
     fun getFeed(
-        @PathVariable("feed") feed: String,
+        @PathVariable feed: String,
         @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
         @Suppress("unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
+        @Suppress("unused") /* Used by AnalyticsAspect */
+        request: HttpServletRequest,
         response: HttpServletResponse,
     ) {
         writeFeedToResponse(feed, publicationStart, publicationCount, response)
@@ -78,12 +84,14 @@ class RssFeedController(
     @GetMapping("{folder}/{feed}", produces = [RSS_CONTENT_TYPE])
     @Suppress("LongParameterList")
     fun getFeed(
-        @PathVariable("folder") folder: String,
-        @PathVariable("feed") feed: String,
+        @PathVariable folder: String,
+        @PathVariable feed: String,
         @RequestParam(value = "publicationStart", defaultValue = "0") publicationStart: Int,
         @RequestParam(value = "publicationCount", defaultValue = "2") publicationCount: Int,
         @Suppress("unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
+        @Suppress("unused") /* Used by AnalyticsAspect */
+        request: HttpServletRequest,
         response: HttpServletResponse,
     ) {
         val code = "$folder/$feed"

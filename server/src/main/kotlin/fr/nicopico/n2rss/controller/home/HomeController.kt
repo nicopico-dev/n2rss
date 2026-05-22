@@ -52,6 +52,7 @@ class HomeController(
 
     @GetMapping("/")
     fun home(
+        /* Used by AnalyticsAspect */
         request: HttpServletRequest,
         model: Model,
         @Suppress("unused") /* Used by AnalyticsAspect */
@@ -91,6 +92,8 @@ class HomeController(
         @RequestParam("g-recaptcha-response") captchaResponse: String? = null,
         @Suppress("unused") /* Used by AnalyticsAspect */
         @RequestHeader(value = "User-Agent") userAgent: String,
+        @Suppress("unused") /* Used by AnalyticsAspect */
+        request: HttpServletRequest,
     ): ResponseEntity<String> {
         val isCaptchaValid = if (recaptchaProperties.enabled) {
             reCaptchaService.isCaptchaValid(

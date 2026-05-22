@@ -19,8 +19,8 @@ package fr.nicopico.n2rss.analytics.service.posthog
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.UserRequestAnalyticEvent
 import fr.nicopico.n2rss.config.N2RssProperties
-import fr.nicopico.n2rss.utils.getFingerprint
 import java.time.Instant
 import java.time.format.DateTimeFormatter
 
@@ -51,15 +51,10 @@ fun AnalyticsEvent.toPostHogEvent(
 }
 
 private fun AnalyticsEvent.getDistinctId(): String = when (this) {
-    is AnalyticsEvent.Home -> userAgent.fingerprint() ?: "anonymous"
-    is AnalyticsEvent.GetRssFeeds -> userAgent.fingerprint() ?: "anonymous"
-    is AnalyticsEvent.GetFeed -> userAgent.fingerprint() ?: "anonymous"
-    is AnalyticsEvent.RequestNewsletter -> userAgent.fingerprint() ?: "anonymous"
+    is UserRequestAnalyticEvent -> getUniqueUserId() ?: "anonymous"
     is AnalyticsEvent.Error -> "anonymous"
     is AnalyticsEvent.NewRelease -> "server"
 }
-
-private fun String.fingerprint() = getFingerprint(this)
 
 private fun AnalyticsEvent.getEventNameAndProperties(): Pair<String, Map<String, Any>> =
     when (this) {

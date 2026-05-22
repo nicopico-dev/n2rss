@@ -35,6 +35,7 @@ class RssViewerController(
 
     @GetMapping("rss/viewer")
     fun feedViewer(
+        /* Used by AnalyticsAspect */
         request: HttpServletRequest,
         model: Model,
         @RequestParam(value = "code") code: String,
