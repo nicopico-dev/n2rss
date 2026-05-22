@@ -61,7 +61,7 @@ class PostHogAnalyticsService(
                 LOG.debug("TRACK: {}", event)
                 restClient
                     .post()
-                    .uri("/capture/")
+                    .uri(CAPTURE_EVENT_ENDPOINT)
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(postHogEvent)
                     .retrieve()
@@ -74,5 +74,7 @@ class PostHogAnalyticsService(
 
     companion object {
         private val LOG = LoggerFactory.getLogger(PostHogAnalyticsService::class.java)
+
+        private const val CAPTURE_EVENT_ENDPOINT = "/i/v0/e/"
     }
 }

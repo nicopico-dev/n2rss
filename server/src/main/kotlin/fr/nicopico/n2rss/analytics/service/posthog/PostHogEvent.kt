@@ -29,6 +29,8 @@ data class PostHogEvent(
     val apiKey: String,
     @param:JsonProperty("event")
     val event: String,
+    @param:JsonProperty("distinct_id")
+    val distinctId: String,
     @param:JsonProperty("properties")
     val properties: Map<String, Any>,
     @param:JsonProperty("timestamp")
@@ -45,7 +47,8 @@ fun AnalyticsEvent.toPostHogEvent(
     return PostHogEvent(
         apiKey = postHogProperties.apiKey,
         event = eventName,
-        properties = eventProperties + ("distinct_id" to distinctId),
+        distinctId = distinctId,
+        properties = eventProperties + ANONYMOUS_EVENT,
         timestamp = timestamp,
     )
 }
@@ -83,3 +86,5 @@ private fun AnalyticsEvent.getEventNameAndProperties(): Pair<String, Map<String,
 
         is AnalyticsEvent.NewRelease -> "NewRelease" to mapOf("version" to version)
     }
+
+private val ANONYMOUS_EVENT = mapOf($$"$process_person_profile" to false)

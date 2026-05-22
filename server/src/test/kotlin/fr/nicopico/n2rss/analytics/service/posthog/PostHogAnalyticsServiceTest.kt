@@ -80,16 +80,16 @@ class PostHogAnalyticsServiceTest {
         // THEN
         val request = server.takeRequest()
         assertSoftly(request) {
-            path shouldBe "/capture/"
+            path shouldBe "/i/v0/e/"
             method shouldBe "POST"
             getHeader("Content-Type") shouldBe "application/json"
             val body = body.readUtf8()
             // Check required fields per PostHog API
             body shouldContain Regex("\"api_key\"\\s*:\\s*\"test-api-key\"")
             body shouldContain Regex("\"event\"\\s*:\\s*\"Home\"")
-            body shouldContain Regex("\"properties\"\\s*:\\s*\\{")
-            // distinct_id should be inside properties
+            // distinct_id should be outside properties
             body shouldContain Regex("\"distinct_id\"\\s*:\\s*\"[a-f0-9]{64}\"")
+            body shouldContain Regex("\"properties\"\\s*:\\s*\\{")
             body shouldContain Regex("\"userAgent\"\\s*:\\s*\"test-user-agent\"")
             // timestamp should be in ISO 8601 format
             body shouldContain Regex("\"timestamp\"\\s*:\\s*\"\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}")
