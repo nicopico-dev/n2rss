@@ -239,8 +239,8 @@ The RSS feed is still accessible at the same URL but won't be updated until the 
 
 ## Analytics
 
-Analytics are handled by Simple Analytics, that respects the GDPR.
-Most events are sent server-side, and no user-data are collected.
+Analytics are handled by PostHog, which respects the GDPR.
+Most events are sent server-side, and no personally identifiable information (PII) is collected.
 
 The following events are tracked:
 
