@@ -78,7 +78,7 @@ class RssFeedControllerTest {
         }
 
         // WHEN
-        val result = rssFeedController.getRssFeeds("userAgent")
+        val result = rssFeedController.getRssFeeds("userAgent", mockk())
 
         // THEN
         result shouldHaveSize 2
@@ -101,7 +101,7 @@ class RssFeedControllerTest {
         every { rssService.getFeed(any(), any(), any()) } returns feed
 
         // WHEN
-        rssFeedController.getFeed("test", 0, 2, "userAgent", mockResponse)
+        rssFeedController.getFeed("test", 0, 2, "userAgent", mockk(), mockResponse)
 
         // THEN
         verifySequence {
@@ -119,7 +119,7 @@ class RssFeedControllerTest {
         every { rssService.getFeed(any(), any(), any()) } returns feed
 
         // WHEN
-        rssFeedController.getFeed("folder", "test", 0, 2, "userAgent", mockResponse)
+        rssFeedController.getFeed("folder", "test", 0, 2, "userAgent", mockk(), mockResponse)
 
         // THEN
         verifySequence {
@@ -135,7 +135,7 @@ class RssFeedControllerTest {
         every { rssService.getFeed(any(), any(), any()) } throws NoSuchElementException()
 
         // WHEN-THEN
-        rssFeedController.getFeed("test", 0, 2, "userAgent", mockResponse)
+        rssFeedController.getFeed("test", 0, 2, "userAgent", mockk(), mockResponse)
 
         // THEN
         verifySequence {

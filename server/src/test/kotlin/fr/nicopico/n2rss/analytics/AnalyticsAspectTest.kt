@@ -68,12 +68,19 @@ class AnalyticsAspectTest {
 
     private inline fun <reified T : Any> createWithAspect(): T {
         val proxyFactory = AspectJProxyFactory(mockk<T>(relaxed = true))
-        proxyFactory.addAspect(AnalyticsAspect(analyticsService))
+        proxyFactory.addAspect(AnalyticsAspect(analyticsService, emptyList()))
 
         val aopProxyFactory = DefaultAopProxyFactory()
             .createAopProxy(proxyFactory)
 
         return aopProxyFactory.proxy as T
+    }
+
+    private fun createMockRequest(clientIpAddress: String = "192.168.1.1"): HttpServletRequest {
+        return mockk<HttpServletRequest> {
+            every { remoteAddr } returns clientIpAddress
+            every { getHeader(any()) } returns null
+        }
     }
 
     @Nested
@@ -91,8 +98,11 @@ class AnalyticsAspectTest {
             @Test
             fun `success should trigger an analytic event`() {
                 // GIVEN
+                val clientIpAddress = "192.168.1.1"
                 val request = mockk<HttpServletRequest> {
                     every { requestURL } returns StringBuffer("https://www.google.com")
+                    every { remoteAddr } returns clientIpAddress
+                    every { getHeader(any()) } returns null
                 }
                 val model = mockk<Model>(relaxed = true)
                 val userAgent = "ua"
@@ -101,7 +111,14 @@ class AnalyticsAspectTest {
                 homeController.home(request = request, model = model, userAgent = userAgent)
 
                 // THEN
-                verify { analyticsService.track(AnalyticsEvent.Home(userAgent = userAgent)) }
+                verify {
+                    analyticsService.track(
+                        AnalyticsEvent.Home(
+                            userAgent = userAgent,
+                            clientIpAddress = clientIpAddress,
+                        )
+                    )
+                }
             }
 
             @Test
@@ -135,7 +152,7 @@ class AnalyticsAspectTest {
 
                 // WHEN - THEN
                 shouldNotThrowAny {
-                    homeController.home(mockk(), mockk(), "ua")
+                    homeController.home(createMockRequest(), mockk(), "ua")
                 }
             }
         }
@@ -145,19 +162,33 @@ class AnalyticsAspectTest {
             @Test
             fun `requestNewsletter success should trigger an analytic event`() {
                 // GIVEN
+                val clientIpAddress = "192.168.1.1"
                 val newsletterUrl = "https://www.androidweekly.com"
                 val captchaResponse = ""
                 val userAgent = "ua"
+                val request = mockk<HttpServletRequest> {
+                    every { remoteAddr } returns clientIpAddress
+                    every { getHeader(any()) } returns null
+                }
 
                 // WHEN
                 homeController.requestNewsletter(
                     newsletterUrl = newsletterUrl,
                     captchaResponse = captchaResponse,
-                    userAgent = userAgent
+                    userAgent = userAgent,
+                    request = request
                 )
 
                 // THEN
-                verify { analyticsService.track(AnalyticsEvent.RequestNewsletter(newsletterUrl, userAgent)) }
+                verify {
+                    analyticsService.track(
+                        AnalyticsEvent.RequestNewsletter(
+                            newsletterUrl = newsletterUrl,
+                            userAgent = userAgent,
+                            clientIpAddress = clientIpAddress,
+                        )
+                    )
+                }
             }
 
             @Test
@@ -169,11 +200,11 @@ class AnalyticsAspectTest {
                 val userAgent = "ua"
 
                 // SETUP
-                every { homeController.requestNewsletter(any(), any(), any()) } throws RuntimeException("TEST")
+                every { homeController.requestNewsletter(any(), any(), any(), any()) } throws RuntimeException("TEST")
 
                 // WHEN
                 shouldThrowAny {
-                    homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
+                    homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent, createMockRequest())
                 }
 
                 // THEN
@@ -187,7 +218,7 @@ class AnalyticsAspectTest {
 
                 // WHEN - THEN
                 shouldNotThrowAny {
-                    homeController.requestNewsletter("some-url", "", "ua")
+                    homeController.requestNewsletter("some-url", "", "ua", createMockRequest())
                 }
             }
         }
@@ -208,24 +239,36 @@ class AnalyticsAspectTest {
             @Test
             fun `getRssFeeds success should trigger an analytic event`() {
                 // GIVEN
+                val clientIpAddress = "192.168.1.1"
                 val userAgent = "ua"
+                val request = mockk<HttpServletRequest> {
+                    every { remoteAddr } returns clientIpAddress
+                    every { getHeader(any()) } returns null
+                }
 
                 // WHEN
-                rssFeedController.getRssFeeds(userAgent = userAgent)
+                rssFeedController.getRssFeeds(userAgent = userAgent, request = request)
 
                 // THEN
-                verify { analyticsService.track(AnalyticsEvent.GetRssFeeds(userAgent)) }
+                verify {
+                    analyticsService.track(
+                        AnalyticsEvent.GetRssFeeds(
+                            userAgent = userAgent,
+                            clientIpAddress = clientIpAddress,
+                        )
+                    )
+                }
             }
 
             @Test
             @Disabled("rssFeedController.getRssFeeds() do not throw ?? 🙃")
             fun `getRssFeeds error should trigger an analytic event`() {
                 // SETUP
-                every { rssFeedController.getRssFeeds(any()) } throws RuntimeException("TEST")
+                every { rssFeedController.getRssFeeds(any(), any()) } throws RuntimeException("TEST")
 
                 // WHEN
                 shouldThrowAny {
-                    rssFeedController.getRssFeeds("ua")
+                    rssFeedController.getRssFeeds("ua", createMockRequest())
                 }
 
                 // THEN
@@ -239,7 +282,7 @@ class AnalyticsAspectTest {
 
                 // WHEN - THEN
                 shouldNotThrowAny {
-                    rssFeedController.getRssFeeds("ua")
+                    rssFeedController.getRssFeeds("ua", createMockRequest())
                 }
             }
         }
@@ -250,7 +293,12 @@ class AnalyticsAspectTest {
             fun `getFeed (code) success should trigger an analytic event`() {
                 // GIVEN
                 val feedCode = "stability"
+                val clientIpAddress = "192.168.1.1"
                 val userAgent = "cord"
+                val request = mockk<HttpServletRequest> {
+                    every { remoteAddr } returns clientIpAddress
+                    every { getHeader(any()) } returns null
+                }
 
                 // WHEN
                 rssFeedController.getFeed(
@@ -258,11 +306,20 @@ class AnalyticsAspectTest {
                     publicationStart = 0,
                     publicationCount = 1,
                     userAgent = userAgent,
+                    request = request,
                     response = mockk()
                 )
 
                 // THEN
-                verify { analyticsService.track(AnalyticsEvent.GetFeed(feedCode, userAgent)) }
+                verify {
+                    analyticsService.track(
+                        AnalyticsEvent.GetFeed(
+                            feedCode = feedCode,
+                            userAgent = userAgent,
+                            clientIpAddress = clientIpAddress,
+                        )
+                    )
+                }
             }
 
             @Test
@@ -279,6 +336,7 @@ class AnalyticsAspectTest {
                         publicationStart = any(),
                         publicationCount = any(),
                         userAgent = any(),
+                        request = any(),
                         response = any()
                     )
                 } throws RuntimeException("TEST")
@@ -290,6 +348,7 @@ class AnalyticsAspectTest {
                         publicationStart = 0,
                         publicationCount = 1,
                         userAgent = userAgent,
+                        request = createMockRequest(),
                         response = mockk()
                     )
                 }
@@ -310,6 +369,7 @@ class AnalyticsAspectTest {
                         publicationStart = 0,
                         publicationCount = 0,
                         userAgent = "",
+                        request = createMockRequest(),
                         response = mockk()
                     )
                 }
@@ -323,7 +383,12 @@ class AnalyticsAspectTest {
                 // GIVEN
                 val folder = "carlo"
                 val feed = "kevin"
+                val clientIpAddress = "192.168.1.1"
                 val userAgent = "passed"
+                val request = mockk<HttpServletRequest> {
+                    every { remoteAddr } returns clientIpAddress
+                    every { getHeader(any()) } returns null
+                }
 
                 // WHEN
                 rssFeedController.getFeed(
@@ -332,12 +397,21 @@ class AnalyticsAspectTest {
                     publicationStart = 0,
                     publicationCount = 1,
                     userAgent = userAgent,
+                    request = request,
                     response = mockk()
                 )
 
                 // THEN
                 val feedCode = "$folder/$feed"
-                verify { analyticsService.track(AnalyticsEvent.GetFeed(feedCode, userAgent)) }
+                verify {
+                    analyticsService.track(
+                        AnalyticsEvent.GetFeed(
+                            feedCode = feedCode,
+                            userAgent = userAgent,
+                            clientIpAddress = clientIpAddress,
+                        )
+                    )
+                }
             }
 
             @Test
@@ -356,6 +430,7 @@ class AnalyticsAspectTest {
                         publicationStart = any(),
                         publicationCount = any(),
                         userAgent = any(),
+                        request = any(),
                         response = any()
                     )
                 } throws RuntimeException("TEST")
@@ -368,6 +443,7 @@ class AnalyticsAspectTest {
                         publicationStart = 0,
                         publicationCount = 1,
                         userAgent = userAgent,
+                        request = createMockRequest(),
                         response = mockk()
                     )
                 }
@@ -390,6 +466,7 @@ class AnalyticsAspectTest {
                         publicationStart = 0,
                         publicationCount = 0,
                         userAgent = "",
+                        request = createMockRequest(),
                         response = mockk<HttpServletResponse>()
                     )
                 }

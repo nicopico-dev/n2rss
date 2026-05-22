@@ -19,6 +19,7 @@
 package fr.nicopico.n2rss.external.temporary
 
 import com.ninjasquad.springmockk.MockkBean
+import fr.nicopico.n2rss.config.WebConfig
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointEntity
 import fr.nicopico.n2rss.external.temporary.data.TemporaryEndpointRepository
 import fr.nicopico.n2rss.security.RateLimiterService
@@ -47,6 +48,10 @@ class TemporaryEndpointControllerTest {
 
     @MockkBean
     private lateinit var temporaryEndpointRepository: TemporaryEndpointRepository
+    @Suppress("unused")
+    @MockkBean(relaxed = true)
+    private lateinit var webConfig: WebConfig
+
     @MockkBean
     private lateinit var rateLimiterService: RateLimiterService
     private val _realRateLimiterService = RateLimiterService(10)

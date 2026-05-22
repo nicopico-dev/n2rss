@@ -75,7 +75,7 @@ class PostHogAnalyticsServiceTest {
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticsService.track(AnalyticsEvent.Home("test-user-agent"))
+        analyticsService.track(AnalyticsEvent.Home("test-user-agent", "192.168.1.1"))
 
         // THEN
         val request = server.takeRequest()
@@ -103,7 +103,7 @@ class PostHogAnalyticsServiceTest {
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticsService.track(AnalyticsEvent.GetFeed("feed-code", "test-user-agent"))
+        analyticsService.track(AnalyticsEvent.GetFeed("feed-code", "test-user-agent", "192.168.1.1"))
 
         // THEN
         val request = server.takeRequest()
@@ -126,7 +126,8 @@ class PostHogAnalyticsServiceTest {
         analyticsService.track(
             AnalyticsEvent.RequestNewsletter(
                 "https://example.com/newsletter",
-                "test-user-agent"
+                "test-user-agent",
+                "192.168.1.1"
             )
         )
 
@@ -207,7 +208,7 @@ class PostHogAnalyticsServiceTest {
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticsService.track(AnalyticsEvent.Home("ua"))
+        analyticsService.track(AnalyticsEvent.Home("ua", "192.168.1.1"))
 
         // THEN
         val request = server.takeRequest()
@@ -229,7 +230,7 @@ class PostHogAnalyticsServiceTest {
 
         // WHEN - THEN
         val error = shouldThrow<AnalyticsException> {
-            analyticsService.track(AnalyticsEvent.Home("ua"))
+            analyticsService.track(AnalyticsEvent.Home("ua", "192.168.1.1"))
         }
         error.message shouldNot beEmpty()
         error.cause should beInstanceOf<HttpClientErrorException>()
@@ -241,8 +242,8 @@ class PostHogAnalyticsServiceTest {
         val analyticsService = createAnalyticsService(enabled = false)
 
         // WHEN
-        analyticsService.track(AnalyticsEvent.Home("ua"))
-        analyticsService.track(AnalyticsEvent.GetFeed("code", "ua"))
+        analyticsService.track(AnalyticsEvent.Home("ua", "192.168.1.1"))
+        analyticsService.track(AnalyticsEvent.GetFeed("code", "ua", "192.168.1.1"))
 
         // THEN
         server.requestCount shouldBe 0
@@ -260,22 +261,23 @@ class PostHogAnalyticsServiceTest {
         )
 
         // WHEN
-        analyticsService.track(AnalyticsEvent.Home("ua"))
+        analyticsService.track(AnalyticsEvent.Home("ua", "192.168.1.1"))
 
         // THEN
         server.requestCount shouldBe 0
     }
 
     @Test
-    fun `Same user agent should produce same distinct_id`() {
+    fun `Same user agent and IP should produce same distinct_id`() {
         // GIVEN
+        val clientIpAddress = "192.168.1.1"
         val analyticsService = createAnalyticsService()
         server.enqueue(MockResponse().setResponseCode(200))
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticsService.track(AnalyticsEvent.Home("same-user-agent"))
-        analyticsService.track(AnalyticsEvent.GetFeed("code", "same-user-agent"))
+        analyticsService.track(AnalyticsEvent.Home("same-user-agent", clientIpAddress))
+        analyticsService.track(AnalyticsEvent.GetFeed("code", "same-user-agent", clientIpAddress))
 
         // THEN
         val request1 = server.takeRequest()
@@ -293,13 +295,14 @@ class PostHogAnalyticsServiceTest {
     @Test
     fun `Different user agents should produce different distinct_id`() {
         // GIVEN
+        val clientIpAddress = "192.168.1.1"
         val analyticsService = createAnalyticsService()
         server.enqueue(MockResponse().setResponseCode(200))
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticsService.track(AnalyticsEvent.Home("user-agent-1"))
-        analyticsService.track(AnalyticsEvent.Home("user-agent-2"))
+        analyticsService.track(AnalyticsEvent.Home("user-agent-1", clientIpAddress))
+        analyticsService.track(AnalyticsEvent.Home("user-agent-2", clientIpAddress))
 
         // THEN
         val request1 = server.takeRequest()
@@ -320,7 +323,7 @@ class PostHogAnalyticsServiceTest {
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticsService.track(AnalyticsEvent.Home("ua"))
+        analyticsService.track(AnalyticsEvent.Home("ua", "192.168.1.1"))
 
         // THEN
         val request = server.takeRequest()

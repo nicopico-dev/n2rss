@@ -43,7 +43,7 @@ private val LOG = LoggerFactory.getLogger(AnalyticsAspect::class.java)
 class AnalyticsAspect(
     private val analyticsService: AnalyticsService,
     @param:Value($$"${n2rss.security.trusted-proxies}")
-    private val trustedProxies: List<String>,
+    private val trustedProxies: List<String> = emptyList(),
 ) {
     private fun JoinPoint.getUserAgent(): String {
         val userAgent = getCallArgument<String>("userAgent")
