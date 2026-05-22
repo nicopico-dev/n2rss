@@ -88,6 +88,7 @@ class SimpleAnalyticsEventTest {
             Arguments.of(
                 AnalyticsEvent.Home(
                     userAgent = CLIENT_UA,
+                    clientIpAddress = "192.168.1.1",
                 ),
                 analyticsProperties,
                 null,   // Home does not send any event or page-view
@@ -97,6 +98,7 @@ class SimpleAnalyticsEventTest {
             Arguments.of(
                 AnalyticsEvent.GetRssFeeds(
                     userAgent = CLIENT_UA,
+                    clientIpAddress = "192.168.1.1",
                 ),
                 analyticsProperties,
                 createSimpleAnalyticsPageView(
@@ -110,6 +112,7 @@ class SimpleAnalyticsEventTest {
                 AnalyticsEvent.GetFeed(
                     feedCode = "feed1",
                     userAgent = CLIENT_UA,
+                    clientIpAddress = "192.168.1.1",
                 ),
                 analyticsProperties,
                 createSimpleAnalyticsPageView(
@@ -125,6 +128,7 @@ class SimpleAnalyticsEventTest {
                 AnalyticsEvent.RequestNewsletter(
                     newsletterUrl = "url1",
                     userAgent = CLIENT_UA,
+                    clientIpAddress = "192.168.1.1",
                 ),
                 analyticsProperties,
                 createSimpleAnalyticsEvent(

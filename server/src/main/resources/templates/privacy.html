@@ -25,6 +25,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" th:href="@{/css/n2rss.css}"/>
     <link rel="icon" th:href="@{/images/n2rss.ico}" type="image/x-icon">
+    <th:block th:replace="~{fragments/posthog :: script(${postHogApiKey}, ${postHogApiHost})}"/>
 </head>
 <body>
 <div class="header">
@@ -39,65 +40,101 @@
     </p>
 
     <h3>1. Data Collection</h3>
-    <p>We collect data for analytics purposes to help us understand how our service is being used and to improve it. The
-        data collected includes:</p>
+    <p>We collect data for analytics purposes to help us understand how our service is being used and to improve it.
+        The application collects the following data:</p>
     <ul>
-        <li><strong>Home Page Access:</strong> When you access the Home page, we collect the user-agent of your browser
-            and the timestamp of your visit.
+        <li><strong>Page Access:</strong> When you access the home page, we collect your browser's user-agent string
+            and your IP address.
         </li>
-        <li><strong>JSON Data Retrieval:</strong> When you retrieve JSON data about the available RSS feeds, we collect
-            the user-agent of your browser and the timestamp of the access.
+        <li><strong>JSON API Access:</strong> When you retrieve JSON data about available RSS feeds, we collect your
+            browser's user-agent string and your IP address.
         </li>
-        <li><strong>RSS Feed Access:</strong> When you access an RSS feed, we collect the identifier of the RSS feed,
-            the user-agent of your browser, and the timestamp of the access.
+        <li><strong>RSS Feed Access:</strong> When you access an RSS feed, we collect the feed identifier (code),
+            your browser's user-agent string, and your IP address.
         </li>
-        <li><strong>Newsletter Support Request:</strong> When you request support for a newsletter, we collect the URL
-            associated with the newsletter, the user-agent of your browser, and the timestamp of the request.
+        <li><strong>Newsletter Support Request:</strong> When you request support for a new newsletter, we collect the
+            newsletter URL you provide, your browser's user-agent string, and your IP address.
+        </li>
+        <li><strong>Error Tracking:</strong> When errors occur during email processing, we may collect the email subject
+            line and the name of the newsletter handler that encountered the error.
         </li>
     </ul>
 
-    <h3>2. Use of Data</h3>
+    <h3>2. Unique Identifiers</h3>
+    <p>For server-side analytics, we generate a hashed identifier (fingerprint) based on a combination of your
+        user-agent
+        string and IP address. This allows us to track usage patterns without storing personally identifiable
+        information.
+        The fingerprint is a one-way hash that cannot be reversed to obtain your original IP address or user-agent.</p>
+
+    <h3>3. Use of Data</h3>
     <p>The data collected is used for the following purposes:</p>
     <ul>
-        <li>To analyze usage patterns and improve our service.</li>
-        <li>To monitor the performance and reliability of the application.</li>
-        <li>To respond to user requests and provide support for additional newsletters.</li>
+        <li>To analyze usage patterns and understand how users interact with our service.</li>
+        <li>To monitor the performance, reliability, and availability of the application.</li>
+        <li>To identify popular RSS feeds and usage trends.</li>
+        <li>To respond to user requests for additional newsletter support.</li>
+        <li>To detect and troubleshoot errors in email processing.</li>
     </ul>
 
-    <h3>3. Data Storage</h3>
-    <p>Data collected through the n2rss application is stored securely in our database. We take appropriate security
-        measures to protect your data from unauthorized access, disclosure, or modification.</p>
+    <h3>4. Analytics Services</h3>
+    <p>We use <a href="https://posthog.com/" target="_blank">PostHog</a> for product analytics. PostHog provides us with
+        insights into how our service is being used while respecting user privacy. PostHog's data collection is
+        configured to be privacy-conscious:</p>
+    <ul>
+        <li>IP addresses are hashed before storage</li>
+        <li>No personally identifiable information (PII) is intentionally collected</li>
+        <li>All data is processed in compliance with GDPR and other applicable privacy regulations</li>
+    </ul>
+    <p>For more information about PostHog's privacy practices, please refer to their <a
+        href="https://posthog.com/privacy" target="_blank">Privacy Policy</a>.</p>
 
-    <h3>4. Third-Party Services</h3>
-    <p>We use Simple Analytics to collect anonymous usage data for analytics purposes. Simple Analytics does not track
-        personal data and is fully compliant with GDPR and other privacy regulations. For more information, you can
-        visit the Simple Analytics <a href="https://simpleanalytics.com/privacy-policy" target="_blank">Privacy
-            Policy</a>.</p>
+    <h3>5. Data Storage and Security</h3>
+    <p>Data collected through the n2rss application is stored securely. Server-side analytics data is stored in our
+        database with appropriate security measures to protect it from unauthorized access, disclosure, or modification.
+        Client-side analytics data is sent to and processed by PostHog's servers located in the European Union.</p>
+    <p>We implement technical and organizational measures to ensure the security of your data, including:
+        encryption in transit, access controls, and regular security reviews.</p>
 
-    <h3>5. Open Source</h3>
+    <h3>6. Data Retention</h3>
+    <p>Analytics data is retained for a limited period to allow us to analyze trends and usage patterns. We regularly
+        review and purge old data that is no longer needed for our analytical purposes.</p>
+
+    <h3>7. Open Source</h3>
     <p>n2rss is an open-source project, and the source code is available on GitHub at <a
-        href="https://github.com/nicopico-dev/n2rss" target="_blank">https://github.com/nicopico-dev/n2rss</a>. By
-        contributing to the project or using the code, you should be aware that any contributions may be publicly
+        href="https://github.com/nicopico-dev/n2rss" target="_blank">https://github.com/nicopico-dev/n2rss</a>.
+        By contributing to the project or using the code, you should be aware that any contributions may be publicly
         visible and accessible.</p>
 
-    <h3>6. Changes to This Policy</h3>
-    <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy
-        on this page. You are advised to review this privacy policy periodically for any changes.</p>
+    <h3>8. Your Rights</h3>
+    <p>Depending on your location, you may have the following rights regarding your data:</p>
+    <ul>
+        <li><strong>Right to Access:</strong> You have the right to request access to the personal data we hold about
+            you.
+        </li>
+        <li><strong>Right to Rectification:</strong> You have the right to request correction of inaccurate personal
+            data.
+        </li>
+        <li><strong>Right to Erasure:</strong> In certain circumstances, you have the right to request deletion of your
+            personal data.
+        </li>
+        <li><strong>Right to Restrict Processing:</strong> You have the right to request restriction of processing your
+            personal data.
+        </li>
+        <li><strong>Right to Object:</strong> You have the right to object to processing of your personal data.</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us using the information provided below.</p>
 
-    <h3>7. Contact Us</h3>
-    <p>If you have any questions or concerns about this privacy policy, please contact us at <a
-        href="mailto:n2rss-contact@nicopico.fr">n2rss-contact@nicopico.fr</a>.</p>
+    <h3>9. Changes to This Policy</h3>
+    <p>We may update this privacy policy from time to time to reflect changes in our practices or for other operational,
+        legal, or regulatory reasons. We will notify you of any changes by posting the updated policy on this page.
+        We encourage you to review this privacy policy periodically for any changes.</p>
 
-    <p>Last updated: August 15, 2024</p>
+    <h3>10. Contact Us</h3>
+    <p>If you have any questions, concerns, or requests regarding this privacy policy or your personal data, please
+        contact us at <a href="mailto:n2rss-contact@nicopico.fr">n2rss-contact@nicopico.fr</a>.</p>
+
+    <p>Last updated: November 28, 2025</p>
 </div>
-
-<!-- 100% privacy-first analytics -->
-<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-<noscript>
-    <img
-        alt=""
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://queue.simpleanalyticscdn.com/noscript.gif"/>
-</noscript>
 </body>
 </html>

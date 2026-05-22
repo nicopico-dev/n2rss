@@ -21,6 +21,7 @@ package fr.nicopico.n2rss.analytics
 import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import fr.nicopico.n2rss.analytics.service.AnalyticsServiceDelegate
 import fr.nicopico.n2rss.analytics.service.NoOpAnalyticsService
+import fr.nicopico.n2rss.analytics.service.posthog.PostHogAnalyticsService
 import fr.nicopico.n2rss.analytics.service.simpleanalytics.SimpleAnalyticsService
 import fr.nicopico.n2rss.config.N2RssProperties
 import org.slf4j.LoggerFactory
@@ -34,6 +35,7 @@ class AnalyticsConfig {
     fun analyticsService(
         analyticsProperties: N2RssProperties.AnalyticsProperties,
         simpleAnalyticsService: SimpleAnalyticsService,
+        postHogAnalyticsService: PostHogAnalyticsService,
     ): AnalyticsService {
         val profiles = analyticsProperties.analyticsProfiles
         val enabledServices: List<AnalyticsService> = profiles
@@ -41,6 +43,7 @@ class AnalyticsConfig {
             .mapNotNull {
                 when (it) {
                     "simple-analytics" -> simpleAnalyticsService
+                    "posthog" -> postHogAnalyticsService
                     else -> null
                 }
             }

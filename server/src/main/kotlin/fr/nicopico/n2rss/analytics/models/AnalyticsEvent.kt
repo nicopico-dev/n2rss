@@ -22,31 +22,35 @@ sealed class AnalyticsEvent {
      * A user accessed the home page
      */
     data class Home(
-        val userAgent: String,
-    ) : AnalyticsEvent()
+        override val userAgent: String,
+        override val clientIpAddress: String,
+    ) : AnalyticsEvent(), UserRequestAnalyticEvent
 
     /**
      * A user accessed the JSON list of RSS feeds
      */
     data class GetRssFeeds(
-        val userAgent: String,
-    ) : AnalyticsEvent()
+        override val userAgent: String,
+        override val clientIpAddress: String,
+    ) : AnalyticsEvent(), UserRequestAnalyticEvent
 
     /**
      * A user accessed an RSS feed
      */
     data class GetFeed(
         val feedCode: String,
-        val userAgent: String,
-    ) : AnalyticsEvent()
+        override val userAgent: String,
+        override val clientIpAddress: String,
+    ) : AnalyticsEvent(), UserRequestAnalyticEvent
 
     /**
      * A user requested support for a newsletter
      */
     data class RequestNewsletter(
         val newsletterUrl: String,
-        val userAgent: String,
-    ) : AnalyticsEvent()
+        override val userAgent: String,
+        override val clientIpAddress: String,
+    ) : AnalyticsEvent(), UserRequestAnalyticEvent
 
     sealed class Error : AnalyticsEvent() {
         data object HomeError : Error()

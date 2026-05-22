@@ -15,7 +15,7 @@
  * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
-package fr.nicopico.n2rss.analytics.service.simpleanalytics
+package fr.nicopico.n2rss.analytics.service.posthog
 
 import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
 import fr.nicopico.n2rss.analytics.models.AnalyticsException
@@ -29,7 +29,7 @@ import org.springframework.web.client.RestClient
 import org.springframework.web.client.RestClientException
 
 @Service
-class SimpleAnalyticsService(
+class PostHogAnalyticsService(
     restClientBuilder: RestClient.Builder = RestClient.builder(),
     private val analyticsApiBaseUrl: String,
     private val analyticsProperties: N2RssProperties.AnalyticsProperties,
@@ -41,11 +41,11 @@ class SimpleAnalyticsService(
         analyticsProperties: N2RssProperties.AnalyticsProperties,
     ) : this(
         restClientBuilder = restClientBuilder,
-        analyticsApiBaseUrl = "https://queue.simpleanalyticscdn.com",
+        analyticsApiBaseUrl = analyticsProperties.postHog?.host ?: "https://eu.i.posthog.com",
         analyticsProperties = analyticsProperties,
     )
 
-    private val simpleAnalyticsProperties = analyticsProperties.simpleAnalytics
+    private val postHogProperties = analyticsProperties.postHog
 
     private val restClient by lazy {
         restClientBuilder
@@ -55,20 +55,15 @@ class SimpleAnalyticsService(
 
     @Throws(AnalyticsException::class)
     override fun track(event: AnalyticsEvent) {
-        if (analyticsProperties.enabled && simpleAnalyticsProperties != null) {
+        if (analyticsProperties.enabled && postHogProperties != null) {
             try {
-                val simpleAnalyticsEvent = event.toSimpleAnalyticsEvent(simpleAnalyticsProperties)
-                    ?: return
+                val postHogEvent = event.toPostHogEvent(postHogProperties)
                 LOG.debug("TRACK: {}", event)
                 restClient
                     .post()
-                    .uri("/events")
-                    .header(
-                        "User-Agent",
-                        simpleAnalyticsProperties.userAgent
-                    )
+                    .uri(CAPTURE_EVENT_ENDPOINT)
                     .contentType(MediaType.APPLICATION_JSON)
-                    .body(simpleAnalyticsEvent)
+                    .body(postHogEvent)
                     .retrieve()
                     .toBodilessEntity()
             } catch (e: RestClientException) {
@@ -78,6 +73,8 @@ class SimpleAnalyticsService(
     }
 
     companion object {
-        private val LOG = LoggerFactory.getLogger(SimpleAnalyticsService::class.java)
+        private val LOG = LoggerFactory.getLogger(PostHogAnalyticsService::class.java)
+
+        private const val CAPTURE_EVENT_ENDPOINT = "/i/v0/e/"
     }
 }

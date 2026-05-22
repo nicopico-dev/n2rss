@@ -292,7 +292,7 @@ class HomeControllerTest {
             every { reCaptchaService.isCaptchaValid(any(), any()) } returns true
 
             // WHEN
-            val response = homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
+            val response = homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent, mockk())
 
             // THEN
             verify { monitoringService.notifyNewsletterRequest(URL(newsletterUrl)) }
@@ -313,7 +313,7 @@ class HomeControllerTest {
             every { reCaptchaService.isCaptchaValid(any(), any()) } returns false
 
             // WHEN
-            val response = homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
+            val response = homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent, mockk())
 
             // THEN
             verify(exactly = 0) { monitoringService.notifyNewsletterRequest(any()) }
@@ -330,7 +330,7 @@ class HomeControllerTest {
             every { monitoringService.notifyNewsletterRequest(any()) } just Runs
 
             // WHEN
-            val response = homeController.requestNewsletter(newsletterUrl, userAgent = userAgent)
+            val response = homeController.requestNewsletter(newsletterUrl, userAgent = userAgent, request = mockk())
 
             // THEN
             verify(exactly = 1) { monitoringService.notifyNewsletterRequest(any()) }
@@ -349,7 +349,7 @@ class HomeControllerTest {
             every { monitoringService.notifyNewsletterRequest(any()) } just Runs
 
             // WHEN
-            homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent)
+            homeController.requestNewsletter(newsletterUrl, captchaResponse, userAgent, mockk())
 
             // THEN
             val slotUrl = slot<URL>()

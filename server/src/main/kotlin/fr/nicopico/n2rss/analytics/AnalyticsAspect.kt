@@ -21,8 +21,10 @@ import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
 import fr.nicopico.n2rss.analytics.models.AnalyticsException
 import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import fr.nicopico.n2rss.mail.models.Email
+import fr.nicopico.n2rss.security.getClientIp
 import fr.nicopico.n2rss.utils.getCallArgument
 import fr.nicopico.n2rss.utils.proceed
+import jakarta.servlet.http.HttpServletRequest
 import org.aspectj.lang.JoinPoint
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.AfterThrowing
@@ -30,19 +32,32 @@ import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
 import org.aspectj.lang.annotation.Pointcut
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Component
 
 private val LOG = LoggerFactory.getLogger(AnalyticsAspect::class.java)
 
 @Aspect
 @Component
-@Suppress("UnusedParameter", "TooManyFunctions")
+@Suppress("TooManyFunctions", "unused")
 class AnalyticsAspect(
-    private val analyticsService: AnalyticsService
+    private val analyticsService: AnalyticsService,
+    @param:Value($$"${n2rss.security.trusted-proxies}")
+    private val trustedProxies: List<String> = emptyList(),
 ) {
     private fun JoinPoint.getUserAgent(): String {
         val userAgent = getCallArgument<String>("userAgent")
         return userAgent
+    }
+
+    private fun JoinPoint.getClientIpAddress(): String {
+        val clientIp = try {
+            getCallArgument<HttpServletRequest>("request").getClientIp(trustedProxies)
+        } catch (_: NoSuchElementException) {
+            LOG.warn("No `request` parameter in ${signature.name}")
+            "-"
+        }
+        return clientIp
     }
 
     //region Home
@@ -65,7 +80,8 @@ class AnalyticsAspect(
     fun trackHomeSuccess(joinPoint: JoinPoint) {
         try {
             val userAgent = joinPoint.getUserAgent()
-            analyticsService.track(AnalyticsEvent.Home(userAgent))
+            val clientIpAddress = joinPoint.getClientIpAddress()
+            analyticsService.track(AnalyticsEvent.Home(userAgent, clientIpAddress))
         } catch (e: AnalyticsException) {
             LOG.error("Could not track Home event", e)
         }
@@ -99,7 +115,8 @@ class AnalyticsAspect(
     fun trackGetRssFeedsSuccess(joinPoint: JoinPoint) {
         try {
             val userAgent = joinPoint.getUserAgent()
-            analyticsService.track(AnalyticsEvent.GetRssFeeds(userAgent))
+            val clientIpAddress = joinPoint.getClientIpAddress()
+            analyticsService.track(AnalyticsEvent.GetRssFeeds(userAgent, clientIpAddress))
         } catch (e: AnalyticsException) {
             LOG.error("Could not track GetRssFeeds event", e)
         }
@@ -133,10 +150,12 @@ class AnalyticsAspect(
         try {
             val code = joinPoint.extractCode()
             val userAgent = joinPoint.getUserAgent()
+            val clientIpAddress = joinPoint.getClientIpAddress()
             analyticsService.track(
                 AnalyticsEvent.GetFeed(
                     feedCode = code,
                     userAgent = userAgent,
+                    clientIpAddress = clientIpAddress,
                 )
             )
         } catch (e: AnalyticsException) {
@@ -186,10 +205,12 @@ class AnalyticsAspect(
         try {
             val newsletterUrl = joinPoint.getCallArgument<String>("newsletterUrl")
             val userAgent = joinPoint.getUserAgent()
+            val clientIpAddress = joinPoint.getClientIpAddress()
             analyticsService.track(
                 AnalyticsEvent.RequestNewsletter(
                     newsletterUrl = newsletterUrl,
                     userAgent = userAgent,
+                    clientIpAddress = clientIpAddress,
                 )
             )
         } catch (e: AnalyticsException) {

@@ -74,7 +74,7 @@ class SimpleAnalyticsServiceTest {
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticService.track(AnalyticsEvent.GetFeed("rss-code", "client-user-agent"))
+        analyticService.track(AnalyticsEvent.GetFeed("rss-code", "client-user-agent", "192.168.1.1"))
 
         // THEN
         val request = server.takeRequest()
@@ -98,7 +98,7 @@ class SimpleAnalyticsServiceTest {
         server.enqueue(MockResponse().setResponseCode(200))
 
         // WHEN
-        analyticService.track(AnalyticsEvent.RequestNewsletter("some-newsletter-url", "ua"))
+        analyticService.track(AnalyticsEvent.RequestNewsletter("some-newsletter-url", "ua", "192.168.1.1"))
 
         // THEN
         val request = server.takeRequest()
@@ -122,7 +122,7 @@ class SimpleAnalyticsServiceTest {
 
         // WHEN - THEN
         val error = shouldThrow<AnalyticsException> {
-            analyticService.track(AnalyticsEvent.GetFeed("code", "ua"))
+            analyticService.track(AnalyticsEvent.GetFeed("code", "ua", "192.168.1.1"))
         }
         error.message shouldNot beEmpty()
         error.cause should beInstanceOf<HttpClientErrorException>()
@@ -134,8 +134,8 @@ class SimpleAnalyticsServiceTest {
         val analyticService = createAnalyticService(enabled = false)
 
         // WHEN
-        analyticService.track(AnalyticsEvent.GetFeed("code", "ua"))
-        analyticService.track(AnalyticsEvent.RequestNewsletter("url", "ua"))
+        analyticService.track(AnalyticsEvent.GetFeed("code", "ua", "192.168.1.1"))
+        analyticService.track(AnalyticsEvent.RequestNewsletter("url", "ua", "192.168.1.1"))
 
         // THEN
         server.requestCount shouldBe 0
