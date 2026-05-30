@@ -205,6 +205,34 @@ class RateLimitFilterTest {
     }
 
     @Test
+    fun `should NOT ignore loopback requests if X-Forwarded-For is present and trusted`() {
+        // GIVEN
+        val proxyIp = "127.0.0.1"
+        val clientIp = "203.0.113.1"
+        val trustedProxies = listOf("127.0.0.1")
+        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies, true)
+
+        val request = MockHttpServletRequest().apply {
+            remoteAddr = proxyIp
+            addHeader("X-Forwarded-For", clientIp)
+        }
+        val response = MockHttpServletResponse()
+        val filterChain = MockFilterChain()
+
+        val bucket = Bucket.builder()
+            .addLimit(Bandwidth.builder().capacity(10).refillIntervally(10, 1.minutes.toJavaDuration()).build())
+            .build()
+        every { rateLimiterService.resolveBucket(clientIp) } returns bucket
+
+        // WHEN
+        filterWithTrustedProxy.doFilter(request, response, filterChain)
+
+        // THEN
+        response.status shouldBe HttpStatus.OK.value()
+        verify { rateLimiterService.resolveBucket(clientIp) }
+    }
+
+    @Test
     fun `should ignore loopback IPv4 requests`() {
         // GIVEN
         val clientIp = "127.0.0.1"
