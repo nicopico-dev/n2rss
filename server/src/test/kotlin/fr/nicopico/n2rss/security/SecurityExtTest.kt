@@ -76,6 +76,7 @@ class SecurityExtTest {
             "192.168.1.100".matchesIpPatterns(listOf("192.168.1.*")) shouldBe true
             "192.168.2.100".matchesIpPatterns(listOf("192.168.1.*")) shouldBe false
             "103.215.74.60".matchesIpPatterns(listOf("103.215.7*.*")) shouldBe true
+            "74.220.49.249".matchesIpPatterns(listOf("74.220.049.*")) shouldBe true
         }
 
         @Test

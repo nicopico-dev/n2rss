@@ -74,7 +74,8 @@ private fun String.expandIp(): String {
 
 @Suppress("MagicNumber", "ReturnCount")
 private fun String.manualExpandIp(): String {
-    val ipWithGapExpanded = if (this.contains("::")) {
+    val separator = if (this.contains(':')) ":" else "."
+    val ipWithGapExpanded = if (separator == ":" && this.contains("::")) {
         val parts = this.split("::")
         if (parts.size != 2) return this
 
@@ -89,8 +90,8 @@ private fun String.manualExpandIp(): String {
         this
     }
 
-    val segments = ipWithGapExpanded.split(":")
-    return segments.joinToString(":") { segment ->
+    val segments = ipWithGapExpanded.split(separator)
+    return segments.joinToString(separator) { segment ->
         if (segment == "*" || segment == "**") segment
         else segment.lowercase().trimStart('0').ifEmpty { "0" }
     }
