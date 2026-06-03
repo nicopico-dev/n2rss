@@ -47,7 +47,16 @@ class RateLimitFilter(
         filterChain: FilterChain
     ) {
         val clientIp = request.getClientIp(trustedProxies)
-        if (!rateLimitingEnabled || clientIp.isLoopbackAddress) {
+        val isLoopbackAddress = clientIp.isLoopbackAddress
+
+        if (!rateLimitingEnabled || isLoopbackAddress) {
+            LOG.debug(
+                "Bypass rate-limit on {} for IP {} (enabled? {}, isLoopbackAddress? {})",
+                request.requestURI,
+                clientIp,
+                rateLimitingEnabled,
+                isLoopbackAddress,
+            )
             filterChain.doFilter(request, response)
             return
         }
@@ -68,7 +77,14 @@ class RateLimitFilter(
             return
         }
 
-        response.setHeader("X-Rate-Limit-Remaining", probe.remainingTokens.toString())
+        val remainingTokens = probe.remainingTokens
+        LOG.debug(
+            "Request {} for IP {} passed rate-limit filter (remaining: {})",
+            request.requestURI,
+            clientIp,
+            remainingTokens,
+        )
+        response.setHeader("X-Rate-Limit-Remaining", remainingTokens.toString())
         filterChain.doFilter(request, response)
     }
 }

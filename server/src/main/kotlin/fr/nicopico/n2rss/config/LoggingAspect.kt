@@ -35,18 +35,27 @@ class LoggingAspect {
     fun postMapping() = Unit
 
     @Before("getMapping()")
-    fun logBeforeGet(joinPoint: JoinPoint) = logBefore(joinPoint)
+    fun logBeforeGet(joinPoint: JoinPoint) = logBefore(joinPoint, Operation.GET)
 
     @Before("postMapping()")
-    fun logBeforePost(joinPoint: JoinPoint) = logBefore(joinPoint)
+    fun logBeforePost(joinPoint: JoinPoint) = logBefore(joinPoint, Operation.POST)
 
-    private fun logBefore(joinPoint: JoinPoint) {
-        val arguments = joinPoint.args.joinToString()
-        val message = with(joinPoint.signature) { "$declaringTypeName -- Calling $name($arguments)..." }
-        LOG.info(message)
+    private fun logBefore(joinPoint: JoinPoint, operation: Operation) {
+        LOG.debug(
+            "{} {}({}) -- {}",
+            operation.name,
+            joinPoint.signature.name,
+            joinPoint.args,
+            joinPoint.signature.declaringTypeName,
+        )
+    }
+
+    private enum class Operation {
+        GET,
+        POST,
     }
 
     companion object {
-        private val LOG = LoggerFactory.getLogger(LoggingAspect::class.java)
+        private val LOG = LoggerFactory.getLogger("fr.nicopico.HTTP")
     }
 }
