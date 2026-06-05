@@ -26,12 +26,23 @@ import java.net.InetAddress
 private val matcher = AntPathMatcher()
 
 fun HttpServletRequest.getClientIp(trustedProxies: List<String> = emptyList()): String {
-    val xForwardedFor: String? = getHeader("X-Forwarded-For")
-    val useXForwardedFor = !xForwardedFor.isNullOrBlank() &&
-        trustedProxies.isNotEmpty() && remoteAddr.matchesIpPatterns(trustedProxies)
+    // Check common proxy headers in order of preference
+    // X-Forwarded-For may contain multiple IPs (client, proxy1, proxy2,...)
+    // The first IP is the original client
+    val originIp: String? = getHeader("X-Forwarded-For")
+        ?.split(",")?.firstOrNull()?.trim()
+        ?: getHeader("X-Real-IP")
+        ?: getHeader("Proxy-Client-IP")
+        ?: getHeader("WL-Proxy-Client-IP")
+        ?: getHeader("HTTP_CLIENT_IP")
+        ?: getHeader("HTTP_X_FORWARDED_FOR")
+
+    val useXForwardedFor = !originIp.isNullOrBlank()
+        && trustedProxies.isNotEmpty()
+        && remoteAddr.matchesIpPatterns(trustedProxies)
 
     return if (useXForwardedFor) {
-        xForwardedFor.split(",").first().trim()
+        originIp.split(",").first().trim()
     } else {
         remoteAddr
     }
