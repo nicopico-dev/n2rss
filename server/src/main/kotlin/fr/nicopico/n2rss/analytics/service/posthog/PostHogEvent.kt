@@ -85,6 +85,20 @@ private fun AnalyticsEvent.getEventNameAndProperties(): Pair<String, Map<String,
             )
 
         is AnalyticsEvent.NewRelease -> "NewRelease" to mapOf("version" to version)
+
+        is AnalyticsEvent.BlockedIpRequestEvent ->
+            "BlockedIpRequest" to mapOf(
+                "userAgent" to userAgent,
+                "clientIpAddress" to clientIpAddress,
+                "requestedUrl" to requestedUrl
+            )
+
+        is AnalyticsEvent.RateLimitedRequestEvent ->
+            "RateLimitedRequest" to mapOf(
+                "userAgent" to userAgent,
+                "clientIpAddress" to clientIpAddress,
+                "requestedUrl" to requestedUrl
+            )
     }
 
 private val ANONYMOUS_EVENT = mapOf($$"$process_person_profile" to false)

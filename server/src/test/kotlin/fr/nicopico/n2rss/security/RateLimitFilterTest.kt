@@ -18,6 +18,8 @@
 
 package fr.nicopico.n2rss.security
 
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import io.github.bucket4j.Bandwidth
 import io.github.bucket4j.Bucket
 import io.kotest.matchers.ints.shouldBeGreaterThanOrEqual
@@ -38,12 +40,14 @@ import kotlin.time.toJavaDuration
 class RateLimitFilterTest {
 
     private lateinit var rateLimiterService: RateLimiterService
+    private lateinit var analyticsService: AnalyticsService
     private lateinit var filter: RateLimitFilter
 
     @BeforeEach
     fun setUp() {
         rateLimiterService = mockk()
-        filter = RateLimitFilter(rateLimiterService, emptyList(), true)
+        analyticsService = mockk(relaxed = true)
+        filter = RateLimitFilter(rateLimiterService, emptyList(), true, analyticsService)
     }
 
     @Test
@@ -52,6 +56,8 @@ class RateLimitFilterTest {
         val clientIp = "203.0.113.1"
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -75,6 +81,7 @@ class RateLimitFilterTest {
         response.getHeader("X-Rate-Limit-Remaining") shouldBe "9"
         filterChain.request shouldBe request
         verify { rateLimiterService.resolveBucket(clientIp) }
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test
@@ -83,6 +90,8 @@ class RateLimitFilterTest {
         val clientIp = "203.0.113.2"
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -112,6 +121,15 @@ class RateLimitFilterTest {
         }
         verify { rateLimiterService.resolveBucket(clientIp) }
         filterChain.request shouldBe null
+        verify {
+            analyticsService.track(
+                AnalyticsEvent.RateLimitedRequestEvent(
+                    userAgent = "Test-Agent",
+                    clientIpAddress = clientIp,
+                    requestedUrl = "/test/path"
+                )
+            )
+        }
     }
 
     @Test
@@ -122,6 +140,8 @@ class RateLimitFilterTest {
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
             addHeader("X-Forwarded-For", "$forwardedIp, 70.41.3.18, 150.172.238.178")
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -145,6 +165,7 @@ class RateLimitFilterTest {
         verify(exactly = 0) {
             rateLimiterService.resolveBucket(forwardedIp)
         }
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test
@@ -153,11 +174,13 @@ class RateLimitFilterTest {
         val clientIp = "192.168.1.100"
         val forwardedIp = "203.0.113.195"
         val trustedProxies = listOf("192.168.1.100")
-        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies, true)
+        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies, true, analyticsService)
 
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
             addHeader("X-Forwarded-For", forwardedIp)
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -173,6 +196,7 @@ class RateLimitFilterTest {
 
         // THEN
         verify { rateLimiterService.resolveBucket(forwardedIp) }
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test
@@ -181,11 +205,13 @@ class RateLimitFilterTest {
         val clientIp = "192.168.1.2"
         val forwardedIp = "203.0.113.195"
         val trustedProxies = listOf("192.168.1.1")
-        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies, true)
+        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies, true, analyticsService)
 
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
             addHeader("X-Forwarded-For", forwardedIp)
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -202,6 +228,7 @@ class RateLimitFilterTest {
         // THEN
         verify { rateLimiterService.resolveBucket(clientIp) }
         verify(exactly = 0) { rateLimiterService.resolveBucket(forwardedIp) }
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test
@@ -210,11 +237,13 @@ class RateLimitFilterTest {
         val proxyIp = "127.0.0.1"
         val clientIp = "203.0.113.1"
         val trustedProxies = listOf("127.0.0.1")
-        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies, true)
+        val filterWithTrustedProxy = RateLimitFilter(rateLimiterService, trustedProxies, true, analyticsService)
 
         val request = MockHttpServletRequest().apply {
             remoteAddr = proxyIp
             addHeader("X-Forwarded-For", clientIp)
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -230,6 +259,7 @@ class RateLimitFilterTest {
         // THEN
         response.status shouldBe HttpStatus.OK.value()
         verify { rateLimiterService.resolveBucket(clientIp) }
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test
@@ -238,6 +268,8 @@ class RateLimitFilterTest {
         val clientIp = "127.0.0.1"
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -249,6 +281,7 @@ class RateLimitFilterTest {
         response.status shouldBe HttpStatus.OK.value()
         filterChain.request shouldBe request
         verify(exactly = 0) { rateLimiterService.resolveBucket(any()) }
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test
@@ -257,6 +290,8 @@ class RateLimitFilterTest {
         val clientIp = "::1"
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -268,16 +303,19 @@ class RateLimitFilterTest {
         response.status shouldBe HttpStatus.OK.value()
         filterChain.request shouldBe request
         verify(exactly = 0) { rateLimiterService.resolveBucket(any()) }
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test
     fun `should bypass rate limiting when disabled`() {
         // GIVEN
         val clientIp = "203.0.113.50"
-        val filterWithDisabledRateLimiting = RateLimitFilter(rateLimiterService, emptyList(), false)
+        val filterWithDisabledRateLimiting = RateLimitFilter(rateLimiterService, emptyList(), false, analyticsService)
 
         val request = MockHttpServletRequest().apply {
             remoteAddr = clientIp
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -289,5 +327,6 @@ class RateLimitFilterTest {
         response.status shouldBe HttpStatus.OK.value()
         filterChain.request shouldBe request
         verify(exactly = 0) { rateLimiterService.resolveBucket(any()) }
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 }

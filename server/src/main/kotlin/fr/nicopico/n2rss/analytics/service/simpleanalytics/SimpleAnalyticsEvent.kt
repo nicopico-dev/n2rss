@@ -110,6 +110,22 @@ fun AnalyticsEvent.toSimpleAnalyticsEvent(
                 }
             }
         )
+
+        is AnalyticsEvent.BlockedIpRequestEvent -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_BLOCKED_IP,
+            metadata = mapOf(
+                AnalyticsCode.DATA_REQUESTED_URL to requestedUrl
+            )
+        )
+
+        is AnalyticsEvent.RateLimitedRequestEvent -> createSimpleAnalyticsEvent(
+            simpleAnalyticsProperties,
+            event = AnalyticsCode.EVENT_RATE_LIMITED,
+            metadata = mapOf(
+                AnalyticsCode.DATA_REQUESTED_URL to requestedUrl
+            )
+        )
     }
 }
 

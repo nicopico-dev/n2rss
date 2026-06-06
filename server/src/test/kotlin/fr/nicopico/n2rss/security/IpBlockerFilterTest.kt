@@ -18,7 +18,11 @@
 
 package fr.nicopico.n2rss.security
 
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import io.kotest.matchers.shouldBe
+import io.mockk.mockk
+import io.mockk.verify
 import jakarta.servlet.http.HttpServletResponse
 import org.junit.jupiter.api.Test
 import org.springframework.mock.web.MockFilterChain
@@ -31,9 +35,12 @@ class IpBlockerFilterTest {
     fun `should block IP if it matches one of the patterns`() {
         // GIVEN
         val blockedPatterns = listOf("192.168.1.*", "10.**")
-        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList(), analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "192.168.1.10"
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -44,15 +51,27 @@ class IpBlockerFilterTest {
         // THEN
         response.status shouldBe HttpServletResponse.SC_FORBIDDEN
         filterChain.request shouldBe null // filterChain.doFilter was not called
+        verify {
+            analyticsService.track(
+                AnalyticsEvent.BlockedIpRequestEvent(
+                    userAgent = "Test-Agent",
+                    clientIpAddress = "192.168.1.10",
+                    requestedUrl = "/test/path"
+                )
+            )
+        }
     }
 
     @Test
     fun `should allow IP if it does not match any pattern`() {
         // GIVEN
         val blockedPatterns = listOf("192.168.1.*", "10.**")
-        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList(), analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "192.168.2.1"
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -63,15 +82,19 @@ class IpBlockerFilterTest {
         // THEN
         response.status shouldBe HttpServletResponse.SC_OK
         filterChain.request shouldBe request
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test
     fun `should match IPv4 with star pattern`() {
         // GIVEN
         val blockedPatterns = listOf("192.168.*.1")
-        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList(), analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "192.168.10.1"
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -81,15 +104,19 @@ class IpBlockerFilterTest {
 
         // THEN
         response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+        verify { analyticsService.track(any<AnalyticsEvent.BlockedIpRequestEvent>()) }
     }
 
     @Test
     fun `should match IPv4 with double star pattern`() {
         // GIVEN
         val blockedPatterns = listOf("10.**")
-        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList(), analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "10.1.2.3"
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -99,15 +126,19 @@ class IpBlockerFilterTest {
 
         // THEN
         response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+        verify { analyticsService.track(any<AnalyticsEvent.BlockedIpRequestEvent>()) }
     }
 
     @Test
     fun `should match IPv6 with patterns`() {
         // GIVEN
         val blockedPatterns = listOf("2001:db8:**")
-        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList(), analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "2001:db8:0:0:0:0:0:1"
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -117,15 +148,19 @@ class IpBlockerFilterTest {
 
         // THEN
         response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+        verify { analyticsService.track(any<AnalyticsEvent.BlockedIpRequestEvent>()) }
     }
 
     @Test
     fun `should match compressed IPv6`() {
         // GIVEN
         val blockedPatterns = listOf("2001:db8::*")
-        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList(), analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "2001:db8::1"
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -135,15 +170,19 @@ class IpBlockerFilterTest {
 
         // THEN
         response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+        verify { analyticsService.track(any<AnalyticsEvent.BlockedIpRequestEvent>()) }
     }
 
     @Test
     fun `should match compressed IPv6 with double star pattern`() {
         // GIVEN
         val blockedPatterns = listOf("2001:db8:**")
-        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList(), analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "2001:db8::1"
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -153,15 +192,19 @@ class IpBlockerFilterTest {
 
         // THEN
         response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+        verify { analyticsService.track(any<AnalyticsEvent.BlockedIpRequestEvent>()) }
     }
 
     @Test
     fun `should match compressed IP against expanded pattern`() {
         // GIVEN
         val blockedPatterns = listOf("2001:db8:0:0:0:0:0:1")
-        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList(), analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "2001:db8::1"
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -171,15 +214,19 @@ class IpBlockerFilterTest {
 
         // THEN
         response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+        verify { analyticsService.track(any<AnalyticsEvent.BlockedIpRequestEvent>()) }
     }
 
     @Test
     fun `should match IPv6 with star pattern between colons`() {
         // GIVEN
         val blockedPatterns = listOf("2001:*:0:0:0:0:0:1")
-        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList(), analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "2001:db8:0:0:0:0:0:1"
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -189,16 +236,20 @@ class IpBlockerFilterTest {
 
         // THEN
         response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+        verify { analyticsService.track(any<AnalyticsEvent.BlockedIpRequestEvent>()) }
     }
 
     @Test
     fun `should ignore X-Forwarded-For header if no trusted proxies are configured`() {
         // GIVEN
         val blockedPatterns = listOf("203.0.113.195")
-        val filter = IpBlockerFilter(blockedPatterns, emptyList())
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, emptyList(), analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "127.0.0.1"
             addHeader("X-Forwarded-For", "203.0.113.195, 70.41.3.18")
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -209,6 +260,7 @@ class IpBlockerFilterTest {
         // THEN
         // Allowed because 127.0.0.1 is not blocked, and X-Forwarded-For is ignored
         response.status shouldBe HttpServletResponse.SC_OK
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 
     @Test
@@ -216,10 +268,13 @@ class IpBlockerFilterTest {
         // GIVEN
         val blockedPatterns = listOf("203.0.113.195")
         val trustedProxies = listOf("127.0.0.1")
-        val filter = IpBlockerFilter(blockedPatterns, trustedProxies)
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, trustedProxies, analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "127.0.0.1"
             addHeader("X-Forwarded-For", "203.0.113.195, 70.41.3.18")
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -229,6 +284,15 @@ class IpBlockerFilterTest {
 
         // THEN
         response.status shouldBe HttpServletResponse.SC_FORBIDDEN
+        verify {
+            analyticsService.track(
+                AnalyticsEvent.BlockedIpRequestEvent(
+                    userAgent = "Test-Agent",
+                    clientIpAddress = "203.0.113.195",
+                    requestedUrl = "/test/path"
+                )
+            )
+        }
     }
 
     @Test
@@ -236,10 +300,13 @@ class IpBlockerFilterTest {
         // GIVEN
         val blockedPatterns = listOf("203.0.113.195")
         val trustedProxies = listOf("192.168.1.1")
-        val filter = IpBlockerFilter(blockedPatterns, trustedProxies)
+        val analyticsService = mockk<AnalyticsService>(relaxed = true)
+        val filter = IpBlockerFilter(blockedPatterns, trustedProxies, analyticsService)
         val request = MockHttpServletRequest().apply {
             remoteAddr = "127.0.0.1"
             addHeader("X-Forwarded-For", "203.0.113.195, 70.41.3.18")
+            addHeader("User-Agent", "Test-Agent")
+            requestURI = "/test/path"
         }
         val response = MockHttpServletResponse()
         val filterChain = MockFilterChain()
@@ -250,5 +317,6 @@ class IpBlockerFilterTest {
         // THEN
         // Allowed because 127.0.0.1 is not blocked, and X-Forwarded-For is ignored
         response.status shouldBe HttpServletResponse.SC_OK
+        verify(exactly = 0) { analyticsService.track(any()) }
     }
 }

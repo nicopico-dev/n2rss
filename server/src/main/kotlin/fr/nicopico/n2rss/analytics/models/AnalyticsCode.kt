@@ -26,6 +26,8 @@ object AnalyticsCode {
     const val EVENT_ERROR_PARSING = "error-parsing"
     const val EVENT_ERROR_HOME = "error-home"
     const val EVENT_ERROR_REQUEST_NEWSLETTER = "error-request-newsletter"
+    const val EVENT_BLOCKED_IP = "blocked-ip"
+    const val EVENT_RATE_LIMITED = "rate-limited"
 
     const val DATA_FEED_CODE = "feedCode"
     const val DATA_USER_AGENT = "userAgent"
@@ -33,4 +35,5 @@ object AnalyticsCode {
     const val DATA_VERSION = "version"
     const val DATA_HANDLER_NAME = "handlerName"
     const val DATA_EMAIL_TITLE = "emailTitle"
+    const val DATA_REQUESTED_URL = "requestedUrl"
 }
