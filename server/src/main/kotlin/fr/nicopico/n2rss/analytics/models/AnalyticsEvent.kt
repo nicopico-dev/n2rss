@@ -67,4 +67,22 @@ sealed class AnalyticsEvent {
      * A new version has been released to production
      */
     data class NewRelease(val version: String) : AnalyticsEvent()
+
+    /**
+     * A request was blocked due to IP being in the blocked list
+     */
+    data class BlockedIpRequestEvent(
+        override val userAgent: String,
+        override val clientIpAddress: String,
+        val requestedUrl: String,
+    ) : AnalyticsEvent(), UserRequestAnalyticEvent
+
+    /**
+     * A request was rate limited
+     */
+    data class RateLimitedRequestEvent(
+        override val userAgent: String,
+        override val clientIpAddress: String,
+        val requestedUrl: String,
+    ) : AnalyticsEvent(), UserRequestAnalyticEvent
 }

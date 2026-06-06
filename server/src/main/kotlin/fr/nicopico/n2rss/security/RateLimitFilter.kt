@@ -18,6 +18,9 @@
 
 package fr.nicopico.n2rss.security
 
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsException
+import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
@@ -37,6 +40,7 @@ class RateLimitFilter(
     trustedProxies: List<String>,
     @param:Value($$"${n2rss.security.rate-limiting-enabled}")
     private val rateLimitingEnabled: Boolean,
+    private val analyticsService: AnalyticsService,
 ) : OncePerRequestFilter() {
 
     private val trustedProxies = trustedProxies.filter { it.isNotBlank() }
@@ -74,6 +78,7 @@ class RateLimitFilter(
             )
             response.writer.write("Too many requests")
             LOG.warn("Refused request from IP {} (too many request): {}", clientIp, request)
+            trackRateLimitedRequest(request, clientIp)
             return
         }
 
@@ -86,5 +91,21 @@ class RateLimitFilter(
         )
         response.setHeader("X-Rate-Limit-Remaining", remainingTokens.toString())
         filterChain.doFilter(request, response)
+    }
+
+    private fun trackRateLimitedRequest(request: HttpServletRequest, clientIp: String) {
+        try {
+            val userAgent = request.getHeader("User-Agent") ?: ""
+            val requestedUrl = request.requestURI
+            analyticsService.track(
+                AnalyticsEvent.RateLimitedRequestEvent(
+                    userAgent = userAgent,
+                    clientIpAddress = clientIp,
+                    requestedUrl = requestedUrl
+                )
+            )
+        } catch (e: AnalyticsException) {
+            LOG.error("Could not track RateLimitedRequestEvent", e)
+        }
     }
 }

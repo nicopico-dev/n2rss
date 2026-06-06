@@ -216,6 +216,42 @@ class SimpleAnalyticsEventTest {
                 ),
             ),
             //endregion
+
+            //region Security events
+            Arguments.of(
+                AnalyticsEvent.BlockedIpRequestEvent(
+                    userAgent = CLIENT_UA,
+                    clientIpAddress = "192.168.1.100",
+                    requestedUrl = "/test/path",
+                ),
+                analyticsProperties,
+                createSimpleAnalyticsEvent(
+                    event = AnalyticsCode.EVENT_BLOCKED_IP,
+                    hostname = HOSTNAME,
+                    ua = SERVER_UA,
+                    metadata = mapOf(
+                        AnalyticsCode.DATA_REQUESTED_URL to "/test/path",
+                    ),
+                ),
+            ),
+
+            Arguments.of(
+                AnalyticsEvent.RateLimitedRequestEvent(
+                    userAgent = CLIENT_UA,
+                    clientIpAddress = "192.168.1.200",
+                    requestedUrl = "/api/test",
+                ),
+                analyticsProperties,
+                createSimpleAnalyticsEvent(
+                    event = AnalyticsCode.EVENT_RATE_LIMITED,
+                    hostname = HOSTNAME,
+                    ua = SERVER_UA,
+                    metadata = mapOf(
+                        AnalyticsCode.DATA_REQUESTED_URL to "/api/test",
+                    ),
+                ),
+            ),
+            //endregion
         )
     }
 }

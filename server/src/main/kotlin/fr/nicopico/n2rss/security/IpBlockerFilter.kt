@@ -18,6 +18,9 @@
 
 package fr.nicopico.n2rss.security
 
+import fr.nicopico.n2rss.analytics.models.AnalyticsEvent
+import fr.nicopico.n2rss.analytics.models.AnalyticsException
+import fr.nicopico.n2rss.analytics.service.AnalyticsService
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
@@ -34,6 +37,7 @@ class IpBlockerFilter(
     blockedIpPatterns: List<String>,
     @param:Value($$"${n2rss.security.trusted-proxies}")
     private val trustedProxies: List<String>,
+    private val analyticsService: AnalyticsService,
 ) : OncePerRequestFilter() {
 
     private val blockedIpAntPatterns: List<String> = blockedIpPatterns
@@ -48,11 +52,28 @@ class IpBlockerFilter(
         if (clientIp.matchesIpPatterns(blockedIpAntPatterns)) {
             response.status = HttpServletResponse.SC_FORBIDDEN
             LOG.warn("Refused request for permanently blocked IP {}: {}", clientIp, request.requestURI)
+            trackBlockedIpRequest(request, clientIp)
             return
         } else {
             LOG.debug("Request accepted for IP {}: {}", clientIp, request.requestURI)
         }
 
         filterChain.doFilter(request, response)
+    }
+
+    private fun trackBlockedIpRequest(request: HttpServletRequest, clientIp: String) {
+        try {
+            val userAgent = request.getHeader("User-Agent") ?: ""
+            val requestedUrl = request.requestURI
+            analyticsService.track(
+                AnalyticsEvent.BlockedIpRequestEvent(
+                    userAgent = userAgent,
+                    clientIpAddress = clientIp,
+                    requestedUrl = requestedUrl
+                )
+            )
+        } catch (e: AnalyticsException) {
+            LOG.error("Could not track BlockedIpRequestEvent", e)
+        }
     }
 }
