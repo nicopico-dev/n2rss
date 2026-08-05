@@ -26,10 +26,8 @@ import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.minus
 import kotlinx.datetime.plus
-import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import java.util.concurrent.TimeUnit
 import kotlin.time.Clock
 
 @Service
@@ -41,7 +39,7 @@ class MissingPublicationDetectionService(
     private val tolerance: DatePeriod = DatePeriod(days = 2),
 ) {
     @Transactional
-    @Scheduled(fixedDelay = 7, timeUnit = TimeUnit.DAYS)
+    // DISABLED @Scheduled(fixedDelay = 7, timeUnit = TimeUnit.DAYS)
     fun detectMissingPublications() {
         val threshold = LocalDate.now(clock) - tolerance
 
