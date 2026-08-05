@@ -33,6 +33,15 @@ class CommonMainDevNewsletterHandlerTest : BaseNewsletterHandlerTest<CommonMainD
     @Nested
     inner class EmailProcessingTest {
         @Test
+        fun `should not handle commonMain communication emails`() {
+            // GIVEN
+            val emails = loadEmails("$STUBS_EMAIL_ROOT_FOLDER/commonMain.dev - Communication")
+
+            // WHEN - THEN
+            emails.all { handler.canHandle(it) } shouldBe false
+        }
+
+        @Test
         fun `should extract all articles from email sample`() {
             // GIVEN
             val email: Email =
