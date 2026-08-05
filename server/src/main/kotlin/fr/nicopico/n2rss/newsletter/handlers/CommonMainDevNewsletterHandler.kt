@@ -19,6 +19,7 @@ package fr.nicopico.n2rss.newsletter.handlers
 
 import fr.nicopico.n2rss.mail.models.Email
 import fr.nicopico.n2rss.mail.models.html
+import fr.nicopico.n2rss.mail.models.text
 import fr.nicopico.n2rss.newsletter.handlers.exception.NewsletterParsingException
 import fr.nicopico.n2rss.newsletter.handlers.jsoup.extractSections
 import fr.nicopico.n2rss.newsletter.handlers.jsoup.process
@@ -40,6 +41,8 @@ class CommonMainDevNewsletterHandler : NewsletterHandlerMultipleFeeds {
 
     override fun canHandle(email: Email): Boolean {
         return email.sender.email.contains("commonmain.dev", ignoreCase = true)
+            // This newsletter sends empty emails (no articles) when commonMain.dev is on vacation
+            && VACATION_TEXT !in email.content.text
     }
 
     override fun extractArticles(email: Email): Map<Newsletter, List<Article>> {
@@ -162,6 +165,8 @@ class CommonMainDevNewsletterHandler : NewsletterHandlerMultipleFeeds {
     }
 
     companion object {
+        private const val VACATION_TEXT = "commonMain.dev is on vacation this week"
+
         val mainNewsletter = Newsletter(
             code = "commonmain_dev",
             name = "commonMain.dev",
