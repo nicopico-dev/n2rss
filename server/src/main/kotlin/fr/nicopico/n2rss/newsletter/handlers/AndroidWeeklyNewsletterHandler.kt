@@ -46,7 +46,8 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
         val cleanedHtml = Jsoup.clean(
             email.content.html,
             Safelist.basic()
-                .addAttributes("span", "style"),
+                .addAttributes("span", "style")
+                .addAttributes("a", "style"),
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
 
@@ -85,6 +86,13 @@ class AndroidWeeklyNewsletterHandler : NewsletterHandlerMultipleFeeds {
                 tag.attr("href").toUrlOrNull()
                     ?.let { link ->
                         val title = tag.text().trim()
+
+                        // Some <a> links are not articles and should be ignored
+                        if (tag.attr("style").contains("text-decoration: none")) {
+                            return@mapNotNull null
+                        }
+
+
                         Article(
                             title = title,
                             link = link,
