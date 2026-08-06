@@ -1,0 +1,483 @@
+Return-Path: <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id kBXdDqQCUmpcNzsAQTsBvA
+	(envelope-from <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>)
+	for <n2rss@nicopico.fr>; Sat, 11 Jul 2026 10:45:24 +0200
+Return-path: <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Sat, 11 Jul 2026 10:45:24 +0200
+Received: from o27.ck.m.convertkit.com ([149.72.158.9])
+	by smtpin1.paris1.alwaysdata.com with esmtps  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>)
+	id 1wiTKr-00AHL7-0i
+	for n2rss@nicopico.fr;
+	Sat, 11 Jul 2026 10:45:22 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aimadetools.com;
+	h=content-type:date:from:mime-version:subject:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:from:subject:to;
+	s=cka; t=1783759519;
+	bh=7dUZT4emt6JwkwVihZM9SO100Jq1zUwCsQF4fBHuipg=;
+	b=lvYDyS/wGppGN0RJ7t1/E8cLf0poB4hwUZRzxp6mYm9UwOWodIWWzxqO4a4wYTOZRljv
+	ISbnYFjElAhJaucJzc5wHiCZKbW0ZCv77zQ2Nw2/zAFm6aQkplaTixCrNKoER5MoByKL0z
+	zABFYas6Kb1CkphvbYg6Idd+RZ/tdqQsSDxUqu6YxIveQBUsfPFCPJg1u/b8mFm6AfjTzf
+	+cAv6tqG79HauO6Bmk0ePkjBVNTwbkKHHkIRYUTAjfl5N7r38sXwZIhN4ykkwr/zaHLL7h
+	4+1q7DrF3Aa0qzVxwTFT1uJd380jdQ+R4ZXtU/DiEdtA/Mm9kCfWEcdEDWf72fxA==
+Received: by recvd-75ffd657d8-zdbg6 with SMTP id recvd-75ffd657d8-zdbg6-1-6A52029F-1C
+	2026-07-11 08:45:19.670496434 +0000 UTC m=+123720.134987302
+Received: from NjA5MTYwMDE (unknown)
+	by geopod-ismtpd-21 (SG) with HTTP
+	id EbtTPUwCSwKu-CXtc5gzcg
+	Sat, 11 Jul 2026 08:45:19.595 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=bf096763e495438ff9faa7712f6cf347ff95676f78534b063358262035bc
+Date: Sat, 11 Jul 2026 08:45:19 +0000 (UTC)
+From: "hello@aimadetools.com" <hello@aimadetools.com>
+Mime-Version: 1.0
+Message-ID: <gkuq8x77zxu5hl45q4qcrh85986roimhd08v6@kit-mail3.com>
+Subject: AI Dev Weekly #18: GPT-5.6 Goes Public, Grok 4.5 Undercuts Everyone,
+ The Race Ends at $0
+Feedback-ID: 22475996:2648686:broadcast:CK
+List-Unsubscribe:
+ <mailto:unsub+gkuq8x77zxu5hl45q4qcrh85986roimhd08v6@convertkit-mail.com>,
+ <https://1d5f44ec.unsubscribe.kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Precedence: bulk
+X-Report-Abuse: <abuse@kit.com>
+X-Report-Spam: <abuse@kit.com>
+X-SG-EID: 
+ =?us-ascii?Q?u001=2Eq1gWFLfczFU1Sp9uGQn1E6VVEMvW4CFXhTOu+OhJPQa8N5lrGdSy2M4C8?=
+ =?us-ascii?Q?qiiQqTW8T0rbAawvNZQPkdVV0v=2F19sIG3Q3n5mC?=
+ =?us-ascii?Q?4eEQx6zeBvhqXs5Wlw3C8oI1fZx=2FJMDZYqjlSkg?=
+ =?us-ascii?Q?DkeKGItzxdGssDBhtwuvoizvBzs+gq4i63sc+W+?=
+ =?us-ascii?Q?EiUIgAvqdn0TgSWBygt1rqkR0sgL+MYDO5laifL?=
+ =?us-ascii?Q?oUfMKayk5IVsrXlYi3iJfyiIeSWuCc9O2DLS5vs?= =?us-ascii?Q?DP6c?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprBTLquV1ImzFIrgT?=
+ =?us-ascii?Q?SaJ3+RZkjZhvpUe4RBWobmeDBIrUbs+79k9jPK2?=
+ =?us-ascii?Q?TSKbOkqhal6HggmcYPDfRGkxwFZZVuC80Q640b1?=
+ =?us-ascii?Q?h=2FD3VW0FUdgMaEkOueXqHr7eAaz74gEbcueraJO?=
+ =?us-ascii?Q?odh9CpENL0YnIA3oC1kTnYSl+Jvcm71NeIuzg=2Fj?=
+ =?us-ascii?Q?zfhTP+S9kmwyegXIMXc6pzl4im1BxgW1VN93gah?=
+ =?us-ascii?Q?AvgM8VCf4uuP6NZUeYL98FpEQ1uUkG4+wlYtwOj?=
+ =?us-ascii?Q?R4doMPOGd33F1AgkpS29oRFFD5QSsqdaKaZzkb7?=
+ =?us-ascii?Q?eVgtyBdVJybqAAh8GGeDIKQnKNyFXvjHyvU0sJL?=
+ =?us-ascii?Q?796k7fBzY9qRn7Ckgl75a5fBVFxP4cbFWuQKjyO?=
+ =?us-ascii?Q?QX=2FqJXldXaX=2FjNpJkPDpNPwIW7cZdV1uh2D4GAb?=
+ =?us-ascii?Q?jKzlrRC1xgqXWL5wC4ShkIg=3D=3D?=
+To: n2rss@nicopico.fr
+X-Entity-ID: u001.NKfVh/HtO0Vd66qreilE0A==
+X-alwaysdata-Spam-Report: 	2.00 RBL_SPAMCOP [149.72.158.9:from]
+	2.00 PHISHING [aimadetools.com->kit-mail3.com] - Phished URL
+	1.00 SUBJECT_HAS_CURRENCY - Subject contains currency
+	0.50 FROM_DN_EQ_ADDR - From header display name is the same as the address
+	0.30 FORGED_SENDER [hello@aimadetools.com,
+ bounces@ckespa.aimadetools.com] - Sender is forged (different From: header
+ and smtp MAIL FROM: addresses)
+	0.10 BAD_REP_POLICIES - Contains valid policies but are also marked by
+ fuzzy/bayes/SURBL/RBL
+	0.00 TO_MATCH_ENVRCPT_ALL - All of the recipients match the envelope
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 TAGGED_FROM [60916001-e5a8-n2rss=nicopico.fr] - From address has
+ plus-tags
+	0.00 R_SPF_ALLOW [+ip4:149.72.0.0/16] - SPF verification allows sending
+	0.00 R_DKIM_ALLOW [aimadetools.com:s=cka] - DKIM verification succeed
+	0.00 RWL_MAILSPIKE_POSSIBLE [149.72.158.9:from] - From address is listed in
+ Mailspike RWL - possibly legit
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_THREE [3] - Message has 3-5 Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PRECEDENCE_BULK - Message marked as bulk
+	0.00 MV_CASE - Mime-Version .vs. MIME-Version
+	0.00 MISSING_XM_UA - Message has neither X-Mailer nor User-Agent header
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 FROM_NEQ_ENVFROM [hello@aimadetools.com,
+ bounces@ckespa.aimadetools.com] - From address is different to the envelope
+	0.00 DMARC_POLICY_ALLOW [aimadetools.com, none] - DMARC permit policy
+	0.00 DKIM_TRACE [aimadetools.com:+] - DKIM trace symbol
+	0.00 DKIM_REPUTATION [0]
+	0.00 ASN [asn:11377, ipnet:149.72.128.0/19, country:US]
+	0.00 ARC_NA - ARC signature absent
+	0.00 ALIAS_RESOLVED - Address was resolved through aliases
+	-0.00 NEURAL_HAM [-0.825] - Neural network ham
+	-0.01 BAYES_HAM [48.67%] - Message probably ham, probability:
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MX_GOOD [mx.sendgrid.net] - Domain has working MX
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.10 MIME_FROM_MX_GOOD [mx.mailprotect.be] - Domain has working MX
+	-0.51 SPF_REPUTATION_HAM [-0.50838260824905]
+	-0.57 IP_REPUTATION_HAM [asn: 11377(-0.18), country: US(-0.00),
+ ip: 149.72.158.9(-0.39)]
+X-alwaysdata-Spam-Score: 4.50
+
+--bf096763e495438ff9faa7712f6cf347ff95676f78534b063358262035bc
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+This week=E2=80=99s biggest AI dev tool stories =E2=80=94 plus what=E2=80=
+=99s new on the site.
+
+-------------------
+=F0=9F=94=A5 AI Dev Weekly #18
+-------------------
+
+The most competitive week in AI history. GPT-5.6 went public after governme=
+nt clearance. SpaceXAI shipped Grok 4.5 at $2/$6, trained with Cursor. Open=
+AI launched ChatGPT Work (an agent that does your job while you=E2=80=99re =
+in a meeting). Google delayed Gemini 3.5 Pro. And our AI Startup Race ended=
+: 7 agents, 12 weeks, $0.
+
+=F0=9F=91=89 Read the full issue ( https://1d5f44ec.click.kit-mail3.com/gku=
+q8x77zxu5hl45q4qcrh85986roimhd08v6/25h2hoh3ppe6rdi8u4/aHR0cHM6Ly93d3cuYWltY=
+WRldG9vbHMuY29tL2Jsb2cvYWktZGV2LXdlZWtseS0wMTgtZ3B0LTUtNi1wdWJsaWMtZ3Jvay00=
+LTUtcmFjZS1lbmRzLw=3D=3D )=E2=80=8B
+
+-----------------------
+=F0=9F=9A=80 GPT-5.6 Is Now Public
+-----------------------
+
+Government cleared it. Sol ($5/$30), Terra ($2.50/$15), and Luna ($1/$6) ar=
+e available to everyone. Plus ChatGPT Work, an enterprise agent that connec=
+ts to Slack, Teams, Drive, and builds finished docs/sheets/slides autonomou=
+sly.
+
+* =E2=80=8BGPT-5.6 Complete Guide ( https://1d5f44ec.click.kit-mail3.com/gk=
+uq8x77zxu5hl45q4qcrh85986roimhd08v6/qvh8h7hdmm0zgqtguk/aHR0cHM6Ly93d3cuYWlt=
+YWRldG9vbHMuY29tL2Jsb2cvZ3B0LTUtNi1zb2wtdGVycmEtbHVuYS1jb21wbGV0ZS1ndWlkZS8=
+=3D )=E2=80=8B
+* =E2=80=8BGPT-5.6 Pricing Explained ( https://1d5f44ec.click.kit-mail3.com=
+/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6/g3hnh5hm88kr7gu3u9/aHR0cHM6Ly93d3cuY=
+WltYWRldG9vbHMuY29tL2Jsb2cvZ3B0LTUtNi1wcmljaW5nLWV4cGxhaW5lZC8=3D )=E2=80=
+=8B
+* =E2=80=8BGPT-5.6 Sol vs Claude Sonnet 5 ( https://1d5f44ec.click.kit-mail=
+3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6/9qhzhnhdvvl0k0szu3/aHR0cHM6Ly93=
+d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvZ3B0LTUtNi1zb2wtdnMtY2xhdWRlLXNvbm5ldC01Lw=
+=3D=3D )=E2=80=8B
+* =E2=80=8BLuna at $1/$6: Cheapest Frontier Model? ( https://1d5f44ec.click=
+.kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6/3ohphkh355n06mspun/aHR=
+0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvZ3B0LTUtNi1sdW5hLWNoZWFwZXN0LWZyb2=
+50aWVyLW1vZGVsLw=3D=3D )=E2=80=8B
+
+----------------------------------------------
+=E2=9A=A1 Grok 4.5: Trained With Cursor, Priced to Win
+----------------------------------------------
+
+SpaceXAI=E2=80=99s first model after the Cursor acquisition. $2 input, $6 o=
+utput. 64.7% SWE-bench Pro. Available in Cursor on all plans. Undercuts Opu=
+s 4.8 by 60%+. The catch: higher hallucination rates reported.
+
+------------------------------
+=F0=9F=8F=81 The Race Ended: 7 Agents, $0
+------------------------------
+
+12 weeks. 7 AI coding agents. $100 each. Final revenue: $0 across all seven=
+. Xiaomi got 8,367 users. DeepSeek built 201 SEO pages. Claude got rate-lim=
+ited out. None solved product-market fit. Full results coming this week.
+
+* =E2=80=8BXiaomi=E2=80=99s 116 GA4 Events, 8,367 Users, $0 ( https://1d5f4=
+4ec.click.kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6/n2hohvhv99kmw=
+0s0ug/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvcmFjZS14aWFvbWktMTE2LWdhN=
+C1ldmVudHMtemVyby1yZXZlbnVlLw=3D=3D )=E2=80=8B
+* =E2=80=8BLive Dashboard ( https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/48hvhehmddnvzeuqu7/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL3JhY2Uv )=E2=80=8B
+
+---------------
+=F0=9F=93=A6 New This Week
+---------------
+
+* =E2=80=8BMiMo Code: Xiaomi=E2=80=99s Open-Source Claude Code Rival ( http=
+s://1d5f44ec.click.kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6/wnh2=
+hghq223n92ilux/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvbWltby1jb2RlLWNv=
+bXBsZXRlLWd1aWRlLw=3D=3D )=E2=80=8B
+* =E2=80=8BZCode: Z.ai=E2=80=99s Desktop Agent with Telegram Remote Control=
+ ( https://1d5f44ec.click.kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08=
+v6/reh8hohmlle49gf6u6/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvd2hhdC1pc=
+y16Y29kZS16LWFpLw=3D=3D )=E2=80=8B
+* =E2=80=8BMiMo Code vs ZCode vs Claude Code ( https://1d5f44ec.click.kit-m=
+ail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6/08hwh9h266kv0lapu5/aHR0cHM6L=
+y93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvbWltby1jb2RlLXZzLXpjb2RlLXZzLWNsYXVkZS1j=
+b2RlLw=3D=3D )=E2=80=8B
+* =E2=80=8BClaude Sonnet 5 vs GPT-5.5 ( https://1d5f44ec.click.kit-mail3.co=
+m/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6/8ghqhoho66xze7hlu9/aHR0cHM6Ly93d3cu=
+YWltYWRldG9vbHMuY29tL2Jsb2cvY2xhdWRlLXNvbm5ldC01LXZzLWdwdC01LTUv )=E2=80=8B
+* =E2=80=8BClaude Sonnet 5 Effort Levels Guide ( https://1d5f44ec.click.kit=
+-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6/vqh3hrho99dl26uwul/aHR0cHM=
+6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvY2xhdWRlLXNvbm5ldC01LWVmZm9ydC1sZXZlbH=
+MtZ3VpZGUv )=E2=80=8B
+
+------------------
+=F0=9F=91=80 Coming Next Week
+------------------
+
+* Gemini 3.5 Pro (July 17) =E2=80=94 does Google close the gap?
+* Race final results + full scoring
+* Grok 4.5 independent testing
+
+See you next Thursday.
+
+=E2=80=8Baimadetools.com ( https://1d5f44ec.click.kit-mail3.com/gkuq8x77zxu=
+5hl45q4qcrh85986roimhd08v6/l2hehmhlmmze5gcgu0/aHR0cHM6Ly93d3cuYWltYWRldG9vb=
+HMuY29t )=E2=80=8B
+
+=E2=80=8BUnsubscribe ( https://1d5f44ec.unsubscribe.kit-mail3.com/gkuq8x77z=
+xu5hl45q4qcrh85986roimhd08v6 ) | Update your profile ( https://preferences.=
+kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6 ) | 600 1st Ave, Ste 33=
+0 PMB 92768, Seattle, WA 98104-2246
+
+( https://1d5f44ec.click.kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v=
+6/m2h7h5h3667vgksluq/aHR0cHM6Ly9idWlsdHdpdGgua2l0LW1haWwzLmNvbT91dG1fY2FtcG=
+FpZ249cG93ZXJlZGJ5JnV0bV9jb250ZW50PWVtYWlsJnV0bV9tZWRpdW09cmVmZXJyYWwmdXRtX=
+3NvdXJjZT1keW5hbWlj )
+--bf096763e495438ff9faa7712f6cf347ff95676f78534b063358262035bc
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>.ck-link { text-decoration: underline; }</style>
+<style>.ck-link { text-decoration: underline; }</style>
+<style>@media only screen { .email * { word-break: break-word; } }
+@media screen and (max-width: 384px) { .mail-message-content { width: 414px=
+ !important; } }
+@media only screen { .email * { word-break: break-word; } }
+@media screen and (max-width: 384px) { .mail-message-content { width: 414px=
+ !important; } }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }</style>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+</head>
+<body style=3D"margin:0;padding:0;-webkit-font-smoothing:antialiased;-ms-te=
+xt-size-adjust:100%;-webkit-text-size-adjust:100%">
+<div class=3D"email" style=3D"margin-left:18px;margin-right:18px">
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:separat=
+e;mso-table-lspace:0pt;mso-table-rspace:0pt;width:100%;margin:0 auto"><tbod=
+y><tr><td style=3D"vertical-align:top">
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">This week=E2=80=99s big=
+gest AI dev tool stories =E2=80=94 plus what=E2=80=99s new on the site.</p>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=94=A5 AI Dev Weekly #18</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">The most competitive we=
+ek in AI history. GPT-5.6 went public after government clearance. SpaceXAI =
+shipped Grok 4.5 at $2/$6, trained with Cursor. OpenAI launched ChatGPT Wor=
+k (an agent that does your job while you=E2=80=99re in a meeting). Google d=
+elayed Gemini 3.5 Pro. And our AI Startup Race ended: 7 agents, 12 weeks, $=
+0.</p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">=F0=9F=91=89 <a href=3D=
+"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6=
+/25h2hoh3ppe6rdi8u4/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvYWktZGV2LXd=
+lZWtseS0wMTgtZ3B0LTUtNi1wdWJsaWMtZ3Jvay00LTUtcmFjZS1lbmRzLw=3D=3D" target=
+=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0=
+875c1" url-id=3D"1869303179">Read the full issue</a>=E2=80=8B</p>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=9A=80 GPT-5.6 Is Now Public</h2=
+>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Government cleared it. =
+Sol ($5/$30), Terra ($2.50/$15), and Luna ($1/$6) are available to everyone=
+. Plus ChatGPT Work, an enterprise agent that connects to Slack, Teams, Dri=
+ve, and builds finished docs/sheets/slides autonomously.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/qvh8h7hdmm0zgqtguk/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvZ3B0LTUtNi1zb2wtdGVycmEtbHVuYS1jb21wbGV0ZS1ndWlkZS8=3D" tar=
+get=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color=
+:#0875c1" url-id=3D"1869303180">GPT-5.6 Complete Guide</a>=E2=80=8B</span><=
+/li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/g3hnh5hm88kr7gu3u9/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvZ3B0LTUtNi1wcmljaW5nLWV4cGxhaW5lZC8=3D" target=3D"_blank" c=
+lass=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1869303181">GPT-5.6 Pricing Explained</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/9qhzhnhdvvl0k0szu3/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvZ3B0LTUtNi1zb2wtdnMtY2xhdWRlLXNvbm5ldC01Lw=3D=3D" target=3D=
+"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875=
+c1" url-id=3D"1869303182">GPT-5.6 Sol vs Claude Sonnet 5</a>=E2=80=8B</span=
+></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/3ohphkh355n06mspun/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvZ3B0LTUtNi1sdW5hLWNoZWFwZXN0LWZyb250aWVyLW1vZGVsLw=3D=3D" t=
+arget=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"col=
+or:#0875c1" url-id=3D"1869303183">Luna at $1/$6: Cheapest Frontier Model?</=
+a>=E2=80=8B</span></li>
+</ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=E2=9A=A1 Grok 4.5: Trained With Curso=
+r, Priced to Win</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">SpaceXAI=E2=80=99s firs=
+t model after the Cursor acquisition. $2 input, $6 output. 64.7% SWE-bench =
+Pro. Available in Cursor on all plans. Undercuts Opus 4.8 by 60%+. The catc=
+h: higher hallucination rates reported.</p>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=8F=81 The Race Ended: 7 Agents,=
+ $0</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">12 weeks. 7 AI coding a=
+gents. $100 each. Final revenue: $0 across all seven. Xiaomi got 8,367 user=
+s. DeepSeek built 201 SEO pages. Claude got rate-limited out. None solved p=
+roduct-market fit. Full results coming this week.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/n2hohvhv99kmw0s0ug/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvcmFjZS14aWFvbWktMTE2LWdhNC1ldmVudHMtemVyby1yZXZlbnVlLw=3D=
+=3D" target=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=
+=3D"color:#0875c1" url-id=3D"1869303184">Xiaomi=E2=80=99s 116 GA4 Events, 8=
+,367 Users, $0</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/48hvhehmddnvzeuqu7/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL3JhY2Uv" target=3D"_blank" class=3D"ck-link" rel=3D"noopener noref=
+errer" style=3D"color:#0875c1" url-id=3D"1869303185">Live Dashboard</a>=E2=
+=80=8B</span></li>
+</ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=93=A6 New This Week</h2>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/wnh2hghq223n92ilux/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvbWltby1jb2RlLWNvbXBsZXRlLWd1aWRlLw=3D=3D" target=3D"_blank"=
+ class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-=
+id=3D"1869303186">MiMo Code: Xiaomi=E2=80=99s Open-Source Claude Code Rival=
+</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/reh8hohmlle49gf6u6/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvd2hhdC1pcy16Y29kZS16LWFpLw=3D=3D" target=3D"_blank" class=
+=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=3D"=
+1869303187">ZCode: Z.ai=E2=80=99s Desktop Agent with Telegram Remote Contro=
+l</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/08hwh9h266kv0lapu5/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvbWltby1jb2RlLXZzLXpjb2RlLXZzLWNsYXVkZS1jb2RlLw=3D=3D" targe=
+t=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#=
+0875c1" url-id=3D"1869303188">MiMo Code vs ZCode vs Claude Code</a>=E2=80=
+=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/8ghqhoho66xze7hlu9/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLXNvbm5ldC01LXZzLWdwdC01LTUv" target=3D"_blank" cla=
+ss=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1869303189">Claude Sonnet 5 vs GPT-5.5</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zx=
+u5hl45q4qcrh85986roimhd08v6/vqh3hrho99dl26uwul/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLXNvbm5ldC01LWVmZm9ydC1sZXZlbHMtZ3VpZGUv" target=3D=
+"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875=
+c1" url-id=3D"1869303190">Claude Sonnet 5 Effort Levels Guide</a>=E2=80=8B<=
+/span></li>
+</ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=91=80 Coming Next Week</h2>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>Gemini 3.5 Pro (July 17) =E2=80=94 does Google close the gap?</span=
+></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>Race final results + full scoring</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>Grok 4.5 independent testing</span></li>
+</ul>
+<hr>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">See you next Thursday.<=
+/p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">=E2=80=8B<a href=3D"htt=
+ps://1d5f44ec.click.kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6/l2h=
+ehmhlmmze5gcgu0/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29t" target=3D"_blank" cla=
+ss=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1869303191">aimadetools.com</a>=E2=80=8B</p>
+</td></tr></tbody></table>
+<div class=3D"email-footer"><table cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;wid=
+th:100%;margin:0 auto"><tbody><tr><td style=3D"vertical-align:top"><p style=
+=3D"margin:1em 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ro=
+boto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f=
+;font-size:16px;line-height:1.5;text-align:left;font-size:12px" class=3D"">=
+=E2=80=8B<a href=3D"https://1d5f44ec.unsubscribe.kit-mail3.com/gkuq8x77zxu5=
+hl45q4qcrh85986roimhd08v6" target=3D"_blank" class=3D"ck-link" rel=3D"noope=
+ner noreferrer" style=3D"color:#0875c1"><span style=3D"font-size:12">Unsubs=
+cribe</span></a><span style=3D"font-size:12"> | </span><a href=3D"https://p=
+references.kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986roimhd08v6" target=3D"_=
+blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1=
+"><span style=3D"font-size:12">Update your profile</span></a><span style=3D=
+"font-size:12"> | 600 1st Ave, Ste 330 PMB 92768, Seattle, WA 98104-2246</s=
+pan></p></td></tr></tbody></table></div>
+<div class=3D"built-with" style=3D"display:block;text-align:left;margin-top=
+:30px"><a href=3D"https://1d5f44ec.click.kit-mail3.com/gkuq8x77zxu5hl45q4qc=
+rh85986roimhd08v6/m2h7h5h3667vgksluq/aHR0cHM6Ly9idWlsdHdpdGgua2l0LW1haWwzLm=
+NvbT91dG1fY2FtcGFpZ249cG93ZXJlZGJ5JnV0bV9jb250ZW50PWVtYWlsJnV0bV9tZWRpdW09c=
+mVmZXJyYWwmdXRtX3NvdXJjZT1keW5hbWlj" target=3D"_blank" rel=3D"noopener nore=
+ferrer" style=3D"color:#0875c1;display:inline-block;text-decoration:none" u=
+rl-id=3D"1869303192"><img src=3D"https://cdn.convertkit.com/assets/images/k=
+it-badge-light.png" style=3D"display:block;height:auto;line-height:100%;out=
+line:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;=
+border:0 none;width:157px;height:36px" alt=3D"Built with Kit"></a></div>
+</div>
+<!-- -->
+<img src=3D"https://1d5f44ec.open.kit-mail3.com/gkuq8x77zxu5hl45q4qcrh85986=
+roimhd08v6" alt=3D"" style=3D"border:0 none;display:block;height:auto;line-=
+height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;=
+max-width:100%">
+</body>
+</html>
+
+--bf096763e495438ff9faa7712f6cf347ff95676f78534b063358262035bc--

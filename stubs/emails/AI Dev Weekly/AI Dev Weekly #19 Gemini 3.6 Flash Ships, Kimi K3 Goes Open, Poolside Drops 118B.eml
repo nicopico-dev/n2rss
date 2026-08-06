@@ -1,0 +1,441 @@
+Return-Path: <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id Pv4oCPDdYWpxDzoAQTsBvA
+	(envelope-from <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>)
+	for <n2rss@nicopico.fr>; Thu, 23 Jul 2026 11:25:04 +0200
+Return-path: <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Thu, 23 Jul 2026 11:25:04 +0200
+Received: from o38.ck.n.convertkit.com ([149.72.39.237])
+	by smtpin1.paris1.alwaysdata.com with esmtps  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>)
+	id 1wmpfp-001ohJ-0L
+	for n2rss@nicopico.fr;
+	Thu, 23 Jul 2026 11:25:01 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aimadetools.com;
+	h=content-type:date:from:mime-version:subject:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:from:subject:to;
+	s=cka; t=1784798699;
+	bh=1rq7WRwZO3U+pBnfFxohyY8+61UV/WEKepsKJppVH7k=;
+	b=VrU5bLmTssX2SAqf1NCQdsFC9+tfcJ2tIT8yRf+0CtgMAuVgayhYs0oB9nW3PqNjyw82
+	wQEfrGzsal7D/xrBLsxdottf794Zs7zXUXQZyynXMxyx0vyjp8Sv1qw2rdccvAio/YR0/J
+	WoM9bsIIsu7aXvH+y0cmaFxeZ/WNDXA6GhCRpzUdQIuQQYJhXTvVwT41eG8p6KyklpRxSJ
+	6Mexbo6zuTAiu00WYXBU8B9TfQC+ayJ7G/TooVs7tLnvd8IaHLeAyZT5Wsd+RwXn3SQ7SV
+	/kvPnxClIUvSReUjycEAShyABBNoapByMLl+UQUAJOQmnIFiXUDjM7XJWNNe2bOw==
+Received: by recvd-f66db6c76-wht9w with SMTP id recvd-f66db6c76-wht9w-1-6A61DDEB-17
+	2026-07-23 09:24:59.588392388 +0000 UTC m=+48895.240505847
+Received: from NjA5MTYwMDE (unknown)
+	by geopod-ismtpd-98 (SG) with HTTP
+	id LFeq86yTQu-lVGzSfp7HUw
+	Thu, 23 Jul 2026 09:24:59.526 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=68af1c40237a706878481cb91b2922834be8e9fa97add047e7311d092b00
+Date: Thu, 23 Jul 2026 09:24:59 +0000 (UTC)
+From: "hello@aimadetools.com" <hello@aimadetools.com>
+Mime-Version: 1.0
+Message-ID: <xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg@kit-mail3.com>
+Subject: AI Dev Weekly #19: Gemini 3.6 Flash Ships, Kimi K3 Goes Open,
+ Poolside Drops 118B
+Feedback-ID: 22625139:2648686:broadcast:CK
+List-Unsubscribe:
+ <mailto:unsub+xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg@convertkit-mail.com>,
+ <https://1d5f44ec.unsubscribe.kit-mail3.com/xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Precedence: bulk
+X-Report-Abuse: <abuse@kit.com>
+X-Report-Spam: <abuse@kit.com>
+X-SG-EID: 
+ =?us-ascii?Q?u001=2Eq1gWFLfczFU1Sp9uGQn1E6VVEMvW4CFXhTOu+OhJPQa8N5lrGdSy2M4C8?=
+ =?us-ascii?Q?qiiQqTW8T0rbAawvNZQPkdVV0v=2F17YGPXWgbQvy?=
+ =?us-ascii?Q?U9Jel1k+S4aW2FtdkI=2FfoopYTxl+Rpy1IIEKN3a?=
+ =?us-ascii?Q?+oA3Z1uceYNttKw88ByOXquK1+b9hfa8MoFl0Zg?=
+ =?us-ascii?Q?JZAQrXE77ABmjkpCkkAiLdy+bicThJAY2uXMJAJ?=
+ =?us-ascii?Q?7Ao8nFcwfeVIl341ny9DMTPirnvF5Xp+OpFW5U3?= =?us-ascii?Q?rQSV?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprBTLquV1ImzFIrgT?=
+ =?us-ascii?Q?SaJ3+RZui7okQWMzy2J1wFi+AB=2FdaW8C04SOnAJ?=
+ =?us-ascii?Q?HPLjnwG6YXZWeMgaKXTHB6yceeKkuglZuG5Yagg?=
+ =?us-ascii?Q?=2FRo+41i=2FAvEoUzQdlnCcJlGB0P7RSm8YocBB=2FLy?=
+ =?us-ascii?Q?B8qBWiJUPfA6zlT84OOcdq=2FZXRDLlZc5++UV0DN?=
+ =?us-ascii?Q?eFJjl7kXl2wq8eZ5Tg0=2FuR5ygkLM50zSNn7O9sp?=
+ =?us-ascii?Q?3N47C4ums=2FoJeKqizz6hpgNWWtCBnrXFCX1jGSe?=
+ =?us-ascii?Q?jsRvtM8duU4Odk4JBRl5eT5IHOGIes0c7+xRCaf?=
+ =?us-ascii?Q?aOmxH1NM3HqDY0KjnDgt3V98OPLLvw0DiygQXKG?=
+ =?us-ascii?Q?bKElPD3qM+qoa0hpndxCMT6JVQFjZZqlAiVH5rO?=
+ =?us-ascii?Q?G1WxZzV8yijOfkhb1U9VXhNmqR64LjedYRI6i1n?= =?us-ascii?Q?+?=
+To: n2rss@nicopico.fr
+X-Entity-ID: u001.NKfVh/HtO0Vd66qreilE0A==
+X-alwaysdata-Spam-Report: 	2.00 PHISHING [aimadetools.com->kit-mail3.com] - Phished URL
+	0.50 FROM_DN_EQ_ADDR - From header display name is the same as the address
+	0.30 FORGED_SENDER [hello@aimadetools.com,
+ bounces@ckespa.aimadetools.com] - Sender is forged (different From: header
+ and smtp MAIL FROM: addresses)
+	0.00 TO_MATCH_ENVRCPT_ALL - All of the recipients match the envelope
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 TAGGED_FROM [60916001-e5a8-n2rss=nicopico.fr] - From address has
+ plus-tags
+	0.00 RWL_MAILSPIKE_POSSIBLE [149.72.39.237:from] - From address is listed in
+ Mailspike RWL - possibly legit
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_THREE [3] - Message has 3-5 Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PRECEDENCE_BULK - Message marked as bulk
+	0.00 MV_CASE - Mime-Version .vs. MIME-Version
+	0.00 MISSING_XM_UA - Message has neither X-Mailer nor User-Agent header
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 FROM_NEQ_ENVFROM [hello@aimadetools.com,
+ bounces@ckespa.aimadetools.com] - From address is different to the envelope
+	0.00 DKIM_TRACE [aimadetools.com:+] - DKIM trace symbol
+	0.00 DKIM_REPUTATION [0]
+	0.00 ASN [asn:11377, ipnet:149.72.32.0/19, country:US]
+	0.00 ARC_NA - ARC signature absent
+	0.00 ALIAS_RESOLVED - Address was resolved through aliases
+	-0.00 BAYES_HAM [17.17%] - Message probably ham, probability:
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 NEURAL_HAM [-1.000] - Neural network ham
+	-0.10 MX_GOOD [mx.sendgrid.net] - Domain has working MX
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.10 MIME_FROM_MX_GOOD [mx.mailprotect.be] - Domain has working MX
+	-0.20 R_SPF_ALLOW [+ip4:149.72.0.0/16] - SPF verification allows sending
+	-0.20 R_DKIM_ALLOW [aimadetools.com:s=cka] - DKIM verification succeed
+	-0.50 DMARC_POLICY_ALLOW [aimadetools.com, none] - DMARC permit policy
+	-0.53 SPF_REPUTATION_HAM [-0.52884436526153]
+	-0.64 IP_REPUTATION_HAM [asn: 11377(-0.20), country: US(-0.00),
+ ip: 149.72.39.237(-0.44)]
+X-alwaysdata-Spam-Score: 0.32
+
+--68af1c40237a706878481cb91b2922834be8e9fa97add047e7311d092b00
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+This week=E2=80=99s biggest AI dev tool stories =E2=80=94 plus what=E2=80=
+=99s new on the site.
+
+-------------------
+=F0=9F=94=A5 AI Dev Weekly #19
+-------------------
+
+Google shipped three Gemini models in one day. Kimi K3 became the largest o=
+pen-weight model ever. Poolside dropped a 118B model that beats DeepSeek V4=
+ at 14x smaller. And Alibaba banned Claude Code after finding hidden tracki=
+ng code.
+
+Five stories that matter. Here=E2=80=99s the breakdown.
+
+=F0=9F=91=89 Read the full issue ( https://1d5f44ec.click.kit-mail3.com/xmu=
+k3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg/x0hph6he5zw0p3fgul/aHR0cHM6Ly93d3cuYWltY=
+WRldG9vbHMuY29tL2Jsb2cvYWktZGV2LXdlZWtseS0wMTktZ2VtaW5pLTMtNi1mbGFzaC1raW1p=
+LWszLWdlbWluaS00Lw=3D=3D )=E2=80=8B
+
+-----------------------------------------
+=F0=9F=92=BB Gemini 3.6 Flash: Computer Use Built-In
+-----------------------------------------
+
+$1.50/$7.50. 304 tok/s. 1M context. Built-in computer use (83% OSWorld). 17=
+% fewer tokens per task. GitHub Copilot same day. Plus Flash-Lite at $0.30/=
+$2.50 (350 tok/s).
+
+* =E2=80=8BGemini 3.6 Flash Complete Guide ( https://1d5f44ec.click.kit-mai=
+l3.com/xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg/6qheh8hlmw7e50s9uk/aHR0cHM6Ly9=
+3d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvZ2VtaW5pLTMtNi1mbGFzaC1jb21wbGV0ZS1ndWlkZS=
+8=3D )=E2=80=8B
+* =E2=80=8Bvs Claude Sonnet 5 ( https://1d5f44ec.click.kit-mail3.com/xmuk3r=
+ee5ra6hpqd2vzf5h207z6mgsnh2xzrg/e0hph7h78e0olmc7u2/aHR0cHM6Ly93d3cuYWltYWRl=
+dG9vbHMuY29tL2Jsb2cvZ2VtaW5pLTMtNi1mbGFzaC12cy1jbGF1ZGUtc29ubmV0LTUv )=E2=
+=80=8B
+* =E2=80=8Bvs GPT-5.6 ( https://1d5f44ec.click.kit-mail3.com/xmuk3ree5ra6hp=
+qd2vzf5h207z6mgsnh2xzrg/7qh7h8h9r8o56qi9u6/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMu=
+Y29tL2Jsb2cvZ2VtaW5pLTMtNi1mbGFzaC12cy1ncHQtNS02Lw=3D=3D )=E2=80=8B
+
+--------------------------------------------------
+=F0=9F=A7=A0 Kimi K3: 2.8T Open-Weight, #3 Intelligence Index
+--------------------------------------------------
+
+Moonshot AI shipped the largest open-weight model ever. $3/$15 via API. Wei=
+ghts dropping July 27.
+
+* =E2=80=8BKimi K3 Complete Guide ( https://1d5f44ec.click.kit-mail3.com/xm=
+uk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg/owhkhqhw2nrd69bqur/aHR0cHM6Ly93d3cuYWlt=
+YWRldG9vbHMuY29tL2Jsb2cva2ltaS1rMy1jb21wbGV0ZS1ndWlkZS8=3D )=E2=80=8B
+
+------------------------------------------------
+=F0=9F=8F=8B=EF=B8=8F Poolside Laguna S 2.1: 118B Beats DeepSeek V4
+------------------------------------------------
+
+118B total, 8B active. Beats DeepSeek V4 Pro on Terminal-Bench. OpenMDW lic=
+ense. Runs on single 80GB GPU.
+
+* =E2=80=8BLaguna S 2.1 Complete Guide ( https://1d5f44ec.click.kit-mail3.c=
+om/xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg/z2hghnheq73xkxbzu0/aHR0cHM6Ly93d3c=
+uYWltYWRldG9vbHMuY29tL2Jsb2cvcG9vbHNpZGUtbGFndW5hLXMtMi0xLWNvbXBsZXRlLWd1aW=
+RlLw=3D=3D )=E2=80=8B
+
+---------------------------
+=F0=9F=95=B5=EF=B8=8F Alibaba Bans Claude Code
+---------------------------
+
+Security researchers found steganographic markers in Claude Code that flagg=
+ed Chinese users. Alibaba banned it company-wide. 208 points on HN.
+
+* =E2=80=8BFull Breakdown ( https://1d5f44ec.click.kit-mail3.com/xmuk3ree5r=
+a6hpqd2vzf5h207z6mgsnh2xzrg/p8heh9h4ndzo20sru3/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLWNvZGUtc3RlZ2Fub2dyYXBoeS1leHBsYWluZWQv )=E2=80=8B
+
+---------------
+=F0=9F=93=A6 New This Week
+---------------
+
+* =E2=80=8BGemini 3.5 Flash-Lite Guide ( https://1d5f44ec.click.kit-mail3.c=
+om/xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg/x0hph6he5zw0pvugul/aHR0cHM6Ly93d3c=
+uYWltYWRldG9vbHMuY29tL2Jsb2cvZ2VtaW5pLTMtNS1mbGFzaC1saXRlLWNvbXBsZXRlLWd1aW=
+RlLw=3D=3D )=E2=80=8B
+* =E2=80=8BLaguna XS 2.1 Guide ( https://1d5f44ec.click.kit-mail3.com/xmuk3=
+ree5ra6hpqd2vzf5h207z6mgsnh2xzrg/6qheh8hlmw7e5mt9uk/aHR0cHM6Ly93d3cuYWltYWR=
+ldG9vbHMuY29tL2Jsb2cvcG9vbHNpZGUtbGFndW5hLXhzLTItMS1jb21wbGV0ZS1ndWlkZS8=3D=
+ )=E2=80=8B
+
+See you next Thursday.
+
+=E2=80=8Baimadetools.com ( https://1d5f44ec.click.kit-mail3.com/xmuk3ree5ra=
+6hpqd2vzf5h207z6mgsnh2xzrg/kkhmh6hnkelv5xtku7/aHR0cHM6Ly93d3cuYWltYWRldG9vb=
+HMuY29t )=E2=80=8B
+
+=E2=80=8BUnsubscribe ( https://1d5f44ec.unsubscribe.kit-mail3.com/xmuk3ree5=
+ra6hpqd2vzf5h207z6mgsnh2xzrg ) | Update your profile ( https://preferences.=
+kit-mail3.com/xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg ) | 600 1st Ave, Ste 33=
+0 PMB 92768, Seattle, WA 98104-2246
+
+( https://1d5f44ec.click.kit-mail3.com/xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzr=
+g/58hvh7hgr0m2n4t7u4/aHR0cHM6Ly9idWlsdHdpdGgua2l0LW1haWwzLmNvbT91dG1fY2FtcG=
+FpZ249cG93ZXJlZGJ5JnV0bV9jb250ZW50PWVtYWlsJnV0bV9tZWRpdW09cmVmZXJyYWwmdXRtX=
+3NvdXJjZT1keW5hbWlj )
+--68af1c40237a706878481cb91b2922834be8e9fa97add047e7311d092b00
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>.ck-link { text-decoration: underline; }</style>
+<style>.ck-link { text-decoration: underline; }</style>
+<style>@media only screen { .email * { word-break: break-word; } }
+@media screen and (max-width: 384px) { .mail-message-content { width: 414px=
+ !important; } }
+@media only screen { .email * { word-break: break-word; } }
+@media screen and (max-width: 384px) { .mail-message-content { width: 414px=
+ !important; } }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }</style>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+</head>
+<body style=3D"margin:0;padding:0;-webkit-font-smoothing:antialiased;-ms-te=
+xt-size-adjust:100%;-webkit-text-size-adjust:100%">
+<div class=3D"email" style=3D"margin-left:18px;margin-right:18px">
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:separat=
+e;mso-table-lspace:0pt;mso-table-rspace:0pt;width:100%;margin:0 auto"><tbod=
+y><tr><td style=3D"vertical-align:top">
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">This week=E2=80=99s big=
+gest AI dev tool stories =E2=80=94 plus what=E2=80=99s new on the site.</p>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=94=A5 AI Dev Weekly #19</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Google shipped three Ge=
+mini models in one day. Kimi K3 became the largest open-weight model ever. =
+Poolside dropped a 118B model that beats DeepSeek V4 at 14x smaller. And Al=
+ibaba banned Claude Code after finding hidden tracking code.</p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Five stories that matte=
+r. Here=E2=80=99s the breakdown.</p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">=F0=9F=91=89 <a href=3D=
+"https://1d5f44ec.click.kit-mail3.com/xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg=
+/x0hph6he5zw0p3fgul/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvYWktZGV2LXd=
+lZWtseS0wMTktZ2VtaW5pLTMtNi1mbGFzaC1raW1pLWszLWdlbWluaS00Lw=3D=3D" target=
+=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0=
+875c1" url-id=3D"1872331835">Read the full issue</a>=E2=80=8B</p>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=92=BB Gemini 3.6 Flash: Compute=
+r Use Built-In</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">$1.50/$7.50. 304 tok/s.=
+ 1M context. Built-in computer use (83% OSWorld). 17% fewer tokens per task=
+. GitHub Copilot same day. Plus Flash-Lite at $0.30/$2.50 (350 tok/s).</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/xmuk3ree5r=
+a6hpqd2vzf5h207z6mgsnh2xzrg/6qheh8hlmw7e50s9uk/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvZ2VtaW5pLTMtNi1mbGFzaC1jb21wbGV0ZS1ndWlkZS8=3D" target=3D"_=
+blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1=
+" url-id=3D"1872331836">Gemini 3.6 Flash Complete Guide</a>=E2=80=8B</span>=
+</li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/xmuk3ree5r=
+a6hpqd2vzf5h207z6mgsnh2xzrg/e0hph7h78e0olmc7u2/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvZ2VtaW5pLTMtNi1mbGFzaC12cy1jbGF1ZGUtc29ubmV0LTUv" target=3D=
+"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875=
+c1" url-id=3D"1872331837">vs Claude Sonnet 5</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/xmuk3ree5r=
+a6hpqd2vzf5h207z6mgsnh2xzrg/7qh7h8h9r8o56qi9u6/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvZ2VtaW5pLTMtNi1mbGFzaC12cy1ncHQtNS02Lw=3D=3D" target=3D"_bl=
+ank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" =
+url-id=3D"1872331838">vs GPT-5.6</a>=E2=80=8B</span></li>
+</ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=A7=A0 Kimi K3: 2.8T Open-Weight=
+, #3 Intelligence Index</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Moonshot AI shipped the=
+ largest open-weight model ever. $3/$15 via API. Weights dropping July 27.<=
+/p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important"><li class=3D"list_=
+item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em"><span>=E2=80=8B<=
+a href=3D"https://1d5f44ec.click.kit-mail3.com/xmuk3ree5ra6hpqd2vzf5h207z6m=
+gsnh2xzrg/owhkhqhw2nrd69bqur/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cva2=
+ltaS1rMy1jb21wbGV0ZS1ndWlkZS8=3D" target=3D"_blank" class=3D"ck-link" rel=
+=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=3D"1872331839">Kimi=
+ K3 Complete Guide</a>=E2=80=8B</span></li></ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=8F=8B=EF=B8=8F Poolside Laguna =
+S 2.1: 118B Beats DeepSeek V4</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">118B total, 8B active. =
+Beats DeepSeek V4 Pro on Terminal-Bench. OpenMDW license. Runs on single 80=
+GB GPU.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important"><li class=3D"list_=
+item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em"><span>=E2=80=8B<=
+a href=3D"https://1d5f44ec.click.kit-mail3.com/xmuk3ree5ra6hpqd2vzf5h207z6m=
+gsnh2xzrg/z2hghnheq73xkxbzu0/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvcG=
+9vbHNpZGUtbGFndW5hLXMtMi0xLWNvbXBsZXRlLWd1aWRlLw=3D=3D" target=3D"_blank" c=
+lass=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1872331840">Laguna S 2.1 Complete Guide</a>=E2=80=8B</span></li></ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=95=B5=EF=B8=8F Alibaba Bans Cla=
+ude Code</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Security researchers fo=
+und steganographic markers in Claude Code that flagged Chinese users. Aliba=
+ba banned it company-wide. 208 points on HN.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important"><li class=3D"list_=
+item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em"><span>=E2=80=8B<=
+a href=3D"https://1d5f44ec.click.kit-mail3.com/xmuk3ree5ra6hpqd2vzf5h207z6m=
+gsnh2xzrg/p8heh9h4ndzo20sru3/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvY2=
+xhdWRlLWNvZGUtc3RlZ2Fub2dyYXBoeS1leHBsYWluZWQv" target=3D"_blank" class=3D"=
+ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=3D"1872=
+331841">Full Breakdown</a>=E2=80=8B</span></li></ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=93=A6 New This Week</h2>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/xmuk3ree5r=
+a6hpqd2vzf5h207z6mgsnh2xzrg/x0hph6he5zw0pvugul/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvZ2VtaW5pLTMtNS1mbGFzaC1saXRlLWNvbXBsZXRlLWd1aWRlLw=3D=3D" t=
+arget=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"col=
+or:#0875c1" url-id=3D"1872331842">Gemini 3.5 Flash-Lite Guide</a>=E2=80=8B<=
+/span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/xmuk3ree5r=
+a6hpqd2vzf5h207z6mgsnh2xzrg/6qheh8hlmw7e5mt9uk/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvcG9vbHNpZGUtbGFndW5hLXhzLTItMS1jb21wbGV0ZS1ndWlkZS8=3D" tar=
+get=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color=
+:#0875c1" url-id=3D"1872331843">Laguna XS 2.1 Guide</a>=E2=80=8B</span></li=
+>
+</ul>
+<hr>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">See you next Thursday.<=
+/p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">=E2=80=8B<a href=3D"htt=
+ps://1d5f44ec.click.kit-mail3.com/xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg/kkh=
+mh6hnkelv5xtku7/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29t" target=3D"_blank" cla=
+ss=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1872331844">aimadetools.com</a>=E2=80=8B</p>
+</td></tr></tbody></table>
+<div class=3D"email-footer"><table cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;wid=
+th:100%;margin:0 auto"><tbody><tr><td style=3D"vertical-align:top"><p style=
+=3D"margin:1em 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ro=
+boto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f=
+;font-size:16px;line-height:1.5;text-align:left;font-size:12px" class=3D"">=
+=E2=80=8B<a href=3D"https://1d5f44ec.unsubscribe.kit-mail3.com/xmuk3ree5ra6=
+hpqd2vzf5h207z6mgsnh2xzrg" target=3D"_blank" class=3D"ck-link" rel=3D"noope=
+ner noreferrer" style=3D"color:#0875c1"><span style=3D"font-size:12">Unsubs=
+cribe</span></a><span style=3D"font-size:12"> | </span><a href=3D"https://p=
+references.kit-mail3.com/xmuk3ree5ra6hpqd2vzf5h207z6mgsnh2xzrg" target=3D"_=
+blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1=
+"><span style=3D"font-size:12">Update your profile</span></a><span style=3D=
+"font-size:12"> | 600 1st Ave, Ste 330 PMB 92768, Seattle, WA 98104-2246</s=
+pan></p></td></tr></tbody></table></div>
+<div class=3D"built-with" style=3D"display:block;text-align:left;margin-top=
+:30px"><a href=3D"https://1d5f44ec.click.kit-mail3.com/xmuk3ree5ra6hpqd2vzf=
+5h207z6mgsnh2xzrg/58hvh7hgr0m2n4t7u4/aHR0cHM6Ly9idWlsdHdpdGgua2l0LW1haWwzLm=
+NvbT91dG1fY2FtcGFpZ249cG93ZXJlZGJ5JnV0bV9jb250ZW50PWVtYWlsJnV0bV9tZWRpdW09c=
+mVmZXJyYWwmdXRtX3NvdXJjZT1keW5hbWlj" target=3D"_blank" rel=3D"noopener nore=
+ferrer" style=3D"color:#0875c1;display:inline-block;text-decoration:none" u=
+rl-id=3D"1872331845"><img src=3D"https://cdn.convertkit.com/assets/images/k=
+it-badge-light.png" style=3D"display:block;height:auto;line-height:100%;out=
+line:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;=
+border:0 none;width:157px;height:36px" alt=3D"Built with Kit"></a></div>
+</div>
+<!-- -->
+<img src=3D"https://1d5f44ec.open.kit-mail3.com/xmuk3ree5ra6hpqd2vzf5h207z6=
+mgsnh2xzrg" alt=3D"" style=3D"border:0 none;display:block;height:auto;line-=
+height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;=
+max-width:100%">
+</body>
+</html>
+
+--68af1c40237a706878481cb91b2922834be8e9fa97add047e7311d092b00--
