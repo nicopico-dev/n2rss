@@ -42,6 +42,12 @@ Create a reproduction/validation test.
 - **Base Class**: Extend `BaseNewsletterHandlerTest<T>`.
 - **Test Strategy**: Use `loadEmail` to load samples and verify extracted articles (titles, links, descriptions).
 
+By extending `BaseNewsletterHandlerTest`, you automatically get:
+
+- Verification that all your stubs are handled by `canHandle`.
+- Verification that no other newsletter stubs are accidentally handled.
+- Basic sanity check that article extraction returns at least one article for each stub.
+
 ### 4. Full Implementation
 
 - Use `Jsoup.clean()` with a `Safelist` to simplify the HTML.
@@ -54,10 +60,47 @@ Create a reproduction/validation test.
 
 Always prefer robust CSS selectors. Print the cleaned HTML during development to find the best selectors.
 
+- **Avoid positional selectors**: Discourage `:nth-child()` or deeply nested paths (e.g.,
+  `div > div > table > tr > td`).
+- **Prefer attribute selectors**: Use `a[href*="article"]` or `[style*="font-weight:bold"]` if classes are unreliable.
+- **Text-based selection**: Jsoup allows selecting by text content (e.g., `:contains(Read more)`) which can be very
+  stable.
+
 ```kotlin
 val cleanedHtml = Jsoup.clean(email.content.html, Safelist.none().addTags("a", "span", "p").addAttributes("a", "href"))
 val document = Jsoup.parseBodyFragment(cleanedHtml)
 ```
+
+### Data Extraction Helpers
+
+For complex newsletters, especially those with multiple feeds, extract a private helper method to parse individual
+articles. This keeps your logic DRY and maintainable.
+
+```kotlin
+private fun Element.parseArticle(): Article {
+    return Article(
+        title = select("[title-selector]").text().cleanText(),
+        link = select("[link-selector]").attr("href").toUrlOrNull()
+            ?: throw NewsletterParsingException("No valid link for article"),
+        description = select("[description-selector]").text().cleanText()
+    )
+}
+
+private fun String.cleanText(): String = this.trim().replace("\u00A0", " ")
+```
+
+### Handling Optional or Missing Data
+
+Newsletters can be inconsistent. Handle missing data gracefully:
+
+- Use `?.text() ?: ""` for optional fields.
+- Filter out elements that don't meet a "minimum data" threshold (e.g., must have a title and a link).
+- Throw `NewsletterParsingException` only for truly critical missing information.
+
+### Cleaning Extracted Text
+
+Even after `Jsoup.clean`, elements often contain excessive whitespace or non-breaking spaces (`&nbsp;`). Always
+`.trim()` and `.replace("\u00A0", " ")` on extracted text to ensure clean RSS feeds.
 
 ### URL Conversion
 
@@ -71,7 +114,8 @@ Throw `NewsletterParsingException` if critical data (like a link) is missing.
 
 - See `assets/SingleFeedHandler.kt` for a single feed newsletter.
 - See `assets/MultipleFeedsHandler.kt` for newsletters with categories.
-- See `assets/HandlerTest.kt` for the test class structure.
+- See `assets/HandlerTest.kt` for the single feed test class structure.
+- See `assets/MultipleFeedsHandlerTest.kt` for the multiple feeds test class structure.
 
 ## Checklist
 
