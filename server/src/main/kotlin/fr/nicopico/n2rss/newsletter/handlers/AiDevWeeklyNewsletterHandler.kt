@@ -54,7 +54,7 @@ class AiDevWeeklyNewsletterHandler : NewsletterHandlerSingleFeed {
         )
         val document = Jsoup.parseBodyFragment(cleanedHtml)
 
-        val fallbackLink = document.select("a:contains(Read the full issue)")
+        val fallbackLink = document.select("a:contains($FULL_ISSUE_LINK_TEXT)")
             .firstOrNull()
             ?.attr("href")
             ?.toUrlOrNull()
@@ -96,7 +96,7 @@ class AiDevWeeklyNewsletterHandler : NewsletterHandlerSingleFeed {
 
                         // The description is the first paragraph of the section
                         val description = sectionDocument.select("p")
-                            .firstOrNull { it.select("a:contains(Read the full issue)").isEmpty() }
+                            .firstOrNull { it.select("a:contains($FULL_ISSUE_LINK_TEXT)").isEmpty() }
                             ?.text()
                             ?.cleanText()
                             ?: ""
@@ -116,6 +116,7 @@ class AiDevWeeklyNewsletterHandler : NewsletterHandlerSingleFeed {
     private fun String.cleanText(): String = this.trim().replace("\u00A0", " ")
 
     companion object {
+        private const val FULL_ISSUE_LINK_TEXT = "Read the full issue"
         private const val NEW_THIS_WEEK_TITLE = "New This Week"
         private const val COMING_NEXT_WEEK_TITLE = "Coming Next Week"
     }
