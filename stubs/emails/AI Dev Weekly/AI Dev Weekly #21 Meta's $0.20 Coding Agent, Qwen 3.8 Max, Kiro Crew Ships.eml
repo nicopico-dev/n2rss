@@ -1,0 +1,552 @@
+Return-Path: <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id l89HIEtsdGqaEhkAQTsBvA
+	(envelope-from <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>)
+	for <n2rss@nicopico.fr>; Thu, 06 Aug 2026 13:13:15 +0200
+Return-path: <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Thu, 06 Aug 2026 13:13:15 +0200
+Received: from o30.ck.m.convertkit.com ([149.72.176.45])
+	by smtpin1.paris1.alwaysdata.com with esmtps  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>)
+	id 1wrw2C-00Dm5j-1p
+	for n2rss@nicopico.fr;
+	Thu, 06 Aug 2026 13:13:13 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aimadetools.com;
+	h=content-type:date:from:mime-version:subject:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:from:subject:to;
+	s=cka; t=1786014790;
+	bh=FgNjz1fwrPkalUNC9dp3OumnsohHPEtOylhO4Tj5H3o=;
+	b=C+jub729H1kPcfHROEU8BX89HtkRmO0wgZScvoQIlJ84OUDHtTPdK8R5ANJywQDfzPRK
+	Qz77lTGEE/S7tgsZvLImAtTiIRRGZFqobcRiyElSsWbTX/NYjT7l02MguVqIGDUiiLh8Jo
+	70LpM3OHcRqmejl5MpkaHY8CvjzDNprjsUqKpRi5c10Ie9jYLZu3flFHpX2mNwB31O7JnY
+	0/naqsHvqK6BLFRAvuZBs74nu3W5BQ9MtRNeOlqrgGI7PIOvFS++WnKaZbi6zmI6OSas9P
+	nxcKMI/JZm489k4gX61b5yLqZ7k+PGPA+DH1CEoa8vhQQ/zd4KvkQUtEJ9VCA0YA==
+Received: by recvd-85bbc79758-w2x57 with SMTP id recvd-85bbc79758-w2x57-1-6A746C46-2
+	2026-08-06 11:13:09.993229149 +0000 UTC m=+750006.439498364
+Received: from NjA5MTYwMDE (unknown)
+	by geopod-ismtpd-8 (SG) with HTTP
+	id nHeTk5qHT86FQmSH3RKFFg
+	Thu, 06 Aug 2026 11:13:09.946 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=709b24e55c7be4a86da734dc9f6a9a73486df8511a14bd682550a64376cc
+Date: Thu, 06 Aug 2026 11:13:10 +0000 (UTC)
+From: "hello@aimadetools.com" <hello@aimadetools.com>
+Mime-Version: 1.0
+Message-ID: <5qupro55noa7hn68moru6h9rxko5zhnhgv7l8@kit-mail3.com>
+Subject: AI Dev Weekly #21: Meta's $0.20 Coding Agent, Qwen 3.8 Max, Kiro Crew
+ Ships
+Feedback-ID: 22800499:2648686:broadcast:CK
+List-Unsubscribe:
+ <mailto:unsub+5qupro55noa7hn68moru6h9rxko5zhnhgv7l8@convertkit-mail.com>,
+ <https://1d5f44ec.unsubscribe.kit-mail3.com/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Precedence: bulk
+X-Report-Abuse: <abuse@kit.com>
+X-Report-Spam: <abuse@kit.com>
+X-SG-EID: 
+ =?us-ascii?Q?u001=2Eq1gWFLfczFU1Sp9uGQn1E6VVEMvW4CFXhTOu+OhJPQa8N5lrGdSy2M4C8?=
+ =?us-ascii?Q?qiiQqTW8T0rbAawvNZQPkdVV0v=2F12la9+nYqnHT?=
+ =?us-ascii?Q?VqCJnJ3xghL1iN9cdpHKuTdnzLF0G91WP=2Fcxlz6?=
+ =?us-ascii?Q?Y2Z5LZ0OCsuaSSRrwIJw5eMuua+q3qvH5tkXGYS?=
+ =?us-ascii?Q?P0gPamfh1=2F9yOdQME3teO3YzPKFHw+gWpqme9MS?=
+ =?us-ascii?Q?cBOU3Zgw7IQWtObMVcIKswHnL8mJfo=2FRuMbC25R?= =?us-ascii?Q?sMJj?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprBTLquV1ImzFIrgT?=
+ =?us-ascii?Q?SaJ3+RZuNDQ4YUWYKgbUEnE8Y2ka0V2EHUgAGOx?=
+ =?us-ascii?Q?ftlwrLwNJomht5CtW8xfhQuxfPZ0hJVc87qMnVi?=
+ =?us-ascii?Q?JoWw98nkcEUadDTUqtZ177hoWD9qKNBYo9vhMnF?=
+ =?us-ascii?Q?hwokO+Su4ewt=2F3gz6lXYks9zRQJ686eNfvKFTlZ?=
+ =?us-ascii?Q?IvF7dUsnPJMqu25lWOhzX4wWSo8clBLHbo1fCDa?=
+ =?us-ascii?Q?il712Tp3nX9LWsJij0gLTr+quS8hkQs0vuMycox?=
+ =?us-ascii?Q?9z4e7f6AmHKboTLv3rf=2F8ZIknnXbW5BoKcEvs=2Fq?=
+ =?us-ascii?Q?n9=2FJfbrIanxoS8Uy4n4AApubRRLqHxWcWfn4yBW?=
+ =?us-ascii?Q?nYWqrmnCFHuZRCfUGinrrxNNbbJ6s6xZgx4jU1L?=
+ =?us-ascii?Q?J64gjkGlfPSoZ7HLXAw2LDvS=2FvhmOA7CekB2xUC?= =?us-ascii?Q?j?=
+To: n2rss@nicopico.fr
+X-Entity-ID: u001.NKfVh/HtO0Vd66qreilE0A==
+X-alwaysdata-Spam-Report: 	2.00 RBL_SPAMCOP [149.72.176.45:from]
+	1.00 SUBJECT_HAS_CURRENCY - Subject contains currency
+	0.50 FROM_DN_EQ_ADDR - From header display name is the same as the address
+	0.30 FORGED_SENDER [hello@aimadetools.com,
+ bounces@ckespa.aimadetools.com] - Sender is forged (different From: header
+ and smtp MAIL FROM: addresses)
+	0.10 BAD_REP_POLICIES - Contains valid policies but are also marked by
+ fuzzy/bayes/SURBL/RBL
+	0.00 TO_MATCH_ENVRCPT_ALL - All of the recipients match the envelope
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 TAGGED_FROM [60916001-e5a8-n2rss=nicopico.fr] - From address has
+ plus-tags
+	0.00 R_SPF_ALLOW [+ip4:149.72.0.0/16] - SPF verification allows sending
+	0.00 R_DKIM_ALLOW [aimadetools.com:s=cka] - DKIM verification succeed
+	0.00 RWL_MAILSPIKE_POSSIBLE [149.72.176.45:from] - From address is listed in
+ Mailspike RWL - possibly legit
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_THREE [3] - Message has 3-5 Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PRECEDENCE_BULK - Message marked as bulk
+	0.00 MV_CASE - Mime-Version .vs. MIME-Version
+	0.00 MISSING_XM_UA - Message has neither X-Mailer nor User-Agent header
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 FROM_NEQ_ENVFROM [hello@aimadetools.com,
+ bounces@ckespa.aimadetools.com] - From address is different to the envelope
+	0.00 DMARC_POLICY_ALLOW [aimadetools.com, none] - DMARC permit policy
+	0.00 DKIM_TRACE [aimadetools.com:+] - DKIM trace symbol
+	0.00 DKIM_REPUTATION [0]
+	0.00 ASN [asn:11377, ipnet:149.72.160.0/19, country:US]
+	0.00 ARC_NA - ARC signature absent
+	0.00 ALIAS_RESOLVED - Address was resolved through aliases
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 NEURAL_HAM [-1.000] - Neural network ham
+	-0.10 MX_GOOD [mx.sendgrid.net] - Domain has working MX
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.10 MIME_FROM_MX_GOOD [mx.mailprotect.be] - Domain has working MX
+	-0.75 IP_REPUTATION_HAM [asn: 11377(-0.21), country: US(-0.00),
+ ip: 149.72.176.45(-0.54)]
+X-alwaysdata-Spam-Score: 2.74
+
+--709b24e55c7be4a86da734dc9f6a9a73486df8511a14bd682550a64376cc
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+This week=E2=80=99s biggest AI dev tool stories =E2=80=94 plus what=E2=80=
+=99s new on the site.
+
+-------------------
+=F0=9F=94=A5 AI Dev Weekly #21
+-------------------
+
+Meta launched a $0.20/M terminal coding agent (if you share your data). Ali=
+baba dropped a 2.4T model claiming Vision Arena #2. AWS open-sourced a pers=
+istent agent workspace used by 39K internal builders. And the pricing floor=
+ fell twice.
+
+Four stories that matter.
+
+=F0=9F=91=89 Read the full issue ( https://1d5f44ec.click.kit-mail3.com/5qu=
+pro55noa7hn68moru6h9rxko5zhnhgv7l8/dpheh0helvmnp5ilu4/aHR0cHM6Ly93d3cuYWltY=
+WRldG9vbHMuY29tL2Jsb2cvYWktZGV2LXdlZWtseS0wMjEtbXVzZS1jb2RlLXF3ZW4tMzgta2ly=
+by1jcmV3Lw=3D=3D )=E2=80=8B
+
+----------------------------------------
+=F0=9F=A4=96 Meta Muse Code: $0.20 Coding at a Cost
+----------------------------------------
+
+Terminal coding agent. Contributor tier: $0.10/$0.20 (Meta trains on your c=
+ode). Standard: $2/$4.25 (private). 82.9% Terminal-Bench. Beta on macOS/Lin=
+ux.
+
+The privacy tradeoff is the story. 21x cheaper if you hand over your data.
+
+* =E2=80=8BMuse Code Complete Guide ( https://1d5f44ec.click.kit-mail3.com/=
+5qupro55noa7hn68moru6h9rxko5zhnhgv7l8/e0hph7h7862or5f7u2/aHR0cHM6Ly93d3cuYW=
+ltYWRldG9vbHMuY29tL2Jsb2cvbXVzZS1jb2RlLWNvbXBsZXRlLWd1aWRlLw=3D=3D )=E2=80=
+=8B
+* =E2=80=8Bvs Claude Code vs Kiro Crew ( https://1d5f44ec.click.kit-mail3.c=
+om/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8/7qh7h8h9rqm5ndt9u6/aHR0cHM6Ly93d3c=
+uYWltYWRldG9vbHMuY29tL2Jsb2cvbXVzZS1jb2RlLXZzLWNsYXVkZS1jb2RlLXZzLWtpcm8tY3=
+Jldy8=3D )=E2=80=8B
+* =E2=80=8BMuse Spark 1.2 vs 1.1 ( https://1d5f44ec.click.kit-mail3.com/5qu=
+pro55noa7hn68moru6h9rxko5zhnhgv7l8/owhkhqhw2p7dqpcqur/aHR0cHM6Ly93d3cuYWltY=
+WRldG9vbHMuY29tL2Jsb2cvbXVzZS1zcGFyay0xLTItdnMtMS0xLw=3D=3D )=E2=80=8B
+* =E2=80=8Bvs Claude Sonnet 5 ( https://1d5f44ec.click.kit-mail3.com/5qupro=
+55noa7hn68moru6h9rxko5zhnhgv7l8/z2hghnheqn8xl6szu0/aHR0cHM6Ly93d3cuYWltYWRl=
+dG9vbHMuY29tL2Jsb2cvbXVzZS1zcGFyay0xLTItdnMtY2xhdWRlLXNvbm5ldC01Lw=3D=3D )=
+=E2=80=8B
+
+-------------------------------------------
+=F0=9F=9A=80 Qwen 3.8 Max: 2.4T Parameters, But Verify
+-------------------------------------------
+
+Alibaba=E2=80=99s biggest model ever. 95B active params, Vision Arena #2, 1=
+6-day autonomous coding. Open weights =E2=80=9Cnext week.=E2=80=9D But no i=
+ndependent benchmarks yet.
+
+Wait for verification before making decisions.
+
+* =E2=80=8BComplete Guide ( https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/p8heh9h4nmloqosru3/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvcXdlbi0zLTgtbWF4LWNvbXBsZXRlLWd1aWRlLw=3D=3D )=E2=80=8B
+* =E2=80=8Bvs GPT-5.6 Sol ( https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/e0hph7h7862or8u7u2/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvcXdlbi0zLTgtbWF4LXZzLWdwdC01LTYtc29sLw=3D=3D )=E2=80=8B
+* =E2=80=8Bvs Kimi K3 ( https://1d5f44ec.click.kit-mail3.com/5qupro55noa7hn=
+68moru6h9rxko5zhnhgv7l8/7qh7h8h9rqm5nni9u6/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMu=
+Y29tL2Jsb2cvcXdlbi0zLTgtbWF4LXZzLWtpbWktazMv )=E2=80=8B
+
+----------------------------------------------
+=F0=9F=8F=97=EF=B8=8F Kiro Crew: Agents That Work While You Sleep
+----------------------------------------------
+
+AWS open-sourced their internal agent orchestrator. Cron triggers, webhook =
+automation, multi-agent coordination, purpose-built Apps. Originally =E2=80=
+=9CMeshClaw=E2=80=9D with 39K Amazon builders.
+
+Not a coding assistant. A coding teammate that never clocks out.
+
+* =E2=80=8BKiro Crew Complete Guide ( https://1d5f44ec.click.kit-mail3.com/=
+5qupro55noa7hn68moru6h9rxko5zhnhgv7l8/owhkhqhw2p7dq0fqur/aHR0cHM6Ly93d3cuYW=
+ltYWRldG9vbHMuY29tL2Jsb2cva2lyby1jcmV3LWNvbXBsZXRlLWd1aWRlLw=3D=3D )=E2=80=
+=8B
+* =E2=80=8Bvs Hermes Agent ( https://1d5f44ec.click.kit-mail3.com/5qupro55n=
+oa7hn68moru6h9rxko5zhnhgv7l8/z2hghnheqn8xlztzu0/aHR0cHM6Ly93d3cuYWltYWRldG9=
+vbHMuY29tL2Jsb2cva2lyby1jcmV3LXZzLWhlcm1lcy1hZ2VudC8=3D )=E2=80=8B
+* =E2=80=8BHermes Agent Guide ( https://1d5f44ec.click.kit-mail3.com/5qupro=
+55noa7hn68moru6h9rxko5zhnhgv7l8/p8heh9h4nmloqvtru3/aHR0cHM6Ly93d3cuYWltYWRl=
+dG9vbHMuY29tL2Jsb2cvaGVybWVzLWFnZW50LWNvbXBsZXRlLWd1aWRlLw=3D=3D )=E2=80=8B
+
+-----------------------------
+=F0=9F=92=B0 The Pricing Floor This Week
+-----------------------------
+
+Luna=E2=80=99s 80% cut (Jul 30) + Meta=E2=80=99s contributor tier (Aug 5) =
+=3D capable AI coding for under $0.25/M output. The =E2=80=9Cis AI too expe=
+nsive?=E2=80=9D era is over.
+
+* =E2=80=8BFull Pricing Comparison ( https://1d5f44ec.click.kit-mail3.com/5=
+qupro55noa7hn68moru6h9rxko5zhnhgv7l8/x0hph6he5ol048sgul/aHR0cHM6Ly93d3cuYWl=
+tYWRldG9vbHMuY29tL2Jsb2cvYWktYXBpLXByaWNpbmctY29tcGFyZWQtMjAyNi8=3D )=E2=80=
+=8B
+* =E2=80=8BGPT-5.6 Price Drop Analysis ( https://1d5f44ec.click.kit-mail3.c=
+om/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8/6qheh8hlmzde3ka9uk/aHR0cHM6Ly93d3c=
+uYWltYWRldG9vbHMuY29tL2Jsb2cvZ3B0LTUtNi1wcmljZS1kcm9wLWp1bHktMjAyNi8=3D )=
+=E2=80=8B
+
+---------------
+=F0=9F=93=A6 New This Week
+---------------
+
+* =E2=80=8BMuse Code vs Claude Code vs Kiro Crew ( https://1d5f44ec.click.k=
+it-mail3.com/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8/7qh7h8h9rqm5ndt9u6/aHR0c=
+HM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvbXVzZS1jb2RlLXZzLWNsYXVkZS1jb2RlLXZz=
+LWtpcm8tY3Jldy8=3D )=E2=80=8B
+* =E2=80=8BHermes Agent vs CrewAI vs AutoGen ( https://1d5f44ec.click.kit-m=
+ail3.com/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8/kkhmh6hnkr3vo5hku7/aHR0cHM6L=
+y93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvaGVybWVzLWFnZW50LXZzLWNyZXdhaS12cy1hdXRv=
+Z2VuLw=3D=3D )=E2=80=8B
+* =E2=80=8BKiro Crew vs Hermes Agent ( https://1d5f44ec.click.kit-mail3.com=
+/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8/z2hghnheqn8xlztzu0/aHR0cHM6Ly93d3cuY=
+WltYWRldG9vbHMuY29tL2Jsb2cva2lyby1jcmV3LXZzLWhlcm1lcy1hZ2VudC8=3D )=E2=80=
+=8B
+* =E2=80=8BHow to Run Hermes Agent Locally ( https://1d5f44ec.click.kit-mai=
+l3.com/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8/58hvh7hgrqz240i7u4/aHR0cHM6Ly9=
+3d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvaG93LXRvLXJ1bi1oZXJtZXMtYWdlbnQtbG9jYWxseS=
+8=3D )=E2=80=8B
+* =E2=80=8BMuse Spark 1.2 vs Claude Sonnet 5 ( https://1d5f44ec.click.kit-m=
+ail3.com/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8/z2hghnheqn8xl6szu0/aHR0cHM6L=
+y93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvbXVzZS1zcGFyay0xLTItdnMtY2xhdWRlLXNvbm5l=
+dC01Lw=3D=3D )=E2=80=8B
+
+See you next Thursday.
+
+AI Made Tools
+
+=E2=80=8BUnsubscribe ( https://1d5f44ec.unsubscribe.kit-mail3.com/5qupro55n=
+oa7hn68moru6h9rxko5zhnhgv7l8 ) | Update your profile ( https://preferences.=
+kit-mail3.com/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8 ) | 600 1st Ave, Ste 33=
+0 PMB 92768, Seattle, WA 98104-2246
+
+( https://1d5f44ec.click.kit-mail3.com/5qupro55noa7hn68moru6h9rxko5zhnhgv7l=
+8/25h2hoh3k6ewq0t8u4/aHR0cHM6Ly9idWlsdHdpdGgua2l0LW1haWwzLmNvbT91dG1fY2FtcG=
+FpZ249cG93ZXJlZGJ5JnV0bV9jb250ZW50PWVtYWlsJnV0bV9tZWRpdW09cmVmZXJyYWwmdXRtX=
+3NvdXJjZT1keW5hbWlj )
+--709b24e55c7be4a86da734dc9f6a9a73486df8511a14bd682550a64376cc
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>.ck-link { text-decoration: underline; }</style>
+<style>.ck-link { text-decoration: underline; }</style>
+<style>@media only screen { .email * { word-break: break-word; } }
+@media screen and (max-width: 384px) { .mail-message-content { width: 414px=
+ !important; } }
+@media only screen { .email * { word-break: break-word; } }
+@media screen and (max-width: 384px) { .mail-message-content { width: 414px=
+ !important; } }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }</style>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+</head>
+<body style=3D"margin:0;padding:0;-webkit-font-smoothing:antialiased;-ms-te=
+xt-size-adjust:100%;-webkit-text-size-adjust:100%">
+<div class=3D"email" style=3D"margin-left:18px;margin-right:18px">
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:separat=
+e;mso-table-lspace:0pt;mso-table-rspace:0pt;width:100%;margin:0 auto"><tbod=
+y><tr><td style=3D"vertical-align:top">
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">This week=E2=80=99s big=
+gest AI dev tool stories =E2=80=94 plus what=E2=80=99s new on the site.</p>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=94=A5 AI Dev Weekly #21</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Meta launched a $0.20/M=
+ terminal coding agent (if you share your data). Alibaba dropped a 2.4T mod=
+el claiming Vision Arena #2. AWS open-sourced a persistent agent workspace =
+used by 39K internal builders. And the pricing floor fell twice.</p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Four stories that matte=
+r.</p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">=F0=9F=91=89 <a href=3D=
+"https://1d5f44ec.click.kit-mail3.com/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8=
+/dpheh0helvmnp5ilu4/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvYWktZGV2LXd=
+lZWtseS0wMjEtbXVzZS1jb2RlLXF3ZW4tMzgta2lyby1jcmV3Lw=3D=3D" target=3D"_blank=
+" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url=
+-id=3D"1875940331">Read the full issue</a>=E2=80=8B</p>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=A4=96 Meta Muse Code: $0.20 Cod=
+ing at a Cost</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Terminal coding agent. =
+Contributor tier: $0.10/$0.20 (Meta trains on your code). Standard: $2/$4.2=
+5 (private). 82.9% Terminal-Bench. Beta on macOS/Linux.</p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">The privacy tradeoff is=
+ the story. 21x cheaper if you hand over your data.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/e0hph7h7862or5f7u2/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvbXVzZS1jb2RlLWNvbXBsZXRlLWd1aWRlLw=3D=3D" target=3D"_blank"=
+ class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-=
+id=3D"1875940332">Muse Code Complete Guide</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/7qh7h8h9rqm5ndt9u6/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvbXVzZS1jb2RlLXZzLWNsYXVkZS1jb2RlLXZzLWtpcm8tY3Jldy8=3D" tar=
+get=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color=
+:#0875c1" url-id=3D"1875940333">vs Claude Code vs Kiro Crew</a>=E2=80=8B</s=
+pan></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/owhkhqhw2p7dqpcqur/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvbXVzZS1zcGFyay0xLTItdnMtMS0xLw=3D=3D" target=3D"_blank" cla=
+ss=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1875940334">Muse Spark 1.2 vs 1.1</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/z2hghnheqn8xl6szu0/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvbXVzZS1zcGFyay0xLTItdnMtY2xhdWRlLXNvbm5ldC01Lw=3D=3D" targe=
+t=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#=
+0875c1" url-id=3D"1875940335">vs Claude Sonnet 5</a>=E2=80=8B</span></li>
+</ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=9A=80 Qwen 3.8 Max: 2.4T Parame=
+ters, But Verify</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Alibaba=E2=80=99s bigge=
+st model ever. 95B active params, Vision Arena #2, 16-day autonomous coding=
+. Open weights =E2=80=9Cnext week.=E2=80=9D But no independent benchmarks y=
+et.</p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Wait for verification b=
+efore making decisions.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/p8heh9h4nmloqosru3/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvcXdlbi0zLTgtbWF4LWNvbXBsZXRlLWd1aWRlLw=3D=3D" target=3D"_bl=
+ank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" =
+url-id=3D"1875940336">Complete Guide</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/e0hph7h7862or8u7u2/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvcXdlbi0zLTgtbWF4LXZzLWdwdC01LTYtc29sLw=3D=3D" target=3D"_bl=
+ank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" =
+url-id=3D"1875940339">vs GPT-5.6 Sol</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/7qh7h8h9rqm5nni9u6/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvcXdlbi0zLTgtbWF4LXZzLWtpbWktazMv" target=3D"_blank" class=
+=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=3D"=
+1875940340">vs Kimi K3</a>=E2=80=8B</span></li>
+</ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=8F=97=EF=B8=8F Kiro Crew: Agent=
+s That Work While You Sleep</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">AWS open-sourced their =
+internal agent orchestrator. Cron triggers, webhook automation, multi-agent=
+ coordination, purpose-built Apps. Originally =E2=80=9CMeshClaw=E2=80=9D wi=
+th 39K Amazon builders.</p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Not a coding assistant.=
+ A coding teammate that never clocks out.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/owhkhqhw2p7dq0fqur/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cva2lyby1jcmV3LWNvbXBsZXRlLWd1aWRlLw=3D=3D" target=3D"_blank"=
+ class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-=
+id=3D"1875940341">Kiro Crew Complete Guide</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/z2hghnheqn8xlztzu0/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cva2lyby1jcmV3LXZzLWhlcm1lcy1hZ2VudC8=3D" target=3D"_blank" c=
+lass=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1875940342">vs Hermes Agent</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/p8heh9h4nmloqvtru3/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvaGVybWVzLWFnZW50LWNvbXBsZXRlLWd1aWRlLw=3D=3D" target=3D"_bl=
+ank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" =
+url-id=3D"1875940343">Hermes Agent Guide</a>=E2=80=8B</span></li>
+</ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=92=B0 The Pricing Floor This We=
+ek</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Luna=E2=80=99s 80% cut =
+(Jul 30) + Meta=E2=80=99s contributor tier (Aug 5) =3D capable AI coding fo=
+r under $0.25/M output. The =E2=80=9Cis AI too expensive?=E2=80=9D era is o=
+ver.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/x0hph6he5ol048sgul/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvYWktYXBpLXByaWNpbmctY29tcGFyZWQtMjAyNi8=3D" target=3D"_blan=
+k" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" ur=
+l-id=3D"1875940344">Full Pricing Comparison</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/6qheh8hlmzde3ka9uk/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvZ3B0LTUtNi1wcmljZS1kcm9wLWp1bHktMjAyNi8=3D" target=3D"_blan=
+k" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" ur=
+l-id=3D"1875940345">GPT-5.6 Price Drop Analysis</a>=E2=80=8B</span></li>
+</ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=93=A6 New This Week</h2>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/7qh7h8h9rqm5ndt9u6/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvbXVzZS1jb2RlLXZzLWNsYXVkZS1jb2RlLXZzLWtpcm8tY3Jldy8=3D" tar=
+get=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color=
+:#0875c1" url-id=3D"1875940333">Muse Code vs Claude Code vs Kiro Crew</a>=
+=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/kkhmh6hnkr3vo5hku7/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvaGVybWVzLWFnZW50LXZzLWNyZXdhaS12cy1hdXRvZ2VuLw=3D=3D" targe=
+t=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#=
+0875c1" url-id=3D"1875940346">Hermes Agent vs CrewAI vs AutoGen</a>=E2=80=
+=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/z2hghnheqn8xlztzu0/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cva2lyby1jcmV3LXZzLWhlcm1lcy1hZ2VudC8=3D" target=3D"_blank" c=
+lass=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1875940342">Kiro Crew vs Hermes Agent</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/58hvh7hgrqz240i7u4/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvaG93LXRvLXJ1bi1oZXJtZXMtYWdlbnQtbG9jYWxseS8=3D" target=3D"_=
+blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1=
+" url-id=3D"1875940347">How to Run Hermes Agent Locally</a>=E2=80=8B</span>=
+</li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55no=
+a7hn68moru6h9rxko5zhnhgv7l8/z2hghnheqn8xl6szu0/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvbXVzZS1zcGFyay0xLTItdnMtY2xhdWRlLXNvbm5ldC01Lw=3D=3D" targe=
+t=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#=
+0875c1" url-id=3D"1875940335">Muse Spark 1.2 vs Claude Sonnet 5</a>=E2=80=
+=8B</span></li>
+</ul>
+<hr>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">See you next Thursday.<=
+/p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">AI Made Tools</p>
+</td></tr></tbody></table>
+<div class=3D"email-footer"><table cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;wid=
+th:100%;margin:0 auto"><tbody><tr><td style=3D"vertical-align:top"><p style=
+=3D"margin:1em 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ro=
+boto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f=
+;font-size:16px;line-height:1.5;text-align:left;font-size:12px" class=3D"">=
+=E2=80=8B<a href=3D"https://1d5f44ec.unsubscribe.kit-mail3.com/5qupro55noa7=
+hn68moru6h9rxko5zhnhgv7l8" target=3D"_blank" class=3D"ck-link" rel=3D"noope=
+ner noreferrer" style=3D"color:#0875c1"><span style=3D"font-size:12">Unsubs=
+cribe</span></a><span style=3D"font-size:12"> | </span><a href=3D"https://p=
+references.kit-mail3.com/5qupro55noa7hn68moru6h9rxko5zhnhgv7l8" target=3D"_=
+blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1=
+"><span style=3D"font-size:12">Update your profile</span></a><span style=3D=
+"font-size:12"> | 600 1st Ave, Ste 330 PMB 92768, Seattle, WA 98104-2246</s=
+pan></p></td></tr></tbody></table></div>
+<div class=3D"built-with" style=3D"display:block;text-align:left;margin-top=
+:30px"><a href=3D"https://1d5f44ec.click.kit-mail3.com/5qupro55noa7hn68moru=
+6h9rxko5zhnhgv7l8/25h2hoh3k6ewq0t8u4/aHR0cHM6Ly9idWlsdHdpdGgua2l0LW1haWwzLm=
+NvbT91dG1fY2FtcGFpZ249cG93ZXJlZGJ5JnV0bV9jb250ZW50PWVtYWlsJnV0bV9tZWRpdW09c=
+mVmZXJyYWwmdXRtX3NvdXJjZT1keW5hbWlj" target=3D"_blank" rel=3D"noopener nore=
+ferrer" style=3D"color:#0875c1;display:inline-block;text-decoration:none" u=
+rl-id=3D"1875940348"><img src=3D"https://cdn.convertkit.com/assets/images/k=
+it-badge-light.png" style=3D"display:block;height:auto;line-height:100%;out=
+line:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;=
+border:0 none;width:157px;height:36px" alt=3D"Built with Kit"></a></div>
+</div>
+<!-- -->
+<img src=3D"https://1d5f44ec.open.kit-mail3.com/5qupro55noa7hn68moru6h9rxko=
+5zhnhgv7l8" alt=3D"" style=3D"border:0 none;display:block;height:auto;line-=
+height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;=
+max-width:100%">
+</body>
+</html>
+
+--709b24e55c7be4a86da734dc9f6a9a73486df8511a14bd682550a64376cc--

@@ -15,15 +15,22 @@ readers.
 Each newsletter will map to a separate RSS feed, and each article extracted from the newsletter publication will map to
 different RSS entry in the corresponding feed.
 
-| Newsletter          | URL                                                                  |
-|---------------------|----------------------------------------------------------------------|
-| Android Weekly      | https://androidweekly.net                                            |
-| Built for Mars      | https://builtformars.com                                             |
-| Kotlin Weekly       | https://kotlinweekly.net                                             |
-| MIT - The Download  | https://forms.technologyreview.com/newsletters/briefing-the-download |
-| MIT - Weekend Reads | https://forms.technologyreview.com/newsletters/tech-weekend-reads/   |
-| Pointer             | https://www.pointer.io                                               |
-| QuickBird           | https://quickbirdstudios.com/blog                                    |
+| Newsletter                    | URL                                                                   |
+| ----------------------------- | --------------------------------------------------------------------- |
+| AI Dev Weekly                 | https://www.aimadetools.com                                           |
+| Android Weekly                | https://androidweekly.net                                             |
+| Blog du Modérateur            | https://www.blogdumoderateur.com                                      |
+| Built for Mars                | https://builtformars.com                                              |
+| Cafétech                      | https://cafetech.fr/                                                  |
+| commonMain.dev                | https://commonmain.dev/                                               |
+| Génération Do It Yourself     | https://www.gdiy.fr/                                                  |
+| JetpackCompose.app's Dispatch | https://www.jetpackcompose.app                                        |
+| Kotlin Weekly                 | https://kotlinweekly.net                                              |
+| MIT - The Download            | https://forms.technologyreview.com/newsletters/briefing-the-download/ |
+| MIT - Weekend Reads           | https://forms.technologyreview.com/newsletters/tech-weekend-reads/    |
+| Pointer                       | http://www.pointer.io/                                                |
+| QuickBird Studios             | https://quickbirdstudios.com/blog                                     |
+| Tech Readers                  | https://share.hsforms.com/1fINml3OxSkaUjbqb9Gy7Ug3b2p9                |
 
 ## Technical Architecture
 

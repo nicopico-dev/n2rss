@@ -54,31 +54,29 @@ class [NewsletterName]NewsletterHandler : NewsletterHandlerMultipleFeeds {
         // Extract articles for each newsletter
         val mainArticles = document
             .select("[main-newsletter-selector]")
-            .map { element ->
-                Article(
-                    title = element.select("[title-selector]").text(),
-                    link = element.select("[link-selector]").attr("href").toUrlOrNull()
-                        ?: throw NewsletterParsingException("No valid link for article"),
-                    description = element.select("[description-selector]").text()
-                )
-            }
+            .map { it.parseArticle() }
 
         val secondaryArticles = document
             .select("[secondary-newsletter-selector]")
-            .map { element ->
-                Article(
-                    title = element.select("[title-selector]").text(),
-                    link = element.select("[link-selector]").attr("href").toUrlOrNull()
-                        ?: throw NewsletterParsingException("No valid link for article"),
-                    description = element.select("[description-selector]").text()
-                )
-            }
+            .map { it.parseArticle() }
 
         return mapOf(
             mainNewsletter to mainArticles,
             secondaryNewsletter to secondaryArticles
         )
     }
+
+    private fun Element.parseArticle(): Article {
+        val title = select("[title-selector]").text().cleanText()
+        return Article(
+            title = title,
+            link = select("[link-selector]").attr("href").toUrlOrNull()
+                ?: throw NewsletterParsingException("No valid link for article: $title"),
+            description = select("[description-selector]").text().cleanText()
+        )
+    }
+
+    private fun String.cleanText(): String = this.trim().replace("\u00A0", " ")
 
     companion object {
         val mainNewsletter = Newsletter(

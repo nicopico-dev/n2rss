@@ -67,6 +67,12 @@ Create a test case to verify your handler's functionality:
 3. Create an `EmailProcessingTest` inner class with a test for each email sample
 4. The test should check that the extracted titles, links, and descriptions are correct
 
+By extending `BaseNewsletterHandlerTest`, you automatically get:
+
+- Verification that all your stubs are handled by `canHandle`.
+- Verification that no other newsletter stubs are accidentally handled.
+- Basic sanity check that article extraction returns at least one article for each stub.
+
 #### Example Test Case:
 
 ```kotlin
@@ -132,9 +138,16 @@ Now implement the full functionality of the handler:
 
 2. Only keep the tags and attributes useful for retrieving article information. Print the cleaned HTML to the console to
    help with your implementation
-3. Use `Document.select(cssQuery)` and other Jsoup DOM functions to extract article data
-4. Refine the implementation until all tests pass correctly
-5. **Never** hardcode article titles, links, or descriptions in the handler implementation
+3. Use robust CSS selectors:
+   - **Avoid positional selectors**: Avoid `:nth-child()` or deeply nested paths.
+   - **Prefer attribute selectors**: Use `a[href*="article"]` or `[style*="font-weight:bold"]`.
+   - **Text-based selection**: Use `:contains(text)` if it provides more stability.
+4. Use `Document.select(cssQuery)` and other Jsoup DOM functions to extract article data. Consider extracting a private
+   `parseArticle(element: Element): Article` helper method for better maintainability.
+5. Clean extracted text by using `.trim()` and `.replace("\u00A0", " ")` to handle non-breaking spaces.
+6. Handle optional or missing data gracefully using `?.text() ?: ""` or by filtering out invalid elements.
+7. Refine the implementation until all tests pass correctly
+8. **Never** hardcode article titles, links, or descriptions in the handler implementation
 
 #### Example Full Implementation:
 

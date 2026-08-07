@@ -1,0 +1,492 @@
+Return-Path: <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>
+Delivered-To: n2rss@nicopico.fr
+Received: from smtpin1.paris1.alwaysdata.com ([2a00:b6e0:1:42:1::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	by imap7.paris1.alwaysdata.com with LMTPS
+	id oMkUNqVba2rrYgsAQTsBvA
+	(envelope-from <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>)
+	for <n2rss@nicopico.fr>; Thu, 30 Jul 2026 16:11:49 +0200
+Return-path: <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>
+Envelope-to: n2rss@nicopico.fr
+Delivery-date: Thu, 30 Jul 2026 16:11:49 +0200
+Received: from o42.ck.n.convertkit.com ([192.254.115.187])
+	by smtpin1.paris1.alwaysdata.com with esmtps  (TLS1.3) tls TLS_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <bounces+60916001-e5a8-n2rss=nicopico.fr@ckespa.aimadetools.com>)
+	id 1wpRU7-004MzD-31
+	for n2rss@nicopico.fr;
+	Thu, 30 Jul 2026 16:11:44 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aimadetools.com;
+	h=content-type:date:from:mime-version:subject:list-unsubscribe:
+	list-unsubscribe-post:to:cc:content-type:date:from:subject:to;
+	s=cka; t=1785420702;
+	bh=iF/l3+3NOOTbRNCEtBkH/m6Jx9T90+q4QG0sUynJ9Og=;
+	b=E1k+BuHbc/lpiWgirNmyOvX6lt3zGhOO14ai9tETX5ShQMTSr8EFWKIHp4r8Er4AMEhL
+	qWjVrWu5zGyQTkPaL0vaaPhbidNeoJzrPNBc3bx1vzTLsFVkYW6wI12H99Lxu35j1xsdsq
+	7qoxH+J5iNgCbaKEjiJeM08TEuVeZRRnaxjQlizioYRu4wBU0jh1x8/7m2YuuUToHxLXKz
+	860kLc0ruRXkyUIwtxrKiPj+lmldo+bac0+tt+RncDIk0r4w5spjzYphbhRV8R6SksoOL2
+	ke+6WzJ7YZX7KIq5WlxNrsbcK6ACfp2HRu6zy0tzaMcIsSvBzTkb6ZV3gl6GF2ag==
+Received: by recvd-546cc58b87-gnj5m with SMTP id recvd-546cc58b87-gnj5m-1-6A6B5B9E-1F
+	2026-07-30 14:11:42.189384952 +0000 UTC m=+156034.324800762
+Received: from NjA5MTYwMDE (unknown)
+	by geopod-ismtpd-1 (SG) with HTTP
+	id fEN9N8ekR4mEqHyxXQ6l_A
+	Thu, 30 Jul 2026 14:11:42.141 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=4095c5db5935d7adf976e3e3cc32198f61ccb938ceb09e743d618988c217
+Date: Thu, 30 Jul 2026 14:11:42 +0000 (UTC)
+From: "hello@aimadetools.com" <hello@aimadetools.com>
+Mime-Version: 1.0
+Message-ID: <4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov@kit-mail3.com>
+Subject: AI Dev Weekly #20: Claude Opus 5 at Half Fable 5's Price, Flash
+ Models Compared
+Feedback-ID: 22715783:2648686:broadcast:CK
+List-Unsubscribe:
+ <mailto:unsub+4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov@convertkit-mail.com>,
+ <https://1d5f44ec.unsubscribe.kit-mail3.com/4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Precedence: bulk
+X-Report-Abuse: <abuse@kit.com>
+X-Report-Spam: <abuse@kit.com>
+X-SG-EID: 
+ =?us-ascii?Q?u001=2Eq1gWFLfczFU1Sp9uGQn1E6VVEMvW4CFXhTOu+OhJPQa8N5lrGdSy2M4C8?=
+ =?us-ascii?Q?qiiQqTW8T0rbAawvNZQPkdVV0v=2F1=2FNZfWHM7n=2FD?=
+ =?us-ascii?Q?OKFRiRk5AzomRGo03uc8w=2FG2A9SHrFiv+ihN2+W?=
+ =?us-ascii?Q?=2Fzdro=2FxG6xfBkNgvXX8HPCKqTfZWVJ10UuMoz+Z?=
+ =?us-ascii?Q?J4G6u9qeSoTN9iV4juc=2F1ycm69ycESuI8xW2nSi?=
+ =?us-ascii?Q?PLzJnOs6QEHrE7JDT=2F9dHfRAIikk=2Fgm3zrPu0Ad?=
+ =?us-ascii?Q?63mi?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprBTLquV1ImzFIrgT?=
+ =?us-ascii?Q?SaJ3+RZo4pLLV1fz0NTlt4BDQA50dcpAp0Iojw4?=
+ =?us-ascii?Q?yArIrX7AIojo4l6Otnza3ga5qE1Q=2FGHGOAsxY5Y?=
+ =?us-ascii?Q?Ob+pa+KdY0MlFkhQa7bNB2Dc+jy46ffeayQZEJ=2F?=
+ =?us-ascii?Q?dUsRfACqpz=2FfUJ6MfwJCUJ8337AR96reU4YkpAa?=
+ =?us-ascii?Q?5ANq95qAmG6q7Ckyaq8u0tJ2FuQknZ=2FM2H1csGc?=
+ =?us-ascii?Q?LNj2f2bUber+NNNilnawoUM95UnySUtN9V=2F0Be3?=
+ =?us-ascii?Q?F3XoO35M8RZq0UHmWTGj4fy0i5kkBj5jDDkwaDh?=
+ =?us-ascii?Q?3UJCEaDXD5ipFM5eTQNT4lX4zbMFfWHUeh+rmXb?=
+ =?us-ascii?Q?e74yzpSZftbtZJFs6hiZFHZnLAxyi0Qkh8+KuNx?=
+ =?us-ascii?Q?M8gM8OmlSAnuTFFqN9FX1lbW=2FIvzS+6CeO3+=2FRJ?= =?us-ascii?Q?r?=
+To: n2rss@nicopico.fr
+X-Entity-ID: u001.NKfVh/HtO0Vd66qreilE0A==
+X-alwaysdata-Spam-Report: 	2.00 RBL_UCEPROTECT_1 [192.254.115.187:from]
+	2.00 PHISHING [aimadetools.com->kit-mail3.com] - Phished URL
+	1.00 NEURAL_SPAM [1.000] - Neural network spam
+	0.50 FROM_DN_EQ_ADDR - From header display name is the same as the address
+	0.30 FORGED_SENDER [hello@aimadetools.com,
+ bounces@ckespa.aimadetools.com] - Sender is forged (different From: header
+ and smtp MAIL FROM: addresses)
+	0.10 BAD_REP_POLICIES - Contains valid policies but are also marked by
+ fuzzy/bayes/SURBL/RBL
+	0.00 TO_MATCH_ENVRCPT_ALL - All of the recipients match the envelope
+	0.00 TO_DN_NONE - None of the recipients have display names
+	0.00 TAGGED_FROM [60916001-e5a8-n2rss=nicopico.fr] - From address has
+ plus-tags
+	0.00 R_SPF_ALLOW [+ip4:192.254.112.0/20] - SPF verification allows sending
+	0.00 R_DKIM_ALLOW [aimadetools.com:s=cka] - DKIM verification succeed
+	0.00 RWL_MAILSPIKE_POSSIBLE [192.254.115.187:from] - From address is listed
+ in Mailspike RWL - possibly legit
+	0.00 RCVD_TLS_LAST - Last hop used encrypted transports
+	0.00 RCVD_COUNT_THREE [3] - Message has 3-5 Received headers
+	0.00 RCPT_COUNT_ONE [1] - One recipient
+	0.00 PRECEDENCE_BULK - Message marked as bulk
+	0.00 MV_CASE - Mime-Version .vs. MIME-Version
+	0.00 MISSING_XM_UA - Message has neither X-Mailer nor User-Agent header
+	0.00 MIME_TRACE [0:+, 1:+, 2:~]
+	0.00 FROM_NEQ_ENVFROM [hello@aimadetools.com,
+ bounces@ckespa.aimadetools.com] - From address is different to the envelope
+	0.00 DMARC_POLICY_ALLOW [aimadetools.com, none] - DMARC permit policy
+	0.00 DKIM_TRACE [aimadetools.com:+] - DKIM trace symbol
+	0.00 DKIM_REPUTATION [0]
+	0.00 ASN_FAIL [187.115.254.192.asn.rspamd.com:server fail]
+	0.00 ARC_NA - ARC signature absent
+	0.00 ALIAS_RESOLVED - Address was resolved through aliases
+	-0.01 HAS_LIST_UNSUB - Has List-Unsubscribe header
+	-0.10 MX_GOOD [mx.sendgrid.net] - Domain has working MX
+	-0.10 MIME_GOOD [multipart/alternative, text/plain] - Known content-type
+	-0.10 MIME_FROM_MX_GOOD [mx.mailprotect.be] - Domain has working MX
+	-0.49 IP_REPUTATION_HAM [ip: 192.254.115.187(-0.49)]
+	-0.55 SPF_REPUTATION_HAM [-0.54965053242532]
+X-alwaysdata-Spam-Score: 4.55
+
+--4095c5db5935d7adf976e3e3cc32198f61ccb938ceb09e743d618988c217
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Mime-Version: 1.0
+
+This week=E2=80=99s biggest AI dev tool stories =E2=80=94 plus what=E2=80=
+=99s new on the site.
+
+-------------------
+=F0=9F=94=A5 AI Dev Weekly #20
+-------------------
+
+Anthropic shipped Claude Opus 5 at $5/$25, half of Fable 5=E2=80=99s price.=
+ It doubles Opus 4.8 on Frontier-Bench. We compared every flash model and f=
+ound a clear winner. AI image/video APIs range from $0.002 to $4.20 per uni=
+t. Plus, the terminal AI coding tool debate is settled.
+
+Four stories that matter.
+
+=F0=9F=91=89 Read the full issue ( https://1d5f44ec.click.kit-mail3.com/4zu=
+z6mkkomuehpxgnpohxh63k6exkf5h497ov/08hwh9h23dl4m2cpu5/aHR0cHM6Ly93d3cuYWltY=
+WRldG9vbHMuY29tL2Jsb2cvYWktZGV2LXdlZWtseS0wMjAtY2xhdWRlLW9wdXMtNS1oYWxmLWZh=
+YmxlLXByaWNlLw=3D=3D )=E2=80=8B
+
+-------------------------------------------
+=F0=9F=A7=A0 Claude Opus 5: New Frontier at Half Price
+-------------------------------------------
+
+$5/$25 per 1M tokens. 43.3% Frontier-Bench (2x Opus 4.8). 5-level effort co=
+ntrol. Same-day support on Claude Code, Cursor, OpenRouter, Aider.
+
+* =E2=80=8BComplete Guide ( https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/8ghqhohomlr8gqulu9/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS1jb21wbGV0ZS1ndWlkZS8=3D )=E2=80=8B
+* =E2=80=8BEffort Levels Explained ( https://1d5f44ec.click.kit-mail3.com/4=
+zuz6mkkomuehpxgnpohxh63k6exkf5h497ov/vqh3hrhozpw6ngiwul/aHR0cHM6Ly93d3cuYWl=
+tYWRldG9vbHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS1lZmZvcnQtbGV2ZWxzLWd1aWRlLw=3D=
+=3D )=E2=80=8B
+* =E2=80=8Bvs Fable 5 ( https://1d5f44ec.click.kit-mail3.com/4zuz6mkkomuehp=
+xgnpohxh63k6exkf5h497ov/l2hehmhl83xpowsgu0/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMu=
+Y29tL2Jsb2cvY2xhdWRlLW9wdXMtNS12cy1mYWJsZS01Lw=3D=3D )=E2=80=8B
+* =E2=80=8Bvs GPT-5.6 Sol ( https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/m2h7h5h3d84xo2uluq/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS12cy1ncHQtNS02Lw=3D=3D )=E2=80=8B
+
+-----------------------
+=E2=9A=A1 Flash Models Compared
+-----------------------
+
+Gemini 3.6 Flash leads on capability. DeepSeek V4 Flash leads on price ($0.=
+28/$1.10). Qwen 3.7 Flash is basically free ($0.03/$0.15).
+
+* =E2=80=8BFull Comparison ( https://1d5f44ec.click.kit-mail3.com/4zuz6mkko=
+muehpxgnpohxh63k6exkf5h497ov/dpheh0hel0pxqvflu4/aHR0cHM6Ly93d3cuYWltYWRldG9=
+vbHMuY29tL2Jsb2cvYmVzdC1mbGFzaC1tb2RlbHMtY29tcGFyZWQtMjAyNi8=3D )=E2=80=8B
+
+------------------------------
+=F0=9F=8E=A8 AI Image & Video API Pricing
+------------------------------
+
+Image generation: $0.002 to $0.08 per image. Video generation: $0.09 to $4.=
+20 per second. The gap matters for your budget.
+
+* =E2=80=8BImage API Pricing ( https://1d5f44ec.click.kit-mail3.com/4zuz6mk=
+komuehpxgnpohxh63k6exkf5h497ov/e0hph7h780rzkvb7u2/aHR0cHM6Ly93d3cuYWltYWRld=
+G9vbHMuY29tL2Jsb2cvYWktaW1hZ2UtZ2VuZXJhdGlvbi1hcGktcHJpY2luZy0yMDI2Lw=3D=3D=
+ )=E2=80=8B
+* =E2=80=8BVideo API Pricing ( https://1d5f44ec.click.kit-mail3.com/4zuz6mk=
+komuehpxgnpohxh63k6exkf5h497ov/7qh7h8h9rone05t9u6/aHR0cHM6Ly93d3cuYWltYWRld=
+G9vbHMuY29tL2Jsb2cvYWktdmlkZW8tYXBpLXByaWNpbmctZGV2ZWxvcGVycy0yMDI2Lw=3D=3D=
+ )=E2=80=8B
+
+--------------------------
+=F0=9F=94=A7 Terminal AI Coding Tools
+--------------------------
+
+Claude Code wins on capability. Aider wins on model flexibility. Continue.d=
+ev wins on price. Pick based on your constraints.
+
+* =E2=80=8BFull Comparison ( https://1d5f44ec.click.kit-mail3.com/4zuz6mkko=
+muehpxgnpohxh63k6exkf5h497ov/owhkhqhw2rqe4vbqur/aHR0cHM6Ly93d3cuYWltYWRldG9=
+vbHMuY29tL2Jsb2cvY2xhdWRlLWNvZGUtdnMtYWlkZXItdnMtY29udGludWUtZGV2Lw=3D=3D )=
+=E2=80=8B
+
+---------------
+=F0=9F=93=A6 New This Week
+---------------
+
+* =E2=80=8BAI Stack for Solo SaaS Founder ( https://1d5f44ec.click.kit-mail=
+3.com/4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov/p8heh9h4nzqe9nsru3/aHR0cHM6Ly93=
+d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvYWktc3RhY2stc29sby1zYWFzLWZvdW5kZXIv )=E2=
+=80=8B
+* =E2=80=8BOpus 5 vs DeepSeek V4 Pro ( https://1d5f44ec.click.kit-mail3.com=
+/4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov/x0hph6he5wqmnqtgul/aHR0cHM6Ly93d3cuY=
+WltYWRldG9vbHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS12cy1kZWVwc2Vlay12NC1wcm8v )=
+=E2=80=8B
+* =E2=80=8BOpus 5 vs Kimi K3 ( https://1d5f44ec.click.kit-mail3.com/4zuz6mk=
+komuehpxgnpohxh63k6exkf5h497ov/6qheh8hlm794p3f9uk/aHR0cHM6Ly93d3cuYWltYWRld=
+G9vbHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS12cy1raW1pLWszLw=3D=3D )=E2=80=8B
+* =E2=80=8BAI Context Window Explained ( https://1d5f44ec.click.kit-mail3.c=
+om/4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov/e0hph7h780rzkzs7u2/aHR0cHM6Ly93d3c=
+uYWltYWRldG9vbHMuY29tL2Jsb2cvYWktY29udGV4dC13aW5kb3ctZXhwbGFpbmVkLw=3D=3D )=
+=E2=80=8B
+* =E2=80=8BBuild AI Image Generator Tutorial ( https://1d5f44ec.click.kit-m=
+ail3.com/4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov/7qh7h8h9rone0gi9u6/aHR0cHM6L=
+y93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvYnVpbGQtaW1hZ2UtZ2VuZXJhdG9yLWFwaS10dXRv=
+cmlhbC8=3D )=E2=80=8B
+
+See you next Thursday.
+
+=E2=80=8Baimadetools.com ( https://1d5f44ec.click.kit-mail3.com/4zuz6mkkomu=
+ehpxgnpohxh63k6exkf5h497ov/owhkhqhw2rqer3squr/aHR0cHM6Ly93d3cuYWltYWRldG9vb=
+HMuY29t )=E2=80=8B
+
+=E2=80=8BUnsubscribe ( https://1d5f44ec.unsubscribe.kit-mail3.com/4zuz6mkko=
+muehpxgnpohxh63k6exkf5h497ov ) | Update your profile ( https://preferences.=
+kit-mail3.com/4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov ) | 600 1st Ave, Ste 33=
+0 PMB 92768, Seattle, WA 98104-2246
+
+( https://1d5f44ec.click.kit-mail3.com/4zuz6mkkomuehpxgnpohxh63k6exkf5h497o=
+v/z2hghnheq3lz34hzu0/aHR0cHM6Ly9idWlsdHdpdGgua2l0LW1haWwzLmNvbT91dG1fY2FtcG=
+FpZ249cG93ZXJlZGJ5JnV0bV9jb250ZW50PWVtYWlsJnV0bV9tZWRpdW09cmVmZXJyYWwmdXRtX=
+3NvdXJjZT1keW5hbWlj )
+--4095c5db5935d7adf976e3e3cc32198f61ccb938ceb09e743d618988c217
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>.ck-link { text-decoration: underline; }</style>
+<style>.ck-link { text-decoration: underline; }</style>
+<style>@media only screen { .email * { word-break: break-word; } }
+@media screen and (max-width: 384px) { .mail-message-content { width: 414px=
+ !important; } }
+@media only screen { .email * { word-break: break-word; } }
+@media screen and (max-width: 384px) { .mail-message-content { width: 414px=
+ !important; } }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }
+@media only screen and (max-width:600px) { .ck-mobile-font-size { font-size=
+:50px !important; }  }</style>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF-8">
+</head>
+<body style=3D"margin:0;padding:0;-webkit-font-smoothing:antialiased;-ms-te=
+xt-size-adjust:100%;-webkit-text-size-adjust:100%">
+<div class=3D"email" style=3D"margin-left:18px;margin-right:18px">
+<table cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:separat=
+e;mso-table-lspace:0pt;mso-table-rspace:0pt;width:100%;margin:0 auto"><tbod=
+y><tr><td style=3D"vertical-align:top">
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">This week=E2=80=99s big=
+gest AI dev tool stories =E2=80=94 plus what=E2=80=99s new on the site.</p>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=94=A5 AI Dev Weekly #20</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Anthropic shipped Claud=
+e Opus 5 at $5/$25, half of Fable 5=E2=80=99s price. It doubles Opus 4.8 on=
+ Frontier-Bench. We compared every flash model and found a clear winner. AI=
+ image/video APIs range from $0.002 to $4.20 per unit. Plus, the terminal A=
+I coding tool debate is settled.</p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Four stories that matte=
+r.</p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">=F0=9F=91=89 <a href=3D=
+"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov=
+/08hwh9h23dl4m2cpu5/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvYWktZGV2LXd=
+lZWtseS0wMjAtY2xhdWRlLW9wdXMtNS1oYWxmLWZhYmxlLXByaWNlLw=3D=3D" target=3D"_b=
+lank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1"=
+ url-id=3D"1874160177">Read the full issue</a>=E2=80=8B</p>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=A7=A0 Claude Opus 5: New Fronti=
+er at Half Price</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">$5/$25 per 1M tokens. 4=
+3.3% Frontier-Bench (2x Opus 4.8). 5-level effort control. Same-day support=
+ on Claude Code, Cursor, OpenRouter, Aider.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/8ghqhohomlr8gqulu9/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS1jb21wbGV0ZS1ndWlkZS8=3D" target=3D"_blan=
+k" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" ur=
+l-id=3D"1874160178">Complete Guide</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/vqh3hrhozpw6ngiwul/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS1lZmZvcnQtbGV2ZWxzLWd1aWRlLw=3D=3D" targe=
+t=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#=
+0875c1" url-id=3D"1874160179">Effort Levels Explained</a>=E2=80=8B</span></=
+li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/l2hehmhl83xpowsgu0/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS12cy1mYWJsZS01Lw=3D=3D" target=3D"_blank"=
+ class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-=
+id=3D"1874160180">vs Fable 5</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/m2h7h5h3d84xo2uluq/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS12cy1ncHQtNS02Lw=3D=3D" target=3D"_blank"=
+ class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-=
+id=3D"1874160181">vs GPT-5.6 Sol</a>=E2=80=8B</span></li>
+</ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=E2=9A=A1 Flash Models Compared</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Gemini 3.6 Flash leads =
+on capability. DeepSeek V4 Flash leads on price ($0.28/$1.10). Qwen 3.7 Fla=
+sh is basically free ($0.03/$0.15).</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important"><li class=3D"list_=
+item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em"><span>=E2=80=8B<=
+a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkomuehpxgnpohxh63k6ex=
+kf5h497ov/dpheh0hel0pxqvflu4/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvYm=
+VzdC1mbGFzaC1tb2RlbHMtY29tcGFyZWQtMjAyNi8=3D" target=3D"_blank" class=3D"ck=
+-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=3D"187416=
+0182">Full Comparison</a>=E2=80=8B</span></li></ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=8E=A8 AI Image &amp; Video API =
+Pricing</h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Image generation: $0.00=
+2 to $0.08 per image. Video generation: $0.09 to $4.20 per second. The gap =
+matters for your budget.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/e0hph7h780rzkvb7u2/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvYWktaW1hZ2UtZ2VuZXJhdGlvbi1hcGktcHJpY2luZy0yMDI2Lw=3D=3D" t=
+arget=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"col=
+or:#0875c1" url-id=3D"1874160183">Image API Pricing</a>=E2=80=8B</span></li=
+>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/7qh7h8h9rone05t9u6/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvYWktdmlkZW8tYXBpLXByaWNpbmctZGV2ZWxvcGVycy0yMDI2Lw=3D=3D" t=
+arget=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"col=
+or:#0875c1" url-id=3D"1874160184">Video API Pricing</a>=E2=80=8B</span></li=
+>
+</ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=94=A7 Terminal AI Coding Tools<=
+/h2>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">Claude Code wins on cap=
+ability. Aider wins on model flexibility. Continue.dev wins on price. Pick =
+based on your constraints.</p>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important"><li class=3D"list_=
+item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em"><span>=E2=80=8B<=
+a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkomuehpxgnpohxh63k6ex=
+kf5h497ov/owhkhqhw2rqe4vbqur/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29tL2Jsb2cvY2=
+xhdWRlLWNvZGUtdnMtYWlkZXItdnMtY29udGludWUtZGV2Lw=3D=3D" target=3D"_blank" c=
+lass=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1874160185">Full Comparison</a>=E2=80=8B</span></li></ul>
+<hr>
+<h2 class=3D"" style=3D"font-weight:bold;font-style:normal;font-size:1em;ma=
+rgin:0;font-size:1.5em;margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#000000;line-height:1.5">=F0=9F=93=A6 New This Week</h2>
+<ul class=3D"unordered_list" style=3D"margin:1em 0;margin-left:1em;padding:=
+0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-San=
+s,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f;font-size:16px=
+;line-height:1.5;list-style-position:outside !important">
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/p8heh9h4nzqe9nsru3/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvYWktc3RhY2stc29sby1zYWFzLWZvdW5kZXIv" target=3D"_blank" cla=
+ss=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1874160187">AI Stack for Solo SaaS Founder</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/x0hph6he5wqmnqtgul/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS12cy1kZWVwc2Vlay12NC1wcm8v" target=3D"_bl=
+ank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" =
+url-id=3D"1874160188">Opus 5 vs DeepSeek V4 Pro</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/6qheh8hlm794p3f9uk/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvY2xhdWRlLW9wdXMtNS12cy1raW1pLWszLw=3D=3D" target=3D"_blank"=
+ class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-=
+id=3D"1874160189">Opus 5 vs Kimi K3</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/e0hph7h780rzkzs7u2/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvYWktY29udGV4dC13aW5kb3ctZXhwbGFpbmVkLw=3D=3D" target=3D"_bl=
+ank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" =
+url-id=3D"1874160190">AI Context Window Explained</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"padding:0 0 0 1em;margin:0;margin-left:1em=
+"><span>=E2=80=8B<a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkom=
+uehpxgnpohxh63k6exkf5h497ov/7qh7h8h9rone0gi9u6/aHR0cHM6Ly93d3cuYWltYWRldG9v=
+bHMuY29tL2Jsb2cvYnVpbGQtaW1hZ2UtZ2VuZXJhdG9yLWFwaS10dXRvcmlhbC8=3D" target=
+=3D"_blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0=
+875c1" url-id=3D"1874160191">Build AI Image Generator Tutorial</a>=E2=80=8B=
+</span></li>
+</ul>
+<hr>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">See you next Thursday.<=
+/p>
+<p class=3D"" style=3D"margin:1em 0;font-family:-apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-=
+serif;color:#2d2d2f;font-size:16px;line-height:1.5">=E2=80=8B<a href=3D"htt=
+ps://1d5f44ec.click.kit-mail3.com/4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov/owh=
+khqhw2rqer3squr/aHR0cHM6Ly93d3cuYWltYWRldG9vbHMuY29t" target=3D"_blank" cla=
+ss=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1" url-id=
+=3D"1874160192">aimadetools.com</a>=E2=80=8B</p>
+</td></tr></tbody></table>
+<div class=3D"email-footer"><table cellpadding=3D"0" cellspacing=3D"0" styl=
+e=3D"border-collapse:separate;mso-table-lspace:0pt;mso-table-rspace:0pt;wid=
+th:100%;margin:0 auto"><tbody><tr><td style=3D"vertical-align:top"><p style=
+=3D"margin:1em 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ro=
+boto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;color:#2d2d2f=
+;font-size:16px;line-height:1.5;text-align:left;font-size:12px" class=3D"">=
+=E2=80=8B<a href=3D"https://1d5f44ec.unsubscribe.kit-mail3.com/4zuz6mkkomue=
+hpxgnpohxh63k6exkf5h497ov" target=3D"_blank" class=3D"ck-link" rel=3D"noope=
+ner noreferrer" style=3D"color:#0875c1"><span style=3D"font-size:12">Unsubs=
+cribe</span></a><span style=3D"font-size:12"> | </span><a href=3D"https://p=
+references.kit-mail3.com/4zuz6mkkomuehpxgnpohxh63k6exkf5h497ov" target=3D"_=
+blank" class=3D"ck-link" rel=3D"noopener noreferrer" style=3D"color:#0875c1=
+"><span style=3D"font-size:12">Update your profile</span></a><span style=3D=
+"font-size:12"> | 600 1st Ave, Ste 330 PMB 92768, Seattle, WA 98104-2246</s=
+pan></p></td></tr></tbody></table></div>
+<div class=3D"built-with" style=3D"display:block;text-align:left;margin-top=
+:30px"><a href=3D"https://1d5f44ec.click.kit-mail3.com/4zuz6mkkomuehpxgnpoh=
+xh63k6exkf5h497ov/z2hghnheq3lz34hzu0/aHR0cHM6Ly9idWlsdHdpdGgua2l0LW1haWwzLm=
+NvbT91dG1fY2FtcGFpZ249cG93ZXJlZGJ5JnV0bV9jb250ZW50PWVtYWlsJnV0bV9tZWRpdW09c=
+mVmZXJyYWwmdXRtX3NvdXJjZT1keW5hbWlj" target=3D"_blank" rel=3D"noopener nore=
+ferrer" style=3D"color:#0875c1;display:inline-block;text-decoration:none" u=
+rl-id=3D"1874160193"><img src=3D"https://cdn.convertkit.com/assets/images/k=
+it-badge-light.png" style=3D"display:block;height:auto;line-height:100%;out=
+line:none;-webkit-text-decoration:none;text-decoration:none;max-width:100%;=
+border:0 none;width:157px;height:36px" alt=3D"Built with Kit"></a></div>
+</div>
+<!-- -->
+<img src=3D"https://1d5f44ec.open.kit-mail3.com/4zuz6mkkomuehpxgnpohxh63k6e=
+xkf5h497ov" alt=3D"" style=3D"border:0 none;display:block;height:auto;line-=
+height:100%;outline:none;-webkit-text-decoration:none;text-decoration:none;=
+max-width:100%">
+</body>
+</html>
+
+--4095c5db5935d7adf976e3e3cc32198f61ccb938ceb09e743d618988c217--

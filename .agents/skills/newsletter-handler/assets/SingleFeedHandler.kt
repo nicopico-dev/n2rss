@@ -55,10 +55,10 @@ class [NewsletterName]NewsletterHandler : NewsletterHandlerSingleFeed {
         return document
             .select("[article-selector]")
             .map { element ->
-                val title = element.select("[title-selector]").text()
+                val title = element.select("[title-selector]").text().cleanText()
                 val link = element.select("[link-selector]").attr("href").toUrlOrNull()
                     ?: throw NewsletterParsingException("No valid link for article: $title")
-                val description = element.select("[description-selector]").text()
+                val description = element.select("[description-selector]").text().cleanText()
 
                 Article(
                     title = title,
@@ -67,4 +67,6 @@ class [NewsletterName]NewsletterHandler : NewsletterHandlerSingleFeed {
                 )
             }
     }
+
+    private fun String.cleanText(): String = this.trim().replace("\u00A0", " ")
 }
